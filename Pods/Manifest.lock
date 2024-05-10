@@ -1,0 +1,20 @@
+PODS:
+  - Alamofire (5.9.1)
+  - SkeletonUI (2.0.1)
+
+DEPENDENCIES:
+  - Alamofire
+  - SkeletonUI
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - SkeletonUI
+
+SPEC CHECKSUMS:
+  Alamofire: f36a35757af4587d8e4f4bfa223ad10be2422b8c
+  SkeletonUI: 8d622a4dd755650bd5d50eed1e4180fa146c5d6b
+
+PODFILE CHECKSUM: 05d06c4889f2a259b5da492c6afb45960776c109
+
+COCOAPODS: 1.15.2
