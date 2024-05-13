@@ -8,21 +8,47 @@
 
 /* Begin PBXBuildFile section */
 		33D1A0A0BCE93175B71957B5 /* Pods_Baobab.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47C5B9FA2042EB175CDFAF0B /* Pods_Baobab.framework */; };
+		5C1B84CE2BF20DDB00A99192 /* CheckMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1B84CD2BF20DDB00A99192 /* CheckMark.swift */; };
+		5C1B84D02BF2113200A99192 /* AppDI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1B84CF2BF2113200A99192 /* AppDI.swift */; };
 		5C426BE82BEDA8F300869F6D /* BaobabApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C426BE72BEDA8F300869F6D /* BaobabApp.swift */; };
 		5C426BEA2BEDA8F300869F6D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C426BE92BEDA8F300869F6D /* ContentView.swift */; };
 		5C426BEC2BEDA8F400869F6D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C426BEB2BEDA8F400869F6D /* Assets.xcassets */; };
 		5C426BEF2BEDA8F400869F6D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C426BEE2BEDA8F400869F6D /* Preview Assets.xcassets */; };
+		5C426BFD2BEDBDE900869F6D /* StoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C426BFC2BEDBDE900869F6D /* StoreViewModel.swift */; };
+		5C426BFF2BEDBE7E00869F6D /* ItemInformationInputBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C426BFE2BEDBE7E00869F6D /* ItemInformationInputBox.swift */; };
+		5C4ACABC2BEE1ED700195895 /* ItemQuantitySelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C4ACABB2BEE1ED700195895 /* ItemQuantitySelector.swift */; };
+		5C4ACABE2BEE1F1900195895 /* PlusButtonImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C4ACABD2BEE1F1900195895 /* PlusButtonImage.swift */; };
+		5C4ACAC02BEE1FDB00195895 /* MinusButtonImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C4ACABF2BEE1FDB00195895 /* MinusButtonImage.swift */; };
+		5C4ACAC22BEE41A300195895 /* CategoryPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C4ACAC12BEE41A300195895 /* CategoryPicker.swift */; };
+		5C735F412BF1A10200A36EC8 /* CategoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C735F402BF1A10200A36EC8 /* CategoryList.swift */; };
+		5C735F442BF1A35B00A36EC8 /* CategoryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C735F432BF1A35B00A36EC8 /* CategoryData.swift */; };
+		5C735F462BF1A4B400A36EC8 /* CategoryListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C735F452BF1A4B400A36EC8 /* CategoryListRow.swift */; };
+		5C735F4A2BF1B44500A36EC8 /* ItemInformationInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C735F492BF1B44500A36EC8 /* ItemInformationInput.swift */; };
+		5C735F4C2BF1BAB200A36EC8 /* EstimatedPrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C735F4B2BF1BAB200A36EC8 /* EstimatedPrice.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		31669ECB1A5016E2B01822F7 /* Pods-Baobab.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Baobab.debug.xcconfig"; path = "Target Support Files/Pods-Baobab/Pods-Baobab.debug.xcconfig"; sourceTree = "<group>"; };
 		40F064E51CED53C132BD88DD /* Pods-Baobab.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Baobab.release.xcconfig"; path = "Target Support Files/Pods-Baobab/Pods-Baobab.release.xcconfig"; sourceTree = "<group>"; };
 		47C5B9FA2042EB175CDFAF0B /* Pods_Baobab.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Baobab.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C1B84CD2BF20DDB00A99192 /* CheckMark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckMark.swift; sourceTree = "<group>"; };
+		5C1B84CF2BF2113200A99192 /* AppDI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDI.swift; sourceTree = "<group>"; };
 		5C426BE42BEDA8F300869F6D /* Baobab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Baobab.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C426BE72BEDA8F300869F6D /* BaobabApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaobabApp.swift; sourceTree = "<group>"; };
 		5C426BE92BEDA8F300869F6D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5C426BEB2BEDA8F400869F6D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5C426BEE2BEDA8F400869F6D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		5C426BFC2BEDBDE900869F6D /* StoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreViewModel.swift; sourceTree = "<group>"; };
+		5C426BFE2BEDBE7E00869F6D /* ItemInformationInputBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemInformationInputBox.swift; sourceTree = "<group>"; };
+		5C4ACABB2BEE1ED700195895 /* ItemQuantitySelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemQuantitySelector.swift; sourceTree = "<group>"; };
+		5C4ACABD2BEE1F1900195895 /* PlusButtonImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusButtonImage.swift; sourceTree = "<group>"; };
+		5C4ACABF2BEE1FDB00195895 /* MinusButtonImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinusButtonImage.swift; sourceTree = "<group>"; };
+		5C4ACAC12BEE41A300195895 /* CategoryPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryPicker.swift; sourceTree = "<group>"; };
+		5C735F402BF1A10200A36EC8 /* CategoryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryList.swift; sourceTree = "<group>"; };
+		5C735F432BF1A35B00A36EC8 /* CategoryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryData.swift; sourceTree = "<group>"; };
+		5C735F452BF1A4B400A36EC8 /* CategoryListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListRow.swift; sourceTree = "<group>"; };
+		5C735F492BF1B44500A36EC8 /* ItemInformationInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemInformationInput.swift; sourceTree = "<group>"; };
+		5C735F4B2BF1BAB200A36EC8 /* EstimatedPrice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstimatedPrice.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,7 +69,6 @@
 				31669ECB1A5016E2B01822F7 /* Pods-Baobab.debug.xcconfig */,
 				40F064E51CED53C132BD88DD /* Pods-Baobab.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -68,9 +93,10 @@
 		5C426BE62BEDA8F300869F6D /* Baobab */ = {
 			isa = PBXGroup;
 			children = (
-				5C426BE72BEDA8F300869F6D /* BaobabApp.swift */,
-				5C426BE92BEDA8F300869F6D /* ContentView.swift */,
-				5C426BEB2BEDA8F400869F6D /* Assets.xcassets */,
+				5C735F422BF1A2FC00A36EC8 /* Util */,
+				5C8C400F2BF19EB6007A7532 /* Resources */,
+				5C426BF52BEDBD1200869F6D /* Application */,
+				5C426BF62BEDBD1B00869F6D /* Presentation */,
 				5C426BED2BEDA8F400869F6D /* Preview Content */,
 			);
 			path = Baobab;
@@ -82,6 +108,82 @@
 				5C426BEE2BEDA8F400869F6D /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		5C426BF52BEDBD1200869F6D /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				5C426BE72BEDA8F300869F6D /* BaobabApp.swift */,
+				5C1B84CF2BF2113200A99192 /* AppDI.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		5C426BF62BEDBD1B00869F6D /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				5C426BE92BEDA8F300869F6D /* ContentView.swift */,
+				5C426BF72BEDBD4000869F6D /* Store */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		5C426BF72BEDBD4000869F6D /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				5C426BF92BEDBD4D00869F6D /* ViewModel */,
+				5C426BF82BEDBD4800869F6D /* View */,
+			);
+			path = Store;
+			sourceTree = "<group>";
+		};
+		5C426BF82BEDBD4800869F6D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5C8C40092BF195FA007A7532 /* ItemInformationInput */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5C426BF92BEDBD4D00869F6D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				5C426BFC2BEDBDE900869F6D /* StoreViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		5C735F422BF1A2FC00A36EC8 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				5C735F432BF1A35B00A36EC8 /* CategoryData.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		5C8C40092BF195FA007A7532 /* ItemInformationInput */ = {
+			isa = PBXGroup;
+			children = (
+				5C735F492BF1B44500A36EC8 /* ItemInformationInput.swift */,
+				5C426BFE2BEDBE7E00869F6D /* ItemInformationInputBox.swift */,
+				5C4ACABB2BEE1ED700195895 /* ItemQuantitySelector.swift */,
+				5C4ACABD2BEE1F1900195895 /* PlusButtonImage.swift */,
+				5C4ACABF2BEE1FDB00195895 /* MinusButtonImage.swift */,
+				5C4ACAC12BEE41A300195895 /* CategoryPicker.swift */,
+				5C735F402BF1A10200A36EC8 /* CategoryList.swift */,
+				5C735F452BF1A4B400A36EC8 /* CategoryListRow.swift */,
+				5C735F4B2BF1BAB200A36EC8 /* EstimatedPrice.swift */,
+				5C1B84CD2BF20DDB00A99192 /* CheckMark.swift */,
+			);
+			path = ItemInformationInput;
+			sourceTree = "<group>";
+		};
+		5C8C400F2BF19EB6007A7532 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5C426BEB2BEDA8F400869F6D /* Assets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		A79B888828ABA888471C141F /* Frameworks */ = {
@@ -206,7 +308,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C1B84CE2BF20DDB00A99192 /* CheckMark.swift in Sources */,
+				5C735F412BF1A10200A36EC8 /* CategoryList.swift in Sources */,
+				5C735F442BF1A35B00A36EC8 /* CategoryData.swift in Sources */,
+				5C426BFD2BEDBDE900869F6D /* StoreViewModel.swift in Sources */,
+				5C735F4C2BF1BAB200A36EC8 /* EstimatedPrice.swift in Sources */,
+				5C4ACAC22BEE41A300195895 /* CategoryPicker.swift in Sources */,
+				5C426BFF2BEDBE7E00869F6D /* ItemInformationInputBox.swift in Sources */,
 				5C426BEA2BEDA8F300869F6D /* ContentView.swift in Sources */,
+				5C4ACAC02BEE1FDB00195895 /* MinusButtonImage.swift in Sources */,
+				5C4ACABC2BEE1ED700195895 /* ItemQuantitySelector.swift in Sources */,
+				5C735F4A2BF1B44500A36EC8 /* ItemInformationInput.swift in Sources */,
+				5C4ACABE2BEE1F1900195895 /* PlusButtonImage.swift in Sources */,
+				5C1B84D02BF2113200A99192 /* AppDI.swift in Sources */,
+				5C735F462BF1A4B400A36EC8 /* CategoryListRow.swift in Sources */,
 				5C426BE82BEDA8F300869F6D /* BaobabApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -344,12 +459,14 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Baobab/Preview Content\"";
 				DEVELOPMENT_TEAM = QHK65XFL8U;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -359,7 +476,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -374,12 +491,14 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Baobab/Preview Content\"";
 				DEVELOPMENT_TEAM = QHK65XFL8U;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -389,7 +508,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
