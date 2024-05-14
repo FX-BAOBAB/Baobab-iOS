@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ItemInformationInput: View {
     @ObservedObject private var viewModel: StoreViewModel
+    @State private var isShowingNextView: Bool = false
     
     init(viewModel: StoreViewModel) {
         _viewModel = ObservedObject(wrappedValue: viewModel)
@@ -34,7 +35,9 @@ struct ItemInformationInput: View {
                     .environmentObject(viewModel)
                     .padding([.leading, .trailing], 5)
                 
-                Button(action: {}, label: {
+                Button(action: {
+                    isShowingNextView.toggle()
+                }, label: {
                     Text("다음")
                         .bold()
                         .padding(8)
@@ -48,6 +51,10 @@ struct ItemInformationInput: View {
             .padding()
             .navigationTitle("물품 정보 입력")
             .navigationBarTitleDisplayMode(.large)
+            .navigationDestination(isPresented: $isShowingNextView) {
+                ImageRegistration()
+                    .environmentObject(viewModel)
+            }
         }
     }
 }

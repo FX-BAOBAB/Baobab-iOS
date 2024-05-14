@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		33D1A0A0BCE93175B71957B5 /* Pods_Baobab.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47C5B9FA2042EB175CDFAF0B /* Pods_Baobab.framework */; };
+		5C13D5AB2BF3082600CA0792 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C13D5AA2BF3082600CA0792 /* ImagePicker.swift */; };
 		5C1B84CE2BF20DDB00A99192 /* CheckMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1B84CD2BF20DDB00A99192 /* CheckMark.swift */; };
 		5C1B84D02BF2113200A99192 /* AppDI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1B84CF2BF2113200A99192 /* AppDI.swift */; };
 		5C426BE82BEDA8F300869F6D /* BaobabApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C426BE72BEDA8F300869F6D /* BaobabApp.swift */; };
@@ -25,12 +26,15 @@
 		5C735F462BF1A4B400A36EC8 /* CategoryListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C735F452BF1A4B400A36EC8 /* CategoryListRow.swift */; };
 		5C735F4A2BF1B44500A36EC8 /* ItemInformationInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C735F492BF1B44500A36EC8 /* ItemInformationInput.swift */; };
 		5C735F4C2BF1BAB200A36EC8 /* EstimatedPrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C735F4B2BF1BAB200A36EC8 /* EstimatedPrice.swift */; };
+		5CCFBF682BF2E05F00322D0D /* SelectedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCFBF672BF2E05F00322D0D /* SelectedImage.swift */; };
+		5CCFBF6A2BF2E18200322D0D /* ImageRegistration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCFBF692BF2E18200322D0D /* ImageRegistration.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		31669ECB1A5016E2B01822F7 /* Pods-Baobab.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Baobab.debug.xcconfig"; path = "Target Support Files/Pods-Baobab/Pods-Baobab.debug.xcconfig"; sourceTree = "<group>"; };
 		40F064E51CED53C132BD88DD /* Pods-Baobab.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Baobab.release.xcconfig"; path = "Target Support Files/Pods-Baobab/Pods-Baobab.release.xcconfig"; sourceTree = "<group>"; };
 		47C5B9FA2042EB175CDFAF0B /* Pods_Baobab.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Baobab.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C13D5AA2BF3082600CA0792 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		5C1B84CD2BF20DDB00A99192 /* CheckMark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckMark.swift; sourceTree = "<group>"; };
 		5C1B84CF2BF2113200A99192 /* AppDI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDI.swift; sourceTree = "<group>"; };
 		5C426BE42BEDA8F300869F6D /* Baobab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Baobab.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -49,6 +53,8 @@
 		5C735F452BF1A4B400A36EC8 /* CategoryListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListRow.swift; sourceTree = "<group>"; };
 		5C735F492BF1B44500A36EC8 /* ItemInformationInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemInformationInput.swift; sourceTree = "<group>"; };
 		5C735F4B2BF1BAB200A36EC8 /* EstimatedPrice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstimatedPrice.swift; sourceTree = "<group>"; };
+		5CCFBF672BF2E05F00322D0D /* SelectedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedImage.swift; sourceTree = "<group>"; };
+		5CCFBF692BF2E18200322D0D /* ImageRegistration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRegistration.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +146,7 @@
 		5C426BF82BEDBD4800869F6D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5CCFBF662BF2E00800322D0D /* PhotoInput */,
 				5C8C40092BF195FA007A7532 /* ItemInformationInput */,
 			);
 			path = View;
@@ -184,6 +191,16 @@
 				5C426BEB2BEDA8F400869F6D /* Assets.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		5CCFBF662BF2E00800322D0D /* PhotoInput */ = {
+			isa = PBXGroup;
+			children = (
+				5CCFBF692BF2E18200322D0D /* ImageRegistration.swift */,
+				5CCFBF672BF2E05F00322D0D /* SelectedImage.swift */,
+				5C13D5AA2BF3082600CA0792 /* ImagePicker.swift */,
+			);
+			path = PhotoInput;
 			sourceTree = "<group>";
 		};
 		A79B888828ABA888471C141F /* Frameworks */ = {
@@ -311,16 +328,19 @@
 				5C1B84CE2BF20DDB00A99192 /* CheckMark.swift in Sources */,
 				5C735F412BF1A10200A36EC8 /* CategoryList.swift in Sources */,
 				5C735F442BF1A35B00A36EC8 /* CategoryData.swift in Sources */,
+				5C13D5AB2BF3082600CA0792 /* ImagePicker.swift in Sources */,
 				5C426BFD2BEDBDE900869F6D /* StoreViewModel.swift in Sources */,
 				5C735F4C2BF1BAB200A36EC8 /* EstimatedPrice.swift in Sources */,
 				5C4ACAC22BEE41A300195895 /* CategoryPicker.swift in Sources */,
 				5C426BFF2BEDBE7E00869F6D /* ItemInformationInputBox.swift in Sources */,
 				5C426BEA2BEDA8F300869F6D /* ContentView.swift in Sources */,
 				5C4ACAC02BEE1FDB00195895 /* MinusButtonImage.swift in Sources */,
+				5CCFBF682BF2E05F00322D0D /* SelectedImage.swift in Sources */,
 				5C4ACABC2BEE1ED700195895 /* ItemQuantitySelector.swift in Sources */,
 				5C735F4A2BF1B44500A36EC8 /* ItemInformationInput.swift in Sources */,
 				5C4ACABE2BEE1F1900195895 /* PlusButtonImage.swift in Sources */,
 				5C1B84D02BF2113200A99192 /* AppDI.swift in Sources */,
+				5CCFBF6A2BF2E18200322D0D /* ImageRegistration.swift in Sources */,
 				5C735F462BF1A4B400A36EC8 /* CategoryListRow.swift in Sources */,
 				5C426BE82BEDA8F300869F6D /* BaobabApp.swift in Sources */,
 			);
