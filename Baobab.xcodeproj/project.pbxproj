@@ -146,7 +146,7 @@
 		5C426BF82BEDBD4800869F6D /* View */ = {
 			isa = PBXGroup;
 			children = (
-				5CCFBF662BF2E00800322D0D /* PhotoInput */,
+				5CCFBF662BF2E00800322D0D /* PhotoRegistration */,
 				5C8C40092BF195FA007A7532 /* ItemInformationInput */,
 			);
 			path = View;
@@ -193,14 +193,14 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		5CCFBF662BF2E00800322D0D /* PhotoInput */ = {
+		5CCFBF662BF2E00800322D0D /* PhotoRegistration */ = {
 			isa = PBXGroup;
 			children = (
 				5CCFBF692BF2E18200322D0D /* ImageRegistration.swift */,
 				5CCFBF672BF2E05F00322D0D /* SelectedImage.swift */,
 				5C13D5AA2BF3082600CA0792 /* ImagePicker.swift */,
 			);
-			path = PhotoInput;
+			path = PhotoRegistration;
 			sourceTree = "<group>";
 		};
 		A79B888828ABA888471C141F /* Frameworks */ = {

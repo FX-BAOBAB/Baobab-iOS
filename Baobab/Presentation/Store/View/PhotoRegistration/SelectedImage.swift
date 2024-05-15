@@ -28,6 +28,10 @@ struct SelectedImage: View {
                     .frame(width: UIScreen.main.bounds.width * 0.43,
                            height: UIScreen.main.bounds.width * 0.43)
                     .cornerRadius(20)
+                    .onTapGesture {
+                        isShowDialog.toggle()
+                        selectedIndex = pos
+                    }
                 
             } else {
                 RoundedRectangle(cornerRadius: 20)
