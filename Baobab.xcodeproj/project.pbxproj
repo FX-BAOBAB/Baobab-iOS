@@ -11,6 +11,8 @@
 		5C13D5AB2BF3082600CA0792 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C13D5AA2BF3082600CA0792 /* ImagePicker.swift */; };
 		5C1B84CE2BF20DDB00A99192 /* CheckMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1B84CD2BF20DDB00A99192 /* CheckMark.swift */; };
 		5C1B84D02BF2113200A99192 /* AppDI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1B84CF2BF2113200A99192 /* AppDI.swift */; };
+		5C405EEA2BF6F3C0006EE6F1 /* DefectRegistrationRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C405EE92BF6F3C0006EE6F1 /* DefectRegistrationRow.swift */; };
+		5C405EEC2BF72ADB006EE6F1 /* StoreViewModel+Defect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C405EEB2BF72ADB006EE6F1 /* StoreViewModel+Defect.swift */; };
 		5C426BE82BEDA8F300869F6D /* BaobabApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C426BE72BEDA8F300869F6D /* BaobabApp.swift */; };
 		5C426BEA2BEDA8F300869F6D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C426BE92BEDA8F300869F6D /* ContentView.swift */; };
 		5C426BEC2BEDA8F400869F6D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C426BEB2BEDA8F400869F6D /* Assets.xcassets */; };
@@ -26,8 +28,13 @@
 		5C735F462BF1A4B400A36EC8 /* CategoryListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C735F452BF1A4B400A36EC8 /* CategoryListRow.swift */; };
 		5C735F4A2BF1B44500A36EC8 /* ItemInformationInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C735F492BF1B44500A36EC8 /* ItemInformationInput.swift */; };
 		5C735F4C2BF1BAB200A36EC8 /* EstimatedPrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C735F4B2BF1BAB200A36EC8 /* EstimatedPrice.swift */; };
+		5C994A522BF58A880013672B /* DefectRegistrationForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C994A512BF58A880013672B /* DefectRegistrationForm.swift */; };
+		5C994A542BF592E60013672B /* SelectedDefectImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C994A532BF592E60013672B /* SelectedDefectImage.swift */; };
+		5C994A562BF5EA960013672B /* DefectImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C994A552BF5EA960013672B /* DefectImagePicker.swift */; };
+		5C994A582BF5F8D00013672B /* Defect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C994A572BF5F8D00013672B /* Defect.swift */; };
+		5C9B81042BF44AD10038EB27 /* DefectRegistration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9B81032BF44AD10038EB27 /* DefectRegistration.swift */; };
 		5CCFBF682BF2E05F00322D0D /* SelectedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCFBF672BF2E05F00322D0D /* SelectedImage.swift */; };
-		5CCFBF6A2BF2E18200322D0D /* ImageRegistration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCFBF692BF2E18200322D0D /* ImageRegistration.swift */; };
+		5CCFBF6A2BF2E18200322D0D /* ImageRegistrationForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCFBF692BF2E18200322D0D /* ImageRegistrationForm.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +44,8 @@
 		5C13D5AA2BF3082600CA0792 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		5C1B84CD2BF20DDB00A99192 /* CheckMark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckMark.swift; sourceTree = "<group>"; };
 		5C1B84CF2BF2113200A99192 /* AppDI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDI.swift; sourceTree = "<group>"; };
+		5C405EE92BF6F3C0006EE6F1 /* DefectRegistrationRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefectRegistrationRow.swift; sourceTree = "<group>"; };
+		5C405EEB2BF72ADB006EE6F1 /* StoreViewModel+Defect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StoreViewModel+Defect.swift"; sourceTree = "<group>"; };
 		5C426BE42BEDA8F300869F6D /* Baobab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Baobab.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C426BE72BEDA8F300869F6D /* BaobabApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaobabApp.swift; sourceTree = "<group>"; };
 		5C426BE92BEDA8F300869F6D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -53,8 +62,13 @@
 		5C735F452BF1A4B400A36EC8 /* CategoryListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListRow.swift; sourceTree = "<group>"; };
 		5C735F492BF1B44500A36EC8 /* ItemInformationInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemInformationInput.swift; sourceTree = "<group>"; };
 		5C735F4B2BF1BAB200A36EC8 /* EstimatedPrice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstimatedPrice.swift; sourceTree = "<group>"; };
+		5C994A512BF58A880013672B /* DefectRegistrationForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefectRegistrationForm.swift; sourceTree = "<group>"; };
+		5C994A532BF592E60013672B /* SelectedDefectImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedDefectImage.swift; sourceTree = "<group>"; };
+		5C994A552BF5EA960013672B /* DefectImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefectImagePicker.swift; sourceTree = "<group>"; };
+		5C994A572BF5F8D00013672B /* Defect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defect.swift; sourceTree = "<group>"; };
+		5C9B81032BF44AD10038EB27 /* DefectRegistration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefectRegistration.swift; sourceTree = "<group>"; };
 		5CCFBF672BF2E05F00322D0D /* SelectedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedImage.swift; sourceTree = "<group>"; };
-		5CCFBF692BF2E18200322D0D /* ImageRegistration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRegistration.swift; sourceTree = "<group>"; };
+		5CCFBF692BF2E18200322D0D /* ImageRegistrationForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRegistrationForm.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,7 +113,7 @@
 		5C426BE62BEDA8F300869F6D /* Baobab */ = {
 			isa = PBXGroup;
 			children = (
-				5C735F422BF1A2FC00A36EC8 /* Util */,
+				5C735F422BF1A2FC00A36EC8 /* Utils */,
 				5C8C400F2BF19EB6007A7532 /* Resources */,
 				5C426BF52BEDBD1200869F6D /* Application */,
 				5C426BF62BEDBD1B00869F6D /* Presentation */,
@@ -146,7 +160,8 @@
 		5C426BF82BEDBD4800869F6D /* View */ = {
 			isa = PBXGroup;
 			children = (
-				5CCFBF662BF2E00800322D0D /* PhotoRegistration */,
+				5C9B81022BF44A800038EB27 /* DefectRegistration */,
+				5CCFBF662BF2E00800322D0D /* ImageRegistration */,
 				5C8C40092BF195FA007A7532 /* ItemInformationInput */,
 			);
 			path = View;
@@ -156,16 +171,18 @@
 			isa = PBXGroup;
 			children = (
 				5C426BFC2BEDBDE900869F6D /* StoreViewModel.swift */,
+				5C405EEB2BF72ADB006EE6F1 /* StoreViewModel+Defect.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		5C735F422BF1A2FC00A36EC8 /* Util */ = {
+		5C735F422BF1A2FC00A36EC8 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
 				5C735F432BF1A35B00A36EC8 /* CategoryData.swift */,
+				5C994A572BF5F8D00013672B /* Defect.swift */,
 			);
-			path = Util;
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		5C8C40092BF195FA007A7532 /* ItemInformationInput */ = {
@@ -193,14 +210,26 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		5CCFBF662BF2E00800322D0D /* PhotoRegistration */ = {
+		5C9B81022BF44A800038EB27 /* DefectRegistration */ = {
 			isa = PBXGroup;
 			children = (
-				5CCFBF692BF2E18200322D0D /* ImageRegistration.swift */,
+				5C9B81032BF44AD10038EB27 /* DefectRegistration.swift */,
+				5C994A512BF58A880013672B /* DefectRegistrationForm.swift */,
+				5C994A532BF592E60013672B /* SelectedDefectImage.swift */,
+				5C994A552BF5EA960013672B /* DefectImagePicker.swift */,
+				5C405EE92BF6F3C0006EE6F1 /* DefectRegistrationRow.swift */,
+			);
+			path = DefectRegistration;
+			sourceTree = "<group>";
+		};
+		5CCFBF662BF2E00800322D0D /* ImageRegistration */ = {
+			isa = PBXGroup;
+			children = (
+				5CCFBF692BF2E18200322D0D /* ImageRegistrationForm.swift */,
 				5CCFBF672BF2E05F00322D0D /* SelectedImage.swift */,
 				5C13D5AA2BF3082600CA0792 /* ImagePicker.swift */,
 			);
-			path = PhotoRegistration;
+			path = ImageRegistration;
 			sourceTree = "<group>";
 		};
 		A79B888828ABA888471C141F /* Frameworks */ = {
@@ -328,6 +357,7 @@
 				5C1B84CE2BF20DDB00A99192 /* CheckMark.swift in Sources */,
 				5C735F412BF1A10200A36EC8 /* CategoryList.swift in Sources */,
 				5C735F442BF1A35B00A36EC8 /* CategoryData.swift in Sources */,
+				5C994A522BF58A880013672B /* DefectRegistrationForm.swift in Sources */,
 				5C13D5AB2BF3082600CA0792 /* ImagePicker.swift in Sources */,
 				5C426BFD2BEDBDE900869F6D /* StoreViewModel.swift in Sources */,
 				5C735F4C2BF1BAB200A36EC8 /* EstimatedPrice.swift in Sources */,
@@ -335,13 +365,19 @@
 				5C426BFF2BEDBE7E00869F6D /* ItemInformationInputBox.swift in Sources */,
 				5C426BEA2BEDA8F300869F6D /* ContentView.swift in Sources */,
 				5C4ACAC02BEE1FDB00195895 /* MinusButtonImage.swift in Sources */,
+				5C405EEC2BF72ADB006EE6F1 /* StoreViewModel+Defect.swift in Sources */,
 				5CCFBF682BF2E05F00322D0D /* SelectedImage.swift in Sources */,
 				5C4ACABC2BEE1ED700195895 /* ItemQuantitySelector.swift in Sources */,
+				5C994A542BF592E60013672B /* SelectedDefectImage.swift in Sources */,
 				5C735F4A2BF1B44500A36EC8 /* ItemInformationInput.swift in Sources */,
 				5C4ACABE2BEE1F1900195895 /* PlusButtonImage.swift in Sources */,
 				5C1B84D02BF2113200A99192 /* AppDI.swift in Sources */,
-				5CCFBF6A2BF2E18200322D0D /* ImageRegistration.swift in Sources */,
+				5CCFBF6A2BF2E18200322D0D /* ImageRegistrationForm.swift in Sources */,
+				5C994A562BF5EA960013672B /* DefectImagePicker.swift in Sources */,
+				5C9B81042BF44AD10038EB27 /* DefectRegistration.swift in Sources */,
+				5C405EEA2BF6F3C0006EE6F1 /* DefectRegistrationRow.swift in Sources */,
 				5C735F462BF1A4B400A36EC8 /* CategoryListRow.swift in Sources */,
+				5C994A582BF5F8D00013672B /* Defect.swift in Sources */,
 				5C426BE82BEDA8F300869F6D /* BaobabApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

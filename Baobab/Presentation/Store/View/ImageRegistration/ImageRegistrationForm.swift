@@ -1,5 +1,5 @@
 //
-//  ImageRegistration.swift
+//  ImageRegistrationForm.swift
 //  Baobab
 //
 //  Created by 이정훈 on 5/14/24.
@@ -7,11 +7,12 @@
 
 import SwiftUI
 
-struct ImageRegistration: View {
+struct ImageRegistrationForm: View {
     @EnvironmentObject private var viewModel: StoreViewModel
     @State private var isShowingDialog: Bool = false
     @State private var isShowingLibrary: Bool = false
     @State private var isShowingCamera: Bool = false
+    @State private var isShowingDefectRegistrationForm: Bool = false
     @State private var selectedIndex: Int? = nil
     
     var body: some View {
@@ -53,7 +54,9 @@ struct ImageRegistration: View {
                                   title: "우", pos: 5)
                 }
                 
-                Button(action: {}, label: {
+                Button(action: {
+                    isShowingDefectRegistrationForm.toggle()
+                }, label: {
                     Text("다음")
                         .bold()
                         .padding(8)
@@ -89,11 +92,17 @@ struct ImageRegistration: View {
                     ImagePicker(for: .camera, selectedIndex: selectedIndex)
                 }
             }
+            .navigationDestination(isPresented: $isShowingDefectRegistrationForm) {
+                DefectRegistration()
+                    .environmentObject(viewModel)
+            }
         }
     }
 }
 
 #Preview {
-    ImageRegistration()
-        .environmentObject(AppDI.shared.storeViewModel)
+    NavigationStack {
+        ImageRegistrationForm()
+            .environmentObject(AppDI.shared.storeViewModel)
+    }
 }
