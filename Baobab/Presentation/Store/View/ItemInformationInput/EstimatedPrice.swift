@@ -16,7 +16,7 @@ struct EstimatedPrice: View {
             
             Spacer()
             
-            Text("\(viewModel.price ?? 0)원")
+            Text("\(viewModel.itemPrice ?? 0)원")
         }
         .bold()
         .overlay {

@@ -12,7 +12,7 @@ struct ImageRegistrationForm: View {
     @State private var isShowingDialog: Bool = false
     @State private var isShowingLibrary: Bool = false
     @State private var isShowingCamera: Bool = false
-    @State private var isShowingDefectRegistrationForm: Bool = false
+    @State private var isShowingDefectRegistrationList: Bool = false
     @State private var selectedIndex: Int? = nil
     
     var body: some View {
@@ -55,7 +55,7 @@ struct ImageRegistrationForm: View {
                 }
                 
                 Button(action: {
-                    isShowingDefectRegistrationForm.toggle()
+                    isShowingDefectRegistrationList.toggle()
                 }, label: {
                     Text("다음")
                         .bold()
@@ -92,8 +92,8 @@ struct ImageRegistrationForm: View {
                     ImagePicker(for: .camera, selectedIndex: selectedIndex)
                 }
             }
-            .navigationDestination(isPresented: $isShowingDefectRegistrationForm) {
-                DefectRegistration()
+            .navigationDestination(isPresented: $isShowingDefectRegistrationList) {
+                DefectRegistrationList()
                     .environmentObject(viewModel)
             }
         }

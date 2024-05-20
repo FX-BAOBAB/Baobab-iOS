@@ -1,5 +1,5 @@
 //
-//  DefectRegistration.swift
+//  DefectRegistrationList.swift
 //  Baobab
 //
 //  Created by 이정훈 on 5/15/24.
@@ -7,10 +7,11 @@
 
 import SwiftUI
 
-struct DefectRegistration: View {
+struct DefectRegistrationList: View {
     @EnvironmentObject private var viewModel: StoreViewModel
     @State private var isShowingSheet: Bool = false
     @State private var isShowingImageCountAlert: Bool = false
+    @State private var isShowingReservationForm: Bool = false
     
     var body: some View {
         VStack {
@@ -48,7 +49,9 @@ struct DefectRegistration: View {
             }
             .listStyle(.plain)
             
-            Button(action: {}, label: {
+            Button(action: {
+                isShowingReservationForm.toggle()
+            }, label: {
                 Text("다음")
                     .bold()
                     .padding(8)
@@ -72,12 +75,16 @@ struct DefectRegistration: View {
         }, message: {
             Text("결함은 최대 4개까지 등록 가능해요")
         })
+        .navigationDestination(isPresented: $isShowingReservationForm) {
+            StoreReservationForm()
+                .environmentObject(viewModel)
+        }
     }
 }
 
 #Preview {
     NavigationStack {
-        DefectRegistration()
+        DefectRegistrationList()
             .environmentObject(AppDI.shared.storeViewModel)
     }
 }

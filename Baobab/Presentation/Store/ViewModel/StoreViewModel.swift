@@ -13,20 +13,22 @@ final class StoreViewModel: ObservableObject {
     @Published var itemQuantity: Int = 1
     @Published var itemCategoryWithPrice: String? = nil
     @Published var itemCategory: String? = nil
-    @Published var price: Int? = nil
+    @Published var itemPrice: Int? = nil
     @Published var itemImages: [UIImage?] = [nil, nil, nil, nil, nil, nil]    //index: 0(정면), 1(후면), 2(배면), 3(밑면), 4(좌), 5(우)
     @Published var defects: [Defect] = []
+    @Published var reservationDate: Date = Date()
     
     private var cancellables = Set<AnyCancellable>()
     
     init() {
-        updateCategoryName()
         updatePrice()
+        updateCategoryName()
     }
 }
 
 //MARK: - Subscribe
 extension StoreViewModel {
+    //MARK: - update itemCategory
     private func updateCategoryName() {
         $itemCategoryWithPrice
             .dropFirst(1)
@@ -44,6 +46,7 @@ extension StoreViewModel {
             .store(in: &cancellables)
     }
     
+    //MARK: - update itemPrice
     private func updatePrice() {
         let publisher = $itemCategoryWithPrice.combineLatest($itemQuantity)
         publisher
@@ -56,7 +59,7 @@ extension StoreViewModel {
                     
                     let subString = categoryValue[categoryValue.index(firstIndex, offsetBy: 2)..<lastIndex]
                     Int(subString).map {
-                        self?.price = $0 * quantity
+                        self?.itemPrice = $0 * quantity
                     }
                 }
             }

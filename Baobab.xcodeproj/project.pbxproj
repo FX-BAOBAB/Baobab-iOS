@@ -28,11 +28,13 @@
 		5C735F462BF1A4B400A36EC8 /* CategoryListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C735F452BF1A4B400A36EC8 /* CategoryListRow.swift */; };
 		5C735F4A2BF1B44500A36EC8 /* ItemInformationInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C735F492BF1B44500A36EC8 /* ItemInformationInput.swift */; };
 		5C735F4C2BF1BAB200A36EC8 /* EstimatedPrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C735F4B2BF1BAB200A36EC8 /* EstimatedPrice.swift */; };
+		5C89233E2BFAC80200AE9049 /* StoreReservationForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C89233D2BFAC80200AE9049 /* StoreReservationForm.swift */; };
+		5C8923442BFADF0900AE9049 /* Date+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8923432BFADF0900AE9049 /* Date+String.swift */; };
 		5C994A522BF58A880013672B /* DefectRegistrationForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C994A512BF58A880013672B /* DefectRegistrationForm.swift */; };
 		5C994A542BF592E60013672B /* SelectedDefectImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C994A532BF592E60013672B /* SelectedDefectImage.swift */; };
 		5C994A562BF5EA960013672B /* DefectImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C994A552BF5EA960013672B /* DefectImagePicker.swift */; };
 		5C994A582BF5F8D00013672B /* Defect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C994A572BF5F8D00013672B /* Defect.swift */; };
-		5C9B81042BF44AD10038EB27 /* DefectRegistration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9B81032BF44AD10038EB27 /* DefectRegistration.swift */; };
+		5C9B81042BF44AD10038EB27 /* DefectRegistrationList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9B81032BF44AD10038EB27 /* DefectRegistrationList.swift */; };
 		5CCFBF682BF2E05F00322D0D /* SelectedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCFBF672BF2E05F00322D0D /* SelectedImage.swift */; };
 		5CCFBF6A2BF2E18200322D0D /* ImageRegistrationForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCFBF692BF2E18200322D0D /* ImageRegistrationForm.swift */; };
 /* End PBXBuildFile section */
@@ -62,11 +64,13 @@
 		5C735F452BF1A4B400A36EC8 /* CategoryListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListRow.swift; sourceTree = "<group>"; };
 		5C735F492BF1B44500A36EC8 /* ItemInformationInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemInformationInput.swift; sourceTree = "<group>"; };
 		5C735F4B2BF1BAB200A36EC8 /* EstimatedPrice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstimatedPrice.swift; sourceTree = "<group>"; };
+		5C89233D2BFAC80200AE9049 /* StoreReservationForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreReservationForm.swift; sourceTree = "<group>"; };
+		5C8923432BFADF0900AE9049 /* Date+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+String.swift"; sourceTree = "<group>"; };
 		5C994A512BF58A880013672B /* DefectRegistrationForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefectRegistrationForm.swift; sourceTree = "<group>"; };
 		5C994A532BF592E60013672B /* SelectedDefectImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedDefectImage.swift; sourceTree = "<group>"; };
 		5C994A552BF5EA960013672B /* DefectImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefectImagePicker.swift; sourceTree = "<group>"; };
 		5C994A572BF5F8D00013672B /* Defect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defect.swift; sourceTree = "<group>"; };
-		5C9B81032BF44AD10038EB27 /* DefectRegistration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefectRegistration.swift; sourceTree = "<group>"; };
+		5C9B81032BF44AD10038EB27 /* DefectRegistrationList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefectRegistrationList.swift; sourceTree = "<group>"; };
 		5CCFBF672BF2E05F00322D0D /* SelectedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedImage.swift; sourceTree = "<group>"; };
 		5CCFBF692BF2E18200322D0D /* ImageRegistrationForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRegistrationForm.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -160,6 +164,7 @@
 		5C426BF82BEDBD4800869F6D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5C89233C2BFAC7EA00AE9049 /* StoreReservation */,
 				5C9B81022BF44A800038EB27 /* DefectRegistration */,
 				5CCFBF662BF2E00800322D0D /* ImageRegistration */,
 				5C8C40092BF195FA007A7532 /* ItemInformationInput */,
@@ -181,8 +186,17 @@
 			children = (
 				5C735F432BF1A35B00A36EC8 /* CategoryData.swift */,
 				5C994A572BF5F8D00013672B /* Defect.swift */,
+				5C8923432BFADF0900AE9049 /* Date+String.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		5C89233C2BFAC7EA00AE9049 /* StoreReservation */ = {
+			isa = PBXGroup;
+			children = (
+				5C89233D2BFAC80200AE9049 /* StoreReservationForm.swift */,
+			);
+			path = StoreReservation;
 			sourceTree = "<group>";
 		};
 		5C8C40092BF195FA007A7532 /* ItemInformationInput */ = {
@@ -213,7 +227,7 @@
 		5C9B81022BF44A800038EB27 /* DefectRegistration */ = {
 			isa = PBXGroup;
 			children = (
-				5C9B81032BF44AD10038EB27 /* DefectRegistration.swift */,
+				5C9B81032BF44AD10038EB27 /* DefectRegistrationList.swift */,
 				5C994A512BF58A880013672B /* DefectRegistrationForm.swift */,
 				5C994A532BF592E60013672B /* SelectedDefectImage.swift */,
 				5C994A552BF5EA960013672B /* DefectImagePicker.swift */,
@@ -362,11 +376,13 @@
 				5C426BFD2BEDBDE900869F6D /* StoreViewModel.swift in Sources */,
 				5C735F4C2BF1BAB200A36EC8 /* EstimatedPrice.swift in Sources */,
 				5C4ACAC22BEE41A300195895 /* CategoryPicker.swift in Sources */,
+				5C89233E2BFAC80200AE9049 /* StoreReservationForm.swift in Sources */,
 				5C426BFF2BEDBE7E00869F6D /* ItemInformationInputBox.swift in Sources */,
 				5C426BEA2BEDA8F300869F6D /* ContentView.swift in Sources */,
 				5C4ACAC02BEE1FDB00195895 /* MinusButtonImage.swift in Sources */,
 				5C405EEC2BF72ADB006EE6F1 /* StoreViewModel+Defect.swift in Sources */,
 				5CCFBF682BF2E05F00322D0D /* SelectedImage.swift in Sources */,
+				5C8923442BFADF0900AE9049 /* Date+String.swift in Sources */,
 				5C4ACABC2BEE1ED700195895 /* ItemQuantitySelector.swift in Sources */,
 				5C994A542BF592E60013672B /* SelectedDefectImage.swift in Sources */,
 				5C735F4A2BF1B44500A36EC8 /* ItemInformationInput.swift in Sources */,
@@ -374,7 +390,7 @@
 				5C1B84D02BF2113200A99192 /* AppDI.swift in Sources */,
 				5CCFBF6A2BF2E18200322D0D /* ImageRegistrationForm.swift in Sources */,
 				5C994A562BF5EA960013672B /* DefectImagePicker.swift in Sources */,
-				5C9B81042BF44AD10038EB27 /* DefectRegistration.swift in Sources */,
+				5C9B81042BF44AD10038EB27 /* DefectRegistrationList.swift in Sources */,
 				5C405EEA2BF6F3C0006EE6F1 /* DefectRegistrationRow.swift in Sources */,
 				5C735F462BF1A4B400A36EC8 /* CategoryListRow.swift in Sources */,
 				5C994A582BF5F8D00013672B /* Defect.swift in Sources */,
