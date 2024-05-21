@@ -16,7 +16,7 @@ final class StoreViewModel: ObservableObject {
     @Published var itemPrice: Int? = nil
     @Published var itemImages: [UIImage?] = [nil, nil, nil, nil, nil, nil]    //index: 0(정면), 1(후면), 2(배면), 3(밑면), 4(좌), 5(우)
     @Published var defects: [Defect] = []
-    @Published var reservationDate: Date = Date()
+    @Published var reservationDate: Date = Date.tomorrow
     
     private var cancellables = Set<AnyCancellable>()
     

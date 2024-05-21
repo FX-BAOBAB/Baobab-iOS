@@ -13,7 +13,7 @@ struct StoreReservationForm: View {
     
     var body: some View {
         VStack {
-            DatePicker("", selection: $viewModel.reservationDate)
+            DatePicker("", selection: $viewModel.reservationDate, in: Date.tomorrow...)
                 .datePickerStyle(.graphical)
                 .padding([.leading, .trailing])
                 .frame(width: UIScreen.main.bounds.width * 0.9)
@@ -41,7 +41,7 @@ struct StoreReservationForm: View {
         .padding()
         .navigationTitle("입고 예약")
         .onAppear {
-            UIDatePicker.appearance().minuteInterval = 10
+            UIDatePicker.appearance().minuteInterval = 10    //선택 가능한 시간을 10분 단위로 설정
         }
     }
 }
