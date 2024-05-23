@@ -22,8 +22,9 @@ struct SelectedImage: View {
                 .font(.footnote)
                 .padding(.leading)
             
-            if let image = viewModel.itemImages[pos] {
-                Image(uiImage: image)
+            if let imageData = viewModel.itemImages[pos],
+               let uiImage = UIImage(data: imageData) {
+                Image(uiImage: uiImage)
                     .resizable()
                     .frame(width: UIScreen.main.bounds.width * 0.43,
                            height: UIScreen.main.bounds.width * 0.43)
@@ -32,7 +33,6 @@ struct SelectedImage: View {
                         isShowDialog.toggle()
                         selectedIndex = pos
                     }
-                
             } else {
                 RoundedRectangle(cornerRadius: 20)
                     .frame(width: UIScreen.main.bounds.width * 0.43,

@@ -5,9 +5,9 @@
 //  Created by 이정훈 on 5/16/24.
 //
 
-import SwiftUI
+import Foundation
 
 struct Defect {
-    let image: UIImage
+    let image: Data
     let description: String
 }

@@ -12,11 +12,13 @@ struct DefectRegistrationRow: View {
     
     var body: some View {
         HStack(alignment: .top, spacing: 10) {
-            Image(uiImage: defect.image)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: UIScreen.main.bounds.width * 0.25)
-                .cornerRadius(10)
+            if let uiImage = UIImage(data: defect.image) {
+                Image(uiImage: uiImage)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: UIScreen.main.bounds.width * 0.25)
+                    .cornerRadius(10)
+            }
             
             Text(defect.description)
                 .font(.caption)
@@ -27,5 +29,5 @@ struct DefectRegistrationRow: View {
 }
 
 #Preview {
-    DefectRegistrationRow(defect: Defect(image: UIImage(), description: "결함 설명"))
+    DefectRegistrationRow(defect: Defect(image: UIImage(systemName: "visionpro")!.pngData()!, description: "결함설명"))
 }

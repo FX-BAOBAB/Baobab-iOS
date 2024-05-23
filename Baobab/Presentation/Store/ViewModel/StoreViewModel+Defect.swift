@@ -10,8 +10,12 @@ import SwiftUI
 //MARK: - Methods related to defect
 extension StoreViewModel {    
     func appendDefect(image: UIImage, description: String) -> Bool {
-        defects.append(Defect(image: image, description: description))
-        return true
+        if let imageData = image.pngData() {
+            defects.append(Defect(image: imageData, description: description))
+            return true
+        }
+        
+        return false
     }
     
     func removeDefect(at offsets: IndexSet) {

@@ -6,7 +6,7 @@
 //
 
 import Combine
-import SwiftUI
+import Foundation
 
 final class StoreViewModel: ObservableObject {
     @Published var itemName: String = ""
@@ -14,7 +14,7 @@ final class StoreViewModel: ObservableObject {
     @Published var itemCategoryWithPrice: String? = nil
     @Published var itemCategory: String? = nil
     @Published var itemPrice: Int? = nil
-    @Published var itemImages: [UIImage?] = [nil, nil, nil, nil, nil, nil]    //index: 0(정면), 1(후면), 2(배면), 3(밑면), 4(좌), 5(우)
+    @Published var itemImages: [Data?] = [nil, nil, nil, nil, nil, nil]    //index: 0(정면), 1(후면), 2(배면), 3(밑면), 4(좌), 5(우)
     @Published var defects: [Defect] = []
     @Published var reservationDate: Date = Date.tomorrow
     
