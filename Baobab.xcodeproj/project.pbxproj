@@ -30,12 +30,19 @@
 		5C735F4C2BF1BAB200A36EC8 /* EstimatedPrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C735F4B2BF1BAB200A36EC8 /* EstimatedPrice.swift */; };
 		5C89233E2BFAC80200AE9049 /* StoreReservationForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C89233D2BFAC80200AE9049 /* StoreReservationForm.swift */; };
 		5C8923442BFADF0900AE9049 /* Date+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8923432BFADF0900AE9049 /* Date+String.swift */; };
+		5C9679BE2BFEC59F007C8D5A /* PostCodeSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9679BD2BFEC59F007C8D5A /* PostCodeSearch.swift */; };
+		5C9679C02BFEC666007C8D5A /* SelectedAddressDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9679BF2BFEC666007C8D5A /* SelectedAddressDetail.swift */; };
+		5C9679C22BFF25E7007C8D5A /* SectionFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9679C12BFF25E7007C8D5A /* SectionFooter.swift */; };
 		5C994A522BF58A880013672B /* DefectRegistrationForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C994A512BF58A880013672B /* DefectRegistrationForm.swift */; };
 		5C994A542BF592E60013672B /* SelectedDefectImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C994A532BF592E60013672B /* SelectedDefectImage.swift */; };
 		5C994A562BF5EA960013672B /* DefectImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C994A552BF5EA960013672B /* DefectImagePicker.swift */; };
 		5C994A582BF5F8D00013672B /* Defect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C994A572BF5F8D00013672B /* Defect.swift */; };
 		5C9B81042BF44AD10038EB27 /* DefectRegistrationList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9B81032BF44AD10038EB27 /* DefectRegistrationList.swift */; };
 		5CA04A352BFB01AC00A28FCA /* Date+Tomorrow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA04A342BFB01AC00A28FCA /* Date+Tomorrow.swift */; };
+		5CADA5D52C000D4C00FFCC64 /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CADA5D42C000D4C00FFCC64 /* SectionHeader.swift */; };
+		5CADA5D92C004E8000FFCC64 /* PostSearchWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CADA5D82C004E8000FFCC64 /* PostSearchWebView.swift */; };
+		5CADA5DB2C0093D300FFCC64 /* AddressList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CADA5DA2C0093D300FFCC64 /* AddressList.swift */; };
+		5CADA5DD2C00CE1600FFCC64 /* DetailAddressForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CADA5DC2C00CE1600FFCC64 /* DetailAddressForm.swift */; };
 		5CCFBF682BF2E05F00322D0D /* SelectedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCFBF672BF2E05F00322D0D /* SelectedImage.swift */; };
 		5CCFBF6A2BF2E18200322D0D /* ImageRegistrationForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCFBF692BF2E18200322D0D /* ImageRegistrationForm.swift */; };
 /* End PBXBuildFile section */
@@ -67,12 +74,19 @@
 		5C735F4B2BF1BAB200A36EC8 /* EstimatedPrice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstimatedPrice.swift; sourceTree = "<group>"; };
 		5C89233D2BFAC80200AE9049 /* StoreReservationForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreReservationForm.swift; sourceTree = "<group>"; };
 		5C8923432BFADF0900AE9049 /* Date+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+String.swift"; sourceTree = "<group>"; };
+		5C9679BD2BFEC59F007C8D5A /* PostCodeSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCodeSearch.swift; sourceTree = "<group>"; };
+		5C9679BF2BFEC666007C8D5A /* SelectedAddressDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedAddressDetail.swift; sourceTree = "<group>"; };
+		5C9679C12BFF25E7007C8D5A /* SectionFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionFooter.swift; sourceTree = "<group>"; };
 		5C994A512BF58A880013672B /* DefectRegistrationForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefectRegistrationForm.swift; sourceTree = "<group>"; };
 		5C994A532BF592E60013672B /* SelectedDefectImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedDefectImage.swift; sourceTree = "<group>"; };
 		5C994A552BF5EA960013672B /* DefectImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefectImagePicker.swift; sourceTree = "<group>"; };
 		5C994A572BF5F8D00013672B /* Defect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defect.swift; sourceTree = "<group>"; };
 		5C9B81032BF44AD10038EB27 /* DefectRegistrationList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefectRegistrationList.swift; sourceTree = "<group>"; };
 		5CA04A342BFB01AC00A28FCA /* Date+Tomorrow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Tomorrow.swift"; sourceTree = "<group>"; };
+		5CADA5D42C000D4C00FFCC64 /* SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeader.swift; sourceTree = "<group>"; };
+		5CADA5D82C004E8000FFCC64 /* PostSearchWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostSearchWebView.swift; sourceTree = "<group>"; };
+		5CADA5DA2C0093D300FFCC64 /* AddressList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressList.swift; sourceTree = "<group>"; };
+		5CADA5DC2C00CE1600FFCC64 /* DetailAddressForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailAddressForm.swift; sourceTree = "<group>"; };
 		5CCFBF672BF2E05F00322D0D /* SelectedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedImage.swift; sourceTree = "<group>"; };
 		5CCFBF692BF2E18200322D0D /* ImageRegistrationForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRegistrationForm.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -198,6 +212,13 @@
 			isa = PBXGroup;
 			children = (
 				5C89233D2BFAC80200AE9049 /* StoreReservationForm.swift */,
+				5C9679C12BFF25E7007C8D5A /* SectionFooter.swift */,
+				5CADA5D42C000D4C00FFCC64 /* SectionHeader.swift */,
+				5C9679BF2BFEC666007C8D5A /* SelectedAddressDetail.swift */,
+				5C9679BD2BFEC59F007C8D5A /* PostCodeSearch.swift */,
+				5CADA5D82C004E8000FFCC64 /* PostSearchWebView.swift */,
+				5CADA5DA2C0093D300FFCC64 /* AddressList.swift */,
+				5CADA5DC2C00CE1600FFCC64 /* DetailAddressForm.swift */,
 			);
 			path = StoreReservation;
 			sourceTree = "<group>";
@@ -379,25 +400,32 @@
 				5C426BFD2BEDBDE900869F6D /* StoreViewModel.swift in Sources */,
 				5C735F4C2BF1BAB200A36EC8 /* EstimatedPrice.swift in Sources */,
 				5C4ACAC22BEE41A300195895 /* CategoryPicker.swift in Sources */,
+				5CADA5D52C000D4C00FFCC64 /* SectionHeader.swift in Sources */,
 				5C89233E2BFAC80200AE9049 /* StoreReservationForm.swift in Sources */,
 				5C426BFF2BEDBE7E00869F6D /* ItemInformationInputBox.swift in Sources */,
 				5C426BEA2BEDA8F300869F6D /* ContentView.swift in Sources */,
 				5C4ACAC02BEE1FDB00195895 /* MinusButtonImage.swift in Sources */,
 				5C405EEC2BF72ADB006EE6F1 /* StoreViewModel+Defect.swift in Sources */,
 				5CCFBF682BF2E05F00322D0D /* SelectedImage.swift in Sources */,
+				5CADA5D92C004E8000FFCC64 /* PostSearchWebView.swift in Sources */,
 				5CA04A352BFB01AC00A28FCA /* Date+Tomorrow.swift in Sources */,
 				5C8923442BFADF0900AE9049 /* Date+String.swift in Sources */,
 				5C4ACABC2BEE1ED700195895 /* ItemQuantitySelector.swift in Sources */,
+				5CADA5DD2C00CE1600FFCC64 /* DetailAddressForm.swift in Sources */,
 				5C994A542BF592E60013672B /* SelectedDefectImage.swift in Sources */,
 				5C735F4A2BF1B44500A36EC8 /* ItemInformationInput.swift in Sources */,
 				5C4ACABE2BEE1F1900195895 /* PlusButtonImage.swift in Sources */,
 				5C1B84D02BF2113200A99192 /* AppDI.swift in Sources */,
+				5C9679C02BFEC666007C8D5A /* SelectedAddressDetail.swift in Sources */,
+				5CADA5DB2C0093D300FFCC64 /* AddressList.swift in Sources */,
+				5C9679C22BFF25E7007C8D5A /* SectionFooter.swift in Sources */,
 				5CCFBF6A2BF2E18200322D0D /* ImageRegistrationForm.swift in Sources */,
 				5C994A562BF5EA960013672B /* DefectImagePicker.swift in Sources */,
 				5C9B81042BF44AD10038EB27 /* DefectRegistrationList.swift in Sources */,
 				5C405EEA2BF6F3C0006EE6F1 /* DefectRegistrationRow.swift in Sources */,
 				5C735F462BF1A4B400A36EC8 /* CategoryListRow.swift in Sources */,
 				5C994A582BF5F8D00013672B /* Defect.swift in Sources */,
+				5C9679BE2BFEC59F007C8D5A /* PostCodeSearch.swift in Sources */,
 				5C426BE82BEDA8F300869F6D /* BaobabApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

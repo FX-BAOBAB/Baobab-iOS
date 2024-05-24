@@ -17,6 +17,9 @@ final class StoreViewModel: ObservableObject {
     @Published var itemImages: [Data?] = [nil, nil, nil, nil, nil, nil]    //index: 0(정면), 1(후면), 2(배면), 3(밑면), 4(좌), 5(우)
     @Published var defects: [Defect] = []
     @Published var reservationDate: Date = Date.tomorrow
+    @Published var address: String = "서울특별시 성동구 독서당로 377"
+    @Published var detailAddress: String = "○○○동 ○○○호 (응봉동, 금호현대아파트)"
+    @Published var postCode: String = "12345"
     
     private var cancellables = Set<AnyCancellable>()
     

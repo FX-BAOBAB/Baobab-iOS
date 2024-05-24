@@ -61,7 +61,7 @@ struct DefectRegistrationList: View {
             .buttonBorderShape(.roundedRectangle)
             .cornerRadius(20)
             .buttonStyle(.borderedProminent)
-            .padding([.leading, .trailing])
+            .padding([.leading, .trailing, .bottom])
         }
         .navigationTitle("결함등록")
         .navigationBarItems(trailing: EditButton())
