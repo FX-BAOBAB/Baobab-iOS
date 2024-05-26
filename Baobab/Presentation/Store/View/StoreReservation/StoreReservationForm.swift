@@ -9,7 +9,6 @@ import SwiftUI
 
 struct StoreReservationForm: View {
     @EnvironmentObject private var viewModel: StoreViewModel
-//    @State private var isShowingAddressSelectionForm: Bool = false
     @State private var isShowingAddressList: Bool = false
     @State private var isShowingPostSearch: Bool = false
     

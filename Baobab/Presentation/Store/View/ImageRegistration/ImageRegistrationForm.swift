@@ -21,37 +21,37 @@ struct ImageRegistrationForm: View {
                 HStack {
                     SelectedImage(isShowDialog: $isShowingDialog,
                                   selectedIndex: $selectedIndex,
-                                  title: "정면", pos: 0)
+                                  pos: 0, title: "정면")
                     
                     Spacer()
                     
                     SelectedImage(isShowDialog: $isShowingDialog,
                                   selectedIndex: $selectedIndex,
-                                  title: "후면", pos: 1)
+                                  pos: 1, title: "후면")
                 }
                 
                 HStack {
                     SelectedImage(isShowDialog: $isShowingDialog,
                                   selectedIndex: $selectedIndex,
-                                  title: "배면", pos: 2)
+                                  pos: 2, title: "배면")
                     
                     Spacer()
                     
                     SelectedImage(isShowDialog: $isShowingDialog,
                                   selectedIndex: $selectedIndex,
-                                  title: "밑면", pos: 3)
+                                  pos: 3, title: "밑면")
                 }
                 
                 HStack {
                     SelectedImage(isShowDialog: $isShowingDialog,
                                   selectedIndex: $selectedIndex,
-                                  title: "좌", pos: 4)
+                                  pos: 4, title: "좌")
                     
                     Spacer()
                     
                     SelectedImage(isShowDialog: $isShowingDialog,
                                   selectedIndex: $selectedIndex,
-                                  title: "우", pos: 5)
+                                  pos: 5, title: "우")
                 }
                 
                 Button(action: {

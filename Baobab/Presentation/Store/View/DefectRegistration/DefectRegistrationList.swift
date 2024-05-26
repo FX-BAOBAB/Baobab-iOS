@@ -16,20 +16,18 @@ struct DefectRegistrationList: View {
     var body: some View {
         VStack {
             List {
-                ForEach(0..<viewModel.defects.count, id: \.self) { idx in
-                    if viewModel.defects.count - 1 == idx {
-                        DefectRegistrationRow(defect: viewModel.defects[idx])
-                            .alignmentGuide(.listRowSeparatorLeading) { _ in
-                                return 0
-                            }
+                ForEach(0..<viewModel.items[viewModel.itemIdx].defects.count, id: \.self) { idx in
+                    if viewModel.items[viewModel.itemIdx].defects.count - 1 == idx {
+                        DefectRegistrationRow(defect: viewModel.items[viewModel.itemIdx].defects[idx])
+                            .alignmentGuide(.listRowSeparatorLeading) { _ in return 0 }
                     } else {
-                        DefectRegistrationRow(defect: viewModel.defects[idx])
+                        DefectRegistrationRow(defect: viewModel.items[viewModel.itemIdx].defects[idx])
                     }
                 }
                 .onDelete(perform: viewModel.removeDefect(at:))
                 
                 Button(action: {
-                    if viewModel.defects.count < 4 {
+                    if viewModel.items[viewModel.itemIdx].defects.count < 4 {
                         isShowingSheet.toggle()
                     } else {
                         isShowingImageCountAlert.toggle()

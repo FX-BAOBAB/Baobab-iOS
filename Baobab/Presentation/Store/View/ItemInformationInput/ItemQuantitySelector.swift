@@ -18,19 +18,21 @@ struct ItemQuantitySelector: View {
             Spacer()
             
             Button(action: {
-                if viewModel.itemQuantity > 1 {
-                    viewModel.itemQuantity -= 1
+                if viewModel.items[viewModel.itemIdx].itemQuantity > 1 {
+                    viewModel.items[viewModel.itemIdx].itemQuantity -= 1
+                    viewModel.updatePrice()
                 }
             }, label: {
                 MinusButtonImage()
             })
             .buttonStyle(.borderless)
             
-            Text("\(viewModel.itemQuantity)")
+            Text("\(viewModel.items[viewModel.itemIdx].itemQuantity)")
                 .underline()
             
             Button(action: {
-                viewModel.itemQuantity += 1
+                viewModel.items[viewModel.itemIdx].itemQuantity += 1
+                viewModel.updatePrice()
             }, label: {
                 PlusButtonImage()
             })

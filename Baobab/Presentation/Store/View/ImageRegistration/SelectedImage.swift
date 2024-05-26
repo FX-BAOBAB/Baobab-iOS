@@ -12,8 +12,8 @@ struct SelectedImage: View {
     @Binding var isShowDialog: Bool
     @Binding var selectedIndex: Int?
     
-    var title: String
-    var pos: Int
+    let pos: Int
+    let title: String
     
     var body: some View {
         VStack(alignment: .leading, spacing: 3) {
@@ -22,7 +22,7 @@ struct SelectedImage: View {
                 .font(.footnote)
                 .padding(.leading)
             
-            if let imageData = viewModel.itemImages[pos],
+            if let imageData = viewModel.items[viewModel.itemIdx].itemImages[pos],
                let uiImage = UIImage(data: imageData) {
                 Image(uiImage: uiImage)
                     .resizable()
@@ -57,7 +57,6 @@ struct SelectedImage: View {
 #Preview {
     SelectedImage(isShowDialog: .constant(false), 
                   selectedIndex: .constant(0),
-                  title: "정면",
-                  pos: 0)
+                  pos: 0, title: "정면")
         .environmentObject(AppDI.shared.storeViewModel)
 }

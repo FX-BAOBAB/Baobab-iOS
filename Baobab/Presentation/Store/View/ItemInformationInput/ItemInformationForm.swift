@@ -1,5 +1,5 @@
 //
-//  ItemInformationInput.swift
+//  ItemInformationForm.swift
 //  Baobab
 //
 //  Created by 이정훈 on 5/10/24.
@@ -7,17 +7,13 @@
 
 import SwiftUI
 
-struct ItemInformationInput: View {
-    @ObservedObject private var viewModel: StoreViewModel
+struct ItemInformationForm: View {
+    @EnvironmentObject private var viewModel: StoreViewModel
     @State private var isShowingImageRegistrationForm: Bool = false
-    
-    init(viewModel: StoreViewModel) {
-        _viewModel = ObservedObject(wrappedValue: viewModel)
-    }
     
     var body: some View {
         VStack(spacing: 30) {
-            ItemInformationInputBox(inputValue: $viewModel.itemName,
+            ItemInformationInputBox(inputValue: $viewModel.items[viewModel.itemIdx].itemName,
                                     title: "물품명",
                                     placeholder: "물품 이름을 입력해 주세요")
             
@@ -59,6 +55,7 @@ struct ItemInformationInput: View {
 
 #Preview {
     NavigationStack {
-        ItemInformationInput(viewModel: AppDI.shared.storeViewModel)
+        ItemInformationForm()
+            .environmentObject(AppDI.shared.storeViewModel)
     }
 }

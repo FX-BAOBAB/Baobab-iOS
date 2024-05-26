@@ -11,7 +11,7 @@ import SwiftUI
 extension StoreViewModel {    
     func appendDefect(image: UIImage, description: String) -> Bool {
         if let imageData = image.pngData() {
-            defects.append(Defect(image: imageData, description: description))
+            items[itemIdx].defects.append(Defect(image: imageData, description: description))
             return true
         }
         
@@ -19,6 +19,6 @@ extension StoreViewModel {
     }
     
     func removeDefect(at offsets: IndexSet) {
-        defects.remove(atOffsets: offsets)
+        items[itemIdx].defects.remove(atOffsets: offsets)
     }
 }

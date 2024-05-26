@@ -15,17 +15,17 @@ struct CategoryListRow: View {
     
     var body: some View {
         Button(action: {
-            viewModel.itemCategoryWithPrice = category
+            viewModel.addCategoryWithPrice(categoryWithPrice: category)
         }, label: {
             HStack {
                 Text(category)
                     .foregroundColor(.black)
                 
+                Spacer()
+                
                 if isSelected {
                     CheckMark()
                 }
-                
-                Spacer()
             }
             .padding([.top, .bottom])
         })

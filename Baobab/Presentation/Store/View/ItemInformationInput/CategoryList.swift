@@ -14,7 +14,7 @@ struct CategoryList: View {
         List {
             ForEach(categories, id: \.self) { category in
                 CategoryListRow(category: category,
-                                isSelected: viewModel.itemCategoryWithPrice == category)
+                                isSelected: viewModel.items[viewModel.itemIdx].itemCategoryWithPrice == category)
                 .environmentObject(viewModel)
             }
         }

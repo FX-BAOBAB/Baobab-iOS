@@ -10,7 +10,7 @@ import Foundation
 final class AppDI {
     static let shared: AppDI = AppDI()
     var storeViewModel: StoreViewModel {
-        return StoreViewModel()
+        return StoreViewModel(itemIdx: 0)
     }
     
     private init() {}

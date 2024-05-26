@@ -11,8 +11,8 @@ struct ImagePicker: UIViewControllerRepresentable {
     @EnvironmentObject private var viewModel: StoreViewModel
     @Environment(\.dismiss) private var dismiss
     
-    private let sourceType: UIImagePickerController.SourceType    //카메라, 사진 라이브러리 타입 지정
     private let index: Int
+    private let sourceType: UIImagePickerController.SourceType    //카메라, 사진 라이브러리 타입 지정
     
     init(for sourceType: UIImagePickerController.SourceType, selectedIndex: Int) {
         self.sourceType = sourceType
@@ -51,7 +51,7 @@ extension ImagePicker {
             if let uiImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage,
                let imageData = uiImage.pngData() {
                 //UIImage를 Data 타입으로 변경하여 저장
-                imagePicker.viewModel.itemImages[imagePicker.index] = imageData
+                imagePicker.viewModel.items[imagePicker.viewModel.itemIdx].itemImages[imagePicker.index] = imageData
             }
             
             imagePicker.dismiss()    //사진 선택 후 View 닫음

@@ -22,7 +22,7 @@ struct CategoryPicker: View {
                 showCetegoryList.toggle()
             }, label: {
                 HStack {
-                    Text(viewModel.itemCategory ?? "카테고리 선택")
+                    Text(viewModel.items[viewModel.itemIdx].itemCategory ?? "카테고리 선택")
                     
                     Spacer()
                     
