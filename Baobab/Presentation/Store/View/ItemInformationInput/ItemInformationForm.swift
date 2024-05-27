@@ -40,7 +40,7 @@ struct ItemInformationForm: View {
                     .frame(maxWidth: .infinity)
             })
             .buttonBorderShape(.roundedRectangle)
-            .cornerRadius(20)
+            .cornerRadius(10)
             .buttonStyle(.borderedProminent)
         }
         .padding()

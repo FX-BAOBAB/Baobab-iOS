@@ -43,25 +43,17 @@ struct StoreReservationForm: View {
             VStack {
                 Spacer()
                 
-                ZStack {
-                    Color.white
-                        .blur(radius: 1.0)
-                        .ignoresSafeArea(edges: .bottom)
-                        .frame(height: UIScreen.main.bounds.width * 0.17)
-                        .background(.ultraThinMaterial)
-                    
-                    Button(action: {}, label: {
-                        Text("다음")
-                            .bold()
-                            .frame(maxWidth: .infinity)
-                            .padding(8)
-                    })
-                    .buttonBorderShape(.roundedRectangle)
-                    .cornerRadius(20)
-                    .buttonStyle(.borderedProminent)
-                    .padding([.leading, .trailing])
-                }
-                    
+                Button(action: {}, label: {
+                    Text("다음")
+                        .bold()
+                        .frame(maxWidth: .infinity)
+                        .padding(8)
+                })
+                .buttonBorderShape(.roundedRectangle)
+                .cornerRadius(10)
+                .buttonStyle(.borderedProminent)
+                .padding([.leading, .trailing, .bottom])
+                .background(.white)
             }
         }
         .navigationTitle("입고 예약")

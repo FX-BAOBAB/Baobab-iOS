@@ -12,6 +12,8 @@ struct DefectRegistrationList: View {
     @State private var isShowingSheet: Bool = false
     @State private var isShowingImageCountAlert: Bool = false
     @State private var isShowingReservationForm: Bool = false
+    @State private var isShowingItemAddtionSheet: Bool = false
+    @State private var isShowingItemInformationForm: Bool = false
     
     var body: some View {
         VStack {
@@ -48,7 +50,11 @@ struct DefectRegistrationList: View {
             .listStyle(.plain)
             
             Button(action: {
-                isShowingReservationForm.toggle()
+                if viewModel.itemIdx > 0 {
+                    isShowingReservationForm.toggle()
+                } else {
+                    isShowingItemAddtionSheet.toggle()
+                }
             }, label: {
                 Text("다음")
                     .bold()
@@ -57,9 +63,9 @@ struct DefectRegistrationList: View {
                     .frame(maxWidth: .infinity)
             })
             .buttonBorderShape(.roundedRectangle)
-            .cornerRadius(20)
+            .cornerRadius(10)
             .buttonStyle(.borderedProminent)
-            .padding([.leading, .trailing, .bottom])
+            .padding([.leading, .trailing])
         }
         .navigationTitle("결함등록")
         .navigationBarItems(trailing: EditButton())
@@ -76,6 +82,16 @@ struct DefectRegistrationList: View {
         .navigationDestination(isPresented: $isShowingReservationForm) {
             StoreReservationForm()
                 .environmentObject(viewModel)
+        }
+        .navigationDestination(isPresented: $isShowingItemInformationForm) {
+            ItemInformationForm()
+                .environmentObject(viewModel)
+        }
+        .sheet(isPresented: $isShowingItemAddtionSheet) {
+            NewItemAdditionSheet(isShowingReservationForm: $isShowingReservationForm,
+                                 isShowingItemInformationForm: $isShowingItemInformationForm,
+                                 isShowingNewItemAdditionSheet: $isShowingItemAddtionSheet)
+            .environmentObject(viewModel)
         }
     }
 }

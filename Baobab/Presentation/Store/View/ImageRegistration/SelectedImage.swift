@@ -26,8 +26,8 @@ struct SelectedImage: View {
                let uiImage = UIImage(data: imageData) {
                 Image(uiImage: uiImage)
                     .resizable()
-                    .frame(width: UIScreen.main.bounds.width * 0.43,
-                           height: UIScreen.main.bounds.width * 0.43)
+                    .frame(width: UIScreen.main.bounds.width * 0.4,
+                           height: UIScreen.main.bounds.width * 0.4)
                     .cornerRadius(20)
                     .onTapGesture {
                         isShowDialog.toggle()
@@ -35,19 +35,24 @@ struct SelectedImage: View {
                     }
             } else {
                 RoundedRectangle(cornerRadius: 20)
-                    .frame(width: UIScreen.main.bounds.width * 0.43,
-                           height: UIScreen.main.bounds.width * 0.43)
-                    .foregroundColor(.gray)
+                    .frame(width: UIScreen.main.bounds.width * 0.4,
+                           height: UIScreen.main.bounds.width * 0.4)
+                    .foregroundColor(Color(red: 243 / 255, green: 242 / 255, blue: 245 / 255))
                     .onTapGesture {
                         isShowDialog.toggle()
                         selectedIndex = pos
                     }
                     .overlay {
-                        Image(systemName: "plus")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: UIScreen.main.bounds.width * 0.05)
-                            .foregroundColor(.white)
+                        VStack {
+                            Image(systemName: "camera.fill")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: UIScreen.main.bounds.width * 0.08)
+                            
+                            Text("사진추가")
+                                .font(.caption)
+                        }
+                        .foregroundColor(.gray)
                     }
             }
         }

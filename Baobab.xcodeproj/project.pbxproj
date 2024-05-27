@@ -37,6 +37,7 @@
 		5C994A542BF592E60013672B /* SelectedDefectImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C994A532BF592E60013672B /* SelectedDefectImage.swift */; };
 		5C994A562BF5EA960013672B /* DefectImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C994A552BF5EA960013672B /* DefectImagePicker.swift */; };
 		5C994A582BF5F8D00013672B /* Defect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C994A572BF5F8D00013672B /* Defect.swift */; };
+		5C9AD9222C040178003EF614 /* NewItemAdditionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9AD9212C040178003EF614 /* NewItemAdditionSheet.swift */; };
 		5C9B81042BF44AD10038EB27 /* DefectRegistrationList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9B81032BF44AD10038EB27 /* DefectRegistrationList.swift */; };
 		5CA04A352BFB01AC00A28FCA /* Date+Tomorrow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA04A342BFB01AC00A28FCA /* Date+Tomorrow.swift */; };
 		5CADA5D52C000D4C00FFCC64 /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CADA5D42C000D4C00FFCC64 /* SectionHeader.swift */; };
@@ -46,6 +47,7 @@
 		5CCFBF682BF2E05F00322D0D /* SelectedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCFBF672BF2E05F00322D0D /* SelectedImage.swift */; };
 		5CCFBF6A2BF2E18200322D0D /* ImageRegistrationForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCFBF692BF2E18200322D0D /* ImageRegistrationForm.swift */; };
 		5CD8A2072C0341B900EE5C09 /* StoreItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD8A2062C0341B900EE5C09 /* StoreItem.swift */; };
+		5CD8A2092C036A8B00EE5C09 /* ImageRegistrationCompleteSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD8A2082C036A8B00EE5C09 /* ImageRegistrationCompleteSheet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +84,7 @@
 		5C994A532BF592E60013672B /* SelectedDefectImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedDefectImage.swift; sourceTree = "<group>"; };
 		5C994A552BF5EA960013672B /* DefectImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefectImagePicker.swift; sourceTree = "<group>"; };
 		5C994A572BF5F8D00013672B /* Defect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defect.swift; sourceTree = "<group>"; };
+		5C9AD9212C040178003EF614 /* NewItemAdditionSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemAdditionSheet.swift; sourceTree = "<group>"; };
 		5C9B81032BF44AD10038EB27 /* DefectRegistrationList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefectRegistrationList.swift; sourceTree = "<group>"; };
 		5CA04A342BFB01AC00A28FCA /* Date+Tomorrow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Tomorrow.swift"; sourceTree = "<group>"; };
 		5CADA5D42C000D4C00FFCC64 /* SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeader.swift; sourceTree = "<group>"; };
@@ -91,6 +94,7 @@
 		5CCFBF672BF2E05F00322D0D /* SelectedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedImage.swift; sourceTree = "<group>"; };
 		5CCFBF692BF2E18200322D0D /* ImageRegistrationForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRegistrationForm.swift; sourceTree = "<group>"; };
 		5CD8A2062C0341B900EE5C09 /* StoreItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItem.swift; sourceTree = "<group>"; };
+		5CD8A2082C036A8B00EE5C09 /* ImageRegistrationCompleteSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRegistrationCompleteSheet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +187,7 @@
 		5C426BF82BEDBD4800869F6D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5CD8A20A2C03769000EE5C09 /* Commons */,
 				5C89233C2BFAC7EA00AE9049 /* StoreReservation */,
 				5C9B81022BF44A800038EB27 /* DefectRegistration */,
 				5CCFBF662BF2E00800322D0D /* ImageRegistration */,
@@ -215,8 +220,6 @@
 			isa = PBXGroup;
 			children = (
 				5C89233D2BFAC80200AE9049 /* StoreReservationForm.swift */,
-				5C9679C12BFF25E7007C8D5A /* SectionFooter.swift */,
-				5CADA5D42C000D4C00FFCC64 /* SectionHeader.swift */,
 				5C9679BF2BFEC666007C8D5A /* SelectedAddressDetail.swift */,
 				5C9679BD2BFEC59F007C8D5A /* PostCodeSearch.swift */,
 				5CADA5D82C004E8000FFCC64 /* PostSearchWebView.swift */,
@@ -287,6 +290,17 @@
 				5CD8A2062C0341B900EE5C09 /* StoreItem.swift */,
 			);
 			path = Entities;
+			sourceTree = "<group>";
+		};
+		5CD8A20A2C03769000EE5C09 /* Commons */ = {
+			isa = PBXGroup;
+			children = (
+				5CADA5D42C000D4C00FFCC64 /* SectionHeader.swift */,
+				5C9679C12BFF25E7007C8D5A /* SectionFooter.swift */,
+				5CD8A2082C036A8B00EE5C09 /* ImageRegistrationCompleteSheet.swift */,
+				5C9AD9212C040178003EF614 /* NewItemAdditionSheet.swift */,
+			);
+			path = Commons;
 			sourceTree = "<group>";
 		};
 		A79B888828ABA888471C141F /* Frameworks */ = {
@@ -412,6 +426,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C1B84CE2BF20DDB00A99192 /* CheckMark.swift in Sources */,
+				5CD8A2092C036A8B00EE5C09 /* ImageRegistrationCompleteSheet.swift in Sources */,
 				5C735F412BF1A10200A36EC8 /* CategoryList.swift in Sources */,
 				5C735F442BF1A35B00A36EC8 /* CategoryData.swift in Sources */,
 				5CD8A2072C0341B900EE5C09 /* StoreItem.swift in Sources */,
@@ -421,6 +436,7 @@
 				5C735F4C2BF1BAB200A36EC8 /* EstimatedPrice.swift in Sources */,
 				5C4ACAC22BEE41A300195895 /* CategoryPicker.swift in Sources */,
 				5CADA5D52C000D4C00FFCC64 /* SectionHeader.swift in Sources */,
+				5C9AD9222C040178003EF614 /* NewItemAdditionSheet.swift in Sources */,
 				5C89233E2BFAC80200AE9049 /* StoreReservationForm.swift in Sources */,
 				5C426BFF2BEDBE7E00869F6D /* ItemInformationInputBox.swift in Sources */,
 				5C426BEA2BEDA8F300869F6D /* ContentView.swift in Sources */,
