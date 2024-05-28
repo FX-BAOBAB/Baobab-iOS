@@ -15,7 +15,7 @@ struct CategoryPicker: View {
         VStack(alignment: .leading) {
             Text("카테고리")
                 .bold()
-                .font(.headline)
+                .font(.footnote)
                 .padding(.leading)
             
             Button(action: {

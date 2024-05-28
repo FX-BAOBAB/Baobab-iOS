@@ -17,7 +17,7 @@ struct ItemInformationInputBox: View {
         VStack(alignment: .leading) {
             Text(title)
                 .bold()
-                .font(.headline)
+                .font(.footnote)
                 .padding(.leading)
             
             TextField(placeholder, text: $inputValue)

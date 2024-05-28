@@ -9,8 +9,8 @@ import SwiftUI
 
 struct StoreReservationForm: View {
     @EnvironmentObject private var viewModel: StoreViewModel
-    @State private var isShowingAddressList: Bool = false
     @State private var isShowingPostSearch: Bool = false
+    @State private var isShowingAddressList: Bool = false
     
     var body: some View {
         ZStack {
@@ -29,8 +29,11 @@ struct StoreReservationForm: View {
                             }
                     }
                     
-                    Section(header: SectionHeader(title: "방문지 정보")) {
-                        SelectedAddressDetail(isShowingPlaceSearchingForm: $isShowingAddressList)
+                    Section(header: SectionHeader(title: "방문지 정보") {
+                        Button(action:{ isShowingAddressList.toggle() },
+                               label: { Text("변경").bold() })
+                    }) {
+                        SelectedAddressDetail()
                             .environmentObject(viewModel)
                             .padding([.leading, .trailing, .bottom])
                     }

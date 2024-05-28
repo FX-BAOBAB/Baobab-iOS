@@ -7,8 +7,16 @@
 
 import SwiftUI
 
-struct SectionHeader: View {
+struct SectionHeader<Content>: View where Content: View {
     var title: String
+    var content: Content
+    
+    init(title: String, 
+         @ViewBuilder content: () -> Content = { return EmptyView() }
+    ) {
+        self.title = title
+        self.content = content()
+    }
     
     var body: some View {
         HStack {
@@ -16,6 +24,8 @@ struct SectionHeader: View {
                 .bold()
             
             Spacer()
+            
+            content
         }
         .padding()
     }

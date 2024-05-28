@@ -39,7 +39,7 @@ struct PostCodeSearch: View {
                 }
             }
             .navigationDestination(isPresented: $isShowingDetailAddressForm) {
-                DetailAddressForm(address: $address,
+                DetailAddressMap(address: $address,
                                   postCode: $postCode,
                                   isShowingAddressList: $isShowingAddressList,
                                   isShowingPostSearchForm: $isShowingPostCodeSearch)

@@ -9,8 +9,8 @@ import SwiftUI
 
 struct AddressList: View {
     @EnvironmentObject private var viewModel: StoreViewModel
-    @Binding var isShowingAddressList: Bool
     @State private var isShowingPostCodeSearch: Bool = false
+    @Binding var isShowingAddressList: Bool
     
     var body: some View {
         NavigationStack {
@@ -18,10 +18,30 @@ struct AddressList: View {
                 Text("방문지 변경")
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .font(.headline)
+                    .padding([.leading, .trailing, .top])
                 
                 List {
+                    Section(header: Text("기본 방문지")) {
+                        if let address = viewModel.defaultAddress {
+                            AddressListRow(address: address)
+                                .padding(10)
+                                .alignmentGuide(.listRowSeparatorLeading) { _ in
+                                    return 0    //List row 하단 구분선 여백 없음
+                                }
+                        }
+                    }
                     
+                    Section(header: Text("등록된 방문지")) {
+                        ForEach(viewModel.registeredAddresses ?? []) { address in
+                            AddressListRow(address: address)
+                                .padding(10)
+                                .alignmentGuide(.listRowSeparatorLeading) { _ in
+                                    return 0    //List row 하단 구분선 여백 없음
+                                }
+                        }
+                    }
                 }
+                .listStyle(.plain)
                 
                 Button(action: {
                     isShowingPostCodeSearch = true
@@ -35,8 +55,8 @@ struct AddressList: View {
                         }
                         .foregroundColor(.gray)
                 })
+                .padding()
             }
-            .padding()
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button(action: {

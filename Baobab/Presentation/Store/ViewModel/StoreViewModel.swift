@@ -6,20 +6,28 @@
 //
 
 import Combine
+import MapKit
 import Foundation
 
 final class StoreViewModel: ObservableObject {
     @Published var items: [StoreItem] = [StoreItem(), StoreItem()]
     @Published var reservationDate: Date = Date.tomorrow
-    @Published var address: String = "서울특별시 성동구 독서당로 377"
-    @Published var detailAddress: String = "○○○동 ○○○호 (응봉동, 금호현대아파트)"
-    @Published var postCode: String = "12345"
+    @Published var selectedAddress: Address?
+    @Published var defaultAddress: Address?
+    @Published var registeredAddresses: [Address]?
+    @Published var region: MKCoordinateRegion?
     
     var itemIdx: Int
     private var cancellables = Set<AnyCancellable>()
     
     init(itemIdx: Int) {
         self.itemIdx = itemIdx
+        
+        #if DEBUG
+        self.selectedAddress = Address.sampleAddressList.first
+        self.defaultAddress = Address.sampleAddressList.first
+        self.registeredAddresses = Address.sampleAddressList.filter { !($0.isBasicAddress) }
+        #endif
     }
 }
 
