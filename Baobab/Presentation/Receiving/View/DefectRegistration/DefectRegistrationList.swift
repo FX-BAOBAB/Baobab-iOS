@@ -80,7 +80,7 @@ struct DefectRegistrationList: View {
             Text("결함은 최대 4개까지 등록 가능해요")
         })
         .navigationDestination(isPresented: $isShowingReservationForm) {
-            StoreReservationForm()
+            ReceivingReservationForm()
                 .environmentObject(viewModel)
         }
         .navigationDestination(isPresented: $isShowingItemInformationForm) {

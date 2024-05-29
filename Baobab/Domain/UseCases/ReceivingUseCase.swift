@@ -21,7 +21,7 @@ final class ReceivingUseCaseImpl {
 }
 
 extension ReceivingUseCaseImpl: ReceivingUseCase {
-    func fetchGeoCode(_ address: String) -> AnyPublisher<MKCoordinateRegion, any Error> {
+    func fetchGeoCode(_ address: String) -> AnyPublisher<MKCoordinateRegion, Error> {
         return fetchGeoCodeUseCase.execute(for: address)
     }
 }

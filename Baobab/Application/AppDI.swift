@@ -10,7 +10,9 @@ import Foundation
 final class AppDI {
     static let shared: AppDI = AppDI()
     var storeViewModel: ReceivingViewModel {
-        return ReceivingViewModel(itemIdx: 0)
+        let fetchGeoCodeUseCase: FetchGeoCodeUseCase = FetchGeoCodeUseCaseImpl()
+        let receivingUseCase: ReceivingUseCase = ReceivingUseCaseImpl(fetchGeoCodeUseCase: fetchGeoCodeUseCase)
+        return ReceivingViewModel(itemIdx: 0, usecase: receivingUseCase)
     }
     
     private init() {}

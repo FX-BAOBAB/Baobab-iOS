@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct StoreReservationForm: View {
+struct ReceivingReservationForm: View {
     @EnvironmentObject private var viewModel: ReceivingViewModel
     @State private var isShowingPostSearch: Bool = false
     @State private var isShowingAddressList: Bool = false
@@ -73,7 +73,7 @@ struct StoreReservationForm: View {
 
 #Preview {
     NavigationStack {
-        StoreReservationForm()
+        ReceivingReservationForm()
             .environmentObject(AppDI.shared.storeViewModel)
     }
 }

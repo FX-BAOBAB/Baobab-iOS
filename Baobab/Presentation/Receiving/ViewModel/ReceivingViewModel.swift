@@ -18,10 +18,12 @@ final class ReceivingViewModel: ObservableObject {
     @Published var region: MKCoordinateRegion?
     
     var itemIdx: Int
-    private var cancellables = Set<AnyCancellable>()
+    let usecase: ReceivingUseCase
+    var cancellables = Set<AnyCancellable>()
     
-    init(itemIdx: Int) {
+    init(itemIdx: Int, usecase: ReceivingUseCase) {
         self.itemIdx = itemIdx
+        self.usecase = usecase
         
         #if DEBUG
         self.selectedAddress = Address.sampleAddressList.first

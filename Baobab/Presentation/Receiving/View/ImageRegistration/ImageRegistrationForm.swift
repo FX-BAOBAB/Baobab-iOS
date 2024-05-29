@@ -97,7 +97,7 @@ struct ImageRegistrationForm: View {
             Text("사진을 가져올 위치를 선택해 주세요")
         })
         .navigationDestination(isPresented: $isShowingReservationForm) {
-            StoreReservationForm()
+            ReceivingReservationForm()
                 .environmentObject(viewModel)
         }
         .navigationDestination(isPresented: $isShowingItemInformationForm) {
