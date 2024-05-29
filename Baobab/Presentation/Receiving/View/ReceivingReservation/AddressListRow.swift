@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AddressListRow: View {
-    @EnvironmentObject private var viewModel: StoreViewModel
+    @EnvironmentObject private var viewModel: ReceivingViewModel
     
     let address: Address
     

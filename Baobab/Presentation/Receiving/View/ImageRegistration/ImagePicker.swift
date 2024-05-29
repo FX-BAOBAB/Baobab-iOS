@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ImagePicker: UIViewControllerRepresentable {
-    @EnvironmentObject private var viewModel: StoreViewModel
+    @EnvironmentObject private var viewModel: ReceivingViewModel
     @Environment(\.dismiss) private var dismiss
     
     private let index: Int

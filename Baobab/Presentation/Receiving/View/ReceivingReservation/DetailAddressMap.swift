@@ -9,7 +9,7 @@ import SwiftUI
 import MapKit
 
 struct DetailAddressMap: View {
-    @EnvironmentObject private var viewModel: StoreViewModel
+    @EnvironmentObject private var viewModel: ReceivingViewModel
     @State private var detailAddress: String = ""
     @Binding var address: String
     @Binding var postCode: String

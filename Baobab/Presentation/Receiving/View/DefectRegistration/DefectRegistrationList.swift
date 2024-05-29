@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DefectRegistrationList: View {
-    @EnvironmentObject private var viewModel: StoreViewModel
+    @EnvironmentObject private var viewModel: ReceivingViewModel
     @State private var isShowingSheet: Bool = false
     @State private var isShowingImageCountAlert: Bool = false
     @State private var isShowingReservationForm: Bool = false

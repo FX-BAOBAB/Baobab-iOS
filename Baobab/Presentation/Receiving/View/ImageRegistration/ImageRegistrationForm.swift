@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ImageRegistrationForm: View {
-    @EnvironmentObject private var viewModel: StoreViewModel
+    @EnvironmentObject private var viewModel: ReceivingViewModel
     @State private var selectedIndex: Int?
     @State private var isShowingDialog: Bool = false
     @State private var isShowingCamera: Bool = false

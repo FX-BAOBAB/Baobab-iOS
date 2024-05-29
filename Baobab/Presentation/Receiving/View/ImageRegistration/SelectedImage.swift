@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SelectedImage: View {
-    @EnvironmentObject private var viewModel: StoreViewModel
+    @EnvironmentObject private var viewModel: ReceivingViewModel
     @Binding var isShowDialog: Bool
     @Binding var selectedIndex: Int?
     

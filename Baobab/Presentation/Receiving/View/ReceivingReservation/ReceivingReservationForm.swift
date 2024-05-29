@@ -1,5 +1,5 @@
 //
-//  StoreReservationForm.swift
+//  ReceivingReservationForm.swift
 //  Baobab
 //
 //  Created by 이정훈 on 5/20/24.
@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct StoreReservationForm: View {
-    @EnvironmentObject private var viewModel: StoreViewModel
+    @EnvironmentObject private var viewModel: ReceivingViewModel
     @State private var isShowingPostSearch: Bool = false
     @State private var isShowingAddressList: Bool = false
     

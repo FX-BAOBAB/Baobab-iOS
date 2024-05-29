@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ItemQuantitySelector: View {
-    @EnvironmentObject private var viewModel: StoreViewModel
+    @EnvironmentObject private var viewModel: ReceivingViewModel
     
     var body: some View {
         HStack(spacing: 20) {

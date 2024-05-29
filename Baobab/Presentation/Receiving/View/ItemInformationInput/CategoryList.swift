@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CategoryList: View {
-    @EnvironmentObject private var viewModel: StoreViewModel
+    @EnvironmentObject private var viewModel: ReceivingViewModel
     
     var body: some View {
         List {

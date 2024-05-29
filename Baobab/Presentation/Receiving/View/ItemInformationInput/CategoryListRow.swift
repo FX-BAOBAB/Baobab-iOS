@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CategoryListRow: View {
-    @EnvironmentObject private var viewModel: StoreViewModel
+    @EnvironmentObject private var viewModel: ReceivingViewModel
     
     let category: String
     let isSelected: Bool

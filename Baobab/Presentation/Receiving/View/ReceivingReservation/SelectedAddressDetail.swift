@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SelectedAddressDetail: View {
-    @EnvironmentObject private var viewModel: StoreViewModel
+    @EnvironmentObject private var viewModel: ReceivingViewModel
     
     var body: some View {
         VStack(alignment: .leading) {

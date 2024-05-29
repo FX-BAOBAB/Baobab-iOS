@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CategoryPicker: View {
-    @EnvironmentObject private var viewModel: StoreViewModel
+    @EnvironmentObject private var viewModel: ReceivingViewModel
     @State private var showCetegoryList: Bool = false
     
     var body: some View {

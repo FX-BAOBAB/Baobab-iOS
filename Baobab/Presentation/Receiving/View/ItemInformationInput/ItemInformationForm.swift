@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ItemInformationForm: View {
-    @EnvironmentObject private var viewModel: StoreViewModel
+    @EnvironmentObject private var viewModel: ReceivingViewModel
     @State private var isShowingImageRegistrationForm: Bool = false
     
     var body: some View {

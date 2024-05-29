@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DetailAddressForm: View {
-    @EnvironmentObject private var viewModel: StoreViewModel
+    @EnvironmentObject private var viewModel: ReceivingViewModel
     @Binding var address: String
     @Binding var detailAddress: String
     @Binding var postCode: String

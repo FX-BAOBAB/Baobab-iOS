@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct NewItemAdditionSheet: View {
-    @EnvironmentObject private var viewModel: StoreViewModel
+    @EnvironmentObject private var viewModel: ReceivingViewModel
     @Binding var isShowingReservationForm: Bool
     @Binding var isShowingItemInformationForm: Bool
     @Binding var isShowingNewItemAdditionSheet: Bool

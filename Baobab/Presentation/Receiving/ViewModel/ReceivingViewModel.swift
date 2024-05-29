@@ -1,5 +1,5 @@
 //
-//  StoreViewModel.swift
+//  ReceivingViewModel.swift
 //  Baobab
 //
 //  Created by 이정훈 on 5/10/24.
@@ -9,7 +9,7 @@ import Combine
 import MapKit
 import Foundation
 
-final class StoreViewModel: ObservableObject {
+final class ReceivingViewModel: ObservableObject {
     @Published var items: [StoreItem] = [StoreItem(), StoreItem()]
     @Published var reservationDate: Date = Date.tomorrow
     @Published var selectedAddress: Address?
@@ -31,7 +31,7 @@ final class StoreViewModel: ObservableObject {
     }
 }
 
-extension StoreViewModel {
+extension ReceivingViewModel {
     //MARK: - update itemCategory
     func addCategoryWithPrice(categoryWithPrice: String) {
         items[itemIdx].itemCategoryWithPrice = categoryWithPrice

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DefectRegistrationForm: View {
-    @EnvironmentObject private var viewModel: StoreViewModel
+    @EnvironmentObject private var viewModel: ReceivingViewModel
     @State private var isShowingDialog: Bool = false
     @State private var isShowingLibrary: Bool = false
     @State private var isShowingCamera: Bool = false

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PostCodeSearch: View {
-    @EnvironmentObject private var viewModel: StoreViewModel
+    @EnvironmentObject private var viewModel: ReceivingViewModel
     @State private var isProgrss: Bool = true
     @State private var isShowingDetailAddressForm: Bool = false
     @State private var address: String = ""

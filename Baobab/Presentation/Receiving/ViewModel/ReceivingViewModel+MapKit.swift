@@ -1,5 +1,5 @@
 //
-//  StoreViewModel+MapKit.swift
+//  ReceivingViewModel+MapKit.swift
 //  Baobab
 //
 //  Created by 이정훈 on 5/28/24.
@@ -7,7 +7,7 @@
 
 import MapKit
 
-extension StoreViewModel {    
+extension ReceivingViewModel {
     func showLocationOnMap(_ address: String) {
         CLGeocoder().geocodeAddressString(address) { [weak self] (placemarks, error) in
             guard error == nil else {

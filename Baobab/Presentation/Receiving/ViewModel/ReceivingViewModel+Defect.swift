@@ -1,5 +1,5 @@
 //
-//  StoreViewModel+Defect.swift
+//  ReceivingViewModel+Defect.swift
 //  Baobab
 //
 //  Created by 이정훈 on 5/17/24.
@@ -8,7 +8,7 @@
 import SwiftUI
 
 //MARK: - Methods related to defect
-extension StoreViewModel {    
+extension ReceivingViewModel {
     func appendDefect(image: UIImage, description: String) -> Bool {
         if let imageData = image.pngData() {
             items[itemIdx].defects.append(Defect(image: imageData, description: description))

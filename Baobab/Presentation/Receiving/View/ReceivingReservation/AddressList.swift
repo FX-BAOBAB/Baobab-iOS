@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AddressList: View {
-    @EnvironmentObject private var viewModel: StoreViewModel
+    @EnvironmentObject private var viewModel: ReceivingViewModel
     @State private var isShowingPostCodeSearch: Bool = false
     @Binding var isShowingAddressList: Bool
     
