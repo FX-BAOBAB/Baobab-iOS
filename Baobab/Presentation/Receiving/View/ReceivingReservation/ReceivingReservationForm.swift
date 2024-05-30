@@ -62,6 +62,9 @@ struct ReceivingReservationForm: View {
         .navigationTitle("입고 예약")
         .onAppear {
             UIDatePicker.appearance().minuteInterval = 10    //선택 가능한 시간을 10분 단위로 설정
+            
+            //TODO: api 연동 후 활성화
+//            viewModel.fetchDefaultAddress()
         }
         .sheet(isPresented: $isShowingAddressList) {
             AddressList(isShowingAddressList: $isShowingAddressList)
