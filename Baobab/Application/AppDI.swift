@@ -7,11 +7,17 @@
 
 import Foundation
 
-final class AppDI {
+struct AppDI {
     static let shared: AppDI = AppDI()
+    
+    let dataSource = RemoteDataSourceImpl()
+    
     var storeViewModel: ReceivingViewModel {
-        let fetchGeoCodeUseCase: FetchGeoCodeUseCase = FetchGeoCodeUseCaseImpl()
-        let receivingUseCase: ReceivingUseCase = ReceivingUseCaseImpl(fetchGeoCodeUseCase: fetchGeoCodeUseCase)
+        let repository = UserRepositoryImpl(dataSource: dataSource)
+        let fetchGeoCodeUseCase = FetchGeoCodeUseCaseImpl()
+        let fetchDefaultAddressUseCase = FetchDefaultAddressUseCaseImpl(repository: repository)
+        let receivingUseCase = ReceivingUseCaseImpl(fetchGeoCodeUseCase: fetchGeoCodeUseCase,
+                                                    fetchDefaultAddressUseCase: fetchDefaultAddressUseCase)
         return ReceivingViewModel(itemIdx: 0, usecase: receivingUseCase)
     }
     

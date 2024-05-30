@@ -13,6 +13,8 @@
 		5C1B84D02BF2113200A99192 /* AppDI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1B84CF2BF2113200A99192 /* AppDI.swift */; };
 		5C405EEA2BF6F3C0006EE6F1 /* DefectRegistrationRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C405EE92BF6F3C0006EE6F1 /* DefectRegistrationRow.swift */; };
 		5C405EEC2BF72ADB006EE6F1 /* ReceivingViewModel+Defect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C405EEB2BF72ADB006EE6F1 /* ReceivingViewModel+Defect.swift */; };
+		5C41ED912C07FD29001416D9 /* RemoteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C41ED902C07FD29001416D9 /* RemoteRepository.swift */; };
+		5C41ED932C080877001416D9 /* ReceivingViewModel+Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C41ED922C080877001416D9 /* ReceivingViewModel+Address.swift */; };
 		5C426BE82BEDA8F300869F6D /* BaobabApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C426BE72BEDA8F300869F6D /* BaobabApp.swift */; };
 		5C426BEA2BEDA8F300869F6D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C426BE92BEDA8F300869F6D /* ContentView.swift */; };
 		5C426BEC2BEDA8F400869F6D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C426BEB2BEDA8F400869F6D /* Assets.xcassets */; };
@@ -34,6 +36,10 @@
 		5C735F4C2BF1BAB200A36EC8 /* EstimatedPrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C735F4B2BF1BAB200A36EC8 /* EstimatedPrice.swift */; };
 		5C80F0EE2C06BF4500A94C22 /* FetchGeoCodeUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C80F0ED2C06BF4500A94C22 /* FetchGeoCodeUseCase.swift */; };
 		5C80F0F02C06C3A000A94C22 /* ReceivingUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C80F0EF2C06C3A000A94C22 /* ReceivingUseCase.swift */; };
+		5C80F0F22C06D7EB00A94C22 /* FetchDefaultAddressUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C80F0F12C06D7EB00A94C22 /* FetchDefaultAddressUseCase.swift */; };
+		5C80F0F52C06D86F00A94C22 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C80F0F42C06D86F00A94C22 /* UserRepository.swift */; };
+		5C80F0F82C06DD0F00A94C22 /* DefaultAddressResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C80F0F72C06DD0F00A94C22 /* DefaultAddressResponseDTO.swift */; };
+		5C80F0FD2C070DA600A94C22 /* UserRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C80F0FC2C070DA600A94C22 /* UserRepositoryImpl.swift */; };
 		5C89233E2BFAC80200AE9049 /* ReceivingReservationForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C89233D2BFAC80200AE9049 /* ReceivingReservationForm.swift */; };
 		5C8923442BFADF0900AE9049 /* Date+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8923432BFADF0900AE9049 /* Date+String.swift */; };
 		5C90636F2C04B34F004A0EC5 /* AddressListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C90636E2C04B34F004A0EC5 /* AddressListRow.swift */; };
@@ -48,6 +54,7 @@
 		5C9AD9222C040178003EF614 /* NewItemAdditionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9AD9212C040178003EF614 /* NewItemAdditionSheet.swift */; };
 		5C9B81042BF44AD10038EB27 /* DefectRegistrationList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9B81032BF44AD10038EB27 /* DefectRegistrationList.swift */; };
 		5CA04A352BFB01AC00A28FCA /* Date+Tomorrow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA04A342BFB01AC00A28FCA /* Date+Tomorrow.swift */; };
+		5CA752CC2C0712C100DA42B7 /* RemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA752CB2C0712C100DA42B7 /* RemoteDataSource.swift */; };
 		5CADA5D52C000D4C00FFCC64 /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CADA5D42C000D4C00FFCC64 /* SectionHeader.swift */; };
 		5CADA5D92C004E8000FFCC64 /* PostSearchWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CADA5D82C004E8000FFCC64 /* PostSearchWebView.swift */; };
 		5CADA5DB2C0093D300FFCC64 /* AddressList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CADA5DA2C0093D300FFCC64 /* AddressList.swift */; };
@@ -67,6 +74,8 @@
 		5C1B84CF2BF2113200A99192 /* AppDI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDI.swift; sourceTree = "<group>"; };
 		5C405EE92BF6F3C0006EE6F1 /* DefectRegistrationRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefectRegistrationRow.swift; sourceTree = "<group>"; };
 		5C405EEB2BF72ADB006EE6F1 /* ReceivingViewModel+Defect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReceivingViewModel+Defect.swift"; sourceTree = "<group>"; };
+		5C41ED902C07FD29001416D9 /* RemoteRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteRepository.swift; sourceTree = "<group>"; };
+		5C41ED922C080877001416D9 /* ReceivingViewModel+Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReceivingViewModel+Address.swift"; sourceTree = "<group>"; };
 		5C426BE42BEDA8F300869F6D /* Baobab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Baobab.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C426BE72BEDA8F300869F6D /* BaobabApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaobabApp.swift; sourceTree = "<group>"; };
 		5C426BE92BEDA8F300869F6D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -89,6 +98,10 @@
 		5C735F4B2BF1BAB200A36EC8 /* EstimatedPrice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstimatedPrice.swift; sourceTree = "<group>"; };
 		5C80F0ED2C06BF4500A94C22 /* FetchGeoCodeUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchGeoCodeUseCase.swift; sourceTree = "<group>"; };
 		5C80F0EF2C06C3A000A94C22 /* ReceivingUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceivingUseCase.swift; sourceTree = "<group>"; };
+		5C80F0F12C06D7EB00A94C22 /* FetchDefaultAddressUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchDefaultAddressUseCase.swift; sourceTree = "<group>"; };
+		5C80F0F42C06D86F00A94C22 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
+		5C80F0F72C06DD0F00A94C22 /* DefaultAddressResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAddressResponseDTO.swift; sourceTree = "<group>"; };
+		5C80F0FC2C070DA600A94C22 /* UserRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoryImpl.swift; sourceTree = "<group>"; };
 		5C89233D2BFAC80200AE9049 /* ReceivingReservationForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceivingReservationForm.swift; sourceTree = "<group>"; };
 		5C8923432BFADF0900AE9049 /* Date+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+String.swift"; sourceTree = "<group>"; };
 		5C90636E2C04B34F004A0EC5 /* AddressListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressListRow.swift; sourceTree = "<group>"; };
@@ -103,6 +116,7 @@
 		5C9AD9212C040178003EF614 /* NewItemAdditionSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemAdditionSheet.swift; sourceTree = "<group>"; };
 		5C9B81032BF44AD10038EB27 /* DefectRegistrationList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefectRegistrationList.swift; sourceTree = "<group>"; };
 		5CA04A342BFB01AC00A28FCA /* Date+Tomorrow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Tomorrow.swift"; sourceTree = "<group>"; };
+		5CA752CB2C0712C100DA42B7 /* RemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDataSource.swift; sourceTree = "<group>"; };
 		5CADA5D42C000D4C00FFCC64 /* SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeader.swift; sourceTree = "<group>"; };
 		5CADA5D82C004E8000FFCC64 /* PostSearchWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostSearchWebView.swift; sourceTree = "<group>"; };
 		5CADA5DA2C0093D300FFCC64 /* AddressList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressList.swift; sourceTree = "<group>"; };
@@ -158,6 +172,7 @@
 				5C426BF52BEDBD1200869F6D /* Application */,
 				5C8C400F2BF19EB6007A7532 /* Resources */,
 				5C735F422BF1A2FC00A36EC8 /* Utils */,
+				5C80F0F62C06DC8400A94C22 /* Data */,
 				5CD8A2042C03417F00EE5C09 /* Domain */,
 				5C426BF62BEDBD1B00869F6D /* Presentation */,
 				5C426BED2BEDA8F400869F6D /* Preview Content */,
@@ -218,6 +233,7 @@
 				5C426BFC2BEDBDE900869F6D /* ReceivingViewModel.swift */,
 				5C405EEB2BF72ADB006EE6F1 /* ReceivingViewModel+Defect.swift */,
 				5C4F18162C0574CF0030A096 /* ReceivingViewModel+Region.swift */,
+				5C41ED922C080877001416D9 /* ReceivingViewModel+Address.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -237,9 +253,53 @@
 			isa = PBXGroup;
 			children = (
 				5C80F0ED2C06BF4500A94C22 /* FetchGeoCodeUseCase.swift */,
+				5C80F0F12C06D7EB00A94C22 /* FetchDefaultAddressUseCase.swift */,
 				5C80F0EF2C06C3A000A94C22 /* ReceivingUseCase.swift */,
 			);
 			path = UseCases;
+			sourceTree = "<group>";
+		};
+		5C80F0F32C06D82C00A94C22 /* Repository Interfaces */ = {
+			isa = PBXGroup;
+			children = (
+				5C80F0F42C06D86F00A94C22 /* UserRepository.swift */,
+			);
+			path = "Repository Interfaces";
+			sourceTree = "<group>";
+		};
+		5C80F0F62C06DC8400A94C22 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				5C80F1002C070E1400A94C22 /* DataSource */,
+				5C80F0FB2C06DE2D00A94C22 /* Repository Implemetation */,
+				5C80F0FA2C06DDE900A94C22 /* DTO */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		5C80F0FA2C06DDE900A94C22 /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				5C80F0F72C06DD0F00A94C22 /* DefaultAddressResponseDTO.swift */,
+			);
+			path = DTO;
+			sourceTree = "<group>";
+		};
+		5C80F0FB2C06DE2D00A94C22 /* Repository Implemetation */ = {
+			isa = PBXGroup;
+			children = (
+				5C80F0FC2C070DA600A94C22 /* UserRepositoryImpl.swift */,
+				5C41ED902C07FD29001416D9 /* RemoteRepository.swift */,
+			);
+			path = "Repository Implemetation";
+			sourceTree = "<group>";
+		};
+		5C80F1002C070E1400A94C22 /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				5CA752CB2C0712C100DA42B7 /* RemoteDataSource.swift */,
+			);
+			path = DataSource;
 			sourceTree = "<group>";
 		};
 		5C89233C2BFAC7EA00AE9049 /* ReceivingReservation */ = {
@@ -306,6 +366,7 @@
 		5CD8A2042C03417F00EE5C09 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				5C80F0F32C06D82C00A94C22 /* Repository Interfaces */,
 				5C80F0EC2C06BDBD00A94C22 /* UseCases */,
 				5CD8A2052C03419200EE5C09 /* Entities */,
 			);
@@ -460,17 +521,20 @@
 				5C1B84CE2BF20DDB00A99192 /* CheckMark.swift in Sources */,
 				5CD8A2092C036A8B00EE5C09 /* ImageRegistrationCompleteSheet.swift in Sources */,
 				5C735F412BF1A10200A36EC8 /* CategoryList.swift in Sources */,
+				5C41ED912C07FD29001416D9 /* RemoteRepository.swift in Sources */,
 				5C735F442BF1A35B00A36EC8 /* CategoryData.swift in Sources */,
 				5C90636F2C04B34F004A0EC5 /* AddressListRow.swift in Sources */,
 				5CD8A2072C0341B900EE5C09 /* StoreItem.swift in Sources */,
 				5C994A522BF58A880013672B /* DefectRegistrationForm.swift in Sources */,
 				5C13D5AB2BF3082600CA0792 /* ImagePicker.swift in Sources */,
+				5CA752CC2C0712C100DA42B7 /* RemoteDataSource.swift in Sources */,
 				5C426BFD2BEDBDE900869F6D /* ReceivingViewModel.swift in Sources */,
 				5C735F4C2BF1BAB200A36EC8 /* EstimatedPrice.swift in Sources */,
 				5C4ACAC22BEE41A300195895 /* CategoryPicker.swift in Sources */,
 				5CADA5D52C000D4C00FFCC64 /* SectionHeader.swift in Sources */,
 				5C9AD9222C040178003EF614 /* NewItemAdditionSheet.swift in Sources */,
 				5C89233E2BFAC80200AE9049 /* ReceivingReservationForm.swift in Sources */,
+				5C80F0F52C06D86F00A94C22 /* UserRepository.swift in Sources */,
 				5C9063712C04B75B004A0EC5 /* Address.swift in Sources */,
 				5C426BFF2BEDBE7E00869F6D /* ItemInformationInputBox.swift in Sources */,
 				5C426BEA2BEDA8F300869F6D /* ContentView.swift in Sources */,
@@ -484,10 +548,13 @@
 				5C8923442BFADF0900AE9049 /* Date+String.swift in Sources */,
 				5C4F18172C0574CF0030A096 /* ReceivingViewModel+Region.swift in Sources */,
 				5C4ACABC2BEE1ED700195895 /* ItemQuantitySelector.swift in Sources */,
+				5C80F0FD2C070DA600A94C22 /* UserRepositoryImpl.swift in Sources */,
+				5C80F0F22C06D7EB00A94C22 /* FetchDefaultAddressUseCase.swift in Sources */,
 				5CADA5DD2C00CE1600FFCC64 /* DetailAddressMap.swift in Sources */,
 				5C994A542BF592E60013672B /* SelectedDefectImage.swift in Sources */,
 				5C80F0F02C06C3A000A94C22 /* ReceivingUseCase.swift in Sources */,
 				5C735F4A2BF1B44500A36EC8 /* ItemInformationForm.swift in Sources */,
+				5C41ED932C080877001416D9 /* ReceivingViewModel+Address.swift in Sources */,
 				5C4ACABE2BEE1F1900195895 /* PlusButtonImage.swift in Sources */,
 				5C1B84D02BF2113200A99192 /* AppDI.swift in Sources */,
 				5C9679C02BFEC666007C8D5A /* SelectedAddressDetail.swift in Sources */,
@@ -498,6 +565,7 @@
 				5C994A562BF5EA960013672B /* DefectImagePicker.swift in Sources */,
 				5C9B81042BF44AD10038EB27 /* DefectRegistrationList.swift in Sources */,
 				5C405EEA2BF6F3C0006EE6F1 /* DefectRegistrationRow.swift in Sources */,
+				5C80F0F82C06DD0F00A94C22 /* DefaultAddressResponseDTO.swift in Sources */,
 				5C735F462BF1A4B400A36EC8 /* CategoryListRow.swift in Sources */,
 				5C994A582BF5F8D00013672B /* Defect.swift in Sources */,
 				5C4F18192C05B86D0030A096 /* DetailAddressForm.swift in Sources */,

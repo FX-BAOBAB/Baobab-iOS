@@ -9,11 +9,11 @@ import MapKit
 
 extension ReceivingViewModel {
     func showLocationOnMap(_ address: String) {
-        usecase.fetchGeoCode(address)
+        usecase.fetchGeoCode(of: address)
             .sink(receiveCompletion: { completion in
                 switch completion {
                 case .finished:
-                    print("")
+                    print("Request to fetch geocode successful")
                 case .failure(let error):
                     print("ReceivingViewModel.showLocationOnMap(_:) - ", error)
                 }
