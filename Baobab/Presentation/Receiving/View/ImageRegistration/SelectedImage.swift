@@ -43,16 +43,8 @@ struct SelectedImage: View {
                         selectedIndex = pos
                     }
                     .overlay {
-                        VStack {
-                            Image(systemName: "camera.fill")
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(width: UIScreen.main.bounds.width * 0.08)
-                            
-                            Text("사진추가")
-                                .font(.caption)
-                        }
-                        .foregroundColor(.gray)
+                        CameraLabel(width: UIScreen.main.bounds.width * 0.08,
+                                    font: .caption)
                     }
             }
         }

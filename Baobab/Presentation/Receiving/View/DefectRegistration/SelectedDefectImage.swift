@@ -30,15 +30,12 @@ struct SelectedDefectImage: View {
             }
         } else {
             RoundedRectangle(cornerRadius: 20)
-                .fill(.gray)
+                .fill(Color(red: 243 / 255, green: 242 / 255, blue: 245 / 255))
                 .aspectRatio(contentMode: .fit)
                 .frame(maxWidth: .infinity)
                 .overlay {
-                    Image(systemName: "camera.fill")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: UIScreen.main.bounds.width * 0.2)
-                        .foregroundColor(.white)
+                    CameraLabel(width: UIScreen.main.bounds.width * 0.15, 
+                                font: .body)
                 }
         }
     }
