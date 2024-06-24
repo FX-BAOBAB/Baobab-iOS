@@ -8,12 +8,13 @@
 import SwiftUI
 
 struct SelectedDefectImage: View {
-    @Binding var selectedImage: UIImage?
+    @Binding var selectedImageData: Data?
     
     var body: some View {
-        if let selectedImage {
+        if let selectedImageData,
+        let uiImage = UIImage(data: selectedImageData){
             ZStack {
-                Image(uiImage: selectedImage)
+                Image(uiImage: uiImage)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(maxWidth: .infinity)
@@ -42,5 +43,5 @@ struct SelectedDefectImage: View {
 }
 
 #Preview {
-    SelectedDefectImage(selectedImage: .constant(nil))
+    SelectedDefectImage(selectedImageData: .constant(nil))
 }
