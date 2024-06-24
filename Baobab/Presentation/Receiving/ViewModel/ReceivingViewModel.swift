@@ -16,6 +16,8 @@ final class ReceivingViewModel: ObservableObject {
     @Published var defaultAddress: Address?
     @Published var registeredAddresses: [Address]?
     @Published var region: MKCoordinateRegion?
+    @Published var selectedDefectImage: Data?
+    @Published var defectDescription: String = ""
     
     var itemIdx: Int
     let usecase: ReceivingUseCase

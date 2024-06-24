@@ -13,8 +13,6 @@ struct DefectRegistrationForm: View {
     @State private var isShowingLibrary: Bool = false
     @State private var isShowingCamera: Bool = false
     @State private var isShowingImageExistsAlert: Bool = false
-    @State private var selectedImage: UIImage?
-    @State private var description: String = ""
     @Binding var isShowingSheet: Bool
     
     var body: some View {
@@ -26,7 +24,7 @@ struct DefectRegistrationForm: View {
                         .bold()
                         .padding(.leading, 10)
                     
-                    SelectedDefectImage(selectedImage: $selectedImage)
+                    SelectedDefectImage(selectedImageData: $viewModel.selectedDefectImage)
                         .onTapGesture {
                             isShowingDialog.toggle()
                         }
@@ -48,7 +46,7 @@ struct DefectRegistrationForm: View {
                         .bold()
                         .padding(.leading, 10)
                     
-                    TextField("물품 외관의 흠집이나 상태와 관련된 메모를 남겨주세요.", text: $description, axis: .vertical)
+                    TextField("물품 외관의 흠집이나 상태와 관련된 메모를 남겨주세요.", text: $viewModel.defectDescription, axis: .vertical)
                         .lineLimit(Int(UIScreen.main.bounds.height * 0.008), reservesSpace: true)
                         .padding()
                         .font(.subheadline)
@@ -79,11 +77,11 @@ struct DefectRegistrationForm: View {
             Text("사진을 가져올 위치를 선택해 주세요")
         })
         .sheet(isPresented: $isShowingCamera) {
-            DefectImagePicker(selectedImage: $selectedImage,
+            DefectImagePicker(selectedImage: $viewModel.selectedDefectImage,
                               sourceType: .camera)
         }
         .sheet(isPresented: $isShowingLibrary) {
-            DefectImagePicker(selectedImage: $selectedImage,
+            DefectImagePicker(selectedImage: $viewModel.selectedDefectImage,
                               sourceType: .photoLibrary)
         }
         .toolbar {
@@ -97,8 +95,8 @@ struct DefectRegistrationForm: View {
             
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button(action: {
-                    if let selectedImage {
-                        if viewModel.appendDefect(image: selectedImage, description: description) {
+                    if viewModel.selectedDefectImage != nil {
+                        if viewModel.appendDefect() {
                             isShowingSheet.toggle()
                         }
                     } else {

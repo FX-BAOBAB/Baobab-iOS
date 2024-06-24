@@ -9,9 +9,9 @@ import SwiftUI
 
 //MARK: - Methods related to defect
 extension ReceivingViewModel {
-    func appendDefect(image: UIImage, description: String) -> Bool {
-        if let imageData = image.pngData() {
-            items[itemIdx].defects.append(Defect(image: imageData, description: description))
+    func appendDefect() -> Bool {
+        if let imageData = self.selectedDefectImage {
+            items[itemIdx].defects.append(Defect(image: imageData, description: self.defectDescription))
             return true
         }
         
