@@ -77,6 +77,6 @@ struct ReceivingReservationForm: View {
 #Preview {
     NavigationStack {
         ReceivingReservationForm()
-            .environmentObject(AppDI.shared.storeViewModel)
+            .environmentObject(AppDI.shared.receivingViewModel)
     }
 }

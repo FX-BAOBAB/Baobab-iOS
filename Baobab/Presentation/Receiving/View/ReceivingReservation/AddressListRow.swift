@@ -45,5 +45,5 @@ struct AddressListRow: View {
 
 #Preview {
     AddressListRow(address: Address.sampleAddressList.first!)
-        .environmentObject(AppDI.shared.storeViewModel)
+        .environmentObject(AppDI.shared.receivingViewModel)
 }

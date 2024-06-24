@@ -78,5 +78,5 @@ struct AddressList: View {
 
 #Preview {
     AddressList(isShowingAddressList: .constant(true))
-        .environmentObject(AppDI.shared.storeViewModel)
+        .environmentObject(AppDI.shared.receivingViewModel)
 }

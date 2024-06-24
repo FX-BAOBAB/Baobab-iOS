@@ -79,6 +79,6 @@ struct DetailAddressMap: View {
                           postCode: .constant("13524"),
                           isShowingAddressList: .constant(false),
                           isShowingPostSearchForm: .constant(false))
-        .environmentObject(AppDI.shared.storeViewModel)
+        .environmentObject(AppDI.shared.receivingViewModel)
     }
 }

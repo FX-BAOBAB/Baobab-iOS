@@ -120,6 +120,6 @@ struct DefectRegistrationForm: View {
 #Preview {
     NavigationStack {
         DefectRegistrationForm(isShowingSheet: .constant(true))
-            .environmentObject(AppDI.shared.storeViewModel)
+            .environmentObject(AppDI.shared.receivingViewModel)
     }
 }

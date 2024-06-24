@@ -119,9 +119,11 @@ struct ImageRegistrationForm: View {
             }
         }
         .sheet(isPresented: $isShowingImageRegistrationCompleteSheet) {
-            ImageRegistrationCompleteSheet(isShowingNewItemAdditionSheet: $isShowingNewItemAdditionSheet,
+            ImageRegistrationCompleteSheet(isShowingReservationForm: $isShowingReservationForm,
+                                           isShowingNewItemAdditionSheet: $isShowingNewItemAdditionSheet,
                                            isShowingDefectRegistrationList: $isShowingDefectRegistrationList,
                                            isShowingImageRegistrationCompleteSheet: $isShowingImageRegistrationCompleteSheet)
+            .environmentObject(viewModel)
             .presentationDetents([.height(UIScreen.main.bounds.width * 0.6)])
             .presentationDragIndicator(.visible)
         }
@@ -138,6 +140,6 @@ struct ImageRegistrationForm: View {
 #Preview {
     NavigationStack {
         ImageRegistrationForm()
-            .environmentObject(AppDI.shared.storeViewModel)
+            .environmentObject(AppDI.shared.receivingViewModel)
     }
 }

@@ -12,7 +12,7 @@ struct AppDI {
     
     let dataSource = RemoteDataSourceImpl()
     
-    var storeViewModel: ReceivingViewModel {
+    var receivingViewModel: ReceivingViewModel {
         let repository = UserRepositoryImpl(dataSource: dataSource)
         let fetchGeoCodeUseCase = FetchGeoCodeUseCaseImpl()
         let fetchDefaultAddressUseCase = FetchDefaultAddressUseCaseImpl(repository: repository)

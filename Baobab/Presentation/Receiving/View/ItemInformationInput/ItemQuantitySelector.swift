@@ -48,5 +48,5 @@ struct ItemQuantitySelector: View {
 
 #Preview {
     ItemQuantitySelector()
-        .environmentObject(AppDI.shared.storeViewModel)
+        .environmentObject(AppDI.shared.receivingViewModel)
 }
