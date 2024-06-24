@@ -63,6 +63,7 @@
 		5CCFBF6A2BF2E18200322D0D /* ImageRegistrationForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCFBF692BF2E18200322D0D /* ImageRegistrationForm.swift */; };
 		5CD8A2072C0341B900EE5C09 /* StoreItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD8A2062C0341B900EE5C09 /* StoreItem.swift */; };
 		5CD8A2092C036A8B00EE5C09 /* ImageRegistrationCompleteSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD8A2082C036A8B00EE5C09 /* ImageRegistrationCompleteSheet.swift */; };
+		8E90635E2C293775008B5C52 /* CameraLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E90635D2C293775008B5C52 /* CameraLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -125,6 +126,7 @@
 		5CCFBF692BF2E18200322D0D /* ImageRegistrationForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRegistrationForm.swift; sourceTree = "<group>"; };
 		5CD8A2062C0341B900EE5C09 /* StoreItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItem.swift; sourceTree = "<group>"; };
 		5CD8A2082C036A8B00EE5C09 /* ImageRegistrationCompleteSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRegistrationCompleteSheet.swift; sourceTree = "<group>"; };
+		8E90635D2C293775008B5C52 /* CameraLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -392,6 +394,7 @@
 				5C9679C12BFF25E7007C8D5A /* SectionFooter.swift */,
 				5CD8A2082C036A8B00EE5C09 /* ImageRegistrationCompleteSheet.swift */,
 				5C9AD9212C040178003EF614 /* NewItemAdditionSheet.swift */,
+				8E90635D2C293775008B5C52 /* CameraLabel.swift */,
 			);
 			path = Commons;
 			sourceTree = "<group>";
@@ -521,6 +524,7 @@
 				5C1B84CE2BF20DDB00A99192 /* CheckMark.swift in Sources */,
 				5CD8A2092C036A8B00EE5C09 /* ImageRegistrationCompleteSheet.swift in Sources */,
 				5C735F412BF1A10200A36EC8 /* CategoryList.swift in Sources */,
+				8E90635E2C293775008B5C52 /* CameraLabel.swift in Sources */,
 				5C41ED912C07FD29001416D9 /* RemoteRepository.swift in Sources */,
 				5C735F442BF1A35B00A36EC8 /* CategoryData.swift in Sources */,
 				5C90636F2C04B34F004A0EC5 /* AddressListRow.swift in Sources */,
