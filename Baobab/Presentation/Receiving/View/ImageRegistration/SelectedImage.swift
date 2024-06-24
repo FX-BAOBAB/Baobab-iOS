@@ -63,5 +63,5 @@ struct SelectedImage: View {
     SelectedImage(isShowDialog: .constant(false), 
                   selectedIndex: .constant(0),
                   pos: 0, title: "정면")
-        .environmentObject(AppDI.shared.storeViewModel)
+        .environmentObject(AppDI.shared.receivingViewModel)
 }

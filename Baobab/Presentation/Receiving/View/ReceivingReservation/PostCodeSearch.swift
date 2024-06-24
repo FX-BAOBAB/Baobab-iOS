@@ -52,5 +52,5 @@ struct PostCodeSearch: View {
 #Preview {
     PostCodeSearch(isShowingPostCodeSearch: .constant(false), 
                    isShowingAddressList: .constant(false))
-        .environmentObject(AppDI.shared.storeViewModel)
+        .environmentObject(AppDI.shared.receivingViewModel)
 }

@@ -41,5 +41,5 @@ struct SelectedAddressDetail: View {
 
 #Preview {
     SelectedAddressDetail()
-        .environmentObject(AppDI.shared.storeViewModel)
+        .environmentObject(AppDI.shared.receivingViewModel)
 }

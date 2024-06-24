@@ -50,9 +50,11 @@ struct DefectRegistrationList: View {
             .listStyle(.plain)
             
             Button(action: {
-                if viewModel.itemIdx > 0 {
+                if viewModel.itemIdx >= 1 {
+                    //등록된 물품이 2개 이상이면 예약 날짜 선택 화면으로 이동
                     isShowingReservationForm.toggle()
                 } else {
+                    //등록된 물품이 1개라면 추가 등록 여부 확인
                     isShowingItemAddtionSheet.toggle()
                 }
             }, label: {
@@ -91,6 +93,8 @@ struct DefectRegistrationList: View {
             NewItemAdditionSheet(isShowingReservationForm: $isShowingReservationForm,
                                  isShowingItemInformationForm: $isShowingItemInformationForm,
                                  isShowingNewItemAdditionSheet: $isShowingItemAddtionSheet)
+            .presentationDetents([.height(UIScreen.main.bounds.width * 0.6)])
+            .presentationDragIndicator(.visible)
             .environmentObject(viewModel)
         }
     }
@@ -99,6 +103,6 @@ struct DefectRegistrationList: View {
 #Preview {
     NavigationStack {
         DefectRegistrationList()
-            .environmentObject(AppDI.shared.storeViewModel)
+            .environmentObject(AppDI.shared.receivingViewModel)
     }
 }

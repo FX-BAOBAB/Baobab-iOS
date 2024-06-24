@@ -46,5 +46,5 @@ struct CategoryPicker: View {
 
 #Preview {
     CategoryPicker()
-        .environmentObject(AppDI.shared.storeViewModel)
+        .environmentObject(AppDI.shared.receivingViewModel)
 }

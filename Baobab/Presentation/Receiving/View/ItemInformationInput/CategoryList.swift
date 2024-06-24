@@ -25,5 +25,5 @@ struct CategoryList: View {
 
 #Preview {
     CategoryList()
-        .environmentObject(AppDI.shared.storeViewModel)
+        .environmentObject(AppDI.shared.receivingViewModel)
 }
