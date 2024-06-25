@@ -25,6 +25,11 @@ final class ReceivingViewModel: ObservableObject {
     var itemIdx: Int
     let usecase: ReceivingUseCase
     var cancellables = Set<AnyCancellable>()
+    var totalPrice: Int {
+        return (0..<itemIdx + 1).reduce(0, {
+            $0 + (items[$1].itemPrice ?? 0)
+        })
+    }
     
     init(itemIdx: Int, usecase: ReceivingUseCase) {
         self.itemIdx = itemIdx
@@ -51,18 +56,6 @@ extension ReceivingViewModel {
         let subString = categoryWithPrice[firstIndex..<lastIndex]
         items[itemIdx].itemCategory = String(subString).trimmingCharacters(in: .whitespacesAndNewlines)
         updatePrice()
-    }
-    
-    func calculateTotalPrice() -> Int {
-        var totalPrice: Int = 0
-        
-        for i in 0..<itemIdx + 1 {
-            items[i].itemPrice.map { price in
-                totalPrice += price
-            }
-        }
-        
-        return totalPrice
     }
     
     func updatePrice() {
