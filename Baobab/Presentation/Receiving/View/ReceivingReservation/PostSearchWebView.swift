@@ -9,10 +9,9 @@ import WebKit
 import SwiftUI
 
 struct PostSearchWebView: UIViewRepresentable {
+    @EnvironmentObject private var viewModel: ReceivingViewModel
     @Binding var isShowingDetailAddressForm: Bool
     @Binding var isProgress: Bool
-    @Binding var address: String
-    @Binding var postCode: String
     
     func makeUIView(context: Context) -> some UIView {
         guard let url = URL(string: "https://fx-baobab.github.io/DaumKakao_Postcode_Web/") else {
@@ -60,11 +59,11 @@ extension PostSearchWebView.Coordinator: WKScriptMessageHandler {
         }
         
         if let address = data["roadAddress"] {
-            parent.address = address
+            parent.viewModel.searchedAddress = address
         }
         
         if let postcode = data["zonecode"] {
-            parent.postCode = postcode
+            parent.viewModel.searchedPostCode = postcode
         }
         
         parent.isShowingDetailAddressForm.toggle()
@@ -73,7 +72,6 @@ extension PostSearchWebView.Coordinator: WKScriptMessageHandler {
 
 #Preview {
     PostSearchWebView(isShowingDetailAddressForm: .constant(false),
-                      isProgress: .constant(false), 
-                      address: .constant(""),
-                      postCode: .constant(""))
+                      isProgress: .constant(false))
+    .environmentObject(AppDI.shared.receivingViewModel)
 }

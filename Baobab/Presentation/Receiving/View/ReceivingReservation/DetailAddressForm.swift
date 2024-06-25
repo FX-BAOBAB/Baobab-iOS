@@ -9,9 +9,6 @@ import SwiftUI
 
 struct DetailAddressForm: View {
     @EnvironmentObject private var viewModel: ReceivingViewModel
-    @Binding var address: String
-    @Binding var detailAddress: String
-    @Binding var postCode: String
     @Binding var isShowingPostSearchForm: Bool
     @Binding var isShowingAddressList: Bool
     
@@ -19,22 +16,20 @@ struct DetailAddressForm: View {
         VStack(alignment: .leading, spacing: 10) {
             Text("상세주소 입력")
                 .font(.headline)
-                .padding([.bottom, .top])
             
-            Text(postCode)
+            Spacer()
             
-            Text(address)
+            Text(viewModel.searchedPostCode)
             
-            TextField("상세주소 입력 (예: ◦◦◦동 ◦◦◦◦호)", text: $detailAddress)
+            Text(viewModel.searchedAddress)
+            
+            TextField("상세주소 입력 (예: ◦◦◦동 ◦◦◦◦호)", text: $viewModel.detailedAddressInput)
                 .textFieldStyle(.roundedBorder)
             
             Spacer()
             
             Button(action: {
-                viewModel.selectedAddress?.id = UUID().hashValue    //임시 난수
-                viewModel.selectedAddress?.address = address
-                viewModel.selectedAddress?.detailAddress = detailAddress
-                viewModel.selectedAddress?.post = postCode
+                viewModel.registerAsSelectedAddress()
                 isShowingPostSearchForm.toggle()
                 isShowingAddressList.toggle()
             }, label: {
@@ -52,9 +47,7 @@ struct DetailAddressForm: View {
 }
 
 #Preview {
-    DetailAddressForm(address: .constant("경기 성남시 분당구 대왕판교로606번길 45"),
-                      detailAddress: .constant(""),
-                      postCode: .constant("13524"),
-                      isShowingPostSearchForm: .constant(false),
+    DetailAddressForm(isShowingPostSearchForm: .constant(false),
                       isShowingAddressList: .constant(false))
+    .environmentObject(AppDI.shared.receivingViewModel)
 }

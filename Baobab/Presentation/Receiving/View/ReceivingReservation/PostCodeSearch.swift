@@ -11,8 +11,6 @@ struct PostCodeSearch: View {
     @EnvironmentObject private var viewModel: ReceivingViewModel
     @State private var isProgrss: Bool = true
     @State private var isShowingDetailAddressForm: Bool = false
-    @State private var address: String = ""
-    @State private var postCode: String = ""
     @Binding var isShowingPostCodeSearch: Bool
     @Binding var isShowingAddressList: Bool
     
@@ -20,29 +18,26 @@ struct PostCodeSearch: View {
         NavigationStack {
             ZStack {
                 PostSearchWebView(isShowingDetailAddressForm: $isShowingDetailAddressForm,
-                                  isProgress: $isProgrss,
-                                  address: $address,
-                                  postCode: $postCode)
-                    .toolbar {
-                        ToolbarItem(placement: .navigationBarLeading) {
-                            Button(action: {
-                                isShowingPostCodeSearch.toggle()
-                            }, label: {
-                                Image(systemName: "xmark")
-                                    .foregroundColor(.black)
-                            })
-                        }
+                                  isProgress: $isProgrss)
+                .environmentObject(viewModel)
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        Button(action: {
+                            isShowingPostCodeSearch.toggle()
+                        }, label: {
+                            Image(systemName: "xmark")
+                                .foregroundColor(.black)
+                        })
                     }
+                }
                 
                 if isProgrss {
                     ProgressView()
                 }
             }
             .navigationDestination(isPresented: $isShowingDetailAddressForm) {
-                DetailAddressMap(address: $address,
-                                  postCode: $postCode,
-                                  isShowingAddressList: $isShowingAddressList,
-                                  isShowingPostSearchForm: $isShowingPostCodeSearch)
+                DetailAddressMap(isShowingAddressList: $isShowingAddressList,
+                                 isShowingPostSearchForm: $isShowingPostCodeSearch)
                     .environmentObject(viewModel)
             }
         }
