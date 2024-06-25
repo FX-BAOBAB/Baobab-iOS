@@ -36,7 +36,7 @@ struct PaymentDetail: View {
                 
                 Spacer()
                 
-                Text("\(viewModel.calculateTotalPrice())원")
+                Text("\(viewModel.totalPrice)원")
             }
             .bold()
             .padding(.top)

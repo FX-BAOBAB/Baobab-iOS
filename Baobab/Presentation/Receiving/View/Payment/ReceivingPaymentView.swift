@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ReceivingPaymentView: View {
     @EnvironmentObject private var viewModel: ReceivingViewModel
+    @State private var isShowingPaymentAlert: Bool = false
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -33,7 +34,7 @@ struct ReceivingPaymentView: View {
             }
             .listStyle(.plain)
             
-            HStack {
+            HStack(spacing: 3) {
                 Spacer()
 
                 Image(systemName: "info.circle")
@@ -46,7 +47,9 @@ struct ReceivingPaymentView: View {
             .font(.caption)
             .padding([.leading, .trailing])
             
-            Button(action: {}, label: {
+            Button(action: {
+                isShowingPaymentAlert.toggle()
+            }, label: {
                 Text("결제하기")
                     .bold()
                     .padding(8)
@@ -59,6 +62,11 @@ struct ReceivingPaymentView: View {
             .padding()
         }
         .navigationTitle("결제")
+        .alert(isPresented: $isShowingPaymentAlert) {
+            Alert(title: Text("알림"), message: Text("결제를 진행할까요?"), primaryButton: .default(Text("확인")) {
+                
+            }, secondaryButton: .default(Text("취소")))
+        }
     }
 }
 
