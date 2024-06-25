@@ -53,6 +53,18 @@ extension ReceivingViewModel {
         updatePrice()
     }
     
+    func calculateTotalPrice() -> Int {
+        var totalPrice: Int = 0
+        
+        for i in 0..<itemIdx + 1 {
+            items[i].itemPrice.map { price in
+                totalPrice += price
+            }
+        }
+        
+        return totalPrice
+    }
+    
     func updatePrice() {
         items[itemIdx].itemCategoryWithPrice.map { categoryWithPrice in
             guard let firstIndex = categoryWithPrice.firstIndex(of: "["),
