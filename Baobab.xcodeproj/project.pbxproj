@@ -63,6 +63,10 @@
 		5CCFBF6A2BF2E18200322D0D /* ImageRegistrationForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCFBF692BF2E18200322D0D /* ImageRegistrationForm.swift */; };
 		5CD8A2072C0341B900EE5C09 /* StoreItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD8A2062C0341B900EE5C09 /* StoreItem.swift */; };
 		5CD8A2092C036A8B00EE5C09 /* ImageRegistrationCompleteSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD8A2082C036A8B00EE5C09 /* ImageRegistrationCompleteSheet.swift */; };
+		8E3F7C532C2A5F3E0087EB2A /* ReceivingPaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F7C522C2A5F3E0087EB2A /* ReceivingPaymentView.swift */; };
+		8E3F7C552C2A60880087EB2A /* ItemListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F7C542C2A60880087EB2A /* ItemListRow.swift */; };
+		8E3F7C572C2A7D330087EB2A /* DefaultItemImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F7C562C2A7D330087EB2A /* DefaultItemImage.swift */; };
+		8E3F7C592C2A81450087EB2A /* PaymentDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F7C582C2A81450087EB2A /* PaymentDetail.swift */; };
 		8E90635E2C293775008B5C52 /* CameraLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E90635D2C293775008B5C52 /* CameraLabel.swift */; };
 		8E9063612C29464A008B5C52 /* UIImage+Downscale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9063602C29464A008B5C52 /* UIImage+Downscale.swift */; };
 		8E9063632C2950EF008B5C52 /* UIImage+Crop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9063622C2950EF008B5C52 /* UIImage+Crop.swift */; };
@@ -128,6 +132,10 @@
 		5CCFBF692BF2E18200322D0D /* ImageRegistrationForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRegistrationForm.swift; sourceTree = "<group>"; };
 		5CD8A2062C0341B900EE5C09 /* StoreItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItem.swift; sourceTree = "<group>"; };
 		5CD8A2082C036A8B00EE5C09 /* ImageRegistrationCompleteSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRegistrationCompleteSheet.swift; sourceTree = "<group>"; };
+		8E3F7C522C2A5F3E0087EB2A /* ReceivingPaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceivingPaymentView.swift; sourceTree = "<group>"; };
+		8E3F7C542C2A60880087EB2A /* ItemListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListRow.swift; sourceTree = "<group>"; };
+		8E3F7C562C2A7D330087EB2A /* DefaultItemImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultItemImage.swift; sourceTree = "<group>"; };
+		8E3F7C582C2A81450087EB2A /* PaymentDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentDetail.swift; sourceTree = "<group>"; };
 		8E90635D2C293775008B5C52 /* CameraLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraLabel.swift; sourceTree = "<group>"; };
 		8E9063602C29464A008B5C52 /* UIImage+Downscale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Downscale.swift"; sourceTree = "<group>"; };
 		8E9063622C2950EF008B5C52 /* UIImage+Crop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Crop.swift"; sourceTree = "<group>"; };
@@ -225,6 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				5CD8A20A2C03769000EE5C09 /* Commons */,
+				8E3F7C512C2A5E7D0087EB2A /* Payments */,
 				5C89233C2BFAC7EA00AE9049 /* ReceivingReservation */,
 				5C9B81022BF44A800038EB27 /* DefectRegistration */,
 				5CCFBF662BF2E00800322D0D /* ImageRegistration */,
@@ -405,6 +414,17 @@
 			path = Commons;
 			sourceTree = "<group>";
 		};
+		8E3F7C512C2A5E7D0087EB2A /* Payments */ = {
+			isa = PBXGroup;
+			children = (
+				8E3F7C522C2A5F3E0087EB2A /* ReceivingPaymentView.swift */,
+				8E3F7C542C2A60880087EB2A /* ItemListRow.swift */,
+				8E3F7C562C2A7D330087EB2A /* DefaultItemImage.swift */,
+				8E3F7C582C2A81450087EB2A /* PaymentDetail.swift */,
+			);
+			path = Payments;
+			sourceTree = "<group>";
+		};
 		A79B888828ABA888471C141F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -547,6 +567,7 @@
 				5C80F0F52C06D86F00A94C22 /* UserRepository.swift in Sources */,
 				5C9063712C04B75B004A0EC5 /* Address.swift in Sources */,
 				5C426BFF2BEDBE7E00869F6D /* ItemInformationInputBox.swift in Sources */,
+				8E3F7C572C2A7D330087EB2A /* DefaultItemImage.swift in Sources */,
 				5C426BEA2BEDA8F300869F6D /* ContentView.swift in Sources */,
 				5C4ACAC02BEE1FDB00195895 /* MinusButtonImage.swift in Sources */,
 				5C405EEC2BF72ADB006EE6F1 /* ReceivingViewModel+Defect.swift in Sources */,
@@ -573,14 +594,17 @@
 				5C80F0EE2C06BF4500A94C22 /* FetchGeoCodeUseCase.swift in Sources */,
 				5CCFBF6A2BF2E18200322D0D /* ImageRegistrationForm.swift in Sources */,
 				8E9063632C2950EF008B5C52 /* UIImage+Crop.swift in Sources */,
+				8E3F7C592C2A81450087EB2A /* PaymentDetail.swift in Sources */,
 				5C994A562BF5EA960013672B /* DefectImagePicker.swift in Sources */,
 				5C9B81042BF44AD10038EB27 /* DefectRegistrationList.swift in Sources */,
 				5C405EEA2BF6F3C0006EE6F1 /* DefectRegistrationRow.swift in Sources */,
 				5C80F0F82C06DD0F00A94C22 /* DefaultAddressResponseDTO.swift in Sources */,
 				5C735F462BF1A4B400A36EC8 /* CategoryListRow.swift in Sources */,
 				5C994A582BF5F8D00013672B /* Defect.swift in Sources */,
+				8E3F7C532C2A5F3E0087EB2A /* ReceivingPaymentView.swift in Sources */,
 				5C4F18192C05B86D0030A096 /* DetailAddressForm.swift in Sources */,
 				8E9063612C29464A008B5C52 /* UIImage+Downscale.swift in Sources */,
+				8E3F7C552C2A60880087EB2A /* ItemListRow.swift in Sources */,
 				5C9679BE2BFEC59F007C8D5A /* PostCodeSearch.swift in Sources */,
 				5C426BE82BEDA8F300869F6D /* BaobabApp.swift in Sources */,
 			);

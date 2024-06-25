@@ -11,6 +11,7 @@ struct ReceivingReservationForm: View {
     @EnvironmentObject private var viewModel: ReceivingViewModel
     @State private var isShowingPostSearch: Bool = false
     @State private var isShowingAddressList: Bool = false
+    @State private var isShowingPaymentView: Bool = false
     
     var body: some View {
         ZStack {
@@ -46,7 +47,9 @@ struct ReceivingReservationForm: View {
             VStack {
                 Spacer()
                 
-                Button(action: {}, label: {
+                Button(action: {
+                    isShowingPaymentView.toggle()
+                }, label: {
                     Text("다음")
                         .bold()
                         .frame(maxWidth: .infinity)
@@ -70,6 +73,10 @@ struct ReceivingReservationForm: View {
             AddressList(isShowingAddressList: $isShowingAddressList)
                 .environmentObject(viewModel)
                 .presentationDragIndicator(.visible)
+        }
+        .navigationDestination(isPresented: $isShowingPaymentView) {
+            ReceivingPaymentView()
+                .environmentObject(viewModel)
         }
     }
 }
