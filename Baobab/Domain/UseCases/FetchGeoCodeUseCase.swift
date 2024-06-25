@@ -33,8 +33,8 @@ final class FetchGeoCodeUseCaseImpl: FetchGeoCodeUseCase {
                 
                 let coordinate = location.coordinate
                 promise(.success(MKCoordinateRegion(center: coordinate,
-                                                    latitudinalMeters: 150,
-                                                    longitudinalMeters: 150)))
+                                                    latitudinalMeters: 300,
+                                                    longitudinalMeters: 300)))    //가로, 세로 미터를 사용하여 지도 스케일 조정
             }
         }
         .eraseToAnyPublisher()

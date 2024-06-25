@@ -5,8 +5,8 @@
 //  Created by 이정훈 on 5/10/24.
 //
 
-import Combine
 import MapKit
+import Combine
 import Foundation
 
 final class ReceivingViewModel: ObservableObject {
@@ -18,6 +18,9 @@ final class ReceivingViewModel: ObservableObject {
     @Published var region: MKCoordinateRegion?
     @Published var selectedDefectImage: Data?
     @Published var defectDescription: String = ""
+    @Published var searchedAddress: String = ""
+    @Published var searchedPostCode: String = ""
+    @Published var detailedAddressInput: String = ""
     
     var itemIdx: Int
     let usecase: ReceivingUseCase

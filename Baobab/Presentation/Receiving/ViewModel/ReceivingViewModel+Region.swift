@@ -8,8 +8,8 @@
 import MapKit
 
 extension ReceivingViewModel {
-    func showLocationOnMap(_ address: String) {
-        usecase.fetchGeoCode(of: address)
+    func showLocationOnMap() {
+        usecase.fetchGeoCode(of: self.searchedAddress)
             .sink(receiveCompletion: { completion in
                 switch completion {
                 case .finished:
