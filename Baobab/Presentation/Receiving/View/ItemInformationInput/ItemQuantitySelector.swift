@@ -40,7 +40,7 @@ struct ItemQuantitySelector: View {
         }
         .padding()
         .overlay {
-            RoundedRectangle(cornerRadius: 20)
+            RoundedRectangle(cornerRadius: 10)
                 .stroke(.gray, lineWidth: 1)
         }
     }

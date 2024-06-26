@@ -33,7 +33,7 @@ struct CategoryPicker: View {
             })
             .buttonStyle(.borderless)
             .overlay {
-                RoundedRectangle(cornerRadius: 20)
+                RoundedRectangle(cornerRadius: 10)
                     .stroke(.gray, lineWidth: 1)
             }
             .navigationDestination(isPresented: $showCetegoryList, destination: {
