@@ -15,10 +15,11 @@ final class ReceivingViewModel: ObservableObject {
     @Published var selectedAddress: Address?
     @Published var defaultAddress: Address?    //TODO: 사용하지 않으면 삭제
     @Published var registeredAddresses: [Address]?
-    @Published var region: MKCoordinateRegion?
+    @Published var selectedAddressRegion: MKCoordinateRegion?
     @Published var selectedDefectImage: Data?
     @Published var defectDescription: String = ""
     @Published var searchedAddress: String = ""
+    @Published var searchedAddressRegion: MKCoordinateRegion?
     @Published var searchedPostCode: String = ""
     @Published var detailedAddressInput: String = ""
     
@@ -34,6 +35,7 @@ final class ReceivingViewModel: ObservableObject {
     init(itemIdx: Int, usecase: ReceivingUseCase) {
         self.itemIdx = itemIdx
         self.usecase = usecase
+        calculateMapCoordinates()
         
         #if DEBUG
         self.selectedAddress = Address.sampleAddressList.first

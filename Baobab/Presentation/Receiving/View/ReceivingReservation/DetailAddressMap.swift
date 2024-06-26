@@ -14,11 +14,11 @@ struct DetailAddressMap: View {
     @Binding var isShowingPostSearchForm: Bool
 
     var body: some View {
-        if let region = viewModel.region {
+        if let region = viewModel.searchedAddressRegion {
             ZStack {
                 VStack {
                     Map(coordinateRegion: Binding(get: {
-                        viewModel.region ?? MKCoordinateRegion()
+                        return region
                     }, set: { _ in
                         //업데이트되는 값 무시
                     }), annotationItems: [AnnotationItem(coordinate: region.center)]) { item in
@@ -41,12 +41,8 @@ struct DetailAddressMap: View {
                     .cornerRadius(20)
                 }
             }
-            .navigationBarBackButtonHidden()
         } else {
             ProgressView()
-                .onAppear {
-                    viewModel.showLocationOnMap()
-                }
         }
     }
 }
