@@ -10,6 +10,7 @@ import SwiftUI
 struct ReceivingPaymentView: View {
     @EnvironmentObject private var viewModel: ReceivingViewModel
     @State private var isShowingPaymentAlert: Bool = false
+    @State private var isShowingCompletionView: Bool = false
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -63,9 +64,14 @@ struct ReceivingPaymentView: View {
         }
         .navigationTitle("결제")
         .alert(isPresented: $isShowingPaymentAlert) {
-            Alert(title: Text("알림"), message: Text("결제를 진행할까요?"), primaryButton: .default(Text("확인")) {
-                
-            }, secondaryButton: .default(Text("취소")))
+            Alert(title: Text("알림"), 
+                  message: Text("결제를 진행할까요?"),
+                  primaryButton: .default(Text("확인")) { isShowingCompletionView.toggle() },
+                  secondaryButton: .default(Text("취소")))
+        }
+        .navigationDestination(isPresented: $isShowingCompletionView) {
+            ReceiptCompletionView()
+                .environmentObject(viewModel)
         }
     }
 }

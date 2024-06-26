@@ -10,9 +10,11 @@ import SwiftUI
 struct SelectedAddressDetail: View {
     @EnvironmentObject private var viewModel: ReceivingViewModel
     
+    let showTag: Bool
+    
     var body: some View {
         VStack(alignment: .leading) {
-            if viewModel.selectedAddress?.isBasicAddress == true {
+            if viewModel.selectedAddress?.isBasicAddress == true && showTag {
                 Text("기본 주소")
                     .padding([.leading, .trailing], 8)
                     .padding([.top, .bottom], 6)
@@ -40,6 +42,6 @@ struct SelectedAddressDetail: View {
 }
 
 #Preview {
-    SelectedAddressDetail()
+    SelectedAddressDetail(showTag: true)
         .environmentObject(AppDI.shared.receivingViewModel)
 }
