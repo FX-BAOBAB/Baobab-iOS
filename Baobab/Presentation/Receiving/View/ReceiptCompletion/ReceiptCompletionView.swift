@@ -37,7 +37,7 @@ struct ReceiptCompletionView: View {
                     }
                 }
                 
-                if let region = viewModel.region {
+                if let region = viewModel.selectedAddressRegion {
                     Map(coordinateRegion: Binding(get: {
                         return region
                     }, set: { _ in
