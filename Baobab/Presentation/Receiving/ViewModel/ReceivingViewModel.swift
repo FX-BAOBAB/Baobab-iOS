@@ -13,7 +13,7 @@ final class ReceivingViewModel: ObservableObject {
     @Published var items: [StoreItem] = [StoreItem(), StoreItem()]
     @Published var reservationDate: Date = Date.tomorrow
     @Published var selectedAddress: Address?
-    @Published var defaultAddress: Address?
+    @Published var defaultAddress: Address?    //TODO: 사용하지 않으면 삭제
     @Published var registeredAddresses: [Address]?
     @Published var region: MKCoordinateRegion?
     @Published var selectedDefectImage: Data?

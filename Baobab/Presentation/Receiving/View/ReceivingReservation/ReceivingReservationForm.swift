@@ -34,7 +34,7 @@ struct ReceivingReservationForm: View {
                         Button(action:{ isShowingAddressList.toggle() },
                                label: { Text("변경").bold() })
                     }) {
-                        SelectedAddressDetail()
+                        SelectedAddressDetail(showTag: true)
                             .environmentObject(viewModel)
                             .padding([.leading, .trailing, .bottom])
                     }

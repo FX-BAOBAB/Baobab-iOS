@@ -67,6 +67,9 @@
 		8E3F7C552C2A60880087EB2A /* ItemListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F7C542C2A60880087EB2A /* ItemListRow.swift */; };
 		8E3F7C572C2A7D330087EB2A /* DefaultItemImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F7C562C2A7D330087EB2A /* DefaultItemImage.swift */; };
 		8E3F7C592C2A81450087EB2A /* PaymentDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F7C582C2A81450087EB2A /* PaymentDetail.swift */; };
+		8E3F7C5C2C2A98F20087EB2A /* ReceiptCompletionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F7C5B2C2A98F20087EB2A /* ReceiptCompletionView.swift */; };
+		8E3F7C5E2C2A9A480087EB2A /* SimpleReceivingStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F7C5D2C2A9A480087EB2A /* SimpleReceivingStatus.swift */; };
+		8E3F7C602C2A9ABD0087EB2A /* StatusPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F7C5F2C2A9ABD0087EB2A /* StatusPoint.swift */; };
 		8E90635E2C293775008B5C52 /* CameraLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E90635D2C293775008B5C52 /* CameraLabel.swift */; };
 		8E9063612C29464A008B5C52 /* UIImage+Downscale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9063602C29464A008B5C52 /* UIImage+Downscale.swift */; };
 		8E9063632C2950EF008B5C52 /* UIImage+Crop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9063622C2950EF008B5C52 /* UIImage+Crop.swift */; };
@@ -136,6 +139,9 @@
 		8E3F7C542C2A60880087EB2A /* ItemListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListRow.swift; sourceTree = "<group>"; };
 		8E3F7C562C2A7D330087EB2A /* DefaultItemImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultItemImage.swift; sourceTree = "<group>"; };
 		8E3F7C582C2A81450087EB2A /* PaymentDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentDetail.swift; sourceTree = "<group>"; };
+		8E3F7C5B2C2A98F20087EB2A /* ReceiptCompletionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptCompletionView.swift; sourceTree = "<group>"; };
+		8E3F7C5D2C2A9A480087EB2A /* SimpleReceivingStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleReceivingStatus.swift; sourceTree = "<group>"; };
+		8E3F7C5F2C2A9ABD0087EB2A /* StatusPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusPoint.swift; sourceTree = "<group>"; };
 		8E90635D2C293775008B5C52 /* CameraLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraLabel.swift; sourceTree = "<group>"; };
 		8E9063602C29464A008B5C52 /* UIImage+Downscale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Downscale.swift"; sourceTree = "<group>"; };
 		8E9063622C2950EF008B5C52 /* UIImage+Crop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Crop.swift"; sourceTree = "<group>"; };
@@ -232,8 +238,9 @@
 		5C426BF82BEDBD4800869F6D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8E3F7C5A2C2A98980087EB2A /* PaymentConfirmation */,
 				5CD8A20A2C03769000EE5C09 /* Commons */,
-				8E3F7C512C2A5E7D0087EB2A /* Payments */,
+				8E3F7C512C2A5E7D0087EB2A /* Payment */,
 				5C89233C2BFAC7EA00AE9049 /* ReceivingReservation */,
 				5C9B81022BF44A800038EB27 /* DefectRegistration */,
 				5CCFBF662BF2E00800322D0D /* ImageRegistration */,
@@ -414,7 +421,7 @@
 			path = Commons;
 			sourceTree = "<group>";
 		};
-		8E3F7C512C2A5E7D0087EB2A /* Payments */ = {
+		8E3F7C512C2A5E7D0087EB2A /* Payment */ = {
 			isa = PBXGroup;
 			children = (
 				8E3F7C522C2A5F3E0087EB2A /* ReceivingPaymentView.swift */,
@@ -422,7 +429,17 @@
 				8E3F7C562C2A7D330087EB2A /* DefaultItemImage.swift */,
 				8E3F7C582C2A81450087EB2A /* PaymentDetail.swift */,
 			);
-			path = Payments;
+			path = Payment;
+			sourceTree = "<group>";
+		};
+		8E3F7C5A2C2A98980087EB2A /* PaymentConfirmation */ = {
+			isa = PBXGroup;
+			children = (
+				8E3F7C5B2C2A98F20087EB2A /* ReceiptCompletionView.swift */,
+				8E3F7C5D2C2A9A480087EB2A /* SimpleReceivingStatus.swift */,
+				8E3F7C5F2C2A9ABD0087EB2A /* StatusPoint.swift */,
+			);
+			path = PaymentConfirmation;
 			sourceTree = "<group>";
 		};
 		A79B888828ABA888471C141F /* Frameworks */ = {
@@ -565,6 +582,7 @@
 				5C9AD9222C040178003EF614 /* NewItemAdditionSheet.swift in Sources */,
 				5C89233E2BFAC80200AE9049 /* ReceivingReservationForm.swift in Sources */,
 				5C80F0F52C06D86F00A94C22 /* UserRepository.swift in Sources */,
+				8E3F7C5E2C2A9A480087EB2A /* SimpleReceivingStatus.swift in Sources */,
 				5C9063712C04B75B004A0EC5 /* Address.swift in Sources */,
 				5C426BFF2BEDBE7E00869F6D /* ItemInformationInputBox.swift in Sources */,
 				8E3F7C572C2A7D330087EB2A /* DefaultItemImage.swift in Sources */,
@@ -573,6 +591,7 @@
 				5C405EEC2BF72ADB006EE6F1 /* ReceivingViewModel+Defect.swift in Sources */,
 				5C4F181D2C05D1F10030A096 /* AnnotationItem.swift in Sources */,
 				5CCFBF682BF2E05F00322D0D /* SelectedImage.swift in Sources */,
+				8E3F7C602C2A9ABD0087EB2A /* StatusPoint.swift in Sources */,
 				5CADA5D92C004E8000FFCC64 /* PostSearchWebView.swift in Sources */,
 				5C4F18132C05568A0030A096 /* EmptyCircle.swift in Sources */,
 				5CA04A352BFB01AC00A28FCA /* Date+Tomorrow.swift in Sources */,
@@ -584,6 +603,7 @@
 				5CADA5DD2C00CE1600FFCC64 /* DetailAddressMap.swift in Sources */,
 				5C994A542BF592E60013672B /* SelectedDefectImage.swift in Sources */,
 				5C80F0F02C06C3A000A94C22 /* ReceivingUseCase.swift in Sources */,
+				8E3F7C5C2C2A98F20087EB2A /* ReceiptCompletionView.swift in Sources */,
 				5C735F4A2BF1B44500A36EC8 /* ItemInformationForm.swift in Sources */,
 				5C41ED932C080877001416D9 /* ReceivingViewModel+Address.swift in Sources */,
 				5C4ACABE2BEE1F1900195895 /* PlusButtonImage.swift in Sources */,
