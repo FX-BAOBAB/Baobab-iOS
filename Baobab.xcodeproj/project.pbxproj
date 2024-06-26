@@ -238,7 +238,7 @@
 		5C426BF82BEDBD4800869F6D /* View */ = {
 			isa = PBXGroup;
 			children = (
-				8E3F7C5A2C2A98980087EB2A /* PaymentConfirmation */,
+				8E3F7C5A2C2A98980087EB2A /* ReceiptCompletion */,
 				5CD8A20A2C03769000EE5C09 /* Commons */,
 				8E3F7C512C2A5E7D0087EB2A /* Payment */,
 				5C89233C2BFAC7EA00AE9049 /* ReceivingReservation */,
@@ -432,14 +432,14 @@
 			path = Payment;
 			sourceTree = "<group>";
 		};
-		8E3F7C5A2C2A98980087EB2A /* PaymentConfirmation */ = {
+		8E3F7C5A2C2A98980087EB2A /* ReceiptCompletion */ = {
 			isa = PBXGroup;
 			children = (
 				8E3F7C5B2C2A98F20087EB2A /* ReceiptCompletionView.swift */,
 				8E3F7C5D2C2A9A480087EB2A /* SimpleReceivingStatus.swift */,
 				8E3F7C5F2C2A9ABD0087EB2A /* StatusPoint.swift */,
 			);
-			path = PaymentConfirmation;
+			path = ReceiptCompletion;
 			sourceTree = "<group>";
 		};
 		A79B888828ABA888471C141F /* Frameworks */ = {
