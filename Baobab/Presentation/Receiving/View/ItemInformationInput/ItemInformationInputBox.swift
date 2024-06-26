@@ -23,7 +23,7 @@ struct ItemInformationInputBox: View {
             TextField(placeholder, text: $inputValue)
                 .padding()
                 .overlay {
-                    RoundedRectangle(cornerRadius: 20)
+                    RoundedRectangle(cornerRadius: 10)
                         .stroke(.gray, lineWidth: 1)
                 }
         }
