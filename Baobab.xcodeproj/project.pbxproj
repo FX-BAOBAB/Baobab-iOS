@@ -20,7 +20,7 @@
 		5C426BEC2BEDA8F400869F6D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C426BEB2BEDA8F400869F6D /* Assets.xcassets */; };
 		5C426BEF2BEDA8F400869F6D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C426BEE2BEDA8F400869F6D /* Preview Assets.xcassets */; };
 		5C426BFD2BEDBDE900869F6D /* ReceivingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C426BFC2BEDBDE900869F6D /* ReceivingViewModel.swift */; };
-		5C426BFF2BEDBE7E00869F6D /* ItemInformationInputBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C426BFE2BEDBE7E00869F6D /* ItemInformationInputBox.swift */; };
+		5C426BFF2BEDBE7E00869F6D /* BorderedInputBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C426BFE2BEDBE7E00869F6D /* BorderedInputBox.swift */; };
 		5C4ACABC2BEE1ED700195895 /* ItemQuantitySelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C4ACABB2BEE1ED700195895 /* ItemQuantitySelector.swift */; };
 		5C4ACABE2BEE1F1900195895 /* PlusButtonImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C4ACABD2BEE1F1900195895 /* PlusButtonImage.swift */; };
 		5C4ACAC02BEE1FDB00195895 /* MinusButtonImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C4ACABF2BEE1FDB00195895 /* MinusButtonImage.swift */; };
@@ -73,6 +73,17 @@
 		8E90635E2C293775008B5C52 /* CameraLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E90635D2C293775008B5C52 /* CameraLabel.swift */; };
 		8E9063612C29464A008B5C52 /* UIImage+Downscale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9063602C29464A008B5C52 /* UIImage+Downscale.swift */; };
 		8E9063632C2950EF008B5C52 /* UIImage+Crop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9063622C2950EF008B5C52 /* UIImage+Crop.swift */; };
+		8ECCBAF72C2CEFAA00DD0A1B /* SignUpForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECCBAF62C2CEFAA00DD0A1B /* SignUpForm.swift */; };
+		8ECCBAFC2C2CF01200DD0A1B /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECCBAFB2C2CF01200DD0A1B /* SignUpViewModel.swift */; };
+		8ECCBB012C2CFF4700DD0A1B /* SignUpInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECCBB002C2CFF4700DD0A1B /* SignUpInfo.swift */; };
+		8ECCBB032C2D2FB900DD0A1B /* KeyboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECCBB022C2D2FB900DD0A1B /* KeyboardViewModel.swift */; };
+		8ECCBB072C2E39FA00DD0A1B /* SignUpViewModel+RegularExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECCBB062C2E39FA00DD0A1B /* SignUpViewModel+RegularExpression.swift */; };
+		8ECCBB092C2E42C800DD0A1B /* EmailInputBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECCBB082C2E42C800DD0A1B /* EmailInputBox.swift */; };
+		8ECCBB0B2C2E46B300DD0A1B /* PasswordInputBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECCBB0A2C2E46B300DD0A1B /* PasswordInputBox.swift */; };
+		8ECCBB0D2C2E48A800DD0A1B /* NickNameInputBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECCBB0C2C2E48A800DD0A1B /* NickNameInputBox.swift */; };
+		8ECCBB0F2C2E4ADB00DD0A1B /* SignUpCaption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECCBB0E2C2E4ADB00DD0A1B /* SignUpCaption.swift */; };
+		8ECCBB112C2E4D5700DD0A1B /* SignUpViewModel+InputState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECCBB102C2E4D5700DD0A1B /* SignUpViewModel+InputState.swift */; };
+		8ECCBB132C2E57A600DD0A1B /* PasswordConfirmInputBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECCBB122C2E57A600DD0A1B /* PasswordConfirmInputBox.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -92,7 +103,7 @@
 		5C426BEB2BEDA8F400869F6D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5C426BEE2BEDA8F400869F6D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5C426BFC2BEDBDE900869F6D /* ReceivingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceivingViewModel.swift; sourceTree = "<group>"; };
-		5C426BFE2BEDBE7E00869F6D /* ItemInformationInputBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemInformationInputBox.swift; sourceTree = "<group>"; };
+		5C426BFE2BEDBE7E00869F6D /* BorderedInputBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderedInputBox.swift; sourceTree = "<group>"; };
 		5C4ACABB2BEE1ED700195895 /* ItemQuantitySelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemQuantitySelector.swift; sourceTree = "<group>"; };
 		5C4ACABD2BEE1F1900195895 /* PlusButtonImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusButtonImage.swift; sourceTree = "<group>"; };
 		5C4ACABF2BEE1FDB00195895 /* MinusButtonImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinusButtonImage.swift; sourceTree = "<group>"; };
@@ -145,6 +156,17 @@
 		8E90635D2C293775008B5C52 /* CameraLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraLabel.swift; sourceTree = "<group>"; };
 		8E9063602C29464A008B5C52 /* UIImage+Downscale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Downscale.swift"; sourceTree = "<group>"; };
 		8E9063622C2950EF008B5C52 /* UIImage+Crop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Crop.swift"; sourceTree = "<group>"; };
+		8ECCBAF62C2CEFAA00DD0A1B /* SignUpForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpForm.swift; sourceTree = "<group>"; };
+		8ECCBAFB2C2CF01200DD0A1B /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		8ECCBB002C2CFF4700DD0A1B /* SignUpInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpInfo.swift; sourceTree = "<group>"; };
+		8ECCBB022C2D2FB900DD0A1B /* KeyboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewModel.swift; sourceTree = "<group>"; };
+		8ECCBB062C2E39FA00DD0A1B /* SignUpViewModel+RegularExpression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SignUpViewModel+RegularExpression.swift"; sourceTree = "<group>"; };
+		8ECCBB082C2E42C800DD0A1B /* EmailInputBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailInputBox.swift; sourceTree = "<group>"; };
+		8ECCBB0A2C2E46B300DD0A1B /* PasswordInputBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordInputBox.swift; sourceTree = "<group>"; };
+		8ECCBB0C2C2E48A800DD0A1B /* NickNameInputBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NickNameInputBox.swift; sourceTree = "<group>"; };
+		8ECCBB0E2C2E4ADB00DD0A1B /* SignUpCaption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpCaption.swift; sourceTree = "<group>"; };
+		8ECCBB102C2E4D5700DD0A1B /* SignUpViewModel+InputState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SignUpViewModel+InputState.swift"; sourceTree = "<group>"; };
+		8ECCBB122C2E57A600DD0A1B /* PasswordConfirmInputBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordConfirmInputBox.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,6 +243,8 @@
 			isa = PBXGroup;
 			children = (
 				5C426BE92BEDA8F300869F6D /* ContentView.swift */,
+				8ECCBAFD2C2CFC1E00DD0A1B /* Commons */,
+				8ECCBAF42C2CEF9600DD0A1B /* SignUp */,
 				5C426BF72BEDBD4000869F6D /* Receiving */,
 			);
 			path = Presentation;
@@ -345,7 +369,6 @@
 			isa = PBXGroup;
 			children = (
 				5C735F492BF1B44500A36EC8 /* ItemInformationForm.swift */,
-				5C426BFE2BEDBE7E00869F6D /* ItemInformationInputBox.swift */,
 				5C4ACABB2BEE1ED700195895 /* ItemQuantitySelector.swift */,
 				5C4ACABD2BEE1F1900195895 /* PlusButtonImage.swift */,
 				5C4ACABF2BEE1FDB00195895 /* MinusButtonImage.swift */,
@@ -403,6 +426,7 @@
 				5CD8A2062C0341B900EE5C09 /* StoreItem.swift */,
 				5C9063702C04B75B004A0EC5 /* Address.swift */,
 				5C4F181C2C05D1F10030A096 /* AnnotationItem.swift */,
+				8ECCBB002C2CFF4700DD0A1B /* SignUpInfo.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -440,6 +464,47 @@
 				8E3F7C5F2C2A9ABD0087EB2A /* StatusPoint.swift */,
 			);
 			path = ReceiptCompletion;
+			sourceTree = "<group>";
+		};
+		8ECCBAF42C2CEF9600DD0A1B /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				8ECCBAF82C2CEFBB00DD0A1B /* ViewModel */,
+				8ECCBAF52C2CEFA000DD0A1B /* View */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		8ECCBAF52C2CEFA000DD0A1B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8ECCBAF62C2CEFAA00DD0A1B /* SignUpForm.swift */,
+				8ECCBB082C2E42C800DD0A1B /* EmailInputBox.swift */,
+				8ECCBB0A2C2E46B300DD0A1B /* PasswordInputBox.swift */,
+				8ECCBB122C2E57A600DD0A1B /* PasswordConfirmInputBox.swift */,
+				8ECCBB0C2C2E48A800DD0A1B /* NickNameInputBox.swift */,
+				8ECCBB0E2C2E4ADB00DD0A1B /* SignUpCaption.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8ECCBAF82C2CEFBB00DD0A1B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				8ECCBAFB2C2CF01200DD0A1B /* SignUpViewModel.swift */,
+				8ECCBB062C2E39FA00DD0A1B /* SignUpViewModel+RegularExpression.swift */,
+				8ECCBB102C2E4D5700DD0A1B /* SignUpViewModel+InputState.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		8ECCBAFD2C2CFC1E00DD0A1B /* Commons */ = {
+			isa = PBXGroup;
+			children = (
+				5C426BFE2BEDBE7E00869F6D /* BorderedInputBox.swift */,
+				8ECCBB022C2D2FB900DD0A1B /* KeyboardViewModel.swift */,
+			);
+			path = Commons;
 			sourceTree = "<group>";
 		};
 		A79B888828ABA888471C141F /* Frameworks */ = {
@@ -572,6 +637,7 @@
 				5C735F442BF1A35B00A36EC8 /* CategoryData.swift in Sources */,
 				5C90636F2C04B34F004A0EC5 /* AddressListRow.swift in Sources */,
 				5CD8A2072C0341B900EE5C09 /* StoreItem.swift in Sources */,
+				8ECCBB112C2E4D5700DD0A1B /* SignUpViewModel+InputState.swift in Sources */,
 				5C994A522BF58A880013672B /* DefectRegistrationForm.swift in Sources */,
 				5C13D5AB2BF3082600CA0792 /* ImagePicker.swift in Sources */,
 				5CA752CC2C0712C100DA42B7 /* RemoteDataSource.swift in Sources */,
@@ -579,20 +645,29 @@
 				5C735F4C2BF1BAB200A36EC8 /* EstimatedPrice.swift in Sources */,
 				5C4ACAC22BEE41A300195895 /* CategoryPicker.swift in Sources */,
 				5CADA5D52C000D4C00FFCC64 /* SectionHeader.swift in Sources */,
+				8ECCBB132C2E57A600DD0A1B /* PasswordConfirmInputBox.swift in Sources */,
 				5C9AD9222C040178003EF614 /* NewItemAdditionSheet.swift in Sources */,
 				5C89233E2BFAC80200AE9049 /* ReceivingReservationForm.swift in Sources */,
 				5C80F0F52C06D86F00A94C22 /* UserRepository.swift in Sources */,
+				8ECCBB092C2E42C800DD0A1B /* EmailInputBox.swift in Sources */,
 				8E3F7C5E2C2A9A480087EB2A /* SimpleReceivingStatus.swift in Sources */,
 				5C9063712C04B75B004A0EC5 /* Address.swift in Sources */,
-				5C426BFF2BEDBE7E00869F6D /* ItemInformationInputBox.swift in Sources */,
+				5C426BFF2BEDBE7E00869F6D /* BorderedInputBox.swift in Sources */,
+				8ECCBB0F2C2E4ADB00DD0A1B /* SignUpCaption.swift in Sources */,
+				8ECCBAF72C2CEFAA00DD0A1B /* SignUpForm.swift in Sources */,
+				8ECCBB0D2C2E48A800DD0A1B /* NickNameInputBox.swift in Sources */,
 				8E3F7C572C2A7D330087EB2A /* DefaultItemImage.swift in Sources */,
 				5C426BEA2BEDA8F300869F6D /* ContentView.swift in Sources */,
 				5C4ACAC02BEE1FDB00195895 /* MinusButtonImage.swift in Sources */,
 				5C405EEC2BF72ADB006EE6F1 /* ReceivingViewModel+Defect.swift in Sources */,
 				5C4F181D2C05D1F10030A096 /* AnnotationItem.swift in Sources */,
+				8ECCBAFC2C2CF01200DD0A1B /* SignUpViewModel.swift in Sources */,
+				8ECCBB012C2CFF4700DD0A1B /* SignUpInfo.swift in Sources */,
 				5CCFBF682BF2E05F00322D0D /* SelectedImage.swift in Sources */,
 				8E3F7C602C2A9ABD0087EB2A /* StatusPoint.swift in Sources */,
 				5CADA5D92C004E8000FFCC64 /* PostSearchWebView.swift in Sources */,
+				8ECCBB072C2E39FA00DD0A1B /* SignUpViewModel+RegularExpression.swift in Sources */,
+				8ECCBB0B2C2E46B300DD0A1B /* PasswordInputBox.swift in Sources */,
 				5C4F18132C05568A0030A096 /* EmptyCircle.swift in Sources */,
 				5CA04A352BFB01AC00A28FCA /* Date+Tomorrow.swift in Sources */,
 				5C8923442BFADF0900AE9049 /* Date+String.swift in Sources */,
@@ -607,6 +682,7 @@
 				5C735F4A2BF1B44500A36EC8 /* ItemInformationForm.swift in Sources */,
 				5C41ED932C080877001416D9 /* ReceivingViewModel+Address.swift in Sources */,
 				5C4ACABE2BEE1F1900195895 /* PlusButtonImage.swift in Sources */,
+				8ECCBB032C2D2FB900DD0A1B /* KeyboardViewModel.swift in Sources */,
 				5C1B84D02BF2113200A99192 /* AppDI.swift in Sources */,
 				5C9679C02BFEC666007C8D5A /* SelectedAddressDetail.swift in Sources */,
 				5CADA5DB2C0093D300FFCC64 /* AddressList.swift in Sources */,

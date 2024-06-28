@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ItemInformationInputBox: View {
+struct BorderedInputBox: View {
     @Binding var inputValue: String
     
     var title: String
@@ -18,10 +18,11 @@ struct ItemInformationInputBox: View {
             Text(title)
                 .bold()
                 .font(.footnote)
-                .padding(.leading)
+                .padding(.leading, 5)
             
             TextField(placeholder, text: $inputValue)
-                .padding()
+                .font(.subheadline)
+                .padding(12)
                 .overlay {
                     RoundedRectangle(cornerRadius: 10)
                         .stroke(.gray, lineWidth: 1)
@@ -31,5 +32,5 @@ struct ItemInformationInputBox: View {
 }
 
 #Preview {
-    ItemInformationInputBox(inputValue: .constant(""), title: "Item Name",placeholder: "please enter the item name")
+    BorderedInputBox(inputValue: .constant(""), title: "Item Name",placeholder: "please enter the item name")
 }
