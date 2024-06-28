@@ -13,7 +13,7 @@ struct ItemInformationForm: View {
     
     var body: some View {
         VStack(spacing: 30) {
-            ItemInformationInputBox(inputValue: $viewModel.items[viewModel.itemIdx].itemName,
+            BorderedInputBox(inputValue: $viewModel.items[viewModel.itemIdx].itemName,
                                     title: "물품명",
                                     placeholder: "물품 이름을 입력해 주세요")
             

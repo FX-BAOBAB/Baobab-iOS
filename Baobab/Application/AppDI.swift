@@ -21,5 +21,9 @@ struct AppDI {
         return ReceivingViewModel(itemIdx: 0, usecase: receivingUseCase)
     }
     
+    var signUpViewModel: SignUpViewModel {
+        return SignUpViewModel()
+    }
+    
     private init() {}
 }
