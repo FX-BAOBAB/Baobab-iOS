@@ -59,6 +59,7 @@ struct SignUpForm: View {
             .frame(maxHeight: .infinity, alignment: .bottom)
             .ignoresSafeArea(.keyboard)    //TextField가 활성화 되어도 위치 고정
         }
+        .navigationBarTitleDisplayMode(.large)
         .alert(isPresented: $isShowingInvalidInputAlert) {
             Alert(title: Text("알림"),
                   message: Text("모든 항목을 정확하게 입력해 주세요"),
