@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SearchedAddressView: View {
     @EnvironmentObject private var viewModel: SignUpViewModel
-    @Binding var isShowingPostCodeSearch: Bool
+    @Binding var isShowingPostCodeSearchForm: Bool
     
     var body: some View {
         VStack {
@@ -20,7 +20,7 @@ struct SearchedAddressView: View {
                     .disabled(true)
                 
                 Button(action: {
-                    isShowingPostCodeSearch.toggle()
+                    isShowingPostCodeSearchForm.toggle()
                 }, label: {
                     Text("주소찾기")
                         .foregroundColor(.black)
@@ -42,6 +42,6 @@ struct SearchedAddressView: View {
 }
 
 #Preview {
-    SearchedAddressView(isShowingPostCodeSearch: .constant(false))
+    SearchedAddressView(isShowingPostCodeSearchForm: .constant(false))
         .environmentObject(AppDI.shared.signUpViewModel)
 }
