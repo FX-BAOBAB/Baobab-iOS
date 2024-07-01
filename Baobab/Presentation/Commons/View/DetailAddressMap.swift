@@ -8,8 +8,8 @@
 import MapKit
 import SwiftUI
 
-struct DetailAddressMap: View {
-    @EnvironmentObject private var viewModel: ReceivingViewModel
+struct DetailAddressMap<T: PostSearchable>: View {
+    @EnvironmentObject private var viewModel: T
     @Binding var isShowingAddressList: Bool
     @Binding var isShowingPostSearchForm: Bool
 
@@ -33,7 +33,7 @@ struct DetailAddressMap: View {
                 VStack {
                     Spacer()
                     
-                    DetailAddressForm(isShowingPostSearchForm: $isShowingPostSearchForm,
+                    DetailAddressForm<T>(isShowingPostSearchForm: $isShowingPostSearchForm,
                                       isShowingAddressList: $isShowingAddressList)
                     .environmentObject(viewModel)
                     .background(.white)
@@ -49,7 +49,7 @@ struct DetailAddressMap: View {
 
 #Preview {
     NavigationStack {
-        DetailAddressMap(isShowingAddressList: .constant(false),
+        DetailAddressMap<ReceivingViewModel>(isShowingAddressList: .constant(false),
                          isShowingPostSearchForm: .constant(false))
         .environmentObject(AppDI.shared.receivingViewModel)
     }

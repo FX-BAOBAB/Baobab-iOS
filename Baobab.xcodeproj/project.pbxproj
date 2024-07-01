@@ -73,6 +73,9 @@
 		8E90635E2C293775008B5C52 /* CameraLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E90635D2C293775008B5C52 /* CameraLabel.swift */; };
 		8E9063612C29464A008B5C52 /* UIImage+Downscale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9063602C29464A008B5C52 /* UIImage+Downscale.swift */; };
 		8E9063632C2950EF008B5C52 /* UIImage+Crop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9063622C2950EF008B5C52 /* UIImage+Crop.swift */; };
+		8EB0C2532C32262F00FEE8D0 /* SignUpViewModel+PostSearchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB0C2522C32262F00FEE8D0 /* SignUpViewModel+PostSearchable.swift */; };
+		8EB0C2552C322AA000FEE8D0 /* SignUpViewModel+Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB0C2542C322AA000FEE8D0 /* SignUpViewModel+Region.swift */; };
+		8EB0C2572C322B2E00FEE8D0 /* SignUpUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB0C2562C322B2E00FEE8D0 /* SignUpUseCase.swift */; };
 		8ECCBAF72C2CEFAA00DD0A1B /* SignUpForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECCBAF62C2CEFAA00DD0A1B /* SignUpForm.swift */; };
 		8ECCBAFC2C2CF01200DD0A1B /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECCBAFB2C2CF01200DD0A1B /* SignUpViewModel.swift */; };
 		8ECCBB012C2CFF4700DD0A1B /* SignUpInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECCBB002C2CFF4700DD0A1B /* SignUpInfo.swift */; };
@@ -84,6 +87,11 @@
 		8ECCBB0F2C2E4ADB00DD0A1B /* SignUpCaption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECCBB0E2C2E4ADB00DD0A1B /* SignUpCaption.swift */; };
 		8ECCBB112C2E4D5700DD0A1B /* SignUpViewModel+InputState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECCBB102C2E4D5700DD0A1B /* SignUpViewModel+InputState.swift */; };
 		8ECCBB132C2E57A600DD0A1B /* PasswordConfirmInputBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECCBB122C2E57A600DD0A1B /* PasswordConfirmInputBox.swift */; };
+		8ECCBB152C2E846D00DD0A1B /* AddressRegistrationForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECCBB142C2E846D00DD0A1B /* AddressRegistrationForm.swift */; };
+		8ECCBB172C2E872C00DD0A1B /* SearchedAddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECCBB162C2E872C00DD0A1B /* SearchedAddressView.swift */; };
+		8ECCBB192C2E894E00DD0A1B /* DefaultAddressToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECCBB182C2E894E00DD0A1B /* DefaultAddressToggleButton.swift */; };
+		8ECCBB1B2C2E90DC00DD0A1B /* PostSearchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECCBB1A2C2E90DC00DD0A1B /* PostSearchable.swift */; };
+		8ED894702C2E9894005E826F /* SignUpPostCodeSearchForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED8946F2C2E9894005E826F /* SignUpPostCodeSearchForm.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -156,6 +164,9 @@
 		8E90635D2C293775008B5C52 /* CameraLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraLabel.swift; sourceTree = "<group>"; };
 		8E9063602C29464A008B5C52 /* UIImage+Downscale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Downscale.swift"; sourceTree = "<group>"; };
 		8E9063622C2950EF008B5C52 /* UIImage+Crop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Crop.swift"; sourceTree = "<group>"; };
+		8EB0C2522C32262F00FEE8D0 /* SignUpViewModel+PostSearchable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SignUpViewModel+PostSearchable.swift"; sourceTree = "<group>"; };
+		8EB0C2542C322AA000FEE8D0 /* SignUpViewModel+Region.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SignUpViewModel+Region.swift"; sourceTree = "<group>"; };
+		8EB0C2562C322B2E00FEE8D0 /* SignUpUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpUseCase.swift; sourceTree = "<group>"; };
 		8ECCBAF62C2CEFAA00DD0A1B /* SignUpForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpForm.swift; sourceTree = "<group>"; };
 		8ECCBAFB2C2CF01200DD0A1B /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		8ECCBB002C2CFF4700DD0A1B /* SignUpInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpInfo.swift; sourceTree = "<group>"; };
@@ -167,6 +178,11 @@
 		8ECCBB0E2C2E4ADB00DD0A1B /* SignUpCaption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpCaption.swift; sourceTree = "<group>"; };
 		8ECCBB102C2E4D5700DD0A1B /* SignUpViewModel+InputState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SignUpViewModel+InputState.swift"; sourceTree = "<group>"; };
 		8ECCBB122C2E57A600DD0A1B /* PasswordConfirmInputBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordConfirmInputBox.swift; sourceTree = "<group>"; };
+		8ECCBB142C2E846D00DD0A1B /* AddressRegistrationForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressRegistrationForm.swift; sourceTree = "<group>"; };
+		8ECCBB162C2E872C00DD0A1B /* SearchedAddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchedAddressView.swift; sourceTree = "<group>"; };
+		8ECCBB182C2E894E00DD0A1B /* DefaultAddressToggleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAddressToggleButton.swift; sourceTree = "<group>"; };
+		8ECCBB1A2C2E90DC00DD0A1B /* PostSearchable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostSearchable.swift; sourceTree = "<group>"; };
+		8ED8946F2C2E9894005E826F /* SignUpPostCodeSearchForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPostCodeSearchForm.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -300,9 +316,10 @@
 		5C80F0EC2C06BDBD00A94C22 /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
+				8EB0C2562C322B2E00FEE8D0 /* SignUpUseCase.swift */,
+				5C80F0EF2C06C3A000A94C22 /* ReceivingUseCase.swift */,
 				5C80F0ED2C06BF4500A94C22 /* FetchGeoCodeUseCase.swift */,
 				5C80F0F12C06D7EB00A94C22 /* FetchDefaultAddressUseCase.swift */,
-				5C80F0EF2C06C3A000A94C22 /* ReceivingUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -356,11 +373,8 @@
 				5C89233D2BFAC80200AE9049 /* ReceivingReservationForm.swift */,
 				5C9679BF2BFEC666007C8D5A /* SelectedAddressDetail.swift */,
 				5C9679BD2BFEC59F007C8D5A /* PostCodeSearch.swift */,
-				5CADA5D82C004E8000FFCC64 /* PostSearchWebView.swift */,
-				5CADA5DC2C00CE1600FFCC64 /* DetailAddressMap.swift */,
 				5CADA5DA2C0093D300FFCC64 /* AddressList.swift */,
 				5C90636E2C04B34F004A0EC5 /* AddressListRow.swift */,
-				5C4F18182C05B86D0030A096 /* DetailAddressForm.swift */,
 			);
 			path = ReceivingReservation;
 			sourceTree = "<group>";
@@ -484,6 +498,10 @@
 				8ECCBB122C2E57A600DD0A1B /* PasswordConfirmInputBox.swift */,
 				8ECCBB0C2C2E48A800DD0A1B /* NickNameInputBox.swift */,
 				8ECCBB0E2C2E4ADB00DD0A1B /* SignUpCaption.swift */,
+				8ECCBB142C2E846D00DD0A1B /* AddressRegistrationForm.swift */,
+				8ECCBB162C2E872C00DD0A1B /* SearchedAddressView.swift */,
+				8ECCBB182C2E894E00DD0A1B /* DefaultAddressToggleButton.swift */,
+				8ED8946F2C2E9894005E826F /* SignUpPostCodeSearchForm.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -492,8 +510,10 @@
 			isa = PBXGroup;
 			children = (
 				8ECCBAFB2C2CF01200DD0A1B /* SignUpViewModel.swift */,
-				8ECCBB062C2E39FA00DD0A1B /* SignUpViewModel+RegularExpression.swift */,
+				8EB0C2542C322AA000FEE8D0 /* SignUpViewModel+Region.swift */,
 				8ECCBB102C2E4D5700DD0A1B /* SignUpViewModel+InputState.swift */,
+				8EB0C2522C32262F00FEE8D0 /* SignUpViewModel+PostSearchable.swift */,
+				8ECCBB062C2E39FA00DD0A1B /* SignUpViewModel+RegularExpression.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -501,10 +521,38 @@
 		8ECCBAFD2C2CFC1E00DD0A1B /* Commons */ = {
 			isa = PBXGroup;
 			children = (
-				5C426BFE2BEDBE7E00869F6D /* BorderedInputBox.swift */,
-				8ECCBB022C2D2FB900DD0A1B /* KeyboardViewModel.swift */,
+				8ED8946E2C2E9833005E826F /* Interface */,
+				8ED8946D2C2E982B005E826F /* ViewModel */,
+				8ED8946C2C2E981F005E826F /* View */,
 			);
 			path = Commons;
+			sourceTree = "<group>";
+		};
+		8ED8946C2C2E981F005E826F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5CADA5DC2C00CE1600FFCC64 /* DetailAddressMap.swift */,
+				5CADA5D82C004E8000FFCC64 /* PostSearchWebView.swift */,
+				5C426BFE2BEDBE7E00869F6D /* BorderedInputBox.swift */,
+				5C4F18182C05B86D0030A096 /* DetailAddressForm.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8ED8946D2C2E982B005E826F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				8ECCBB022C2D2FB900DD0A1B /* KeyboardViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		8ED8946E2C2E9833005E826F /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				8ECCBB1A2C2E90DC00DD0A1B /* PostSearchable.swift */,
+			);
+			path = Interface;
 			sourceTree = "<group>";
 		};
 		A79B888828ABA888471C141F /* Frameworks */ = {
@@ -640,6 +688,7 @@
 				8ECCBB112C2E4D5700DD0A1B /* SignUpViewModel+InputState.swift in Sources */,
 				5C994A522BF58A880013672B /* DefectRegistrationForm.swift in Sources */,
 				5C13D5AB2BF3082600CA0792 /* ImagePicker.swift in Sources */,
+				8EB0C2552C322AA000FEE8D0 /* SignUpViewModel+Region.swift in Sources */,
 				5CA752CC2C0712C100DA42B7 /* RemoteDataSource.swift in Sources */,
 				5C426BFD2BEDBDE900869F6D /* ReceivingViewModel.swift in Sources */,
 				5C735F4C2BF1BAB200A36EC8 /* EstimatedPrice.swift in Sources */,
@@ -651,6 +700,7 @@
 				5C80F0F52C06D86F00A94C22 /* UserRepository.swift in Sources */,
 				8ECCBB092C2E42C800DD0A1B /* EmailInputBox.swift in Sources */,
 				8E3F7C5E2C2A9A480087EB2A /* SimpleReceivingStatus.swift in Sources */,
+				8EB0C2572C322B2E00FEE8D0 /* SignUpUseCase.swift in Sources */,
 				5C9063712C04B75B004A0EC5 /* Address.swift in Sources */,
 				5C426BFF2BEDBE7E00869F6D /* BorderedInputBox.swift in Sources */,
 				8ECCBB0F2C2E4ADB00DD0A1B /* SignUpCaption.swift in Sources */,
@@ -660,18 +710,22 @@
 				5C426BEA2BEDA8F300869F6D /* ContentView.swift in Sources */,
 				5C4ACAC02BEE1FDB00195895 /* MinusButtonImage.swift in Sources */,
 				5C405EEC2BF72ADB006EE6F1 /* ReceivingViewModel+Defect.swift in Sources */,
+				8ECCBB152C2E846D00DD0A1B /* AddressRegistrationForm.swift in Sources */,
 				5C4F181D2C05D1F10030A096 /* AnnotationItem.swift in Sources */,
 				8ECCBAFC2C2CF01200DD0A1B /* SignUpViewModel.swift in Sources */,
 				8ECCBB012C2CFF4700DD0A1B /* SignUpInfo.swift in Sources */,
 				5CCFBF682BF2E05F00322D0D /* SelectedImage.swift in Sources */,
 				8E3F7C602C2A9ABD0087EB2A /* StatusPoint.swift in Sources */,
 				5CADA5D92C004E8000FFCC64 /* PostSearchWebView.swift in Sources */,
+				8ECCBB192C2E894E00DD0A1B /* DefaultAddressToggleButton.swift in Sources */,
 				8ECCBB072C2E39FA00DD0A1B /* SignUpViewModel+RegularExpression.swift in Sources */,
 				8ECCBB0B2C2E46B300DD0A1B /* PasswordInputBox.swift in Sources */,
 				5C4F18132C05568A0030A096 /* EmptyCircle.swift in Sources */,
 				5CA04A352BFB01AC00A28FCA /* Date+Tomorrow.swift in Sources */,
 				5C8923442BFADF0900AE9049 /* Date+String.swift in Sources */,
+				8EB0C2532C32262F00FEE8D0 /* SignUpViewModel+PostSearchable.swift in Sources */,
 				5C4F18172C0574CF0030A096 /* ReceivingViewModel+Region.swift in Sources */,
+				8ED894702C2E9894005E826F /* SignUpPostCodeSearchForm.swift in Sources */,
 				5C4ACABC2BEE1ED700195895 /* ItemQuantitySelector.swift in Sources */,
 				5C80F0FD2C070DA600A94C22 /* UserRepositoryImpl.swift in Sources */,
 				5C80F0F22C06D7EB00A94C22 /* FetchDefaultAddressUseCase.swift in Sources */,
@@ -692,7 +746,9 @@
 				8E9063632C2950EF008B5C52 /* UIImage+Crop.swift in Sources */,
 				8E3F7C592C2A81450087EB2A /* PaymentDetail.swift in Sources */,
 				5C994A562BF5EA960013672B /* DefectImagePicker.swift in Sources */,
+				8ECCBB172C2E872C00DD0A1B /* SearchedAddressView.swift in Sources */,
 				5C9B81042BF44AD10038EB27 /* DefectRegistrationList.swift in Sources */,
+				8ECCBB1B2C2E90DC00DD0A1B /* PostSearchable.swift in Sources */,
 				5C405EEA2BF6F3C0006EE6F1 /* DefectRegistrationRow.swift in Sources */,
 				5C80F0F82C06DD0F00A94C22 /* DefaultAddressResponseDTO.swift in Sources */,
 				5C735F462BF1A4B400A36EC8 /* CategoryListRow.swift in Sources */,
