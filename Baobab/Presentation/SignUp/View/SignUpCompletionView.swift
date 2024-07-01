@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct SignUpCompletionView: View {
+    @Binding private(set) var isShowingCompletionView: Bool
+    @Binding private(set) var isShowingAddressRegistrationForm: Bool
+    @Binding private(set) var isShowingSignUpForm: Bool
+    
     var body: some View {
         VStack(spacing: 20) {
             Spacer()
@@ -33,7 +37,9 @@ struct SignUpCompletionView: View {
             Spacer()
             
             Button(action: {
-                //TODO: 로그인 화면으로 되돌아가기
+                isShowingCompletionView.toggle()
+                isShowingAddressRegistrationForm.toggle()
+                isShowingSignUpForm.toggle()
             }, label: {
                 Text("완료")
                     .bold()
@@ -50,5 +56,7 @@ struct SignUpCompletionView: View {
 }
 
 #Preview {
-    SignUpCompletionView()
+    SignUpCompletionView(isShowingCompletionView: .constant(true),
+                         isShowingAddressRegistrationForm: .constant(true),
+                         isShowingSignUpForm: .constant(true))
 }
