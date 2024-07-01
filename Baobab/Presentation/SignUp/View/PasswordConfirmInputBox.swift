@@ -14,7 +14,8 @@ struct PasswordConfirmInputBox: View {
         VStack {
             BorderedInputBox(inputValue: $viewModel.passwordConfirm,
                              title: "비밀번호 확인",
-                             placeholder: "한번 더 비밀번호를 입력하세요")
+                             placeholder: "한번 더 비밀번호를 입력하세요",
+                             type: .secure)
             
             if viewModel.passwordConfirmState != .none && viewModel.passwordConfirmState != .isValid {
                 SignUpCaption(caption: viewModel.passwordConfirmState.rawValue)

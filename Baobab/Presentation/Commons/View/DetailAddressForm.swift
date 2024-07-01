@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct DetailAddressForm: View {
-    @EnvironmentObject private var viewModel: ReceivingViewModel
+struct DetailAddressForm<T: PostSearchable>: View {
+    @EnvironmentObject private var viewModel: T
     @Binding var isShowingPostSearchForm: Bool
     @Binding var isShowingAddressList: Bool
     
@@ -47,7 +47,7 @@ struct DetailAddressForm: View {
 }
 
 #Preview {
-    DetailAddressForm(isShowingPostSearchForm: .constant(false),
+    DetailAddressForm<ReceivingViewModel>(isShowingPostSearchForm: .constant(false),
                       isShowingAddressList: .constant(false))
     .environmentObject(AppDI.shared.receivingViewModel)
 }

@@ -14,13 +14,14 @@ struct EmailInputBox: View {
         VStack {
             BorderedInputBox(inputValue: $viewModel.email,
                              title: "이메일",
-                             placeholder: "ex) baobab123@baobab.com")
+                             placeholder: "ex) baobab123@baobab.com", 
+                             type: .normal)
             
-            if viewModel.emailState != .none {
-                SignUpCaption(caption: viewModel.emailState.rawValue)
-            } else {
+            if viewModel.emailState == .none || viewModel.emailState == .isValid {
                 Spacer()
                     .frame(height: 17.5)
+            } else {
+                SignUpCaption(caption: viewModel.emailState.rawValue)
             }
         }
         .animation(.bouncy(duration: 0.5), value: viewModel.emailState)

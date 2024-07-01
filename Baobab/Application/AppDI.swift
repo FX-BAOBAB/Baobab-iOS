@@ -11,10 +11,10 @@ struct AppDI {
     static let shared: AppDI = AppDI()
     
     let dataSource = RemoteDataSourceImpl()
+    let fetchGeoCodeUseCase = FetchGeoCodeUseCaseImpl()
     
     var receivingViewModel: ReceivingViewModel {
         let repository = UserRepositoryImpl(dataSource: dataSource)
-        let fetchGeoCodeUseCase = FetchGeoCodeUseCaseImpl()
         let fetchDefaultAddressUseCase = FetchDefaultAddressUseCaseImpl(repository: repository)
         let receivingUseCase = ReceivingUseCaseImpl(fetchGeoCodeUseCase: fetchGeoCodeUseCase,
                                                     fetchDefaultAddressUseCase: fetchDefaultAddressUseCase)
@@ -22,7 +22,8 @@ struct AppDI {
     }
     
     var signUpViewModel: SignUpViewModel {
-        return SignUpViewModel()
+        let signUpUseCase = SignUpUseCaseImpl(fetchGeoCodeUseCase: fetchGeoCodeUseCase)
+        return SignUpViewModel(usecase: signUpUseCase)
     }
     
     private init() {}

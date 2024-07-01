@@ -10,6 +10,7 @@ import SwiftUI
 struct SignUpForm: View {
     @ObservedObject private var viewModel: SignUpViewModel
     @State var isShowingInvalidInputAlert: Bool = false
+    @State var isShowingAddressRegistrationForm: Bool = false
     
     init(viewModel: SignUpViewModel) {
         _viewModel = ObservedObject(wrappedValue: viewModel)
@@ -40,7 +41,7 @@ struct SignUpForm: View {
                     if !viewModel.confirmAllInputs() {
                         isShowingInvalidInputAlert.toggle()
                     } else {
-                        //TODO: 다음 화면 이동
+                        isShowingAddressRegistrationForm.toggle()
                     }
                 }, label: {
                     Text("다음")
@@ -62,6 +63,10 @@ struct SignUpForm: View {
             Alert(title: Text("알림"),
                   message: Text("모든 항목을 정확하게 입력해 주세요"),
                   dismissButton: .default(Text("확인")))
+        }
+        .navigationDestination(isPresented: $isShowingAddressRegistrationForm) {
+            AddressRegistrationForm()
+                .environmentObject(viewModel)
         }
     }
 }

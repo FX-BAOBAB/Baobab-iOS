@@ -14,7 +14,8 @@ struct NickNameInputBox: View {
         VStack {
             BorderedInputBox(inputValue: $viewModel.nickName,
                              title: "닉네임",
-                             placeholder: "닉네임을 입력하세요")
+                             placeholder: "닉네임을 입력하세요",
+                             type: .normal)
             
             if viewModel.nickNameState != .none {
                 SignUpCaption(caption: viewModel.nickNameState.rawValue)

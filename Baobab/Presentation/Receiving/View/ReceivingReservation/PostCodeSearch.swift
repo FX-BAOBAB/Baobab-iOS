@@ -17,7 +17,7 @@ struct PostCodeSearch: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                PostSearchWebView(isShowingDetailAddressForm: $isShowingDetailAddressForm,
+                PostSearchWebView<ReceivingViewModel>(isShowingDetailAddressForm: $isShowingDetailAddressForm,
                                   isProgress: $isProgrss)
                 .environmentObject(viewModel)
                 .toolbar {
@@ -36,7 +36,7 @@ struct PostCodeSearch: View {
                 }
             }
             .navigationDestination(isPresented: $isShowingDetailAddressForm) {
-                DetailAddressMap(isShowingAddressList: $isShowingAddressList,
+                DetailAddressMap<ReceivingViewModel>(isShowingAddressList: $isShowingAddressList,
                                  isShowingPostSearchForm: $isShowingPostCodeSearch)
                     .environmentObject(viewModel)
             }

@@ -6,9 +6,9 @@
 //
 
 import Combine
-import Foundation
+import MapKit
 
-final class SignUpViewModel: ObservableObject {
+final class SignUpViewModel: PostSearchable {
     @Published var email: String = ""
     @Published var password: String = ""
     @Published var passwordConfirm: String = ""
@@ -17,11 +17,20 @@ final class SignUpViewModel: ObservableObject {
     @Published var passwordState: PasswordState = .none
     @Published var passwordConfirmState: PasswordConfirmState = .none
     @Published var nickNameState: NickNameState = .none
+    @Published var selectedAddress: Address = Address(id: UUID().hashValue, address: "", detailAddress: "", post: "", isBasicAddress: false)
+    @Published var searchedAddress: String = ""
+    @Published var searchedAddressRegion: MKCoordinateRegion?
+    @Published var searchedPostCode: String = ""
+    @Published var detailedAddressInput: String = ""
     
     var cancellables = Set<AnyCancellable>()
+    let usecase: SignUpUseCase
     
-    init() {
+    init(usecase: SignUpUseCase) {
+        self.usecase = usecase
+        
         observe()
+        calculateMapCoordinates()
     }
     
     //MARK: - 입력감지
