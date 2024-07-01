@@ -9,11 +9,13 @@ import SwiftUI
 
 struct SignUpForm: View {
     @ObservedObject private var viewModel: SignUpViewModel
-    @State var isShowingInvalidInputAlert: Bool = false
-    @State var isShowingAddressRegistrationForm: Bool = false
+    @State private var isShowingInvalidInputAlert: Bool = false
+    @State private var isShowingAddressRegistrationForm: Bool = false
+    @Binding private(set) var isShowingSignUpForm: Bool
     
-    init(viewModel: SignUpViewModel) {
+    init(viewModel: SignUpViewModel, isShowingSignUpForm: Binding<Bool>) {
         _viewModel = ObservedObject(wrappedValue: viewModel)
+        _isShowingSignUpForm = isShowingSignUpForm
     }
     
     var body: some View {
@@ -66,7 +68,8 @@ struct SignUpForm: View {
                   dismissButton: .default(Text("확인")))
         }
         .navigationDestination(isPresented: $isShowingAddressRegistrationForm) {
-            AddressRegistrationForm()
+            AddressRegistrationForm(isShowingSignUpForm: $isShowingSignUpForm,
+                                    isShowingAddressRegistrationForm: $isShowingAddressRegistrationForm)
                 .environmentObject(viewModel)
         }
     }
@@ -74,6 +77,7 @@ struct SignUpForm: View {
 
 #Preview {
     NavigationStack {
-        SignUpForm(viewModel: AppDI.shared.signUpViewModel)
+        SignUpForm(viewModel: AppDI.shared.signUpViewModel, 
+                   isShowingSignUpForm: .constant(true))
     }
 }
