@@ -26,5 +26,9 @@ struct AppDI {
         return SignUpViewModel(usecase: signUpUseCase)
     }
     
+    var loginViewModel: LoginViewModel {
+        return LoginViewModel()
+    }
+    
     private init() {}
 }
