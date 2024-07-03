@@ -7,6 +7,7 @@
 
 import Combine
 import MapKit
+import Foundation
 
 final class SignUpViewModel: PostSearchable {
     @Published var email: String = ""
@@ -36,7 +37,7 @@ final class SignUpViewModel: PostSearchable {
     //MARK: - 입력감지
     private func observe() {
         $email
-            .debounce(for: 2, scheduler: RunLoop.main)    //마지막 입력으로 입력이 2초 동안 없는 경우 값을 방출
+            .debounce(for: 2, scheduler: DispatchQueue.main)    //마지막 입력으로 입력이 2초 동안 없는 경우 값을 방출
             .sink { [weak self] email in
                 if email.isEmpty {
                     self?.emailState = .none
@@ -51,7 +52,7 @@ final class SignUpViewModel: PostSearchable {
             .store(in: &cancellables)
         
         $password
-            .debounce(for: 2, scheduler: RunLoop.main)
+            .debounce(for: 2, scheduler: DispatchQueue.main)
             .sink { [weak self] pw in
                 if pw.isEmpty {
                     self?.passwordState = .none
@@ -65,7 +66,7 @@ final class SignUpViewModel: PostSearchable {
             .store(in: &cancellables)
         
         $passwordConfirm
-            .debounce(for: 2, scheduler: RunLoop.main)
+            .debounce(for: 2, scheduler: DispatchQueue.main)
             .sink { [weak self] _ in
                 if self?.confirmPassword() == true {
                     self?.passwordConfirmState = .isValid
@@ -77,7 +78,7 @@ final class SignUpViewModel: PostSearchable {
             .store(in: &cancellables)
         
         $nickName
-            .debounce(for: 2, scheduler: RunLoop.main)
+            .debounce(for: 2, scheduler: DispatchQueue.main)
             .sink { [weak self] nickName in
                 if nickName.isEmpty {
                     self?.nickNameState = .none
