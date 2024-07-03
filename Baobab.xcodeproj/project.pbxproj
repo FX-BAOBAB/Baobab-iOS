@@ -96,6 +96,7 @@
 		8ECCBB172C2E872C00DD0A1B /* SearchedAddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECCBB162C2E872C00DD0A1B /* SearchedAddressView.swift */; };
 		8ECCBB192C2E894E00DD0A1B /* DefaultAddressToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECCBB182C2E894E00DD0A1B /* DefaultAddressToggleButton.swift */; };
 		8ECCBB1B2C2E90DC00DD0A1B /* PostSearchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECCBB1A2C2E90DC00DD0A1B /* PostSearchable.swift */; };
+		8ECE2B142C34CF9900D7F499 /* LazyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECE2B132C34CF9900D7F499 /* LazyView.swift */; };
 		8ED894702C2E9894005E826F /* SignUpPostCodeSearchForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED8946F2C2E9894005E826F /* SignUpPostCodeSearchForm.swift */; };
 /* End PBXBuildFile section */
 
@@ -192,6 +193,7 @@
 		8ECCBB162C2E872C00DD0A1B /* SearchedAddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchedAddressView.swift; sourceTree = "<group>"; };
 		8ECCBB182C2E894E00DD0A1B /* DefaultAddressToggleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAddressToggleButton.swift; sourceTree = "<group>"; };
 		8ECCBB1A2C2E90DC00DD0A1B /* PostSearchable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostSearchable.swift; sourceTree = "<group>"; };
+		8ECE2B132C34CF9900D7F499 /* LazyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyView.swift; sourceTree = "<group>"; };
 		8ED8946F2C2E9894005E826F /* SignUpPostCodeSearchForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPostCodeSearchForm.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -574,6 +576,7 @@
 				5CADA5D82C004E8000FFCC64 /* PostSearchWebView.swift */,
 				5C426BFE2BEDBE7E00869F6D /* BorderedInputBox.swift */,
 				5C4F18182C05B86D0030A096 /* DetailAddressForm.swift */,
+				8ECE2B132C34CF9900D7F499 /* LazyView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -800,6 +803,7 @@
 				5C4F18192C05B86D0030A096 /* DetailAddressForm.swift in Sources */,
 				8E9063612C29464A008B5C52 /* UIImage+Downscale.swift in Sources */,
 				8E3F7C552C2A60880087EB2A /* ItemListRow.swift in Sources */,
+				8ECE2B142C34CF9900D7F499 /* LazyView.swift in Sources */,
 				5C9679BE2BFEC59F007C8D5A /* PostCodeSearch.swift in Sources */,
 				8EB0C2662C3248E300FEE8D0 /* LoginInputBox.swift in Sources */,
 				5C426BE82BEDA8F300869F6D /* BaobabApp.swift in Sources */,

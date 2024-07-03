@@ -74,8 +74,10 @@ struct LoginForm: View {
             .offset(y: -60)
             .padding()
             .navigationDestination(isPresented: $isShowingSignUpForm) {
-                SignUpForm(viewModel: AppDI.shared.signUpViewModel, 
-                           isShowingSignUpForm: $isShowingSignUpForm)
+                LazyView {
+                    SignUpForm(viewModel: AppDI.shared.signUpViewModel,
+                               isShowingSignUpForm: $isShowingSignUpForm)
+                }
             }
         }
     }
