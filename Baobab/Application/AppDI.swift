@@ -22,7 +22,8 @@ struct AppDI {
     }
     
     var signUpViewModel: SignUpViewModel {
-        let signUpUseCase = SignUpUseCaseImpl(fetchGeoCodeUseCase: fetchGeoCodeUseCase)
+        let repository = SignUpRepositoryImpl(dataSource: dataSource)
+        let signUpUseCase = SignUpUseCaseImpl(repository: repository, fetchGeoCodeUseCase: fetchGeoCodeUseCase)
         return SignUpViewModel(usecase: signUpUseCase)
     }
     

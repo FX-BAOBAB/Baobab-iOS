@@ -11,14 +11,21 @@ import Combine
 //MARK: - SignUpUseCase Protocol
 protocol SignUpUseCase {
     func fetchGeoCode(of address: String) -> AnyPublisher<MKCoordinateRegion, any Error>
+    func execute(data: [String: Any]) -> AnyPublisher<SignUpResponse, any Error>
 }
 
 //MARK: - SignUpUseCaseImpl
 final class SignUpUseCaseImpl: SignUpUseCase {
+    private let repository: SignUpRepository
     private let fetchGeoCodeUseCase: FetchGeoCodeUseCase
     
-    init(fetchGeoCodeUseCase: FetchGeoCodeUseCase) {
+    init(repository: SignUpRepository,fetchGeoCodeUseCase: FetchGeoCodeUseCase) {
+        self.repository = repository
         self.fetchGeoCodeUseCase = fetchGeoCodeUseCase
+    }
+    
+    func execute(data: [String: Any]) -> AnyPublisher<SignUpResponse, any Error> {
+        return repository.requestSignUp(param: data)
     }
     
     func fetchGeoCode(of address: String) -> AnyPublisher<MKCoordinateRegion, any Error> {

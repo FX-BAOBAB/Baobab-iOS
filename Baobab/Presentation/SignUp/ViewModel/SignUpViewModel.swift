@@ -23,19 +23,56 @@ final class SignUpViewModel: PostSearchable {
     @Published var searchedAddressRegion: MKCoordinateRegion?
     @Published var searchedPostCode: String = ""
     @Published var detailedAddressInput: String = ""
+    @Published var isProgress: Bool = false
+    @Published var isShowingReponseAlert: Bool = false
     
     var cancellables = Set<AnyCancellable>()
+    var responseMessage: String = ""
+    var signUpResult: Bool = false
     let usecase: SignUpUseCase
     
     init(usecase: SignUpUseCase) {
         self.usecase = usecase
         
-        observe()
+        bind()
         calculateMapCoordinates()
     }
     
+    //MARK: - 회원가입 요청
+    func signUp() {
+        guard let postCode = Int(searchedPostCode) else {
+            isShowingReponseAlert.toggle()
+            responseMessage = "우편번호가 정확하지 않아요."
+            return
+        }
+        
+        isProgress.toggle()    //회원가입 요청 시작
+        let signUpData: [String: Any] = ["email": email,
+                          "password": password,
+                          "name": nickName,
+                          "address": selectedAddress.address,
+                          "detailAddress": selectedAddress.detailAddress,
+                          "basicAddress": selectedAddress.isBasicAddress,
+                          "post": postCode]
+        
+        usecase.execute(data: signUpData)
+            .sink(receiveCompletion: { completion in
+                switch completion {
+                case .finished:
+                    print("Sign-up request has been completed.")
+                case .failure(let error):
+                    print("SignUpViewModel.signUp() error : " , error)
+                }
+            }, receiveValue: { [weak self] in
+                self?.responseMessage = $0.message
+                self?.isShowingReponseAlert.toggle()
+                self?.isProgress.toggle()    //회원가입 요청 완료
+            })
+            .store(in: &cancellables)
+    }
+    
     //MARK: - 입력감지
-    private func observe() {
+    private func bind() {
         $email
             .debounce(for: 2, scheduler: DispatchQueue.main)    //마지막 입력으로 입력이 2초 동안 없는 경우 값을 방출
             .sink { [weak self] email in
