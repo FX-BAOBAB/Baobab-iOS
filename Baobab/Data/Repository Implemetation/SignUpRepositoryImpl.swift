@@ -15,9 +15,9 @@ final class SignUpRepositoryImpl: RemoteRepository, SignUpRepository {
         return dataSource.sendPostRequest(to: apiEndPoint, with: param, resultType: SignUpResponseDTO.self)
             .map {
                 if $0.result.resultCode == 200 {
-                    SignUpResponse(result: true, message: $0.body.message)
+                    SignUpResponse(result: true, message: $0.body?.message ?? "")
                 } else {
-                    SignUpResponse(result: false, message: $0.body.message)
+                    SignUpResponse(result: false, message: $0.body?.message ?? "")
                 }
             }
             .eraseToAnyPublisher()
