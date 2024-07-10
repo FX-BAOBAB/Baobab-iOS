@@ -10,7 +10,7 @@ import Foundation
 // MARK: - SignUpResponseDTO
 struct SignUpResponseDTO: Decodable {
     let result: SignUpResult
-    let body: SignUpResponseBody
+    let body: SignUpResponseBody?
 }
 
 // MARK: - SignUpResponseBody
