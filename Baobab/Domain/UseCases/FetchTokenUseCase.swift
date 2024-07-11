@@ -14,7 +14,7 @@ protocol FetchTokenUseCase {
     func executeTokenDelete(for account: String) -> AnyPublisher<Bool, Never>
 }
 
-final class FetchTikenUseCaseImpl: FetchTokenUseCase {
+final class FetchTokenUseCaseImpl: FetchTokenUseCase {
     private let repository: TokenRepositroy
     
     init(repository: TokenRepositroy) {
