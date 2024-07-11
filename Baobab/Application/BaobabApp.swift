@@ -11,7 +11,7 @@ import SwiftUI
 struct BaobabApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            LoginForm(viewModel: AppDI.shared.loginViewModel)
         }
     }
 }

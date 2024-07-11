@@ -16,7 +16,7 @@
 		5C41ED912C07FD29001416D9 /* RemoteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C41ED902C07FD29001416D9 /* RemoteRepository.swift */; };
 		5C41ED932C080877001416D9 /* ReceivingViewModel+Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C41ED922C080877001416D9 /* ReceivingViewModel+Address.swift */; };
 		5C426BE82BEDA8F300869F6D /* BaobabApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C426BE72BEDA8F300869F6D /* BaobabApp.swift */; };
-		5C426BEA2BEDA8F300869F6D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C426BE92BEDA8F300869F6D /* ContentView.swift */; };
+		5C426BEA2BEDA8F300869F6D /* MainContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C426BE92BEDA8F300869F6D /* MainContentView.swift */; };
 		5C426BEC2BEDA8F400869F6D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C426BEB2BEDA8F400869F6D /* Assets.xcassets */; };
 		5C426BEF2BEDA8F400869F6D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C426BEE2BEDA8F400869F6D /* Preview Assets.xcassets */; };
 		5C426BFD2BEDBDE900869F6D /* ReceivingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C426BFC2BEDBDE900869F6D /* ReceivingViewModel.swift */; };
@@ -63,6 +63,7 @@
 		5CCFBF6A2BF2E18200322D0D /* ImageRegistrationForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCFBF692BF2E18200322D0D /* ImageRegistrationForm.swift */; };
 		5CD8A2072C0341B900EE5C09 /* StoreItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD8A2062C0341B900EE5C09 /* StoreItem.swift */; };
 		5CD8A2092C036A8B00EE5C09 /* ImageRegistrationCompleteSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD8A2082C036A8B00EE5C09 /* ImageRegistrationCompleteSheet.swift */; };
+		8E0ED80D2C3FA5C600AB0EC8 /* LoginUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0ED80C2C3FA5C600AB0EC8 /* LoginUITest.swift */; };
 		8E3F7C532C2A5F3E0087EB2A /* ReceivingPaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F7C522C2A5F3E0087EB2A /* ReceivingPaymentView.swift */; };
 		8E3F7C552C2A60880087EB2A /* ItemListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F7C542C2A60880087EB2A /* ItemListRow.swift */; };
 		8E3F7C572C2A7D330087EB2A /* DefaultItemImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F7C562C2A7D330087EB2A /* DefaultItemImage.swift */; };
@@ -132,6 +133,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		8E0ED8072C3FA56300AB0EC8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5C426BDC2BEDA8F300869F6D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5C426BE32BEDA8F300869F6D;
+			remoteInfo = Baobab;
+		};
 		8E97721A2C3CEF530082DCAF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5C426BDC2BEDA8F300869F6D /* Project object */;
@@ -156,7 +164,7 @@
 		5C41ED922C080877001416D9 /* ReceivingViewModel+Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReceivingViewModel+Address.swift"; sourceTree = "<group>"; };
 		5C426BE42BEDA8F300869F6D /* Baobab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Baobab.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C426BE72BEDA8F300869F6D /* BaobabApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaobabApp.swift; sourceTree = "<group>"; };
-		5C426BE92BEDA8F300869F6D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		5C426BE92BEDA8F300869F6D /* MainContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContentView.swift; sourceTree = "<group>"; };
 		5C426BEB2BEDA8F400869F6D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5C426BEE2BEDA8F400869F6D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5C426BFC2BEDBDE900869F6D /* ReceivingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceivingViewModel.swift; sourceTree = "<group>"; };
@@ -204,6 +212,8 @@
 		5CD8A2062C0341B900EE5C09 /* StoreItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItem.swift; sourceTree = "<group>"; };
 		5CD8A2082C036A8B00EE5C09 /* ImageRegistrationCompleteSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRegistrationCompleteSheet.swift; sourceTree = "<group>"; };
 		63D7A00E0CC7E3DA257FF09A /* Pods-BaobabUnitTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaobabUnitTest.debug.xcconfig"; path = "Target Support Files/Pods-BaobabUnitTest/Pods-BaobabUnitTest.debug.xcconfig"; sourceTree = "<group>"; };
+		8E0ED8012C3FA56300AB0EC8 /* BaobabUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BaobabUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E0ED80C2C3FA5C600AB0EC8 /* LoginUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUITest.swift; sourceTree = "<group>"; };
 		8E3F7C522C2A5F3E0087EB2A /* ReceivingPaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceivingPaymentView.swift; sourceTree = "<group>"; };
 		8E3F7C542C2A60880087EB2A /* ItemListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListRow.swift; sourceTree = "<group>"; };
 		8E3F7C562C2A7D330087EB2A /* DefaultItemImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultItemImage.swift; sourceTree = "<group>"; };
@@ -277,6 +287,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8E0ED7FE2C3FA56300AB0EC8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8E9772132C3CEF530082DCAF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -304,6 +321,7 @@
 			children = (
 				5C426BE62BEDA8F300869F6D /* Baobab */,
 				8E9772172C3CEF530082DCAF /* BaobabUnitTest */,
+				8E0ED8022C3FA56300AB0EC8 /* BaobabUITests */,
 				5C426BE52BEDA8F300869F6D /* Products */,
 				171DA550EAFB86608FA52EC7 /* Pods */,
 				A79B888828ABA888471C141F /* Frameworks */,
@@ -315,6 +333,7 @@
 			children = (
 				5C426BE42BEDA8F300869F6D /* Baobab.app */,
 				8E9772162C3CEF530082DCAF /* BaobabUnitTest.xctest */,
+				8E0ED8012C3FA56300AB0EC8 /* BaobabUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -354,7 +373,7 @@
 		5C426BF62BEDBD1B00869F6D /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				5C426BE92BEDA8F300869F6D /* ContentView.swift */,
+				8E0ED7FA2C3F799C00AB0EC8 /* Main */,
 				8ECCBAFD2C2CFC1E00DD0A1B /* Commons */,
 				8EB0C25C2C32451F00FEE8D0 /* LogIn */,
 				8ECCBAF42C2CEF9600DD0A1B /* SignUp */,
@@ -567,6 +586,22 @@
 				8E90635D2C293775008B5C52 /* CameraLabel.swift */,
 			);
 			path = Commons;
+			sourceTree = "<group>";
+		};
+		8E0ED7FA2C3F799C00AB0EC8 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				5C426BE92BEDA8F300869F6D /* MainContentView.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		8E0ED8022C3FA56300AB0EC8 /* BaobabUITests */ = {
+			isa = PBXGroup;
+			children = (
+				8E0ED80C2C3FA5C600AB0EC8 /* LoginUITest.swift */,
+			);
+			path = BaobabUITests;
 			sourceTree = "<group>";
 		};
 		8E3F7C512C2A5E7D0087EB2A /* Payment */ = {
@@ -784,6 +819,24 @@
 			productReference = 5C426BE42BEDA8F300869F6D /* Baobab.app */;
 			productType = "com.apple.product-type.application";
 		};
+		8E0ED8002C3FA56300AB0EC8 /* BaobabUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8E0ED8092C3FA56300AB0EC8 /* Build configuration list for PBXNativeTarget "BaobabUITests" */;
+			buildPhases = (
+				8E0ED7FD2C3FA56300AB0EC8 /* Sources */,
+				8E0ED7FE2C3FA56300AB0EC8 /* Frameworks */,
+				8E0ED7FF2C3FA56300AB0EC8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8E0ED8082C3FA56300AB0EC8 /* PBXTargetDependency */,
+			);
+			name = BaobabUITests;
+			productName = BaobabUITests;
+			productReference = 8E0ED8012C3FA56300AB0EC8 /* BaobabUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		8E9772152C3CEF530082DCAF /* BaobabUnitTest */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8E97721C2C3CEF530082DCAF /* Build configuration list for PBXNativeTarget "BaobabUnitTest" */;
@@ -817,6 +870,10 @@
 					5C426BE32BEDA8F300869F6D = {
 						CreatedOnToolsVersion = 15.3;
 					};
+					8E0ED8002C3FA56300AB0EC8 = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = 5C426BE32BEDA8F300869F6D;
+					};
 					8E9772152C3CEF530082DCAF = {
 						CreatedOnToolsVersion = 15.4;
 						TestTargetID = 5C426BE32BEDA8F300869F6D;
@@ -838,6 +895,7 @@
 			targets = (
 				5C426BE32BEDA8F300869F6D /* Baobab */,
 				8E9772152C3CEF530082DCAF /* BaobabUnitTest */,
+				8E0ED8002C3FA56300AB0EC8 /* BaobabUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -854,6 +912,13 @@
 				8E765F692C3D5BCD008A11E6 /* SignUp_Success_Response.json in Resources */,
 				5C426BEC2BEDA8F400869F6D /* Assets.xcassets in Resources */,
 				8E7BC8C22C3E0C7300CB708F /* SignUp_Fail_Response.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8E0ED7FF2C3FA56300AB0EC8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -991,7 +1056,7 @@
 				8ECCBAF72C2CEFAA00DD0A1B /* SignUpForm.swift in Sources */,
 				8ECCBB0D2C2E48A800DD0A1B /* NickNameInputBox.swift in Sources */,
 				8E3F7C572C2A7D330087EB2A /* DefaultItemImage.swift in Sources */,
-				5C426BEA2BEDA8F300869F6D /* ContentView.swift in Sources */,
+				5C426BEA2BEDA8F300869F6D /* MainContentView.swift in Sources */,
 				5C4ACAC02BEE1FDB00195895 /* MinusButtonImage.swift in Sources */,
 				8E97720B2C3CBFC40082DCAF /* Bundle+URL.swift in Sources */,
 				5C405EEC2BF72ADB006EE6F1 /* ReceivingViewModel+Defect.swift in Sources */,
@@ -1060,6 +1125,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8E0ED7FD2C3FA56300AB0EC8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8E0ED80D2C3FA5C600AB0EC8 /* LoginUITest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8E9772122C3CEF530082DCAF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1078,6 +1151,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		8E0ED8082C3FA56300AB0EC8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5C426BE32BEDA8F300869F6D /* Baobab */;
+			targetProxy = 8E0ED8072C3FA56300AB0EC8 /* PBXContainerItemProxy */;
+		};
 		8E97721B2C3CEF530082DCAF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 5C426BE32BEDA8F300869F6D /* Baobab */;
@@ -1277,6 +1355,48 @@
 			};
 			name = Release;
 		};
+		8E0ED80A2C3FA56300AB0EC8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				MACOSX_DEPLOYMENT_TARGET = 14.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jeonghun.BaobabUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Baobab;
+			};
+			name = Debug;
+		};
+		8E0ED80B2C3FA56300AB0EC8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				MACOSX_DEPLOYMENT_TARGET = 14.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jeonghun.BaobabUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Baobab;
+			};
+			name = Release;
+		};
 		8E97721D2C3CEF530082DCAF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 63D7A00E0CC7E3DA257FF09A /* Pods-BaobabUnitTest.debug.xcconfig */;
@@ -1342,6 +1462,15 @@
 			buildConfigurations = (
 				5C426BF32BEDA8F400869F6D /* Debug */,
 				5C426BF42BEDA8F400869F6D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8E0ED8092C3FA56300AB0EC8 /* Build configuration list for PBXNativeTarget "BaobabUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8E0ED80A2C3FA56300AB0EC8 /* Debug */,
+				8E0ED80B2C3FA56300AB0EC8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

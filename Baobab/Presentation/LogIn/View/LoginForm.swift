@@ -37,7 +37,9 @@ struct LoginForm: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.top, -10)
                 
-                Button(action: {}, label:{
+                Button(action: {
+                    viewModel.login()
+                }, label:{
                     Text("로그인")
                         .bold()
                         .font(.subheadline)
@@ -77,6 +79,19 @@ struct LoginForm: View {
                 LazyView {
                     SignUpForm(viewModel: AppDI.shared.signUpViewModel,
                                isShowingSignUpForm: $isShowingSignUpForm)
+                }
+            }
+            .navigationDestination(isPresented: $viewModel.isLoginSuccess) {
+                MainContentView()
+            }
+            .alert(isPresented: $viewModel.isShowingLoginAlert) {
+                switch viewModel.alertType {
+                case .blank:
+                    Alert(title: Text("알림"), message: Text("이메일과 비밀번호를 정확하게 입력해 주세요."))
+                case .loginError:
+                    Alert(title: Text("로그인 실패"), message: Text("로그인 정보가 일치하지 않습니다."))
+                case .none:
+                    Alert(title: Text(""), message: Text(""))
                 }
             }
         }

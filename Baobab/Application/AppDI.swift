@@ -28,7 +28,12 @@ struct AppDI {
     }
     
     var loginViewModel: LoginViewModel {
-        return LoginViewModel()
+        let repository = LoginRepositoryImpl(dataSource: dataSource)
+        let TokenRepository = TokenRepositoryImpl()
+        let fetchTokenUsecase = FetchTokenUseCaseImpl(repository: TokenRepository)
+        let usecase = LoginUseCaseImpl(fetchTokenUseCase: fetchTokenUsecase, repository: repository)
+        
+        return LoginViewModel(usecase: usecase)
     }
     
     private init() {}
