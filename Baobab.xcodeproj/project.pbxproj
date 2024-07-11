@@ -594,8 +594,6 @@
 			isa = PBXGroup;
 			children = (
 				8E9772242C3CFCA30082DCAF /* MockURLProtocol.swift */,
-				8E7BC8B92C3E06AB00CB708F /* SignUpSuccessMockURLProtocol.swift */,
-				8E7BC8BE2C3E0C3100CB708F /* SignUpFailMockURLProtocol.swift */,
 			);
 			path = Mock;
 			sourceTree = "<group>";
@@ -633,6 +631,8 @@
 		8E97721F2C3CF7990082DCAF /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
+				8E7BC8B92C3E06AB00CB708F /* SignUpSuccessMockURLProtocol.swift */,
+				8E7BC8BE2C3E0C3100CB708F /* SignUpFailMockURLProtocol.swift */,
 				8E9772182C3CEF530082DCAF /* SignUpTest.swift */,
 			);
 			path = SignUp;
