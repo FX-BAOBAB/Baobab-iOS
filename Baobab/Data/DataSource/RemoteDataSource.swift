@@ -27,12 +27,12 @@ final class RemoteDataSourceImpl: RemoteDataSource {
     func sendGetRequest<DTO>(to url: String, 
                              resultType: DTO.Type) -> AnyPublisher<DTO, any Error> where DTO: Decodable {
         return session.request(url)
-                    .publishDecodable(type: resultType)
-                    .value()
-                    .mapError {
-                        $0 as Error
-                    }
-                    .eraseToAnyPublisher()
+                        .publishDecodable(type: resultType)
+                        .value()
+                        .mapError {
+                            $0 as Error
+                        }
+                        .eraseToAnyPublisher()
     }
     
     //MARK: - POST Request
@@ -40,14 +40,14 @@ final class RemoteDataSourceImpl: RemoteDataSource {
                               with params: Parameters,
                               resultType: DTO.Type) -> AnyPublisher<DTO, any Error> where DTO: Decodable {
         return session.request(url,
-                          method: .post,
-                          parameters: params,
-                          encoding: JSONEncoding.default)
-                    .publishDecodable(type: resultType)
-                    .value()
-                    .mapError {
-                        $0 as Error
-                    }
-                    .eraseToAnyPublisher()
+                               method: .post,
+                               parameters: params,
+                               encoding: JSONEncoding.default)
+                        .publishDecodable(type: resultType)
+                        .value()
+                        .mapError {
+                            $0 as Error
+                        }
+                        .eraseToAnyPublisher()
     }
 }
