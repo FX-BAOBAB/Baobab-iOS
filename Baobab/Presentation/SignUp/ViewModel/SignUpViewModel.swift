@@ -24,11 +24,12 @@ final class SignUpViewModel: PostSearchable {
     @Published var searchedPostCode: String = ""
     @Published var detailedAddressInput: String = ""
     @Published var isProgress: Bool = false
-    @Published var isShowingReponseAlert: Bool = false
+    @Published var isShowingAlert: Bool = false
     
     var cancellables = Set<AnyCancellable>()
     var responseMessage: String = ""
     var signUpResult: Bool = false
+    var alertType: AlertType?
     let usecase: SignUpUseCase
     
     init(usecase: SignUpUseCase) {
@@ -41,21 +42,31 @@ final class SignUpViewModel: PostSearchable {
     //MARK: - 회원가입 요청
     func signUp() {
         guard let postCode = Int(searchedPostCode) else {
-            isShowingReponseAlert.toggle()
+            isShowingAlert.toggle()
             responseMessage = "우편번호가 정확하지 않아요."
             return
         }
         
         isProgress.toggle()    //회원가입 요청 시작
-        let signUpData: [String: Any] = ["email": email,
-                          "password": password,
-                          "name": nickName,
-                          "address": selectedAddress.address,
-                          "detailAddress": selectedAddress.detailAddress,
-                          "basicAddress": selectedAddress.isBasicAddress,
-                          "post": postCode]
         
-        usecase.execute(data: signUpData)
+        let params = [
+            "result": [
+                "resultCode": 0,
+                "resultMessage": "string",
+                "resultDescription": "string"
+            ],
+            "body": [
+                "email": email,
+                "password": password,
+                "name": nickName,
+                "address": selectedAddress.address,
+                "detailAddress": selectedAddress.detailAddress,
+                "basicAddress": selectedAddress.isBasicAddress,
+                "post": postCode
+            ]
+        ] as [String: Any]
+        
+        usecase.execute(data: params)
             .sink(receiveCompletion: { completion in
                 switch completion {
                 case .finished:
@@ -65,7 +76,14 @@ final class SignUpViewModel: PostSearchable {
                 }
             }, receiveValue: { [weak self] in
                 self?.responseMessage = $0.message
-                self?.isShowingReponseAlert.toggle()
+                
+                if $0.result {
+                    self?.alertType = .signUpSuccess
+                } else {
+                    self?.alertType = .signUpError
+                }
+                
+                self?.isShowingAlert.toggle()
                 self?.isProgress.toggle()    //회원가입 요청 완료
             })
             .store(in: &cancellables)

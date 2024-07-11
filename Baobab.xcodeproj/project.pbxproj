@@ -129,6 +129,8 @@
 		8ECCBB1B2C2E90DC00DD0A1B /* PostSearchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECCBB1A2C2E90DC00DD0A1B /* PostSearchable.swift */; };
 		8ECE2B142C34CF9900D7F499 /* LazyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECE2B132C34CF9900D7F499 /* LazyView.swift */; };
 		8ED894702C2E9894005E826F /* SignUpPostCodeSearchForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED8946F2C2E9894005E826F /* SignUpPostCodeSearchForm.swift */; };
+		8EE66DE62C400C8A0087AD19 /* SignUpViewModel+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE66DE52C400C8A0087AD19 /* SignUpViewModel+Alert.swift */; };
+		8EE66DEA2C400D920087AD19 /* CustomProgrssView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE66DE92C400D920087AD19 /* CustomProgrssView.swift */; };
 		97ECF5E28D0092D2A4C29B18 /* Pods_BaobabUnitTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35283E8736D3F639C640D3BA /* Pods_BaobabUnitTest.framework */; };
 /* End PBXBuildFile section */
 
@@ -276,6 +278,8 @@
 		8ECCBB1A2C2E90DC00DD0A1B /* PostSearchable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostSearchable.swift; sourceTree = "<group>"; };
 		8ECE2B132C34CF9900D7F499 /* LazyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyView.swift; sourceTree = "<group>"; };
 		8ED8946F2C2E9894005E826F /* SignUpPostCodeSearchForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPostCodeSearchForm.swift; sourceTree = "<group>"; };
+		8EE66DE52C400C8A0087AD19 /* SignUpViewModel+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SignUpViewModel+Alert.swift"; sourceTree = "<group>"; };
+		8EE66DE92C400D920087AD19 /* CustomProgrssView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProgrssView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -742,6 +746,7 @@
 			isa = PBXGroup;
 			children = (
 				8ECCBAFB2C2CF01200DD0A1B /* SignUpViewModel.swift */,
+				8EE66DE52C400C8A0087AD19 /* SignUpViewModel+Alert.swift */,
 				8EB0C2542C322AA000FEE8D0 /* SignUpViewModel+Region.swift */,
 				8ECCBB102C2E4D5700DD0A1B /* SignUpViewModel+InputState.swift */,
 				8EB0C2522C32262F00FEE8D0 /* SignUpViewModel+PostSearchable.swift */,
@@ -768,6 +773,7 @@
 				5C426BFE2BEDBE7E00869F6D /* BorderedInputBox.swift */,
 				5C4F18182C05B86D0030A096 /* DetailAddressForm.swift */,
 				8ECE2B132C34CF9900D7F499 /* LazyView.swift */,
+				8EE66DE92C400D920087AD19 /* CustomProgrssView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1053,6 +1059,7 @@
 				5C9063712C04B75B004A0EC5 /* Address.swift in Sources */,
 				5C426BFF2BEDBE7E00869F6D /* BorderedInputBox.swift in Sources */,
 				8ECCBB0F2C2E4ADB00DD0A1B /* SignUpCaption.swift in Sources */,
+				8EE66DEA2C400D920087AD19 /* CustomProgrssView.swift in Sources */,
 				8ECCBAF72C2CEFAA00DD0A1B /* SignUpForm.swift in Sources */,
 				8ECCBB0D2C2E48A800DD0A1B /* NickNameInputBox.swift in Sources */,
 				8E3F7C572C2A7D330087EB2A /* DefaultItemImage.swift in Sources */,
@@ -1080,6 +1087,7 @@
 				5C4F18172C0574CF0030A096 /* ReceivingViewModel+Region.swift in Sources */,
 				8ED894702C2E9894005E826F /* SignUpPostCodeSearchForm.swift in Sources */,
 				5C4ACABC2BEE1ED700195895 /* ItemQuantitySelector.swift in Sources */,
+				8EE66DE62C400C8A0087AD19 /* SignUpViewModel+Alert.swift in Sources */,
 				5C80F0FD2C070DA600A94C22 /* UserRepositoryImpl.swift in Sources */,
 				5C80F0F22C06D7EB00A94C22 /* FetchDefaultAddressUseCase.swift in Sources */,
 				5CADA5DD2C00CE1600FFCC64 /* DetailAddressMap.swift in Sources */,

@@ -31,9 +31,10 @@ struct AddressRegistrationForm: View {
             
             Button(action: {
                 if viewModel.detailedAddressInput.isEmpty {
-                    isShowingEmptyAddressAlert.toggle()
+                    viewModel.alertType = .addressEmpty
+                    viewModel.isShowingAlert.toggle()
                 } else {
-                    //TODO: 회원 가입 결과에 따라 회원가입 완료 View로 이동
+                    viewModel.signUp()
                 }
             }, label: {
                 Text("다음")
@@ -48,6 +49,10 @@ struct AddressRegistrationForm: View {
             .background(.white)
             .frame(maxHeight: .infinity, alignment: .bottom)
             .ignoresSafeArea(.keyboard)    //TextField가 활성화 되어도 위치 고정
+            
+            if viewModel.isProgress {
+                CustomProgrssView()
+            }
         }
         .navigationTitle("주소지 등록")
         .fullScreenCover(isPresented: $isShowingPostCodeSearchForm) {
@@ -60,10 +65,24 @@ struct AddressRegistrationForm: View {
                                  isShowingAddressRegistrationForm: $isShowingAddressRegistrationForm,
                                  isShowingSignUpForm: $isShowingSignUpForm)
         }
-        .alert(isPresented: $isShowingEmptyAddressAlert) {
-            Alert(title: Text("알림"),
-                  message: Text("방문지 정보를 정확하게 입력해 주세요"),
-                  dismissButton: .default(Text("확인")))
+        .alert(isPresented: $viewModel.isShowingAlert) {
+            switch viewModel.alertType {
+            case .addressEmpty:
+                Alert(title: Text("알림"),
+                      message: Text("방문지 정보를 정확하게 입력해 주세요"),
+                      dismissButton: .default(Text("확인")))
+            case .signUpError:
+                Alert(title: Text("알림"), message: Text(viewModel.responseMessage))
+            case .signUpSuccess:
+                Alert(title: Text("회원가입 성공"),
+                      message: Text(viewModel.responseMessage),
+                      dismissButton: .default(Text("확인")) {
+                    isShowingAddressRegistrationForm.toggle()
+                    isShowingSignUpForm.toggle()
+                })
+            case .none:
+                Alert(title: Text(""))
+            }
         }
     }
 }
