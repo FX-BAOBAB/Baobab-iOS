@@ -18,7 +18,7 @@ final class KeychainTest: XCTestCase {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         
         repository = TokenRepositoryImpl()
-        usecase = FetchTikenUseCaseImpl(repository: repository)
+        usecase = FetchTokenUseCaseImpl(repository: repository)
         cancellables = Set<AnyCancellable>()
     }
 

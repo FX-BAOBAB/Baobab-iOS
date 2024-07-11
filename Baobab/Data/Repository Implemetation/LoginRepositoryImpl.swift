@@ -8,7 +8,7 @@
 import Combine
 import Foundation
 
-final class LoginRepositoryImpl: RemoteRepository {
+final class LoginRepositoryImpl: RemoteRepository, LoginRepository {
     func login(params: [String: Any]) -> AnyPublisher<LoginResponse, any Error> {
         let apiEndPoint = Bundle.main.apiUrl + "/open-api/users/login"
         
