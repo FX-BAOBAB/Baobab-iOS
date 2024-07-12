@@ -9,7 +9,7 @@ import MapKit
 import Combine
 import Foundation
 
-final class ReceivingViewModel: ObservableObject {
+final class ReceivingViewModel: PostSearchable {
     @Published var items: [StoreItem] = [StoreItem(), StoreItem()]
     @Published var reservationDate: Date = Date.tomorrow
     @Published var selectedAddress: Address?

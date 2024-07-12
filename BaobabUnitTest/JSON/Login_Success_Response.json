@@ -1,0 +1,13 @@
+{
+  "result": {
+    "resultCode": 200,
+    "resultMessage": "성공",
+    "resultDescription": "성공"
+  },
+  "body": {
+    "accessToken": "eyJhbGciOiJIUzI1NiJ9",
+    "accessTokenExpiredAt": "2024-07-10T22:32:34.193289662",
+    "refreshToken": "eyJhbGciOiJIUzI1NiJ9",
+    "refreshTokenExpiredAt": "2024-07-11T09:32:34.207436261"
+  }
+}

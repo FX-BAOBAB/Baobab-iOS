@@ -8,8 +8,8 @@
 import WebKit
 import SwiftUI
 
-struct PostSearchWebView: UIViewRepresentable {
-    @EnvironmentObject private var viewModel: ReceivingViewModel
+struct PostSearchWebView<T: PostSearchable>: UIViewRepresentable {
+    @EnvironmentObject private var viewModel: T
     @Binding var isShowingDetailAddressForm: Bool
     @Binding var isProgress: Bool
     
@@ -38,7 +38,7 @@ struct PostSearchWebView: UIViewRepresentable {
 }
 
 extension PostSearchWebView {
-    final class Coordinator: NSObject, WKNavigationDelegate {
+    final class Coordinator: NSObject, WKNavigationDelegate, WKScriptMessageHandler {
         private var parent: PostSearchWebView
         
         init(parent: PostSearchWebView) {
@@ -48,30 +48,29 @@ extension PostSearchWebView {
         //웹 페이지 로딩이 끝났을때 호출되는 delegate method
         func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
             parent.isProgress.toggle()
-        }
-    }
-}
-
-extension PostSearchWebView.Coordinator: WKScriptMessageHandler {
-    func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
-        guard let data = message.body as? [String: String] else {
-            return
+            print(parent.isProgress)
         }
         
-        if let address = data["roadAddress"] {
-            parent.viewModel.searchedAddress = address
+        func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
+            guard let data = message.body as? [String: String] else {
+                return
+            }
+            
+            if let address = data["roadAddress"] {
+                parent.viewModel.searchedAddress = address
+            }
+            
+            if let postcode = data["zonecode"] {
+                parent.viewModel.searchedPostCode = postcode
+            }
+            
+            parent.isShowingDetailAddressForm.toggle()
         }
-        
-        if let postcode = data["zonecode"] {
-            parent.viewModel.searchedPostCode = postcode
-        }
-        
-        parent.isShowingDetailAddressForm.toggle()
     }
 }
 
 #Preview {
-    PostSearchWebView(isShowingDetailAddressForm: .constant(false),
+    PostSearchWebView<ReceivingViewModel>(isShowingDetailAddressForm: .constant(false),
                       isProgress: .constant(false))
     .environmentObject(AppDI.shared.receivingViewModel)
 }
