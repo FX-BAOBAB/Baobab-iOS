@@ -36,6 +36,4 @@ final class FetchTokenUseCaseImpl: FetchTokenUseCase {
     func executeTokenDelete(for account: String) -> AnyPublisher<Bool, Never> {
         return repository.delete(for: account)
     }
-    
-    
 }

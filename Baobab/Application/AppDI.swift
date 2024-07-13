@@ -15,9 +15,9 @@ struct AppDI {
     
     var receivingViewModel: ReceivingViewModel {
         let repository = UserRepositoryImpl(dataSource: dataSource)
-        let fetchDefaultAddressUseCase = FetchDefaultAddressUseCaseImpl(repository: repository)
+        let fetchAddressUseCase = FetchAddressUseCaseImpl(repository: repository)
         let receivingUseCase = ReceivingUseCaseImpl(fetchGeoCodeUseCase: fetchGeoCodeUseCase,
-                                                    fetchDefaultAddressUseCase: fetchDefaultAddressUseCase)
+                                                    fetchDefaultAddressUseCase: fetchAddressUseCase)
         return ReceivingViewModel(itemIdx: 0, usecase: receivingUseCase)
     }
     

@@ -93,6 +93,7 @@
 		8E7BC8EE2C3EC22500CB708F /* Login_Fail_Response.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E7BC8EC2C3EC22500CB708F /* Login_Fail_Response.json */; };
 		8E7BC8F02C3EC29F00CB708F /* LoginFailMockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7BC8EF2C3EC29F00CB708F /* LoginFailMockURLProtocol.swift */; };
 		8E7BC8F22C3EC78600CB708F /* LoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7BC8F12C3EC78600CB708F /* LoginUseCase.swift */; };
+		8E8AF2DF2C424F6A00A1F0ED /* AddressListResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8AF2DE2C424F6A00A1F0ED /* AddressListResponseDTO.swift */; };
 		8E90635E2C293775008B5C52 /* CameraLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E90635D2C293775008B5C52 /* CameraLabel.swift */; };
 		8E9063612C29464A008B5C52 /* UIImage+Downscale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9063602C29464A008B5C52 /* UIImage+Downscale.swift */; };
 		8E9063632C2950EF008B5C52 /* UIImage+Crop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9063622C2950EF008B5C52 /* UIImage+Crop.swift */; };
@@ -245,6 +246,7 @@
 		8E7BC8EC2C3EC22500CB708F /* Login_Fail_Response.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Login_Fail_Response.json; sourceTree = "<group>"; };
 		8E7BC8EF2C3EC29F00CB708F /* LoginFailMockURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFailMockURLProtocol.swift; sourceTree = "<group>"; };
 		8E7BC8F12C3EC78600CB708F /* LoginUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUseCase.swift; sourceTree = "<group>"; };
+		8E8AF2DE2C424F6A00A1F0ED /* AddressListResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressListResponseDTO.swift; sourceTree = "<group>"; };
 		8E90635D2C293775008B5C52 /* CameraLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraLabel.swift; sourceTree = "<group>"; };
 		8E9063602C29464A008B5C52 /* UIImage+Downscale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Downscale.swift"; sourceTree = "<group>"; };
 		8E9063622C2950EF008B5C52 /* UIImage+Crop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Crop.swift"; sourceTree = "<group>"; };
@@ -484,6 +486,7 @@
 				8E9772062C3CBCD00082DCAF /* SignUpResponseDTO.swift */,
 				8E7BC8CB2C3E433600CB708F /* LoginResponseDTO.swift */,
 				8EAB81702C4107B50052AD48 /* AccessTokenRefreshResponseDTO.swift */,
+				8E8AF2DE2C424F6A00A1F0ED /* AddressListResponseDTO.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -1099,6 +1102,7 @@
 				8ECCBB192C2E894E00DD0A1B /* DefaultAddressToggleButton.swift in Sources */,
 				8ECCBB072C2E39FA00DD0A1B /* SignUpViewModel+RegularExpression.swift in Sources */,
 				8ECCBB0B2C2E46B300DD0A1B /* PasswordInputBox.swift in Sources */,
+				8E8AF2DF2C424F6A00A1F0ED /* AddressListResponseDTO.swift in Sources */,
 				5C4F18132C05568A0030A096 /* EmptyCircle.swift in Sources */,
 				5CA04A352BFB01AC00A28FCA /* Date+Tomorrow.swift in Sources */,
 				5C8923442BFADF0900AE9049 /* Date+String.swift in Sources */,

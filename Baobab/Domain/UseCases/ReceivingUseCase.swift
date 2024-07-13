@@ -17,11 +17,11 @@ protocol ReceivingUseCase {
 //MARK: - ReceivingUseCaseImpl
 final class ReceivingUseCaseImpl {
     private let fetchGeoCodeUseCase: FetchGeoCodeUseCase
-    private let fetchDefaultAddressUseCase: FetchDefaultAddressUseCase
+    private let fetchAddressUseCase: FetchAddressUseCase
     
-    init(fetchGeoCodeUseCase: FetchGeoCodeUseCase, fetchDefaultAddressUseCase: FetchDefaultAddressUseCase) {
+    init(fetchGeoCodeUseCase: FetchGeoCodeUseCase, fetchDefaultAddressUseCase: FetchAddressUseCase) {
         self.fetchGeoCodeUseCase = fetchGeoCodeUseCase
-        self.fetchDefaultAddressUseCase = fetchDefaultAddressUseCase
+        self.fetchAddressUseCase = fetchDefaultAddressUseCase
     }
 }
 
@@ -32,6 +32,6 @@ extension ReceivingUseCaseImpl: ReceivingUseCase {
     }
     
     func fetchDefaultAddress() -> AnyPublisher<Address, any Error> {
-        return fetchDefaultAddressUseCase.execute()
+        return fetchAddressUseCase.executeForDefaultAddress()
     }
 }
