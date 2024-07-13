@@ -39,7 +39,7 @@ final class SignUpTest: XCTestCase {
         let expectation = XCTestExpectation(description: "Performs a request")
         
         //When
-        dataSource.sendPostRequest(to: apiEndPoint, with: params, resultType: SignUpResponseDTO.self)
+        dataSource.sendOpenPostRequest(to: apiEndPoint, with: params, resultType: SignUpResponseDTO.self)
             .sink(receiveCompletion: { completion in
                 switch completion {
                 case .finished:
@@ -74,7 +74,7 @@ final class SignUpTest: XCTestCase {
         let expectation = XCTestExpectation(description: "Performs a request")
         
         //When
-        dataSource.sendPostRequest(to: apiEndPoint, with: params, resultType: SignUpResponseDTO.self)
+        dataSource.sendOpenPostRequest(to: apiEndPoint, with: params, resultType: SignUpResponseDTO.self)
             .sink(receiveCompletion: { completion in
                 switch completion {
                 case .finished:
@@ -120,7 +120,7 @@ final class SignUpTest: XCTestCase {
         let expectation = XCTestExpectation(description: "Performs a request")
         
         //When
-        dataSource.sendPostRequest(to: apiEndPoint, with: params, resultType: SignUpResponseDTO.self)
+        dataSource.sendOpenPostRequest(to: apiEndPoint, with: params, resultType: SignUpResponseDTO.self)
             .sink(receiveCompletion: { completion in
                 switch completion {
                 case .finished:
