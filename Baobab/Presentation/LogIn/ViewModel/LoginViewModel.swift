@@ -6,6 +6,7 @@
 //
 
 import Combine
+import Foundation
 
 final class LoginViewModel: ObservableObject {
     @Published var email: String = ""
@@ -44,6 +45,7 @@ final class LoginViewModel: ObservableObject {
         
         isLoginProgress.toggle()
         usecase.execute(params: data)
+            .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { completion in
                 switch completion {
                 case .finished:
