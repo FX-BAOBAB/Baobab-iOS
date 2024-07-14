@@ -8,18 +8,12 @@
 import Foundation
 
 // MARK: - AccessTokenRefreshResponseDTO
-struct AccessTokenRefreshResponseDTO: Codable {
-    let result: AccessTokenRefreshResult
+struct AccessTokenRefreshResponseDTO: Decodable {
+    let result: TaskResult
     let body: AccessTokenRefreshResponseBody
 }
 
 // MARK: - AccessTokenRefreshResponseBody
-struct AccessTokenRefreshResponseBody: Codable {
+struct AccessTokenRefreshResponseBody: Decodable {
     let token, expiredAt: String
-}
-
-// MARK: - AccessTokenRefreshResult
-struct AccessTokenRefreshResult: Codable {
-    let resultCode: Int
-    let resultMessage, resultDescription: String
 }

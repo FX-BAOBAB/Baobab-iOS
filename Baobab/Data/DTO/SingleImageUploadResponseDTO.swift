@@ -9,7 +9,7 @@ import Foundation
 
 // MARK: - ImageUploadResponseDTO
 struct SingleImageUploadResponseDTO: Decodable {
-    let result: SingleImageUploadResult
+    let result: TaskResult
     let body: SingleImageUploadResponseBody
 }
 
@@ -28,10 +28,4 @@ struct SingleImageUploadResponseBody: Decodable {
         case goodsID = "goodsId"
         case bodyExtension = "extension"
     }
-}
-
-// MARK: - Result
-struct SingleImageUploadResult: Codable {
-    let resultCode: Int
-    let resultMessage, resultDescription: String
 }

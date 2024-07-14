@@ -8,20 +8,14 @@
 import Foundation
 
 // MARK: - DefaultAddressResponseDTO
-struct DefaultAddressResponseDTO: Codable {
-    let result: DefaultAddressResult
+struct DefaultAddressResponseDTO: Decodable {
+    let result: TaskResult
     let body: DefaultAddressResponseBody
 }
 
 // MARK: - DefaultAddressResponseBody
-struct DefaultAddressResponseBody: Codable {
+struct DefaultAddressResponseBody: Decodable {
     let id: Int
     let address, detailAddress, post: String
     let basicAddress: Bool
-}
-
-// MARK: - DefaultAddressResult
-struct DefaultAddressResult: Codable {
-    let resultCode: Int
-    let resultMessage, resultDescription: String
 }

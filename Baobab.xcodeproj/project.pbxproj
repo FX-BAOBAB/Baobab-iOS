@@ -64,6 +64,7 @@
 		5CD8A2092C036A8B00EE5C09 /* ImageRegistrationCompleteSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD8A2082C036A8B00EE5C09 /* ImageRegistrationCompleteSheet.swift */; };
 		8E0ED80D2C3FA5C600AB0EC8 /* LoginUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0ED80C2C3FA5C600AB0EC8 /* LoginUITest.swift */; };
 		8E227BE82C43755200E007D0 /* MultipleImageUploadResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E227BE72C43755200E007D0 /* MultipleImageUploadResponseDTO.swift */; };
+		8E227BEA2C43B8C000E007D0 /* TaskResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E227BE92C43B8C000E007D0 /* TaskResult.swift */; };
 		8E3F7C532C2A5F3E0087EB2A /* ReceivingPaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F7C522C2A5F3E0087EB2A /* ReceivingPaymentView.swift */; };
 		8E3F7C552C2A60880087EB2A /* ItemListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F7C542C2A60880087EB2A /* ItemListRow.swift */; };
 		8E3F7C572C2A7D330087EB2A /* DefaultItemImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F7C562C2A7D330087EB2A /* DefaultItemImage.swift */; };
@@ -228,6 +229,7 @@
 		8E0ED8012C3FA56300AB0EC8 /* BaobabUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BaobabUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E0ED80C2C3FA5C600AB0EC8 /* LoginUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUITest.swift; sourceTree = "<group>"; };
 		8E227BE72C43755200E007D0 /* MultipleImageUploadResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleImageUploadResponseDTO.swift; sourceTree = "<group>"; };
+		8E227BE92C43B8C000E007D0 /* TaskResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskResult.swift; sourceTree = "<group>"; };
 		8E3F7C522C2A5F3E0087EB2A /* ReceivingPaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceivingPaymentView.swift; sourceTree = "<group>"; };
 		8E3F7C542C2A60880087EB2A /* ItemListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListRow.swift; sourceTree = "<group>"; };
 		8E3F7C562C2A7D330087EB2A /* DefaultItemImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultItemImage.swift; sourceTree = "<group>"; };
@@ -498,6 +500,7 @@
 		5C80F0FA2C06DDE900A94C22 /* DTO */ = {
 			isa = PBXGroup;
 			children = (
+				8E227BE92C43B8C000E007D0 /* TaskResult.swift */,
 				5C80F0F72C06DD0F00A94C22 /* DefaultAddressResponseDTO.swift */,
 				8E9772062C3CBCD00082DCAF /* SignUpResponseDTO.swift */,
 				8E7BC8CB2C3E433600CB708F /* LoginResponseDTO.swift */,
@@ -1157,6 +1160,7 @@
 				8EAB81752C4120F70052AD48 /* RequestError.swift in Sources */,
 				5C41ED932C080877001416D9 /* ReceivingViewModel+Address.swift in Sources */,
 				5C4ACABE2BEE1F1900195895 /* PlusButtonImage.swift in Sources */,
+				8E227BEA2C43B8C000E007D0 /* TaskResult.swift in Sources */,
 				8ECCBB032C2D2FB900DD0A1B /* KeyboardViewModel.swift in Sources */,
 				5C1B84D02BF2113200A99192 /* AppDI.swift in Sources */,
 				5C9679C02BFEC666007C8D5A /* SelectedAddressDetail.swift in Sources */,

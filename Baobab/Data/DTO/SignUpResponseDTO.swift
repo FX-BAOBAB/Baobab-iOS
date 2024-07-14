@@ -9,17 +9,11 @@ import Foundation
 
 // MARK: - SignUpResponseDTO
 struct SignUpResponseDTO: Decodable {
-    let result: SignUpResult
+    let result: TaskResult
     let body: SignUpResponseBody?
 }
 
 // MARK: - SignUpResponseBody
 struct SignUpResponseBody: Decodable {
     let message: String
-}
-
-// MARK: - SignUpResultResult
-struct SignUpResult: Decodable {
-    let resultCode: Int
-    let resultMessage, resultDescription: String
 }

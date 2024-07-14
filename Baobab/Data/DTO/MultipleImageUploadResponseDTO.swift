@@ -8,8 +8,8 @@
 import Foundation
 
 // MARK: - MultipleImageUploadResponseDTO
-struct MultipleImageUploadResponseDTO: Codable {
-    let result: MultipleImageUploadResult
+struct MultipleImageUploadResponseDTO: Decodable {
+    let result: TaskResult
     let body: [MultipleImageUploadResponseBody]
 }
 
@@ -28,10 +28,4 @@ struct MultipleImageUploadResponseBody: Codable {
         case goodsID = "goodsId"
         case bodyExtension = "extension"
     }
-}
-
-// MARK: - Result
-struct MultipleImageUploadResult: Codable {
-    let resultCode: Int
-    let resultMessage, resultDescription: String
 }

@@ -9,7 +9,7 @@ import Foundation
 
 // MARK: - AddressListResponseDTO
 struct AddressListResponseDTO: Decodable {
-    let result: AddressListResult
+    let result: TaskResult
     let body: AddressListResponseBody
 }
 
@@ -23,10 +23,4 @@ struct AddressDtoList: Decodable {
     let id: Int
     let address, detailAddress, post: String
     let basicAddress: Bool
-}
-
-// MARK: - Result
-struct AddressListResult: Decodable {
-    let resultCode: Int
-    let resultMessage, resultDescription: String
 }
