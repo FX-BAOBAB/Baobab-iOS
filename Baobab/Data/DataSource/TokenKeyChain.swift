@@ -52,7 +52,8 @@ struct TokenKeyChain {
     @discardableResult
     static func update(token: String, for account: String) async -> Bool {
         let keychainItem = [
-            kSecClass: kSecClassGenericPassword
+            kSecClass: kSecClassGenericPassword,
+            kSecAttrAccount: account
         ] as [String: Any]
         
         let attributes = [
