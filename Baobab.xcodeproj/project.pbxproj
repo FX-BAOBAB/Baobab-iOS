@@ -63,6 +63,7 @@
 		5CD8A2072C0341B900EE5C09 /* StoreItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD8A2062C0341B900EE5C09 /* StoreItem.swift */; };
 		5CD8A2092C036A8B00EE5C09 /* ImageRegistrationCompleteSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD8A2082C036A8B00EE5C09 /* ImageRegistrationCompleteSheet.swift */; };
 		8E0ED80D2C3FA5C600AB0EC8 /* LoginUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0ED80C2C3FA5C600AB0EC8 /* LoginUITest.swift */; };
+		8E227BE82C43755200E007D0 /* MultipleImageUploadResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E227BE72C43755200E007D0 /* MultipleImageUploadResponseDTO.swift */; };
 		8E3F7C532C2A5F3E0087EB2A /* ReceivingPaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F7C522C2A5F3E0087EB2A /* ReceivingPaymentView.swift */; };
 		8E3F7C552C2A60880087EB2A /* ItemListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F7C542C2A60880087EB2A /* ItemListRow.swift */; };
 		8E3F7C572C2A7D330087EB2A /* DefaultItemImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F7C562C2A7D330087EB2A /* DefaultItemImage.swift */; };
@@ -94,6 +95,12 @@
 		8E7BC8F02C3EC29F00CB708F /* LoginFailMockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7BC8EF2C3EC29F00CB708F /* LoginFailMockURLProtocol.swift */; };
 		8E7BC8F22C3EC78600CB708F /* LoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7BC8F12C3EC78600CB708F /* LoginUseCase.swift */; };
 		8E8AF2DF2C424F6A00A1F0ED /* AddressListResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8AF2DE2C424F6A00A1F0ED /* AddressListResponseDTO.swift */; };
+		8E8AF2E32C425DD100A1F0ED /* UploadImageUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8AF2E22C425DD100A1F0ED /* UploadImageUseCase.swift */; };
+		8E8AF2E52C42633B00A1F0ED /* SingleImageUploadResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8AF2E42C42633B00A1F0ED /* SingleImageUploadResponseDTO.swift */; };
+		8E8AF2E72C4267E800A1F0ED /* ImageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8AF2E62C4267E800A1F0ED /* ImageRepository.swift */; };
+		8E8AF2E92C42685100A1F0ED /* ImageUploadResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8AF2E82C42685100A1F0ED /* ImageUploadResponse.swift */; };
+		8E8AF2EB2C42689D00A1F0ED /* ImageRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8AF2EA2C42689D00A1F0ED /* ImageRepositoryImpl.swift */; };
+		8E8AF2EE2C426C2700A1F0ED /* ImageUploadTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8AF2ED2C426C2700A1F0ED /* ImageUploadTest.swift */; };
 		8E90635E2C293775008B5C52 /* CameraLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E90635D2C293775008B5C52 /* CameraLabel.swift */; };
 		8E9063612C29464A008B5C52 /* UIImage+Downscale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9063602C29464A008B5C52 /* UIImage+Downscale.swift */; };
 		8E9063632C2950EF008B5C52 /* UIImage+Crop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9063622C2950EF008B5C52 /* UIImage+Crop.swift */; };
@@ -220,6 +227,7 @@
 		63D7A00E0CC7E3DA257FF09A /* Pods-BaobabUnitTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaobabUnitTest.debug.xcconfig"; path = "Target Support Files/Pods-BaobabUnitTest/Pods-BaobabUnitTest.debug.xcconfig"; sourceTree = "<group>"; };
 		8E0ED8012C3FA56300AB0EC8 /* BaobabUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BaobabUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E0ED80C2C3FA5C600AB0EC8 /* LoginUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUITest.swift; sourceTree = "<group>"; };
+		8E227BE72C43755200E007D0 /* MultipleImageUploadResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleImageUploadResponseDTO.swift; sourceTree = "<group>"; };
 		8E3F7C522C2A5F3E0087EB2A /* ReceivingPaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceivingPaymentView.swift; sourceTree = "<group>"; };
 		8E3F7C542C2A60880087EB2A /* ItemListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListRow.swift; sourceTree = "<group>"; };
 		8E3F7C562C2A7D330087EB2A /* DefaultItemImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultItemImage.swift; sourceTree = "<group>"; };
@@ -247,6 +255,12 @@
 		8E7BC8EF2C3EC29F00CB708F /* LoginFailMockURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFailMockURLProtocol.swift; sourceTree = "<group>"; };
 		8E7BC8F12C3EC78600CB708F /* LoginUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUseCase.swift; sourceTree = "<group>"; };
 		8E8AF2DE2C424F6A00A1F0ED /* AddressListResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressListResponseDTO.swift; sourceTree = "<group>"; };
+		8E8AF2E22C425DD100A1F0ED /* UploadImageUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadImageUseCase.swift; sourceTree = "<group>"; };
+		8E8AF2E42C42633B00A1F0ED /* SingleImageUploadResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleImageUploadResponseDTO.swift; sourceTree = "<group>"; };
+		8E8AF2E62C4267E800A1F0ED /* ImageRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRepository.swift; sourceTree = "<group>"; };
+		8E8AF2E82C42685100A1F0ED /* ImageUploadResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploadResponse.swift; sourceTree = "<group>"; };
+		8E8AF2EA2C42689D00A1F0ED /* ImageRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRepositoryImpl.swift; sourceTree = "<group>"; };
+		8E8AF2ED2C426C2700A1F0ED /* ImageUploadTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploadTest.swift; sourceTree = "<group>"; };
 		8E90635D2C293775008B5C52 /* CameraLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraLabel.swift; sourceTree = "<group>"; };
 		8E9063602C29464A008B5C52 /* UIImage+Downscale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Downscale.swift"; sourceTree = "<group>"; };
 		8E9063622C2950EF008B5C52 /* UIImage+Crop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Crop.swift"; sourceTree = "<group>"; };
@@ -454,6 +468,7 @@
 				8E7BC8D52C3E6EEB00CB708F /* FetchTokenUseCase.swift */,
 				8E7BC8F12C3EC78600CB708F /* LoginUseCase.swift */,
 				8EAB81672C40BB770052AD48 /* FetchAddressUseCase.swift */,
+				8E8AF2E22C425DD100A1F0ED /* UploadImageUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -465,6 +480,7 @@
 				8E97720C2C3CCA040082DCAF /* SignUpRepository.swift */,
 				8E7BC8C72C3E42CC00CB708F /* LoginRepository.swift */,
 				8E7BC8D32C3E6ACE00CB708F /* TokenRepositroy.swift */,
+				8E8AF2E62C4267E800A1F0ED /* ImageRepository.swift */,
 			);
 			path = "Repository Interfaces";
 			sourceTree = "<group>";
@@ -487,6 +503,8 @@
 				8E7BC8CB2C3E433600CB708F /* LoginResponseDTO.swift */,
 				8EAB81702C4107B50052AD48 /* AccessTokenRefreshResponseDTO.swift */,
 				8E8AF2DE2C424F6A00A1F0ED /* AddressListResponseDTO.swift */,
+				8E8AF2E42C42633B00A1F0ED /* SingleImageUploadResponseDTO.swift */,
+				8E227BE72C43755200E007D0 /* MultipleImageUploadResponseDTO.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -499,6 +517,7 @@
 				8E9772102C3CCC310082DCAF /* SignUpRepositoryImpl.swift */,
 				8E7BC8C92C3E42E300CB708F /* LoginRepositoryImpl.swift */,
 				8E7BC8D12C3E6AB500CB708F /* TokenRepositoryImpl.swift */,
+				8E8AF2EA2C42689D00A1F0ED /* ImageRepositoryImpl.swift */,
 			);
 			path = "Repository Implemetation";
 			sourceTree = "<group>";
@@ -588,6 +607,7 @@
 				8E97720E2C3CCB820082DCAF /* SignUpResponse.swift */,
 				8E7BC8CD2C3E44C500CB708F /* LoginResponse.swift */,
 				8EAB81722C4108380052AD48 /* AccessTokenRefreshData.swift */,
+				8E8AF2E82C42685100A1F0ED /* ImageUploadResponse.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -669,9 +689,18 @@
 			path = Keychain;
 			sourceTree = "<group>";
 		};
+		8E8AF2EC2C426C1500A1F0ED /* ImageUpload */ = {
+			isa = PBXGroup;
+			children = (
+				8E8AF2ED2C426C2700A1F0ED /* ImageUploadTest.swift */,
+			);
+			path = ImageUpload;
+			sourceTree = "<group>";
+		};
 		8E9772172C3CEF530082DCAF /* BaobabUnitTest */ = {
 			isa = PBXGroup;
 			children = (
+				8E8AF2EC2C426C1500A1F0ED /* ImageUpload */,
 				8EAB816D2C40E7310052AD48 /* Address */,
 				8E765F6A2C3D5EB0008A11E6 /* Mock */,
 				8E9772202C3CF7A80082DCAF /* JSON */,
@@ -1057,6 +1086,7 @@
 				8E97720D2C3CCA040082DCAF /* SignUpRepository.swift in Sources */,
 				8E90635E2C293775008B5C52 /* CameraLabel.swift in Sources */,
 				5C41ED912C07FD29001416D9 /* RemoteRepository.swift in Sources */,
+				8E8AF2E72C4267E800A1F0ED /* ImageRepository.swift in Sources */,
 				5C735F442BF1A35B00A36EC8 /* CategoryData.swift in Sources */,
 				5C90636F2C04B34F004A0EC5 /* AddressListRow.swift in Sources */,
 				8EAB81732C4108380052AD48 /* AccessTokenRefreshData.swift in Sources */,
@@ -1078,10 +1108,13 @@
 				5C89233E2BFAC80200AE9049 /* ReceivingReservationForm.swift in Sources */,
 				5C80F0F52C06D86F00A94C22 /* UserRepository.swift in Sources */,
 				8ECCBB092C2E42C800DD0A1B /* EmailInputBox.swift in Sources */,
+				8E227BE82C43755200E007D0 /* MultipleImageUploadResponseDTO.swift in Sources */,
 				8E3F7C5E2C2A9A480087EB2A /* SimpleReceivingStatus.swift in Sources */,
 				8EB0C2572C322B2E00FEE8D0 /* SignUpUseCase.swift in Sources */,
 				5C9063712C04B75B004A0EC5 /* Address.swift in Sources */,
+				8E8AF2E32C425DD100A1F0ED /* UploadImageUseCase.swift in Sources */,
 				5C426BFF2BEDBE7E00869F6D /* BorderedInputBox.swift in Sources */,
+				8E8AF2E52C42633B00A1F0ED /* SingleImageUploadResponseDTO.swift in Sources */,
 				8ECCBB0F2C2E4ADB00DD0A1B /* SignUpCaption.swift in Sources */,
 				8EE66DEA2C400D920087AD19 /* CustomProgrssView.swift in Sources */,
 				8ECCBAF72C2CEFAA00DD0A1B /* SignUpForm.swift in Sources */,
@@ -1136,6 +1169,8 @@
 				8EB0C2622C32456500FEE8D0 /* LoginForm.swift in Sources */,
 				8E9063632C2950EF008B5C52 /* UIImage+Crop.swift in Sources */,
 				8E3F7C592C2A81450087EB2A /* PaymentDetail.swift in Sources */,
+				8E8AF2EB2C42689D00A1F0ED /* ImageRepositoryImpl.swift in Sources */,
+				8E8AF2E92C42685100A1F0ED /* ImageUploadResponse.swift in Sources */,
 				5C994A562BF5EA960013672B /* DefectImagePicker.swift in Sources */,
 				8ECCBB172C2E872C00DD0A1B /* SearchedAddressView.swift in Sources */,
 				5C9B81042BF44AD10038EB27 /* DefectRegistrationList.swift in Sources */,
@@ -1172,6 +1207,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E8AF2EE2C426C2700A1F0ED /* ImageUploadTest.swift in Sources */,
 				8E9772192C3CEF530082DCAF /* SignUpTest.swift in Sources */,
 				8E9772252C3CFCA30082DCAF /* MockURLProtocol.swift in Sources */,
 				8E7BC8BA2C3E06AB00CB708F /* SignUpSuccessMockURLProtocol.swift in Sources */,
