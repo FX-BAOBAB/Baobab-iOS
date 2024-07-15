@@ -11,6 +11,7 @@ import Combine
 //MARK: - ReceivingUseCase protocol
 protocol ReceivingUseCase {
     func fetchDefaultAddress() -> AnyPublisher<Address, any Error>
+    func fetchAddresses() -> AnyPublisher<[Address], any Error>
     func fetchGeoCode(of address: String) -> AnyPublisher<MKCoordinateRegion, any Error>
     func execute(params: [String: Any], items: [StoreItem]) -> AnyPublisher<Bool, any Error>
 }
@@ -40,6 +41,10 @@ extension ReceivingUseCaseImpl: ReceivingUseCase {
     
     func fetchDefaultAddress() -> AnyPublisher<Address, any Error> {
         return fetchAddressUseCase.executeForDefaultAddress()
+    }
+    
+    func fetchAddresses() -> AnyPublisher<[Address], any Error> {
+        return fetchAddressUseCase.executeForAddresses()
     }
 }
 

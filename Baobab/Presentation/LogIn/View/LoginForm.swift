@@ -70,6 +70,15 @@ struct LoginForm: View {
                             .underline()
                             .foregroundColor(.black)
                     }
+                    
+                    Button(action: {
+                        Task {
+                            await TokenKeyChain.delete(for: "accessToken")
+                            await TokenKeyChain.delete(for: "refreshToken")
+                        }
+                    }, label: {
+                        Text("토큰 삭제")
+                    })
                 }
                 .padding(.top)
             }

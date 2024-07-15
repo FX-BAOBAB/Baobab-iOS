@@ -13,8 +13,8 @@ final class ReceivingViewModel: PostSearchable {
     @Published var items: [StoreItem] = [StoreItem(), StoreItem()]
     @Published var reservationDate: Date = Date.tomorrow
     @Published var selectedAddress: Address?
-    @Published var defaultAddress: Address?    //TODO: 사용하지 않으면 삭제
-    @Published var registeredAddresses: [Address]?
+    @Published var defaultAddress: Address?
+    @Published var registeredAddresses: [Address] = []
     @Published var selectedAddressRegion: MKCoordinateRegion?
     @Published var selectedDefectImage: Data?
     @Published var defectDescription: String = ""
@@ -37,11 +37,11 @@ final class ReceivingViewModel: PostSearchable {
         self.usecase = usecase
         calculateMapCoordinates()
         
-        #if DEBUG
-        self.selectedAddress = Address.sampleAddressList.first
-        self.defaultAddress = Address.sampleAddressList.first
-        self.registeredAddresses = Address.sampleAddressList.filter { !($0.isBasicAddress) }
-        #endif
+//        #if DEBUG
+//        self.selectedAddress = Address.sampleAddressList.first
+//        self.defaultAddress = Address.sampleAddressList.first
+//        self.registeredAddresses = Address.sampleAddressList.filter { !($0.isBasicAddress) }
+//        #endif
     }
 }
 

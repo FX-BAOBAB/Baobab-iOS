@@ -10,7 +10,7 @@ import SwiftUI
 struct AddressListRow: View {
     @EnvironmentObject private var viewModel: ReceivingViewModel
     
-    let address: Address
+    let address: Address?
     
     var body: some View {
         HStack(spacing: 20) {
@@ -18,20 +18,26 @@ struct AddressListRow: View {
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 25)
+                .skeleton(with: address == nil, shape: .rectangle)
             
             VStack(alignment: .leading) {
-                Text(address.post)
+                Text(address?.post ?? "")
                 
-                Text(address.address)
+                Text(address?.address ?? "")
                 
-                Text(address.detailAddress)
+                Text(address?.detailAddress ?? "")
             }
             .font(.footnote)
+            .skeleton(with: address == nil,
+                      shape: .rectangle,
+                      lines: 3)
             
             Spacer()
             
-            if viewModel.selectedAddress?.id == address.id {
+            if viewModel.selectedAddress?.id == address?.id {
                 CheckMark()
+                    .skeleton(with: address == nil,
+                              shape: .rectangle)
             } else {
                 Button(action: {
                     viewModel.selectedAddress = address
