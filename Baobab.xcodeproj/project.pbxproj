@@ -113,6 +113,9 @@
 		8E9772112C3CCC310082DCAF /* SignUpRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9772102C3CCC310082DCAF /* SignUpRepositoryImpl.swift */; };
 		8E9772192C3CEF530082DCAF /* SignUpTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9772182C3CEF530082DCAF /* SignUpTest.swift */; };
 		8E9772252C3CFCA30082DCAF /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9772242C3CFCA30082DCAF /* MockURLProtocol.swift */; };
+		8EAA87F82C44A743000386AD /* ReceivingRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAA87F72C44A743000386AD /* ReceivingRepository.swift */; };
+		8EAA87FA2C44A789000386AD /* ReceivingRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAA87F92C44A789000386AD /* ReceivingRepositoryImpl.swift */; };
+		8EAA87FC2C44A815000386AD /* ReceivingResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAA87FB2C44A815000386AD /* ReceivingResponseDTO.swift */; };
 		8EAB81682C40BB770052AD48 /* FetchAddressUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAB81672C40BB770052AD48 /* FetchAddressUseCase.swift */; };
 		8EAB816F2C40E74F0052AD48 /* AddressUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAB816E2C40E74F0052AD48 /* AddressUnitTest.swift */; };
 		8EAB81712C4107B50052AD48 /* AccessTokenRefreshResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAB81702C4107B50052AD48 /* AccessTokenRefreshResponseDTO.swift */; };
@@ -275,6 +278,9 @@
 		8E9772162C3CEF530082DCAF /* BaobabUnitTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BaobabUnitTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E9772182C3CEF530082DCAF /* SignUpTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpTest.swift; sourceTree = "<group>"; };
 		8E9772242C3CFCA30082DCAF /* MockURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLProtocol.swift; sourceTree = "<group>"; };
+		8EAA87F72C44A743000386AD /* ReceivingRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceivingRepository.swift; sourceTree = "<group>"; };
+		8EAA87F92C44A789000386AD /* ReceivingRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceivingRepositoryImpl.swift; sourceTree = "<group>"; };
+		8EAA87FB2C44A815000386AD /* ReceivingResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceivingResponseDTO.swift; sourceTree = "<group>"; };
 		8EAB81672C40BB770052AD48 /* FetchAddressUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchAddressUseCase.swift; sourceTree = "<group>"; };
 		8EAB816E2C40E74F0052AD48 /* AddressUnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressUnitTest.swift; sourceTree = "<group>"; };
 		8EAB81702C4107B50052AD48 /* AccessTokenRefreshResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTokenRefreshResponseDTO.swift; sourceTree = "<group>"; };
@@ -483,6 +489,7 @@
 				8E7BC8C72C3E42CC00CB708F /* LoginRepository.swift */,
 				8E7BC8D32C3E6ACE00CB708F /* TokenRepositroy.swift */,
 				8E8AF2E62C4267E800A1F0ED /* ImageRepository.swift */,
+				8EAA87F72C44A743000386AD /* ReceivingRepository.swift */,
 			);
 			path = "Repository Interfaces";
 			sourceTree = "<group>";
@@ -508,6 +515,7 @@
 				8E8AF2DE2C424F6A00A1F0ED /* AddressListResponseDTO.swift */,
 				8E8AF2E42C42633B00A1F0ED /* SingleImageUploadResponseDTO.swift */,
 				8E227BE72C43755200E007D0 /* MultipleImageUploadResponseDTO.swift */,
+				8EAA87FB2C44A815000386AD /* ReceivingResponseDTO.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -521,6 +529,7 @@
 				8E7BC8C92C3E42E300CB708F /* LoginRepositoryImpl.swift */,
 				8E7BC8D12C3E6AB500CB708F /* TokenRepositoryImpl.swift */,
 				8E8AF2EA2C42689D00A1F0ED /* ImageRepositoryImpl.swift */,
+				8EAA87F92C44A789000386AD /* ReceivingRepositoryImpl.swift */,
 			);
 			path = "Repository Implemetation";
 			sourceTree = "<group>";
@@ -1092,6 +1101,7 @@
 				8E8AF2E72C4267E800A1F0ED /* ImageRepository.swift in Sources */,
 				5C735F442BF1A35B00A36EC8 /* CategoryData.swift in Sources */,
 				5C90636F2C04B34F004A0EC5 /* AddressListRow.swift in Sources */,
+				8EAA87FC2C44A815000386AD /* ReceivingResponseDTO.swift in Sources */,
 				8EAB81732C4108380052AD48 /* AccessTokenRefreshData.swift in Sources */,
 				5CD8A2072C0341B900EE5C09 /* StoreItem.swift in Sources */,
 				8ECCBB112C2E4D5700DD0A1B /* SignUpViewModel+InputState.swift in Sources */,
@@ -1128,6 +1138,7 @@
 				5C4ACAC02BEE1FDB00195895 /* MinusButtonImage.swift in Sources */,
 				8E97720B2C3CBFC40082DCAF /* Bundle+URL.swift in Sources */,
 				5C405EEC2BF72ADB006EE6F1 /* ReceivingViewModel+Defect.swift in Sources */,
+				8EAA87FA2C44A789000386AD /* ReceivingRepositoryImpl.swift in Sources */,
 				8E9772112C3CCC310082DCAF /* SignUpRepositoryImpl.swift in Sources */,
 				8ECCBB152C2E846D00DD0A1B /* AddressRegistrationForm.swift in Sources */,
 				5C4F181D2C05D1F10030A096 /* AnnotationItem.swift in Sources */,
@@ -1140,6 +1151,7 @@
 				8ECCBB0B2C2E46B300DD0A1B /* PasswordInputBox.swift in Sources */,
 				8E8AF2DF2C424F6A00A1F0ED /* AddressListResponseDTO.swift in Sources */,
 				5C4F18132C05568A0030A096 /* EmptyCircle.swift in Sources */,
+				8EAA87F82C44A743000386AD /* ReceivingRepository.swift in Sources */,
 				5CA04A352BFB01AC00A28FCA /* Date+Tomorrow.swift in Sources */,
 				5C8923442BFADF0900AE9049 /* Date+String.swift in Sources */,
 				8E7BC8F22C3EC78600CB708F /* LoginUseCase.swift in Sources */,

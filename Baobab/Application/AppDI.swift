@@ -14,10 +14,15 @@ struct AppDI {
     let fetchGeoCodeUseCase = FetchGeoCodeUseCaseImpl()
     
     var receivingViewModel: ReceivingViewModel {
-        let repository = UserRepositoryImpl(dataSource: dataSource)
-        let fetchAddressUseCase = FetchAddressUseCaseImpl(repository: repository)
+        let userRepository = UserRepositoryImpl(dataSource: dataSource)
+        let imageRepository = ImageRepositoryImpl(dataSource: dataSource)
+        let receivingRepository = ReceivingRepositoryImpl(dataSource: dataSource)
+        let fetchAddressUseCase = FetchAddressUseCaseImpl(repository: userRepository)
+        let uploadImageUseCase = UploadImageUseCaseImpl(repository: imageRepository)
         let receivingUseCase = ReceivingUseCaseImpl(fetchGeoCodeUseCase: fetchGeoCodeUseCase,
-                                                    fetchDefaultAddressUseCase: fetchAddressUseCase)
+                                                    fetchDefaultAddressUseCase: fetchAddressUseCase, 
+                                                    uploadImageUseCase: uploadImageUseCase, 
+                                                    repository: receivingRepository)
         return ReceivingViewModel(itemIdx: 0, usecase: receivingUseCase)
     }
     

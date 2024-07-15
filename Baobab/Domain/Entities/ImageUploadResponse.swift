@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ImageUploadRespnose {
+struct ImageUploadResponse {
     let id: Int
     let serverName: String
     let originalName: String

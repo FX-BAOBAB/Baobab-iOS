@@ -8,6 +8,6 @@
 import Combine
 
 protocol ImageRepository {
-    func upload(params: [String: Any]) -> AnyPublisher<ImageUploadRespnose, any Error>
-    func upload(params: [String: Any]) -> AnyPublisher<[ImageUploadRespnose], any Error>
+    func upload(params: [String: Any]) -> AnyPublisher<ImageUploadResponse, any Error>
+    func upload(params: [String: Any]) -> AnyPublisher<[ImageUploadResponse], any Error>
 }

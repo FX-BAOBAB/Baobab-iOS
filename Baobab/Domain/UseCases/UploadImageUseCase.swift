@@ -9,8 +9,8 @@ import Combine
 import Foundation
 
 protocol UploadImageUseCase {
-    func execute(params: [String: Any]) -> AnyPublisher<ImageUploadRespnose, any Error>
-    func execute(params: [String: Any]) -> AnyPublisher<[ImageUploadRespnose], any Error>
+    func execute(params: [String: Any]) -> AnyPublisher<ImageUploadResponse, any Error>
+    func execute(params: [String: Any]) -> AnyPublisher<[ImageUploadResponse], any Error>
 }
 
 final class UploadImageUseCaseImpl: UploadImageUseCase {
@@ -20,11 +20,11 @@ final class UploadImageUseCaseImpl: UploadImageUseCase {
         self.repository = repository
     }
     
-    func execute(params: [String: Any]) -> AnyPublisher<ImageUploadRespnose, any Error> {
+    func execute(params: [String: Any]) -> AnyPublisher<ImageUploadResponse, any Error> {
         return repository.upload(params: params)
     }
     
-    func execute(params: [String: Any]) -> AnyPublisher<[ImageUploadRespnose], any Error> {
+    func execute(params: [String: Any]) -> AnyPublisher<[ImageUploadResponse], any Error> {
         return repository.upload(params: params)
     }
 }
