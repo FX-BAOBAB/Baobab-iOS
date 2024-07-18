@@ -15,5 +15,4 @@ struct ImageUploadResponse {
     let caption: String
     let kind: String
     let itemId: Int
-    let extensions: String
 }

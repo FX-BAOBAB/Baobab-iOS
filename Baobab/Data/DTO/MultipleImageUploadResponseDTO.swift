@@ -19,13 +19,11 @@ struct MultipleImageUploadResponseBody: Codable {
     let serverName, originalName, imageURL, caption: String
     let kind: String
     let goodsID: Int
-    let bodyExtension: String
 
     enum CodingKeys: String, CodingKey {
         case id, serverName, originalName
         case imageURL = "imageUrl"
         case caption, kind
         case goodsID = "goodsId"
-        case bodyExtension = "extension"
     }
 }
