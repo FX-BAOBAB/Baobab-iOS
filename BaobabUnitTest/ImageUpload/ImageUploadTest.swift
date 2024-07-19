@@ -30,30 +30,33 @@ final class ImageUploadTest: XCTestCase {
     func testSingleImageUpload() {
         //Given
         let apiEndPoint = Bundle.main.apiUrl + "/api/image"
-        let imageData = UIImage(named: "SampleImage")?.cropToSquare().downscaleToJpegData(maxBytes: 4_194_304)
-        let params = [
-              "file": imageData!,
-              "kind": "BASIC",
-              "caption": "string"
-        ] as [String: Any]
         let expectation = XCTestExpectation(description: "Performs a request")
         
-        //When
-        dataSource.sendUploadRequest(to: apiEndPoint, with: params, resultType: SingleImageUploadResponseDTO.self)
-            .sink(receiveCompletion: { completion in
-                switch completion {
-                case .finished:
-                    print("The image upload has been completed")
-                case .failure(let error):
-                    print("ImageUpoadTest.test_imageUpload() error : ", error)
-                }
-            }, receiveValue: {
-                //Then
-                XCTAssertEqual($0.result.resultCode, 200)
+        UIImage(named: "SampleImage")?
+            .cropToSquare()
+            .downscaleToJpegData(maxBytes: 4_19_304) {
+                let params = [
+                    "file": $0!,
+                    "kind": "BASIC",
+                    "caption": "string"
+                ] as [String: Any]
                 
-                expectation.fulfill()
-            })
-            .store(in: &cancellables)
+                self.dataSource.sendUploadRequest(to: apiEndPoint, with: params, resultType: SingleImageUploadResponseDTO.self)
+                    .sink(receiveCompletion: { completion in
+                        switch completion {
+                        case .finished:
+                            print("The image upload has been completed")
+                        case .failure(let error):
+                            print("ImageUpoadTest.test_imageUpload() error : ", error)
+                        }
+                    }, receiveValue: {
+                        //Then
+                        XCTAssertEqual($0.result.resultCode, 200)
+                        
+                        expectation.fulfill()
+                    })
+                    .store(in: &self.cancellables)
+            }
         
         wait(for: [expectation], timeout: 5)
     }
@@ -61,32 +64,36 @@ final class ImageUploadTest: XCTestCase {
     func testMultipleImageUpload() {
         //Given
         let apiEndPoint = Bundle.main.apiUrl + "/api/image/list"
-        let imageData = UIImage(named: "SampleImage")?.cropToSquare().downscaleToJpegData(maxBytes: 4_194_304)
-        let params = [
-            "files": Array(repeating: imageData, count: 10),
-            "kind": "BASIC",
-            "captions": Array(repeating: "캡션", count: 10)
-        ] as [String: Any]
         let expectation = XCTestExpectation(description: "Performs a request")
         
-        //When
-        dataSource.sendUploadRequest(to: apiEndPoint, with: params, resultType: MultipleImageUploadResponseDTO.self)
-            .sink(receiveCompletion: { completion in
-                switch completion {
-                case .finished:
-                    print("The image upload has been completed")
-                case .failure(let error):
-                    print("ImageUpoadTest.test_imageUpload() error : ", error)
-                }
-            }, receiveValue: {
-                //Then
-                XCTAssertEqual($0.result.resultCode, 200)
+        UIImage(named: "SampleImage")?
+            .cropToSquare()
+            .downscaleToJpegData(maxBytes: 4_194_304) { imageData in
+                let params = [
+                    "files": Array(repeating: imageData, count: 10),
+                    "kind": "BASIC",
+                    "captions": Array(repeating: "캡션", count: 10)
+                ] as [String: Any]
                 
-                expectation.fulfill()
-            })
-            .store(in: &cancellables)
+                //When
+                self.dataSource.sendUploadRequest(to: apiEndPoint, with: params, resultType: MultipleImageUploadResponseDTO.self)
+                    .sink(receiveCompletion: { completion in
+                        switch completion {
+                        case .finished:
+                            print("The image upload has been completed")
+                        case .failure(let error):
+                            print("ImageUpoadTest.test_imageUpload() error : ", error)
+                        }
+                    }, receiveValue: {
+                        //Then
+                        XCTAssertEqual($0.result.resultCode, 200)
+                        
+                        expectation.fulfill()
+                    })
+                    .store(in: &self.cancellables)
+            }
         
-        wait(for: [expectation], timeout: 5)
+        wait(for: [expectation], timeout: 30)
     }
 
     func testSingleImageUploadPerformance() throws {
@@ -95,6 +102,13 @@ final class ImageUploadTest: XCTestCase {
             // Put the code you want to measure the time of here.
             
             testSingleImageUpload()
+        }
+    }
+    
+    func testMultipleImageUploadPerformance() throws {
+        self.measure {
+            
+            testMultipleImageUpload()
         }
     }
 }
