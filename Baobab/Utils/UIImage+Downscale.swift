@@ -6,23 +6,26 @@
 //
 
 import UIKit
+import Foundation
 
 extension UIImage {
-    func downscaleToJpegData(maxBytes: UInt) -> Data? {
+    func downscaleToJpegData(maxBytes: UInt, completion: @escaping (Data?) -> Void) {
         var quality: Double = 1.0
         
-        while quality > 0 {
-            guard let jpegData = self.jpegData(compressionQuality: quality) else {
-                return nil
+        DispatchQueue.global(qos: .userInitiated).async {
+            while quality > 0 {
+                guard let jpegData = self.jpegData(compressionQuality: quality) else {
+                    completion(nil)
+                    return
+                }
+                
+                if jpegData.count <= maxBytes {
+                    completion(jpegData)
+                    break
+                }
+                
+                quality -= 0.1
             }
-            
-            if jpegData.count <= maxBytes {
-                return jpegData
-            }
-            
-            quality -= 0.1
         }
-        
-        return nil
     }
 }
