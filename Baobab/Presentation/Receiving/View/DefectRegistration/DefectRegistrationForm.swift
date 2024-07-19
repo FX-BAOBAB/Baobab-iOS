@@ -112,6 +112,10 @@ struct DefectRegistrationForm: View {
         }, message: {
             Text("사진을 선택해 주세요")
         })
+        .onDisappear {
+            viewModel.selectedDefectImage = nil
+            viewModel.defectDescription = ""
+        }
     }
 }
 
