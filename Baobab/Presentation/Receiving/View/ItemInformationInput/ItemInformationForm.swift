@@ -12,44 +12,57 @@ struct ItemInformationForm: View {
     @State private var isShowingImageRegistrationForm: Bool = false
     
     var body: some View {
-        VStack(spacing: 30) {
-            BorderedInputBox(inputValue: $viewModel.items[viewModel.itemIdx].itemName,
-                             title: "물품명",
-                             placeholder: "물품 이름을 입력해 주세요",
-                             type: .normal)
+        ZStack {
+            ScrollView {
+                VStack(spacing: 30) {
+                    BorderedInputBox(inputValue: $viewModel.items[viewModel.itemIdx].itemName,
+                                     title: "물품명",
+                                     placeholder: "물품 이름을 입력해 주세요",
+                                     type: .normal)
+                    
+                    BorderedInputBox(inputValue: $viewModel.items[viewModel.itemIdx].modelName,
+                                     title: "모델명",
+                                     placeholder: "물품의 모델명을 입력해 주세요",
+                                     type: .normal)
+                    
+                    CategoryPicker()
+                        .environmentObject(viewModel)
+                    
+                    ItemQuantitySelector()
+                        .environmentObject(viewModel)
+                        .padding(.top)
+                }
+                .padding()
+                .navigationTitle("물품 정보 입력")
+                .navigationBarTitleDisplayMode(.large)
+                .navigationDestination(isPresented: $isShowingImageRegistrationForm) {
+                    ImageRegistrationForm()
+                        .environmentObject(viewModel)
+                }
+            }
             
-            CategoryPicker()
-                .environmentObject(viewModel)
-            
-            ItemQuantitySelector()
-                .environmentObject(viewModel)
-                .padding(.top)
-            
-            Spacer()
-            
-            EstimatedPrice()
-                .environmentObject(viewModel)
-                .padding([.leading, .trailing], 5)
-            
-            Button(action: {
-                isShowingImageRegistrationForm.toggle()
-            }, label: {
-                Text("다음")
-                    .bold()
-                    .padding(8)
-                    .foregroundColor(.white)
-                    .frame(maxWidth: .infinity)
-            })
-            .buttonBorderShape(.roundedRectangle)
-            .cornerRadius(10)
-            .buttonStyle(.borderedProminent)
-        }
-        .padding()
-        .navigationTitle("물품 정보 입력")
-        .navigationBarTitleDisplayMode(.large)
-        .navigationDestination(isPresented: $isShowingImageRegistrationForm) {
-            ImageRegistrationForm()
-                .environmentObject(viewModel)
+            VStack(spacing: 30) {
+                EstimatedPrice()
+                    .environmentObject(viewModel)
+                    .padding([.leading, .trailing], 5)
+                    .ignoresSafeArea(.keyboard)
+                
+                Button(action: {
+                    isShowingImageRegistrationForm.toggle()
+                }, label: {
+                    Text("다음")
+                        .bold()
+                        .padding(8)
+                        .foregroundColor(.white)
+                        .frame(maxWidth: .infinity)
+                })
+                .buttonBorderShape(.roundedRectangle)
+                .cornerRadius(10)
+                .buttonStyle(.borderedProminent)
+            }
+            .padding()
+            .frame(maxHeight: .infinity, alignment: .bottom)
+            .ignoresSafeArea(.keyboard)
         }
     }
 }

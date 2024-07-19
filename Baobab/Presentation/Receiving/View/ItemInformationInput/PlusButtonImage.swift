@@ -11,13 +11,13 @@ struct PlusButtonImage: View {
     var body: some View {
         Circle()
             .fill(.gray)
-            .frame(width: 20)
+            .frame(width: 15)
             .overlay {
                 Image(systemName: "plus")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .foregroundColor(.white)
-                    .frame(width: 10)
+                    .frame(width: 8)
             }
     }
 }

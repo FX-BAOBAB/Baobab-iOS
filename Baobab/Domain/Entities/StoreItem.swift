@@ -9,6 +9,7 @@ import Foundation
 
 struct StoreItem {
     var itemName: String = ""
+    var modelName: String = ""
     var itemQuantity: Int = 1
     var itemCategoryWithPrice: String?
     var itemCategory: String?

@@ -16,20 +16,25 @@ struct CategoryPicker: View {
             Text("카테고리")
                 .bold()
                 .font(.footnote)
-                .padding(.leading)
+                .padding(.leading, 5)
             
             Button(action: {
                 showCetegoryList.toggle()
             }, label: {
                 HStack {
-                    Text(viewModel.items[viewModel.itemIdx].itemCategory ?? "카테고리 선택")
+                    if let category = viewModel.items[viewModel.itemIdx].itemCategory {
+                        Text(viewModel.items[viewModel.itemIdx].itemCategory)
+                    } else {
+                        Text("카테고리 선택")
+                    }
                     
                     Spacer()
                     
                     Image(systemName: "chevron.right")
                         .foregroundColor(.gray)
                 }
-                .padding()
+                .font(.subheadline)
+                .padding(12)
             })
             .buttonStyle(.borderless)
             .overlay {
