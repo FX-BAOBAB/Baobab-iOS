@@ -7,7 +7,6 @@
 
 import MapKit
 import Combine
-import Foundation
 
 final class ReceivingViewModel: PostSearchable {
     @Published var items: [StoreItem] = [StoreItem(), StoreItem()]
@@ -22,10 +21,14 @@ final class ReceivingViewModel: PostSearchable {
     @Published var searchedAddressRegion: MKCoordinateRegion?
     @Published var searchedPostCode: String = ""
     @Published var detailedAddressInput: String = ""
+    @Published var isShowingAlert: Bool = false
+    @Published var isProgress: Bool = false
+    @Published var isShowingCompletionView: Bool = false
     
     var itemIdx: Int
     let usecase: ReceivingUseCase
     var cancellables = Set<AnyCancellable>()
+    var alertType: AlertType = .failure
     var totalPrice: Int {
         return (0..<itemIdx + 1).reduce(0, {
             $0 + (items[$1].itemPrice ?? 0)
@@ -36,12 +39,6 @@ final class ReceivingViewModel: PostSearchable {
         self.itemIdx = itemIdx
         self.usecase = usecase
         calculateMapCoordinates()
-        
-//        #if DEBUG
-//        self.selectedAddress = Address.sampleAddressList.first
-//        self.defaultAddress = Address.sampleAddressList.first
-//        self.registeredAddresses = Address.sampleAddressList.filter { !($0.isBasicAddress) }
-//        #endif
     }
 }
 
@@ -70,5 +67,55 @@ extension ReceivingViewModel {
                 items[itemIdx].itemPrice = price * items[itemIdx].itemQuantity
             }
         }
+    }
+    
+    func applyReceiving() {
+        isShowingAlert = false
+        isProgress = true
+        
+        guard let selectedAddress else {
+            alertType = .failure
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                self.isShowingAlert = true
+            }
+            return
+        }
+        
+        let params = 
+        [
+            "result": [
+                "resultCode": 0,
+                "resultMessage": "string",
+                "resultDescription": "string"
+            ],
+            "body": [
+                "visitDate": reservationDate.toISOFormat(),
+                "visitAddress": selectedAddress.address + " " + selectedAddress.detailAddress,
+                "guaranteeAt": Date().toISOFormat(),    //결함인정 시간
+            ]
+        ] as [String: Any]
+        
+        usecase.execute(params: params, items: Array(items[0...itemIdx]))
+            .sink(receiveCompletion: { [weak self] completion in
+                switch completion {
+                case .finished:
+                    print("Receiving request has been completed")
+                case .failure(let error):
+                    print("ReceivingViewModel.applyReceiving() error : " , error)
+                    self?.isProgress = false
+                    self?.alertType = .failure
+                    self?.isShowingAlert.toggle()
+                }
+            }, receiveValue: { [weak self] in
+                if $0 {
+                    self?.isProgress = false
+                    self?.isShowingCompletionView.toggle()
+                } else {
+                    self?.isProgress = false
+                    self?.alertType = .failure
+                    self?.isShowingAlert.toggle()
+                }
+            })
+            .store(in: &cancellables)
     }
 }

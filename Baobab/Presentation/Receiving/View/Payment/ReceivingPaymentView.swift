@@ -9,69 +9,80 @@ import SwiftUI
 
 struct ReceivingPaymentView: View {
     @EnvironmentObject private var viewModel: ReceivingViewModel
-    @State private var isShowingPaymentAlert: Bool = false
     @State private var isShowingCompletionView: Bool = false
     
     var body: some View {
-        VStack(alignment: .leading) {
-            List {
-                Section(header: Text("입고물품").foregroundColor(.black),
-                        footer: SectionFooter()) {
-                    ForEach(0..<viewModel.itemIdx + 1, id: \.self) { idx in
-                        ItemListRow(idx: idx)
-                            .environmentObject(viewModel)
-                            .listRowSeparator(.hidden)
-                            .alignmentGuide(.listRowSeparatorLeading) { _ in return 0 }
+        ZStack {
+            VStack(alignment: .leading) {
+                List {
+                    Section(header: Text("입고물품").foregroundColor(.black), footer: SectionFooter()) {
+                        ForEach(0..<viewModel.itemIdx + 1, id: \.self) { idx in
+                            ItemListRow(idx: idx)
+                                .environmentObject(viewModel)
+                                .listRowSeparator(.hidden)
+                                .alignmentGuide(.listRowSeparatorLeading) { _ in return 0 }
+                        }
                     }
+                    .listSectionSeparator(.hidden)
+                    
+                    Section(header: Text("결제금액").foregroundColor(.black)) {
+                        PaymentDetail()
+                            .environmentObject(viewModel)
+                    }
+                    .listSectionSeparator(.hidden, edges: .top)
+                    .listSectionSeparator(.hidden, edges: .bottom)
                 }
-                .listSectionSeparator(.hidden)
+                .listStyle(.plain)
                 
-                Section(header: Text("결제금액").foregroundColor(.black)) {
-                    PaymentDetail()
-                        .environmentObject(viewModel)
+                HStack(spacing: 3) {
+                    Image(systemName: "info.circle")
+                    
+                    Text("위 내용을 확인하였으며 결제에 동의합니다.")
+                    
+                    Spacer()
                 }
-                .listSectionSeparator(.hidden, edges: .top)
-                .listSectionSeparator(.hidden, edges: .bottom)
-            }
-            .listStyle(.plain)
-            
-            HStack(spacing: 3) {
-                Spacer()
-
-                Image(systemName: "info.circle")
+                .foregroundColor(.gray)
+                .font(.caption)
+                .padding([.leading, .trailing])
                 
-                Text("위 내용을 확인하였으며 결제에 동의합니다.")
-                
-                Spacer()
+                Button(action: {
+                    viewModel.alertType = .paymentAlert
+                    viewModel.isShowingAlert = true
+                }, label: {
+                    Text("결제하기")
+                        .bold()
+                        .padding(8)
+                        .foregroundColor(.white)
+                        .frame(maxWidth: .infinity)
+                })
+                .buttonBorderShape(.roundedRectangle)
+                .cornerRadius(10)
+                .buttonStyle(.borderedProminent)
+                .padding()
             }
-            .foregroundColor(.gray)
-            .font(.caption)
-            .padding([.leading, .trailing])
+            .navigationTitle("결제")
+            .navigationDestination(isPresented: $viewModel.isShowingCompletionView) {
+                ReceiptCompletionView()
+                    .environmentObject(viewModel)
+            }
+            .alert(isPresented: $viewModel.isShowingAlert) {
+                switch viewModel.alertType {
+                case .failure:
+                    Alert(title: Text("알림"),
+                          message: Text("입고 신청에 실패 했어요."))
+                case .paymentAlert:
+                    Alert(title: Text("알림"),
+                          message: Text("결제를 진행할까요?"),
+                          primaryButton: .default(Text("확인")) { viewModel.applyReceiving() },
+                          secondaryButton: .default(Text("취소")))
+                default:
+                    Alert(title: Text(""))
+                }
+            }
             
-            Button(action: {
-                isShowingPaymentAlert.toggle()
-            }, label: {
-                Text("결제하기")
-                    .bold()
-                    .padding(8)
-                    .foregroundColor(.white)
-                    .frame(maxWidth: .infinity)
-            })
-            .buttonBorderShape(.roundedRectangle)
-            .cornerRadius(10)
-            .buttonStyle(.borderedProminent)
-            .padding()
-        }
-        .navigationTitle("결제")
-        .alert(isPresented: $isShowingPaymentAlert) {
-            Alert(title: Text("알림"), 
-                  message: Text("결제를 진행할까요?"),
-                  primaryButton: .default(Text("확인")) { isShowingCompletionView.toggle() },
-                  secondaryButton: .default(Text("취소")))
-        }
-        .navigationDestination(isPresented: $isShowingCompletionView) {
-            ReceiptCompletionView()
-                .environmentObject(viewModel)
+            if viewModel.isProgress {
+                CustomProgrssView()
+            }
         }
     }
 }
