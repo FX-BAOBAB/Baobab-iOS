@@ -10,7 +10,7 @@ import Foundation
 
 final class ImageRepositoryImpl: RemoteRepository, ImageRepository {
     func upload(params: [String : Any]) -> AnyPublisher<[ImageUploadResponse], any Error> {
-        let apiEndPoint = Bundle.main.apiUrl + "/api/image/list"
+        let apiEndPoint = Bundle.main.requestURL + "/image/list"
         
         return dataSource.sendUploadRequest(to: apiEndPoint,
                                             with: params,
@@ -30,7 +30,7 @@ final class ImageRepositoryImpl: RemoteRepository, ImageRepository {
     }
     
     func upload(params: [String: Any]) -> AnyPublisher<ImageUploadResponse, any Error> {
-        let apiEndPoint = Bundle.main.apiUrl + "/api/image"
+        let apiEndPoint = Bundle.main.requestURL + "/image"
         
         return dataSource.sendPostRequest(to: apiEndPoint, with: params, resultType: SingleImageUploadResponseDTO.self)
             .map {
