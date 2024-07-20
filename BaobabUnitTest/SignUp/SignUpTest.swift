@@ -145,6 +145,7 @@ final class SignUpTest: XCTestCase {
     func test_emailDuplicationCheck() {
         //Given
         dataSource = RemoteDataSourceImpl()
+        
         let param = [
             "result": [
                 "resultCode": 0,
@@ -159,7 +160,7 @@ final class SignUpTest: XCTestCase {
         let expectation = XCTestExpectation(description: "Performs a request")
         
         //When
-        dataSource.sendOpenPostRequest(to: apiEndPoint, with: param, resultType: EmailDuplicationCheckDTO.self)
+        dataSource.sendOpenPostRequest(to: apiEndPoint, with: param, resultType: DuplicationCheckDTO.self)
             .sink(receiveCompletion: { completion in
                 switch completion {
                 case .finished:
@@ -169,6 +170,42 @@ final class SignUpTest: XCTestCase {
                 }
             }, receiveValue: {
                 XCTAssertTrue($0.body.duplication)
+                expectation.fulfill()
+            })
+            .store(in: &cancellables)
+        
+        wait(for: [expectation], timeout: 5)
+    }
+    
+    func test_nickNameDuplicationCheck() {
+        //Given
+        dataSource = RemoteDataSourceImpl()
+        
+        let params = [
+            "result": [
+                "resultCode": 0,
+                "resultMessage": "string",
+                "resultDescription": "string"
+            ],
+            "body": [
+                "name": "오밥이"
+            ]
+        ]
+        let apiEndPoint = Bundle.main.openURL + "/users/duplication/name"
+        let expectation = XCTestExpectation(description: "Performs a request")
+        
+        //When
+        dataSource.sendOpenPostRequest(to: apiEndPoint, with: params, resultType: DuplicationCheckDTO.self)
+            .sink(receiveCompletion: { completion in
+                switch completion {
+                case .finished:
+                    print("The nickname check has been completed")
+                case .failure(let error):
+                    print("SignUpTest.test_nickNameDuplicationCheck() error : ", error)
+                }
+            }, receiveValue: {
+                XCTAssertTrue($0.body.duplication)
+                
                 expectation.fulfill()
             })
             .store(in: &cancellables)
