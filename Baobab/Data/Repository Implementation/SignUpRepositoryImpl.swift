@@ -9,20 +9,30 @@ import Combine
 import Foundation
 
 final class SignUpRepositoryImpl: RemoteRepository, SignUpRepository {
-    func requestEmailDuplicationCheck(param: [String : Any]) -> AnyPublisher<Bool, any Error> {
-        let apiEndPoint = Bundle.main.openURL + "/users/duplication/email"
+    func requestNickNameDuplicationCheck(params: [String : Any]) -> AnyPublisher<Bool, any Error> {
+        let apiEndPoint = Bundle.main.openURL + "/users/duplication/name"
         
-        return dataSource.sendOpenPostRequest(to: apiEndPoint, with: param, resultType: EmailDuplicationCheckDTO.self)
+        return dataSource.sendOpenPostRequest(to: apiEndPoint, with: params, resultType: DuplicationCheckDTO.self)
             .map {
                 return $0.body.duplication
             }
             .eraseToAnyPublisher()
     }
     
-    func requestSignUp(param: [String: Any]) -> AnyPublisher<SignUpResponse, any Error> {
+    func requestEmailDuplicationCheck(params: [String : Any]) -> AnyPublisher<Bool, any Error> {
+        let apiEndPoint = Bundle.main.openURL + "/users/duplication/email"
+        
+        return dataSource.sendOpenPostRequest(to: apiEndPoint, with: params, resultType: DuplicationCheckDTO.self)
+            .map {
+                return $0.body.duplication
+            }
+            .eraseToAnyPublisher()
+    }
+    
+    func requestSignUp(params: [String: Any]) -> AnyPublisher<SignUpResponse, any Error> {
         let apiEndPoint = Bundle.main.openURL + "/users"
         
-        return dataSource.sendOpenPostRequest(to: apiEndPoint, with: param, resultType: SignUpResponseDTO.self)
+        return dataSource.sendOpenPostRequest(to: apiEndPoint, with: params, resultType: SignUpResponseDTO.self)
             .map {
                 if $0.result.resultCode == 200 {
                     SignUpResponse(result: true, message: $0.body?.message ?? "")

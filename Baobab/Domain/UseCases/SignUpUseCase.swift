@@ -25,7 +25,7 @@ final class SignUpUseCaseImpl: SignUpUseCase {
     }
     
     func execute(data: [String: Any]) -> AnyPublisher<SignUpResponse, any Error> {
-        return repository.requestSignUp(param: data)
+        return repository.requestSignUp(params: data)
     }
     
     func fetchGeoCode(of address: String) -> AnyPublisher<MKCoordinateRegion, any Error> {

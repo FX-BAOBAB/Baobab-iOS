@@ -19,6 +19,6 @@ final class EmailDuplicationCheckUseCaseImpl: EmailDuplicationCheckUseCase {
     }
     
     func execute(param: [String: Any]) -> AnyPublisher<Bool, any Error> {
-        return repository.requestEmailDuplicationCheck(param: param)
+        return repository.requestEmailDuplicationCheck(params: param)
     }
 }

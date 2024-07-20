@@ -1,5 +1,5 @@
 //
-//  EmailDuplicationCheckDTO.swift
+//  DuplicationCheckDTO.swift
 //  Baobab
 //
 //  Created by 이정훈 on 7/20/24.
@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - EmailDuplicationCheckDTO
-struct EmailDuplicationCheckDTO: Codable {
+struct DuplicationCheckDTO: Codable {
     let result: EmailDuplicationCheckResult
     let body: EmailDuplicationCheckResponseBody
 }
