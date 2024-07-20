@@ -52,7 +52,6 @@
 		5C9AD9222C040178003EF614 /* NewItemAdditionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9AD9212C040178003EF614 /* NewItemAdditionSheet.swift */; };
 		5C9B81042BF44AD10038EB27 /* DefectRegistrationList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9B81032BF44AD10038EB27 /* DefectRegistrationList.swift */; };
 		5CA04A352BFB01AC00A28FCA /* Date+Tomorrow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA04A342BFB01AC00A28FCA /* Date+Tomorrow.swift */; };
-		5CA752CC2C0712C100DA42B7 /* RemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA752CB2C0712C100DA42B7 /* RemoteDataSource.swift */; };
 		5CADA5D52C000D4C00FFCC64 /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CADA5D42C000D4C00FFCC64 /* SectionHeader.swift */; };
 		5CADA5D92C004E8000FFCC64 /* PostSearchWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CADA5D82C004E8000FFCC64 /* PostSearchWebView.swift */; };
 		5CADA5DB2C0093D300FFCC64 /* AddressList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CADA5DA2C0093D300FFCC64 /* AddressList.swift */; };
@@ -71,6 +70,7 @@
 		8E3F7C5C2C2A98F20087EB2A /* ReceiptCompletionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F7C5B2C2A98F20087EB2A /* ReceiptCompletionView.swift */; };
 		8E3F7C5E2C2A9A480087EB2A /* SimpleReceivingStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F7C5D2C2A9A480087EB2A /* SimpleReceivingStatus.swift */; };
 		8E3F7C602C2A9ABD0087EB2A /* StatusPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F7C5F2C2A9ABD0087EB2A /* StatusPoint.swift */; };
+		8E449F072C4BA24000291277 /* RemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E449F062C4BA24000291277 /* RemoteDataSource.swift */; };
 		8E765F682C3D5B5A008A11E6 /* SignUp_Success_Response.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E765F672C3D5B5A008A11E6 /* SignUp_Success_Response.json */; };
 		8E765F692C3D5BCD008A11E6 /* SignUp_Success_Response.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E765F672C3D5B5A008A11E6 /* SignUp_Success_Response.json */; };
 		8E7731D62C4A944F00B42F7A /* LoginRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7731D52C4A944F00B42F7A /* LoginRepositoryImpl.swift */; };
@@ -220,7 +220,6 @@
 		5C9AD9212C040178003EF614 /* NewItemAdditionSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemAdditionSheet.swift; sourceTree = "<group>"; };
 		5C9B81032BF44AD10038EB27 /* DefectRegistrationList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefectRegistrationList.swift; sourceTree = "<group>"; };
 		5CA04A342BFB01AC00A28FCA /* Date+Tomorrow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Tomorrow.swift"; sourceTree = "<group>"; };
-		5CA752CB2C0712C100DA42B7 /* RemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDataSource.swift; sourceTree = "<group>"; };
 		5CADA5D42C000D4C00FFCC64 /* SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeader.swift; sourceTree = "<group>"; };
 		5CADA5D82C004E8000FFCC64 /* PostSearchWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostSearchWebView.swift; sourceTree = "<group>"; };
 		5CADA5DA2C0093D300FFCC64 /* AddressList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressList.swift; sourceTree = "<group>"; };
@@ -241,6 +240,7 @@
 		8E3F7C5B2C2A98F20087EB2A /* ReceiptCompletionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptCompletionView.swift; sourceTree = "<group>"; };
 		8E3F7C5D2C2A9A480087EB2A /* SimpleReceivingStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleReceivingStatus.swift; sourceTree = "<group>"; };
 		8E3F7C5F2C2A9ABD0087EB2A /* StatusPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusPoint.swift; sourceTree = "<group>"; };
+		8E449F062C4BA24000291277 /* RemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDataSource.swift; sourceTree = "<group>"; };
 		8E765F672C3D5B5A008A11E6 /* SignUp_Success_Response.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SignUp_Success_Response.json; sourceTree = "<group>"; };
 		8E7731D52C4A944F00B42F7A /* LoginRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRepositoryImpl.swift; sourceTree = "<group>"; };
 		8E7731D72C4A94A400B42F7A /* SignUpRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRepositoryImpl.swift; sourceTree = "<group>"; };
@@ -543,8 +543,8 @@
 		5C80F1002C070E1400A94C22 /* DataSource */ = {
 			isa = PBXGroup;
 			children = (
-				5CA752CB2C0712C100DA42B7 /* RemoteDataSource.swift */,
 				8E7BC8CF2C3E52BF00CB708F /* TokenKeyChain.swift */,
+				8E449F062C4BA24000291277 /* RemoteDataSource.swift */,
 			);
 			path = DataSource;
 			sourceTree = "<group>";
@@ -1115,7 +1115,6 @@
 				8E7731D62C4A944F00B42F7A /* LoginRepositoryImpl.swift in Sources */,
 				5C13D5AB2BF3082600CA0792 /* ImagePicker.swift in Sources */,
 				8EB0C2552C322AA000FEE8D0 /* SignUpViewModel+Region.swift in Sources */,
-				5CA752CC2C0712C100DA42B7 /* RemoteDataSource.swift in Sources */,
 				8EB0C25B2C3240E000FEE8D0 /* SignUpCompletionView.swift in Sources */,
 				5C426BFD2BEDBDE900869F6D /* ReceivingViewModel.swift in Sources */,
 				5C735F4C2BF1BAB200A36EC8 /* EstimatedPrice.swift in Sources */,
@@ -1176,6 +1175,7 @@
 				5C80F0F02C06C3A000A94C22 /* ReceivingUseCase.swift in Sources */,
 				8E3F7C5C2C2A98F20087EB2A /* ReceiptCompletionView.swift in Sources */,
 				8E7BC8C82C3E42CC00CB708F /* LoginRepository.swift in Sources */,
+				8E449F072C4BA24000291277 /* RemoteDataSource.swift in Sources */,
 				5C735F4A2BF1B44500A36EC8 /* ItemInformationForm.swift in Sources */,
 				8EAB81752C4120F70052AD48 /* RequestError.swift in Sources */,
 				5C41ED932C080877001416D9 /* ReceivingViewModel+Address.swift in Sources */,
