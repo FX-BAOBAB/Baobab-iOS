@@ -71,6 +71,8 @@
 		8E3F7C5E2C2A9A480087EB2A /* SimpleReceivingStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F7C5D2C2A9A480087EB2A /* SimpleReceivingStatus.swift */; };
 		8E3F7C602C2A9ABD0087EB2A /* StatusPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F7C5F2C2A9ABD0087EB2A /* StatusPoint.swift */; };
 		8E449F072C4BA24000291277 /* RemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E449F062C4BA24000291277 /* RemoteDataSource.swift */; };
+		8E449F092C4BA87A00291277 /* EmailDuplicationCheckUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E449F082C4BA87A00291277 /* EmailDuplicationCheckUseCase.swift */; };
+		8E449F0D2C4BAB3700291277 /* EmailDuplicationCheckDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E449F0C2C4BAB3700291277 /* EmailDuplicationCheckDTO.swift */; };
 		8E765F682C3D5B5A008A11E6 /* SignUp_Success_Response.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E765F672C3D5B5A008A11E6 /* SignUp_Success_Response.json */; };
 		8E765F692C3D5BCD008A11E6 /* SignUp_Success_Response.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E765F672C3D5B5A008A11E6 /* SignUp_Success_Response.json */; };
 		8E7731D62C4A944F00B42F7A /* LoginRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7731D52C4A944F00B42F7A /* LoginRepositoryImpl.swift */; };
@@ -240,6 +242,8 @@
 		8E3F7C5D2C2A9A480087EB2A /* SimpleReceivingStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleReceivingStatus.swift; sourceTree = "<group>"; };
 		8E3F7C5F2C2A9ABD0087EB2A /* StatusPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusPoint.swift; sourceTree = "<group>"; };
 		8E449F062C4BA24000291277 /* RemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDataSource.swift; sourceTree = "<group>"; };
+		8E449F082C4BA87A00291277 /* EmailDuplicationCheckUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailDuplicationCheckUseCase.swift; sourceTree = "<group>"; };
+		8E449F0C2C4BAB3700291277 /* EmailDuplicationCheckDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailDuplicationCheckDTO.swift; sourceTree = "<group>"; };
 		8E765F672C3D5B5A008A11E6 /* SignUp_Success_Response.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SignUp_Success_Response.json; sourceTree = "<group>"; };
 		8E7731D52C4A944F00B42F7A /* LoginRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRepositoryImpl.swift; sourceTree = "<group>"; };
 		8E7731D72C4A94A400B42F7A /* SignUpRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRepositoryImpl.swift; sourceTree = "<group>"; };
@@ -481,6 +485,7 @@
 				8E7BC8F12C3EC78600CB708F /* LoginUseCase.swift */,
 				8EAB81672C40BB770052AD48 /* FetchAddressUseCase.swift */,
 				8E8AF2E22C425DD100A1F0ED /* UploadImageUseCase.swift */,
+				8E449F082C4BA87A00291277 /* EmailDuplicationCheckUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -520,6 +525,7 @@
 				8E8AF2E42C42633B00A1F0ED /* SingleImageUploadResponseDTO.swift */,
 				8E227BE72C43755200E007D0 /* MultipleImageUploadResponseDTO.swift */,
 				8EAA87FB2C44A815000386AD /* ReceivingResponseDTO.swift */,
+				8E449F0C2C4BAB3700291277 /* EmailDuplicationCheckDTO.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -1150,6 +1156,7 @@
 				8ECCBAFC2C2CF01200DD0A1B /* SignUpViewModel.swift in Sources */,
 				5CCFBF682BF2E05F00322D0D /* SelectedImage.swift in Sources */,
 				8E3F7C602C2A9ABD0087EB2A /* StatusPoint.swift in Sources */,
+				8E449F092C4BA87A00291277 /* EmailDuplicationCheckUseCase.swift in Sources */,
 				5CADA5D92C004E8000FFCC64 /* PostSearchWebView.swift in Sources */,
 				8ECCBB192C2E894E00DD0A1B /* DefaultAddressToggleButton.swift in Sources */,
 				8ECCBB072C2E39FA00DD0A1B /* SignUpViewModel+RegularExpression.swift in Sources */,
@@ -1171,6 +1178,7 @@
 				5C994A542BF592E60013672B /* SelectedDefectImage.swift in Sources */,
 				5C80F0F02C06C3A000A94C22 /* ReceivingUseCase.swift in Sources */,
 				8E3F7C5C2C2A98F20087EB2A /* ReceiptCompletionView.swift in Sources */,
+				8E449F0D2C4BAB3700291277 /* EmailDuplicationCheckDTO.swift in Sources */,
 				8E7BC8C82C3E42CC00CB708F /* LoginRepository.swift in Sources */,
 				8E449F072C4BA24000291277 /* RemoteDataSource.swift in Sources */,
 				5C735F4A2BF1B44500A36EC8 /* ItemInformationForm.swift in Sources */,

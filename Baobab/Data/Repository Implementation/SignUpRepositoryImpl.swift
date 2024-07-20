@@ -9,6 +9,16 @@ import Combine
 import Foundation
 
 final class SignUpRepositoryImpl: RemoteRepository, SignUpRepository {
+    func requestEmailDuplicationCheck(param: [String : Any]) -> AnyPublisher<Bool, any Error> {
+        let apiEndPoint = Bundle.main.openURL + "/users/duplication/email"
+        
+        return dataSource.sendOpenPostRequest(to: apiEndPoint, with: param, resultType: EmailDuplicationCheckDTO.self)
+            .map {
+                return $0.body.duplication
+            }
+            .eraseToAnyPublisher()
+    }
+    
     func requestSignUp(param: [String: Any]) -> AnyPublisher<SignUpResponse, any Error> {
         let apiEndPoint = Bundle.main.openURL + "/users"
         
