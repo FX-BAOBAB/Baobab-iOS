@@ -141,4 +141,38 @@ final class SignUpTest: XCTestCase {
         
         wait(for: [expectation], timeout: 5)
     }
+    
+    func test_emailDuplicationCheck() {
+        //Given
+        dataSource = RemoteDataSourceImpl()
+        let param = [
+            "result": [
+                "resultCode": 0,
+                "resultMessage": "string",
+                "resultDescription": "string"
+            ],
+            "body": [
+                "email": "obab2@baobab.com"
+            ]
+        ]
+        let apiEndPoint = Bundle.main.openURL + "/users/duplication/email"
+        let expectation = XCTestExpectation(description: "Performs a request")
+        
+        //When
+        dataSource.sendOpenPostRequest(to: apiEndPoint, with: param, resultType: EmailDuplicationCheckDTO.self)
+            .sink(receiveCompletion: { completion in
+                switch completion {
+                case .finished:
+                    print("Email Check has been completed")
+                case .failure(let error):
+                    print("SignUpTest.test_emailDuplicationCheck() error : ", error)
+                }
+            }, receiveValue: {
+                XCTAssertTrue($0.body.duplication)
+                expectation.fulfill()
+            })
+            .store(in: &cancellables)
+        
+        wait(for: [expectation], timeout: 5)
+    }
 }
