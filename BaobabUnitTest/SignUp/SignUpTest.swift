@@ -34,7 +34,7 @@ final class SignUpTest: XCTestCase {
         
         let session = Session(configuration: configuration)
         dataSource = RemoteDataSourceImpl(session: session)
-        let apiEndPoint = Bundle.main.apiUrl + "/open-api/users"
+        let apiEndPoint = Bundle.main.openURL + "/users"
         let params: [String: Any] = [String: Any]()
         let expectation = XCTestExpectation(description: "Performs a request")
         
@@ -69,7 +69,7 @@ final class SignUpTest: XCTestCase {
         let session = Session(configuration: configuration)
         dataSource = RemoteDataSourceImpl(session: session)
         
-        let apiEndPoint = Bundle.main.apiUrl + "/open-api/users"
+        let apiEndPoint = Bundle.main.openURL + "/users"
         let params: [String: Any] = [String: Any]()
         let expectation = XCTestExpectation(description: "Performs a request")
         
@@ -100,7 +100,7 @@ final class SignUpTest: XCTestCase {
         //Given
         dataSource = RemoteDataSourceImpl()
         
-        let apiEndPoint = Bundle.main.apiUrl + "/open-api/users"
+        let apiEndPoint = Bundle.main.openURL + "/users"
         let params: [String: Any] = [
             "result": [
                 "resultCode": 0,
