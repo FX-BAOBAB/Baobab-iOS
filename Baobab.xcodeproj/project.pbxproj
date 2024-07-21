@@ -71,9 +71,10 @@
 		8E3F7C5E2C2A9A480087EB2A /* SimpleReceivingStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F7C5D2C2A9A480087EB2A /* SimpleReceivingStatus.swift */; };
 		8E3F7C602C2A9ABD0087EB2A /* StatusPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F7C5F2C2A9ABD0087EB2A /* StatusPoint.swift */; };
 		8E449F072C4BA24000291277 /* RemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E449F062C4BA24000291277 /* RemoteDataSource.swift */; };
-		8E449F092C4BA87A00291277 /* EmailDuplicationCheckUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E449F082C4BA87A00291277 /* EmailDuplicationCheckUseCase.swift */; };
+		8E449F092C4BA87A00291277 /* CheckEmailDuplicationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E449F082C4BA87A00291277 /* CheckEmailDuplicationUseCase.swift */; };
 		8E449F0D2C4BAB3700291277 /* DuplicationCheckDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E449F0C2C4BAB3700291277 /* DuplicationCheckDTO.swift */; };
-		8E449F0F2C4BEEC700291277 /* NickNameDuplicationCheckUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E449F0E2C4BEEC700291277 /* NickNameDuplicationCheckUseCase.swift */; };
+		8E449F0F2C4BEEC700291277 /* CheckNickNameDuplicationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E449F0E2C4BEEC700291277 /* CheckNickNameDuplicationUseCase.swift */; };
+		8E449F112C4BFDE800291277 /* SignUpViewModel+Bind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E449F102C4BFDE800291277 /* SignUpViewModel+Bind.swift */; };
 		8E765F682C3D5B5A008A11E6 /* SignUp_Success_Response.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E765F672C3D5B5A008A11E6 /* SignUp_Success_Response.json */; };
 		8E765F692C3D5BCD008A11E6 /* SignUp_Success_Response.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E765F672C3D5B5A008A11E6 /* SignUp_Success_Response.json */; };
 		8E7731D62C4A944F00B42F7A /* LoginRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7731D52C4A944F00B42F7A /* LoginRepositoryImpl.swift */; };
@@ -243,9 +244,10 @@
 		8E3F7C5D2C2A9A480087EB2A /* SimpleReceivingStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleReceivingStatus.swift; sourceTree = "<group>"; };
 		8E3F7C5F2C2A9ABD0087EB2A /* StatusPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusPoint.swift; sourceTree = "<group>"; };
 		8E449F062C4BA24000291277 /* RemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDataSource.swift; sourceTree = "<group>"; };
-		8E449F082C4BA87A00291277 /* EmailDuplicationCheckUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailDuplicationCheckUseCase.swift; sourceTree = "<group>"; };
+		8E449F082C4BA87A00291277 /* CheckEmailDuplicationUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckEmailDuplicationUseCase.swift; sourceTree = "<group>"; };
 		8E449F0C2C4BAB3700291277 /* DuplicationCheckDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuplicationCheckDTO.swift; sourceTree = "<group>"; };
-		8E449F0E2C4BEEC700291277 /* NickNameDuplicationCheckUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NickNameDuplicationCheckUseCase.swift; sourceTree = "<group>"; };
+		8E449F0E2C4BEEC700291277 /* CheckNickNameDuplicationUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckNickNameDuplicationUseCase.swift; sourceTree = "<group>"; };
+		8E449F102C4BFDE800291277 /* SignUpViewModel+Bind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SignUpViewModel+Bind.swift"; sourceTree = "<group>"; };
 		8E765F672C3D5B5A008A11E6 /* SignUp_Success_Response.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SignUp_Success_Response.json; sourceTree = "<group>"; };
 		8E7731D52C4A944F00B42F7A /* LoginRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRepositoryImpl.swift; sourceTree = "<group>"; };
 		8E7731D72C4A94A400B42F7A /* SignUpRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRepositoryImpl.swift; sourceTree = "<group>"; };
@@ -487,8 +489,8 @@
 				8E7BC8F12C3EC78600CB708F /* LoginUseCase.swift */,
 				8EAB81672C40BB770052AD48 /* FetchAddressUseCase.swift */,
 				8E8AF2E22C425DD100A1F0ED /* UploadImageUseCase.swift */,
-				8E449F082C4BA87A00291277 /* EmailDuplicationCheckUseCase.swift */,
-				8E449F0E2C4BEEC700291277 /* NickNameDuplicationCheckUseCase.swift */,
+				8E449F082C4BA87A00291277 /* CheckEmailDuplicationUseCase.swift */,
+				8E449F0E2C4BEEC700291277 /* CheckNickNameDuplicationUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -822,6 +824,7 @@
 			isa = PBXGroup;
 			children = (
 				8ECCBAFB2C2CF01200DD0A1B /* SignUpViewModel.swift */,
+				8E449F102C4BFDE800291277 /* SignUpViewModel+Bind.swift */,
 				8EE66DE52C400C8A0087AD19 /* SignUpViewModel+Alert.swift */,
 				8EB0C2542C322AA000FEE8D0 /* SignUpViewModel+Region.swift */,
 				8ECCBB102C2E4D5700DD0A1B /* SignUpViewModel+InputState.swift */,
@@ -1155,12 +1158,12 @@
 				5C405EEC2BF72ADB006EE6F1 /* ReceivingViewModel+Defect.swift in Sources */,
 				8ECCBB152C2E846D00DD0A1B /* AddressRegistrationForm.swift in Sources */,
 				8E7731DC2C4A955600B42F7A /* ReceivingRepositoryImpl.swift in Sources */,
-				8E449F0F2C4BEEC700291277 /* NickNameDuplicationCheckUseCase.swift in Sources */,
+				8E449F0F2C4BEEC700291277 /* CheckNickNameDuplicationUseCase.swift in Sources */,
 				5C4F181D2C05D1F10030A096 /* AnnotationItem.swift in Sources */,
 				8ECCBAFC2C2CF01200DD0A1B /* SignUpViewModel.swift in Sources */,
 				5CCFBF682BF2E05F00322D0D /* SelectedImage.swift in Sources */,
 				8E3F7C602C2A9ABD0087EB2A /* StatusPoint.swift in Sources */,
-				8E449F092C4BA87A00291277 /* EmailDuplicationCheckUseCase.swift in Sources */,
+				8E449F092C4BA87A00291277 /* CheckEmailDuplicationUseCase.swift in Sources */,
 				5CADA5D92C004E8000FFCC64 /* PostSearchWebView.swift in Sources */,
 				8ECCBB192C2E894E00DD0A1B /* DefaultAddressToggleButton.swift in Sources */,
 				8ECCBB072C2E39FA00DD0A1B /* SignUpViewModel+RegularExpression.swift in Sources */,
@@ -1216,6 +1219,7 @@
 				5C735F462BF1A4B400A36EC8 /* CategoryListRow.swift in Sources */,
 				5C994A582BF5F8D00013672B /* Defect.swift in Sources */,
 				8E7BC8CE2C3E44C500CB708F /* LoginResponse.swift in Sources */,
+				8E449F112C4BFDE800291277 /* SignUpViewModel+Bind.swift in Sources */,
 				8E3F7C532C2A5F3E0087EB2A /* ReceivingPaymentView.swift in Sources */,
 				8E7BC8D22C3E6AB500CB708F /* TokenRepositoryImpl.swift in Sources */,
 				5C4F18192C05B86D0030A096 /* DetailAddressForm.swift in Sources */,

@@ -7,11 +7,11 @@
 
 import Combine
 
-protocol NickNameDuplicationCheckUseCase {
+protocol CheckNickNameDuplicationUseCase {
     func execute(params: [String: Any]) -> AnyPublisher<Bool, any Error>
 }
 
-final class NickNameDuplicationCheckUseCaseImpl: NickNameDuplicationCheckUseCase {
+final class CheckNickNameDuplicationUseCaseImpl: CheckNickNameDuplicationUseCase {
     private let repository: SignUpRepository
     
     init(repository: SignUpRepository) {

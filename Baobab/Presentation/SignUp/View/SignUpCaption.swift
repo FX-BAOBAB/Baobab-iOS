@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SignUpCaption: View {
     let caption: String
+    let color: Color
     
     var body: some View {
         HStack(spacing: 3) {
@@ -17,12 +18,12 @@ struct SignUpCaption: View {
             Text(caption)
         }
         .font(.caption2)
-        .foregroundColor(.red)
+        .foregroundColor(color)
         .frame(maxWidth: .infinity, alignment: .leading)
         .offset(x: 5)
     }
 }
 
 #Preview {
-    SignUpCaption(caption: "warning")
+    SignUpCaption(caption: "warning", color: .red)
 }

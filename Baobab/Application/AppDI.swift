@@ -28,7 +28,12 @@ struct AppDI {
     
     var signUpViewModel: SignUpViewModel {
         let repository = SignUpRepositoryImpl(dataSource: dataSource)
-        let signUpUseCase = SignUpUseCaseImpl(repository: repository, fetchGeoCodeUseCase: fetchGeoCodeUseCase)
+        let checkEmailDuplicationUseCase = CheckEmailDuplicationUseCaseImpl(repository: repository)
+        let checkNickNameDuplicationUseCase = CheckNickNameDuplicationUseCaseImpl(repository: repository)
+        let signUpUseCase = SignUpUseCaseImpl(repository: repository,
+                                              fetchGeoCodeUseCase: fetchGeoCodeUseCase,
+                                              checkEmailDuplicationUseCase: checkEmailDuplicationUseCase,
+                                              checkNickNameDuplicationUseCase: checkNickNameDuplicationUseCase)
         return SignUpViewModel(usecase: signUpUseCase)
     }
     
