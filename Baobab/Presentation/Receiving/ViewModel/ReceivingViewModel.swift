@@ -53,7 +53,10 @@ extension ReceivingViewModel {
         }
         
         let subString = categoryWithPrice[firstIndex..<lastIndex]
-        items[itemIdx].itemCategory = String(subString).trimmingCharacters(in: .whitespacesAndNewlines)
+        let korCategory = String(subString).trimmingCharacters(in: .whitespacesAndNewlines)
+        let engCategory = korCategory.toEngCategory()
+        items[itemIdx].korCategory = korCategory
+        items[itemIdx].engCategory = engCategory
         updatePrice()
     }
     

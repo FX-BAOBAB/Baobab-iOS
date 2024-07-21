@@ -19,7 +19,7 @@ struct ReceivingReservationForm: View {
                 VStack {
                     Section(header: SectionHeader(title: "날짜 선택"),
                             footer: SectionFooter()) {
-                        RoundedRectangle(cornerRadius: 20)
+                        RoundedRectangle(cornerRadius: 10)
                             .frame(height: UIScreen.main.bounds.width)
                             .foregroundColor(.calendarGray)
                             .padding([.leading, .trailing, .bottom])
@@ -31,8 +31,7 @@ struct ReceivingReservationForm: View {
                     }
                     
                     Section(header: SectionHeader(title: "방문지 정보") {
-                        Button(action: { isShowingAddressList.toggle() },
-                               label: { Text("변경").bold() })
+                        Button(action: { isShowingAddressList.toggle() }, label: { EditButtonLabel() })
                     }) {
                         SelectedAddressDetail(showTag: true)
                             .environmentObject(viewModel)

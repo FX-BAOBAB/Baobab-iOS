@@ -42,7 +42,7 @@ struct DefectRegistrationList: View {
                     }
                     .foregroundColor(.blue)
                 })
-                .padding([.top, .bottom])
+                .padding([.top, .bottom], 10)
                 .alignmentGuide(.listRowSeparatorLeading) { _ in
                     return 0
                 }

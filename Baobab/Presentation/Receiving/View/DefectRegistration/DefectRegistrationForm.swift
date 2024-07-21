@@ -51,7 +51,7 @@ struct DefectRegistrationForm: View {
                         .padding()
                         .font(.subheadline)
                         .overlay {
-                            RoundedRectangle(cornerRadius: 20)
+                            RoundedRectangle(cornerRadius: 10)
                                 .stroke()
                                 .foregroundColor(.gray)
                         }

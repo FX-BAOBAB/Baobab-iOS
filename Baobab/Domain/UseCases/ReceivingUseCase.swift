@@ -69,8 +69,8 @@ extension ReceivingUseCaseImpl{
         let itemRequests = items.map { item in
             [
                 "name": item.itemName,
-                "modelName": item.itemName,
-                "category": "SMALL_FURNITURE",    //TODO: 카테고리 동적으로 변경(영문명)
+                "modelName": item.modelName,
+                "category": item.engCategory ?? "",
                 "quantity": item.itemQuantity,
                 "imageIdList": [Int]()
             ] as [String: Any]

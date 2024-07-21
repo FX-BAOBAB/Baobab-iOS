@@ -22,8 +22,8 @@ struct CategoryPicker: View {
                 showCetegoryList.toggle()
             }, label: {
                 HStack {
-                    if let category = viewModel.items[viewModel.itemIdx].itemCategory {
-                        Text(viewModel.items[viewModel.itemIdx].itemCategory)
+                    if viewModel.items[viewModel.itemIdx].korCategory != nil {
+                        Text(viewModel.items[viewModel.itemIdx].korCategory)
                     } else {
                         Text("카테고리 선택")
                     }
