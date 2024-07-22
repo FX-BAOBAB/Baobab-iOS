@@ -109,6 +109,13 @@
 		8E8AF2E92C42685100A1F0ED /* ImageUploadResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8AF2E82C42685100A1F0ED /* ImageUploadResponse.swift */; };
 		8E8AF2EB2C42689D00A1F0ED /* ImageRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8AF2EA2C42689D00A1F0ED /* ImageRepositoryImpl.swift */; };
 		8E8AF2EE2C426C2700A1F0ED /* ImageUploadTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8AF2ED2C426C2700A1F0ED /* ImageUploadTest.swift */; };
+		8E8D13452C4E3CC10032FC96 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8D13442C4E3CC10032FC96 /* MainTabView.swift */; };
+		8E8D134A2C4E40CD0032FC96 /* UserInfoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8D13492C4E40CD0032FC96 /* UserInfoList.swift */; };
+		8E8D134C2C4E439B0032FC96 /* SimpleUserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8D134B2C4E439B0032FC96 /* SimpleUserInfoView.swift */; };
+		8E8D134E2C4E440D0032FC96 /* UserInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8D134D2C4E440D0032FC96 /* UserInfoViewModel.swift */; };
+		8E8D13502C4E443A0032FC96 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8D134F2C4E443A0032FC96 /* UserInfo.swift */; };
+		8E8D13522C4E44700032FC96 /* FetchUserInfoUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8D13512C4E44700032FC96 /* FetchUserInfoUseCase.swift */; };
+		8E8D13542C4E45270032FC96 /* UserInfoResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8D13532C4E45270032FC96 /* UserInfoResponseDTO.swift */; };
 		8E90635E2C293775008B5C52 /* CameraLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E90635D2C293775008B5C52 /* CameraLabel.swift */; };
 		8E9063612C29464A008B5C52 /* UIImage+Downscale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9063602C29464A008B5C52 /* UIImage+Downscale.swift */; };
 		8E9063632C2950EF008B5C52 /* UIImage+Crop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9063622C2950EF008B5C52 /* UIImage+Crop.swift */; };
@@ -279,6 +286,13 @@
 		8E8AF2E82C42685100A1F0ED /* ImageUploadResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploadResponse.swift; sourceTree = "<group>"; };
 		8E8AF2EA2C42689D00A1F0ED /* ImageRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRepositoryImpl.swift; sourceTree = "<group>"; };
 		8E8AF2ED2C426C2700A1F0ED /* ImageUploadTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploadTest.swift; sourceTree = "<group>"; };
+		8E8D13442C4E3CC10032FC96 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		8E8D13492C4E40CD0032FC96 /* UserInfoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoList.swift; sourceTree = "<group>"; };
+		8E8D134B2C4E439B0032FC96 /* SimpleUserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleUserInfoView.swift; sourceTree = "<group>"; };
+		8E8D134D2C4E440D0032FC96 /* UserInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewModel.swift; sourceTree = "<group>"; };
+		8E8D134F2C4E443A0032FC96 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
+		8E8D13512C4E44700032FC96 /* FetchUserInfoUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchUserInfoUseCase.swift; sourceTree = "<group>"; };
+		8E8D13532C4E45270032FC96 /* UserInfoResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoResponseDTO.swift; sourceTree = "<group>"; };
 		8E90635D2C293775008B5C52 /* CameraLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraLabel.swift; sourceTree = "<group>"; };
 		8E9063602C29464A008B5C52 /* UIImage+Downscale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Downscale.swift"; sourceTree = "<group>"; };
 		8E9063622C2950EF008B5C52 /* UIImage+Crop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Crop.swift"; sourceTree = "<group>"; };
@@ -421,6 +435,7 @@
 		5C426BF62BEDBD1B00869F6D /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				8E8D13462C4E3DFB0032FC96 /* UserInfo */,
 				8E0ED7FA2C3F799C00AB0EC8 /* Main */,
 				8ECCBAFD2C2CFC1E00DD0A1B /* Commons */,
 				8EB0C25C2C32451F00FEE8D0 /* LogIn */,
@@ -493,6 +508,7 @@
 				8E8AF2E22C425DD100A1F0ED /* UploadImageUseCase.swift */,
 				8E449F082C4BA87A00291277 /* CheckEmailDuplicationUseCase.swift */,
 				8E449F0E2C4BEEC700291277 /* CheckNickNameDuplicationUseCase.swift */,
+				8E8D13512C4E44700032FC96 /* FetchUserInfoUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -533,6 +549,7 @@
 				8E227BE72C43755200E007D0 /* MultipleImageUploadResponseDTO.swift */,
 				8EAA87FB2C44A815000386AD /* ReceivingResponseDTO.swift */,
 				8E449F0C2C4BAB3700291277 /* DuplicationCheckDTO.swift */,
+				8E8D13532C4E45270032FC96 /* UserInfoResponseDTO.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -638,6 +655,7 @@
 				8E7BC8CD2C3E44C500CB708F /* LoginResponse.swift */,
 				8EAB81722C4108380052AD48 /* AccessTokenRefreshData.swift */,
 				8E8AF2E82C42685100A1F0ED /* ImageUploadResponse.swift */,
+				8E8D134F2C4E443A0032FC96 /* UserInfo.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -660,6 +678,7 @@
 			isa = PBXGroup;
 			children = (
 				5C426BE92BEDA8F300869F6D /* MainContentView.swift */,
+				8E8D13442C4E3CC10032FC96 /* MainTabView.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -724,6 +743,32 @@
 				8E8AF2ED2C426C2700A1F0ED /* ImageUploadTest.swift */,
 			);
 			path = ImageUpload;
+			sourceTree = "<group>";
+		};
+		8E8D13462C4E3DFB0032FC96 /* UserInfo */ = {
+			isa = PBXGroup;
+			children = (
+				8E8D13482C4E3EB90032FC96 /* ViewModel */,
+				8E8D13472C4E3EB50032FC96 /* View */,
+			);
+			path = UserInfo;
+			sourceTree = "<group>";
+		};
+		8E8D13472C4E3EB50032FC96 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8E8D13492C4E40CD0032FC96 /* UserInfoList.swift */,
+				8E8D134B2C4E439B0032FC96 /* SimpleUserInfoView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8E8D13482C4E3EB90032FC96 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				8E8D134D2C4E440D0032FC96 /* UserInfoViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		8E9772172C3CEF530082DCAF /* BaobabUnitTest */ = {
@@ -1110,6 +1155,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E97720F2C3CCB820082DCAF /* SignUpResponse.swift in Sources */,
+				8E8D13502C4E443A0032FC96 /* UserInfo.swift in Sources */,
 				5C1B84CE2BF20DDB00A99192 /* CheckMark.swift in Sources */,
 				5CD8A2092C036A8B00EE5C09 /* ImageRegistrationCompleteSheet.swift in Sources */,
 				5C735F412BF1A10200A36EC8 /* CategoryList.swift in Sources */,
@@ -1128,12 +1174,14 @@
 				5C13D5AB2BF3082600CA0792 /* ImagePicker.swift in Sources */,
 				8EB0C2552C322AA000FEE8D0 /* SignUpViewModel+Region.swift in Sources */,
 				8EB0C25B2C3240E000FEE8D0 /* SignUpCompletionView.swift in Sources */,
+				8E8D13452C4E3CC10032FC96 /* MainTabView.swift in Sources */,
 				5C426BFD2BEDBDE900869F6D /* ReceivingViewModel.swift in Sources */,
 				5C735F4C2BF1BAB200A36EC8 /* EstimatedPrice.swift in Sources */,
 				8E7BC8D62C3E6EEB00CB708F /* FetchTokenUseCase.swift in Sources */,
 				8EB0C2642C32457200FEE8D0 /* LoginViewModel.swift in Sources */,
 				8E7731DA2C4A94DC00B42F7A /* UserRepositoryImpl.swift in Sources */,
 				5C4ACAC22BEE41A300195895 /* CategoryPicker.swift in Sources */,
+				8E8D13542C4E45270032FC96 /* UserInfoResponseDTO.swift in Sources */,
 				5CADA5D52C000D4C00FFCC64 /* SectionHeader.swift in Sources */,
 				8ECCBB132C2E57A600DD0A1B /* PasswordConfirmInputBox.swift in Sources */,
 				8EAA87FE2C44F77C000386AD /* ReceivingViewModel+Alert.swift in Sources */,
@@ -1149,6 +1197,7 @@
 				8E8AF2E32C425DD100A1F0ED /* UploadImageUseCase.swift in Sources */,
 				5C426BFF2BEDBE7E00869F6D /* BorderedInputBox.swift in Sources */,
 				8E8AF2E52C42633B00A1F0ED /* SingleImageUploadResponseDTO.swift in Sources */,
+				8E8D134E2C4E440D0032FC96 /* UserInfoViewModel.swift in Sources */,
 				8ECCBB0F2C2E4ADB00DD0A1B /* SignUpCaption.swift in Sources */,
 				8EE66DEA2C400D920087AD19 /* CustomProgressView.swift in Sources */,
 				8ECCBAF72C2CEFAA00DD0A1B /* SignUpForm.swift in Sources */,
@@ -1191,6 +1240,7 @@
 				8E449F0D2C4BAB3700291277 /* DuplicationCheckDTO.swift in Sources */,
 				8E7BC8C82C3E42CC00CB708F /* LoginRepository.swift in Sources */,
 				8E449F072C4BA24000291277 /* RemoteDataSource.swift in Sources */,
+				8E8D13522C4E44700032FC96 /* FetchUserInfoUseCase.swift in Sources */,
 				5C735F4A2BF1B44500A36EC8 /* ItemInformationForm.swift in Sources */,
 				8EAB81752C4120F70052AD48 /* RequestError.swift in Sources */,
 				5C41ED932C080877001416D9 /* ReceivingViewModel+Address.swift in Sources */,
@@ -1207,6 +1257,7 @@
 				5CCFBF6A2BF2E18200322D0D /* ImageRegistrationForm.swift in Sources */,
 				8EB0C2622C32456500FEE8D0 /* LoginForm.swift in Sources */,
 				8E9063632C2950EF008B5C52 /* UIImage+Crop.swift in Sources */,
+				8E8D134A2C4E40CD0032FC96 /* UserInfoList.swift in Sources */,
 				8E3F7C592C2A81450087EB2A /* PaymentDetail.swift in Sources */,
 				8E8AF2EB2C42689D00A1F0ED /* ImageRepositoryImpl.swift in Sources */,
 				8E8AF2E92C42685100A1F0ED /* ImageUploadResponse.swift in Sources */,
@@ -1232,6 +1283,7 @@
 				8ECE2B142C34CF9900D7F499 /* LazyView.swift in Sources */,
 				5C9679BE2BFEC59F007C8D5A /* PostCodeSearch.swift in Sources */,
 				8EB0C2662C3248E300FEE8D0 /* LoginInputBox.swift in Sources */,
+				8E8D134C2C4E439B0032FC96 /* SimpleUserInfoView.swift in Sources */,
 				5C426BE82BEDA8F300869F6D /* BaobabApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
