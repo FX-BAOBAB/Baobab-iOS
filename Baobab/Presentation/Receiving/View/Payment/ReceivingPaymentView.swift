@@ -13,27 +13,28 @@ struct ReceivingPaymentView: View {
     
     var body: some View {
         ZStack {
-            VStack(alignment: .leading) {
-                List {
-                    Section(header: Text("입고물품").foregroundColor(.black), footer: SectionFooter()) {
-                        ForEach(0..<viewModel.itemIdx + 1, id: \.self) { idx in
-                            ItemListRow(idx: idx)
-                                .environmentObject(viewModel)
-                                .listRowSeparator(.hidden)
-                                .alignmentGuide(.listRowSeparatorLeading) { _ in return 0 }
-                        }
-                    }
-                    .listSectionSeparator(.hidden)
-                    
-                    Section(header: Text("결제금액").foregroundColor(.black)) {
-                        PaymentDetail()
+            List {
+                Section(header: Text("입고물품").foregroundColor(.black), footer: SectionFooter()) {
+                    ForEach(0..<viewModel.itemIdx + 1, id: \.self) { idx in
+                        ItemListRow(idx: idx)
                             .environmentObject(viewModel)
+                            .listRowSeparator(.hidden)
+                            .alignmentGuide(.listRowSeparatorLeading) { _ in return 0 }
                     }
-                    .listSectionSeparator(.hidden, edges: .top)
-                    .listSectionSeparator(.hidden, edges: .bottom)
                 }
-                .listStyle(.plain)
+                .listSectionSeparator(.hidden)
                 
+                Section(header: Text("결제금액").foregroundColor(.black)) {
+                    PaymentDetail()
+                        .environmentObject(viewModel)
+                }
+                .listSectionSeparator(.hidden, edges: .top)
+                .listSectionSeparator(.hidden, edges: .bottom)
+            }
+            .listStyle(.plain)
+            .scrollDisabled(viewModel.isProgress)
+            
+            VStack {
                 HStack(spacing: 3) {
                     Image(systemName: "info.circle")
                     
@@ -59,29 +60,32 @@ struct ReceivingPaymentView: View {
                 .cornerRadius(10)
                 .buttonStyle(.borderedProminent)
                 .padding()
+                .disabled(viewModel.isProgress)
             }
-            .navigationTitle("결제")
-            .navigationDestination(isPresented: $viewModel.isShowingCompletionView) {
-                ReceiptCompletionView()
-                    .environmentObject(viewModel)
-            }
-            .alert(isPresented: $viewModel.isShowingAlert) {
-                switch viewModel.alertType {
-                case .failure:
-                    Alert(title: Text("알림"),
-                          message: Text("입고 신청에 실패 했어요."))
-                case .paymentAlert:
-                    Alert(title: Text("알림"),
-                          message: Text("결제를 진행할까요?"),
-                          primaryButton: .default(Text("확인")) { viewModel.applyReceiving() },
-                          secondaryButton: .default(Text("취소")))
-                default:
-                    Alert(title: Text(""))
-                }
-            }
+            .frame(maxHeight: .infinity, alignment: .bottom)
             
             if viewModel.isProgress {
-                CustomProgrssView()
+                CustomProgressView()
+                    .offset(y: -50)
+            }
+        }
+        .navigationTitle("결제")
+        .navigationDestination(isPresented: $viewModel.isShowingCompletionView) {
+            ReceiptCompletionView()
+                .environmentObject(viewModel)
+        }
+        .alert(isPresented: $viewModel.isShowingAlert) {
+            switch viewModel.alertType {
+            case .failure:
+                Alert(title: Text("알림"),
+                      message: Text("입고 신청에 실패 했어요."))
+            case .paymentAlert:
+                Alert(title: Text("알림"),
+                      message: Text("결제를 진행할까요?"),
+                      primaryButton: .default(Text("확인")) { viewModel.applyReceiving() },
+                      secondaryButton: .default(Text("취소")))
+            default:
+                Alert(title: Text(""))
             }
         }
     }

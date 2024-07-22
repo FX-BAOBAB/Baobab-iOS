@@ -14,9 +14,9 @@ struct ReceiptCompletionView: View {
     var body: some View {
         ZStack {
             VStack(alignment: .leading) {
-                Text("입고 접수가 완료되었어요")
+                Text("입고 접수 완료")
                     .bold()
-                    .font(.title2)
+                    .font(.title)
                 
                 Text("아래 방문지로 최대한 빨리 방문할 예정이에요")
                     .foregroundColor(.gray)
@@ -56,23 +56,20 @@ struct ReceiptCompletionView: View {
             .padding()
             .navigationBarBackButtonHidden()
             
-            VStack {
-                Spacer()
+            Button(action: {
                 
-                Button(action: {
-                    
-                }, label: {
-                    Text("완료")
-                        .bold()
-                        .frame(maxWidth: .infinity)
-                        .padding(8)
-                })
-                .buttonBorderShape(.roundedRectangle)
-                .cornerRadius(10)
-                .buttonStyle(.borderedProminent)
-                .padding([.leading, .trailing, .bottom])
-                .background(.white)
-            }
+            }, label: {
+                Text("완료")
+                    .bold()
+                    .frame(maxWidth: .infinity)
+                    .padding(8)
+            })
+            .buttonBorderShape(.roundedRectangle)
+            .cornerRadius(10)
+            .buttonStyle(.borderedProminent)
+            .padding([.leading, .trailing, .bottom])
+            .background(.white)
+            .frame(maxHeight: .infinity, alignment: .bottom)
         }
     }
 }
