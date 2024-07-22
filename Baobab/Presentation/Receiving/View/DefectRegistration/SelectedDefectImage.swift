@@ -18,7 +18,7 @@ struct SelectedDefectImage: View {
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(maxWidth: .infinity)
-                    .cornerRadius(20)
+                    .cornerRadius(10)
                 
                 RoundedRectangle(cornerRadius: 10)
                     .frame(width: 60, height: 50)
@@ -30,7 +30,7 @@ struct SelectedDefectImage: View {
                     }
             }
         } else {
-            RoundedRectangle(cornerRadius: 20)
+            RoundedRectangle(cornerRadius: 10)
                 .fill(Color(red: 243 / 255, green: 242 / 255, blue: 245 / 255))
                 .aspectRatio(contentMode: .fit)
                 .frame(maxWidth: .infinity)

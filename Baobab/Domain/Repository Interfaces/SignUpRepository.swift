@@ -8,5 +8,7 @@
 import Combine
 
 protocol SignUpRepository {
-    func requestSignUp(param: [String: Any]) -> AnyPublisher<SignUpResponse, any Error>
+    func requestSignUp(params: [String: Any]) -> AnyPublisher<SignUpResponse, any Error>
+    func requestEmailDuplicationCheck(params: [String: Any]) -> AnyPublisher<Bool, any Error>
+    func requestNickNameDuplicationCheck(params: [String: Any]) -> AnyPublisher<Bool, any Error>
 }

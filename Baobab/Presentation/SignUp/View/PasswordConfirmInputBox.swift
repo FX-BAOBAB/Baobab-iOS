@@ -18,7 +18,8 @@ struct PasswordConfirmInputBox: View {
                              type: .secure)
             
             if viewModel.passwordConfirmState != .none && viewModel.passwordConfirmState != .isValid {
-                SignUpCaption(caption: viewModel.passwordConfirmState.rawValue)
+                SignUpCaption(caption: viewModel.passwordConfirmState.rawValue, 
+                              color: viewModel.passwordConfirmState == .isValid ? .green : .red)
             } else {
                 Spacer()
                     .frame(height: 17.5)

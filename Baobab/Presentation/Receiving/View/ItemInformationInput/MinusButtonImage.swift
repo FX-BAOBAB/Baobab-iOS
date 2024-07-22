@@ -11,12 +11,12 @@ struct MinusButtonImage: View {
     var body: some View {
         Circle()
             .fill(.gray)
-            .frame(width: 20)
+            .frame(width: 15)
             .overlay {
                 Image(systemName: "minus")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(width: 10)
+                    .frame(width: 8)
                     .foregroundColor(.white)
             }
     }

@@ -14,16 +14,26 @@ struct AppDI {
     let fetchGeoCodeUseCase = FetchGeoCodeUseCaseImpl()
     
     var receivingViewModel: ReceivingViewModel {
-        let repository = UserRepositoryImpl(dataSource: dataSource)
-        let fetchDefaultAddressUseCase = FetchDefaultAddressUseCaseImpl(repository: repository)
+        let userRepository = UserRepositoryImpl(dataSource: dataSource)
+        let imageRepository = ImageRepositoryImpl(dataSource: dataSource)
+        let receivingRepository = ReceivingRepositoryImpl(dataSource: dataSource)
+        let fetchAddressUseCase = FetchAddressUseCaseImpl(repository: userRepository)
+        let uploadImageUseCase = UploadImageUseCaseImpl(repository: imageRepository)
         let receivingUseCase = ReceivingUseCaseImpl(fetchGeoCodeUseCase: fetchGeoCodeUseCase,
-                                                    fetchDefaultAddressUseCase: fetchDefaultAddressUseCase)
+                                                    fetchDefaultAddressUseCase: fetchAddressUseCase, 
+                                                    uploadImageUseCase: uploadImageUseCase, 
+                                                    repository: receivingRepository)
         return ReceivingViewModel(itemIdx: 0, usecase: receivingUseCase)
     }
     
     var signUpViewModel: SignUpViewModel {
         let repository = SignUpRepositoryImpl(dataSource: dataSource)
-        let signUpUseCase = SignUpUseCaseImpl(repository: repository, fetchGeoCodeUseCase: fetchGeoCodeUseCase)
+        let checkEmailDuplicationUseCase = CheckEmailDuplicationUseCaseImpl(repository: repository)
+        let checkNickNameDuplicationUseCase = CheckNickNameDuplicationUseCaseImpl(repository: repository)
+        let signUpUseCase = SignUpUseCaseImpl(repository: repository,
+                                              fetchGeoCodeUseCase: fetchGeoCodeUseCase,
+                                              checkEmailDuplicationUseCase: checkEmailDuplicationUseCase,
+                                              checkNickNameDuplicationUseCase: checkNickNameDuplicationUseCase)
         return SignUpViewModel(usecase: signUpUseCase)
     }
     

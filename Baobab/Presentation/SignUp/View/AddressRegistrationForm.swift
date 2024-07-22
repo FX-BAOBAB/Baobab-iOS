@@ -51,7 +51,7 @@ struct AddressRegistrationForm: View {
             .ignoresSafeArea(.keyboard)    //TextField가 활성화 되어도 위치 고정
             
             if viewModel.isProgress {
-                CustomProgrssView()
+                CustomProgressView()
             }
         }
         .navigationTitle("주소지 등록")

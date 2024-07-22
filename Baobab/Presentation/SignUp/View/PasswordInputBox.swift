@@ -21,7 +21,8 @@ struct PasswordInputBox: View {
                 Spacer()
                     .frame(height: 17.5)
             } else {
-                SignUpCaption(caption: viewModel.passwordState.rawValue)
+                SignUpCaption(caption: viewModel.passwordState.rawValue, 
+                              color: viewModel.passwordState == .isValid ? .green : .red)
             }
         }
         .animation(.bouncy(duration: 0.5), value: viewModel.passwordState)

@@ -10,9 +10,9 @@ import Foundation
 extension SignUpViewModel {
     enum EmailState: String {
         case none
-        case isInvalid = "잘못된 이메일 형식이에요"
-        case isExist = "이미 존재하는 이메일이에요"
-        case isValid
+        case isInvalid = "잘못된 이메일 형식이에요."
+        case isExist = "이미 존재하는 이메일이에요."
+        case isValid = "사용 가능한 이메일이에요."
     }
     
     enum PasswordState: String {
@@ -23,13 +23,14 @@ extension SignUpViewModel {
     
     enum PasswordConfirmState: String {
         case none
-        case isInvalid = "비밀번호가 일치하지 않아요"
+        case isInvalid = "비밀번호가 일치하지 않아요."
         case isValid
     }
     
     enum NickNameState: String {
         case none
-        case isExist = "이미 존재하는 닉네임이에요"
-        case isValid
+        case isExist = "이미 존재하는 닉네임이에요."
+        case isInValid = "닉네임은 최대 50자, 한글로만 구성 가능해요."
+        case isValid = "사용 가능한 닉네임이에요."
     }
 }

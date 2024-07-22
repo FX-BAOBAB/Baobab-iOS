@@ -13,6 +13,7 @@ struct ItemQuantitySelector: View {
     var body: some View {
         HStack(spacing: 20) {
             Text("수량")
+                .font(.subheadline)
                 .bold()
             
             Spacer()
@@ -29,6 +30,7 @@ struct ItemQuantitySelector: View {
             
             Text("\(viewModel.items[viewModel.itemIdx].itemQuantity)")
                 .underline()
+                .font(.subheadline)
             
             Button(action: {
                 viewModel.items[viewModel.itemIdx].itemQuantity += 1
@@ -38,7 +40,7 @@ struct ItemQuantitySelector: View {
             })
             .buttonStyle(.borderless)
         }
-        .padding()
+        .padding(12)
         .overlay {
             RoundedRectangle(cornerRadius: 10)
                 .stroke(.gray, lineWidth: 1)

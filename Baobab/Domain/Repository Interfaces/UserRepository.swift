@@ -9,4 +9,5 @@ import Combine
 
 protocol UserRepository {
     func fetchDefaultAddress() -> AnyPublisher<Address, Error>
+    func fetchAddresses() -> AnyPublisher<[Address], Error>
 }

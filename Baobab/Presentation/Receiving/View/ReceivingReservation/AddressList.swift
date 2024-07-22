@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SkeletonUI
 
 struct AddressList: View {
     @EnvironmentObject private var viewModel: ReceivingViewModel
@@ -22,17 +23,15 @@ struct AddressList: View {
                 
                 List {
                     Section(header: Text("기본 방문지")) {
-                        if let address = viewModel.defaultAddress {
-                            AddressListRow(address: address)
-                                .padding(10)
-                                .alignmentGuide(.listRowSeparatorLeading) { _ in
-                                    return 0    //List row 하단 구분선 여백 없음
-                                }
-                        }
+                        AddressListRow(address: viewModel.defaultAddress)
+                            .padding(10)
+                            .alignmentGuide(.listRowSeparatorLeading) { _ in
+                                return 0    //List row 하단 구분선 여백 없음
+                            }
                     }
                     
                     Section(header: Text("등록된 방문지")) {
-                        ForEach(viewModel.registeredAddresses ?? []) { address in
+                        ForEach(viewModel.registeredAddresses) { address in
                             AddressListRow(address: address)
                                 .padding(10)
                                 .alignmentGuide(.listRowSeparatorLeading) { _ in
@@ -56,6 +55,9 @@ struct AddressList: View {
                         .foregroundColor(.gray)
                 })
                 .padding()
+            }
+            .onAppear {
+                viewModel.fetchAddresses()
             }
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {

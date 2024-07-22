@@ -51,7 +51,7 @@ struct DefectRegistrationForm: View {
                         .padding()
                         .font(.subheadline)
                         .overlay {
-                            RoundedRectangle(cornerRadius: 20)
+                            RoundedRectangle(cornerRadius: 10)
                                 .stroke()
                                 .foregroundColor(.gray)
                         }
@@ -112,6 +112,10 @@ struct DefectRegistrationForm: View {
         }, message: {
             Text("사진을 선택해 주세요")
         })
+        .onDisappear {
+            viewModel.selectedDefectImage = nil
+            viewModel.defectDescription = ""
+        }
     }
 }
 

@@ -14,7 +14,7 @@ struct PaymentDetail: View {
         VStack {
             ForEach(0..<viewModel.itemIdx + 1, id: \.self) { idx in
                 HStack {
-                    if let category = viewModel.items[idx].itemCategory {
+                    if let category = viewModel.items[idx].korCategory {
                         Text("\(category) × \(viewModel.items[idx].itemQuantity)")
                     }
                     

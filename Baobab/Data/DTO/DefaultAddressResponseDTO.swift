@@ -7,40 +7,15 @@
 
 import Foundation
 
-// MARK: - DefaultAddressDTO
-struct DefaultAddressResponseDTO: Codable {
-    let result: DefaultAddressDTOResult
-    let body: DefaultAddressDTOBody
+// MARK: - DefaultAddressResponseDTO
+struct DefaultAddressResponseDTO: Decodable {
+    let result: TaskResult
+    let body: DefaultAddressResponseBody
 }
 
-// MARK: - DefaultAddressDTOBody
-struct DefaultAddressDTOBody: Codable {
-    let address: AddressDetail
-}
-
-// MARK: - AddressData
-struct AddressDetail: Codable {
+// MARK: - DefaultAddressResponseBody
+struct DefaultAddressResponseBody: Decodable {
     let id: Int
-    let address, detailAddress: String
-    let post: Int
+    let address, detailAddress, post: String
     let basicAddress: Bool
-
-    enum CodingKeys: String, CodingKey {
-        case id, address
-        case detailAddress = "detail_address"
-        case post
-        case basicAddress = "basic_address"
-    }
-}
-
-// MARK: - DefaultAddressDTOResult
-struct DefaultAddressDTOResult: Codable {
-    let resultCode: Int
-    let resultMessage, resultDescription: String
-
-    enum CodingKeys: String, CodingKey {
-        case resultCode = "result_code"
-        case resultMessage = "result_message"
-        case resultDescription = "result_description"
-    }
 }

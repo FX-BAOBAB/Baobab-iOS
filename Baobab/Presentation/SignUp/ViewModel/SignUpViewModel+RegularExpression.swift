@@ -33,4 +33,13 @@ extension SignUpViewModel {
         
         return false
     }
+    
+    //MARK: - 닉네임 확인
+    func isKoreanOnly(_ nickName: String) -> Bool {
+        //닉네임은 최대 50자, 한글로만 구성
+        let nickRegex = "^[가-힣]{1,50}"
+        let nickNamePredicate = NSPredicate(format: "SELF MATCHES %@", nickRegex)
+        
+        return nickNamePredicate.evaluate(with: nickName)
+    }
 }

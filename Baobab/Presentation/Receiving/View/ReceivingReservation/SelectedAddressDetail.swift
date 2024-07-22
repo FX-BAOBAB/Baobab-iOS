@@ -38,6 +38,9 @@ struct SelectedAddressDetail: View {
                 .underline()
         }
         .frame(maxWidth: .infinity, alignment: .leading)
+        .skeleton(with: viewModel.selectedAddress == nil,
+                  shape: .rectangle,
+                  lines: 3)
     }
 }
 

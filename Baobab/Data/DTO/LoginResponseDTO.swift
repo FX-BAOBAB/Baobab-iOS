@@ -8,18 +8,12 @@
 import Foundation
 
 // MARK: - LoginResponseDTO
-struct LoginResponseDTO: Codable {
-    let result: LoginResult
+struct LoginResponseDTO: Decodable {
+    let result: TaskResult
     let body: LoginResponseBody?
 }
 
 // MARK: - LoginResponseBody
-struct LoginResponseBody: Codable {
+struct LoginResponseBody: Decodable {
     let accessToken, accessTokenExpiredAt, refreshToken, refreshTokenExpiredAt: String
-}
-
-// MARK: - LoginResult
-struct LoginResult: Codable {
-    let resultCode: Int
-    let resultMessage, resultDescription: String
 }

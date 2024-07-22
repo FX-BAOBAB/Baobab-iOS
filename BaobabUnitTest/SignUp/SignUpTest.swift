@@ -34,12 +34,12 @@ final class SignUpTest: XCTestCase {
         
         let session = Session(configuration: configuration)
         dataSource = RemoteDataSourceImpl(session: session)
-        let apiEndPoint = Bundle.main.apiUrl + "/open-api/users"
+        let apiEndPoint = Bundle.main.openURL + "/users"
         let params: [String: Any] = [String: Any]()
         let expectation = XCTestExpectation(description: "Performs a request")
         
         //When
-        dataSource.sendPostRequest(to: apiEndPoint, with: params, resultType: SignUpResponseDTO.self)
+        dataSource.sendOpenPostRequest(to: apiEndPoint, with: params, resultType: SignUpResponseDTO.self)
             .sink(receiveCompletion: { completion in
                 switch completion {
                 case .finished:
@@ -69,12 +69,12 @@ final class SignUpTest: XCTestCase {
         let session = Session(configuration: configuration)
         dataSource = RemoteDataSourceImpl(session: session)
         
-        let apiEndPoint = Bundle.main.apiUrl + "/open-api/users"
+        let apiEndPoint = Bundle.main.openURL + "/users"
         let params: [String: Any] = [String: Any]()
         let expectation = XCTestExpectation(description: "Performs a request")
         
         //When
-        dataSource.sendPostRequest(to: apiEndPoint, with: params, resultType: SignUpResponseDTO.self)
+        dataSource.sendOpenPostRequest(to: apiEndPoint, with: params, resultType: SignUpResponseDTO.self)
             .sink(receiveCompletion: { completion in
                 switch completion {
                 case .finished:
@@ -100,7 +100,7 @@ final class SignUpTest: XCTestCase {
         //Given
         dataSource = RemoteDataSourceImpl()
         
-        let apiEndPoint = Bundle.main.apiUrl + "/open-api/users"
+        let apiEndPoint = Bundle.main.openURL + "/users"
         let params: [String: Any] = [
             "result": [
                 "resultCode": 0,
@@ -120,7 +120,7 @@ final class SignUpTest: XCTestCase {
         let expectation = XCTestExpectation(description: "Performs a request")
         
         //When
-        dataSource.sendPostRequest(to: apiEndPoint, with: params, resultType: SignUpResponseDTO.self)
+        dataSource.sendOpenPostRequest(to: apiEndPoint, with: params, resultType: SignUpResponseDTO.self)
             .sink(receiveCompletion: { completion in
                 switch completion {
                 case .finished:
@@ -134,6 +134,77 @@ final class SignUpTest: XCTestCase {
                 XCTAssertEqual($0.result.resultDescription, "성공")
                 XCTAssertEqual($0.result.resultMessage, "성공")
                 XCTAssertEqual($0.body?.message, "회원 가입이 완료되었습니다.")
+                
+                expectation.fulfill()
+            })
+            .store(in: &cancellables)
+        
+        wait(for: [expectation], timeout: 5)
+    }
+    
+    func test_emailDuplicationCheck() {
+        //Given
+        dataSource = RemoteDataSourceImpl()
+        
+        let param = [
+            "result": [
+                "resultCode": 0,
+                "resultMessage": "string",
+                "resultDescription": "string"
+            ],
+            "body": [
+                "email": "obab2@baobab.com"
+            ]
+        ]
+        let apiEndPoint = Bundle.main.openURL + "/users/duplication/email"
+        let expectation = XCTestExpectation(description: "Performs a request")
+        
+        //When
+        dataSource.sendOpenPostRequest(to: apiEndPoint, with: param, resultType: DuplicationCheckDTO.self)
+            .sink(receiveCompletion: { completion in
+                switch completion {
+                case .finished:
+                    print("Email Check has been completed")
+                case .failure(let error):
+                    print("SignUpTest.test_emailDuplicationCheck() error : ", error)
+                }
+            }, receiveValue: {
+                XCTAssertTrue($0.body.duplication)
+                expectation.fulfill()
+            })
+            .store(in: &cancellables)
+        
+        wait(for: [expectation], timeout: 5)
+    }
+    
+    func test_nickNameDuplicationCheck() {
+        //Given
+        dataSource = RemoteDataSourceImpl()
+        
+        let params = [
+            "result": [
+                "resultCode": 0,
+                "resultMessage": "string",
+                "resultDescription": "string"
+            ],
+            "body": [
+                "name": "오밥이"
+            ]
+        ]
+        let apiEndPoint = Bundle.main.openURL + "/users/duplication/name"
+        let expectation = XCTestExpectation(description: "Performs a request")
+        
+        //When
+        dataSource.sendOpenPostRequest(to: apiEndPoint, with: params, resultType: DuplicationCheckDTO.self)
+            .sink(receiveCompletion: { completion in
+                switch completion {
+                case .finished:
+                    print("The nickname check has been completed")
+                case .failure(let error):
+                    print("SignUpTest.test_nickNameDuplicationCheck() error : ", error)
+                }
+            }, receiveValue: {
+                XCTAssertTrue($0.body.duplication)
                 
                 expectation.fulfill()
             })

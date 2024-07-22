@@ -15,8 +15,8 @@ struct DefectRegistrationRow: View {
             if let uiImage = UIImage(data: defect.image) {
                 Image(uiImage: uiImage)
                     .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: UIScreen.main.bounds.width * 0.25)
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: UIScreen.main.bounds.width * 0.25, height: UIScreen.main.bounds.width * 0.25)
                     .cornerRadius(10)
             }
             
@@ -29,5 +29,5 @@ struct DefectRegistrationRow: View {
 }
 
 #Preview {
-    DefectRegistrationRow(defect: Defect(image: UIImage(systemName: "visionpro")!.pngData()!, description: "결함설명"))
+    DefectRegistrationRow(defect: Defect(image: UIImage(named: "SampleImage")!.pngData()!, description: "결함설명"))
 }

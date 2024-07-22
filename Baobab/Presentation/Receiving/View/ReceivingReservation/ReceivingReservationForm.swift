@@ -19,7 +19,7 @@ struct ReceivingReservationForm: View {
                 VStack {
                     Section(header: SectionHeader(title: "날짜 선택"),
                             footer: SectionFooter()) {
-                        RoundedRectangle(cornerRadius: 20)
+                        RoundedRectangle(cornerRadius: 10)
                             .frame(height: UIScreen.main.bounds.width)
                             .foregroundColor(.calendarGray)
                             .padding([.leading, .trailing, .bottom])
@@ -31,8 +31,7 @@ struct ReceivingReservationForm: View {
                     }
                     
                     Section(header: SectionHeader(title: "방문지 정보") {
-                        Button(action:{ isShowingAddressList.toggle() },
-                               label: { Text("변경").bold() })
+                        Button(action: { isShowingAddressList.toggle() }, label: { EditButtonLabel() })
                     }) {
                         SelectedAddressDetail(showTag: true)
                             .environmentObject(viewModel)
@@ -44,30 +43,26 @@ struct ReceivingReservationForm: View {
                 }
             }
             
-            VStack {
-                Spacer()
-                
-                Button(action: {
-                    isShowingPaymentView.toggle()
-                }, label: {
-                    Text("다음")
-                        .bold()
-                        .frame(maxWidth: .infinity)
-                        .padding(8)
-                })
-                .buttonBorderShape(.roundedRectangle)
-                .cornerRadius(10)
-                .buttonStyle(.borderedProminent)
-                .padding([.leading, .trailing, .bottom])
-                .background(.white)
-            }
+            Button(action: {
+                isShowingPaymentView.toggle()
+            }, label: {
+                Text("다음")
+                    .bold()
+                    .frame(maxWidth: .infinity)
+                    .padding(8)
+            })
+            .buttonBorderShape(.roundedRectangle)
+            .cornerRadius(10)
+            .buttonStyle(.borderedProminent)
+            .padding([.leading, .trailing, .bottom])
+            .background(.white)
+            .frame(maxHeight: .infinity, alignment: .bottom)
         }
         .navigationTitle("입고 예약")
         .onAppear {
             UIDatePicker.appearance().minuteInterval = 10    //선택 가능한 시간을 10분 단위로 설정
             
-            //TODO: api 연동 후 활성화
-//            viewModel.fetchDefaultAddress()
+            viewModel.fetchDefaultAddress()    //기본 주소 요청
         }
         .sheet(isPresented: $isShowingAddressList) {
             AddressList(isShowingAddressList: $isShowingAddressList)

@@ -28,7 +28,7 @@ struct ItemListRow: View {
             VStack(alignment: .leading) {
                 Text(viewModel.items[idx].itemName)
                 
-                Text(viewModel.items[idx].itemCategory ?? "")
+                Text(viewModel.items[idx].korCategory ?? "")
                 
                 Text("\(viewModel.items[idx].itemQuantity)개")
             }

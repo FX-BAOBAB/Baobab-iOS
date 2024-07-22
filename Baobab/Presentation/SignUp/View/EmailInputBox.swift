@@ -17,11 +17,12 @@ struct EmailInputBox: View {
                              placeholder: "ex) baobab123@baobab.com", 
                              type: .normal)
             
-            if viewModel.emailState == .none || viewModel.emailState == .isValid {
+            if viewModel.emailState == .none {
                 Spacer()
                     .frame(height: 17.5)
             } else {
-                SignUpCaption(caption: viewModel.emailState.rawValue)
+                SignUpCaption(caption: viewModel.emailState.rawValue, 
+                              color: viewModel.emailState == .isValid ? .green : .red)
             }
         }
         .animation(.bouncy(duration: 0.5), value: viewModel.emailState)
