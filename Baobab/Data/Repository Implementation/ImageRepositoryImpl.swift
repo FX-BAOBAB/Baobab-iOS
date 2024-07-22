@@ -30,7 +30,7 @@ final class ImageRepositoryImpl: RemoteRepository, ImageRepository {
     
     ///단일 이미지 업로드 메서드
     func upload(params: [String: Any]) -> AnyPublisher<ImageUploadResponse, any Error> {
-        let apiEndPoint = Bundle.main.requestURL + "/async/image"
+        let apiEndPoint = Bundle.main.requestURL + "/image"
         
         return dataSource.sendPostRequest(to: apiEndPoint, with: params, resultType: SingleImageUploadResponseDTO.self)
             .map {
