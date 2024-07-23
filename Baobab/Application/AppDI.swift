@@ -46,5 +46,12 @@ struct AppDI {
         return LoginViewModel(usecase: usecase)
     }
     
+    var userInfoViewModel: UserInfoViewModel {
+        let repository = UserRepositoryImpl(dataSource: dataSource)
+        let usecase = FetchuserInfoUserCaseImpl(repository: repository)
+        
+        return UserInfoViewModel(usecase: usecase)
+    }
+    
     private init() {}
 }

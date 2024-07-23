@@ -142,6 +142,7 @@
 		8EB0C2642C32457200FEE8D0 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB0C2632C32457200FEE8D0 /* LoginViewModel.swift */; };
 		8EB0C2662C3248E300FEE8D0 /* LoginInputBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB0C2652C3248E300FEE8D0 /* LoginInputBox.swift */; };
 		8EB0C2682C324DA300FEE8D0 /* AutoLogInButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB0C2672C324DA300FEE8D0 /* AutoLogInButton.swift */; };
+		8EBDF5852C4F3DD700927AC5 /* UserInfoListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EBDF5842C4F3DD700927AC5 /* UserInfoListRow.swift */; };
 		8ECCBAF72C2CEFAA00DD0A1B /* SignUpForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECCBAF62C2CEFAA00DD0A1B /* SignUpForm.swift */; };
 		8ECCBAFC2C2CF01200DD0A1B /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECCBAFB2C2CF01200DD0A1B /* SignUpViewModel.swift */; };
 		8ECCBB032C2D2FB900DD0A1B /* KeyboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECCBB022C2D2FB900DD0A1B /* KeyboardViewModel.swift */; };
@@ -320,6 +321,7 @@
 		8EB0C2632C32457200FEE8D0 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		8EB0C2652C3248E300FEE8D0 /* LoginInputBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInputBox.swift; sourceTree = "<group>"; };
 		8EB0C2672C324DA300FEE8D0 /* AutoLogInButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLogInButton.swift; sourceTree = "<group>"; };
+		8EBDF5842C4F3DD700927AC5 /* UserInfoListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoListRow.swift; sourceTree = "<group>"; };
 		8ECCBAF62C2CEFAA00DD0A1B /* SignUpForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpForm.swift; sourceTree = "<group>"; };
 		8ECCBAFB2C2CF01200DD0A1B /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		8ECCBB022C2D2FB900DD0A1B /* KeyboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewModel.swift; sourceTree = "<group>"; };
@@ -759,6 +761,7 @@
 			children = (
 				8E8D13492C4E40CD0032FC96 /* UserInfoList.swift */,
 				8E8D134B2C4E439B0032FC96 /* SimpleUserInfoView.swift */,
+				8EBDF5842C4F3DD700927AC5 /* UserInfoListRow.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1161,6 +1164,7 @@
 				5C735F412BF1A10200A36EC8 /* CategoryList.swift in Sources */,
 				8E97720D2C3CCA040082DCAF /* SignUpRepository.swift in Sources */,
 				8E90635E2C293775008B5C52 /* CameraLabel.swift in Sources */,
+				8EBDF5852C4F3DD700927AC5 /* UserInfoListRow.swift in Sources */,
 				5C41ED912C07FD29001416D9 /* RemoteRepository.swift in Sources */,
 				8E8AF2E72C4267E800A1F0ED /* ImageRepository.swift in Sources */,
 				5C735F442BF1A35B00A36EC8 /* CategoryData.swift in Sources */,
