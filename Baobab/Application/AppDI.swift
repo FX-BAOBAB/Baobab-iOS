@@ -53,5 +53,12 @@ struct AppDI {
         return UserInfoViewModel(usecase: usecase)
     }
     
+    var settingViewModel: SettingViewModel {
+        let repository = TokenRepositoryImpl()
+        let usecase = FetchTokenUseCaseImpl(repository: repository)
+        
+        return SettingViewModel(usecase: usecase)
+    }
+    
     private init() {}
 }

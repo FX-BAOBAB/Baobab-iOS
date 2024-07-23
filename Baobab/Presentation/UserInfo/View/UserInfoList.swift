@@ -94,10 +94,12 @@ struct UserInfoList: View {
             }
             
             ToolbarItem(placement: .topBarTrailing) {
-                Button(action: {}, label: {
+                NavigationLink(destination: {
+                    SettingView(viewModel: AppDI.shared.settingViewModel)
+                }) {
                     Image(systemName: "gearshape.fill")
-                        .foregroundColor(.gray)
-                })
+                        .foregroundStyle(.gray)
+                }
             }
         }
     }
