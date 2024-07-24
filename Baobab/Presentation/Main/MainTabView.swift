@@ -8,9 +8,12 @@
 import SwiftUI
 
 struct MainTabView: View {
+    @Binding var path: NavigationPath
+    
     var body: some View {
         TabView {
-            UserInfoList(viewModel: AppDI.shared.userInfoViewModel)
+            UserInfoList(viewModel: AppDI.shared.userInfoViewModel, 
+                         path: $path)
                 .tabItem {
                     Image(systemName: "person")
                     
@@ -21,5 +24,5 @@ struct MainTabView: View {
 }
 
 #Preview {
-    MainTabView()
+    MainTabView(path: .constant(NavigationPath()))
 }

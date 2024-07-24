@@ -8,11 +8,13 @@
 import SwiftUI
 
 struct SettingView: View {
-    @ObservedObject private var viewModel: SettingViewModel
+    @StateObject private var viewModel: SettingViewModel
     @State private var isShowingLogoutAlert: Bool = false
+    @Binding private var path: NavigationPath
     
-    init(viewModel: SettingViewModel) {
-        _viewModel = ObservedObject(wrappedValue: viewModel)
+    init(viewModel: SettingViewModel, path: Binding<NavigationPath>) {
+        _viewModel = StateObject(wrappedValue: viewModel)
+        _path = path
     }
     
     var body: some View {
@@ -33,16 +35,30 @@ struct SettingView: View {
         .alert(isPresented: $isShowingLogoutAlert) {
             Alert(title: Text("알림"),
                   message: Text("로그아웃 할까요?"),
-                  primaryButton: .default(Text("확인")) {
-                viewModel.logout()
-            },
+                  primaryButton: .default(Text("확인")) { viewModel.logout() },
                   secondaryButton: .default(Text("취소")))
+        }
+        .fork { this in
+            if #available(iOS 17.0, *) {
+                this.onChange(of: viewModel.isLogout) {
+                    if viewModel.isLogout {
+                        path.removeLast(path.count)    //로그인 화면으로 돌아감
+                    }
+                }
+            } else {
+                this.onChange(of: viewModel.isLogout, perform: { isLogout in
+                    if isLogout {
+                        path.removeLast(path.count)    //로그인 화면으로 돌아감
+                    }
+                })
+            }
         }
     }
 }
 
 #Preview {
     NavigationStack {
-        SettingView(viewModel: AppDI.shared.settingViewModel)
+        SettingView(viewModel: AppDI.shared.settingViewModel, 
+                    path: .constant(NavigationPath()))
     }
 }

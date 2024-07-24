@@ -9,6 +9,7 @@ import SwiftUI
 
 struct LoginForm: View {
     @ObservedObject private var viewModel: LoginViewModel
+    @State private var path: NavigationPath = NavigationPath()
     @State private var isShowingSignUpForm: Bool = false
     
     init(viewModel: LoginViewModel) {
@@ -16,7 +17,7 @@ struct LoginForm: View {
     }
     
     var body: some View {
-        NavigationStack {
+        NavigationStack(path: $path) {
             VStack(spacing: 30) {
                 Text("Login")
                     .font(.largeTitle)
@@ -91,7 +92,7 @@ struct LoginForm: View {
                 }
             }
             .navigationDestination(isPresented: $viewModel.isLoginSuccess) {
-                MainContentView()
+                MainTabView(path: $path)
             }
             .alert(isPresented: $viewModel.isShowingLoginAlert) {
                 switch viewModel.alertType {

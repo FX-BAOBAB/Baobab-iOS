@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct UserInfoList: View {
-    @ObservedObject private var viewModel: UserInfoViewModel
+    @StateObject private var viewModel: UserInfoViewModel
+    @Binding private var path: NavigationPath
     
-    init(viewModel: UserInfoViewModel) {
-        _viewModel = ObservedObject(wrappedValue: viewModel)
+    init(viewModel: UserInfoViewModel, path: Binding<NavigationPath>) {
+        _viewModel = StateObject(wrappedValue: viewModel)
+        _path = path
     }
     
     var body: some View {
@@ -95,7 +97,8 @@ struct UserInfoList: View {
             
             ToolbarItem(placement: .topBarTrailing) {
                 NavigationLink(destination: {
-                    SettingView(viewModel: AppDI.shared.settingViewModel)
+                    SettingView(viewModel: AppDI.shared.settingViewModel,
+                                path: $path)
                 }) {
                     Image(systemName: "gearshape.fill")
                         .foregroundStyle(.gray)
@@ -107,6 +110,7 @@ struct UserInfoList: View {
 
 #Preview {
     NavigationStack {
-        UserInfoList(viewModel: AppDI.shared.userInfoViewModel)
+        UserInfoList(viewModel: AppDI.shared.userInfoViewModel, 
+                     path: .constant(NavigationPath()))
     }
 }
