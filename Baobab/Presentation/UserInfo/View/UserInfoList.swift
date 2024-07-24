@@ -9,11 +9,11 @@ import SwiftUI
 
 struct UserInfoList: View {
     @StateObject private var viewModel: UserInfoViewModel
-    @Binding private var path: NavigationPath
+    @Binding private var isLoggedIn: Bool
     
-    init(viewModel: UserInfoViewModel, path: Binding<NavigationPath>) {
+    init(viewModel: UserInfoViewModel, isLoggedIn: Binding<Bool>) {
         _viewModel = StateObject(wrappedValue: viewModel)
-        _path = path
+        _isLoggedIn = isLoggedIn
     }
     
     var body: some View {
@@ -88,29 +88,29 @@ struct UserInfoList: View {
             }
         }
         .listStyle(.plain)
-        .toolbar {
-            ToolbarItem(placement: .topBarLeading) {
-                Text("내 정보")
-                    .bold()
-                    .font(.title3)
-            }
-            
-            ToolbarItem(placement: .topBarTrailing) {
-                NavigationLink(destination: {
-                    SettingView(viewModel: AppDI.shared.settingViewModel,
-                                path: $path)
-                }) {
-                    Image(systemName: "gearshape.fill")
-                        .foregroundStyle(.gray)
-                }
-            }
-        }
+//        .toolbar {
+//            ToolbarItem(placement: .topBarLeading) {
+//                Text("내 정보")
+//                    .bold()
+//                    .font(.title3)
+//            }
+//            
+//            ToolbarItem(placement: .topBarTrailing) {
+//                NavigationLink(destination: {
+//                    SettingView(viewModel: AppDI.shared.settingViewModel,
+//                                isLoggedIn: $isLoggedIn)
+//                }) {
+//                    Image(systemName: "gearshape.fill")
+//                        .foregroundStyle(.gray)
+//                }
+//            }
+//        }
     }
 }
 
 #Preview {
     NavigationStack {
         UserInfoList(viewModel: AppDI.shared.userInfoViewModel, 
-                     path: .constant(NavigationPath()))
+                     isLoggedIn: .constant(true))
     }
 }

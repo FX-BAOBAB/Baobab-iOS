@@ -10,11 +10,11 @@ import SwiftUI
 struct SettingView: View {
     @StateObject private var viewModel: SettingViewModel
     @State private var isShowingLogoutAlert: Bool = false
-    @Binding private var path: NavigationPath
+    @Binding private var isLoggedIn: Bool
     
-    init(viewModel: SettingViewModel, path: Binding<NavigationPath>) {
+    init(viewModel: SettingViewModel, isLoggedIn: Binding<Bool>) {
         _viewModel = StateObject(wrappedValue: viewModel)
-        _path = path
+        _isLoggedIn = isLoggedIn
     }
     
     var body: some View {
@@ -42,13 +42,13 @@ struct SettingView: View {
             if #available(iOS 17.0, *) {
                 this.onChange(of: viewModel.isLogout) {
                     if viewModel.isLogout {
-                        path.removeLast(path.count)    //로그인 화면으로 돌아감
+                        isLoggedIn.toggle()    //로그인 화면으로 돌아감
                     }
                 }
             } else {
                 this.onChange(of: viewModel.isLogout, perform: { isLogout in
                     if isLogout {
-                        path.removeLast(path.count)    //로그인 화면으로 돌아감
+                        isLoggedIn.toggle()    //로그인 화면으로 돌아감
                     }
                 })
             }
@@ -59,6 +59,6 @@ struct SettingView: View {
 #Preview {
     NavigationStack {
         SettingView(viewModel: AppDI.shared.settingViewModel, 
-                    path: .constant(NavigationPath()))
+                    isLoggedIn: .constant(true))
     }
 }

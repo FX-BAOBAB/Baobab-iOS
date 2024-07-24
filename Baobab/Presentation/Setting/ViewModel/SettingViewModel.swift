@@ -6,6 +6,7 @@
 //
 
 import Combine
+import Foundation
 
 final class SettingViewModel: ObservableObject {
     @Published var isLogout: Bool = false
@@ -21,6 +22,7 @@ final class SettingViewModel: ObservableObject {
         usecase.executeTokenDelete(for: "accessToken")
             .merge(with: usecase.executeTokenDelete(for: "refreshToken"))
             .collect()
+            .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { completion in
                 switch completion {
                 case .finished:

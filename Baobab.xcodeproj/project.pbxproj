@@ -144,6 +144,8 @@
 		8EB0C2682C324DA300FEE8D0 /* AutoLogInButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB0C2672C324DA300FEE8D0 /* AutoLogInButton.swift */; };
 		8EBDF5852C4F3DD700927AC5 /* UserInfoListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EBDF5842C4F3DD700927AC5 /* UserInfoListRow.swift */; };
 		8EC7EFD22C50858400801A6D /* View+Fork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC7EFD12C50858400801A6D /* View+Fork.swift */; };
+		8EC7EFD62C50A33A00801A6D /* RequestForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC7EFD52C50A33A00801A6D /* RequestForm.swift */; };
+		8EC7EFDA2C50C86E00801A6D /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC7EFD92C50C86E00801A6D /* TestView.swift */; };
 		8ECB03A32C4FDF520051935C /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECB03A22C4FDF520051935C /* SettingView.swift */; };
 		8ECB03A52C4FE0700051935C /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECB03A42C4FE0700051935C /* SettingViewModel.swift */; };
 		8ECCBAF72C2CEFAA00DD0A1B /* SignUpForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECCBAF62C2CEFAA00DD0A1B /* SignUpForm.swift */; };
@@ -326,6 +328,8 @@
 		8EB0C2672C324DA300FEE8D0 /* AutoLogInButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLogInButton.swift; sourceTree = "<group>"; };
 		8EBDF5842C4F3DD700927AC5 /* UserInfoListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoListRow.swift; sourceTree = "<group>"; };
 		8EC7EFD12C50858400801A6D /* View+Fork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Fork.swift"; sourceTree = "<group>"; };
+		8EC7EFD52C50A33A00801A6D /* RequestForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestForm.swift; sourceTree = "<group>"; };
+		8EC7EFD92C50C86E00801A6D /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		8ECB03A22C4FDF520051935C /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		8ECB03A42C4FE0700051935C /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
 		8ECCBAF62C2CEFAA00DD0A1B /* SignUpForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpForm.swift; sourceTree = "<group>"; };
@@ -443,6 +447,7 @@
 		5C426BF62BEDBD1B00869F6D /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				8EC7EFD32C50A32200801A6D /* RequestForm */,
 				8ECB039F2C4FDF340051935C /* Setting */,
 				8E8D13462C4E3DFB0032FC96 /* UserInfo */,
 				8E0ED7FA2C3F799C00AB0EC8 /* Main */,
@@ -688,6 +693,7 @@
 			children = (
 				5C426BE92BEDA8F300869F6D /* MainContentView.swift */,
 				8E8D13442C4E3CC10032FC96 /* MainTabView.swift */,
+				8EC7EFD92C50C86E00801A6D /* TestView.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -849,6 +855,22 @@
 				8EB0C2632C32457200FEE8D0 /* LoginViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		8EC7EFD32C50A32200801A6D /* RequestForm */ = {
+			isa = PBXGroup;
+			children = (
+				8EC7EFD42C50A32C00801A6D /* View */,
+			);
+			path = RequestForm;
+			sourceTree = "<group>";
+		};
+		8EC7EFD42C50A32C00801A6D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8EC7EFD52C50A33A00801A6D /* RequestForm.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		8ECB039F2C4FDF340051935C /* Setting */ = {
@@ -1219,6 +1241,7 @@
 				8E7BC8D62C3E6EEB00CB708F /* FetchTokenUseCase.swift in Sources */,
 				8EB0C2642C32457200FEE8D0 /* LoginViewModel.swift in Sources */,
 				8E7731DA2C4A94DC00B42F7A /* UserRepositoryImpl.swift in Sources */,
+				8EC7EFDA2C50C86E00801A6D /* TestView.swift in Sources */,
 				5C4ACAC22BEE41A300195895 /* CategoryPicker.swift in Sources */,
 				8E8D13542C4E45270032FC96 /* UserInfoResponseDTO.swift in Sources */,
 				5CADA5D52C000D4C00FFCC64 /* SectionHeader.swift in Sources */,
@@ -1255,6 +1278,7 @@
 				5CCFBF682BF2E05F00322D0D /* SelectedImage.swift in Sources */,
 				8E3F7C602C2A9ABD0087EB2A /* StatusPoint.swift in Sources */,
 				8E449F092C4BA87A00291277 /* CheckEmailDuplicationUseCase.swift in Sources */,
+				8EC7EFD62C50A33A00801A6D /* RequestForm.swift in Sources */,
 				5CADA5D92C004E8000FFCC64 /* PostSearchWebView.swift in Sources */,
 				8ECCBB192C2E894E00DD0A1B /* DefaultAddressToggleButton.swift in Sources */,
 				8ECCBB072C2E39FA00DD0A1B /* SignUpViewModel+RegularExpression.swift in Sources */,

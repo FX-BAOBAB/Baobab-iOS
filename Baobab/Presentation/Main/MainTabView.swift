@@ -8,21 +8,49 @@
 import SwiftUI
 
 struct MainTabView: View {
-    @Binding var path: NavigationPath
+    enum Tab {
+        case userInfoList
+    }
+    
+    @State private var selectedTab: Tab = .userInfoList
+    @Binding var isLoggedIn: Bool
     
     var body: some View {
-        TabView {
-            UserInfoList(viewModel: AppDI.shared.userInfoViewModel, 
-                         path: $path)
+        TabView(selection: $selectedTab) {
+            UserInfoList(viewModel: AppDI.shared.userInfoViewModel,
+                         isLoggedIn: $isLoggedIn)
                 .tabItem {
                     Image(systemName: "person")
                     
                     Text("내 정보")
                 }
+                .tag(Tab.userInfoList)
+        }
+        .toolbar {
+            switch selectedTab {
+            case .userInfoList:
+                ToolbarItem(placement: .topBarLeading) {
+                    Text("내 정보")
+                        .bold()
+                        .font(.title3)
+                }
+                
+                ToolbarItem(placement: .topBarTrailing) {
+                    NavigationLink(destination: {
+                        SettingView(viewModel: AppDI.shared.settingViewModel,
+                                    isLoggedIn: $isLoggedIn)
+                    }) {
+                        Image(systemName: "gearshape.fill")
+                            .foregroundStyle(.gray)
+                    }
+                }
+            }
         }
     }
 }
 
 #Preview {
-    MainTabView(path: .constant(NavigationPath()))
+    NavigationStack {
+        MainTabView(isLoggedIn: .constant(true))
+    }
 }
