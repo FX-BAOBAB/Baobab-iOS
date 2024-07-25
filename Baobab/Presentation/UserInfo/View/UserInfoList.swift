@@ -30,14 +30,13 @@ struct UserInfoList: View {
             
             Section(header: Text("요청서")) {
                 NavigationLink(destination: {
-                    EmptyView()
+                    
                 }) {
                     UserInfoListRow(image: "receiving", title: "입고 요청서")
                 }
                 .listRowSeparator(.hidden)
                 
                 NavigationLink(destination: {
-                    EmptyView()
                 }) {
                     UserInfoListRow(image: "shipping", title: "출고 요청서")
                 }
@@ -56,28 +55,42 @@ struct UserInfoList: View {
             
             Section(header: Text("내 물품")) {
                 NavigationLink(destination: {
-                    EmptyView()
+                    TopTabView(firstTitle: "입고 중",
+                               secondTitle: "입고 완료",
+                               firstView: ItemList(viewModel: AppDI.shared.receivingItemsViewModel),
+                               secondView: ItemList(viewModel: AppDI.shared.storedItemsViewModel), 
+                               title: "입고 물품")
                 }) {
                     UserInfoListRow(image: "receivingItem", title: "입고 물품")
                 }
                 .listRowSeparator(.hidden)
                 
                 NavigationLink(destination: {
-                    EmptyView()
+                    TopTabView(firstTitle: "출고 중",
+                               secondTitle: "출고 완료",
+                               firstView: ItemList(viewModel: AppDI.shared.shippingItemsViewModel),
+                               secondView: ItemList(viewModel: AppDI.shared.shippedItemsViewModel), 
+                               title: "출고 물품")
                 }) {
                     UserInfoListRow(image: "shippingItem", title: "출고 물품")
                 }
                 .listRowSeparator(.hidden)
                 
                 NavigationLink(destination: {
-                    EmptyView()
+                    TopTabView(firstTitle: "반품 중",
+                               secondTitle: "반품 완료",
+                               firstView: ItemList(viewModel: AppDI.shared.receivingItemsViewModel),
+                               secondView: ItemList(viewModel: AppDI.shared.returnedItemsViewModel),
+                               title: "반품 물품")
                 }) {
                     UserInfoListRow(image: "takeBackItem", title: "반품 물품")
                 }
                 .listRowSeparator(.hidden)
                 
                 NavigationLink(destination: {
-                    EmptyView()
+                    ItemList(viewModel: AppDI.shared.usedItemsViewModel)
+                        .navigationTitle("중고 물품")
+                        .navigationBarTitleDisplayMode(.inline)
                 }) {
                     UserInfoListRow(image: "usedItem", title: "중고 물품")
                 }
@@ -88,23 +101,6 @@ struct UserInfoList: View {
             }
         }
         .listStyle(.plain)
-//        .toolbar {
-//            ToolbarItem(placement: .topBarLeading) {
-//                Text("내 정보")
-//                    .bold()
-//                    .font(.title3)
-//            }
-//            
-//            ToolbarItem(placement: .topBarTrailing) {
-//                NavigationLink(destination: {
-//                    SettingView(viewModel: AppDI.shared.settingViewModel,
-//                                isLoggedIn: $isLoggedIn)
-//                }) {
-//                    Image(systemName: "gearshape.fill")
-//                        .foregroundStyle(.gray)
-//                }
-//            }
-//        }
     }
 }
 

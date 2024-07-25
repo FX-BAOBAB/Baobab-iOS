@@ -10,11 +10,11 @@ import Foundation
 // MARK: - ReceivingResponseDTO
 struct ReceivingResponseDTO: Decodable {
     let result: TaskResult
-    let body: Body
+    let body: ReceivingResponseBody
 }
 
 // MARK: - Body
-struct Body: Decodable {
+struct ReceivingResponseBody: Decodable {
     let id: Int
     let visitAddress, visitDate, guaranteeAt, receivingStatus: String
     let goods: [Goods]

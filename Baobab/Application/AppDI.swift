@@ -60,5 +60,54 @@ struct AppDI {
         return SettingViewModel(usecase: usecase)
     }
     
+    var receivingItemsViewModel: ReceivingItemsViewModel {
+        let repository = ItemRepositoryImpl(dataSource: dataSource)
+        let usecase = FetchItemUseCaseImpl(repository: repository)
+        
+        return ReceivingItemsViewModel(usecase: usecase)
+    }
+    
+    var storedItemsViewModel: StoredItemsViewModel {
+        let repository = ItemRepositoryImpl(dataSource: dataSource)
+        let usecase = FetchItemUseCaseImpl(repository: repository)
+        
+        return StoredItemsViewModel(usecase: usecase)
+    }
+    
+    var shippingItemsViewModel: ShippingItemsViewModel {
+        let repository = ItemRepositoryImpl(dataSource: dataSource)
+        let usecase = FetchItemUseCaseImpl(repository: repository)
+        
+        return ShippingItemsViewModel(usecase: usecase)
+    }
+    
+    var shippedItemsViewModel: ShippedItemsViewModel {
+        let repository = ItemRepositoryImpl(dataSource: dataSource)
+        let usecase = FetchItemUseCaseImpl(repository: repository)
+        
+        return ShippedItemsViewModel(usecase: usecase)
+    }
+    
+    var returningItemsViewModel: ReturningItemsViewModel {
+        let repository = ItemRepositoryImpl(dataSource: dataSource)
+        let usecase = FetchItemUseCaseImpl(repository: repository)
+        
+        return ReturningItemsViewModel(usecase: usecase)
+    }
+    
+    var returnedItemsViewModel: ReturnedItemsViewModel {
+        let repository = ItemRepositoryImpl(dataSource: dataSource)
+        let usecase = FetchItemUseCaseImpl(repository: repository)
+        
+        return ReturnedItemsViewModel(usecase: usecase)
+    }
+    
+    var usedItemsViewModel: UsedItemsViewModel {
+        let repository = ItemRepositoryImpl(dataSource: dataSource)
+        let usecase = FetchItemUseCaseImpl(repository: repository)
+        
+        return UsedItemsViewModel(usecase: usecase)
+    }
+    
     private init() {}
 }
