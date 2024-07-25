@@ -60,53 +60,44 @@ struct AppDI {
         return SettingViewModel(usecase: usecase)
     }
     
-    var receivingItemsViewModel: ReceivingItemsViewModel {
+    private var fetchItemUseCase: FetchItemUseCaseImpl {
         let repository = ItemRepositoryImpl(dataSource: dataSource)
-        let usecase = FetchItemUseCaseImpl(repository: repository)
         
-        return ReceivingItemsViewModel(usecase: usecase)
+        return FetchItemUseCaseImpl(repository: repository)
+    }
+    
+    var receivingItemsViewModel: ReceivingItemsViewModel {
+        return ReceivingItemsViewModel(usecase: fetchItemUseCase)
     }
     
     var storedItemsViewModel: StoredItemsViewModel {
-        let repository = ItemRepositoryImpl(dataSource: dataSource)
-        let usecase = FetchItemUseCaseImpl(repository: repository)
         
-        return StoredItemsViewModel(usecase: usecase)
+        return StoredItemsViewModel(usecase: fetchItemUseCase)
     }
     
     var shippingItemsViewModel: ShippingItemsViewModel {
-        let repository = ItemRepositoryImpl(dataSource: dataSource)
-        let usecase = FetchItemUseCaseImpl(repository: repository)
         
-        return ShippingItemsViewModel(usecase: usecase)
+        return ShippingItemsViewModel(usecase: fetchItemUseCase)
     }
     
     var shippedItemsViewModel: ShippedItemsViewModel {
-        let repository = ItemRepositoryImpl(dataSource: dataSource)
-        let usecase = FetchItemUseCaseImpl(repository: repository)
         
-        return ShippedItemsViewModel(usecase: usecase)
+        return ShippedItemsViewModel(usecase: fetchItemUseCase)
     }
     
     var returningItemsViewModel: ReturningItemsViewModel {
-        let repository = ItemRepositoryImpl(dataSource: dataSource)
-        let usecase = FetchItemUseCaseImpl(repository: repository)
         
-        return ReturningItemsViewModel(usecase: usecase)
+        return ReturningItemsViewModel(usecase: fetchItemUseCase)
     }
     
     var returnedItemsViewModel: ReturnedItemsViewModel {
-        let repository = ItemRepositoryImpl(dataSource: dataSource)
-        let usecase = FetchItemUseCaseImpl(repository: repository)
         
-        return ReturnedItemsViewModel(usecase: usecase)
+        return ReturnedItemsViewModel(usecase: fetchItemUseCase)
     }
     
     var usedItemsViewModel: UsedItemsViewModel {
-        let repository = ItemRepositoryImpl(dataSource: dataSource)
-        let usecase = FetchItemUseCaseImpl(repository: repository)
         
-        return UsedItemsViewModel(usecase: usecase)
+        return UsedItemsViewModel(usecase: fetchItemUseCase)
     }
     
     private init() {}
