@@ -57,8 +57,8 @@ struct UserInfoList: View {
                 NavigationLink(destination: {
                     TopTabView(firstTitle: "입고 중",
                                secondTitle: "입고 완료",
-                               firstView: ItemList(viewModel: AppDI.shared.receivingItemsViewModel),
-                               secondView: ItemList(viewModel: AppDI.shared.storedItemsViewModel), 
+                               firstView: ItemList(viewModel: AppDI.shared.receivingItemsViewModel, status: .receiving),
+                               secondView: ItemList(viewModel: AppDI.shared.storedItemsViewModel, status: .stored),
                                title: "입고 물품")
                 }) {
                     UserInfoListRow(image: "receivingItem", title: "입고 물품")
@@ -68,8 +68,8 @@ struct UserInfoList: View {
                 NavigationLink(destination: {
                     TopTabView(firstTitle: "출고 중",
                                secondTitle: "출고 완료",
-                               firstView: ItemList(viewModel: AppDI.shared.shippingItemsViewModel),
-                               secondView: ItemList(viewModel: AppDI.shared.shippedItemsViewModel), 
+                               firstView: ItemList(viewModel: AppDI.shared.shippingItemsViewModel, status: .shipping),
+                               secondView: ItemList(viewModel: AppDI.shared.shippedItemsViewModel, status: .shipped),
                                title: "출고 물품")
                 }) {
                     UserInfoListRow(image: "shippingItem", title: "출고 물품")
@@ -79,8 +79,8 @@ struct UserInfoList: View {
                 NavigationLink(destination: {
                     TopTabView(firstTitle: "반품 중",
                                secondTitle: "반품 완료",
-                               firstView: ItemList(viewModel: AppDI.shared.receivingItemsViewModel),
-                               secondView: ItemList(viewModel: AppDI.shared.returnedItemsViewModel),
+                               firstView: ItemList(viewModel: AppDI.shared.receivingItemsViewModel, status: .receiving),
+                               secondView: ItemList(viewModel: AppDI.shared.returnedItemsViewModel, status: .returned),
                                title: "반품 물품")
                 }) {
                     UserInfoListRow(image: "takeBackItem", title: "반품 물품")
@@ -88,7 +88,7 @@ struct UserInfoList: View {
                 .listRowSeparator(.hidden)
                 
                 NavigationLink(destination: {
-                    ItemList(viewModel: AppDI.shared.usedItemsViewModel)
+                    ItemList(viewModel: AppDI.shared.usedItemsViewModel, status: .used)
                         .navigationTitle("중고 물품")
                         .navigationBarTitleDisplayMode(.inline)
                 }) {

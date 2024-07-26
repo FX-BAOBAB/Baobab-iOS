@@ -66,8 +66,24 @@ struct TopTabView<A: View, B: View>: View {
             
             if selectedTab == .first {
                 firstView
+                    .gesture(DragGesture(minimumDistance: 0, coordinateSpace: .local)
+                        .onEnded { value in
+                            if value.translation.width < 0 {
+                                withAnimation {
+                                    selectedTab = .second
+                                }
+                            }
+                        })
             } else {
                 secondView
+                    .gesture(DragGesture(minimumDistance: 0, coordinateSpace: .local)
+                        .onEnded { value in
+                            if value.translation.width > 0 {
+                                withAnimation {
+                                    selectedTab = .first
+                                }
+                            }
+                        })
             }
         }
         .navigationTitle(title)

@@ -13,7 +13,7 @@ struct ItemInfoRow: View {
     
     var body: some View {
         HStack(alignment: .top, spacing: 10) {
-            AsyncImage(url: URL(string: item.basicImages[0])) { image in
+            AsyncImage(url: URL(string: item.basicImages[0].imageURL)) { image in
                 image
                     .resizable()
                     .aspectRatio(contentMode: .fill)
@@ -48,6 +48,6 @@ struct ItemInfoRow: View {
                            name: "부끄부끄 마끄부끄",
                            category: "SMALL_APPLIANCES",
                            quantity: 1,
-                           basicImages: ["string"],
-                           defectImages: ["string"]))
+                           basicImages: [ImageData(imageURL: "string", caption: "")],
+                           defectImages: [ImageData(imageURL: "string", caption: "")]))
 }

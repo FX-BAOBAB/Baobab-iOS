@@ -158,6 +158,11 @@
 		8EB0C2662C3248E300FEE8D0 /* LoginInputBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB0C2652C3248E300FEE8D0 /* LoginInputBox.swift */; };
 		8EB0C2682C324DA300FEE8D0 /* AutoLogInButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB0C2672C324DA300FEE8D0 /* AutoLogInButton.swift */; };
 		8EBDF5852C4F3DD700927AC5 /* UserInfoListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EBDF5842C4F3DD700927AC5 /* UserInfoListRow.swift */; };
+		8EBFCE442C532C9A00A2AB4F /* DetailedItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EBFCE432C532C9A00A2AB4F /* DetailedItemView.swift */; };
+		8EBFCE462C53300C00A2AB4F /* ImageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EBFCE452C53300C00A2AB4F /* ImageData.swift */; };
+		8EBFCE482C5366A000A2AB4F /* StatusLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EBFCE472C5366A000A2AB4F /* StatusLabel.swift */; };
+		8EBFCE4A2C537F5300A2AB4F /* DefectRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EBFCE492C537F5300A2AB4F /* DefectRow.swift */; };
+		8EBFCE4C2C5390B900A2AB4F /* ItemStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EBFCE4B2C5390B900A2AB4F /* ItemStatus.swift */; };
 		8EC7EFD22C50858400801A6D /* View+Fork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC7EFD12C50858400801A6D /* View+Fork.swift */; };
 		8EC7EFD62C50A33A00801A6D /* TopTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC7EFD52C50A33A00801A6D /* TopTabView.swift */; };
 		8ECB03A32C4FDF520051935C /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECB03A22C4FDF520051935C /* SettingView.swift */; };
@@ -356,6 +361,11 @@
 		8EB0C2652C3248E300FEE8D0 /* LoginInputBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInputBox.swift; sourceTree = "<group>"; };
 		8EB0C2672C324DA300FEE8D0 /* AutoLogInButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLogInButton.swift; sourceTree = "<group>"; };
 		8EBDF5842C4F3DD700927AC5 /* UserInfoListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoListRow.swift; sourceTree = "<group>"; };
+		8EBFCE432C532C9A00A2AB4F /* DetailedItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedItemView.swift; sourceTree = "<group>"; };
+		8EBFCE452C53300C00A2AB4F /* ImageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageData.swift; sourceTree = "<group>"; };
+		8EBFCE472C5366A000A2AB4F /* StatusLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusLabel.swift; sourceTree = "<group>"; };
+		8EBFCE492C537F5300A2AB4F /* DefectRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefectRow.swift; sourceTree = "<group>"; };
+		8EBFCE4B2C5390B900A2AB4F /* ItemStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemStatus.swift; sourceTree = "<group>"; };
 		8EC7EFD12C50858400801A6D /* View+Fork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Fork.swift"; sourceTree = "<group>"; };
 		8EC7EFD52C50A33A00801A6D /* TopTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopTabView.swift; sourceTree = "<group>"; };
 		8ECB03A22C4FDF520051935C /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
@@ -534,6 +544,7 @@
 				8E9063602C29464A008B5C52 /* UIImage+Downscale.swift */,
 				8E97720A2C3CBFC40082DCAF /* Bundle+URL.swift */,
 				8EAB81742C4120F70052AD48 /* RequestError.swift */,
+				8EBFCE4B2C5390B900A2AB4F /* ItemStatus.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -703,6 +714,7 @@
 				8E8AF2E82C42685100A1F0ED /* ImageUploadResponse.swift */,
 				8E8D134F2C4E443A0032FC96 /* UserInfo.swift */,
 				8E7B6C2E2C51D5A100222721 /* Item.swift */,
+				8EBFCE452C53300C00A2AB4F /* ImageData.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -919,6 +931,9 @@
 				8EC7EFD52C50A33A00801A6D /* TopTabView.swift */,
 				8E7B6C372C5205CB00222721 /* ItemInfoRow.swift */,
 				8E7B6C412C521FB800222721 /* ItemList.swift */,
+				8EBFCE432C532C9A00A2AB4F /* DetailedItemView.swift */,
+				8EBFCE472C5366A000A2AB4F /* StatusLabel.swift */,
+				8EBFCE492C537F5300A2AB4F /* DefectRow.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1292,7 +1307,9 @@
 				8E7BC8D62C3E6EEB00CB708F /* FetchTokenUseCase.swift in Sources */,
 				8EB0C2642C32457200FEE8D0 /* LoginViewModel.swift in Sources */,
 				8E7731DA2C4A94DC00B42F7A /* UserRepositoryImpl.swift in Sources */,
+				8EBFCE4C2C5390B900A2AB4F /* ItemStatus.swift in Sources */,
 				5C4ACAC22BEE41A300195895 /* CategoryPicker.swift in Sources */,
+				8EBFCE442C532C9A00A2AB4F /* DetailedItemView.swift in Sources */,
 				8E8D13542C4E45270032FC96 /* UserInfoResponseDTO.swift in Sources */,
 				5CADA5D52C000D4C00FFCC64 /* SectionHeader.swift in Sources */,
 				8ECCBB132C2E57A600DD0A1B /* PasswordConfirmInputBox.swift in Sources */,
@@ -1347,6 +1364,7 @@
 				5CA04A352BFB01AC00A28FCA /* Date+Tomorrow.swift in Sources */,
 				5C8923442BFADF0900AE9049 /* Date+String.swift in Sources */,
 				8E7BC8F22C3EC78600CB708F /* LoginUseCase.swift in Sources */,
+				8EBFCE4A2C537F5300A2AB4F /* DefectRow.swift in Sources */,
 				8E7BC8CC2C3E433600CB708F /* LoginResponseDTO.swift in Sources */,
 				8EB0C2532C32262F00FEE8D0 /* SignUpViewModel+PostSearchable.swift in Sources */,
 				8E7B6C3E2C521DA000222721 /* ShippingItemsViewModel.swift in Sources */,
@@ -1377,6 +1395,7 @@
 				8EB0C2682C324DA300FEE8D0 /* AutoLogInButton.swift in Sources */,
 				5C80F0EE2C06BF4500A94C22 /* FetchGeoCodeUseCase.swift in Sources */,
 				8EAB81712C4107B50052AD48 /* AccessTokenRefreshResponseDTO.swift in Sources */,
+				8EBFCE482C5366A000A2AB4F /* StatusLabel.swift in Sources */,
 				5CCFBF6A2BF2E18200322D0D /* ImageRegistrationForm.swift in Sources */,
 				8EB0C2622C32456500FEE8D0 /* LoginForm.swift in Sources */,
 				8E9063632C2950EF008B5C52 /* UIImage+Crop.swift in Sources */,
@@ -1392,6 +1411,7 @@
 				8ECCBB1B2C2E90DC00DD0A1B /* PostSearchable.swift in Sources */,
 				8E3894512C4CEF80008F140B /* EditButtonLabel.swift in Sources */,
 				8E7BC8D02C3E52BF00CB708F /* TokenKeyChain.swift in Sources */,
+				8EBFCE462C53300C00A2AB4F /* ImageData.swift in Sources */,
 				5C405EEA2BF6F3C0006EE6F1 /* DefectRegistrationRow.swift in Sources */,
 				8E7B6C442C52227300222721 /* ShippedItemsViewModel.swift in Sources */,
 				5C80F0F82C06DD0F00A94C22 /* DefaultAddressResponseDTO.swift in Sources */,

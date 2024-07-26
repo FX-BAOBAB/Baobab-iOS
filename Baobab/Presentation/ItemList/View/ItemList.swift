@@ -10,8 +10,11 @@ import SwiftUI
 struct ItemList<T: ItemsViewModel>: View {
     @ObservedObject private var viewModel: T
     
-    init(viewModel: T) {
+    private let status: ItemStatus
+    
+    init(viewModel: T, status: ItemStatus) {
         _viewModel = ObservedObject(wrappedValue: viewModel)
+        self.status = status
     }
     
     var body: some View {
@@ -19,7 +22,7 @@ struct ItemList<T: ItemsViewModel>: View {
             List {
                 ForEach(items) { item in
                     NavigationLink(destination: {
-                        EmptyView()
+                        DetailedItemView(item: item, status: status)
                     }) {
                         ItemInfoRow(item: item)
                     }
@@ -41,5 +44,5 @@ struct ItemList<T: ItemsViewModel>: View {
 }
 
 #Preview {
-    ItemList(viewModel: AppDI.shared.receivingItemsViewModel)
+    ItemList(viewModel: AppDI.shared.receivingItemsViewModel, status: .receiving)
 }

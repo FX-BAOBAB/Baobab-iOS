@@ -11,5 +11,5 @@ struct Item: Identifiable {
     let id: Int
     let name, category: String
     let quantity: Int
-    let basicImages, defectImages: [String]
+    let basicImages, defectImages: [ImageData]
 }

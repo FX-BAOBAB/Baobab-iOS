@@ -19,10 +19,16 @@ final class ItemRepositoryImpl: RemoteRepository, ItemRepository {
                          name: $0.name,
                          category: $0.category,
                          quantity: $0.quantity,
-                         basicImages: $0.basicImages.map { image in image.imageURL },
-                         defectImages: $0.faultImages.map { image in image.imageURL })
+                         basicImages: self.toImageData($0.basicImages),
+                         defectImages: self.toImageData($0.faultImages))
                 }
             }
             .eraseToAnyPublisher()
+    }
+    
+    private func toImageData(_ image: [ImageMetaData]) -> [ImageData] {
+        return image.map {
+            ImageData(imageURL: $0.imageURL, caption: $0.caption)
+        }
     }
 }
