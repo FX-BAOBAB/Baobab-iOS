@@ -71,33 +71,34 @@ struct AppDI {
     }
     
     var storedItemsViewModel: StoredItemsViewModel {
-        
         return StoredItemsViewModel(usecase: fetchItemUseCase)
     }
     
     var shippingItemsViewModel: ShippingItemsViewModel {
-        
         return ShippingItemsViewModel(usecase: fetchItemUseCase)
     }
     
     var shippedItemsViewModel: ShippedItemsViewModel {
-        
         return ShippedItemsViewModel(usecase: fetchItemUseCase)
     }
     
     var returningItemsViewModel: ReturningItemsViewModel {
-        
         return ReturningItemsViewModel(usecase: fetchItemUseCase)
     }
     
     var returnedItemsViewModel: ReturnedItemsViewModel {
-        
         return ReturnedItemsViewModel(usecase: fetchItemUseCase)
     }
     
     var usedItemsViewModel: UsedItemsViewModel {
-        
         return UsedItemsViewModel(usecase: fetchItemUseCase)
+    }
+    
+    var receivingFormsViewModel: ReceivingFormsViewModel {
+        let repository = FormRepositoryImpl(dataSource: dataSource)
+        let usecase = FetchFormUseCaseImpl(repository: repository)
+        
+        return ReceivingFormsViewModel(usecase: usecase)
     }
     
     private init() {}

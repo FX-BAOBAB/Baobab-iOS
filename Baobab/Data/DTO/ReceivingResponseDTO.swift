@@ -49,4 +49,10 @@ struct TakeBackResponse: Decodable {
     let id: Int
     let status, takeBackRequestAt: String
     let goods: [Goods]
+    let userID: Int
+    
+    enum CodingKeys: String, CodingKey {
+        case id, status, takeBackRequestAt, goods
+        case userID = "userId"
+    }
 }

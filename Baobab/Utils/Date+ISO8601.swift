@@ -19,4 +19,19 @@ extension Date {
         
         return String(isoString[startIndex...lastIndex]) + "Z"
     }
+    
+    static func toDayAndTime(from isoString: String) -> String {
+        let isoFormatter = ISO8601DateFormatter()
+        isoFormatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
+        
+        guard let date = isoFormatter.date(from: isoString) else {
+            return ""
+        }
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeZone = TimeZone(identifier: "Asia/Seoul")
+        dateFormatter.dateFormat = "MM/dd HH:mm"
+        
+        return String(dateFormatter.string(from: date))
+    }
 }
