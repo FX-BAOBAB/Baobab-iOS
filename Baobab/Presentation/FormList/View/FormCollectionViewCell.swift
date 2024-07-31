@@ -41,11 +41,11 @@ final class FormCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(host.view)
         
         host.view.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().inset(20)
+            make.leading.trailing.equalToSuperview()
         }
         
         host.view.snp.makeConstraints { make in
-            make.top.bottom.equalToSuperview().inset(20)
+            make.top.bottom.equalToSuperview()
         }
     }
 }

@@ -12,14 +12,12 @@ struct FormCollectionView<T: FormsViewModel>: UIViewRepresentable {
     @EnvironmentObject private var viewModel: T
     
     func makeUIView(context: Context) -> UICollectionView {
-        var listConfiguration = UICollectionLayoutListConfiguration(appearance: .grouped)
-        listConfiguration.headerMode = .firstItemInSection
+        var listConfiguration = UICollectionLayoutListConfiguration(appearance: .plain)
         listConfiguration.backgroundColor = .listFooterGray
         listConfiguration.showsSeparators = false
         let listLayout = UICollectionViewCompositionalLayout.list(using: listConfiguration)
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: listLayout)
         collectionView.register(FormCollectionViewCell.self, forCellWithReuseIdentifier: FormCollectionViewCell.reuseIdentifier)
-        collectionView.register(FormCollectionViewFooter.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: "Footer")
         collectionView.delegate = context.coordinator
         collectionView.dataSource = context.coordinator
         
@@ -68,25 +66,6 @@ struct FormCollectionView<T: FormsViewModel>: UIViewRepresentable {
             
             return cell
         }
-        
-//        func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-//            print("here")
-//            if kind == UICollectionView.elementKindSectionFooter {
-//                guard let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "Footer", for: indexPath) as? FormCollectionViewFooter else {
-//                    fatalError("Failed to load UICollectionView Footer")
-//                }
-//                
-//                return footer
-//            } else {
-//                fatalError()
-//            }
-//        }
-//        
-//        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
-//            
-//            return CGSize(width: collectionView.bounds.size.width, height: 100)
-//            
-//        }
     }
 }
 

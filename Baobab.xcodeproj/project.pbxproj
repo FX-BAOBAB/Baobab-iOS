@@ -81,7 +81,6 @@
 		8E449F0D2C4BAB3700291277 /* DuplicationCheckDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E449F0C2C4BAB3700291277 /* DuplicationCheckDTO.swift */; };
 		8E449F0F2C4BEEC700291277 /* CheckNickNameDuplicationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E449F0E2C4BEEC700291277 /* CheckNickNameDuplicationUseCase.swift */; };
 		8E449F112C4BFDE800291277 /* SignUpViewModel+Bind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E449F102C4BFDE800291277 /* SignUpViewModel+Bind.swift */; };
-		8E60A8292C59F361007814E7 /* FormCollectionViewFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E60A8282C59F361007814E7 /* FormCollectionViewFooter.swift */; };
 		8E74FF3A2C585E97005ED275 /* DetailedForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E74FF392C585E97005ED275 /* DetailedForm.swift */; };
 		8E74FF3C2C58854F005ED275 /* FormCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E74FF3B2C58854F005ED275 /* FormCollectionView.swift */; };
 		8E74FF3E2C588AA7005ED275 /* FormCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E74FF3D2C588AA7005ED275 /* FormCollectionViewCell.swift */; };
@@ -301,7 +300,6 @@
 		8E449F0C2C4BAB3700291277 /* DuplicationCheckDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuplicationCheckDTO.swift; sourceTree = "<group>"; };
 		8E449F0E2C4BEEC700291277 /* CheckNickNameDuplicationUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckNickNameDuplicationUseCase.swift; sourceTree = "<group>"; };
 		8E449F102C4BFDE800291277 /* SignUpViewModel+Bind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SignUpViewModel+Bind.swift"; sourceTree = "<group>"; };
-		8E60A8282C59F361007814E7 /* FormCollectionViewFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormCollectionViewFooter.swift; sourceTree = "<group>"; };
 		8E74FF392C585E97005ED275 /* DetailedForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedForm.swift; sourceTree = "<group>"; };
 		8E74FF3B2C58854F005ED275 /* FormCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormCollectionView.swift; sourceTree = "<group>"; };
 		8E74FF3D2C588AA7005ED275 /* FormCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -968,7 +966,6 @@
 				8E74FF392C585E97005ED275 /* DetailedForm.swift */,
 				8E74FF3B2C58854F005ED275 /* FormCollectionView.swift */,
 				8E74FF3D2C588AA7005ED275 /* FormCollectionViewCell.swift */,
-				8E60A8282C59F361007814E7 /* FormCollectionViewFooter.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1436,7 +1433,6 @@
 				5CA04A352BFB01AC00A28FCA /* Date+Tomorrow.swift in Sources */,
 				5C8923442BFADF0900AE9049 /* Date+String.swift in Sources */,
 				8E7BC8F22C3EC78600CB708F /* LoginUseCase.swift in Sources */,
-				8E60A8292C59F361007814E7 /* FormCollectionViewFooter.swift in Sources */,
 				8EBFCE4A2C537F5300A2AB4F /* DefectRow.swift in Sources */,
 				8E7BC8CC2C3E433600CB708F /* LoginResponseDTO.swift in Sources */,
 				8EB0C2532C32262F00FEE8D0 /* SignUpViewModel+PostSearchable.swift in Sources */,
