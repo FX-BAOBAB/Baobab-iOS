@@ -14,7 +14,7 @@ struct Process: Identifiable{
 }
 
 let receivingProcess = [
-    "TAKING": Process(id: 1, status: "접수 중", description: "접수요청되어 픽업일정을 조정하는 중입니다."),
+    "TAKING": Process(id: 1, status: "접수 중", description: "접수가 요청되어 픽업 일정을 조정하는 중입니다."),
     "REGISTERED": Process(id: 2, status: "접수 완료", description: "픽업 일정이 확정되었습니다."),
     "CHECKING": Process(id: 3, status: "입고 심사", description: "픽업자가 입고 전 심사를 진행 중입니다."),
     "CONFIRMATION": Process(id: 4, status: "입고 확정", description: "입고가 확정되어 입고 일정을 조정하는 중입니다."),

@@ -81,6 +81,10 @@
 		8E449F0D2C4BAB3700291277 /* DuplicationCheckDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E449F0C2C4BAB3700291277 /* DuplicationCheckDTO.swift */; };
 		8E449F0F2C4BEEC700291277 /* CheckNickNameDuplicationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E449F0E2C4BEEC700291277 /* CheckNickNameDuplicationUseCase.swift */; };
 		8E449F112C4BFDE800291277 /* SignUpViewModel+Bind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E449F102C4BFDE800291277 /* SignUpViewModel+Bind.swift */; };
+		8E60A8292C59F361007814E7 /* FormCollectionViewFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E60A8282C59F361007814E7 /* FormCollectionViewFooter.swift */; };
+		8E74FF3A2C585E97005ED275 /* DetailedForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E74FF392C585E97005ED275 /* DetailedForm.swift */; };
+		8E74FF3C2C58854F005ED275 /* FormCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E74FF3B2C58854F005ED275 /* FormCollectionView.swift */; };
+		8E74FF3E2C588AA7005ED275 /* FormCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E74FF3D2C588AA7005ED275 /* FormCollectionViewCell.swift */; };
 		8E765F682C3D5B5A008A11E6 /* SignUp_Success_Response.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E765F672C3D5B5A008A11E6 /* SignUp_Success_Response.json */; };
 		8E765F692C3D5BCD008A11E6 /* SignUp_Success_Response.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E765F672C3D5B5A008A11E6 /* SignUp_Success_Response.json */; };
 		8E7731D62C4A944F00B42F7A /* LoginRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7731D52C4A944F00B42F7A /* LoginRepositoryImpl.swift */; };
@@ -297,6 +301,10 @@
 		8E449F0C2C4BAB3700291277 /* DuplicationCheckDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuplicationCheckDTO.swift; sourceTree = "<group>"; };
 		8E449F0E2C4BEEC700291277 /* CheckNickNameDuplicationUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckNickNameDuplicationUseCase.swift; sourceTree = "<group>"; };
 		8E449F102C4BFDE800291277 /* SignUpViewModel+Bind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SignUpViewModel+Bind.swift"; sourceTree = "<group>"; };
+		8E60A8282C59F361007814E7 /* FormCollectionViewFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormCollectionViewFooter.swift; sourceTree = "<group>"; };
+		8E74FF392C585E97005ED275 /* DetailedForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedForm.swift; sourceTree = "<group>"; };
+		8E74FF3B2C58854F005ED275 /* FormCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormCollectionView.swift; sourceTree = "<group>"; };
+		8E74FF3D2C588AA7005ED275 /* FormCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormCollectionViewCell.swift; sourceTree = "<group>"; };
 		8E765F672C3D5B5A008A11E6 /* SignUp_Success_Response.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SignUp_Success_Response.json; sourceTree = "<group>"; };
 		8E7731D52C4A944F00B42F7A /* LoginRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRepositoryImpl.swift; sourceTree = "<group>"; };
 		8E7731D72C4A94A400B42F7A /* SignUpRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRepositoryImpl.swift; sourceTree = "<group>"; };
@@ -957,6 +965,10 @@
 			children = (
 				8EBFCE502C539A0700A2AB4F /* FormList.swift */,
 				8EBFCE522C539A1000A2AB4F /* FormListRow.swift */,
+				8E74FF392C585E97005ED275 /* DetailedForm.swift */,
+				8E74FF3B2C58854F005ED275 /* FormCollectionView.swift */,
+				8E74FF3D2C588AA7005ED275 /* FormCollectionViewCell.swift */,
+				8E60A8282C59F361007814E7 /* FormCollectionViewFooter.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1398,6 +1410,7 @@
 				5C4ACAC02BEE1FDB00195895 /* MinusButtonImage.swift in Sources */,
 				8E97720B2C3CBFC40082DCAF /* Bundle+URL.swift in Sources */,
 				8E7B6C362C51EECD00222721 /* ReceivingItemsViewModel.swift in Sources */,
+				8E74FF3A2C585E97005ED275 /* DetailedForm.swift in Sources */,
 				8E7B6C2B2C51CC1500222721 /* ItemStatusResponseDTO.swift in Sources */,
 				5C405EEC2BF72ADB006EE6F1 /* ReceivingViewModel+Defect.swift in Sources */,
 				8ECCBB152C2E846D00DD0A1B /* AddressRegistrationForm.swift in Sources */,
@@ -1423,6 +1436,7 @@
 				5CA04A352BFB01AC00A28FCA /* Date+Tomorrow.swift in Sources */,
 				5C8923442BFADF0900AE9049 /* Date+String.swift in Sources */,
 				8E7BC8F22C3EC78600CB708F /* LoginUseCase.swift in Sources */,
+				8E60A8292C59F361007814E7 /* FormCollectionViewFooter.swift in Sources */,
 				8EBFCE4A2C537F5300A2AB4F /* DefectRow.swift in Sources */,
 				8E7BC8CC2C3E433600CB708F /* LoginResponseDTO.swift in Sources */,
 				8EB0C2532C32262F00FEE8D0 /* SignUpViewModel+PostSearchable.swift in Sources */,
@@ -1432,6 +1446,7 @@
 				8ED894702C2E9894005E826F /* SignUpPostCodeSearchForm.swift in Sources */,
 				8E37D4652C570D6300F8048A /* FetchFormUseCase.swift in Sources */,
 				5C4ACABC2BEE1ED700195895 /* ItemQuantitySelector.swift in Sources */,
+				8E74FF3C2C58854F005ED275 /* FormCollectionView.swift in Sources */,
 				8EE66DE62C400C8A0087AD19 /* SignUpViewModel+Alert.swift in Sources */,
 				5CADA5DD2C00CE1600FFCC64 /* DetailAddressMap.swift in Sources */,
 				5C994A542BF592E60013672B /* SelectedDefectImage.swift in Sources */,
@@ -1453,6 +1468,7 @@
 				8EBFCE592C539CE100A2AB4F /* FormData.swift in Sources */,
 				5CADA5DB2C0093D300FFCC64 /* AddressList.swift in Sources */,
 				5C9679C22BFF25E7007C8D5A /* SectionFooter.swift in Sources */,
+				8E74FF3E2C588AA7005ED275 /* FormCollectionViewCell.swift in Sources */,
 				8EB0C2682C324DA300FEE8D0 /* AutoLogInButton.swift in Sources */,
 				5C80F0EE2C06BF4500A94C22 /* FetchGeoCodeUseCase.swift in Sources */,
 				8E37D4672C570D8200F8048A /* FormRepository.swift in Sources */,

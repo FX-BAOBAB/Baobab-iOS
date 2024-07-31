@@ -20,7 +20,7 @@ extension Date {
         return String(isoString[startIndex...lastIndex]) + "Z"
     }
     
-    static func toDayAndTime(from isoString: String) -> String {
+    static func toSimpleFormat(from isoString: String, format: DateFormat) -> String {
         let isoFormatter = ISO8601DateFormatter()
         isoFormatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
         
@@ -30,8 +30,13 @@ extension Date {
         
         let dateFormatter = DateFormatter()
         dateFormatter.timeZone = TimeZone(identifier: "Asia/Seoul")
-        dateFormatter.dateFormat = "MM/dd HH:mm"
+        dateFormatter.dateFormat = format.rawValue
         
         return String(dateFormatter.string(from: date))
+    }
+    
+    enum DateFormat: String {
+        case full = "yyyy년 MM월 dd일 HH:mm"
+        case simple = "MM/dd HH:mm"
     }
 }

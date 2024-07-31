@@ -30,7 +30,7 @@ struct UserInfoList: View {
             
             Section(header: Text("요청서")) {
                 NavigationLink(destination: {
-                    
+                    FormList(viewModel: AppDI.shared.receivingFormsViewModel, title: "입고 요청서")
                 }) {
                     UserInfoListRow(image: "receiving", title: "입고 요청서")
                 }

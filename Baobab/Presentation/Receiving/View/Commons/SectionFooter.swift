@@ -10,7 +10,7 @@ import SwiftUI
 struct SectionFooter: View {
     var body: some View {
         Rectangle()
-            .frame(height: 12)
+            .frame(height: 20)
             .foregroundColor(.listFooterGray)
             .listRowInsets(EdgeInsets())
     }
