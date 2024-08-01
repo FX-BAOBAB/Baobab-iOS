@@ -9,13 +9,13 @@ import UIKit
 import SwiftUI
 import SnapKit
 
-final class FormCollectionViewCell: UICollectionViewCell {
-    static let reuseIdentifier = "FormCell"
-    private(set) var host: UIHostingController<FormListRow>?
-    var content: FormData? {
+final class ReceivingFormCollectionViewCell: UICollectionViewCell {
+    static let reuseIdentifier = "ReceivingFormCell"
+    private(set) var host: UIHostingController<ReceivingFormListRow>?
+    var content: ReceivingForm? {
         didSet {
             if let content = content {
-                host?.rootView = FormListRow(form: content)
+                host?.rootView = ReceivingFormListRow(form: content)
             }
         }
     }
@@ -30,7 +30,7 @@ final class FormCollectionViewCell: UICollectionViewCell {
     }
     
     private func setup() {
-        let rootView = FormListRow(form: nil)
+        let rootView = ReceivingFormListRow(form: nil)
         host = UIHostingController(rootView: rootView)
         
         guard let host else {

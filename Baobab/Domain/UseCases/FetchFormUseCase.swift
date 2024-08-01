@@ -8,9 +8,9 @@
 import Combine
 
 protocol FetchFormUseCase {
-    func executeForReceiving() -> AnyPublisher<[FormData], any Error>
-    func executeForReturn() -> AnyPublisher<[FormData], any Error>
-    func executeForShipping() -> AnyPublisher<[FormData], any Error>
+    func executeForReceiving() -> AnyPublisher<[ReceivingForm], any Error>
+    func executeForReturn() -> AnyPublisher<[ReceivingForm], any Error>
+    func executeForShipping() -> AnyPublisher<[ShippingForm], any Error>
 }
 
 final class FetchFormUseCaseImpl: FetchFormUseCase {
@@ -22,9 +22,9 @@ final class FetchFormUseCaseImpl: FetchFormUseCase {
         self.repository = repository
     }
     
-    func executeForReceiving() -> AnyPublisher<[FormData], any Error> {
+    func executeForReceiving() -> AnyPublisher<[ReceivingForm], any Error> {
         return repository.fetchReceivingForms()
-            .flatMap { [weak self] forms -> AnyPublisher<[FormData], any Error> in
+            .flatMap { [weak self] forms -> AnyPublisher<[ReceivingForm], any Error> in
                 guard let self else {
                     return Just(forms)
                         .setFailureType(to: Error.self)
@@ -36,13 +36,13 @@ final class FetchFormUseCaseImpl: FetchFormUseCase {
             .eraseToAnyPublisher()
     }
     
-    func executeForReturn() -> AnyPublisher<[FormData], any Error> {
+    func executeForReturn() -> AnyPublisher<[ReceivingForm], any Error> {
         return repository.fetchReturnForms()
     }
     
-    func executeForShipping() -> AnyPublisher<[FormData], any Error> {
+    func executeForShipping() -> AnyPublisher<[ShippingForm], any Error> {
         return repository.fetchShippingForms()
-            .flatMap { [weak self] forms -> AnyPublisher<[FormData], any Error> in
+            .flatMap { [weak self] forms -> AnyPublisher<[ShippingForm], any Error> in
                 guard let self else {
                     return Just(forms)
                         .setFailureType(to: Error.self)
@@ -61,7 +61,7 @@ extension FetchFormUseCaseImpl {
         let processStatus: ProcessStatus
     }
     
-    private func fetchProcessStatus(forms: [FormData], type: FormType) -> AnyPublisher<[FormData], any Error> {
+    private func fetchProcessStatus<T: FormData>(forms: [T], type: FormType) -> AnyPublisher<[T], any Error> {
         var forms = forms
         var publishers = [AnyPublisher<IdentifiedReponse, any Error>]()
         

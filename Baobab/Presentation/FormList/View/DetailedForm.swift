@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DetailedForm: View {
-    let form: FormData
+    let form: ReceivingForm
     
     var body: some View {
         List {
@@ -73,6 +73,6 @@ struct DetailedForm: View {
 
 #Preview {
     NavigationStack {
-        DetailedForm(form: FormData.sampleData[0])
+        DetailedForm(form: ReceivingForm.sampleData[0])
     }
 }

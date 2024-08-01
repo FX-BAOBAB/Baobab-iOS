@@ -11,28 +11,28 @@ struct FormList<T: FormsViewModel>: View {
     @ObservedObject private var viewModel: T
     
     private let title: String
+    private let type: FormType
     
-    init(viewModel: T, title: String) {
+    init(viewModel: T, title: String, type: FormType) {
         _viewModel = ObservedObject(wrappedValue: viewModel)
         self.title = title
+        self.type = type
     }
     
     var body: some View {
-        FormCollectionView<T>()
+        FormCollectionView<T>(formType: type)
             .environmentObject(viewModel)
             .navigationTitle(title)
             .navigationBarTitleDisplayMode(.inline)
             .edgesIgnoringSafeArea(.bottom)
             .onAppear {
-                if viewModel.forms == nil {
-                    viewModel.forms = FormData.sampleData
-                }
+                //TODO: api 요청
             }
     }
 }
 
 #Preview {
     NavigationStack {
-        FormList(viewModel: AppDI.shared.receivingFormsViewModel, title: "입고 요청서")
+        FormList(viewModel: AppDI.shared.receivingFormsViewModel, title: "입고 요청서", type: .receiving)
     }
 }

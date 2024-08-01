@@ -1,31 +1,31 @@
 //
-//  ReceivingFormsViewModel.swift
+//  ShippingFormsViewModel.swift
 //  Baobab
 //
-//  Created by 이정훈 on 7/29/24.
+//  Created by 이정훈 on 8/1/24.
 //
 
 import Combine
 
-final class ReceivingFormsViewModel: FormsViewModel {
-    @Published var forms: [ReceivingForm]? = nil
+final class ShippingFormsViewModel: FormsViewModel {
+    @Published var forms: [ShippingForm]?
     
     private let usecase: FetchFormUseCase
     private var cancellables = Set<AnyCancellable>()
     
     init(usecase: FetchFormUseCase) {
         self.usecase = usecase
-        forms = ReceivingForm.sampleData
+        self.forms = ShippingForm.sampleData
     }
     
     func fetchForms() {
-        usecase.executeForReceiving()
+        usecase.executeForShipping()
             .sink(receiveCompletion: { completion in
                 switch completion {
                 case .finished:
-                    print("Fetching receiving forms has been completed.")
+                    print("Fetching shipping forms has been completed")
                 case .failure(let error):
-                    print("ReceivingFormsViewModel.fetchForms() error : ", error)
+                    print("ShippingViewModel.fetchForms() error : ", error)
                 }
             }, receiveValue: { [weak self] in
                 self?.forms = $0

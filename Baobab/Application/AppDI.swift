@@ -94,13 +94,20 @@ struct AppDI {
         return UsedItemsViewModel(usecase: fetchItemUseCase)
     }
     
-    var receivingFormsViewModel: ReceivingFormsViewModel {
+    private var fetchFormsUseCase: FetchFormUseCase {
         let formRepository = FormRepositoryImpl(dataSource: dataSource)
         let processStatusRepository = ProcessStatusRepositoryImpl(dataSource: dataSource)
         let fetchProcessStatusUseCase = FetchProcessStatusUseCaseImpl(repository: processStatusRepository)
-        let usecase = FetchFormUseCaseImpl(fetchProcessStatusUseCase: fetchProcessStatusUseCase, repository: formRepository)
         
-        return ReceivingFormsViewModel(usecase: usecase)
+        return FetchFormUseCaseImpl(fetchProcessStatusUseCase: fetchProcessStatusUseCase, repository: formRepository)
+    }
+    
+    var receivingFormsViewModel: ReceivingFormsViewModel {
+        return ReceivingFormsViewModel(usecase: fetchFormsUseCase)
+    }
+    
+    var shippingFormsViewModel: ShippingFormsViewModel {
+        return ShippingFormsViewModel(usecase: fetchFormsUseCase)
     }
     
     private init() {}

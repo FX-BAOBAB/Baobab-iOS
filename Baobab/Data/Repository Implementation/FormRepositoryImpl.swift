@@ -9,37 +9,37 @@ import Combine
 import Foundation
 
 final class FormRepositoryImpl: RemoteRepository, FormRepository {
-    func fetchReceivingForms() -> AnyPublisher<[FormData], any Error> {
+    func fetchReceivingForms() -> AnyPublisher<[ReceivingForm], any Error> {
         let apiEndPoint = Bundle.main.requestURL + "/api/receiving"
         
-        return dataSource.sendGetRequest(to: apiEndPoint, resultType: FormsResponseDTO.self)
+        return dataSource.sendGetRequest(to: apiEndPoint, resultType: ReceivingFormsResponseDTO.self)
             .map { dto in
                 dto.body.receivingResponseList.map {
-                    self.getFormData(from: $0)
+                    self.getReceivingFormData(from: $0)
                 }
             }
             .eraseToAnyPublisher()
     }
     
-    func fetchReturnForms() -> AnyPublisher<[FormData], any Error> {
+    func fetchReturnForms() -> AnyPublisher<[ReceivingForm], any Error> {
         let apiEndPoint = Bundle.main.requestURL + "/api/takeback"
         
-        return dataSource.sendGetRequest(to: apiEndPoint, resultType: FormsResponseDTO.self)
+        return dataSource.sendGetRequest(to: apiEndPoint, resultType: ReceivingFormsResponseDTO.self)
             .map { dto in
                 dto.body.receivingResponseList.map {
-                    self.getFormData(from: $0)
+                    self.getReceivingFormData(from: $0)
                 }
             }
             .eraseToAnyPublisher()
     }
     
-    func fetchShippingForms() -> AnyPublisher<[FormData], any Error> {
+    func fetchShippingForms() -> AnyPublisher<[ShippingForm], any Error> {
         let apiEndPoint = Bundle.main.requestURL + "/api/shipping"
         
-        return dataSource.sendGetRequest(to: apiEndPoint, resultType: FormsResponseDTO.self)
+        return dataSource.sendGetRequest(to: apiEndPoint, resultType: ShippingFormsResponseDTO.self)
             .map { dto in
-                dto.body.receivingResponseList.map {
-                    self.getFormData(from: $0)
+                dto.body.shippingList.map {
+                    self.getShippingForm(from: $0)
                 }
             }
             .eraseToAnyPublisher()
@@ -58,8 +58,8 @@ final class FormRepositoryImpl: RemoteRepository, FormRepository {
                     defectImages: goods.faultImages.map { metaData in self.getImageData(metaData) })
     }
     
-    private func getFormData(from response: ReceivingResponseBody) -> FormData {
-        return FormData(id: response.id,
+    private func getReceivingFormData(from response: ReceivingResponseBody) -> ReceivingForm {
+        return ReceivingForm(id: response.id,
                         visitAddress: response.visitAddress,
                         visitDate: response.visitDate,
                         guaranteeAt: response.guaranteeAt,
@@ -67,5 +67,15 @@ final class FormRepositoryImpl: RemoteRepository, FormRepository {
                         statusDescription: receivingProcess[response.receivingStatus]?.description ?? "", 
                         statusPercentile: nil,
                         items: response.goods.map { goods in self.getItem(from: goods) })
+    }
+    
+    private func getShippingForm(from response: ShippingData) -> ShippingForm {
+        return ShippingForm(id: response.shippingID,
+                            deliveryDate: response.deliveryDate,
+                            deliveryAddress: response.deliveryAddress,
+                            status: shippingProcess[response.status]?.status ?? "", 
+                            statusDescription: shippingProcess[response.status]?.description ?? "",
+                            deliveryManID: response.deliveryManID,
+                            items: response.goods.map { goods in self.getItem(from: goods) })
     }
 }

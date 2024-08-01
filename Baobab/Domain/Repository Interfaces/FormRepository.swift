@@ -9,11 +9,11 @@ import Combine
 
 protocol FormRepository {
     ///입고 요청서를 가져오는 함수
-    func fetchReceivingForms() -> AnyPublisher<[FormData], any Error>
+    func fetchReceivingForms() -> AnyPublisher<[ReceivingForm], any Error>
     
     ///반품 요청서를 가져오는 함수
-    func fetchReturnForms() -> AnyPublisher<[FormData], any Error>
+    func fetchReturnForms() -> AnyPublisher<[ReceivingForm], any Error>
     
     ///출고 요청서를 가져오는 함수
-    func fetchShippingForms() -> AnyPublisher<[FormData], any Error>
+    func fetchShippingForms() -> AnyPublisher<[ShippingForm], any Error>
 }

@@ -1,18 +1,18 @@
 //
-//  FormListRow.swift
+//  ShippingFormListRow.swift
 //  Baobab
 //
-//  Created by 이정훈 on 7/26/24.
+//  Created by 이정훈 on 8/1/24.
 //
 
 import SwiftUI
 
-struct FormListRow: View {
+struct ShippingFormListRow: View {
     @State private var isShowingDetailedView: Bool = false
     
-    private let form: FormData?
+    private let form: ShippingForm?
     
-    init(form: FormData?) {
+    init(form: ShippingForm?) {
         self.form = form
     }
     
@@ -22,11 +22,8 @@ struct FormListRow: View {
                 VStack(alignment: .leading, spacing: 10) {
                     Text(form.status)
                         .font(.headline)
-//                        .padding(.bottom)
                     
-//                    ProcessStatusBar(percentile: form.statusPercentile ?? 0)
-                    
-                    Text("픽업 예정일: \(Date.toSimpleFormat(from: form.visitDate, format: .simple))")
+                    Text("배송 예정일: \(Date.toSimpleFormat(from: form.deliveryDate, format: .simple))")
                         .font(.caption)
                         .foregroundStyle(.gray)
                         .padding(.bottom)
@@ -63,7 +60,7 @@ struct FormListRow: View {
                 SectionFooter()
             }
             .navigationDestination(isPresented: $isShowingDetailedView) {
-                DetailedForm(form: form)
+                
             }
         } else {
             Text("Hello World!")
@@ -72,7 +69,5 @@ struct FormListRow: View {
 }
 
 #Preview {
-    NavigationStack {
-        FormListRow(form: FormData.sampleData[0])
-    }
+    ShippingFormListRow(form: ShippingForm.sampleData[0])
 }

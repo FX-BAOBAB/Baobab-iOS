@@ -2,12 +2,17 @@
 //  FormData.swift
 //  Baobab
 //
-//  Created by 이정훈 on 7/26/24.
+//  Created by 이정훈 on 8/1/24.
 //
 
 import Foundation
 
-struct FormData: Identifiable {
+protocol FormData: Identifiable {
+    var id: Int { get }
+    var statusPercentile: Double? { get set }
+}
+
+struct ReceivingForm: FormData {
     let id: Int
     let visitAddress, visitDate, guaranteeAt, status, statusDescription: String
     var statusPercentile: Double?
@@ -15,78 +20,60 @@ struct FormData: Identifiable {
 }
 
 #if DEBUG
-extension FormData {
-    static var sampleData: [FormData] {
+extension ReceivingForm {
+    static var sampleData: [ReceivingForm] {
         return [
-            FormData(id: 0,
-                     visitAddress: "테스트",
-                     visitDate: "2024-07-26T04:20:53.643Z",
-                     guaranteeAt: "2024-07-26T04:20:53.643",
-                     status: "접수 중",
-                     statusDescription: "접수 요청되어 픽업일정을 조정하는 중입니다.", 
-                     statusPercentile: 0.2,
-                     items: [
-                        Item(id: 1,
-                             name: "iPad",
-                             category: "SMALL_FURNITURE",
-                             quantity: 1,
-                             basicImages: [
-                                ImageData(imageURL: "https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/refurb-ipad-wifi-gold-2020?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=1626464533000",
-                                          caption: "")
-                             ], defectImages: []),
-                        Item(id: 2,
-                             name: "iPad",
-                             category: "SMALL_FURNITURE",
-                             quantity: 1,
-                             basicImages: [
-                                ImageData(imageURL: "https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/refurb-ipad-wifi-gold-2020?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=1626464533000",
-                                          caption: "")
-                             ], defectImages: [])
-                     ]),
-            FormData(id: 1,
-                     visitAddress: "테스트",
-                     visitDate: "2024-07-26T04:20:53.643Z",
-                     guaranteeAt: "2024-07-26T04:20:53.643",
-                     status: "접수 중",
-                     statusDescription: "접수요청되어 픽업일정을 조정하는 중입니다.", 
-                     statusPercentile: 0.2,
-                     items: [
-                        Item(id: 1,
-                             name: "iPad",
-                             category: "SMALL_FURNITURE",
-                             quantity: 1,
-                             basicImages: [
-                                ImageData(imageURL: "https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/refurb-ipad-wifi-gold-2020?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=1626464533000",
-                                          caption: "")
-                             ], defectImages: [])
-                     ]),
+            ReceivingForm(id: 0,
+                          visitAddress: "테스트",
+                          visitDate: "2024-07-26T04:20:53.643Z",
+                          guaranteeAt: "2024-07-26T04:20:53.643",
+                          status: "접수 중",
+                          statusDescription: "접수 요청되어 픽업일정을 조정하는 중입니다.",
+                          statusPercentile: 0.2,
+                          items: Item.sampleData),
             
-            FormData(id: 2,
-                     visitAddress: "테스트",
-                     visitDate: "2024-07-26T04:20:53.643Z",
-                     guaranteeAt: "2024-07-26T04:20:53.643",
-                     status: "접수 중",
-                     statusDescription: "접수요청되어 픽업일정을 조정하는 중입니다.", 
-                     statusPercentile: 0.2,
-                     items: [
-                        Item(id: 1,
-                             name: "iPad",
-                             category: "SMALL_FURNITURE",
-                             quantity: 1,
-                             basicImages: [
-                                ImageData(imageURL: "https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/refurb-ipad-wifi-gold-2020?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=1626464533000",
-                                          caption: "")
-                             ], defectImages: []),
-                        
-                        Item(id: 2,
-                             name: "iPad",
-                             category: "SMALL_FURNITURE",
-                             quantity: 1,
-                             basicImages: [
-                                ImageData(imageURL: "https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/refurb-ipad-wifi-gold-2020?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=1626464533000",
-                                          caption: "")
-                             ], defectImages: [])
-                     ])
+            ReceivingForm(id: 1,
+                          visitAddress: "테스트",
+                          visitDate: "2024-07-26T04:20:53.643Z",
+                          guaranteeAt: "2024-07-26T04:20:53.643",
+                          status: "접수 중",
+                          statusDescription: "접수요청되어 픽업일정을 조정하는 중입니다.",
+                          statusPercentile: 0.2,
+                          items: [ Item.sampleData[0]]),
+            
+            ReceivingForm(id: 2,
+                          visitAddress: "테스트",
+                          visitDate: "2024-07-26T04:20:53.643Z",
+                          guaranteeAt: "2024-07-26T04:20:53.643",
+                          status: "접수 중",
+                          statusDescription: "접수요청되어 픽업일정을 조정하는 중입니다.",
+                          statusPercentile: 0.2,
+                          items: Item.sampleData)
+        ]
+    }
+}
+#endif
+
+
+struct ShippingForm: FormData {
+    let id: Int
+    let deliveryDate, deliveryAddress, status, statusDescription: String
+    let deliveryManID: Int
+    var statusPercentile: Double?
+    let items: [Item]
+}
+
+#if DEBUG
+extension ShippingForm {
+    static var sampleData: [ShippingForm] {
+        return [
+            ShippingForm(id: 0,
+                         deliveryDate: "2024-07-26T04:20:53.643Z",
+                         deliveryAddress: "테스트",
+                         status: "출고 대기 중",
+                         statusDescription: "출고 대기 중 입니다.",
+                         deliveryManID: 0,
+                         items: [Item.sampleData[0]])
         ]
     }
 }

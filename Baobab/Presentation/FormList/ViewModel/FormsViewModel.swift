@@ -8,7 +8,9 @@
 import Combine
 
 protocol FormsViewModel: AnyObject, ObservableObject {
-    var forms: [FormData]? { get set }
+    associatedtype T
+    
+    var forms: [T]? { get set }
     
     func fetchForms()
 }

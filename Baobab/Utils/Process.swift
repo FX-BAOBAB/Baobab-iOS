@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Process: Identifiable{
+struct Process: Identifiable {
     let id: Int
     let status: String
     let description: String
@@ -23,4 +23,12 @@ let receivingProcess = [
     "LOADING": Process(id: 7, status: "입고 진행 중", description: "최종 검수 및 창고 적재 진행 중입니다."),
     "STORAGE": Process(id: 8, status: "입고 완료", description: "입고가 완료되어 안전하게 보관 중입니다."),
     "CLOSE": Process(id: 9, status: "CLOSE", description: "요청이 닫힌 상태입니다.")
+]
+
+let shippingProcess = [
+    "PENDING": Process(id: 1, status: "출고 대기 중", description: "출고 대기 중 입니다."),
+    "REGISTERED": Process(id: 2, status: "출고 접수 완료", description: "출고 일정이 확정되었습니다."),
+    "DELIVERY": Process(id: 3, status: "출고 중", description: "물건을 안전하게 출고 중입니다."),
+    "SHIPPED": Process(id: 4, status: "출고 완료", description: "물건이 지정된 장소에 도착하였습니다."),
+    "CLOSE": Process(id: 5, status: "CLOSE", description: "요청이 닫힌 상태입니다.")
 ]
