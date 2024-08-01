@@ -10,16 +10,15 @@ import SwiftUI
 struct DetailedForm: View {
     let form: FormData
     
-    init(form: FormData) {
-        self.form = form
-    }
-    
     var body: some View {
         List {
             Section(footer: SectionFooter()) {
                 VStack(alignment: .leading) {
                     Text(form.status)
                         .font(.headline)
+                        .padding([.bottom, .top])
+                    
+                    ProcessStatusBar(percentile: form.statusPercentile ?? 0)
                     
                     Text(form.statusDescription)
                         .foregroundStyle(.gray)

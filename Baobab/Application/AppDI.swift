@@ -95,8 +95,10 @@ struct AppDI {
     }
     
     var receivingFormsViewModel: ReceivingFormsViewModel {
-        let repository = FormRepositoryImpl(dataSource: dataSource)
-        let usecase = FetchFormUseCaseImpl(repository: repository)
+        let formRepository = FormRepositoryImpl(dataSource: dataSource)
+        let processStatusRepository = ProcessStatusRepositoryImpl(dataSource: dataSource)
+        let fetchProcessStatusUseCase = FetchProcessStatusUseCaseImpl(repository: processStatusRepository)
+        let usecase = FetchFormUseCaseImpl(fetchProcessStatusUseCase: fetchProcessStatusUseCase, repository: formRepository)
         
         return ReceivingFormsViewModel(usecase: usecase)
     }

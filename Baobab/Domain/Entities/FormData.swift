@@ -10,6 +10,7 @@ import Foundation
 struct FormData: Identifiable {
     let id: Int
     let visitAddress, visitDate, guaranteeAt, status, statusDescription: String
+    var statusPercentile: Double?
     let items: [Item]
 }
 
@@ -22,7 +23,8 @@ extension FormData {
                      visitDate: "2024-07-26T04:20:53.643Z",
                      guaranteeAt: "2024-07-26T04:20:53.643",
                      status: "접수 중",
-                     statusDescription: "접수 요청되어 픽업일정을 조정하는 중입니다.",
+                     statusDescription: "접수 요청되어 픽업일정을 조정하는 중입니다.", 
+                     statusPercentile: 0.2,
                      items: [
                         Item(id: 1,
                              name: "iPad",
@@ -46,7 +48,8 @@ extension FormData {
                      visitDate: "2024-07-26T04:20:53.643Z",
                      guaranteeAt: "2024-07-26T04:20:53.643",
                      status: "접수 중",
-                     statusDescription: "접수요청되어 픽업일정을 조정하는 중입니다.",
+                     statusDescription: "접수요청되어 픽업일정을 조정하는 중입니다.", 
+                     statusPercentile: 0.2,
                      items: [
                         Item(id: 1,
                              name: "iPad",
@@ -63,7 +66,8 @@ extension FormData {
                      visitDate: "2024-07-26T04:20:53.643Z",
                      guaranteeAt: "2024-07-26T04:20:53.643",
                      status: "접수 중",
-                     statusDescription: "접수요청되어 픽업일정을 조정하는 중입니다.",
+                     statusDescription: "접수요청되어 픽업일정을 조정하는 중입니다.", 
+                     statusPercentile: 0.2,
                      items: [
                         Item(id: 1,
                              name: "iPad",

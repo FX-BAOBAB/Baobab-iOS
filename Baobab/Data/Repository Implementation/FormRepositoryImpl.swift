@@ -64,7 +64,8 @@ final class FormRepositoryImpl: RemoteRepository, FormRepository {
                         visitDate: response.visitDate,
                         guaranteeAt: response.guaranteeAt,
                         status: receivingProcess[response.receivingStatus]?.status ?? "",
-                        statusDescription: receivingProcess[response.receivingStatus]?.description ?? "",
+                        statusDescription: receivingProcess[response.receivingStatus]?.description ?? "", 
+                        statusPercentile: nil,
                         items: response.goods.map { goods in self.getItem(from: goods) })
     }
 }

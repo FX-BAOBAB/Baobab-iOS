@@ -81,6 +81,12 @@
 		8E449F0D2C4BAB3700291277 /* DuplicationCheckDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E449F0C2C4BAB3700291277 /* DuplicationCheckDTO.swift */; };
 		8E449F0F2C4BEEC700291277 /* CheckNickNameDuplicationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E449F0E2C4BEEC700291277 /* CheckNickNameDuplicationUseCase.swift */; };
 		8E449F112C4BFDE800291277 /* SignUpViewModel+Bind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E449F102C4BFDE800291277 /* SignUpViewModel+Bind.swift */; };
+		8E60A82B2C5A06EE007814E7 /* FetchProcessStatusUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E60A82A2C5A06EE007814E7 /* FetchProcessStatusUseCase.swift */; };
+		8E60A82D2C5A14AC007814E7 /* ProcessStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E60A82C2C5A14AC007814E7 /* ProcessStatus.swift */; };
+		8E60A82F2C5A1548007814E7 /* ProcessStatusResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E60A82E2C5A1548007814E7 /* ProcessStatusResponseDTO.swift */; };
+		8E60A8312C5A166E007814E7 /* ProcessStatusRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E60A8302C5A166E007814E7 /* ProcessStatusRepository.swift */; };
+		8E60A8332C5A16BE007814E7 /* ProcessStatusRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E60A8322C5A16BE007814E7 /* ProcessStatusRepositoryImpl.swift */; };
+		8E60A8372C5A1F4B007814E7 /* FormType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E60A8362C5A1F4B007814E7 /* FormType.swift */; };
 		8E74FF3A2C585E97005ED275 /* DetailedForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E74FF392C585E97005ED275 /* DetailedForm.swift */; };
 		8E74FF3C2C58854F005ED275 /* FormCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E74FF3B2C58854F005ED275 /* FormCollectionView.swift */; };
 		8E74FF3E2C588AA7005ED275 /* FormCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E74FF3D2C588AA7005ED275 /* FormCollectionViewCell.swift */; };
@@ -90,6 +96,7 @@
 		8E7731D82C4A94A400B42F7A /* SignUpRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7731D72C4A94A400B42F7A /* SignUpRepositoryImpl.swift */; };
 		8E7731DA2C4A94DC00B42F7A /* UserRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7731D92C4A94DC00B42F7A /* UserRepositoryImpl.swift */; };
 		8E7731DC2C4A955600B42F7A /* ReceivingRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7731DB2C4A955600B42F7A /* ReceivingRepositoryImpl.swift */; };
+		8E7A9F152C5B187D00969F1A /* ProcessStatusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7A9F142C5B187D00969F1A /* ProcessStatusBar.swift */; };
 		8E7B6C2B2C51CC1500222721 /* ItemStatusResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7B6C2A2C51CC1500222721 /* ItemStatusResponseDTO.swift */; };
 		8E7B6C2D2C51CF7A00222721 /* ItemRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7B6C2C2C51CF7A00222721 /* ItemRepository.swift */; };
 		8E7B6C2F2C51D5A100222721 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7B6C2E2C51D5A100222721 /* Item.swift */; };
@@ -300,6 +307,12 @@
 		8E449F0C2C4BAB3700291277 /* DuplicationCheckDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuplicationCheckDTO.swift; sourceTree = "<group>"; };
 		8E449F0E2C4BEEC700291277 /* CheckNickNameDuplicationUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckNickNameDuplicationUseCase.swift; sourceTree = "<group>"; };
 		8E449F102C4BFDE800291277 /* SignUpViewModel+Bind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SignUpViewModel+Bind.swift"; sourceTree = "<group>"; };
+		8E60A82A2C5A06EE007814E7 /* FetchProcessStatusUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchProcessStatusUseCase.swift; sourceTree = "<group>"; };
+		8E60A82C2C5A14AC007814E7 /* ProcessStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessStatus.swift; sourceTree = "<group>"; };
+		8E60A82E2C5A1548007814E7 /* ProcessStatusResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessStatusResponseDTO.swift; sourceTree = "<group>"; };
+		8E60A8302C5A166E007814E7 /* ProcessStatusRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessStatusRepository.swift; sourceTree = "<group>"; };
+		8E60A8322C5A16BE007814E7 /* ProcessStatusRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessStatusRepositoryImpl.swift; sourceTree = "<group>"; };
+		8E60A8362C5A1F4B007814E7 /* FormType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormType.swift; sourceTree = "<group>"; };
 		8E74FF392C585E97005ED275 /* DetailedForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedForm.swift; sourceTree = "<group>"; };
 		8E74FF3B2C58854F005ED275 /* FormCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormCollectionView.swift; sourceTree = "<group>"; };
 		8E74FF3D2C588AA7005ED275 /* FormCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -308,6 +321,7 @@
 		8E7731D72C4A94A400B42F7A /* SignUpRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRepositoryImpl.swift; sourceTree = "<group>"; };
 		8E7731D92C4A94DC00B42F7A /* UserRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoryImpl.swift; sourceTree = "<group>"; };
 		8E7731DB2C4A955600B42F7A /* ReceivingRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceivingRepositoryImpl.swift; sourceTree = "<group>"; };
+		8E7A9F142C5B187D00969F1A /* ProcessStatusBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessStatusBar.swift; sourceTree = "<group>"; };
 		8E7B6C2A2C51CC1500222721 /* ItemStatusResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemStatusResponseDTO.swift; sourceTree = "<group>"; };
 		8E7B6C2C2C51CF7A00222721 /* ItemRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemRepository.swift; sourceTree = "<group>"; };
 		8E7B6C2E2C51D5A100222721 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
@@ -572,6 +586,7 @@
 				8E97720A2C3CBFC40082DCAF /* Bundle+URL.swift */,
 				8EAB81742C4120F70052AD48 /* RequestError.swift */,
 				8EBFCE4B2C5390B900A2AB4F /* ItemStatus.swift */,
+				8E60A8362C5A1F4B007814E7 /* FormType.swift */,
 				8E37D46A2C57504800F8048A /* Process.swift */,
 			);
 			path = Utils;
@@ -592,6 +607,7 @@
 				8E8D13512C4E44700032FC96 /* FetchUserInfoUseCase.swift */,
 				8E7B6C322C51EAD400222721 /* FetchItemUseCase.swift */,
 				8E37D4642C570D6300F8048A /* FetchFormUseCase.swift */,
+				8E60A82A2C5A06EE007814E7 /* FetchProcessStatusUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -607,6 +623,7 @@
 				8EAA87F72C44A743000386AD /* ReceivingRepository.swift */,
 				8E7B6C2C2C51CF7A00222721 /* ItemRepository.swift */,
 				8E37D4662C570D8200F8048A /* FormRepository.swift */,
+				8E60A8302C5A166E007814E7 /* ProcessStatusRepository.swift */,
 			);
 			path = "Repository Interfaces";
 			sourceTree = "<group>";
@@ -637,6 +654,7 @@
 				8E8D13532C4E45270032FC96 /* UserInfoResponseDTO.swift */,
 				8E7B6C2A2C51CC1500222721 /* ItemStatusResponseDTO.swift */,
 				8EBFCE562C539BC900A2AB4F /* FormsResponseDTO.swift */,
+				8E60A82E2C5A1548007814E7 /* ProcessStatusResponseDTO.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -653,6 +671,7 @@
 				8E7731DB2C4A955600B42F7A /* ReceivingRepositoryImpl.swift */,
 				8E7B6C302C51E61F00222721 /* ItemRepositoryImpl.swift */,
 				8E37D4682C570EFB00F8048A /* FormRepositoryImpl.swift */,
+				8E60A8322C5A16BE007814E7 /* ProcessStatusRepositoryImpl.swift */,
 			);
 			path = "Repository Implementation";
 			sourceTree = "<group>";
@@ -748,6 +767,7 @@
 				8E7B6C2E2C51D5A100222721 /* Item.swift */,
 				8EBFCE452C53300C00A2AB4F /* ImageData.swift */,
 				8EBFCE582C539CE100A2AB4F /* FormData.swift */,
+				8E60A82C2C5A14AC007814E7 /* ProcessStatus.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -758,7 +778,6 @@
 				5C1B84CD2BF20DDB00A99192 /* CheckMark.swift */,
 				5C4F18122C05568A0030A096 /* EmptyCircle.swift */,
 				5CADA5D42C000D4C00FFCC64 /* SectionHeader.swift */,
-				5C9679C12BFF25E7007C8D5A /* SectionFooter.swift */,
 				5CD8A2082C036A8B00EE5C09 /* ImageRegistrationCompleteSheet.swift */,
 				5C9AD9212C040178003EF614 /* NewItemAdditionSheet.swift */,
 				8E90635D2C293775008B5C52 /* CameraLabel.swift */,
@@ -966,6 +985,7 @@
 				8E74FF392C585E97005ED275 /* DetailedForm.swift */,
 				8E74FF3B2C58854F005ED275 /* FormCollectionView.swift */,
 				8E74FF3D2C588AA7005ED275 /* FormCollectionViewCell.swift */,
+				8E7A9F142C5B187D00969F1A /* ProcessStatusBar.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1080,6 +1100,7 @@
 		8ED8946C2C2E981F005E826F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5C9679C12BFF25E7007C8D5A /* SectionFooter.swift */,
 				5CADA5DC2C00CE1600FFCC64 /* DetailAddressMap.swift */,
 				5CADA5D82C004E8000FFCC64 /* PostSearchWebView.swift */,
 				5C426BFE2BEDBE7E00869F6D /* BorderedInputBox.swift */,
@@ -1343,6 +1364,7 @@
 				8E97720F2C3CCB820082DCAF /* SignUpResponse.swift in Sources */,
 				8E8D13502C4E443A0032FC96 /* UserInfo.swift in Sources */,
 				5C1B84CE2BF20DDB00A99192 /* CheckMark.swift in Sources */,
+				8E60A8372C5A1F4B007814E7 /* FormType.swift in Sources */,
 				5CD8A2092C036A8B00EE5C09 /* ImageRegistrationCompleteSheet.swift in Sources */,
 				5C735F412BF1A10200A36EC8 /* CategoryList.swift in Sources */,
 				8E97720D2C3CCA040082DCAF /* SignUpRepository.swift in Sources */,
@@ -1371,10 +1393,12 @@
 				5C735F4C2BF1BAB200A36EC8 /* EstimatedPrice.swift in Sources */,
 				8E7BC8D62C3E6EEB00CB708F /* FetchTokenUseCase.swift in Sources */,
 				8EB0C2642C32457200FEE8D0 /* LoginViewModel.swift in Sources */,
+				8E60A8312C5A166E007814E7 /* ProcessStatusRepository.swift in Sources */,
 				8E7731DA2C4A94DC00B42F7A /* UserRepositoryImpl.swift in Sources */,
 				8EBFCE4C2C5390B900A2AB4F /* ItemStatus.swift in Sources */,
 				5C4ACAC22BEE41A300195895 /* CategoryPicker.swift in Sources */,
 				8EBFCE442C532C9A00A2AB4F /* DetailedItemView.swift in Sources */,
+				8E60A82D2C5A14AC007814E7 /* ProcessStatus.swift in Sources */,
 				8EBFCE512C539A0700A2AB4F /* FormList.swift in Sources */,
 				8E8D13542C4E45270032FC96 /* UserInfoResponseDTO.swift in Sources */,
 				5CADA5D52C000D4C00FFCC64 /* SectionHeader.swift in Sources */,
@@ -1391,6 +1415,7 @@
 				8E227BE82C43755200E007D0 /* MultipleImageUploadResponseDTO.swift in Sources */,
 				8E3F7C5E2C2A9A480087EB2A /* SimpleReceivingStatus.swift in Sources */,
 				8EB0C2572C322B2E00FEE8D0 /* SignUpUseCase.swift in Sources */,
+				8E60A8332C5A16BE007814E7 /* ProcessStatusRepositoryImpl.swift in Sources */,
 				5C9063712C04B75B004A0EC5 /* Address.swift in Sources */,
 				8E8AF2E32C425DD100A1F0ED /* UploadImageUseCase.swift in Sources */,
 				5C426BFF2BEDBE7E00869F6D /* BorderedInputBox.swift in Sources */,
@@ -1398,6 +1423,7 @@
 				8E8D134E2C4E440D0032FC96 /* UserInfoViewModel.swift in Sources */,
 				8ECCBB0F2C2E4ADB00DD0A1B /* SignUpCaption.swift in Sources */,
 				8EE66DEA2C400D920087AD19 /* CustomProgressView.swift in Sources */,
+				8E60A82F2C5A1548007814E7 /* ProcessStatusResponseDTO.swift in Sources */,
 				8ECCBAF72C2CEFAA00DD0A1B /* SignUpForm.swift in Sources */,
 				8ECCBB0D2C2E48A800DD0A1B /* NickNameInputBox.swift in Sources */,
 				8E3F7C572C2A7D330087EB2A /* DefaultItemImage.swift in Sources */,
@@ -1408,6 +1434,7 @@
 				8E97720B2C3CBFC40082DCAF /* Bundle+URL.swift in Sources */,
 				8E7B6C362C51EECD00222721 /* ReceivingItemsViewModel.swift in Sources */,
 				8E74FF3A2C585E97005ED275 /* DetailedForm.swift in Sources */,
+				8E7A9F152C5B187D00969F1A /* ProcessStatusBar.swift in Sources */,
 				8E7B6C2B2C51CC1500222721 /* ItemStatusResponseDTO.swift in Sources */,
 				5C405EEC2BF72ADB006EE6F1 /* ReceivingViewModel+Defect.swift in Sources */,
 				8ECCBB152C2E846D00DD0A1B /* AddressRegistrationForm.swift in Sources */,
@@ -1496,6 +1523,7 @@
 				8E7BC8CE2C3E44C500CB708F /* LoginResponse.swift in Sources */,
 				8E449F112C4BFDE800291277 /* SignUpViewModel+Bind.swift in Sources */,
 				8E7B6C462C522EB300222721 /* ReturningItemsViewModel.swift in Sources */,
+				8E60A82B2C5A06EE007814E7 /* FetchProcessStatusUseCase.swift in Sources */,
 				8E3F7C532C2A5F3E0087EB2A /* ReceivingPaymentView.swift in Sources */,
 				8E7BC8D22C3E6AB500CB708F /* TokenRepositoryImpl.swift in Sources */,
 				5C4F18192C05B86D0030A096 /* DetailAddressForm.swift in Sources */,
