@@ -26,7 +26,9 @@ struct FormList<T: FormsViewModel>: View {
             .navigationBarTitleDisplayMode(.inline)
             .edgesIgnoringSafeArea(.bottom)
             .onAppear {
-                //TODO: api 요청
+                if viewModel.forms == nil {
+                    viewModel.fetchForms()
+                }
             }
     }
 }
