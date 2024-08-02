@@ -1,5 +1,5 @@
 //
-//  Bundle+URL.swift
+//  Bundle+Properties.swift
 //  Baobab
 //
 //  Created by 이정훈 on 7/9/24.
@@ -26,5 +26,25 @@ extension Bundle {
         }
         
         return url
+    }
+    
+    var email: String {
+        guard let file = self.path(forResource: "ServiceInfo", ofType: "plist"),
+              let resource = NSDictionary(contentsOfFile: file),
+              let email = resource["Email"] as? String else {
+            return ""
+        }
+        
+        return email
+    }
+    
+    var pw: String {
+        guard let file = self.path(forResource: "ServiceInfo", ofType: "plist"),
+              let resource = NSDictionary(contentsOfFile: file),
+              let pw = resource["Password"] as? String else {
+            return ""
+        }
+        
+        return pw
     }
 }
