@@ -82,6 +82,7 @@
 		8E449F0F2C4BEEC700291277 /* CheckNickNameDuplicationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E449F0E2C4BEEC700291277 /* CheckNickNameDuplicationUseCase.swift */; };
 		8E449F112C4BFDE800291277 /* SignUpViewModel+Bind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E449F102C4BFDE800291277 /* SignUpViewModel+Bind.swift */; };
 		8E4BC0252C5C624800CCFF78 /* LoginTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4BC0242C5C624800CCFF78 /* LoginTest.swift */; };
+		8E4BC0272C5C700C00CCFF78 /* FetchFormsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4BC0262C5C700C00CCFF78 /* FetchFormsTest.swift */; };
 		8E60A82B2C5A06EE007814E7 /* FetchProcessStatusUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E60A82A2C5A06EE007814E7 /* FetchProcessStatusUseCase.swift */; };
 		8E60A82D2C5A14AC007814E7 /* ProcessStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E60A82C2C5A14AC007814E7 /* ProcessStatus.swift */; };
 		8E60A82F2C5A1548007814E7 /* ProcessStatusResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E60A82E2C5A1548007814E7 /* ProcessStatusResponseDTO.swift */; };
@@ -317,6 +318,7 @@
 		8E449F0E2C4BEEC700291277 /* CheckNickNameDuplicationUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckNickNameDuplicationUseCase.swift; sourceTree = "<group>"; };
 		8E449F102C4BFDE800291277 /* SignUpViewModel+Bind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SignUpViewModel+Bind.swift"; sourceTree = "<group>"; };
 		8E4BC0242C5C624800CCFF78 /* LoginTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTest.swift; sourceTree = "<group>"; };
+		8E4BC0262C5C700C00CCFF78 /* FetchFormsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchFormsTest.swift; sourceTree = "<group>"; };
 		8E60A82A2C5A06EE007814E7 /* FetchProcessStatusUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchProcessStatusUseCase.swift; sourceTree = "<group>"; };
 		8E60A82C2C5A14AC007814E7 /* ProcessStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessStatus.swift; sourceTree = "<group>"; };
 		8E60A82E2C5A1548007814E7 /* ProcessStatusResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessStatusResponseDTO.swift; sourceTree = "<group>"; };
@@ -846,6 +848,7 @@
 		8E4BC0232C5C622500CCFF78 /* FormList */ = {
 			isa = PBXGroup;
 			children = (
+				8E4BC0262C5C700C00CCFF78 /* FetchFormsTest.swift */,
 			);
 			path = FormList;
 			sourceTree = "<group>";
@@ -1597,6 +1600,7 @@
 			files = (
 				8E8AF2EE2C426C2700A1F0ED /* ImageUploadTest.swift in Sources */,
 				8E9772192C3CEF530082DCAF /* SignUpTest.swift in Sources */,
+				8E4BC0272C5C700C00CCFF78 /* FetchFormsTest.swift in Sources */,
 				8E9772252C3CFCA30082DCAF /* MockURLProtocol.swift in Sources */,
 				8E4BC0252C5C624800CCFF78 /* LoginTest.swift in Sources */,
 				8E7BC8BA2C3E06AB00CB708F /* SignUpSuccessMockURLProtocol.swift in Sources */,
