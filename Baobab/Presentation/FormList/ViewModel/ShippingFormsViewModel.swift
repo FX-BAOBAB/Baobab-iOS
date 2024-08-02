@@ -9,6 +9,7 @@ import Combine
 
 final class ShippingFormsViewModel: FormsViewModel {
     @Published var forms: [ShippingForm]?
+    @Published var isLoading: Bool = false
     
     private let usecase: FetchFormUseCase
     private var cancellables = Set<AnyCancellable>()
@@ -19,8 +20,12 @@ final class ShippingFormsViewModel: FormsViewModel {
     }
     
     func fetchForms() {
+        isLoading.toggle()
+        
         usecase.executeForShipping()
-            .sink(receiveCompletion: { completion in
+            .sink(receiveCompletion: { [weak self] completion in
+                self?.isLoading.toggle()
+                
                 switch completion {
                 case .finished:
                     print("Fetching shipping forms has been completed")

@@ -9,6 +9,7 @@ import Combine
 
 final class ReturnFormsViewModel: FormsViewModel {
     @Published var forms: [ReturnForm]?
+    @Published var isLoading: Bool = false
     
     private let usecase: FetchFormUseCase
     private var cancellables = Set<AnyCancellable>()
@@ -19,8 +20,12 @@ final class ReturnFormsViewModel: FormsViewModel {
     }
     
     func fetchForms() {
+        isLoading.toggle()
+        
         usecase.executeForReturn()
-            .sink(receiveCompletion: { completion in
+            .sink(receiveCompletion: { [weak self] completion in
+                self?.isLoading.toggle()
+                
                 switch completion {
                 case .finished:
                     print("Fetching return forms has been completed")

@@ -24,6 +24,10 @@ struct FormCollectionView<T: FormsViewModel>: UIViewRepresentable {
         collectionView.delegate = context.coordinator
         collectionView.dataSource = context.coordinator
         
+        if viewModel.forms?.isEmpty == true {
+            collectionView.setBackgroundView(title: "요청서 정보가 없어요 :(")
+        }
+        
         return collectionView
     }
     

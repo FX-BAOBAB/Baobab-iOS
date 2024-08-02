@@ -83,6 +83,7 @@
 		8E449F112C4BFDE800291277 /* SignUpViewModel+Bind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E449F102C4BFDE800291277 /* SignUpViewModel+Bind.swift */; };
 		8E4BC0252C5C624800CCFF78 /* LoginTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4BC0242C5C624800CCFF78 /* LoginTest.swift */; };
 		8E4BC0272C5C700C00CCFF78 /* FetchFormsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4BC0262C5C700C00CCFF78 /* FetchFormsTest.swift */; };
+		8E4BC0292C5C9A4A00CCFF78 /* EmptyCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4BC0282C5C9A4A00CCFF78 /* EmptyCollectionView.swift */; };
 		8E60A82B2C5A06EE007814E7 /* FetchProcessStatusUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E60A82A2C5A06EE007814E7 /* FetchProcessStatusUseCase.swift */; };
 		8E60A82D2C5A14AC007814E7 /* ProcessStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E60A82C2C5A14AC007814E7 /* ProcessStatus.swift */; };
 		8E60A82F2C5A1548007814E7 /* ProcessStatusResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E60A82E2C5A1548007814E7 /* ProcessStatusResponseDTO.swift */; };
@@ -319,6 +320,7 @@
 		8E449F102C4BFDE800291277 /* SignUpViewModel+Bind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SignUpViewModel+Bind.swift"; sourceTree = "<group>"; };
 		8E4BC0242C5C624800CCFF78 /* LoginTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTest.swift; sourceTree = "<group>"; };
 		8E4BC0262C5C700C00CCFF78 /* FetchFormsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchFormsTest.swift; sourceTree = "<group>"; };
+		8E4BC0282C5C9A4A00CCFF78 /* EmptyCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCollectionView.swift; sourceTree = "<group>"; };
 		8E60A82A2C5A06EE007814E7 /* FetchProcessStatusUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchProcessStatusUseCase.swift; sourceTree = "<group>"; };
 		8E60A82C2C5A14AC007814E7 /* ProcessStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessStatus.swift; sourceTree = "<group>"; };
 		8E60A82E2C5A1548007814E7 /* ProcessStatusResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessStatusResponseDTO.swift; sourceTree = "<group>"; };
@@ -1018,6 +1020,7 @@
 				8ECF1AE62C5B713E004DD9C1 /* ReturnFormListRow.swift */,
 				8E74FF392C585E97005ED275 /* DetailedForm.swift */,
 				8E74FF3B2C58854F005ED275 /* FormCollectionView.swift */,
+				8E4BC0282C5C9A4A00CCFF78 /* EmptyCollectionView.swift */,
 				8E74FF3D2C588AA7005ED275 /* ReceivingFormCollectionViewCell.swift */,
 				8E7A9F202C5B502600969F1A /* ShippingFormCollectionViewCell.swift */,
 				8ECF1AE42C5B7114004DD9C1 /* ReturnFormCollectionViewCell.swift */,
@@ -1473,6 +1476,7 @@
 				5C426BEA2BEDA8F300869F6D /* MainContentView.swift in Sources */,
 				8EBFCE552C539A4E00A2AB4F /* FormsViewModel.swift in Sources */,
 				8EAB81682C40BB770052AD48 /* FetchAddressUseCase.swift in Sources */,
+				8E4BC0292C5C9A4A00CCFF78 /* EmptyCollectionView.swift in Sources */,
 				5C4ACAC02BEE1FDB00195895 /* MinusButtonImage.swift in Sources */,
 				8E97720B2C3CBFC40082DCAF /* Bundle+Properties.swift in Sources */,
 				8E7B6C362C51EECD00222721 /* ReceivingItemsViewModel.swift in Sources */,

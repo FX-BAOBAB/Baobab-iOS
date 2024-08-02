@@ -20,21 +20,29 @@ struct FormList<T: FormsViewModel>: View {
     }
     
     var body: some View {
-        FormCollectionView<T>(formType: type)
-            .environmentObject(viewModel)
-            .navigationTitle(title)
-            .navigationBarTitleDisplayMode(.inline)
-            .edgesIgnoringSafeArea(.bottom)
-            .onAppear {
-                if viewModel.forms == nil {
-                    viewModel.fetchForms()
+        if viewModel.isLoading != true {
+            FormCollectionView<T>(formType: type)
+                .environmentObject(viewModel)
+                .navigationTitle(title)
+                .navigationBarTitleDisplayMode(.inline)
+                .edgesIgnoringSafeArea(.bottom)
+                .onAppear {
+                    if viewModel.forms == nil {
+                        viewModel.fetchForms()
+                    }
                 }
-            }
+        } else {
+            ProgressView()
+                .navigationTitle(title)
+                .navigationBarTitleDisplayMode(.inline)
+        }
     }
 }
 
 #Preview {
     NavigationStack {
-        FormList(viewModel: AppDI.shared.receivingFormsViewModel, title: "입고 요청서", type: .receivingForm)
+        FormList(viewModel: AppDI.shared.receivingFormsViewModel, 
+                 title: "입고 요청서",
+                 type: .receivingForm)
     }
 }
