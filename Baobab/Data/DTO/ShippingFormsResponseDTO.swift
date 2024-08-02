@@ -15,11 +15,11 @@ struct ShippingFormsResponseDTO: Decodable {
 
 // MARK: - Body
 struct ShippingFormsResponseBody: Decodable {
-    let shipping: [Shipping]
+    let shippingList: [ShippingData]
 }
 
 // MARK: - ShippingList
-struct Shipping: Decodable {
+struct ShippingData: Decodable {
     let shippingID: Int
     let deliveryDate, deliveryAddress, status: String
     let deliveryMan: Int?

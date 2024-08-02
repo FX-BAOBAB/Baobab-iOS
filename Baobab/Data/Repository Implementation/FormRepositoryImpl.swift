@@ -38,7 +38,7 @@ final class FormRepositoryImpl: RemoteRepository, FormRepository {
         
         return dataSource.sendGetRequest(to: apiEndPoint, resultType: ShippingFormsResponseDTO.self)
             .map { dto in
-                dto.body.shipping.map {
+                dto.body.shippingList.map {
                     self.getShippingForm(from: $0)
                 }
             }
@@ -69,7 +69,7 @@ final class FormRepositoryImpl: RemoteRepository, FormRepository {
                         items: response.goods.map { goods in self.getItem(from: goods) })
     }
     
-    private func getShippingForm(from shipping: Shipping) -> ShippingForm {
+    private func getShippingForm(from shipping: ShippingData) -> ShippingForm {
         return ShippingForm(id: shipping.shippingID,
                             deliveryDate: shipping.deliveryDate,
                             deliveryAddress: shipping.deliveryAddress,
