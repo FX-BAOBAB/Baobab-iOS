@@ -26,7 +26,8 @@ final class FetchFormsTest: XCTestCase {
         dataSource = nil
         cancellables = nil
     }
-
+    
+    //MARK: - Receiving Forms Test
     func test_fetchReceivingForms() {
         //Given
         let apiEndPoint = Bundle.main.requestURL + "/receiving"
@@ -39,7 +40,32 @@ final class FetchFormsTest: XCTestCase {
                 case .finished:
                     print("Fetching receiving forms has been completed")
                 case .failure(let error):
-                    print("FetchRecieingFormsTest.test_fetchReceivingForms() error : ", error)
+                    print("FetchFormsTest.test_fetchReceivingForms() error : ", error)
+                }
+            }, receiveValue: {
+                //Then
+                XCTAssertEqual($0.result.resultCode, 200)
+                expectation.fulfill()
+            })
+            .store(in: &cancellables)
+        
+        wait(for: [expectation], timeout: 5)
+    }
+    
+    //MARK: - Shipping Forms Test
+    func test_fetchShippingForms() {
+        //Given
+        let apiEndPoint = Bundle.main.requestURL + "/shipping"
+        let expectation = XCTestExpectation(description: "Performs a request")
+        
+        //When
+        dataSource.sendGetRequest(to: apiEndPoint, resultType: ShippingFormsResponseDTO.self)
+            .sink(receiveCompletion: { completion in
+                switch completion {
+                case .finished:
+                    print("Fetching shipping forms has been completed")
+                case .failure(let error):
+                    print("FetchFormsTest.test_fetchShippingForms() error : ", error)
                 }
             }, receiveValue: {
                 //Then
