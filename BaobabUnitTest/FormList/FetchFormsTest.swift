@@ -76,6 +76,30 @@ final class FetchFormsTest: XCTestCase {
         
         wait(for: [expectation], timeout: 5)
     }
+    
+    //MARK: - Return Forms Test
+    func test_fetchReturnForms() {
+        //Given
+        let apiEndPoint = Bundle.main.requestURL + "/takeback"
+        let expectation = XCTestExpectation(description: "Performs a request")
+        
+        //when
+        dataSource.sendGetRequest(to: apiEndPoint, resultType: ReturnFormsResponseDTO.self)
+            .sink(receiveCompletion: { completion in
+                switch completion {
+                case .finished:
+                    print("Fetching return forms has been completed")
+                case .failure(let error):
+                    print("FetchFormsText.test_fetchReturnForms() error : ", error)
+                }
+            }, receiveValue: {
+                XCTAssertEqual($0.result.resultCode, 200)
+                expectation.fulfill()
+            })
+            .store(in: &cancellables)
+        
+        wait(for: [expectation], timeout: 5)
+    }
 
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
