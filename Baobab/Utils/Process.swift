@@ -32,3 +32,10 @@ let shippingProcess = [
     "SHIPPED": Process(id: 4, status: "출고 완료", description: "물건이 지정된 장소에 도착하였습니다."),
     "CLOSE": Process(id: 5, status: "CLOSE", description: "요청이 닫힌 상태입니다.")
 ]
+
+let returnProcess = [
+    "TAKE_BACK_REGISTERING": Process(id: 1, status: "접수 중", description: "반품 접수가 완료되었습니다."),
+    "TAKE_BACK_REGISTERED": Process(id: 2, status: "접수 완료", description: "픽업 일정이 확정되었습니다."),
+    "TAKE_BACK_DELIVERY": Process(id: 3, status: "배송 중", description: "물건을 안전하게 배송 중입니다."),
+    "TAKE_BACK_RECEIVING": Process(id: 4, status: "배송 완료", description: "물건이 지정된 창고에 도착하였습니다."),
+]

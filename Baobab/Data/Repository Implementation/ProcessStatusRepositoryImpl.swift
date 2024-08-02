@@ -33,5 +33,15 @@ final class ProcessStatusRepositoryImpl: RemoteRepository, ProcessStatusReposito
             .eraseToAnyPublisher()
     }
     
-    
+    func fetchReturnStatus(for id: Int) -> AnyPublisher<ProcessStatus, any Error> {
+        let apiEndPoint = Bundle.main.requestURL + "/"
+        
+        return dataSource.sendGetRequest(to: apiEndPoint, resultType: ProcessStatusResponseDTO.self)
+            .map {
+                ProcessStatus(total: $0.body.total,
+                              status: $0.body.status,
+                              current: $0.body.current)
+            }
+            .eraseToAnyPublisher()
+    }
 }

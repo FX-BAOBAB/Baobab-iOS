@@ -10,6 +10,7 @@ import Combine
 protocol FetchProcessStatusUseCase {
     func executeForReceiving(id: Int) -> AnyPublisher<ProcessStatus, any Error>
     func executeForShipping(id: Int) -> AnyPublisher<ProcessStatus, any Error>
+    func executeForReturn(id: Int) -> AnyPublisher<ProcessStatus, any Error>
 }
 
 final class FetchProcessStatusUseCaseImpl: FetchProcessStatusUseCase {
@@ -25,5 +26,9 @@ final class FetchProcessStatusUseCaseImpl: FetchProcessStatusUseCase {
     
     func executeForShipping(id: Int) -> AnyPublisher<ProcessStatus, any Error> {
         return repository.fetchShippingStatus(for: id)
+    }
+    
+    func executeForReturn(id: Int) -> AnyPublisher<ProcessStatus, any Error> {
+        return repository.fetchReturnStatus(for: id)
     }
 }

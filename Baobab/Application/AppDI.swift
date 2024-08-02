@@ -110,5 +110,9 @@ struct AppDI {
         return ShippingFormsViewModel(usecase: fetchFormsUseCase)
     }
     
+    var returnFormsViewModel: ReturnFormsViewModel {
+        return ReturnFormsViewModel(usecase: fetchFormsUseCase)
+    }
+    
     private init() {}
 }

@@ -10,4 +10,5 @@ import Combine
 protocol ProcessStatusRepository {
     func fetchReceivingStatus(for id: Int) -> AnyPublisher<ProcessStatus, any Error>
     func fetchShippingStatus(for id: Int) -> AnyPublisher<ProcessStatus, any Error>
+    func fetchReturnStatus(for id: Int) -> AnyPublisher<ProcessStatus, any Error>
 }

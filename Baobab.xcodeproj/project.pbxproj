@@ -206,6 +206,10 @@
 		8ECCBB192C2E894E00DD0A1B /* DefaultAddressToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECCBB182C2E894E00DD0A1B /* DefaultAddressToggleButton.swift */; };
 		8ECCBB1B2C2E90DC00DD0A1B /* PostSearchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECCBB1A2C2E90DC00DD0A1B /* PostSearchable.swift */; };
 		8ECE2B142C34CF9900D7F499 /* LazyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECE2B132C34CF9900D7F499 /* LazyView.swift */; };
+		8ECF1AE12C5B5B1C004DD9C1 /* ReturnFormsResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECF1AE02C5B5B1C004DD9C1 /* ReturnFormsResponseDTO.swift */; };
+		8ECF1AE52C5B7114004DD9C1 /* ReturnFormCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECF1AE42C5B7114004DD9C1 /* ReturnFormCollectionViewCell.swift */; };
+		8ECF1AE72C5B713E004DD9C1 /* ReturnFormListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECF1AE62C5B713E004DD9C1 /* ReturnFormListRow.swift */; };
+		8ECF1AE92C5B727D004DD9C1 /* ReturnFormsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECF1AE82C5B727D004DD9C1 /* ReturnFormsViewModel.swift */; };
 		8ED894702C2E9894005E826F /* SignUpPostCodeSearchForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED8946F2C2E9894005E826F /* SignUpPostCodeSearchForm.swift */; };
 		8EE66DE62C400C8A0087AD19 /* SignUpViewModel+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE66DE52C400C8A0087AD19 /* SignUpViewModel+Alert.swift */; };
 		8EE66DEA2C400D920087AD19 /* CustomProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE66DE92C400D920087AD19 /* CustomProgressView.swift */; };
@@ -433,6 +437,10 @@
 		8ECCBB182C2E894E00DD0A1B /* DefaultAddressToggleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAddressToggleButton.swift; sourceTree = "<group>"; };
 		8ECCBB1A2C2E90DC00DD0A1B /* PostSearchable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostSearchable.swift; sourceTree = "<group>"; };
 		8ECE2B132C34CF9900D7F499 /* LazyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyView.swift; sourceTree = "<group>"; };
+		8ECF1AE02C5B5B1C004DD9C1 /* ReturnFormsResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnFormsResponseDTO.swift; sourceTree = "<group>"; };
+		8ECF1AE42C5B7114004DD9C1 /* ReturnFormCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnFormCollectionViewCell.swift; sourceTree = "<group>"; };
+		8ECF1AE62C5B713E004DD9C1 /* ReturnFormListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnFormListRow.swift; sourceTree = "<group>"; };
+		8ECF1AE82C5B727D004DD9C1 /* ReturnFormsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnFormsViewModel.swift; sourceTree = "<group>"; };
 		8ED8946F2C2E9894005E826F /* SignUpPostCodeSearchForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPostCodeSearchForm.swift; sourceTree = "<group>"; };
 		8EE66DE52C400C8A0087AD19 /* SignUpViewModel+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SignUpViewModel+Alert.swift"; sourceTree = "<group>"; };
 		8EE66DE92C400D920087AD19 /* CustomProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProgressView.swift; sourceTree = "<group>"; };
@@ -662,8 +670,9 @@
 				8E8D13532C4E45270032FC96 /* UserInfoResponseDTO.swift */,
 				8E7B6C2A2C51CC1500222721 /* ItemStatusResponseDTO.swift */,
 				8EBFCE562C539BC900A2AB4F /* ReceivingFormsResponseDTO.swift */,
-				8E60A82E2C5A1548007814E7 /* ProcessStatusResponseDTO.swift */,
 				8E7A9F1C2C5B40E400969F1A /* ShippingFormsResponseDTO.swift */,
+				8E60A82E2C5A1548007814E7 /* ProcessStatusResponseDTO.swift */,
+				8ECF1AE02C5B5B1C004DD9C1 /* ReturnFormsResponseDTO.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -992,10 +1001,12 @@
 				8EBFCE502C539A0700A2AB4F /* FormList.swift */,
 				8EBFCE522C539A1000A2AB4F /* ReceivingFormListRow.swift */,
 				8E7A9F1E2C5B4E8B00969F1A /* ShippingFormListRow.swift */,
+				8ECF1AE62C5B713E004DD9C1 /* ReturnFormListRow.swift */,
 				8E74FF392C585E97005ED275 /* DetailedForm.swift */,
 				8E74FF3B2C58854F005ED275 /* FormCollectionView.swift */,
 				8E74FF3D2C588AA7005ED275 /* ReceivingFormCollectionViewCell.swift */,
 				8E7A9F202C5B502600969F1A /* ShippingFormCollectionViewCell.swift */,
+				8ECF1AE42C5B7114004DD9C1 /* ReturnFormCollectionViewCell.swift */,
 				8E7A9F142C5B187D00969F1A /* ProcessStatusBar.swift */,
 			);
 			path = View;
@@ -1007,6 +1018,7 @@
 				8EBFCE542C539A4E00A2AB4F /* FormsViewModel.swift */,
 				8E37D4622C570C7300F8048A /* ReceivingFormsViewModel.swift */,
 				8E7A9F162C5B27DB00969F1A /* ShippingFormsViewModel.swift */,
+				8ECF1AE82C5B727D004DD9C1 /* ReturnFormsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1401,6 +1413,7 @@
 				8E37D46B2C57504800F8048A /* Process.swift in Sources */,
 				8EB0C2552C322AA000FEE8D0 /* SignUpViewModel+Region.swift in Sources */,
 				8EB0C25B2C3240E000FEE8D0 /* SignUpCompletionView.swift in Sources */,
+				8ECF1AE72C5B713E004DD9C1 /* ReturnFormListRow.swift in Sources */,
 				8E8D13452C4E3CC10032FC96 /* MainTabView.swift in Sources */,
 				5C426BFD2BEDBDE900869F6D /* ReceivingViewModel.swift in Sources */,
 				5C735F4C2BF1BAB200A36EC8 /* EstimatedPrice.swift in Sources */,
@@ -1420,6 +1433,7 @@
 				8E7B6C2D2C51CF7A00222721 /* ItemRepository.swift in Sources */,
 				8EAA87FE2C44F77C000386AD /* ReceivingViewModel+Alert.swift in Sources */,
 				8E7B6C402C521F6B00222721 /* ItemsViewModel.swift in Sources */,
+				8ECF1AE92C5B727D004DD9C1 /* ReturnFormsViewModel.swift in Sources */,
 				5C9AD9222C040178003EF614 /* NewItemAdditionSheet.swift in Sources */,
 				8EBFCE532C539A1000A2AB4F /* ReceivingFormListRow.swift in Sources */,
 				8E7731D82C4A94A400B42F7A /* SignUpRepositoryImpl.swift in Sources */,
@@ -1486,6 +1500,7 @@
 				5C4ACABC2BEE1ED700195895 /* ItemQuantitySelector.swift in Sources */,
 				8E74FF3C2C58854F005ED275 /* FormCollectionView.swift in Sources */,
 				8EE66DE62C400C8A0087AD19 /* SignUpViewModel+Alert.swift in Sources */,
+				8ECF1AE12C5B5B1C004DD9C1 /* ReturnFormsResponseDTO.swift in Sources */,
 				5CADA5DD2C00CE1600FFCC64 /* DetailAddressMap.swift in Sources */,
 				5C994A542BF592E60013672B /* SelectedDefectImage.swift in Sources */,
 				5C80F0F02C06C3A000A94C22 /* ReceivingUseCase.swift in Sources */,
@@ -1550,6 +1565,7 @@
 				8E37D4692C570EFB00F8048A /* FormRepositoryImpl.swift in Sources */,
 				5C9679BE2BFEC59F007C8D5A /* PostCodeSearch.swift in Sources */,
 				8EB0C2662C3248E300FEE8D0 /* LoginInputBox.swift in Sources */,
+				8ECF1AE52C5B7114004DD9C1 /* ReturnFormCollectionViewCell.swift in Sources */,
 				8E7B6C422C521FB800222721 /* ItemList.swift in Sources */,
 				8E8D134C2C4E439B0032FC96 /* SimpleUserInfoView.swift in Sources */,
 				5C426BE82BEDA8F300869F6D /* BaobabApp.swift in Sources */,

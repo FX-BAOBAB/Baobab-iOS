@@ -7,7 +7,7 @@
 
 import Foundation
 
-// MARK: - ShippingFormResponseDTO
+// MARK: - ShippingFormsResponseDTO
 struct ShippingFormsResponseDTO: Decodable {
     let result: TaskResult
     let body: ShippingFormsResponseBody
@@ -15,19 +15,18 @@ struct ShippingFormsResponseDTO: Decodable {
 
 // MARK: - Body
 struct ShippingFormsResponseBody: Decodable {
-    let shippingList: [ShippingData]
+    let shipping: [Shipping]
 }
 
-// MARK: - ShippingElement
-struct ShippingData: Decodable {
+// MARK: - ShippingList
+struct Shipping: Decodable {
     let shippingID: Int
     let deliveryDate, deliveryAddress, status: String
-    let deliveryManID: Int
+    let deliveryMan: Int?
     let goods: [Goods]
-    
+
     enum CodingKeys: String, CodingKey {
         case shippingID = "shippingId"
-        case deliveryManID = "deliveryMan"
-        case deliveryDate, deliveryAddress, status, goods
+        case deliveryDate, deliveryAddress, status, deliveryMan, goods
     }
 }

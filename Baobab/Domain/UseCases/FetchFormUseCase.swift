@@ -9,7 +9,7 @@ import Combine
 
 protocol FetchFormUseCase {
     func executeForReceiving() -> AnyPublisher<[ReceivingForm], any Error>
-    func executeForReturn() -> AnyPublisher<[ReceivingForm], any Error>
+    func executeForReturn() -> AnyPublisher<[ReturnForm], any Error>
     func executeForShipping() -> AnyPublisher<[ShippingForm], any Error>
 }
 
@@ -31,13 +31,23 @@ final class FetchFormUseCaseImpl: FetchFormUseCase {
                         .eraseToAnyPublisher()
                 }
                 
-                return fetchProcessStatus(forms: forms, type: .receiving)
+                return fetchProcessStatus(forms: forms, type: .receivingForm)
             }
             .eraseToAnyPublisher()
     }
     
-    func executeForReturn() -> AnyPublisher<[ReceivingForm], any Error> {
+    func executeForReturn() -> AnyPublisher<[ReturnForm], any Error> {
         return repository.fetchReturnForms()
+            .flatMap { [weak self] forms -> AnyPublisher<[ReturnForm], any Error> in
+                guard let self else {
+                    return Just(forms)
+                        .setFailureType(to: Error.self)
+                        .eraseToAnyPublisher()
+                }
+                
+                return fetchProcessStatus(forms: forms, type: .returnForm)
+            }
+            .eraseToAnyPublisher()
     }
     
     func executeForShipping() -> AnyPublisher<[ShippingForm], any Error> {
@@ -49,7 +59,7 @@ final class FetchFormUseCaseImpl: FetchFormUseCase {
                         .eraseToAnyPublisher()
                 }
                 
-                return fetchProcessStatus(forms: forms, type: .shipping)
+                return fetchProcessStatus(forms: forms, type: .shippingForm)
             }
             .eraseToAnyPublisher()
     }
@@ -69,7 +79,7 @@ extension FetchFormUseCaseImpl {
         //생성된 publisher는 하나의 배열에 담아 모든 결과가 도착할 때까지 대기
         for (i, form) in forms.enumerated() {
             switch type {
-            case .receiving:
+            case .receivingForm:
                 let publisher = fetchProcessStatusUseCase.executeForReceiving(id: form.id)
                     .map {
                         IdentifiedReponse(index: i, processStatus: $0)
@@ -77,7 +87,7 @@ extension FetchFormUseCaseImpl {
                     .eraseToAnyPublisher()
                 
                 publishers.append(publisher)
-            case .shipping:
+            case .shippingForm:
                 let publisher = fetchProcessStatusUseCase.executeForShipping(id: form.id)
                     .map {
                         IdentifiedReponse(index: i, processStatus: $0)
@@ -85,6 +95,12 @@ extension FetchFormUseCaseImpl {
                     .eraseToAnyPublisher()
                 
                 publishers.append(publisher)
+            case .returnForm:
+                let publisher = fetchProcessStatusUseCase.executeForReturn(id: form.id)
+                    .map {
+                        IdentifiedReponse(index: i, processStatus: $0)
+                    }
+                    .eraseToAnyPublisher()
             }
         }
         

@@ -21,13 +21,13 @@ final class FormRepositoryImpl: RemoteRepository, FormRepository {
             .eraseToAnyPublisher()
     }
     
-    func fetchReturnForms() -> AnyPublisher<[ReceivingForm], any Error> {
+    func fetchReturnForms() -> AnyPublisher<[ReturnForm], any Error> {
         let apiEndPoint = Bundle.main.requestURL + "/api/takeback"
         
-        return dataSource.sendGetRequest(to: apiEndPoint, resultType: ReceivingFormsResponseDTO.self)
+        return dataSource.sendGetRequest(to: apiEndPoint, resultType: ReturnFormsResponseDTO.self)
             .map { dto in
-                dto.body.receivingResponseList.map {
-                    self.getReceivingFormData(from: $0)
+                dto.body.takeBackResponseList.map {
+                    self.getReturnForm(from: $0)
                 }
             }
             .eraseToAnyPublisher()
@@ -38,7 +38,7 @@ final class FormRepositoryImpl: RemoteRepository, FormRepository {
         
         return dataSource.sendGetRequest(to: apiEndPoint, resultType: ShippingFormsResponseDTO.self)
             .map { dto in
-                dto.body.shippingList.map {
+                dto.body.shipping.map {
                     self.getShippingForm(from: $0)
                 }
             }
@@ -69,13 +69,22 @@ final class FormRepositoryImpl: RemoteRepository, FormRepository {
                         items: response.goods.map { goods in self.getItem(from: goods) })
     }
     
-    private func getShippingForm(from response: ShippingData) -> ShippingForm {
-        return ShippingForm(id: response.shippingID,
-                            deliveryDate: response.deliveryDate,
-                            deliveryAddress: response.deliveryAddress,
-                            status: shippingProcess[response.status]?.status ?? "", 
-                            statusDescription: shippingProcess[response.status]?.description ?? "",
-                            deliveryManID: response.deliveryManID,
-                            items: response.goods.map { goods in self.getItem(from: goods) })
+    private func getShippingForm(from shipping: Shipping) -> ShippingForm {
+        return ShippingForm(id: shipping.shippingID,
+                            deliveryDate: shipping.deliveryDate,
+                            deliveryAddress: shipping.deliveryAddress,
+                            status: shippingProcess[shipping.status]?.status ?? "",
+                            statusDescription: shippingProcess[shipping.status]?.description ?? "",
+                            deliveryManID: shipping.deliveryMan,
+                            items: shipping.goods.map { goods in self.getItem(from: goods) })
+    }
+    
+    private func getReturnForm(from response: TakeBackResponse) -> ReturnForm {
+        return ReturnForm(id: response.id,
+                          status: returnProcess[response.status]?.status ?? "",
+                          statusDescription: returnProcess[response.status]?.description ?? "",
+                          takeBackRequestAt: response.takeBackRequestAt,
+                          items: response.goods.map { goods in self.getItem(from: goods) },
+                          userID: response.userID)
     }
 }

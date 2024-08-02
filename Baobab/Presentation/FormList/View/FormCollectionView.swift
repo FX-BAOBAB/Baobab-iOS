@@ -20,6 +20,7 @@ struct FormCollectionView<T: FormsViewModel>: UIViewRepresentable {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: listLayout)
         collectionView.register(ReceivingFormCollectionViewCell.self, forCellWithReuseIdentifier: ReceivingFormCollectionViewCell.reuseIdentifier)
         collectionView.register(ShippingFormCollectionViewCell.self, forCellWithReuseIdentifier: ShippingFormCollectionViewCell.reuseIdentifier)
+        collectionView.register(ReturnFormCollectionViewCell.self, forCellWithReuseIdentifier: ReturnFormCollectionViewCell.reuseIdentifier)
         collectionView.delegate = context.coordinator
         collectionView.dataSource = context.coordinator
         
@@ -58,7 +59,7 @@ struct FormCollectionView<T: FormsViewModel>: UIViewRepresentable {
         //MARK: - cell 구성
         func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
             switch parent.formType {
-            case .receiving:
+            case .receivingForm:
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ReceivingFormCollectionViewCell.reuseIdentifier, for: indexPath) as! ReceivingFormCollectionViewCell
                 
                 guard let content = parent.viewModel.forms?[indexPath.section] as? ReceivingForm else {
@@ -69,10 +70,21 @@ struct FormCollectionView<T: FormsViewModel>: UIViewRepresentable {
                 cell.backgroundColor = .white
                 
                 return cell
-            case .shipping:
+            case .shippingForm:
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ShippingFormCollectionViewCell.reuseIdentifier, for: indexPath) as! ShippingFormCollectionViewCell
                 
                 guard let content = parent.viewModel.forms?[indexPath.section] as? ShippingForm else {
+                    fatalError("Could not configuration cell contents")
+                }
+                
+                cell.content = content
+                cell.backgroundColor = .white
+                
+                return cell
+            case .returnForm:
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ReturnFormCollectionViewCell.reuseIdentifier, for: indexPath) as! ReturnFormCollectionViewCell
+                
+                guard let content = parent.viewModel.forms?[indexPath.section] as? ReturnForm else {
                     fatalError("Could not configuration cell contents")
                 }
                 
@@ -87,7 +99,7 @@ struct FormCollectionView<T: FormsViewModel>: UIViewRepresentable {
 
 #Preview {
     NavigationStack {
-        FormCollectionView<ReceivingFormsViewModel>(formType: .receiving)
+        FormCollectionView<ReceivingFormsViewModel>(formType: .receivingForm)
             .environmentObject(AppDI.shared.receivingFormsViewModel)
     }
 }

@@ -8,7 +8,7 @@
 import Foundation
 
 enum FormType {
-    case receiving
-    case shipping
-//    case returning
+    case receivingForm
+    case shippingForm
+    case returnForm
 }

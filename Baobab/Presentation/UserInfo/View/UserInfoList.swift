@@ -32,7 +32,7 @@ struct UserInfoList: View {
                 NavigationLink(destination: {
                     FormList(viewModel: AppDI.shared.receivingFormsViewModel, 
                              title: "입고 요청서",
-                             type: .receiving)
+                             type: .receivingForm)
                 }) {
                     UserInfoListRow(image: "receiving", title: "입고 요청서")
                 }
@@ -41,14 +41,16 @@ struct UserInfoList: View {
                 NavigationLink(destination: {
                     FormList(viewModel: AppDI.shared.shippingFormsViewModel, 
                              title: "출고 요청서",
-                             type: .shipping)
+                             type: .shippingForm)
                 }) {
                     UserInfoListRow(image: "shipping", title: "출고 요청서")
                 }
                 .listRowSeparator(.hidden)
                 
                 NavigationLink(destination: {
-                    EmptyView()
+                    FormList(viewModel: AppDI.shared.returnFormsViewModel,
+                             title: "반품 요청서",
+                             type: .returnForm)
                 }) {
                     UserInfoListRow(image: "takeBack", title: "반품 요청서")
                 }

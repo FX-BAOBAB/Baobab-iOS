@@ -33,6 +33,6 @@ struct FormList<T: FormsViewModel>: View {
 
 #Preview {
     NavigationStack {
-        FormList(viewModel: AppDI.shared.receivingFormsViewModel, title: "입고 요청서", type: .receiving)
+        FormList(viewModel: AppDI.shared.receivingFormsViewModel, title: "입고 요청서", type: .receivingForm)
     }
 }

@@ -58,7 +58,7 @@ extension ReceivingForm {
 struct ShippingForm: FormData {
     let id: Int
     let deliveryDate, deliveryAddress, status, statusDescription: String
-    let deliveryManID: Int
+    let deliveryManID: Int?
     var statusPercentile: Double?
     let items: [Item]
 }
@@ -76,5 +76,26 @@ extension ShippingForm {
                          items: [Item.sampleData[0]])
         ]
     }
+}
+#endif
+
+struct ReturnForm: FormData {
+    let id: Int
+    let status, statusDescription, takeBackRequestAt: String
+    let items: [Item]
+    let userID: Int
+    var statusPercentile: Double?
+}
+
+#if DEBUG
+extension ReturnForm {
+    static var sampleData: [Self] = [
+        ReturnForm(id: 0,
+                   status: "접수 중",
+                   statusDescription: "반품 접수가 완료되었습니다.",
+                   takeBackRequestAt: "2024-07-26T04:20:53.643Z",
+                   items: [Item.sampleData[0]],
+                   userID: 0)
+    ]
 }
 #endif
