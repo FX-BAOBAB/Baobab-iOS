@@ -34,7 +34,7 @@ final class ProcessStatusRepositoryImpl: RemoteRepository, ProcessStatusReposito
     }
     
     func fetchReturnStatus(for id: Int) -> AnyPublisher<ProcessStatus, any Error> {
-        let apiEndPoint = Bundle.main.requestURL + "/"
+        let apiEndPoint = Bundle.main.requestURL + "/takeback/process/\(id)"
         
         return dataSource.sendGetRequest(to: apiEndPoint, resultType: ProcessStatusResponseDTO.self)
             .map {
