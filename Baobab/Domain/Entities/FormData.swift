@@ -71,8 +71,9 @@ extension ShippingForm {
                          deliveryDate: "2024-07-26T04:20:53.643Z",
                          deliveryAddress: "테스트",
                          status: "출고 대기 중",
-                         statusDescription: "출고 대기 중 입니다.",
+                         statusDescription: "물품이 창고에서 출고 대기 중 입니다.",
                          deliveryManID: 0,
+                         statusPercentile: 0.2,
                          items: [Item.sampleData[0]])
         ]
     }
@@ -95,7 +96,8 @@ extension ReturnForm {
                    statusDescription: "반품 접수가 완료되었습니다.",
                    takeBackRequestAt: "2024-07-26T04:20:53.643Z",
                    items: [Item.sampleData[0]],
-                   userID: 0)
+                   userID: 0,
+                   statusPercentile: 0.3)
     ]
 }
 #endif

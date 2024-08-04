@@ -1,14 +1,14 @@
 //
-//  DetailedForm.swift
+//  ShippingDetailedForm.swift
 //  Baobab
 //
-//  Created by 이정훈 on 7/30/24.
+//  Created by 이정훈 on 8/2/24.
 //
 
 import SwiftUI
 
-struct DetailedForm: View {
-    let form: ReceivingForm
+struct ShippingDetailedForm: View {
+    let form: ShippingForm
     
     var body: some View {
         List {
@@ -16,20 +16,22 @@ struct DetailedForm: View {
                 VStack(alignment: .leading) {
                     Text(form.status)
                         .font(.headline)
-                        .padding([.bottom, .top])
+                        .padding(.top)
+                        .padding(.bottom, 40)
                     
-                    ProcessStatusBar(percentile: form.statusPercentile ?? 0)
+                    ProcessStatusBar(percentile: form.statusPercentile ?? 0, 
+                                     type: .shippingForm)
                     
                     Text(form.statusDescription)
                         .foregroundStyle(.gray)
                         .font(.subheadline)
                         .padding(.bottom)
                     
-                    Text("요청서 번호: \(form.id)")
+                    Text("요청서 번호 : \(form.id)")
                         .foregroundStyle(.gray)
                         .font(.subheadline)
                     
-                    Text("픽업 예정일: \(Date.toSimpleFormat(from: form.visitDate, format: .full))")
+                    Text("배송 예정일 : \(Date.toSimpleFormat(from: form.deliveryDate, format: .withoutTime))")
                         .foregroundStyle(.gray)
                         .font(.subheadline)
                 }
@@ -38,11 +40,11 @@ struct DetailedForm: View {
             
             Section(footer: SectionFooter()) {
                 VStack(alignment: .leading) {
-                    Text("방문지 정보")
+                    Text("배송지 정보")
                         .font(.headline)
                         .padding(.bottom)
                     
-                    Text(form.visitAddress)
+                    Text(form.deliveryAddress)
                         .font(.subheadline)
                         .foregroundStyle(.gray)
                 }
@@ -73,6 +75,6 @@ struct DetailedForm: View {
 
 #Preview {
     NavigationStack {
-        DetailedForm(form: ReceivingForm.sampleData[0])
+        ShippingDetailedForm(form: ShippingForm.sampleData[0])
     }
 }

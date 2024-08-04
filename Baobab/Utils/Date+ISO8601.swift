@@ -37,6 +37,7 @@ extension Date {
     
     enum DateFormat: String {
         case full = "yyyy년 MM월 dd일 HH:mm"
+        case withoutTime = "yyyy년 MM월 dd일"
         case simple = "MM/dd HH:mm"
     }
 }

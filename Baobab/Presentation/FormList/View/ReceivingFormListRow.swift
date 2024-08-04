@@ -60,7 +60,7 @@ struct ReceivingFormListRow: View {
                 SectionFooter()
             }
             .navigationDestination(isPresented: $isShowingDetailedView) {
-                DetailedForm(form: form)
+                ReceivingDetailedForm(form: form)
             }
         } else {
             Text("Hello World!")

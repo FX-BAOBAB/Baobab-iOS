@@ -26,10 +26,10 @@ let receivingProcess = [
 ]
 
 let shippingProcess = [
-    "PENDING": Process(id: 1, status: "출고 대기 중", description: "출고 대기 중 입니다."),
-    "REGISTERED": Process(id: 2, status: "출고 접수 완료", description: "출고 일정이 확정되었습니다."),
-    "DELIVERY": Process(id: 3, status: "출고 중", description: "물건을 안전하게 출고 중입니다."),
-    "SHIPPED": Process(id: 4, status: "출고 완료", description: "물건이 지정된 장소에 도착하였습니다."),
+    "PENDING": Process(id: 1, status: "출고 대기 중", description: "물품이 창고에서 출고 대기 중 입니다."),
+    "REGISTERED": Process(id: 2, status: "출고 접수 완료", description: "물품 출고 일정이 확정되었습니다."),
+    "DELIVERY": Process(id: 3, status: "출고 중", description: "물품을 안전하게 출고 중입니다."),
+    "SHIPPED": Process(id: 4, status: "출고 완료", description: "물품이 지정된 장소에 도착하였습니다."),
     "CLOSE": Process(id: 5, status: "CLOSE", description: "요청이 닫힌 상태입니다.")
 ]
 

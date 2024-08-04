@@ -60,7 +60,7 @@ struct ShippingFormListRow: View {
                 SectionFooter()
             }
             .navigationDestination(isPresented: $isShowingDetailedView) {
-                
+                ShippingDetailedForm(form: form)
             }
         } else {
             Text("Hello World!")
@@ -69,5 +69,7 @@ struct ShippingFormListRow: View {
 }
 
 #Preview {
-    ShippingFormListRow(form: ShippingForm.sampleData[0])
+    NavigationStack {
+        ShippingFormListRow(form: ShippingForm.sampleData[0])
+    }
 }

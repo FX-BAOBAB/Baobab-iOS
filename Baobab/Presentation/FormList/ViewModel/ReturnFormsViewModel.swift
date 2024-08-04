@@ -16,7 +16,6 @@ final class ReturnFormsViewModel: FormsViewModel {
     
     init(usecase: FetchFormUseCase) {
         self.usecase = usecase
-        forms = ReturnForm.sampleData
     }
     
     func fetchForms() {

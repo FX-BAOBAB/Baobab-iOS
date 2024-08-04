@@ -16,7 +16,6 @@ final class ShippingFormsViewModel: FormsViewModel {
     
     init(usecase: FetchFormUseCase) {
         self.usecase = usecase
-        self.forms = ShippingForm.sampleData
     }
     
     func fetchForms() {
