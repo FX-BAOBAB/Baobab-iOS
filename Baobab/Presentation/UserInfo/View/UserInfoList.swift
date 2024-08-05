@@ -106,6 +106,10 @@ struct UserInfoList: View {
             .alignmentGuide(.listRowSeparatorLeading) { _ in
                 return 0
             }
+            
+            Color.clear
+                .frame(height: UIScreen.main.bounds.width * 0.21)
+                .listRowSeparator(.hidden)
         }
         .listStyle(.plain)
     }
