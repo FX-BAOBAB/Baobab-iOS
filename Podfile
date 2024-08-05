@@ -6,6 +6,7 @@ use_frameworks!
 def pods
   pod 'Alamofire'
   pod 'SkeletonUI'
+  pod 'SnapKit'
 end
 
 target 'Baobab' do

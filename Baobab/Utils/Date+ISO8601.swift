@@ -19,4 +19,25 @@ extension Date {
         
         return String(isoString[startIndex...lastIndex]) + "Z"
     }
+    
+    static func toSimpleFormat(from isoString: String, format: DateFormat) -> String {
+        let isoFormatter = ISO8601DateFormatter()
+        isoFormatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
+        
+        guard let date = isoFormatter.date(from: isoString) else {
+            return ""
+        }
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeZone = TimeZone(identifier: "Asia/Seoul")
+        dateFormatter.dateFormat = format.rawValue
+        
+        return String(dateFormatter.string(from: date))
+    }
+    
+    enum DateFormat: String {
+        case full = "yyyy년 MM월 dd일 HH:mm"
+        case withoutTime = "yyyy년 MM월 dd일"
+        case simple = "MM/dd HH:mm"
+    }
 }

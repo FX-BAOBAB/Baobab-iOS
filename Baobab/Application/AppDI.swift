@@ -46,5 +46,73 @@ struct AppDI {
         return LoginViewModel(usecase: usecase)
     }
     
+    var userInfoViewModel: UserInfoViewModel {
+        let repository = UserRepositoryImpl(dataSource: dataSource)
+        let usecase = FetchuserInfoUserCaseImpl(repository: repository)
+        
+        return UserInfoViewModel(usecase: usecase)
+    }
+    
+    var settingViewModel: SettingViewModel {
+        let repository = TokenRepositoryImpl()
+        let usecase = FetchTokenUseCaseImpl(repository: repository)
+        
+        return SettingViewModel(usecase: usecase)
+    }
+    
+    private var fetchItemUseCase: FetchItemUseCaseImpl {
+        let repository = ItemRepositoryImpl(dataSource: dataSource)
+        
+        return FetchItemUseCaseImpl(repository: repository)
+    }
+    
+    var receivingItemsViewModel: ReceivingItemsViewModel {
+        return ReceivingItemsViewModel(usecase: fetchItemUseCase)
+    }
+    
+    var storedItemsViewModel: StoredItemsViewModel {
+        return StoredItemsViewModel(usecase: fetchItemUseCase)
+    }
+    
+    var shippingItemsViewModel: ShippingItemsViewModel {
+        return ShippingItemsViewModel(usecase: fetchItemUseCase)
+    }
+    
+    var shippedItemsViewModel: ShippedItemsViewModel {
+        return ShippedItemsViewModel(usecase: fetchItemUseCase)
+    }
+    
+    var returningItemsViewModel: ReturningItemsViewModel {
+        return ReturningItemsViewModel(usecase: fetchItemUseCase)
+    }
+    
+    var returnedItemsViewModel: ReturnedItemsViewModel {
+        return ReturnedItemsViewModel(usecase: fetchItemUseCase)
+    }
+    
+    var usedItemsViewModel: UsedItemsViewModel {
+        return UsedItemsViewModel(usecase: fetchItemUseCase)
+    }
+    
+    private var fetchFormsUseCase: FetchFormUseCase {
+        let formRepository = FormRepositoryImpl(dataSource: dataSource)
+        let processStatusRepository = ProcessStatusRepositoryImpl(dataSource: dataSource)
+        let fetchProcessStatusUseCase = FetchProcessStatusUseCaseImpl(repository: processStatusRepository)
+        
+        return FetchFormUseCaseImpl(fetchProcessStatusUseCase: fetchProcessStatusUseCase, repository: formRepository)
+    }
+    
+    var receivingFormsViewModel: ReceivingFormsViewModel {
+        return ReceivingFormsViewModel(usecase: fetchFormsUseCase)
+    }
+    
+    var shippingFormsViewModel: ShippingFormsViewModel {
+        return ShippingFormsViewModel(usecase: fetchFormsUseCase)
+    }
+    
+    var returnFormsViewModel: ReturnFormsViewModel {
+        return ReturnFormsViewModel(usecase: fetchFormsUseCase)
+    }
+    
     private init() {}
 }

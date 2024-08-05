@@ -9,6 +9,19 @@ import Combine
 import Foundation
 
 final class UserRepositoryImpl: RemoteRepository, UserRepository {
+    func fetchUserInfo() -> AnyPublisher<UserInfo, any Error> {
+        let apiEndPoint = Bundle.main.requestURL + "/users"
+        
+        return dataSource.sendGetRequest(to: apiEndPoint, resultType: UserInfoResponseDTO.self)
+            .map {
+                UserInfo(id: $0.body.id,
+                         name: $0.body.name,
+                         email: $0.body.email,
+                         role: $0.body.role)
+            }
+            .eraseToAnyPublisher()
+    }
+    
     func fetchAddresses() -> AnyPublisher<[Address], any Error> {
         let apiEndPoint = Bundle.main.requestURL + "/address"
         

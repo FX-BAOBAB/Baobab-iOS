@@ -91,7 +91,8 @@ struct LoginForm: View {
                 }
             }
             .navigationDestination(isPresented: $viewModel.isLoginSuccess) {
-                MainContentView()
+                MainTabView(isLoggedIn: $viewModel.isLoginSuccess)
+                    .navigationBarBackButtonHidden()
             }
             .alert(isPresented: $viewModel.isShowingLoginAlert) {
                 switch viewModel.alertType {
