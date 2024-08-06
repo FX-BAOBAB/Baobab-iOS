@@ -16,23 +16,30 @@ struct SelectedImage: View {
     let title: String
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 3) {
+        VStack(alignment: .center, spacing: 3) {
             Text(title)
                 .bold()
                 .font(.footnote)
-                .padding(.leading)
+                .foregroundStyle(.gray)
             
             if let imageData = viewModel.items[viewModel.itemIdx].itemImages[pos],
                let uiImage = UIImage(data: imageData) {
-                Image(uiImage: uiImage)
-                    .resizable()
-                    .frame(width: UIScreen.main.bounds.width * 0.4,
-                           height: UIScreen.main.bounds.width * 0.4)
-                    .cornerRadius(20)
-                    .onTapGesture {
-                        isShowDialog.toggle()
-                        selectedIndex = pos
-                    }
+                ZStack(alignment: .bottomTrailing) {
+                    Image(uiImage: uiImage)
+                        .resizable()
+                        .frame(width: UIScreen.main.bounds.width * 0.4,
+                               height: UIScreen.main.bounds.width * 0.4)
+                        .cornerRadius(20)
+                        .onTapGesture {
+                            isShowDialog.toggle()
+                            selectedIndex = pos
+                        }
+                    
+                    Image("ImageEdit")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 40)
+                }
             } else {
                 RoundedRectangle(cornerRadius: 20)
                     .frame(width: UIScreen.main.bounds.width * 0.4,

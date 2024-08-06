@@ -23,7 +23,7 @@ struct ImageRegistrationForm: View {
     var body: some View {
         ZStack {
             ScrollView(showsIndicators: false) {
-                VStack(spacing: UIScreen.main.bounds.height * 0.06) {
+                VStack(spacing: UIScreen.main.bounds.height * 0.04) {
                     HStack {
                         SelectedImage(isShowDialog: $isShowingDialog,
                                       selectedIndex: $selectedIndex,
@@ -85,7 +85,7 @@ struct ImageRegistrationForm: View {
             }
         }
         .navigationTitle("사진 등록")
-        .navigationBarTitleDisplayMode(.large)
+        .navigationBarTitleDisplayMode(.inline)
         .confirmationDialog("", isPresented: $isShowingDialog, actions: {
             Button("카메라") {
                 isShowingCamera.toggle()
