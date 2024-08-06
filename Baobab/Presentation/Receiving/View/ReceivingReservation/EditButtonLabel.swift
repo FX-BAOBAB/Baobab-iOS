@@ -12,9 +12,15 @@ struct EditButtonLabel: View {
         HStack(spacing: 5) {
             Image(systemName: "pencil")
             
-            Text("변경")
+            Text("방문지 변경 및 추가")
         }
         .bold()
+        .font(.footnote)
+        .padding()
+        .overlay {
+            RoundedRectangle(cornerRadius: 5)
+                .stroke()
+        }
     }
 }
 

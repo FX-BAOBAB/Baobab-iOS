@@ -21,6 +21,7 @@ struct SectionHeader<Content>: View where Content: View {
     var body: some View {
         HStack {
             Text(title)
+                .foregroundStyle(.gray)
                 .bold()
             
             Spacer()

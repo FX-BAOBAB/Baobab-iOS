@@ -16,13 +16,13 @@ struct ReceivingReservationForm: View {
     
     var body: some View {
         ZStack {
-            ScrollView(showsIndicators: false) {
+            ScrollView {
                 VStack {
-                    Section(header: SectionHeader(title: "날짜 선택"),
+                    Section(header: SectionHeader(title: "방문 날짜 선택"),
                             footer: SectionFooter()) {
                         RoundedRectangle(cornerRadius: 10)
                             .frame(height: UIScreen.main.bounds.width)
-                            .foregroundColor(.calendarGray)
+                            .foregroundColor(Color(red: 241 / 255, green: 243 / 255, blue: 245 / 255))
                             .padding([.leading, .trailing, .bottom])
                             .overlay {
                                 DatePicker("", selection: $viewModel.reservationDate, in: Date.tomorrow...)
@@ -31,16 +31,21 @@ struct ReceivingReservationForm: View {
                             }
                     }
                     
-                    Section(header: SectionHeader(title: "방문지 정보") {
-                        Button(action: { isShowingAddressList.toggle() }, label: { EditButtonLabel() })
-                    }) {
+                    Section(header: SectionHeader(title: "방문지 선택")) {
                         SelectedAddressDetail(showTag: true)
                             .environmentObject(viewModel)
                             .padding([.leading, .trailing, .bottom])
+                        
+                        Button {
+                            isShowingAddressList.toggle()
+                        } label: {
+                            EditButtonLabel()
+                        }
+                        .padding(.top)
                     }
                     
                     Color.white
-                        .frame(height: UIScreen.main.bounds.width * 0.2)
+                        .frame(height: UIScreen.main.bounds.width * 0.3)
                 }
             }
             
@@ -60,6 +65,7 @@ struct ReceivingReservationForm: View {
             .frame(maxHeight: .infinity, alignment: .bottom)
         }
         .navigationTitle("입고 예약")
+        .navigationBarTitleDisplayMode(.inline)
         .onAppear {
             UIDatePicker.appearance().minuteInterval = 10    //선택 가능한 시간을 10분 단위로 설정
             
