@@ -14,6 +14,7 @@ struct DefectRegistrationList: View {
     @State private var isShowingReservationForm: Bool = false
     @State private var isShowingItemAddtionSheet: Bool = false
     @State private var isShowingItemInformationForm: Bool = false
+    @Binding var isShowingReceivingForm: Bool
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -81,7 +82,7 @@ struct DefectRegistrationList: View {
             .padding()
         }
         .navigationTitle("결함등록")
-        .navigationBarItems(trailing: EditButton())
+        .navigationBarItems(leading: EditButton())
         .sheet(isPresented: $isShowingSheet) {
             NavigationStack {
                 DefectRegistrationForm(isShowingSheet: $isShowingSheet)
@@ -93,11 +94,11 @@ struct DefectRegistrationList: View {
             Text("결함은 최대 4개까지 등록 가능해요")
         })
         .navigationDestination(isPresented: $isShowingReservationForm) {
-            ReceivingReservationForm()
+            ReceivingReservationForm(isShowingReceivingForm: $isShowingReceivingForm)
                 .environmentObject(viewModel)
         }
         .navigationDestination(isPresented: $isShowingItemInformationForm) {
-            ItemInformationForm()
+            ItemInformationForm(isShowingReceivingForm: $isShowingReceivingForm)
                 .environmentObject(viewModel)
         }
         .sheet(isPresented: $isShowingItemAddtionSheet) {
@@ -108,12 +109,22 @@ struct DefectRegistrationList: View {
             .presentationDragIndicator(.visible)
             .environmentObject(viewModel)
         }
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                Button {
+                    isShowingReceivingForm.toggle()
+                } label: {
+                    Image(systemName: "xmark")
+                        .foregroundStyle(.black)
+                }
+            }
+        }
     }
 }
 
 #Preview {
     NavigationStack {
-        DefectRegistrationList()
+        DefectRegistrationList(isShowingReceivingForm: .constant(true))
             .environmentObject(AppDI.shared.receivingViewModel)
     }
 }

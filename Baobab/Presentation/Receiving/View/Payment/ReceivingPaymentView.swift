@@ -10,6 +10,7 @@ import SwiftUI
 struct ReceivingPaymentView: View {
     @EnvironmentObject private var viewModel: ReceivingViewModel
     @State private var isShowingCompletionView: Bool = false
+    @Binding var isShowingReceivingForm: Bool
     
     var body: some View {
         ZStack {
@@ -71,7 +72,7 @@ struct ReceivingPaymentView: View {
         }
         .navigationTitle("결제")
         .navigationDestination(isPresented: $viewModel.isShowingCompletionView) {
-            ReceiptCompletionView()
+            ReceiptCompletionView(isShowingReceivingForm: $isShowingReceivingForm)
                 .environmentObject(viewModel)
         }
         .alert(isPresented: $viewModel.isShowingAlert) {
@@ -88,12 +89,22 @@ struct ReceivingPaymentView: View {
                 Alert(title: Text(""))
             }
         }
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                Button {
+                    isShowingReceivingForm.toggle()
+                } label: {
+                    Image(systemName: "xmark")
+                        .foregroundStyle(.black)
+                }
+            }
+        }
     }
 }
 
 #Preview {
     NavigationStack {
-        ReceivingPaymentView()
+        ReceivingPaymentView(isShowingReceivingForm: .constant(true))
             .environmentObject(AppDI.shared.receivingViewModel)
     }
 }

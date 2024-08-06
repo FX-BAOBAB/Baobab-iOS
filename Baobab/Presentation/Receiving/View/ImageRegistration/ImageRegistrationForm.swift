@@ -18,6 +18,7 @@ struct ImageRegistrationForm: View {
     @State private var isShowingNewItemAdditionSheet: Bool = false
     @State private var isShowingDefectRegistrationList: Bool = false
     @State private var isShowingImageRegistrationCompleteSheet: Bool = false
+    @Binding var isShowingReceivingForm: Bool
     
     var body: some View {
         ZStack {
@@ -97,15 +98,15 @@ struct ImageRegistrationForm: View {
             Text("사진을 가져올 위치를 선택해 주세요")
         })
         .navigationDestination(isPresented: $isShowingReservationForm) {
-            ReceivingReservationForm()
+            ReceivingReservationForm(isShowingReceivingForm: $isShowingReceivingForm)
                 .environmentObject(viewModel)
         }
         .navigationDestination(isPresented: $isShowingItemInformationForm) {
-            ItemInformationForm()
+            ItemInformationForm(isShowingReceivingForm: $isShowingReceivingForm)
                 .environmentObject(viewModel)
         }
         .navigationDestination(isPresented: $isShowingDefectRegistrationList) {
-            DefectRegistrationList()
+            DefectRegistrationList(isShowingReceivingForm: $isShowingReceivingForm)
                 .environmentObject(viewModel)
         }
         .fullScreenCover(isPresented: $isShowingLibrary) {
@@ -134,12 +135,22 @@ struct ImageRegistrationForm: View {
                 .presentationDetents([.height(UIScreen.main.bounds.width * 0.6)])
                 .presentationDragIndicator(.visible)
         }
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                Button(action: {
+                    isShowingReceivingForm.toggle()
+                }) {
+                    Image(systemName: "xmark")
+                        .foregroundColor(.black)
+                }
+            }
+        }
     }
 }
 
 #Preview {
     NavigationStack {
-        ImageRegistrationForm()
+        ImageRegistrationForm(isShowingReceivingForm: .constant(true))
             .environmentObject(AppDI.shared.receivingViewModel)
     }
 }

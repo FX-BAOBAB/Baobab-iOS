@@ -12,6 +12,7 @@ struct ReceivingReservationForm: View {
     @State private var isShowingPostSearch: Bool = false
     @State private var isShowingAddressList: Bool = false
     @State private var isShowingPaymentView: Bool = false
+    @Binding var isShowingReceivingForm: Bool
     
     var body: some View {
         ZStack {
@@ -70,15 +71,25 @@ struct ReceivingReservationForm: View {
                 .presentationDragIndicator(.visible)
         }
         .navigationDestination(isPresented: $isShowingPaymentView) {
-            ReceivingPaymentView()
+            ReceivingPaymentView(isShowingReceivingForm: $isShowingReceivingForm)
                 .environmentObject(viewModel)
+        }
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                Button {
+                    isShowingReceivingForm.toggle()
+                } label: {
+                    Image(systemName: "xmark")
+                        .foregroundStyle(.black)
+                }
+            }
         }
     }
 }
 
 #Preview {
     NavigationStack {
-        ReceivingReservationForm()
+        ReceivingReservationForm(isShowingReceivingForm: .constant(true))
             .environmentObject(AppDI.shared.receivingViewModel)
     }
 }
