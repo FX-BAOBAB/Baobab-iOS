@@ -24,22 +24,24 @@ struct BorderedInputBox: View {
             Text(title)
                 .bold()
                 .font(.footnote)
+                .foregroundStyle(.gray)
                 .padding(.leading, 5)
             
-            Group {
-                if type == .normal {
-                    TextField(placeholder, text: $inputValue)
-                } else {
-                    SecureField(placeholder, text: $inputValue)
-                        .textContentType(.newPassword)
+            RoundedRectangle(cornerRadius: 10)
+                .fill(Color(red: 248 / 255, green: 249 / 255, blue: 250 / 255))
+                .frame(height: 50)
+                .overlay {
+                    Group {
+                        if type == .normal {
+                            TextField(placeholder, text: $inputValue)
+                        } else {
+                            SecureField(placeholder, text: $inputValue)
+                                .textContentType(.newPassword)
+                        }
+                    }
+                    .font(.subheadline)
+                    .padding(.leading)
                 }
-            }
-            .font(.subheadline)
-            .padding(12)
-            .overlay {
-                RoundedRectangle(cornerRadius: 10)
-                    .stroke(.gray, lineWidth: 1)
-            }
         }
     }
 }

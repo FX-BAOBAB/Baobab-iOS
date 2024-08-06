@@ -35,7 +35,7 @@ struct ItemInformationForm: View {
                 }
                 .padding()
                 .navigationTitle("물품 정보 입력")
-                .navigationBarTitleDisplayMode(.large)
+                .navigationBarTitleDisplayMode(.inline)
                 .navigationDestination(isPresented: $isShowingImageRegistrationForm) {
                     ImageRegistrationForm(isShowingReceivingForm: $isShowingReceivingForm)
                         .environmentObject(viewModel)
