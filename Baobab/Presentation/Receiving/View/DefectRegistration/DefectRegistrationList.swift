@@ -19,33 +19,10 @@ struct DefectRegistrationList: View {
     var body: some View {
         VStack(alignment: .leading) {
             List {
-                ForEach(0..<viewModel.items[viewModel.itemIdx].defects.count, id: \.self) { idx in
-                    if viewModel.items[viewModel.itemIdx].defects.count - 1 == idx {
-                        DefectRegistrationRow(defect: viewModel.items[viewModel.itemIdx].defects[idx])
-                            .alignmentGuide(.listRowSeparatorLeading) { _ in return 0 }
-                    } else {
-                        DefectRegistrationRow(defect: viewModel.items[viewModel.itemIdx].defects[idx])
-                    }
-                }
-                .onDelete(perform: viewModel.removeDefect(at:))
-                
-                Button(action: {
-                    if viewModel.items[viewModel.itemIdx].defects.count < 4 {
-                        isShowingSheet.toggle()
-                    } else {
-                        isShowingImageCountAlert.toggle()
-                    }
-                }, label: {
-                    HStack {
-                        Image(systemName: "plus.circle")
-                        
-                        Text("결함 추가하기")
-                    }
-                    .foregroundColor(.blue)
-                })
-                .padding([.top, .bottom], 10)
-                .alignmentGuide(.listRowSeparatorLeading) { _ in
-                    return 0
+                ForEach((0..<viewModel.items[viewModel.itemIdx].defects.count).reversed(), id: \.self) { idx in
+                    DefectInputRow(defect: viewModel.items[viewModel.itemIdx].defects[idx], index: idx)
+                        .environmentObject(viewModel)
+                        .listRowSeparator(.hidden)
                 }
             }
             .listStyle(.plain)
@@ -60,6 +37,8 @@ struct DefectRegistrationList: View {
             .font(.caption2)
             .foregroundColor(.gray)
             .padding([.leading, .trailing])
+            .padding(.bottom, 10)
+            .padding(.top, 5)
             
             Button(action: {
                 if viewModel.itemIdx >= 1 {
@@ -79,10 +58,10 @@ struct DefectRegistrationList: View {
             .buttonBorderShape(.roundedRectangle)
             .cornerRadius(10)
             .buttonStyle(.borderedProminent)
-            .padding()
+            .padding([.leading, .trailing, .bottom])
         }
         .navigationTitle("결함등록")
-        .navigationBarItems(leading: EditButton())
+        .navigationBarTitleDisplayMode(.inline)
         .sheet(isPresented: $isShowingSheet) {
             NavigationStack {
                 DefectRegistrationForm(isShowingSheet: $isShowingSheet)
@@ -110,6 +89,19 @@ struct DefectRegistrationList: View {
             .environmentObject(viewModel)
         }
         .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                Button {
+                    if viewModel.items[viewModel.itemIdx].defects.count < 4 {
+                        isShowingSheet.toggle()
+                    } else {
+                        isShowingImageCountAlert.toggle()
+                    }
+                } label: {
+                    Image(systemName: "plus.magnifyingglass")
+                        .foregroundStyle(.black)
+                }
+            }
+            
             ToolbarItem(placement: .topBarTrailing) {
                 Button {
                     isShowingReceivingForm.toggle()

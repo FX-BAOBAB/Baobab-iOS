@@ -21,4 +21,8 @@ extension ReceivingViewModel {
     func removeDefect(at offsets: IndexSet) {
         items[itemIdx].defects.remove(atOffsets: offsets)
     }
+    
+    func removeDefect(at index: Int) {
+        items[itemIdx].defects.remove(at: index)
+    }
 }

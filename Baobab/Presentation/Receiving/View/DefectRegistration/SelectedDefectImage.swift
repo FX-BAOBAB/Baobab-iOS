@@ -9,39 +9,50 @@ import SwiftUI
 
 struct SelectedDefectImage: View {
     @Binding var selectedImageData: Data?
+    @Binding var isShowingDialog: Bool
     
     var body: some View {
-        if let selectedImageData,
-        let uiImage = UIImage(data: selectedImageData){
+        if let selectedImageData, let uiImage = UIImage(data: selectedImageData){
             ZStack {
                 Image(uiImage: uiImage)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(maxWidth: .infinity)
+                    .frame(width: 100, height: 100)
                     .cornerRadius(10)
                 
-                RoundedRectangle(cornerRadius: 10)
-                    .frame(width: 60, height: 50)
-                    .foregroundColor(.black)
-                    .opacity(0.6)
+                Circle()
+                    .frame(width: 30)
+                    .foregroundStyle(.gray)
                     .overlay {
-                        Text("변경")
-                            .foregroundColor(.white)
+                        Image(systemName: "xmark")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 10)
+                            .foregroundStyle(.white)
+                    }
+                    .offset(x: 43, y: -43)
+                    .onTapGesture {
+                        withAnimation {
+                            self.selectedImageData = nil
+                        }
                     }
             }
         } else {
             RoundedRectangle(cornerRadius: 10)
                 .fill(Color(red: 243 / 255, green: 242 / 255, blue: 245 / 255))
                 .aspectRatio(contentMode: .fit)
-                .frame(maxWidth: .infinity)
+                .frame(width: 100, height: 100)
                 .overlay {
-                    CameraLabel(width: UIScreen.main.bounds.width * 0.15, 
-                                font: .body)
+                    CameraLabel(width: UIScreen.main.bounds.width * 0.07,
+                                font: .footnote)
+                }
+                .onTapGesture {
+                    isShowingDialog.toggle()
                 }
         }
     }
 }
 
 #Preview {
-    SelectedDefectImage(selectedImageData: .constant(nil))
+    SelectedDefectImage(selectedImageData: .constant(nil), isShowingDialog: .constant(false))
 }

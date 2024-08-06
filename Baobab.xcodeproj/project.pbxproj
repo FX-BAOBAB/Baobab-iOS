@@ -11,7 +11,7 @@
 		5C13D5AB2BF3082600CA0792 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C13D5AA2BF3082600CA0792 /* ImagePicker.swift */; };
 		5C1B84CE2BF20DDB00A99192 /* CheckMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1B84CD2BF20DDB00A99192 /* CheckMark.swift */; };
 		5C1B84D02BF2113200A99192 /* AppDI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1B84CF2BF2113200A99192 /* AppDI.swift */; };
-		5C405EEA2BF6F3C0006EE6F1 /* DefectRegistrationRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C405EE92BF6F3C0006EE6F1 /* DefectRegistrationRow.swift */; };
+		5C405EEA2BF6F3C0006EE6F1 /* DefectInputRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C405EE92BF6F3C0006EE6F1 /* DefectInputRow.swift */; };
 		5C405EEC2BF72ADB006EE6F1 /* ReceivingViewModel+Defect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C405EEB2BF72ADB006EE6F1 /* ReceivingViewModel+Defect.swift */; };
 		5C41ED912C07FD29001416D9 /* RemoteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C41ED902C07FD29001416D9 /* RemoteRepository.swift */; };
 		5C41ED932C080877001416D9 /* ReceivingViewModel+Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C41ED922C080877001416D9 /* ReceivingViewModel+Address.swift */; };
@@ -252,7 +252,7 @@
 		5C13D5AA2BF3082600CA0792 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		5C1B84CD2BF20DDB00A99192 /* CheckMark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckMark.swift; sourceTree = "<group>"; };
 		5C1B84CF2BF2113200A99192 /* AppDI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDI.swift; sourceTree = "<group>"; };
-		5C405EE92BF6F3C0006EE6F1 /* DefectRegistrationRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefectRegistrationRow.swift; sourceTree = "<group>"; };
+		5C405EE92BF6F3C0006EE6F1 /* DefectInputRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefectInputRow.swift; sourceTree = "<group>"; };
 		5C405EEB2BF72ADB006EE6F1 /* ReceivingViewModel+Defect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReceivingViewModel+Defect.swift"; sourceTree = "<group>"; };
 		5C41ED902C07FD29001416D9 /* RemoteRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteRepository.swift; sourceTree = "<group>"; };
 		5C41ED922C080877001416D9 /* ReceivingViewModel+Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReceivingViewModel+Address.swift"; sourceTree = "<group>"; };
@@ -769,7 +769,7 @@
 				5C994A512BF58A880013672B /* DefectRegistrationForm.swift */,
 				5C994A532BF592E60013672B /* SelectedDefectImage.swift */,
 				5C994A552BF5EA960013672B /* DefectImagePicker.swift */,
-				5C405EE92BF6F3C0006EE6F1 /* DefectRegistrationRow.swift */,
+				5C405EE92BF6F3C0006EE6F1 /* DefectInputRow.swift */,
 			);
 			path = DefectRegistration;
 			sourceTree = "<group>";
@@ -1622,7 +1622,7 @@
 				8E3894512C4CEF80008F140B /* EditButtonLabel.swift in Sources */,
 				8E7BC8D02C3E52BF00CB708F /* TokenKeyChain.swift in Sources */,
 				8EBFCE462C53300C00A2AB4F /* ImageData.swift in Sources */,
-				5C405EEA2BF6F3C0006EE6F1 /* DefectRegistrationRow.swift in Sources */,
+				5C405EEA2BF6F3C0006EE6F1 /* DefectInputRow.swift in Sources */,
 				8E7B6C442C52227300222721 /* ShippedItemsViewModel.swift in Sources */,
 				5C80F0F82C06DD0F00A94C22 /* DefaultAddressResponseDTO.swift in Sources */,
 				8E7BC8D42C3E6ACE00CB708F /* TokenRepositroy.swift in Sources */,
