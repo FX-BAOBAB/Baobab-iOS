@@ -28,21 +28,50 @@ struct DetailAddressForm<T: PostSearchable>: View {
             
             Spacer()
             
-            Button(action: {
-                viewModel.registerAsSelectedAddress()
-                isShowingPostSearchForm.toggle()
-                isShowingAddressList.toggle()
-            }, label: {
-                Text("방문지로 등록")
+            HStack {
+                Button {
+                    isShowingPostSearchForm.toggle()
+                    isShowingAddressList.toggle()
+                } label: {
+                    HStack(spacing: 5) {
+                        Image(systemName: "xmark")
+                        
+                        Text("취소")
+                    }
                     .bold()
                     .frame(maxWidth: .infinity)
-                    .padding(8)
-            })
-            .buttonBorderShape(.roundedRectangle)
-            .cornerRadius(10)
-            .buttonStyle(.borderedProminent)
+                    .foregroundStyle(.white)
+                    .padding()
+                    .background(Color(red: 52 / 255, green: 58 / 255, blue: 64 / 255))
+                }
+                .buttonBorderShape(.roundedRectangle)
+                .cornerRadius(10)
+                
+                Button {
+                    viewModel.registerAsSelectedAddress()
+                    isShowingPostSearchForm.toggle()
+                    isShowingAddressList.toggle()
+                } label: {
+                    HStack(spacing: 8) {
+                        Image("CheckCircle")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 20)
+                        
+                        Text("확인")
+                    }
+                    .bold()
+                    .frame(maxWidth: .infinity)
+                    .foregroundStyle(.white)
+                    .padding()
+                    .background(.accent)
+                }
+                .buttonBorderShape(.roundedRectangle)
+                .cornerRadius(10)
+            }
         }
         .padding()
+        .navigationBarBackButtonHidden()
     }
 }
 
