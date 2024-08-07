@@ -15,7 +15,7 @@ struct ReceivingPaymentView: View {
     var body: some View {
         ZStack {
             List {
-                Section(header: Text("입고물품").foregroundColor(.black), footer: SectionFooter()) {
+                Section(header: Text("물품 및 결제정보")) {
                     ForEach(0..<viewModel.itemIdx + 1, id: \.self) { idx in
                         ItemListRow(idx: idx)
                             .environmentObject(viewModel)
@@ -25,7 +25,7 @@ struct ReceivingPaymentView: View {
                 }
                 .listSectionSeparator(.hidden)
                 
-                Section(header: Text("결제금액").foregroundColor(.black)) {
+                Section(header: Text("결제금액")) {
                     PaymentDetail()
                         .environmentObject(viewModel)
                 }
@@ -71,6 +71,7 @@ struct ReceivingPaymentView: View {
             }
         }
         .navigationTitle("결제")
+        .navigationBarTitleDisplayMode(.inline)
         .navigationDestination(isPresented: $viewModel.isShowingCompletionView) {
             ReceiptCompletionView(isShowingReceivingForm: $isShowingReceivingForm)
                 .environmentObject(viewModel)

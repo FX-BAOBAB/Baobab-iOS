@@ -28,7 +28,7 @@ struct ItemListRow: View {
             VStack(alignment: .leading) {
                 Text(viewModel.items[idx].itemName)
                 
-                Text(viewModel.items[idx].korCategory ?? "")
+                Text(viewModel.items[idx].korCategory)
                 
                 Text("\(viewModel.items[idx].itemQuantity)개")
             }
@@ -40,7 +40,7 @@ struct ItemListRow: View {
         .overlay {
             RoundedRectangle(cornerRadius: 10)
                 .stroke(lineWidth: 1.0)
-                .foregroundColor(.gray)
+                .foregroundColor(.borderGray)
         }
     }
 }

@@ -62,7 +62,7 @@ struct AddressListRow: View {
         .overlay {
             RoundedRectangle(cornerRadius: 10)
                 .stroke()
-                .foregroundStyle(Color(red: 233 / 255, green: 236 / 255, blue: 239 / 255))
+                .foregroundStyle(.borderGray)
         }
     }
 }
