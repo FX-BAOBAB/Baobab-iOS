@@ -17,36 +17,38 @@ struct ReceivingReservationForm: View {
     var body: some View {
         ZStack {
             ScrollView {
-                VStack {
-                    Section(header: SectionHeader(title: "방문 날짜 선택"),
-                            footer: SectionFooter()) {
-                        RoundedRectangle(cornerRadius: 10)
-                            .frame(height: UIScreen.main.bounds.width)
-                            .foregroundColor(Color(red: 241 / 255, green: 243 / 255, blue: 245 / 255))
-                            .padding([.leading, .trailing, .bottom])
-                            .overlay {
-                                DatePicker("", selection: $viewModel.reservationDate, in: Date.tomorrow...)
-                                    .datePickerStyle(.graphical)
-                                    .padding([.leading, .trailing, .bottom], 30)
-                            }
-                    }
+                Section(footer: SectionFooter()) {
+                    DatePicker("", selection: $viewModel.reservationDate, in: Date.tomorrow...)
+                        .datePickerStyle(.graphical)
+                        .padding([.leading, .trailing])
                     
-                    Section(header: SectionHeader(title: "방문지 선택")) {
-                        SelectedAddressDetail(showTag: true)
-                            .environmentObject(viewModel)
-                            .padding([.leading, .trailing, .bottom])
+                    HStack(spacing: 5) {
+                        Image(systemName: "info.circle")
                         
-                        Button {
-                            isShowingAddressList.toggle()
-                        } label: {
-                            EditButtonLabel()
-                        }
-                        .padding(.top)
+                        Text("선택한 시간에 아래 방문지를 통해 입고 물품을 수령할 예정이에요.")
+                        
+                        Spacer()
                     }
-                    
-                    Color.white
-                        .frame(height: UIScreen.main.bounds.width * 0.3)
+                    .font(.caption2)
+                    .padding()
+                    .foregroundStyle(.gray)
                 }
+                
+                Section(header: SectionHeader(title: "방문지 선택")) {
+                    SelectedAddressDetail(showTag: true)
+                        .environmentObject(viewModel)
+                        .padding([.leading, .trailing, .bottom])
+                    
+                    Button {
+                        isShowingAddressList.toggle()
+                    } label: {
+                        EditButtonLabel()
+                    }
+                    .padding(.top)
+                }
+                
+                Color.clear
+                    .frame(height: UIScreen.main.bounds.width * 0.3)
             }
             
             Button(action: {
