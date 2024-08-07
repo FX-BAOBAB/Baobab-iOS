@@ -27,11 +27,10 @@ struct ReceiptCompletionView: View {
                     .padding(.bottom, UIScreen.main.bounds.width * 0.1)
                 
                 GroupBox(label: Text("방문지 정보")) {
-                    VStack(alignment: .leading, spacing: 15) {
+                    VStack(alignment: .leading) {
                         SelectedAddressDetail(showTag: false)
                             .environmentObject(viewModel)
                             .font(.caption)
-                            .padding(.top)
                         
                         Text(viewModel.reservationDate.toString())
                             .font(.caption)

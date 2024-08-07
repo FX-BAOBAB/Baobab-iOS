@@ -73,7 +73,7 @@ struct ReceivingPaymentView: View {
         .navigationTitle("결제")
         .navigationBarTitleDisplayMode(.inline)
         .navigationDestination(isPresented: $viewModel.isShowingCompletionView) {
-            ReceiptCompletionView(isShowingReceivingForm: $isShowingReceivingForm)
+            SimpleReceiptCompletionView(isShowingReceivingForm: $isShowingReceivingForm)
                 .environmentObject(viewModel)
         }
         .alert(isPresented: $viewModel.isShowingAlert) {
