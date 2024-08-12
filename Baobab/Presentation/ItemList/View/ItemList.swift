@@ -25,16 +25,25 @@ struct ItemList<T: ItemsViewModel>: View {
                         DetailedItemView(item: item, status: status)
                     }) {
                         ItemInfoRow(item: item)
+                            .padding([.top, .bottom])
                     }
+                    .listRowSeparator(.hidden)
                 }
             }
+            .listStyle(.plain)
+            .background(.listFooterGray)
+            .scrollContentBackground(.hidden)
         } else {
-            VStack {
-                Spacer()
+            ZStack {
+                Color.white
                 
-                ProgressView()
-                
-                Spacer()
+                VStack {
+                    Spacer()
+                    
+                    ProgressView()
+                    
+                    Spacer()
+                }
             }
             .onAppear {
                 viewModel.fetchItems()

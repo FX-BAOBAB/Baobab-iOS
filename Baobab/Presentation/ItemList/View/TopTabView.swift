@@ -32,18 +32,18 @@ struct TopTabView<A: View, B: View>: View {
                                 Text(firstTitle)
                                     .bold()
                                     .font(.headline)
-                                    .foregroundStyle(tab == selectedTab ? .blue : .gray)
+                                    .foregroundStyle(tab == selectedTab ? .accent : .gray)
                             } else {
                                 Text(secondTitle)
                                     .bold()
                                     .font(.headline)
-                                    .foregroundStyle(tab == selectedTab ? .blue : .gray)
+                                    .foregroundStyle(tab == selectedTab ? .accent : .gray)
                             }
                             
                             if tab == selectedTab {
                                 Rectangle()
                                     .frame(height: 3)
-                                    .foregroundColor(.blue)
+                                    .foregroundColor(.accent)
                                     .matchedGeometryEffect(id: "underline", in: animation)
                             } else {
                                 Color.clear.frame(height: 3)
@@ -66,24 +66,24 @@ struct TopTabView<A: View, B: View>: View {
             
             if selectedTab == .first {
                 firstView
-                    .gesture(DragGesture(minimumDistance: 0, coordinateSpace: .local)
-                        .onEnded { value in
-                            if value.translation.width < 0 {
-                                withAnimation {
-                                    selectedTab = .second
-                                }
-                            }
-                        })
+//                    .gesture(DragGesture(minimumDistance: 0, coordinateSpace: .local)
+//                        .onEnded { value in
+//                            if value.translation.width < 0 {
+//                                withAnimation {
+//                                    selectedTab = .second
+//                                }
+//                            }
+//                        })
             } else {
                 secondView
-                    .gesture(DragGesture(minimumDistance: 0, coordinateSpace: .local)
-                        .onEnded { value in
-                            if value.translation.width > 0 {
-                                withAnimation {
-                                    selectedTab = .first
-                                }
-                            }
-                        })
+//                    .gesture(DragGesture(minimumDistance: 0, coordinateSpace: .local)
+//                        .onEnded { value in
+//                            if value.translation.width > 0 {
+//                                withAnimation {
+//                                    selectedTab = .first
+//                                }
+//                            }
+//                        })
             }
         }
         .navigationTitle(title)
