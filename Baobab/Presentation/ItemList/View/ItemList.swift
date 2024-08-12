@@ -18,17 +18,27 @@ struct ItemList<T: ItemsViewModel>: View {
     }
     
     var body: some View {
-        if let items = viewModel.items {
+        if viewModel.items?.isEmpty == true {
+            EmptyItemView()
+                .onAppear {
+                    print("init EmptyItem View")
+                }
+        } else if let items = viewModel.items {
             List {
                 ForEach(items) { item in
-                    NavigationLink(destination: {
+                    NavigationLink {
                         DetailedItemView(item: item, status: status)
-                    }) {
+                    } label: {
                         ItemInfoRow(item: item)
+                            .padding([.top, .bottom])
                     }
+                    .listRowSeparator(.hidden)
                 }
             }
-        } else {
+            .listStyle(.plain)
+            .background(.listFooterGray)
+            .scrollContentBackground(.hidden)
+        } else if viewModel.items == nil {
             VStack {
                 Spacer()
                 

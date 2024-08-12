@@ -15,58 +15,65 @@ struct AddressList: View {
     
     var body: some View {
         NavigationStack {
-            VStack {
-                Text("방문지 변경")
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .font(.headline)
-                    .padding([.leading, .trailing, .top])
+            List {
+                Section(
+                    header: Text("기본 방문지")
+                        .padding(.bottom)
+                ) {
+                    AddressListRow(address: viewModel.defaultAddress)
+                        .listRowSeparator(.hidden)
+                }
                 
-                List {
-                    Section(header: Text("기본 방문지")) {
-                        AddressListRow(address: viewModel.defaultAddress)
-                            .padding(10)
-                            .alignmentGuide(.listRowSeparatorLeading) { _ in
-                                return 0    //List row 하단 구분선 여백 없음
+                Section(
+                    header: Text("등록된 방문지")
+                        .padding(.bottom)
+                ) {
+                    if viewModel.registeredAddresses.isEmpty {
+                        VStack(spacing: 20) {
+                            Image("noAddress")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 50)
+                            
+                            HStack {
+                                Spacer()
+                                
+                                Text("등록된 방문지 정보가 없어요 :(")
+                                    .foregroundStyle(.gray)
+                                
+                                Spacer()
                             }
-                    }
-                    
-                    Section(header: Text("등록된 방문지")) {
+                        }
+                        .padding(.top)
+                        .listRowSeparator(.hidden)
+                    } else {
                         ForEach(viewModel.registeredAddresses) { address in
                             AddressListRow(address: address)
                                 .padding(10)
-                                .alignmentGuide(.listRowSeparatorLeading) { _ in
-                                    return 0    //List row 하단 구분선 여백 없음
-                                }
+                                .listRowSeparator(.hidden)
                         }
                     }
                 }
-                .listStyle(.plain)
-                
-                Button(action: {
-                    isShowingPostCodeSearch = true
-                }, label: {
-                    Text("새로운 방문지 선택")
-                        .frame(maxWidth: .infinity)
-                        .padding()
-                        .overlay {
-                            RoundedRectangle(cornerRadius: 10)
-                                .stroke()
-                        }
-                        .foregroundColor(.gray)
-                })
-                .padding()
             }
+            .listStyle(.plain)
             .onAppear {
                 viewModel.fetchAddresses()
             }
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
-                    Button(action: {
-                        isShowingAddressList.toggle()
-                    }, label: {
-                        Image(systemName: "xmark")
-                            .foregroundColor(.black)
-                    })
+                    Button {
+                        isShowingPostCodeSearch = true
+                    } label: {
+                        Image(systemName: "plus.circle")
+                            .padding(.top)
+                    }
+                }
+                
+                ToolbarItem(placement: .topBarLeading) {
+                    Text("방문지 목록")
+                        .bold()
+                        .font(.title3)
+                        .padding(.top)
                 }
             }
             .fullScreenCover(isPresented: $isShowingPostCodeSearch) {

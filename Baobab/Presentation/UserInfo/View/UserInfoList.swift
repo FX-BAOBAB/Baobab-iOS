@@ -52,7 +52,7 @@ struct UserInfoList: View {
                              title: "반품 요청서",
                              type: .returnForm)
                 }) {
-                    UserInfoListRow(image: "takeBack", title: "반품 요청서")
+                    UserInfoListRow(image: "TakeBack", title: "반품 요청서")
                 }
             }
             .listSectionSeparator(.hidden, edges: .top)

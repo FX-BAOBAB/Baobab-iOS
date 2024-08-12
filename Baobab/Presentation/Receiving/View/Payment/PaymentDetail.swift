@@ -27,19 +27,22 @@ struct PaymentDetail: View {
                 .font(.subheadline)
             }
             
-            Rectangle()
-                .frame(height: 1)
-                .foregroundColor(.gray)
+            Divider()
             
-            HStack {
+            HStack(spacing: 5) {
                 Text("총 결제금액:")
                 
                 Spacer()
                 
-                Text("\(viewModel.totalPrice)원")
+                Text("\(viewModel.totalPrice)")
+                    .foregroundStyle(.accent)
+                
+                Text("원")
             }
             .bold()
-            .padding(.top)
+            .padding([.top, .bottom])
+            
+            Divider()
         }
     }
 }

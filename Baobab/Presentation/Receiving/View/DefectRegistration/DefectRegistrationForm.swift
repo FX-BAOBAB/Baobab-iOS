@@ -19,15 +19,13 @@ struct DefectRegistrationForm: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 20) {
                 VStack(alignment: .leading) {
-                    Text("사진추가")
+                    Text("이미지")
                         .font(.subheadline)
                         .bold()
-                        .padding(.leading, 10)
+                        .foregroundStyle(.gray)
                     
-                    SelectedDefectImage(selectedImageData: $viewModel.selectedDefectImage)
-                        .onTapGesture {
-                            isShowingDialog.toggle()
-                        }
+                    SelectedDefectImage(selectedImageData: $viewModel.selectedDefectImage,
+                                        isShowingDialog: $isShowingDialog)
                     
                     HStack(spacing: 5) {
                         Image(systemName: "info.circle")
@@ -35,7 +33,6 @@ struct DefectRegistrationForm: View {
                         Text("사진 선택 시 외관의 상태가 잘 확인될 수 있는 사진을 선택해 주세요.")
                     }
                     .font(.caption2)
-                    .padding(.leading, 10)
                     .padding(.top, 5)
                 }
                 .padding(.bottom, 10)
@@ -44,17 +41,14 @@ struct DefectRegistrationForm: View {
                     Text("상세설명")
                         .font(.subheadline)
                         .bold()
-                        .padding(.leading, 10)
+                        .foregroundStyle(.gray)
                     
                     TextField("물품 외관의 흠집이나 상태와 관련된 메모를 남겨주세요.", text: $viewModel.defectDescription, axis: .vertical)
-                        .lineLimit(Int(UIScreen.main.bounds.height * 0.008), reservesSpace: true)
+                        .lineLimit(Int(UIScreen.main.bounds.height * 0.02), reservesSpace: true)
                         .padding()
                         .font(.subheadline)
-                        .overlay {
-                            RoundedRectangle(cornerRadius: 10)
-                                .stroke()
-                                .foregroundColor(.gray)
-                        }
+                        .background(Color(red: 248 / 255, green: 249 / 255, blue: 250 / 255))
+                        .cornerRadius(10)
                 }
             }
             .padding()

@@ -44,7 +44,13 @@ extension DefectImagePicker {
         
         //MARK: - Delegate method executed after Image Selection
         func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-            if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            /*
+             - 이미지는 정방형으로 크롭
+             - UIImage를 Data 타입으로 변경하여 저장
+             - 이미지는 4MB 내외 JPEG 형식으로 다운스케일하여 저장
+             */
+            
+            if let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
                 image
                     .cropToSquare()
                     .downscaleToJpegData(maxBytes: 4_194_304) { jpegImage in
@@ -53,9 +59,6 @@ extension DefectImagePicker {
                                 return
                             }
                             
-                            //이미지는 정방형으로 크롭
-                            //UIImage를 Data 타입으로 변경하여 저장
-                            //이미지는 4MB 내외 JPEG 형식으로 다운스케일하여 저장
                             imagePicker.selectedImage = jpegImage
                             imagePicker.dismiss()
                         }

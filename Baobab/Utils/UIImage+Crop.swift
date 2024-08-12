@@ -23,6 +23,6 @@ extension UIImage {
             return self
         }
         
-        return UIImage(cgImage: croppedCGImage, scale: self.scale, orientation: self.imageOrientation)
+        return UIImage(cgImage: croppedCGImage)
     }
 }

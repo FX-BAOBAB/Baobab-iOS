@@ -49,7 +49,7 @@ extension ImagePicker {
         //MARK: - Delegate method executed after Image Selection
         func imagePickerController(_ picker: UIImagePickerController, 
                                    didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-            if let uiImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            if let uiImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
                 uiImage
                     .cropToSquare()
                     .downscaleToJpegData(maxBytes: 4_194_304) { imageData in

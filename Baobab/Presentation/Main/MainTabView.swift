@@ -21,7 +21,7 @@ struct MainTabView: View {
     var body: some View {
         ZStack {
             TabView(selection: $selectedTab) {
-                MainView()
+                MainView(selectedTab: $selectedTab)
                     .toolbar(.hidden, for: .tabBar)
                     .tag(Tab.home)
                 

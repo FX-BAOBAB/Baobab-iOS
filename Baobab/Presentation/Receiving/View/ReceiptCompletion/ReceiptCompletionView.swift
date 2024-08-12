@@ -10,6 +10,7 @@ import SwiftUI
 
 struct ReceiptCompletionView: View {
     @EnvironmentObject private var viewModel: ReceivingViewModel
+    @Binding var isShowingReceivingForm: Bool
     
     var body: some View {
         ZStack {
@@ -26,11 +27,10 @@ struct ReceiptCompletionView: View {
                     .padding(.bottom, UIScreen.main.bounds.width * 0.1)
                 
                 GroupBox(label: Text("방문지 정보")) {
-                    VStack(alignment: .leading, spacing: 15) {
+                    VStack(alignment: .leading) {
                         SelectedAddressDetail(showTag: false)
                             .environmentObject(viewModel)
                             .font(.caption)
-                            .padding(.top)
                         
                         Text(viewModel.reservationDate.toString())
                             .font(.caption)
@@ -56,14 +56,14 @@ struct ReceiptCompletionView: View {
             .padding()
             .navigationBarBackButtonHidden()
             
-            Button(action: {
-                
-            }, label: {
+            Button {
+                isShowingReceivingForm.toggle()
+            } label: {
                 Text("완료")
                     .bold()
                     .frame(maxWidth: .infinity)
                     .padding(8)
-            })
+            }
             .buttonBorderShape(.roundedRectangle)
             .cornerRadius(10)
             .buttonStyle(.borderedProminent)
@@ -75,6 +75,6 @@ struct ReceiptCompletionView: View {
 }
 
 #Preview {
-    ReceiptCompletionView()
+    ReceiptCompletionView(isShowingReceivingForm: .constant(true))
         .environmentObject(AppDI.shared.receivingViewModel)
 }

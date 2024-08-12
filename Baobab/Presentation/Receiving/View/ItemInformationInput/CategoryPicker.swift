@@ -16,40 +16,45 @@ struct CategoryPicker: View {
             Text("카테고리")
                 .bold()
                 .font(.footnote)
+                .foregroundStyle(.gray)
                 .padding(.leading, 5)
             
-            Button(action: {
-                showCetegoryList.toggle()
-            }, label: {
-                HStack {
-                    if viewModel.items[viewModel.itemIdx].korCategory != nil {
-                        Text(viewModel.items[viewModel.itemIdx].korCategory)
-                    } else {
-                        Text("카테고리 선택")
-                    }
-                    
-                    Spacer()
-                    
-                    Image(systemName: "chevron.right")
-                        .foregroundColor(.gray)
+            RoundedRectangle(cornerRadius: 10)
+                .fill(Color(red: 248 / 255, green: 249 / 255, blue: 250 / 255))
+                .frame(height: 50)
+                .overlay {
+                    Button(action: {
+                        showCetegoryList.toggle()
+                    }, label: {
+                        HStack {
+                            if viewModel.items[viewModel.itemIdx].korCategory != nil {
+                                Text(viewModel.items[viewModel.itemIdx].korCategory)
+                            } else {
+                                Text("카테고리 선택")
+                                    .foregroundStyle(.black)
+                            }
+                            
+                            Spacer()
+                            
+                            Image(systemName: "chevron.right")
+                                .foregroundColor(.gray)
+                        }
+                        .font(.subheadline)
+                        .padding(12)
+                    })
+                    .buttonStyle(.borderless)
                 }
-                .font(.subheadline)
-                .padding(12)
-            })
-            .buttonStyle(.borderless)
-            .overlay {
-                RoundedRectangle(cornerRadius: 10)
-                    .stroke(.gray, lineWidth: 1)
-            }
-            .navigationDestination(isPresented: $showCetegoryList, destination: {
-                CategoryList()
-                    .environmentObject(viewModel)
-            })
+                .navigationDestination(isPresented: $showCetegoryList, destination: {
+                    CategoryList()
+                        .environmentObject(viewModel)
+                })
         }
     }
 }
 
 #Preview {
-    CategoryPicker()
-        .environmentObject(AppDI.shared.receivingViewModel)
+    NavigationStack {
+        CategoryPicker()
+            .environmentObject(AppDI.shared.receivingViewModel)
+    }
 }

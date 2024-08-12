@@ -10,6 +10,7 @@ import SwiftUI
 struct ItemInformationForm: View {
     @EnvironmentObject private var viewModel: ReceivingViewModel
     @State private var isShowingImageRegistrationForm: Bool = false
+    @Binding var isShowingReceivingForm: Bool
     
     var body: some View {
         ZStack {
@@ -34,9 +35,9 @@ struct ItemInformationForm: View {
                 }
                 .padding()
                 .navigationTitle("물품 정보 입력")
-                .navigationBarTitleDisplayMode(.large)
+                .navigationBarTitleDisplayMode(.inline)
                 .navigationDestination(isPresented: $isShowingImageRegistrationForm) {
-                    ImageRegistrationForm()
+                    ImageRegistrationForm(isShowingReceivingForm: $isShowingReceivingForm)
                         .environmentObject(viewModel)
                 }
             }
@@ -64,12 +65,22 @@ struct ItemInformationForm: View {
             .frame(maxHeight: .infinity, alignment: .bottom)
             .ignoresSafeArea(.keyboard)
         }
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                Button(action: {
+                    isShowingReceivingForm.toggle()
+                }) {
+                    Image(systemName: "xmark")
+                        .foregroundColor(.black)
+                }
+            }
+        }
     }
 }
 
 #Preview {
     NavigationStack {
-        ItemInformationForm()
+        ItemInformationForm(isShowingReceivingForm: .constant(true))
             .environmentObject(AppDI.shared.receivingViewModel)
     }
 }

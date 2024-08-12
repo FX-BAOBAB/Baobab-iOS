@@ -10,11 +10,12 @@ import SwiftUI
 struct ReceivingPaymentView: View {
     @EnvironmentObject private var viewModel: ReceivingViewModel
     @State private var isShowingCompletionView: Bool = false
+    @Binding var isShowingReceivingForm: Bool
     
     var body: some View {
         ZStack {
             List {
-                Section(header: Text("입고물품").foregroundColor(.black), footer: SectionFooter()) {
+                Section(header: Text("물품 및 결제정보")) {
                     ForEach(0..<viewModel.itemIdx + 1, id: \.self) { idx in
                         ItemListRow(idx: idx)
                             .environmentObject(viewModel)
@@ -24,7 +25,7 @@ struct ReceivingPaymentView: View {
                 }
                 .listSectionSeparator(.hidden)
                 
-                Section(header: Text("결제금액").foregroundColor(.black)) {
+                Section(header: Text("결제금액")) {
                     PaymentDetail()
                         .environmentObject(viewModel)
                 }
@@ -70,8 +71,9 @@ struct ReceivingPaymentView: View {
             }
         }
         .navigationTitle("결제")
+        .navigationBarTitleDisplayMode(.inline)
         .navigationDestination(isPresented: $viewModel.isShowingCompletionView) {
-            ReceiptCompletionView()
+            SimpleReceiptCompletionView(isShowingReceivingForm: $isShowingReceivingForm)
                 .environmentObject(viewModel)
         }
         .alert(isPresented: $viewModel.isShowingAlert) {
@@ -88,12 +90,22 @@ struct ReceivingPaymentView: View {
                 Alert(title: Text(""))
             }
         }
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                Button {
+                    isShowingReceivingForm.toggle()
+                } label: {
+                    Image(systemName: "xmark")
+                        .foregroundStyle(.black)
+                }
+            }
+        }
     }
 }
 
 #Preview {
     NavigationStack {
-        ReceivingPaymentView()
+        ReceivingPaymentView(isShowingReceivingForm: .constant(true))
             .environmentObject(AppDI.shared.receivingViewModel)
     }
 }

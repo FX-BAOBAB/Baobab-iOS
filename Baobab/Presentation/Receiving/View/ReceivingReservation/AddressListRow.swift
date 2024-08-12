@@ -14,30 +14,42 @@ struct AddressListRow: View {
     
     var body: some View {
         HStack(spacing: 20) {
-            Image(systemName: "mappin.and.ellipse")
+            Image("pin")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 25)
-                .skeleton(with: address == nil, shape: .rectangle)
+                .skeleton(with: address == nil,
+                          size: CGSize(width: 40, height: 60),
+                          shape: .rounded(.radius(10, style: .circular)))
             
             VStack(alignment: .leading) {
                 Text(address?.post ?? "")
+                    .skeleton(with: address == nil,
+                              size: CGSize(width: 50, height: 10),
+                              shape: .rounded(.radius(5, style: .circular))
+                    )
                 
                 Text(address?.address ?? "")
+                    .skeleton(with: address == nil,
+                              size: CGSize(width: 150, height: 10),
+                              shape: .rounded(.radius(5, style: .circular))
+                    )
                 
                 Text(address?.detailAddress ?? "")
+                    .skeleton(with: address == nil,
+                              size: CGSize(width: 150, height: 10),
+                              shape: .rounded(.radius(5, style: .circular))
+                    )
             }
             .font(.footnote)
-            .skeleton(with: address == nil,
-                      shape: .rectangle,
-                      lines: 3)
             
             Spacer()
             
             if viewModel.selectedAddress?.id == address?.id {
                 CheckMark()
                     .skeleton(with: address == nil,
-                              shape: .rectangle)
+                              size: CGSize(width: 20, height: 20),
+                              shape: .circle)
             } else {
                 Button(action: {
                     viewModel.selectedAddress = address
@@ -45,6 +57,12 @@ struct AddressListRow: View {
                     EmptyCircle()
                 })
             }
+        }
+        .padding()
+        .overlay {
+            RoundedRectangle(cornerRadius: 10)
+                .stroke()
+                .foregroundStyle(.borderGray)
         }
     }
 }
