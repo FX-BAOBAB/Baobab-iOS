@@ -27,7 +27,11 @@ final class ShippedItemsViewModel: ItemsViewModel {
                     print("ShippedItemsViewModel.fetchItems() error : ", error)
                 }
             }, receiveValue: { [weak self] in
-                self?.items = $0
+                if let items = $0 {
+                    self?.items = items
+                } else {
+                    self?.items = []
+                }
             })
             .store(in: &cancellables)
     }

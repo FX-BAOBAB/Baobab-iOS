@@ -8,7 +8,7 @@
 import Combine
 
 protocol FetchItemUseCase {
-    func execute(for status: ItemStatus) -> AnyPublisher<[Item], any Error>
+    func execute(for status: ItemStatus) -> AnyPublisher<[Item]?, any Error>
 }
 
 final class FetchItemUseCaseImpl: FetchItemUseCase {
@@ -18,7 +18,7 @@ final class FetchItemUseCaseImpl: FetchItemUseCase {
         self.repository = repository
     }
     
-    func execute(for status: ItemStatus) -> AnyPublisher<[Item], any Error> {
+    func execute(for status: ItemStatus) -> AnyPublisher<[Item]?, any Error> {
         return repository.fetchItemList(for: status)
     }
 }
