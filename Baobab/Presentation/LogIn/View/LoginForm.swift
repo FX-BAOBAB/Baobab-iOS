@@ -8,12 +8,8 @@
 import SwiftUI
 
 struct LoginForm: View {
-    @ObservedObject private var viewModel: LoginViewModel
+    @EnvironmentObject private var viewModel: LoginViewModel
     @State private var isShowingSignUpForm: Bool = false
-    
-    init(viewModel: LoginViewModel) {
-        _viewModel = ObservedObject(wrappedValue: viewModel)
-    }
     
     var body: some View {
         NavigationStack {
@@ -24,11 +20,11 @@ struct LoginForm: View {
                     .padding(.bottom, 60)
                 
                 LoginInputBox(input: $viewModel.email,
-                              placeholder: "이메일을 입력해주세요",
+                              placeholder: "이메일을 입력해 주세요",
                               type: .normal)
                 
                 LoginInputBox(input: $viewModel.password,
-                              placeholder: "비밀번호를 입력해주세요",
+                              placeholder: "비밀번호를 입력해 주세요",
                               type: .secure)
                     .padding(.top, 10)
                 
@@ -70,15 +66,6 @@ struct LoginForm: View {
                             .underline()
                             .foregroundColor(.black)
                     }
-                    
-                    Button(action: {
-                        Task {
-                            await TokenKeyChain.delete(for: "accessToken")
-                            await TokenKeyChain.delete(for: "refreshToken")
-                        }
-                    }, label: {
-                        Text("토큰 삭제")
-                    })
                 }
                 .padding(.top)
             }
@@ -91,8 +78,8 @@ struct LoginForm: View {
                 }
             }
             .navigationDestination(isPresented: $viewModel.isLoginSuccess) {
-                MainTabView(isLoggedIn: $viewModel.isLoginSuccess)
-                    .navigationBarBackButtonHidden()
+                MainTabView(viewModel: AppDI.shared.mainViewModel,
+                            isLoggedIn: $viewModel.isLoginSuccess)
             }
             .alert(isPresented: $viewModel.isShowingLoginAlert) {
                 switch viewModel.alertType {
@@ -109,5 +96,6 @@ struct LoginForm: View {
 }
 
 #Preview {
-    LoginForm(viewModel: AppDI.shared.loginViewModel)
+    LoginForm()
+        .environmentObject(AppDI.shared.loginViewModel)
 }

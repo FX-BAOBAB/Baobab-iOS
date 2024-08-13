@@ -6,12 +6,41 @@
 //
 
 import SwiftUI
+import Foundation
 
 @main
 struct BaobabApp: App {
+    @ObservedObject private var viewModel: LoginViewModel = AppDI.shared.loginViewModel
+    
     var body: some Scene {
         WindowGroup {
-            LoginForm(viewModel: AppDI.shared.loginViewModel)
+            if viewModel.isShowingLaunchScreen {
+                ZStack {
+                    LaunchScreenView()
+                        .ignoresSafeArea()
+                        .onAppear {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                                if UserDefaults.standard.bool(forKey: "isAutoLogin") && UserDefaults.standard.bool(forKey: "hasToken") {
+                                    //자동 로그인이 활성화 되어 있으면
+                                    //기존의 refreshToken을 활용하여 accessToken 업데이트
+                                    viewModel.updateRefreshToken()
+                                } else {
+                                    //자동 로그인이 활성화 되어 있지 않으면
+                                    //삭제 되지 않은 토큰 제거 후 로그인 화면으로 이동
+                                    viewModel.deleteToken()
+                                }
+                            }
+                        }
+                    
+                    if viewModel.isAsyncTaskProgress {
+                        ProgressView()
+                            .tint(.white)
+                    }
+                }
+            } else {
+                LoginForm()
+                    .environmentObject(viewModel)
+            }
         }
     }
 }

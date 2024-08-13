@@ -38,11 +38,14 @@ struct AppDI {
     }
     
     var loginViewModel: LoginViewModel {
-        let repository = LoginRepositoryImpl(dataSource: dataSource)
-        let TokenRepository = TokenRepositoryImpl()
-        let fetchTokenUsecase = FetchTokenUseCaseImpl(repository: TokenRepository)
-        let usecase = LoginUseCaseImpl(fetchTokenUseCase: fetchTokenUsecase, repository: repository)
-        
+        let loginRepository = LoginRepositoryImpl(dataSource: dataSource)
+        let remoteTokenRepository = RemoteTokenRepositoryImpl(dataSource: dataSource)
+        let localTokenRepository = TokenRepositoryImpl()
+        let fetchTokenUseCase = FetchTokenUseCaseImpl(repository: localTokenRepository)
+        let updateTokenUseCase = UpdateAccessTokenUseCaseImpl(repository: remoteTokenRepository)
+        let usecase = LoginUseCaseImpl(fetchTokenUseCase: fetchTokenUseCase,
+                                       updateAccessTokenUseCase: updateTokenUseCase,
+                                       repository: loginRepository)
         return LoginViewModel(usecase: usecase)
     }
     
@@ -112,6 +115,13 @@ struct AppDI {
     
     var returnFormsViewModel: ReturnFormsViewModel {
         return ReturnFormsViewModel(usecase: fetchFormsUseCase)
+    }
+    
+    var mainViewModel: MainViewModel {
+        let repository = TokenRepositoryImpl()
+        let usecase = FetchTokenUseCaseImpl(repository: repository)
+        
+        return MainViewModel(usecase: usecase)
     }
     
     private init() {}

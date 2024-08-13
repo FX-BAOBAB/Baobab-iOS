@@ -32,6 +32,7 @@ final class SettingViewModel: ObservableObject {
                 }
             }, receiveValue: { [weak self] in
                 if $0.allSatisfy({ $0 == true }) {
+                    UserDefaults.standard.set(false, forKey: "hasToken")    //토큰 저장 상태 업데이트
                     self?.isLogout.toggle()
                 }
             })

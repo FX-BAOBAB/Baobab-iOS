@@ -9,5 +9,5 @@ import Foundation
 
 enum RequestError: Error {
     case expiredToken(Int)
-    case noValue
+    case noTokenValue
 }

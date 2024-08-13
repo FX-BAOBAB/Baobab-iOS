@@ -38,19 +38,9 @@ struct SettingView: View {
                   primaryButton: .default(Text("확인")) { viewModel.logout() },
                   secondaryButton: .default(Text("취소")))
         }
-        .fork { this in
-            if #available(iOS 17.0, *) {
-                this.onChange(of: viewModel.isLogout) {
-                    if viewModel.isLogout {
-                        isLoggedIn.toggle()    //로그인 화면으로 돌아감
-                    }
-                }
-            } else {
-                this.onChange(of: viewModel.isLogout, perform: { isLogout in
-                    if isLogout {
-                        isLoggedIn.toggle()    //로그인 화면으로 돌아감
-                    }
-                })
+        .onReceive(viewModel.$isLogout) {
+            if $0 {
+                isLoggedIn.toggle()
             }
         }
     }

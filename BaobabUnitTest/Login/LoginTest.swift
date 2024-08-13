@@ -14,8 +14,10 @@ import Foundation
 final class LoginTest: XCTestCase {
     var dataSource: RemoteDataSource!
     var tokenRepository: TokenRepositroy!
+    var remoteTokenRepository: RemoteTokenRepository!
     var loginRepository: LoginRepository!
     var fetchTokenUseCase: FetchTokenUseCase!
+    var updateAccessTokenUseCase: UpdateTokenUseCase!
     var loginUseCase: LoginUseCase!
     var cancellables: Set<AnyCancellable>!
 
@@ -23,11 +25,14 @@ final class LoginTest: XCTestCase {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         
         dataSource = RemoteDataSourceImpl()
-        tokenRepository = TokenRepositoryImpl()
         loginRepository = LoginRepositoryImpl(dataSource: dataSource)
+        remoteTokenRepository = RemoteTokenRepositoryImpl(dataSource: dataSource)
+        tokenRepository = TokenRepositoryImpl()
         fetchTokenUseCase = FetchTokenUseCaseImpl(repository: tokenRepository)
+        updateAccessTokenUseCase = UpdateAccessTokenUseCaseImpl(repository: remoteTokenRepository)
         loginUseCase = LoginUseCaseImpl(fetchTokenUseCase: fetchTokenUseCase,
-                                   repository: loginRepository)
+                                        updateAccessTokenUseCase: updateAccessTokenUseCase,
+                                        repository: loginRepository)
         cancellables = Set<AnyCancellable>()
     }
 
