@@ -14,6 +14,7 @@ struct AutoLogInButton: View {
         HStack(spacing: 5) {
             Button(action: {
                 viewModel.isKeepLoggedIn.toggle()
+                UserDefaults.standard.set(viewModel.isKeepLoggedIn, forKey: "isAutoLogin")
             }, label: {
                 if viewModel.isKeepLoggedIn {
                     Image(systemName: "checkmark.circle.fill")
@@ -29,6 +30,9 @@ struct AutoLogInButton: View {
             
             Text("자동 로그인")
                 .font(.caption)
+        }
+        .onAppear {
+            viewModel.isKeepLoggedIn = UserDefaults.standard.bool(forKey: "isAutoLogin")
         }
     }
 }

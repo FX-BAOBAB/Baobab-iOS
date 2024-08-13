@@ -15,6 +15,7 @@ final class LoginViewModel: ObservableObject {
     @Published var isLoginProgress: Bool = false
     @Published var isLoginSuccess: Bool = false
     @Published var isShowingLoginAlert: Bool = false
+    @Published var isShowingLaunchScreen: Bool = true
     
     var alertType: AlertType?
     private let usecase: LoginUseCase
@@ -61,6 +62,49 @@ final class LoginViewModel: ObservableObject {
                 } else {
                     self?.alertType = .loginError
                     self?.isShowingLoginAlert.toggle()
+                }
+            })
+            .store(in: &cancellables)
+    }
+    
+    func updateAccessToken() {
+        isLoginProgress.toggle()
+        
+        usecase.updateAccessToken()
+            .sink(receiveCompletion: { completion in
+                switch completion {
+                case .finished:
+                    print("Access Token update completed")
+                case .failure(let error):
+                    print("LoginViewModel.updateAccessToken() error : ", error)
+                }
+            }, receiveValue: { [weak self] result in
+                DispatchQueue.main.async {
+                    if result {
+                        self?.isLoginSuccess = true
+                    }
+                    
+                    //로그인 성공 여부와 상관 없이 launch screen을 빠져 나옴
+                    self?.isShowingLaunchScreen = false
+                    //로그인 요청 완료
+                    self?.isLoginProgress.toggle()
+                }
+            })
+            .store(in: &cancellables)
+    }
+    
+    func deleteToken() {
+        usecase.deleteToken()
+            .sink(receiveCompletion: { completion in
+                switch completion {
+                case .finished:
+                    print("Token has been deleted")
+                case .failure(let error):
+                    print("LoginViewModel.deleteToken() error : ", error)
+                }
+            }, receiveValue: { [weak self] _ in
+                DispatchQueue.main.async {
+                    self?.isShowingLaunchScreen = false
                 }
             })
             .store(in: &cancellables)

@@ -99,6 +99,8 @@
 		8E7731D82C4A94A400B42F7A /* SignUpRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7731D72C4A94A400B42F7A /* SignUpRepositoryImpl.swift */; };
 		8E7731DA2C4A94DC00B42F7A /* UserRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7731D92C4A94DC00B42F7A /* UserRepositoryImpl.swift */; };
 		8E7731DC2C4A955600B42F7A /* ReceivingRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7731DB2C4A955600B42F7A /* ReceivingRepositoryImpl.swift */; };
+		8E7900B92C6ADC8800BD4BBB /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E7900B82C6ADC8800BD4BBB /* Launch Screen.storyboard */; };
+		8E7900BB2C6ADEA000BD4BBB /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7900BA2C6ADEA000BD4BBB /* LaunchScreenView.swift */; };
 		8E7A9F152C5B187D00969F1A /* ProcessStatusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7A9F142C5B187D00969F1A /* ProcessStatusBar.swift */; };
 		8E7A9F172C5B27DB00969F1A /* ShippingFormsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7A9F162C5B27DB00969F1A /* ShippingFormsViewModel.swift */; };
 		8E7A9F1B2C5B400700969F1A /* FormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7A9F1A2C5B400700969F1A /* FormData.swift */; };
@@ -166,6 +168,10 @@
 		8E9772192C3CEF530082DCAF /* SignUpTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9772182C3CEF530082DCAF /* SignUpTest.swift */; };
 		8E9772252C3CFCA30082DCAF /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9772242C3CFCA30082DCAF /* MockURLProtocol.swift */; };
 		8EA152832C6997F80011FDB3 /* EmptyItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA152822C6997F80011FDB3 /* EmptyItemView.swift */; };
+		8EA152852C69E8470011FDB3 /* RemoteTokenRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA152842C69E8470011FDB3 /* RemoteTokenRepositoryImpl.swift */; };
+		8EA152872C69E86B0011FDB3 /* RemoteTokenRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA152862C69E86B0011FDB3 /* RemoteTokenRepository.swift */; };
+		8EA152892C69F4420011FDB3 /* UpdateAccessTokenUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA152882C69F4420011FDB3 /* UpdateAccessTokenUseCase.swift */; };
+		8EA1528B2C69F6F10011FDB3 /* FetchError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA1528A2C69F6F10011FDB3 /* FetchError.swift */; };
 		8EA437FC2C60474400DFD934 /* ReturnDetailedForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA437FB2C60474400DFD934 /* ReturnDetailedForm.swift */; };
 		8EA438002C604F7700DFD934 /* NotificatioonList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA437FF2C604F7700DFD934 /* NotificatioonList.swift */; };
 		8EA438042C60517800DFD934 /* UsedItemList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA438032C60517800DFD934 /* UsedItemList.swift */; };
@@ -344,6 +350,8 @@
 		8E7731D72C4A94A400B42F7A /* SignUpRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRepositoryImpl.swift; sourceTree = "<group>"; };
 		8E7731D92C4A94DC00B42F7A /* UserRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoryImpl.swift; sourceTree = "<group>"; };
 		8E7731DB2C4A955600B42F7A /* ReceivingRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceivingRepositoryImpl.swift; sourceTree = "<group>"; };
+		8E7900B82C6ADC8800BD4BBB /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		8E7900BA2C6ADEA000BD4BBB /* LaunchScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenView.swift; sourceTree = "<group>"; };
 		8E7A9F142C5B187D00969F1A /* ProcessStatusBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessStatusBar.swift; sourceTree = "<group>"; };
 		8E7A9F162C5B27DB00969F1A /* ShippingFormsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingFormsViewModel.swift; sourceTree = "<group>"; };
 		8E7A9F1A2C5B400700969F1A /* FormData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormData.swift; sourceTree = "<group>"; };
@@ -409,6 +417,10 @@
 		8E9772182C3CEF530082DCAF /* SignUpTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpTest.swift; sourceTree = "<group>"; };
 		8E9772242C3CFCA30082DCAF /* MockURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLProtocol.swift; sourceTree = "<group>"; };
 		8EA152822C6997F80011FDB3 /* EmptyItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyItemView.swift; sourceTree = "<group>"; };
+		8EA152842C69E8470011FDB3 /* RemoteTokenRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteTokenRepositoryImpl.swift; sourceTree = "<group>"; };
+		8EA152862C69E86B0011FDB3 /* RemoteTokenRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteTokenRepository.swift; sourceTree = "<group>"; };
+		8EA152882C69F4420011FDB3 /* UpdateAccessTokenUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateAccessTokenUseCase.swift; sourceTree = "<group>"; };
+		8EA1528A2C69F6F10011FDB3 /* FetchError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchError.swift; sourceTree = "<group>"; };
 		8EA437FB2C60474400DFD934 /* ReturnDetailedForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnDetailedForm.swift; sourceTree = "<group>"; };
 		8EA437FF2C604F7700DFD934 /* NotificatioonList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificatioonList.swift; sourceTree = "<group>"; };
 		8EA438032C60517800DFD934 /* UsedItemList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsedItemList.swift; sourceTree = "<group>"; };
@@ -565,6 +577,7 @@
 		5C426BF62BEDBD1B00869F6D /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				8E7900B72C6ADC7900BD4BBB /* LaunchScreen */,
 				8EA438012C60510600DFD934 /* UsedTrade */,
 				8EA437FD2C604F6200DFD934 /* Notification */,
 				8EBFCE4D2C53998100A2AB4F /* FormList */,
@@ -631,6 +644,7 @@
 				8EBFCE4B2C5390B900A2AB4F /* ItemStatus.swift */,
 				8E60A8362C5A1F4B007814E7 /* FormType.swift */,
 				8E37D46A2C57504800F8048A /* Process.swift */,
+				8EA1528A2C69F6F10011FDB3 /* FetchError.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -651,6 +665,7 @@
 				8E7B6C322C51EAD400222721 /* FetchItemUseCase.swift */,
 				8E37D4642C570D6300F8048A /* FetchFormUseCase.swift */,
 				8E60A82A2C5A06EE007814E7 /* FetchProcessStatusUseCase.swift */,
+				8EA152882C69F4420011FDB3 /* UpdateAccessTokenUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -667,6 +682,7 @@
 				8E7B6C2C2C51CF7A00222721 /* ItemRepository.swift */,
 				8E37D4662C570D8200F8048A /* FormRepository.swift */,
 				8E60A8302C5A166E007814E7 /* ProcessStatusRepository.swift */,
+				8EA152862C69E86B0011FDB3 /* RemoteTokenRepository.swift */,
 			);
 			path = "Repository Interfaces";
 			sourceTree = "<group>";
@@ -717,6 +733,7 @@
 				8E7B6C302C51E61F00222721 /* ItemRepositoryImpl.swift */,
 				8E37D4682C570EFB00F8048A /* FormRepositoryImpl.swift */,
 				8E60A8322C5A16BE007814E7 /* ProcessStatusRepositoryImpl.swift */,
+				8EA152842C69E8470011FDB3 /* RemoteTokenRepositoryImpl.swift */,
 			);
 			path = "Repository Implementation";
 			sourceTree = "<group>";
@@ -885,6 +902,15 @@
 				8E9772242C3CFCA30082DCAF /* MockURLProtocol.swift */,
 			);
 			path = Mock;
+			sourceTree = "<group>";
+		};
+		8E7900B72C6ADC7900BD4BBB /* LaunchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				8E7900B82C6ADC8800BD4BBB /* Launch Screen.storyboard */,
+				8E7900BA2C6ADEA000BD4BBB /* LaunchScreenView.swift */,
+			);
+			path = LaunchScreen;
 			sourceTree = "<group>";
 		};
 		8E7B6C342C51EE3500222721 /* ViewModel */ = {
@@ -1347,6 +1373,7 @@
 			files = (
 				8E7BC8DF2C3EB71000CB708F /* Login_Success_Response.json in Resources */,
 				8E9772092C3CBEFF0082DCAF /* ServiceInfo.plist in Resources */,
+				8E7900B92C6ADC8800BD4BBB /* Launch Screen.storyboard in Resources */,
 				5C426BEF2BEDA8F400869F6D /* Preview Assets.xcassets in Resources */,
 				8E7BC8ED2C3EC22500CB708F /* Login_Fail_Response.json in Resources */,
 				8E765F692C3D5BCD008A11E6 /* SignUp_Success_Response.json in Resources */,
@@ -1493,6 +1520,7 @@
 				8ECF1AE72C5B713E004DD9C1 /* ReturnFormListRow.swift in Sources */,
 				8E8D13452C4E3CC10032FC96 /* MainTabView.swift in Sources */,
 				5C426BFD2BEDBDE900869F6D /* ReceivingViewModel.swift in Sources */,
+				8E7900BB2C6ADEA000BD4BBB /* LaunchScreenView.swift in Sources */,
 				5C735F4C2BF1BAB200A36EC8 /* EstimatedPrice.swift in Sources */,
 				8E7BC8D62C3E6EEB00CB708F /* FetchTokenUseCase.swift in Sources */,
 				8EB0C2642C32457200FEE8D0 /* LoginViewModel.swift in Sources */,
@@ -1519,6 +1547,7 @@
 				5C89233E2BFAC80200AE9049 /* ReceivingReservationForm.swift in Sources */,
 				5C80F0F52C06D86F00A94C22 /* UserRepository.swift in Sources */,
 				8ECCBB092C2E42C800DD0A1B /* EmailInputBox.swift in Sources */,
+				8EA152892C69F4420011FDB3 /* UpdateAccessTokenUseCase.swift in Sources */,
 				8E227BE82C43755200E007D0 /* MultipleImageUploadResponseDTO.swift in Sources */,
 				8E3F7C5E2C2A9A480087EB2A /* SimpleReceivingStatus.swift in Sources */,
 				8EB0C2572C322B2E00FEE8D0 /* SignUpUseCase.swift in Sources */,
@@ -1547,6 +1576,7 @@
 				8EA4380E2C6061F000DFD934 /* CustomTabbar.swift in Sources */,
 				5C405EEC2BF72ADB006EE6F1 /* ReceivingViewModel+Defect.swift in Sources */,
 				8ECCBB152C2E846D00DD0A1B /* AddressRegistrationForm.swift in Sources */,
+				8EA1528B2C69F6F10011FDB3 /* FetchError.swift in Sources */,
 				8E7731DC2C4A955600B42F7A /* ReceivingRepositoryImpl.swift in Sources */,
 				8E7B6C3C2C5219CC00222721 /* StoredItemsViewModel.swift in Sources */,
 				8E449F0F2C4BEEC700291277 /* CheckNickNameDuplicationUseCase.swift in Sources */,
@@ -1612,9 +1642,11 @@
 				5C80F0EE2C06BF4500A94C22 /* FetchGeoCodeUseCase.swift in Sources */,
 				8E37D4672C570D8200F8048A /* FormRepository.swift in Sources */,
 				8EAB81712C4107B50052AD48 /* AccessTokenRefreshResponseDTO.swift in Sources */,
+				8EA152872C69E86B0011FDB3 /* RemoteTokenRepository.swift in Sources */,
 				8E37D4632C570C7300F8048A /* ReceivingFormsViewModel.swift in Sources */,
 				8EBFCE482C5366A000A2AB4F /* StatusLabel.swift in Sources */,
 				5CCFBF6A2BF2E18200322D0D /* ImageRegistrationForm.swift in Sources */,
+				8EA152852C69E8470011FDB3 /* RemoteTokenRepositoryImpl.swift in Sources */,
 				8EB0C2622C32456500FEE8D0 /* LoginForm.swift in Sources */,
 				8E9063632C2950EF008B5C52 /* UIImage+Crop.swift in Sources */,
 				8E8D134A2C4E40CD0032FC96 /* UserInfoList.swift in Sources */,
@@ -1835,6 +1867,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -1871,6 +1904,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
