@@ -6,6 +6,7 @@
 //
 
 import Combine
+import Foundation
 
 protocol LoginUseCase {
     func execute(params: [String: Any]) -> AnyPublisher<Bool, any Error>
@@ -25,15 +26,7 @@ final class LoginUseCaseImpl: LoginUseCase {
     }
     
     func execute(params: [String : Any]) -> AnyPublisher<Bool, any Error> {
-        return deleteToken()    //로그인 전에 남아있는 token 정보 삭제
-            .flatMap { [weak self] _ -> AnyPublisher<LoginResponse, any Error> in
-                guard let self else {
-                    return Fail(error: FetchError.noReference)
-                        .eraseToAnyPublisher()
-                }
-                
-                return repository.login(params: params)
-            }
+        return repository.login(params: params)
             .flatMap { [weak self] loginResponse -> AnyPublisher<Bool, Never> in
                 guard let self,
                       let accessToken = loginResponse.accessToken,
@@ -49,6 +42,8 @@ final class LoginUseCaseImpl: LoginUseCase {
                     .map { results in
                         //access 토큰과 refresh 토큰이 모두 정상적으로 저장된 경우 true 반환
                         if results.allSatisfy({ $0 == true }) {
+                            UserDefaults.standard.set(true, forKey: "hasToken")    //토큰 저장상태 업데이트
+                            
                             return true
                         } else {
                             return false
@@ -60,28 +55,6 @@ final class LoginUseCaseImpl: LoginUseCase {
     }
     
     func updateRefreshToken() -> AnyPublisher<Bool, any Error> {
-//        return fetchTokenUseCase.executeTokenRead(for: "refreshToken")
-//            .flatMap { [weak self] refreshToken -> AnyPublisher<String, any Error> in
-//                guard let self, let refreshToken else {
-//                    return Fail(error: FetchError.noReference)
-//                        .eraseToAnyPublisher()
-//                }
-//                
-//                //refreshToken으로 새로운 accessToken 요청
-//                return updateAccessTokenUseCase.execute(refreshToken: refreshToken)
-//            }
-//            .flatMap { [weak self] accessToken -> AnyPublisher<Bool, any Error> in                
-//                guard let self else {
-//                    return Fail(error: FetchError.noReference)
-//                        .eraseToAnyPublisher()
-//                }
-//                
-//                //새로 발급 받은 accessToken을 Keychain에 업데이트
-//                return fetchTokenUseCase.executeTokenUpdate(token: accessToken, for: "accessToken")
-//                    .setFailureType(to: Error.self)
-//                    .eraseToAnyPublisher()
-//            }
-//            .eraseToAnyPublisher()
         return Just(true)
             .setFailureType(to: Error.self)
             .eraseToAnyPublisher()
@@ -93,11 +66,14 @@ final class LoginUseCaseImpl: LoginUseCase {
             .collect()
             .flatMap { results -> AnyPublisher<Bool, any Error> in
                 if results.allSatisfy({ $0 == true }) {
+                    UserDefaults.standard.set(false, forKey: "hasToken")    //토큰 저장 상태 업데이트
+                    
                     return Just(true)
                         .setFailureType(to: Error.self)
                         .eraseToAnyPublisher()
                 }
                 
+                //기존에 저장된 토큰이 없는 경우 삭제 실패할 수 있음
                 return Just(false)
                     .setFailureType(to: Error.self)
                     .eraseToAnyPublisher()

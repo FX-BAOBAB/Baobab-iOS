@@ -117,5 +117,12 @@ struct AppDI {
         return ReturnFormsViewModel(usecase: fetchFormsUseCase)
     }
     
+    var mainViewModel: MainViewModel {
+        let repository = TokenRepositoryImpl()
+        let usecase = FetchTokenUseCaseImpl(repository: repository)
+        
+        return MainViewModel(usecase: usecase)
+    }
+    
     private init() {}
 }

@@ -157,7 +157,7 @@ final class RemoteDataSourceImpl: RemoteDataSource, RequestInterceptor {
             var urlRequest = urlRequest
             
             guard let accessToken = await TokenKeyChain.read(for: "accessToken") else {
-                completion(.failure(RequestError.noValue))
+                completion(.failure(RequestError.noTokenValue))
                 return
             }
             
@@ -209,7 +209,7 @@ final class RemoteDataSourceImpl: RemoteDataSource, RequestInterceptor {
         return Future { promise in
             Task {
                 guard let refreshToken = await TokenKeyChain.read(for: "refreshToken") else {
-                    promise(.failure(RequestError.noValue))
+                    promise(.failure(RequestError.noTokenValue))
                     return
                 }
                 

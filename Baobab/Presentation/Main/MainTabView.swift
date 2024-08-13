@@ -15,8 +15,14 @@ enum Tab {
 }
 
 struct MainTabView: View {
+    @ObservedObject private var viewModel: MainViewModel
     @State private var selectedTab: Tab = .home
     @Binding var isLoggedIn: Bool
+    
+    init(viewModel: MainViewModel, isLoggedIn: Binding<Bool>) {
+        _viewModel = ObservedObject(wrappedValue: viewModel)
+        _isLoggedIn = isLoggedIn
+    }
     
     var body: some View {
         ZStack {
@@ -87,9 +93,16 @@ struct MainTabView: View {
             CustomTabbar(selectedTab: $selectedTab)
                 .frame(maxHeight: .infinity, alignment: .bottom)
         }
+        .navigationBarBackButtonHidden()
         .onReceive(NotificationCenter.default.publisher(for: .refreshTokenExpiration)) {
             if let isTokenExpired = $0.userInfo?["isTokenExpired"] as? Bool,
                isTokenExpired == true {
+                //로그인 화면 이동 전 토큰 삭제 진행
+                viewModel.deleteToken()
+            }
+        }
+        .onReceive(viewModel.$isTokenDeleted) {
+            if $0 {
                 self.isLoggedIn = false
             }
         }
@@ -98,6 +111,6 @@ struct MainTabView: View {
 
 #Preview {
     NavigationStack {
-        MainTabView(isLoggedIn: .constant(true))
+        MainTabView(viewModel: AppDI.shared.mainViewModel, isLoggedIn: .constant(true))
     }
 }
