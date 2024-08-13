@@ -178,22 +178,27 @@ final class RemoteDataSourceImpl: RemoteDataSource, RequestInterceptor {
         
         //Access token 재발급 후 재요청
         refreshAccessToken()
-            .sink(receiveCompletion: { accessTokencompletion in
+            .sink(receiveCompletion: { [weak self] accessTokencompletion in
                 switch accessTokencompletion {
                 case .finished:
                     print("Updating the access token has been completed")
                 case .failure(let error):
                     completion(.doNotRetryWithError(error))
-                    //TODO: Access Token 재발급 중 Error 발생 시 로그인 페이지로 돌아감
+                    //Access Token 재발급 중 Error 발생하면 로그인 페이지로 돌아감
+                    self?.notifyTokenExpiration()
                 }
-            }, receiveValue: {
+            }, receiveValue: { [weak self] in
                 if $0 {
                     if request.retryCount < 1 {
                         completion(.retry)
+                    } else {
+                        //재시도 횟수를 초과하면 로그인 페이지로 돌아감
+                        self?.notifyTokenExpiration()
                     }
                 } else {
                     completion(.doNotRetry)
-                    //TODO: Access Token 재발급 실패 시 로그인 페이지로 돌아감
+                    //Access Token 재발급 실패하면 로그인 페이지로 돌아감
+                    self?.notifyTokenExpiration()
                 }
             })
             .store(in: &cancellables)
@@ -226,5 +231,10 @@ final class RemoteDataSourceImpl: RemoteDataSource, RequestInterceptor {
             }
         }
         .eraseToAnyPublisher()
+    }
+    
+    //MARK: - Refresh Token 만료시 NotificationCenter를 통해 알림
+    private func notifyTokenExpiration() {
+        NotificationCenter.default.post(name: .refreshTokenExpiration, object: nil, userInfo: ["isTokenExpired": true])
     }
 }

@@ -101,6 +101,7 @@
 		8E7731DC2C4A955600B42F7A /* ReceivingRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7731DB2C4A955600B42F7A /* ReceivingRepositoryImpl.swift */; };
 		8E7900B92C6ADC8800BD4BBB /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E7900B82C6ADC8800BD4BBB /* Launch Screen.storyboard */; };
 		8E7900BB2C6ADEA000BD4BBB /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7900BA2C6ADEA000BD4BBB /* LaunchScreenView.swift */; };
+		8E7900BD2C6B206100BD4BBB /* Notification+Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7900BC2C6B206100BD4BBB /* Notification+Name.swift */; };
 		8E7A9F152C5B187D00969F1A /* ProcessStatusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7A9F142C5B187D00969F1A /* ProcessStatusBar.swift */; };
 		8E7A9F172C5B27DB00969F1A /* ShippingFormsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7A9F162C5B27DB00969F1A /* ShippingFormsViewModel.swift */; };
 		8E7A9F1B2C5B400700969F1A /* FormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7A9F1A2C5B400700969F1A /* FormData.swift */; };
@@ -170,7 +171,7 @@
 		8EA152832C6997F80011FDB3 /* EmptyItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA152822C6997F80011FDB3 /* EmptyItemView.swift */; };
 		8EA152852C69E8470011FDB3 /* RemoteTokenRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA152842C69E8470011FDB3 /* RemoteTokenRepositoryImpl.swift */; };
 		8EA152872C69E86B0011FDB3 /* RemoteTokenRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA152862C69E86B0011FDB3 /* RemoteTokenRepository.swift */; };
-		8EA152892C69F4420011FDB3 /* UpdateAccessTokenUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA152882C69F4420011FDB3 /* UpdateAccessTokenUseCase.swift */; };
+		8EA152892C69F4420011FDB3 /* UpdateTokenUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA152882C69F4420011FDB3 /* UpdateTokenUseCase.swift */; };
 		8EA1528B2C69F6F10011FDB3 /* FetchError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA1528A2C69F6F10011FDB3 /* FetchError.swift */; };
 		8EA437FC2C60474400DFD934 /* ReturnDetailedForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA437FB2C60474400DFD934 /* ReturnDetailedForm.swift */; };
 		8EA438002C604F7700DFD934 /* NotificatioonList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA437FF2C604F7700DFD934 /* NotificatioonList.swift */; };
@@ -352,6 +353,7 @@
 		8E7731DB2C4A955600B42F7A /* ReceivingRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceivingRepositoryImpl.swift; sourceTree = "<group>"; };
 		8E7900B82C6ADC8800BD4BBB /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		8E7900BA2C6ADEA000BD4BBB /* LaunchScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenView.swift; sourceTree = "<group>"; };
+		8E7900BC2C6B206100BD4BBB /* Notification+Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Name.swift"; sourceTree = "<group>"; };
 		8E7A9F142C5B187D00969F1A /* ProcessStatusBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessStatusBar.swift; sourceTree = "<group>"; };
 		8E7A9F162C5B27DB00969F1A /* ShippingFormsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingFormsViewModel.swift; sourceTree = "<group>"; };
 		8E7A9F1A2C5B400700969F1A /* FormData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormData.swift; sourceTree = "<group>"; };
@@ -419,7 +421,7 @@
 		8EA152822C6997F80011FDB3 /* EmptyItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyItemView.swift; sourceTree = "<group>"; };
 		8EA152842C69E8470011FDB3 /* RemoteTokenRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteTokenRepositoryImpl.swift; sourceTree = "<group>"; };
 		8EA152862C69E86B0011FDB3 /* RemoteTokenRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteTokenRepository.swift; sourceTree = "<group>"; };
-		8EA152882C69F4420011FDB3 /* UpdateAccessTokenUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateAccessTokenUseCase.swift; sourceTree = "<group>"; };
+		8EA152882C69F4420011FDB3 /* UpdateTokenUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateTokenUseCase.swift; sourceTree = "<group>"; };
 		8EA1528A2C69F6F10011FDB3 /* FetchError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchError.swift; sourceTree = "<group>"; };
 		8EA437FB2C60474400DFD934 /* ReturnDetailedForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnDetailedForm.swift; sourceTree = "<group>"; };
 		8EA437FF2C604F7700DFD934 /* NotificatioonList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificatioonList.swift; sourceTree = "<group>"; };
@@ -645,6 +647,7 @@
 				8E60A8362C5A1F4B007814E7 /* FormType.swift */,
 				8E37D46A2C57504800F8048A /* Process.swift */,
 				8EA1528A2C69F6F10011FDB3 /* FetchError.swift */,
+				8E7900BC2C6B206100BD4BBB /* Notification+Name.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -665,7 +668,7 @@
 				8E7B6C322C51EAD400222721 /* FetchItemUseCase.swift */,
 				8E37D4642C570D6300F8048A /* FetchFormUseCase.swift */,
 				8E60A82A2C5A06EE007814E7 /* FetchProcessStatusUseCase.swift */,
-				8EA152882C69F4420011FDB3 /* UpdateAccessTokenUseCase.swift */,
+				8EA152882C69F4420011FDB3 /* UpdateTokenUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -1547,7 +1550,7 @@
 				5C89233E2BFAC80200AE9049 /* ReceivingReservationForm.swift in Sources */,
 				5C80F0F52C06D86F00A94C22 /* UserRepository.swift in Sources */,
 				8ECCBB092C2E42C800DD0A1B /* EmailInputBox.swift in Sources */,
-				8EA152892C69F4420011FDB3 /* UpdateAccessTokenUseCase.swift in Sources */,
+				8EA152892C69F4420011FDB3 /* UpdateTokenUseCase.swift in Sources */,
 				8E227BE82C43755200E007D0 /* MultipleImageUploadResponseDTO.swift in Sources */,
 				8E3F7C5E2C2A9A480087EB2A /* SimpleReceivingStatus.swift in Sources */,
 				8EB0C2572C322B2E00FEE8D0 /* SignUpUseCase.swift in Sources */,
@@ -1565,6 +1568,7 @@
 				8ECCBB0D2C2E48A800DD0A1B /* NickNameInputBox.swift in Sources */,
 				8E3F7C572C2A7D330087EB2A /* DefaultItemImage.swift in Sources */,
 				8EBFCE552C539A4E00A2AB4F /* FormsViewModel.swift in Sources */,
+				8E7900BD2C6B206100BD4BBB /* Notification+Name.swift in Sources */,
 				8EAB81682C40BB770052AD48 /* FetchAddressUseCase.swift in Sources */,
 				8E4BC0292C5C9A4A00CCFF78 /* EmptyCollectionView.swift in Sources */,
 				5C4ACAC02BEE1FDB00195895 /* MinusButtonImage.swift in Sources */,

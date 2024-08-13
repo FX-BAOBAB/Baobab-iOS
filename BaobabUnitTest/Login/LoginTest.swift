@@ -17,7 +17,7 @@ final class LoginTest: XCTestCase {
     var remoteTokenRepository: RemoteTokenRepository!
     var loginRepository: LoginRepository!
     var fetchTokenUseCase: FetchTokenUseCase!
-    var updateAccessTokenUseCase: UpdateAccessTokenUseCase!
+    var updateAccessTokenUseCase: UpdateTokenUseCase!
     var loginUseCase: LoginUseCase!
     var cancellables: Set<AnyCancellable>!
 

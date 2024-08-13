@@ -67,45 +67,27 @@ final class LoginViewModel: ObservableObject {
             .store(in: &cancellables)
     }
     
-    func updateAccessToken() {
+    func updateRefreshToken() {
         isLoginProgress.toggle()
         
-        usecase.updateAccessToken()
+        usecase.updateRefreshToken()
+            .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { completion in
                 switch completion {
                 case .finished:
-                    print("Access Token update completed")
+                    print("Refresh Token update completed")
                 case .failure(let error):
                     print("LoginViewModel.updateAccessToken() error : ", error)
                 }
             }, receiveValue: { [weak self] result in
-                DispatchQueue.main.async {
-                    if result {
-                        self?.isLoginSuccess = true
-                    }
-                    
-                    //로그인 성공 여부와 상관 없이 launch screen을 빠져 나옴
-                    self?.isShowingLaunchScreen = false
-                    //로그인 요청 완료
-                    self?.isLoginProgress.toggle()
+                if result {
+                    self?.isLoginSuccess = true
                 }
-            })
-            .store(in: &cancellables)
-    }
-    
-    func deleteToken() {
-        usecase.deleteToken()
-            .sink(receiveCompletion: { completion in
-                switch completion {
-                case .finished:
-                    print("Token has been deleted")
-                case .failure(let error):
-                    print("LoginViewModel.deleteToken() error : ", error)
-                }
-            }, receiveValue: { [weak self] _ in
-                DispatchQueue.main.async {
-                    self?.isShowingLaunchScreen = false
-                }
+                
+                //토큰 갱신 여부와 상관 없이 launch screen을 빠져 나옴
+                self?.isShowingLaunchScreen = false
+                //자동 로그인 완료
+                self?.isLoginProgress.toggle()
             })
             .store(in: &cancellables)
     }

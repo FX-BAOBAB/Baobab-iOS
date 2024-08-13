@@ -87,6 +87,12 @@ struct MainTabView: View {
             CustomTabbar(selectedTab: $selectedTab)
                 .frame(maxHeight: .infinity, alignment: .bottom)
         }
+        .onReceive(NotificationCenter.default.publisher(for: .refreshTokenExpiration)) {
+            if let isTokenExpired = $0.userInfo?["isTokenExpired"] as? Bool,
+               isTokenExpired == true {
+                self.isLoggedIn = false
+            }
+        }
     }
 }
 

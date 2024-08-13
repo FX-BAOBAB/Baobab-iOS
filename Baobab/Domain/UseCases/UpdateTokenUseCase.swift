@@ -7,11 +7,11 @@
 
 import Combine
 
-protocol UpdateAccessTokenUseCase {
+protocol UpdateTokenUseCase {
     func execute(refreshToken: String) -> AnyPublisher<String, any Error>
 }
 
-final class UpdateAccessTokenUseCaseImpl: UpdateAccessTokenUseCase {
+final class UpdateAccessTokenUseCaseImpl: UpdateTokenUseCase {
     private let repository: RemoteTokenRepository
     
     init(repository: RemoteTokenRepository) {
