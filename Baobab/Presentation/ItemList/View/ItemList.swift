@@ -20,9 +20,6 @@ struct ItemList<T: ItemsViewModel>: View {
     var body: some View {
         if viewModel.items?.isEmpty == true {
             EmptyItemView()
-                .onAppear {
-                    print("init EmptyItem View")
-                }
         } else if let items = viewModel.items {
             List {
                 ForEach(items) { item in

@@ -39,7 +39,7 @@ struct MainTabView: View {
                     .toolbar(.hidden, for: .tabBar)
                     .tag(Tab.notificationList)
                 
-                UserInfoList(viewModel: AppDI.shared.userInfoViewModel, isLoggedIn: $isLoggedIn)
+                UserInfoList(viewModel: AppDI.shared.userInfoViewModel)
                     .toolbar(.hidden, for: .tabBar)
                     .tag(Tab.userInfoList)
             }

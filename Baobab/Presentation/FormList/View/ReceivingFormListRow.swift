@@ -54,10 +54,6 @@ struct ReceivingFormListRow: View {
                         .stroke()
                         .fill(Color(red: 222 / 255, green: 226 / 255, blue: 230 / 255))
                 }
-                .padding([.leading, .trailing])
-                .padding([.top, .bottom], 20)
-                
-                SectionFooter()
             }
             .navigationDestination(isPresented: $isShowingDetailedView) {
                 ReceivingDetailedForm(form: form)

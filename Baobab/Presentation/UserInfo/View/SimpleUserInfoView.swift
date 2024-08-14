@@ -41,7 +41,9 @@ struct SimpleUserInfoView: View {
         }
         .padding([.top, .bottom], 10)
         .onAppear {
-            viewModel.fetchUserInfo()
+            if viewModel.userInfo == nil {
+                viewModel.fetchUserInfo()
+            }
         }
     }
 }
