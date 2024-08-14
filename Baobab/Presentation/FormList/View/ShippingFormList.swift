@@ -15,37 +15,35 @@ struct ShippingFormList: View {
     }
     
     var body: some View {
-        if viewModel.forms?.isEmpty == true {
-            NoFormDataView()
-                .navigationTitle("입고 요청서")
-                .navigationBarTitleDisplayMode(.inline)
-                .toolbarBackground(.visible, for: .navigationBar)
-                .toolbarBackground(.white, for: .navigationBar)
-        } else if let forms = viewModel.forms {
-            List {
-                ForEach(forms) { form in
-                    ShippingFormListRow(form: form)
-                        .padding([.top, .bottom])
+        Group {
+            if viewModel.forms?.isEmpty == true {
+                NoFormDataView()
+            } else if let forms = viewModel.forms {
+                List {
+                    ForEach(forms) { form in
+                        VStack {
+                            ShippingFormListRow(form: form)
+                            
+                            SectionFooter()
+                        }
+                        .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
                         .listRowSeparator(.hidden)
+                    }
                 }
+                .listStyle(.plain)
+                .scrollContentBackground(.hidden)
+                .background(.listFooterGray)
+            } else {
+                ProgressView()
+                    .onAppear {
+                        viewModel.fetchForms()
+                    }
             }
-            .listStyle(.plain)
-            .scrollContentBackground(.hidden)
-            .background(.listFooterGray)
-            .navigationTitle("입고 요청서")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbarBackground(.visible, for: .navigationBar)
-            .toolbarBackground(.white, for: .navigationBar)
-        } else {
-            ProgressView()
-                .navigationTitle("입고 요청서")
-                .navigationBarTitleDisplayMode(.inline)
-                .toolbarBackground(.visible, for: .navigationBar)
-                .toolbarBackground(.white, for: .navigationBar)
-                .onAppear {
-                    viewModel.fetchForms()
-                }
         }
+        .navigationTitle("입고 요청서")
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbarBackground(.visible, for: .navigationBar)
+        .toolbarBackground(.white, for: .navigationBar)
     }
 }
 
