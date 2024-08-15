@@ -9,11 +9,9 @@ import SwiftUI
 
 struct UserInfoList: View {
     @StateObject private var viewModel: UserInfoViewModel
-    @Binding private var isLoggedIn: Bool
     
-    init(viewModel: UserInfoViewModel, isLoggedIn: Binding<Bool>) {
+    init(viewModel: UserInfoViewModel) {
         _viewModel = StateObject(wrappedValue: viewModel)
-        _isLoggedIn = isLoggedIn
     }
     
     var body: some View {
@@ -30,27 +28,21 @@ struct UserInfoList: View {
             
             Section(header: Text("요청서")) {
                 NavigationLink(destination: {
-                    FormList(viewModel: AppDI.shared.receivingFormsViewModel, 
-                             title: "입고 요청서",
-                             type: .receivingForm)
+                    ReceivingFormList(viewModel: AppDI.shared.receivingFormsViewModel)
                 }) {
                     UserInfoListRow(image: "receiving", title: "입고 요청서")
                 }
                 .listRowSeparator(.hidden)
                 
                 NavigationLink(destination: {
-                    FormList(viewModel: AppDI.shared.shippingFormsViewModel, 
-                             title: "출고 요청서",
-                             type: .shippingForm)
+                    ShippingFormList(viewModel: AppDI.shared.shippingFormsViewModel)
                 }) {
                     UserInfoListRow(image: "shipping", title: "출고 요청서")
                 }
                 .listRowSeparator(.hidden)
                 
                 NavigationLink(destination: {
-                    FormList(viewModel: AppDI.shared.returnFormsViewModel,
-                             title: "반품 요청서",
-                             type: .returnForm)
+                    ReturnFormList(viewModel: AppDI.shared.returnFormsViewModel)
                 }) {
                     UserInfoListRow(image: "TakeBack", title: "반품 요청서")
                 }
@@ -117,7 +109,6 @@ struct UserInfoList: View {
 
 #Preview {
     NavigationStack {
-        UserInfoList(viewModel: AppDI.shared.userInfoViewModel, 
-                     isLoggedIn: .constant(true))
+        UserInfoList(viewModel: AppDI.shared.userInfoViewModel)
     }
 }

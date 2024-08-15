@@ -13,16 +13,6 @@ struct ProcessStatusBar: View {
     
     var body: some View {
         VStack(spacing: 0) {
-//            HStack {
-//                Text("접수")
-//                
-//                Spacer()
-//                
-//                Text("완료")
-//            }
-//            .font(.caption2)
-//            .foregroundStyle(.gray)
-            
             ZStack(alignment: .leading) {
                 HStack {
                     Text("접수")
