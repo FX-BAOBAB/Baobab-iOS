@@ -11,6 +11,7 @@ import Combine
 final class ShippingApplicationViewModel: PostSearchable, Reservable {
     @Published var defaultAddress: Address?
     @Published var searchedAddress: String = ""
+    @Published var selectedAddressRegion: MKCoordinateRegion?
     @Published var searchedAddressRegion: MKCoordinateRegion?
     @Published var searchedPostCode: String = ""
     @Published var detailedAddressInput: String = ""
@@ -25,6 +26,8 @@ final class ShippingApplicationViewModel: PostSearchable, Reservable {
     
     init(usecase: ShippingUseCase) {
         self.usecase = usecase
+        
+        calculateMapCoordinates()
     }
     
     func appendItem(_ item: Item) {
@@ -93,6 +96,50 @@ final class ShippingApplicationViewModel: PostSearchable, Reservable {
                         self?.registeredAddresses.append(address)
                     }
                 }
+            })
+            .store(in: &cancellables)
+    }
+    
+    func calculateMapCoordinates() {
+        $searchedAddress
+            .dropFirst(1)
+            .flatMap { [weak self] address -> AnyPublisher<MKCoordinateRegion, any Error> in
+                guard let self else {
+                    return Empty<MKCoordinateRegion, any Error>().eraseToAnyPublisher()
+                }
+                
+                return usecase.fetchGeoCode(of: address)
+            }
+            .sink(receiveCompletion: { completion in
+                switch completion {
+                case .finished:
+                    print("Request to fetch geocode is finished")
+                case .failure(let error):
+                    print("ReceivingViewModel.calculateMapCoordinates() - ", error)
+                }
+            }, receiveValue: { [weak self] region in
+                self?.searchedAddressRegion = region
+            })
+            .store(in: &cancellables)
+        
+        $selectedAddress
+            .dropFirst(1)
+            .flatMap { [weak self] addressDetail -> AnyPublisher<MKCoordinateRegion, Error> in
+                guard let self, let addressDetail else {
+                    return Empty<MKCoordinateRegion, Error>().eraseToAnyPublisher()
+                }
+                
+                return usecase.fetchGeoCode(of: addressDetail.address)
+            }
+            .sink(receiveCompletion: { completion in
+                switch completion {
+                case .finished:
+                    print("Request to fetch geocode is finished")
+                case .failure(let error):
+                    print("ReceivingViewModel.calculateMapCoordinates() - ", error)
+                }
+            }, receiveValue: { [weak self] region in
+                self?.selectedAddressRegion = region
             })
             .store(in: &cancellables)
     }

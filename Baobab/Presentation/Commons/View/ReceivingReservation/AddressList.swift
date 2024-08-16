@@ -8,8 +8,8 @@
 import SwiftUI
 import SkeletonUI
 
-struct AddressList: View {
-    @EnvironmentObject private var viewModel: ReceivingViewModel
+struct AddressList<T: PostSearchable>: View {
+    @EnvironmentObject private var viewModel: T
     @State private var isShowingPostCodeSearch: Bool = false
     @Binding var isShowingAddressList: Bool
     
@@ -20,7 +20,7 @@ struct AddressList: View {
                     header: Text("기본 방문지")
                         .padding(.bottom)
                 ) {
-                    AddressListRow(address: viewModel.defaultAddress)
+                    AddressListRow<T>(address: viewModel.defaultAddress)
                         .listRowSeparator(.hidden)
                 }
                 
@@ -48,7 +48,7 @@ struct AddressList: View {
                         .listRowSeparator(.hidden)
                     } else {
                         ForEach(viewModel.registeredAddresses) { address in
-                            AddressListRow(address: address)
+                            AddressListRow<T>(address: address)
                                 .padding(10)
                                 .listRowSeparator(.hidden)
                         }
@@ -77,7 +77,7 @@ struct AddressList: View {
                 }
             }
             .fullScreenCover(isPresented: $isShowingPostCodeSearch) {
-                PostCodeSearch(isShowingPostCodeSearch: $isShowingPostCodeSearch, 
+                PostCodeSearchView<T>(isShowingPostCodeSearch: $isShowingPostCodeSearch, 
                                isShowingAddressList: $isShowingAddressList)
                     .environmentObject(viewModel)
             }
@@ -86,6 +86,6 @@ struct AddressList: View {
 }
 
 #Preview {
-    AddressList(isShowingAddressList: .constant(true))
+    AddressList<ReceivingViewModel>(isShowingAddressList: .constant(true))
         .environmentObject(AppDI.shared.receivingViewModel)
 }

@@ -127,7 +127,10 @@ struct AppDI {
     var shippingFormViewModel: ShippingApplicationViewModel {
         let userRepository = UserRepositoryImpl(dataSource: dataSource)
         let fetchAddressUseCase = FetchAddressUseCaseImpl(repository: userRepository)
-        let usecase = ShippingUseCaseImpl(fetchItemUseCase: fetchItemUseCase, fetchAddressUseCase: fetchAddressUseCase)
+        let fertchGeoCodeUseCase = FetchGeoCodeUseCaseImpl()
+        let usecase = ShippingUseCaseImpl(fetchItemUseCase: fetchItemUseCase,
+                                          fetchAddressUseCase: fetchAddressUseCase,
+                                          fetchGeoCodeUseCase: fertchGeoCodeUseCase)
         return ShippingApplicationViewModel(usecase: usecase)
     }
     

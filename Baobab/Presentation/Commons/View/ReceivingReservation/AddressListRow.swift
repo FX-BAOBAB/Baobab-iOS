@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct AddressListRow: View {
-    @EnvironmentObject private var viewModel: ReceivingViewModel
+struct AddressListRow<T: PostSearchable>: View {
+    @EnvironmentObject private var viewModel: T
     
     let address: Address?
     
@@ -68,6 +68,6 @@ struct AddressListRow: View {
 }
 
 #Preview {
-    AddressListRow(address: Address.sampleAddressList.first!)
+    AddressListRow<ReceivingViewModel>(address: Address.sampleAddressList.first!)
         .environmentObject(AppDI.shared.receivingViewModel)
 }

@@ -41,7 +41,7 @@
 		5C8923442BFADF0900AE9049 /* Date+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8923432BFADF0900AE9049 /* Date+String.swift */; };
 		5C90636F2C04B34F004A0EC5 /* AddressListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C90636E2C04B34F004A0EC5 /* AddressListRow.swift */; };
 		5C9063712C04B75B004A0EC5 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9063702C04B75B004A0EC5 /* Address.swift */; };
-		5C9679BE2BFEC59F007C8D5A /* PostCodeSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9679BD2BFEC59F007C8D5A /* PostCodeSearch.swift */; };
+		5C9679BE2BFEC59F007C8D5A /* PostCodeSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9679BD2BFEC59F007C8D5A /* PostCodeSearchView.swift */; };
 		5C9679C02BFEC666007C8D5A /* SelectedAddressDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9679BF2BFEC666007C8D5A /* SelectedAddressDetail.swift */; };
 		5C9679C22BFF25E7007C8D5A /* SectionFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9679C12BFF25E7007C8D5A /* SectionFooter.swift */; };
 		5C994A522BF58A880013672B /* DefectRegistrationForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C994A512BF58A880013672B /* DefectRegistrationForm.swift */; };
@@ -296,7 +296,7 @@
 		5C8923432BFADF0900AE9049 /* Date+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+String.swift"; sourceTree = "<group>"; };
 		5C90636E2C04B34F004A0EC5 /* AddressListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressListRow.swift; sourceTree = "<group>"; };
 		5C9063702C04B75B004A0EC5 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
-		5C9679BD2BFEC59F007C8D5A /* PostCodeSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCodeSearch.swift; sourceTree = "<group>"; };
+		5C9679BD2BFEC59F007C8D5A /* PostCodeSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCodeSearchView.swift; sourceTree = "<group>"; };
 		5C9679BF2BFEC666007C8D5A /* SelectedAddressDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedAddressDetail.swift; sourceTree = "<group>"; };
 		5C9679C12BFF25E7007C8D5A /* SectionFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionFooter.swift; sourceTree = "<group>"; };
 		5C994A512BF58A880013672B /* DefectRegistrationForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefectRegistrationForm.swift; sourceTree = "<group>"; };
@@ -764,7 +764,7 @@
 			children = (
 				5C89233D2BFAC80200AE9049 /* ReservationForm.swift */,
 				5C9679BF2BFEC666007C8D5A /* SelectedAddressDetail.swift */,
-				5C9679BD2BFEC59F007C8D5A /* PostCodeSearch.swift */,
+				5C9679BD2BFEC59F007C8D5A /* PostCodeSearchView.swift */,
 				5CADA5DA2C0093D300FFCC64 /* AddressList.swift */,
 				5C90636E2C04B34F004A0EC5 /* AddressListRow.swift */,
 				8E3894502C4CEF80008F140B /* EditButtonLabel.swift */,
@@ -1725,7 +1725,7 @@
 				8ECE2B142C34CF9900D7F499 /* LazyView.swift in Sources */,
 				8E7B6C332C51EAD400222721 /* FetchItemUseCase.swift in Sources */,
 				8E37D4692C570EFB00F8048A /* FormRepositoryImpl.swift in Sources */,
-				5C9679BE2BFEC59F007C8D5A /* PostCodeSearch.swift in Sources */,
+				5C9679BE2BFEC59F007C8D5A /* PostCodeSearchView.swift in Sources */,
 				8EB0C2662C3248E300FEE8D0 /* LoginInputBox.swift in Sources */,
 				8E7B6C422C521FB800222721 /* ItemList.swift in Sources */,
 				8E8D134C2C4E439B0032FC96 /* SimpleUserInfoView.swift in Sources */,

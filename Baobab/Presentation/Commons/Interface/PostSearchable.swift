@@ -12,11 +12,13 @@ protocol PostSearchable: ObservableObject {
     var defaultAddress: Address? { get set }
     var selectedAddress: Address? { get set }
     var registeredAddresses: [Address] { get set }
+    var selectedAddressRegion: MKCoordinateRegion? { get set }
     var searchedAddressRegion: MKCoordinateRegion? { get set }
     var searchedPostCode: String { get set }
     var detailedAddressInput: String { get set }
     
     func fetchDefaultAddress()
+    func fetchAddresses()
     func registerAsSelectedAddress()
 }
 
