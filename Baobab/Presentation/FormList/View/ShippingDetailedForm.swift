@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ShippingDetailedForm: View {
-    let form: ShippingForm
+    let form: ShippingFormData
     
     var body: some View {
         List {
@@ -75,6 +75,6 @@ struct ShippingDetailedForm: View {
 
 #Preview {
     NavigationStack {
-        ShippingDetailedForm(form: ShippingForm.sampleData[0])
+        ShippingDetailedForm(form: ShippingFormData.sampleData[0])
     }
 }

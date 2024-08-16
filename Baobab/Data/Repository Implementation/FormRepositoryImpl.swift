@@ -33,7 +33,7 @@ final class FormRepositoryImpl: RemoteRepository, FormRepository {
             .eraseToAnyPublisher()
     }
     
-    func fetchShippingForms() -> AnyPublisher<[ShippingForm], any Error> {
+    func fetchShippingForms() -> AnyPublisher<[ShippingFormData], any Error> {
         let apiEndPoint = Bundle.main.requestURL + "/shipping"
         
         return dataSource.sendGetRequest(to: apiEndPoint, resultType: ShippingFormsResponseDTO.self)
@@ -69,8 +69,8 @@ final class FormRepositoryImpl: RemoteRepository, FormRepository {
                         items: response.goods.map { goods in self.getItem(from: goods) })
     }
     
-    private func getShippingForm(from shipping: ShippingData) -> ShippingForm {
-        return ShippingForm(id: shipping.shippingID,
+    private func getShippingForm(from shipping: ShippingData) -> ShippingFormData {
+        return ShippingFormData(id: shipping.shippingID,
                             deliveryDate: shipping.deliveryDate,
                             deliveryAddress: shipping.deliveryAddress,
                             status: shippingProcess[shipping.status]?.status ?? "",

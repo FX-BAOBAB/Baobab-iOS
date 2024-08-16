@@ -124,5 +124,10 @@ struct AppDI {
         return MainViewModel(usecase: usecase)
     }
     
+    var shippingFormViewModel: ShippingApplicationViewModel {
+        let usecase = ShippingUseCaseImpl(fetchItemUseCase: fetchItemUseCase)
+        return ShippingApplicationViewModel(usecase: usecase)
+    }
+    
     private init() {}
 }

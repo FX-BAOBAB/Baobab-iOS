@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MainView: View {
     @State private var isShowingReceivingForm: Bool = false
+    @State private var isShowingShippingForm: Bool = false
     @Binding var selectedTab: Tab
     
     var body: some View {
@@ -24,9 +25,9 @@ struct MainView: View {
                 }
                 
                 Button(action: {
-                    selectedTab = .usedItemTransaction
+                    isShowingShippingForm.toggle()
                 }) {
-                    MainNavigationBlock(title: "중고거래",
+                    MainNavigationBlock(title: "출고",
                                         image: "bag.fill",
                                         background: Color(red: 253 / 255, green: 126 / 255, blue: 20 / 255),
                                         tintColor: Color(red: 255 / 255, green: 244 / 255, blue: 230 / 255))
@@ -38,6 +39,12 @@ struct MainView: View {
         .fullScreenCover(isPresented: $isShowingReceivingForm) {
             NavigationStack {
                 ReceivingIntroView(isShowingReceivingForm: $isShowingReceivingForm)
+            }
+        }
+        .fullScreenCover(isPresented: $isShowingShippingForm) {
+            NavigationStack {
+                ShippingApplicationForm(viewModel: AppDI.shared.shippingFormViewModel, 
+                             isShowingShippingForm: $isShowingShippingForm)
             }
         }
     }

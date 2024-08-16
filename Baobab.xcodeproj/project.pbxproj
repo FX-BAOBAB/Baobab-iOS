@@ -83,6 +83,11 @@
 		8E4BC0252C5C624800CCFF78 /* LoginTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4BC0242C5C624800CCFF78 /* LoginTest.swift */; };
 		8E4BC0272C5C700C00CCFF78 /* FetchFormsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4BC0262C5C700C00CCFF78 /* FetchFormsTest.swift */; };
 		8E4BC02B2C5CBE8100CCFF78 /* ShippingDetailedForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4BC02A2C5CBE8100CCFF78 /* ShippingDetailedForm.swift */; };
+		8E604DB52C6DD72100D45CB1 /* ShippingApplicationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E604DB42C6DD72100D45CB1 /* ShippingApplicationViewModel.swift */; };
+		8E604DB72C6DD7A500D45CB1 /* ShippingApplicationForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E604DB62C6DD7A500D45CB1 /* ShippingApplicationForm.swift */; };
+		8E604DB92C6DEC2400D45CB1 /* ShippingUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E604DB82C6DEC2400D45CB1 /* ShippingUseCase.swift */; };
+		8E604DBB2C6DF07B00D45CB1 /* SelectableItemInfoRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E604DBA2C6DF07B00D45CB1 /* SelectableItemInfoRow.swift */; };
+		8E604DBD2C6DF1D300D45CB1 /* CheckButtonIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E604DBC2C6DF1D300D45CB1 /* CheckButtonIcon.swift */; };
 		8E60A82B2C5A06EE007814E7 /* FetchProcessStatusUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E60A82A2C5A06EE007814E7 /* FetchProcessStatusUseCase.swift */; };
 		8E60A82D2C5A14AC007814E7 /* ProcessStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E60A82C2C5A14AC007814E7 /* ProcessStatus.swift */; };
 		8E60A82F2C5A1548007814E7 /* ProcessStatusResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E60A82E2C5A1548007814E7 /* ProcessStatusResponseDTO.swift */; };
@@ -92,7 +97,6 @@
 		8E6F6F7F2C6B9C11008703C7 /* ReceivingFormList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F6F7E2C6B9C10008703C7 /* ReceivingFormList.swift */; };
 		8E6F6F812C6B9D8F008703C7 /* NoFormDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6F6F802C6B9D8F008703C7 /* NoFormDataView.swift */; };
 		8E74FF3A2C585E97005ED275 /* ReceivingDetailedForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E74FF392C585E97005ED275 /* ReceivingDetailedForm.swift */; };
-		8E74FF3E2C588AA7005ED275 /* ReceivingFormCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E74FF3D2C588AA7005ED275 /* ReceivingFormCollectionViewCell.swift */; };
 		8E765F682C3D5B5A008A11E6 /* SignUp_Success_Response.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E765F672C3D5B5A008A11E6 /* SignUp_Success_Response.json */; };
 		8E765F692C3D5BCD008A11E6 /* SignUp_Success_Response.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E765F672C3D5B5A008A11E6 /* SignUp_Success_Response.json */; };
 		8E7731D62C4A944F00B42F7A /* LoginRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7731D52C4A944F00B42F7A /* LoginRepositoryImpl.swift */; };
@@ -108,7 +112,6 @@
 		8E7A9F1B2C5B400700969F1A /* FormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7A9F1A2C5B400700969F1A /* FormData.swift */; };
 		8E7A9F1D2C5B40E400969F1A /* ShippingFormsResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7A9F1C2C5B40E400969F1A /* ShippingFormsResponseDTO.swift */; };
 		8E7A9F1F2C5B4E8B00969F1A /* ShippingFormListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7A9F1E2C5B4E8B00969F1A /* ShippingFormListRow.swift */; };
-		8E7A9F212C5B502600969F1A /* ShippingFormCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7A9F202C5B502600969F1A /* ShippingFormCollectionViewCell.swift */; };
 		8E7B6C2B2C51CC1500222721 /* ItemStatusResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7B6C2A2C51CC1500222721 /* ItemStatusResponseDTO.swift */; };
 		8E7B6C2D2C51CF7A00222721 /* ItemRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7B6C2C2C51CF7A00222721 /* ItemRepository.swift */; };
 		8E7B6C2F2C51D5A100222721 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7B6C2E2C51D5A100222721 /* Item.swift */; };
@@ -228,7 +231,6 @@
 		8ECCBB1B2C2E90DC00DD0A1B /* PostSearchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECCBB1A2C2E90DC00DD0A1B /* PostSearchable.swift */; };
 		8ECE2B142C34CF9900D7F499 /* LazyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECE2B132C34CF9900D7F499 /* LazyView.swift */; };
 		8ECF1AE12C5B5B1C004DD9C1 /* ReturnFormsResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECF1AE02C5B5B1C004DD9C1 /* ReturnFormsResponseDTO.swift */; };
-		8ECF1AE52C5B7114004DD9C1 /* ReturnFormCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECF1AE42C5B7114004DD9C1 /* ReturnFormCollectionViewCell.swift */; };
 		8ECF1AE72C5B713E004DD9C1 /* ReturnFormListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECF1AE62C5B713E004DD9C1 /* ReturnFormListRow.swift */; };
 		8ECF1AE92C5B727D004DD9C1 /* ReturnFormsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECF1AE82C5B727D004DD9C1 /* ReturnFormsViewModel.swift */; };
 		8ED894702C2E9894005E826F /* SignUpPostCodeSearchForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED8946F2C2E9894005E826F /* SignUpPostCodeSearchForm.swift */; };
@@ -338,6 +340,11 @@
 		8E4BC0242C5C624800CCFF78 /* LoginTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTest.swift; sourceTree = "<group>"; };
 		8E4BC0262C5C700C00CCFF78 /* FetchFormsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchFormsTest.swift; sourceTree = "<group>"; };
 		8E4BC02A2C5CBE8100CCFF78 /* ShippingDetailedForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingDetailedForm.swift; sourceTree = "<group>"; };
+		8E604DB42C6DD72100D45CB1 /* ShippingApplicationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingApplicationViewModel.swift; sourceTree = "<group>"; };
+		8E604DB62C6DD7A500D45CB1 /* ShippingApplicationForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingApplicationForm.swift; sourceTree = "<group>"; };
+		8E604DB82C6DEC2400D45CB1 /* ShippingUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingUseCase.swift; sourceTree = "<group>"; };
+		8E604DBA2C6DF07B00D45CB1 /* SelectableItemInfoRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectableItemInfoRow.swift; sourceTree = "<group>"; };
+		8E604DBC2C6DF1D300D45CB1 /* CheckButtonIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckButtonIcon.swift; sourceTree = "<group>"; };
 		8E60A82A2C5A06EE007814E7 /* FetchProcessStatusUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchProcessStatusUseCase.swift; sourceTree = "<group>"; };
 		8E60A82C2C5A14AC007814E7 /* ProcessStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessStatus.swift; sourceTree = "<group>"; };
 		8E60A82E2C5A1548007814E7 /* ProcessStatusResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessStatusResponseDTO.swift; sourceTree = "<group>"; };
@@ -347,7 +354,6 @@
 		8E6F6F7E2C6B9C10008703C7 /* ReceivingFormList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceivingFormList.swift; sourceTree = "<group>"; };
 		8E6F6F802C6B9D8F008703C7 /* NoFormDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoFormDataView.swift; sourceTree = "<group>"; };
 		8E74FF392C585E97005ED275 /* ReceivingDetailedForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceivingDetailedForm.swift; sourceTree = "<group>"; };
-		8E74FF3D2C588AA7005ED275 /* ReceivingFormCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceivingFormCollectionViewCell.swift; sourceTree = "<group>"; };
 		8E765F672C3D5B5A008A11E6 /* SignUp_Success_Response.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SignUp_Success_Response.json; sourceTree = "<group>"; };
 		8E7731D52C4A944F00B42F7A /* LoginRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRepositoryImpl.swift; sourceTree = "<group>"; };
 		8E7731D72C4A94A400B42F7A /* SignUpRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRepositoryImpl.swift; sourceTree = "<group>"; };
@@ -362,7 +368,6 @@
 		8E7A9F1A2C5B400700969F1A /* FormData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormData.swift; sourceTree = "<group>"; };
 		8E7A9F1C2C5B40E400969F1A /* ShippingFormsResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingFormsResponseDTO.swift; sourceTree = "<group>"; };
 		8E7A9F1E2C5B4E8B00969F1A /* ShippingFormListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingFormListRow.swift; sourceTree = "<group>"; };
-		8E7A9F202C5B502600969F1A /* ShippingFormCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingFormCollectionViewCell.swift; sourceTree = "<group>"; };
 		8E7B6C2A2C51CC1500222721 /* ItemStatusResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemStatusResponseDTO.swift; sourceTree = "<group>"; };
 		8E7B6C2C2C51CF7A00222721 /* ItemRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemRepository.swift; sourceTree = "<group>"; };
 		8E7B6C2E2C51D5A100222721 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
@@ -480,7 +485,6 @@
 		8ECCBB1A2C2E90DC00DD0A1B /* PostSearchable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostSearchable.swift; sourceTree = "<group>"; };
 		8ECE2B132C34CF9900D7F499 /* LazyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyView.swift; sourceTree = "<group>"; };
 		8ECF1AE02C5B5B1C004DD9C1 /* ReturnFormsResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnFormsResponseDTO.swift; sourceTree = "<group>"; };
-		8ECF1AE42C5B7114004DD9C1 /* ReturnFormCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnFormCollectionViewCell.swift; sourceTree = "<group>"; };
 		8ECF1AE62C5B713E004DD9C1 /* ReturnFormListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnFormListRow.swift; sourceTree = "<group>"; };
 		8ECF1AE82C5B727D004DD9C1 /* ReturnFormsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnFormsViewModel.swift; sourceTree = "<group>"; };
 		8ED8946F2C2E9894005E826F /* SignUpPostCodeSearchForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPostCodeSearchForm.swift; sourceTree = "<group>"; };
@@ -583,6 +587,7 @@
 		5C426BF62BEDBD1B00869F6D /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				8E604DB12C6DD6D100D45CB1 /* ShippingForm */,
 				8E7900B72C6ADC7900BD4BBB /* LaunchScreen */,
 				8EA438012C60510600DFD934 /* UsedTrade */,
 				8EA437FD2C604F6200DFD934 /* Notification */,
@@ -611,8 +616,8 @@
 		5C426BF82BEDBD4800869F6D /* View */ = {
 			isa = PBXGroup;
 			children = (
-				5CD8A20A2C03769000EE5C09 /* Commons */,
 				8EA438132C60B74000DFD934 /* ReceivingIntroView.swift */,
+				5CD8A20A2C03769000EE5C09 /* Commons */,
 				8E3F7C5A2C2A98980087EB2A /* ReceiptCompletion */,
 				8E3F7C512C2A5E7D0087EB2A /* Payment */,
 				5C89233C2BFAC7EA00AE9049 /* ReceivingReservation */,
@@ -673,6 +678,7 @@
 				8E37D4642C570D6300F8048A /* FetchFormUseCase.swift */,
 				8E60A82A2C5A06EE007814E7 /* FetchProcessStatusUseCase.swift */,
 				8EA152882C69F4420011FDB3 /* UpdateTokenUseCase.swift */,
+				8E604DB82C6DEC2400D45CB1 /* ShippingUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -904,6 +910,33 @@
 			path = FormList;
 			sourceTree = "<group>";
 		};
+		8E604DB12C6DD6D100D45CB1 /* ShippingForm */ = {
+			isa = PBXGroup;
+			children = (
+				8E604DB32C6DD70B00D45CB1 /* ViewModel */,
+				8E604DB22C6DD70600D45CB1 /* View */,
+			);
+			path = ShippingForm;
+			sourceTree = "<group>";
+		};
+		8E604DB22C6DD70600D45CB1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8E604DB62C6DD7A500D45CB1 /* ShippingApplicationForm.swift */,
+				8E604DBA2C6DF07B00D45CB1 /* SelectableItemInfoRow.swift */,
+				8E604DBC2C6DF1D300D45CB1 /* CheckButtonIcon.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8E604DB32C6DD70B00D45CB1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				8E604DB42C6DD72100D45CB1 /* ShippingApplicationViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		8E765F6A2C3D5EB0008A11E6 /* Mock */ = {
 			isa = PBXGroup;
 			children = (
@@ -1113,9 +1146,6 @@
 				8E74FF392C585E97005ED275 /* ReceivingDetailedForm.swift */,
 				8E4BC02A2C5CBE8100CCFF78 /* ShippingDetailedForm.swift */,
 				8EA437FB2C60474400DFD934 /* ReturnDetailedForm.swift */,
-				8E74FF3D2C588AA7005ED275 /* ReceivingFormCollectionViewCell.swift */,
-				8E7A9F202C5B502600969F1A /* ShippingFormCollectionViewCell.swift */,
-				8ECF1AE42C5B7114004DD9C1 /* ReturnFormCollectionViewCell.swift */,
 				8E7A9F142C5B187D00969F1A /* ProcessStatusBar.swift */,
 				8E6F6F802C6B9D8F008703C7 /* NoFormDataView.swift */,
 			);
@@ -1538,6 +1568,7 @@
 				8E60A8312C5A166E007814E7 /* ProcessStatusRepository.swift in Sources */,
 				8E7731DA2C4A94DC00B42F7A /* UserRepositoryImpl.swift in Sources */,
 				8EBFCE4C2C5390B900A2AB4F /* ItemStatus.swift in Sources */,
+				8E604DB92C6DEC2400D45CB1 /* ShippingUseCase.swift in Sources */,
 				5C4ACAC22BEE41A300195895 /* CategoryPicker.swift in Sources */,
 				8EBFCE442C532C9A00A2AB4F /* DetailedItemView.swift in Sources */,
 				8E60A82D2C5A14AC007814E7 /* ProcessStatus.swift in Sources */,
@@ -1587,6 +1618,7 @@
 				8EA4380E2C6061F000DFD934 /* CustomTabbar.swift in Sources */,
 				5C405EEC2BF72ADB006EE6F1 /* ReceivingViewModel+Defect.swift in Sources */,
 				8ECCBB152C2E846D00DD0A1B /* AddressRegistrationForm.swift in Sources */,
+				8E604DBB2C6DF07B00D45CB1 /* SelectableItemInfoRow.swift in Sources */,
 				8EA1528B2C69F6F10011FDB3 /* FetchError.swift in Sources */,
 				8E7731DC2C4A955600B42F7A /* ReceivingRepositoryImpl.swift in Sources */,
 				8E7B6C3C2C5219CC00222721 /* StoredItemsViewModel.swift in Sources */,
@@ -1614,6 +1646,7 @@
 				5C8923442BFADF0900AE9049 /* Date+String.swift in Sources */,
 				8E7BC8F22C3EC78600CB708F /* LoginUseCase.swift in Sources */,
 				8EBFCE4A2C537F5300A2AB4F /* DefectRow.swift in Sources */,
+				8E604DB52C6DD72100D45CB1 /* ShippingApplicationViewModel.swift in Sources */,
 				8E7BC8CC2C3E433600CB708F /* LoginResponseDTO.swift in Sources */,
 				8EA152832C6997F80011FDB3 /* EmptyItemView.swift in Sources */,
 				8EB0C2532C32262F00FEE8D0 /* SignUpViewModel+PostSearchable.swift in Sources */,
@@ -1635,6 +1668,7 @@
 				8E7BC8C82C3E42CC00CB708F /* LoginRepository.swift in Sources */,
 				8E449F072C4BA24000291277 /* RemoteDataSource.swift in Sources */,
 				8E8D13522C4E44700032FC96 /* FetchUserInfoUseCase.swift in Sources */,
+				8E604DBD2C6DF1D300D45CB1 /* CheckButtonIcon.swift in Sources */,
 				8E7900BF2C6B610A00BD4BBB /* MainViewModel.swift in Sources */,
 				5C735F4A2BF1B44500A36EC8 /* ItemInformationForm.swift in Sources */,
 				8EAB81752C4120F70052AD48 /* RequestError.swift in Sources */,
@@ -1649,7 +1683,6 @@
 				5CADA5DB2C0093D300FFCC64 /* AddressList.swift in Sources */,
 				8E7A9F1D2C5B40E400969F1A /* ShippingFormsResponseDTO.swift in Sources */,
 				5C9679C22BFF25E7007C8D5A /* SectionFooter.swift in Sources */,
-				8E74FF3E2C588AA7005ED275 /* ReceivingFormCollectionViewCell.swift in Sources */,
 				8EB0C2682C324DA300FEE8D0 /* AutoLogInButton.swift in Sources */,
 				5C80F0EE2C06BF4500A94C22 /* FetchGeoCodeUseCase.swift in Sources */,
 				8E37D4672C570D8200F8048A /* FormRepository.swift in Sources */,
@@ -1678,7 +1711,6 @@
 				8E7B6C442C52227300222721 /* ShippedItemsViewModel.swift in Sources */,
 				5C80F0F82C06DD0F00A94C22 /* DefaultAddressResponseDTO.swift in Sources */,
 				8E7BC8D42C3E6ACE00CB708F /* TokenRepositroy.swift in Sources */,
-				8E7A9F212C5B502600969F1A /* ShippingFormCollectionViewCell.swift in Sources */,
 				5C735F462BF1A4B400A36EC8 /* CategoryListRow.swift in Sources */,
 				5C994A582BF5F8D00013672B /* Defect.swift in Sources */,
 				8E7BC8CE2C3E44C500CB708F /* LoginResponse.swift in Sources */,
@@ -1695,10 +1727,10 @@
 				8E37D4692C570EFB00F8048A /* FormRepositoryImpl.swift in Sources */,
 				5C9679BE2BFEC59F007C8D5A /* PostCodeSearch.swift in Sources */,
 				8EB0C2662C3248E300FEE8D0 /* LoginInputBox.swift in Sources */,
-				8ECF1AE52C5B7114004DD9C1 /* ReturnFormCollectionViewCell.swift in Sources */,
 				8E7B6C422C521FB800222721 /* ItemList.swift in Sources */,
 				8E8D134C2C4E439B0032FC96 /* SimpleUserInfoView.swift in Sources */,
 				5C426BE82BEDA8F300869F6D /* BaobabApp.swift in Sources */,
+				8E604DB72C6DD7A500D45CB1 /* ShippingApplicationForm.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

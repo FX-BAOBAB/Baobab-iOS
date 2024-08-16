@@ -15,5 +15,5 @@ protocol FormRepository {
     func fetchReturnForms() -> AnyPublisher<[ReturnForm], any Error>
     
     ///출고 요청서를 가져오는 함수
-    func fetchShippingForms() -> AnyPublisher<[ShippingForm], any Error>
+    func fetchShippingForms() -> AnyPublisher<[ShippingFormData], any Error>
 }
