@@ -44,8 +44,14 @@ struct ShippingApplicationForm: View {
                 VStack(spacing: 0) {
                     Divider()
                     
-                    Button {
-                        
+                    NavigationLink {
+                        ReservationForm<ShippingApplicationViewModel, _>(
+                            isShowingFullScreenCover: $isShowingShippingForm,
+                            nextView: EmptyView(),
+                            calendarCaption: "선택한 날짜에 맞춰 물품이 배송될 예정이에요.", 
+                            addressHeader: "배송지 선택"
+                        )
+                        .environmentObject(viewModel)
                     } label: {
                         Text("다음")
                             .bold()

@@ -13,9 +13,9 @@ struct DefaultAddressToggleButton: View {
     var body: some View {
         HStack(spacing: 10) {
             Button(action: {
-                viewModel.selectedAddress.isBasicAddress.toggle()
+                viewModel.selectedAddress?.isBasicAddress.toggle()
             }, label: {
-                if viewModel.selectedAddress.isBasicAddress == true {
+                if viewModel.selectedAddress?.isBasicAddress == true {
                     Image(systemName: "checkmark.circle.fill")
                         .resizable()
                         .aspectRatio(contentMode: .fit)

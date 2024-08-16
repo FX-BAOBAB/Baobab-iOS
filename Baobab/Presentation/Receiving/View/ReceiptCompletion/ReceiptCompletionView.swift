@@ -28,7 +28,7 @@ struct ReceiptCompletionView: View {
                 
                 GroupBox(label: Text("방문지 정보")) {
                     VStack(alignment: .leading) {
-                        SelectedAddressDetail(showTag: false)
+                        SelectedAddressDetail<ReceivingViewModel>(showTag: false)
                             .environmentObject(viewModel)
                             .font(.caption)
                         

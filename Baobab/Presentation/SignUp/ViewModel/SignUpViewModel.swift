@@ -18,7 +18,7 @@ final class SignUpViewModel: PostSearchable {
     @Published var passwordState: PasswordState = .none
     @Published var passwordConfirmState: PasswordConfirmState = .none
     @Published var nickNameState: NickNameState = .none
-    @Published var selectedAddress: Address = Address(id: UUID().hashValue, address: "", detailAddress: "", post: "", isBasicAddress: false)
+    @Published var selectedAddress: Address?
     @Published var searchedAddress: String = ""
     @Published var searchedAddressRegion: MKCoordinateRegion?
     @Published var searchedPostCode: String = ""
@@ -29,6 +29,8 @@ final class SignUpViewModel: PostSearchable {
     var cancellables = Set<AnyCancellable>()
     var responseMessage: String = ""
     var signUpResult: Bool = false
+    var defaultAddress: Address?    //회원가입에서는 사용하지 않는 protocol 요구사항
+    var registeredAddresses: [Address] = []    //회원가입에서는 사용하지 않는 protocol 요구사항
     var alertType: AlertType?
     let usecase: SignUpUseCase
     
@@ -59,9 +61,9 @@ final class SignUpViewModel: PostSearchable {
                 "email": email,
                 "password": password,
                 "name": nickName,
-                "address": selectedAddress.address,
-                "detailAddress": selectedAddress.detailAddress,
-                "basicAddress": selectedAddress.isBasicAddress,
+                "address": selectedAddress?.address ?? "",
+                "detailAddress": selectedAddress?.detailAddress ?? "",
+                "basicAddress": selectedAddress?.isBasicAddress ?? "",
                 "post": postCode
             ]
         ] as [String: Any]

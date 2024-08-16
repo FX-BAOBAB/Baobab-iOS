@@ -84,6 +84,11 @@ struct AddressRegistrationForm: View {
                 Alert(title: Text(""))
             }
         }
+        .onAppear {
+            if viewModel.selectedAddress == nil {
+                viewModel.selectedAddress = Address(id: UUID().hashValue, address: "", detailAddress: "", post: "", isBasicAddress: false)
+            }
+        }
     }
 }
 

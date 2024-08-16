@@ -50,13 +50,4 @@ extension ReceivingViewModel {
             })
             .store(in: &cancellables)
     }
-    
-    //MARK: - 검색한 주소를 방문지 주소로 등록하는 함수
-    func registerAsSelectedAddress() {
-        self.selectedAddress?.id = UUID().hashValue    //임시 난수
-        self.selectedAddress?.address = self.searchedAddress
-        self.selectedAddress?.detailAddress = self.detailedAddressInput
-        self.selectedAddress?.post = self.searchedPostCode
-        self.selectedAddress?.isBasicAddress = false
-    }
 }

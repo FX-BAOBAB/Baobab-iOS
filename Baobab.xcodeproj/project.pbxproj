@@ -37,7 +37,7 @@
 		5C80F0F02C06C3A000A94C22 /* ReceivingUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C80F0EF2C06C3A000A94C22 /* ReceivingUseCase.swift */; };
 		5C80F0F52C06D86F00A94C22 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C80F0F42C06D86F00A94C22 /* UserRepository.swift */; };
 		5C80F0F82C06DD0F00A94C22 /* DefaultAddressResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C80F0F72C06DD0F00A94C22 /* DefaultAddressResponseDTO.swift */; };
-		5C89233E2BFAC80200AE9049 /* ReceivingReservationForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C89233D2BFAC80200AE9049 /* ReceivingReservationForm.swift */; };
+		5C89233E2BFAC80200AE9049 /* ReservationForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C89233D2BFAC80200AE9049 /* ReservationForm.swift */; };
 		5C8923442BFADF0900AE9049 /* Date+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8923432BFADF0900AE9049 /* Date+String.swift */; };
 		5C90636F2C04B34F004A0EC5 /* AddressListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C90636E2C04B34F004A0EC5 /* AddressListRow.swift */; };
 		5C9063712C04B75B004A0EC5 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9063702C04B75B004A0EC5 /* Address.swift */; };
@@ -156,6 +156,7 @@
 		8E8AF2EE2C426C2700A1F0ED /* ImageUploadTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8AF2ED2C426C2700A1F0ED /* ImageUploadTest.swift */; };
 		8E8CCC4E2C6C3AF900D2DF72 /* ShippingFormList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8CCC4D2C6C3AF900D2DF72 /* ShippingFormList.swift */; };
 		8E8CCC502C6C3BB700D2DF72 /* ReturnFormList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8CCC4F2C6C3BB700D2DF72 /* ReturnFormList.swift */; };
+		8E8CD9F42C6F1CF60077D024 /* Reservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8CD9F32C6F1CF60077D024 /* Reservable.swift */; };
 		8E8D13452C4E3CC10032FC96 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8D13442C4E3CC10032FC96 /* MainTabView.swift */; };
 		8E8D134A2C4E40CD0032FC96 /* UserInfoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8D13492C4E40CD0032FC96 /* UserInfoList.swift */; };
 		8E8D134C2C4E439B0032FC96 /* SimpleUserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8D134B2C4E439B0032FC96 /* SimpleUserInfoView.swift */; };
@@ -194,7 +195,6 @@
 		8EAB81712C4107B50052AD48 /* AccessTokenRefreshResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAB81702C4107B50052AD48 /* AccessTokenRefreshResponseDTO.swift */; };
 		8EAB81732C4108380052AD48 /* AccessTokenRefreshData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAB81722C4108380052AD48 /* AccessTokenRefreshData.swift */; };
 		8EAB81752C4120F70052AD48 /* RequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAB81742C4120F70052AD48 /* RequestError.swift */; };
-		8EB0C2532C32262F00FEE8D0 /* SignUpViewModel+PostSearchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB0C2522C32262F00FEE8D0 /* SignUpViewModel+PostSearchable.swift */; };
 		8EB0C2552C322AA000FEE8D0 /* SignUpViewModel+Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB0C2542C322AA000FEE8D0 /* SignUpViewModel+Region.swift */; };
 		8EB0C2572C322B2E00FEE8D0 /* SignUpUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB0C2562C322B2E00FEE8D0 /* SignUpUseCase.swift */; };
 		8EB0C25B2C3240E000FEE8D0 /* SignUpCompletionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB0C25A2C3240E000FEE8D0 /* SignUpCompletionView.swift */; };
@@ -292,7 +292,7 @@
 		5C80F0EF2C06C3A000A94C22 /* ReceivingUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceivingUseCase.swift; sourceTree = "<group>"; };
 		5C80F0F42C06D86F00A94C22 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		5C80F0F72C06DD0F00A94C22 /* DefaultAddressResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAddressResponseDTO.swift; sourceTree = "<group>"; };
-		5C89233D2BFAC80200AE9049 /* ReceivingReservationForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceivingReservationForm.swift; sourceTree = "<group>"; };
+		5C89233D2BFAC80200AE9049 /* ReservationForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationForm.swift; sourceTree = "<group>"; };
 		5C8923432BFADF0900AE9049 /* Date+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+String.swift"; sourceTree = "<group>"; };
 		5C90636E2C04B34F004A0EC5 /* AddressListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressListRow.swift; sourceTree = "<group>"; };
 		5C9063702C04B75B004A0EC5 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
@@ -409,6 +409,7 @@
 		8E8AF2ED2C426C2700A1F0ED /* ImageUploadTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploadTest.swift; sourceTree = "<group>"; };
 		8E8CCC4D2C6C3AF900D2DF72 /* ShippingFormList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingFormList.swift; sourceTree = "<group>"; };
 		8E8CCC4F2C6C3BB700D2DF72 /* ReturnFormList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnFormList.swift; sourceTree = "<group>"; };
+		8E8CD9F32C6F1CF60077D024 /* Reservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reservable.swift; sourceTree = "<group>"; };
 		8E8D13442C4E3CC10032FC96 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		8E8D13492C4E40CD0032FC96 /* UserInfoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoList.swift; sourceTree = "<group>"; };
 		8E8D134B2C4E439B0032FC96 /* SimpleUserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleUserInfoView.swift; sourceTree = "<group>"; };
@@ -448,7 +449,6 @@
 		8EAB81702C4107B50052AD48 /* AccessTokenRefreshResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTokenRefreshResponseDTO.swift; sourceTree = "<group>"; };
 		8EAB81722C4108380052AD48 /* AccessTokenRefreshData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTokenRefreshData.swift; sourceTree = "<group>"; };
 		8EAB81742C4120F70052AD48 /* RequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestError.swift; sourceTree = "<group>"; };
-		8EB0C2522C32262F00FEE8D0 /* SignUpViewModel+PostSearchable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SignUpViewModel+PostSearchable.swift"; sourceTree = "<group>"; };
 		8EB0C2542C322AA000FEE8D0 /* SignUpViewModel+Region.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SignUpViewModel+Region.swift"; sourceTree = "<group>"; };
 		8EB0C2562C322B2E00FEE8D0 /* SignUpUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpUseCase.swift; sourceTree = "<group>"; };
 		8EB0C25A2C3240E000FEE8D0 /* SignUpCompletionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpCompletionView.swift; sourceTree = "<group>"; };
@@ -620,7 +620,6 @@
 				5CD8A20A2C03769000EE5C09 /* Commons */,
 				8E3F7C5A2C2A98980087EB2A /* ReceiptCompletion */,
 				8E3F7C512C2A5E7D0087EB2A /* Payment */,
-				5C89233C2BFAC7EA00AE9049 /* ReceivingReservation */,
 				5C9B81022BF44A800038EB27 /* DefectRegistration */,
 				5CCFBF662BF2E00800322D0D /* ImageRegistration */,
 				5C8C40092BF195FA007A7532 /* ItemInformationInput */,
@@ -763,7 +762,7 @@
 		5C89233C2BFAC7EA00AE9049 /* ReceivingReservation */ = {
 			isa = PBXGroup;
 			children = (
-				5C89233D2BFAC80200AE9049 /* ReceivingReservationForm.swift */,
+				5C89233D2BFAC80200AE9049 /* ReservationForm.swift */,
 				5C9679BF2BFEC666007C8D5A /* SelectedAddressDetail.swift */,
 				5C9679BD2BFEC59F007C8D5A /* PostCodeSearch.swift */,
 				5CADA5DA2C0093D300FFCC64 /* AddressList.swift */,
@@ -1246,7 +1245,6 @@
 				8EE66DE52C400C8A0087AD19 /* SignUpViewModel+Alert.swift */,
 				8EB0C2542C322AA000FEE8D0 /* SignUpViewModel+Region.swift */,
 				8ECCBB102C2E4D5700DD0A1B /* SignUpViewModel+InputState.swift */,
-				8EB0C2522C32262F00FEE8D0 /* SignUpViewModel+PostSearchable.swift */,
 				8ECCBB062C2E39FA00DD0A1B /* SignUpViewModel+RegularExpression.swift */,
 			);
 			path = ViewModel;
@@ -1273,6 +1271,7 @@
 				8ECE2B132C34CF9900D7F499 /* LazyView.swift */,
 				8EE66DE92C400D920087AD19 /* CustomProgressView.swift */,
 				8EC7EFD12C50858400801A6D /* View+Fork.swift */,
+				5C89233C2BFAC7EA00AE9049 /* ReceivingReservation */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1289,6 +1288,7 @@
 			isa = PBXGroup;
 			children = (
 				8ECCBB1A2C2E90DC00DD0A1B /* PostSearchable.swift */,
+				8E8CD9F32C6F1CF60077D024 /* Reservable.swift */,
 			);
 			path = Interface;
 			sourceTree = "<group>";
@@ -1584,7 +1584,7 @@
 				5C9AD9222C040178003EF614 /* NewItemAdditionSheet.swift in Sources */,
 				8EBFCE532C539A1000A2AB4F /* ReceivingFormListRow.swift in Sources */,
 				8E7731D82C4A94A400B42F7A /* SignUpRepositoryImpl.swift in Sources */,
-				5C89233E2BFAC80200AE9049 /* ReceivingReservationForm.swift in Sources */,
+				5C89233E2BFAC80200AE9049 /* ReservationForm.swift in Sources */,
 				8E8CCC502C6C3BB700D2DF72 /* ReturnFormList.swift in Sources */,
 				5C80F0F52C06D86F00A94C22 /* UserRepository.swift in Sources */,
 				8ECCBB092C2E42C800DD0A1B /* EmailInputBox.swift in Sources */,
@@ -1649,7 +1649,6 @@
 				8E604DB52C6DD72100D45CB1 /* ShippingApplicationViewModel.swift in Sources */,
 				8E7BC8CC2C3E433600CB708F /* LoginResponseDTO.swift in Sources */,
 				8EA152832C6997F80011FDB3 /* EmptyItemView.swift in Sources */,
-				8EB0C2532C32262F00FEE8D0 /* SignUpViewModel+PostSearchable.swift in Sources */,
 				8E7B6C3E2C521DA000222721 /* ShippingItemsViewModel.swift in Sources */,
 				8E9772072C3CBCD00082DCAF /* SignUpResponseDTO.swift in Sources */,
 				5C4F18172C0574CF0030A096 /* ReceivingViewModel+Region.swift in Sources */,
@@ -1687,6 +1686,7 @@
 				5C80F0EE2C06BF4500A94C22 /* FetchGeoCodeUseCase.swift in Sources */,
 				8E37D4672C570D8200F8048A /* FormRepository.swift in Sources */,
 				8EAB81712C4107B50052AD48 /* AccessTokenRefreshResponseDTO.swift in Sources */,
+				8E8CD9F42C6F1CF60077D024 /* Reservable.swift in Sources */,
 				8EA152872C69E86B0011FDB3 /* RemoteTokenRepository.swift in Sources */,
 				8E37D4632C570C7300F8048A /* ReceivingFormsViewModel.swift in Sources */,
 				8EBFCE482C5366A000A2AB4F /* StatusLabel.swift in Sources */,
