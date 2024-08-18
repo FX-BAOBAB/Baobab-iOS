@@ -18,12 +18,12 @@ struct ReservationForm<T: PostSearchable, V: View>: View where T: Reservable {
     let addressHeader: String
     
     var body: some View {
-        ZStack {
+        VStack(spacing: 0) {
             ScrollView {
                 Section(footer: SectionFooter()) {
                     DatePicker("", selection: $viewModel.reservationDate, in: Date.tomorrow...)
-                    .datePickerStyle(.graphical)
-                    .padding([.leading, .trailing])
+                        .datePickerStyle(.graphical)
+                        .padding([.leading, .trailing])
                     
                     HStack(spacing: 5) {
                         Image(systemName: "info.circle")
@@ -51,7 +51,7 @@ struct ReservationForm<T: PostSearchable, V: View>: View where T: Reservable {
                 }
                 
                 Color.clear
-                    .frame(height: UIScreen.main.bounds.width * 0.3)
+                    .frame(height: UIScreen.main.bounds.width * 0.1)
             }
             
             VStack(spacing: 0) {
@@ -72,7 +72,6 @@ struct ReservationForm<T: PostSearchable, V: View>: View where T: Reservable {
                 .padding()
             }
             .background(.white)
-            .frame(maxHeight: .infinity, alignment: .bottom)
         }
         .navigationTitle("입고 예약")
         .navigationBarTitleDisplayMode(.inline)
