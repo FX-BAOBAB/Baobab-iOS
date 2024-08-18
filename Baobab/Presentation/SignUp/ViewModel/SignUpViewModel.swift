@@ -29,9 +29,6 @@ final class SignUpViewModel: PostSearchable {
     var cancellables = Set<AnyCancellable>()
     var responseMessage: String = ""
     var signUpResult: Bool = false
-    var defaultAddress: Address?    //회원가입에서는 사용하지 않는 protocol 요구사항
-    var registeredAddresses: [Address] = []    //회원가입에서는 사용하지 않는 protocol 요구사항
-    var selectedAddressRegion: MKCoordinateRegion?    //회원가입에서는 사용하지 않는 protocol 요구사항
     var alertType: AlertType?
     let usecase: SignUpUseCase
     
@@ -41,8 +38,6 @@ final class SignUpViewModel: PostSearchable {
         bind()
         calculateMapCoordinates()
     }
-    
-    func fetchAddresses() {}    //회원가입에서 사용하지 않는 protocol 요구사항
     
     //MARK: - 회원가입 요청
     func signUp() {

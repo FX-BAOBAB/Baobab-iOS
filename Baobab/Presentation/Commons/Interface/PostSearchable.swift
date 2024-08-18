@@ -17,13 +17,32 @@ protocol PostSearchable: ObservableObject {
     var searchedPostCode: String { get set }
     var detailedAddressInput: String { get set }
     
-    func fetchDefaultAddress()
     func fetchAddresses()
+    func fetchDefaultAddress()
     func registerAsSelectedAddress()
 }
 
 extension PostSearchable {
-    //MARK: - 검색한 주소를 방문지 주소로 등록하는 함수
+    //MARK: - 회원가입에서 사용하지 않는 요구사항 구현
+    var defaultAddress: Address? {
+        get { return nil }
+        set {}
+    }
+    
+    var registeredAddresses: [Address] {
+        get { return [] }
+        set {}
+    }
+    
+    var selectedAddressRegion: MKCoordinateRegion? {
+        get { return nil }
+        set {}
+    }
+    
+    func fetchAddresses() {}
+    func fetchDefaultAddress() {}
+    
+    //MARK: - 프로토콜을 준수해야하는 모든 클래스에서 구현해야 할 요구사항 구현
     func registerAsSelectedAddress() {
         self.selectedAddress?.id = UUID().hashValue    //임시 난수
         self.selectedAddress?.address = self.searchedAddress
@@ -31,7 +50,4 @@ extension PostSearchable {
         self.selectedAddress?.post = self.searchedPostCode
         self.selectedAddress?.isBasicAddress = false
     }
-    
-    //회원가입에서는 주소 찾기만 필요하기 떄문에 임시 함수 선언
-    func fetchDefaultAddress() {}
 }
