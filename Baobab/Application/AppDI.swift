@@ -8,94 +8,136 @@
 import Foundation
 
 struct AppDI {
-    static let shared: AppDI = AppDI()
+    static var shared: AppDI = AppDI()
     
-    let dataSource = RemoteDataSourceImpl()
-    let fetchGeoCodeUseCase = FetchGeoCodeUseCaseImpl()
+    //MARK: - Data Layer
+    let dataSource = RemoteDataSourceImpl.shared
     
-    var receivingViewModel: ReceivingViewModel {
-        let userRepository = UserRepositoryImpl(dataSource: dataSource)
-        let imageRepository = ImageRepositoryImpl(dataSource: dataSource)
-        let receivingRepository = ReceivingRepositoryImpl(dataSource: dataSource)
-        let fetchAddressUseCase = FetchAddressUseCaseImpl(repository: userRepository)
-        let uploadImageUseCase = UploadImageUseCaseImpl(repository: imageRepository)
-        let receivingUseCase = ReceivingUseCaseImpl(fetchGeoCodeUseCase: fetchGeoCodeUseCase,
-                                                    fetchDefaultAddressUseCase: fetchAddressUseCase, 
-                                                    uploadImageUseCase: uploadImageUseCase, 
-                                                    repository: receivingRepository)
-        return ReceivingViewModel(itemIdx: 0, usecase: receivingUseCase)
+    private lazy var userRepository = {
+        return UserRepositoryImpl(dataSource: dataSource)
+    }()
+    
+    private lazy var localTokenRepository = {
+        return TokenRepositoryImpl()
+    }()
+    
+    //MARK: - Domain Layer
+    private var fetchGeoCodeUseCase: FetchGeoCodeUseCase {
+        return FetchGeoCodeUseCaseImpl()
     }
     
+    private lazy var fetchAddressUseCase = {
+        return FetchAddressUseCaseImpl(repository: userRepository)
+    }()
+    
+    private lazy var fetchTokenUseCase = {
+        return FetchTokenUseCaseImpl(repository: localTokenRepository)
+    }()
+    
+    private lazy var fetchItemUseCase = {
+        let repository = ItemRepositoryImpl(dataSource: dataSource)
+        
+        return FetchItemUseCaseImpl(repository: repository)
+    }()
+    
+    //MARK: - Presentation Layer
+    lazy var receivingViewModel: ReceivingViewModel = {
+        //Data Layer
+        let imageRepository = ImageRepositoryImpl(dataSource: dataSource)
+        let receivingRepository = ReceivingRepositoryImpl(dataSource: dataSource)
+        
+        //Domain Layer
+        let uploadImageUseCase = UploadImageUseCaseImpl(repository: imageRepository)
+        let receivingUseCase = ReceivingUseCaseImpl(fetchGeoCodeUseCase: fetchGeoCodeUseCase,
+                                                    fetchDefaultAddressUseCase: fetchAddressUseCase,
+                                                    uploadImageUseCase: uploadImageUseCase, 
+                                                    repository: receivingRepository)
+        
+        //Presentation Layer
+        let viewModel = ReceivingViewModel(itemIdx: 0, usecase: receivingUseCase)
+        
+        return viewModel
+    }()
+    
     var signUpViewModel: SignUpViewModel {
+        //Data Layer
         let repository = SignUpRepositoryImpl(dataSource: dataSource)
+        
+        //Domain Layer
         let checkEmailDuplicationUseCase = CheckEmailDuplicationUseCaseImpl(repository: repository)
         let checkNickNameDuplicationUseCase = CheckNickNameDuplicationUseCaseImpl(repository: repository)
         let signUpUseCase = SignUpUseCaseImpl(repository: repository,
                                               fetchGeoCodeUseCase: fetchGeoCodeUseCase,
                                               checkEmailDuplicationUseCase: checkEmailDuplicationUseCase,
                                               checkNickNameDuplicationUseCase: checkNickNameDuplicationUseCase)
-        return SignUpViewModel(usecase: signUpUseCase)
+        
+        //Presentation Layer
+        let viewModel = SignUpViewModel(usecase: signUpUseCase)
+        
+        return viewModel
     }
     
-    var loginViewModel: LoginViewModel {
+    lazy var loginViewModel = {
+        //Data Layer
         let loginRepository = LoginRepositoryImpl(dataSource: dataSource)
         let remoteTokenRepository = RemoteTokenRepositoryImpl(dataSource: dataSource)
-        let localTokenRepository = TokenRepositoryImpl()
-        let fetchTokenUseCase = FetchTokenUseCaseImpl(repository: localTokenRepository)
+        
+        //Domain Layer
         let updateTokenUseCase = UpdateAccessTokenUseCaseImpl(repository: remoteTokenRepository)
         let usecase = LoginUseCaseImpl(fetchTokenUseCase: fetchTokenUseCase,
                                        updateAccessTokenUseCase: updateTokenUseCase,
                                        repository: loginRepository)
-        return LoginViewModel(usecase: usecase)
-    }
-    
-    var userInfoViewModel: UserInfoViewModel {
-        let repository = UserRepositoryImpl(dataSource: dataSource)
-        let usecase = FetchuserInfoUserCaseImpl(repository: repository)
         
-        return UserInfoViewModel(usecase: usecase)
-    }
-    
-    var settingViewModel: SettingViewModel {
-        let repository = TokenRepositoryImpl()
-        let usecase = FetchTokenUseCaseImpl(repository: repository)
+        //Presentation Layer
+        let viewModel = LoginViewModel(usecase: usecase)
         
-        return SettingViewModel(usecase: usecase)
-    }
+        return viewModel
+    }()
     
-    private var fetchItemUseCase: FetchItemUseCaseImpl {
-        let repository = ItemRepositoryImpl(dataSource: dataSource)
+    lazy var userInfoViewModel = {
+        //Domain Layer
+        let usecase = FetchuserInfoUserCaseImpl(repository: userRepository)
         
-        return FetchItemUseCaseImpl(repository: repository)
-    }
+        //Presentation Layer
+        let viewModel = UserInfoViewModel(usecase: usecase)
+        
+        return viewModel
+    }()
     
-    var receivingItemsViewModel: ReceivingItemsViewModel {
+    lazy var settingViewModel = {
+        //Presentation Layer
+        let viewModel = SettingViewModel(usecase: fetchTokenUseCase)
+        
+        return viewModel
+    }()
+    
+    lazy var receivingItemsViewModel = {
         return ReceivingItemsViewModel(usecase: fetchItemUseCase)
-    }
+    }()
     
-    var storedItemsViewModel: StoredItemsViewModel {
+    lazy var storedItemsViewModel = {
         return StoredItemsViewModel(usecase: fetchItemUseCase)
-    }
+    }()
     
-    var shippingItemsViewModel: ShippingItemsViewModel {
+    lazy var shippingItemsViewModel = {
         return ShippingItemsViewModel(usecase: fetchItemUseCase)
-    }
+    }()
     
-    var shippedItemsViewModel: ShippedItemsViewModel {
+    lazy var shippedItemsViewModel = {
         return ShippedItemsViewModel(usecase: fetchItemUseCase)
-    }
-    
-    var returningItemsViewModel: ReturningItemsViewModel {
+    }()
+   
+    lazy var returningItemsViewModel = {
         return ReturningItemsViewModel(usecase: fetchItemUseCase)
-    }
+    }()
     
-    var returnedItemsViewModel: ReturnedItemsViewModel {
+    lazy var returnedItemsViewModel = {
         return ReturnedItemsViewModel(usecase: fetchItemUseCase)
-    }
+    }()
     
-    var usedItemsViewModel: UsedItemsViewModel {
+    lazy var usedItemsViewModel = {
         return UsedItemsViewModel(usecase: fetchItemUseCase)
-    }
+    }()
     
     private var fetchFormsUseCase: FetchFormUseCase {
         let formRepository = FormRepositoryImpl(dataSource: dataSource)
@@ -117,22 +159,21 @@ struct AppDI {
         return ReturnFormsViewModel(usecase: fetchFormsUseCase)
     }
     
-    var mainViewModel: MainViewModel {
-        let repository = TokenRepositoryImpl()
-        let usecase = FetchTokenUseCaseImpl(repository: repository)
-        
-        return MainViewModel(usecase: usecase)
-    }
+    lazy var mainViewModel = {
+        return MainViewModel(usecase: fetchTokenUseCase)
+    }()
     
-    var shippingFormViewModel: ShippingApplicationViewModel {
-        let userRepository = UserRepositoryImpl(dataSource: dataSource)
-        let fetchAddressUseCase = FetchAddressUseCaseImpl(repository: userRepository)
-        let fertchGeoCodeUseCase = FetchGeoCodeUseCaseImpl()
+    lazy var shippingFormViewModel: ShippingApplicationViewModel = {
+        //Domain Layer
         let usecase = ShippingUseCaseImpl(fetchItemUseCase: fetchItemUseCase,
                                           fetchAddressUseCase: fetchAddressUseCase,
-                                          fetchGeoCodeUseCase: fertchGeoCodeUseCase)
-        return ShippingApplicationViewModel(usecase: usecase)
-    }
+                                          fetchGeoCodeUseCase: fetchGeoCodeUseCase)
+        
+        //Presentation Layer
+        let viewModel = ShippingApplicationViewModel(usecase: usecase)
+        
+        return viewModel
+    }()
     
     private init() {}
 }

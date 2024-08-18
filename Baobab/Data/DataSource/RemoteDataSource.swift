@@ -45,8 +45,9 @@ extension RemoteDataSource {
 final class RemoteDataSourceImpl: RemoteDataSource, RequestInterceptor {
     private let session: Session
     private var cancellables = Set<AnyCancellable>()
+    static let shared: RemoteDataSourceImpl = RemoteDataSourceImpl()
     
-    init(session: Session = Session.default) {
+    private init(session: Session = Session.default) {
         self.session = session
     }
     
