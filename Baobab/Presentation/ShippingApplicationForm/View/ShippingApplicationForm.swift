@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct ShippingApplicationForm: View {
-    @ObservedObject private var viewModel: ShippingApplicationViewModel
+    @StateObject private var viewModel: ShippingApplicationViewModel
     @Binding var isShowingFullScreenCover: Bool
     
     init(viewModel: ShippingApplicationViewModel, isShowingShippingForm: Binding<Bool>) {
-        _viewModel = ObservedObject(wrappedValue: viewModel)
+        _viewModel = StateObject(wrappedValue: viewModel)
         _isShowingFullScreenCover = isShowingShippingForm
     }
     
@@ -32,11 +32,6 @@ struct ShippingApplicationForm: View {
                     .listStyle(.plain)
                 } else if viewModel.storedItems == nil {
                     ProgressView()
-//                        .onAppear {
-//                            if viewModel.storedItems == nil {
-//                                viewModel.fetchShippableItems()
-//                            }
-//                        }
                 }
             }
             

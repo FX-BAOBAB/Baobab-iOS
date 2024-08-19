@@ -38,7 +38,8 @@ struct MainView: View {
         .padding([.leading, .trailing])
         .fullScreenCover(isPresented: $isShowingReceivingForm) {
             NavigationStack {
-                ReceivingIntroView(isShowingReceivingForm: $isShowingReceivingForm)
+                ReceivingIntroView(viewModel: AppDI.shared.receivingViewModel, 
+                                   isShowingReceivingForm: $isShowingReceivingForm)
             }
         }
         .fullScreenCover(isPresented: $isShowingShippingForm) {
