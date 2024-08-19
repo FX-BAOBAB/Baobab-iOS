@@ -7,15 +7,18 @@
 
 import SwiftUI
 
-struct ReceivingReservationForm: View {
-    @EnvironmentObject private var viewModel: ReceivingViewModel
+struct ReservationForm<T: PostSearchable, V: View>: View where T: Reservable {
+    @EnvironmentObject private var viewModel: T
     @State private var isShowingPostSearch: Bool = false
     @State private var isShowingAddressList: Bool = false
-    @State private var isShowingPaymentView: Bool = false
-    @Binding var isShowingReceivingForm: Bool
+    @Binding var isShowingFullScreenCover: Bool
+    
+    let nextView: V
+    let calendarCaption: String
+    let addressHeader: String
     
     var body: some View {
-        ZStack {
+        VStack(spacing: 0) {
             ScrollView {
                 Section(footer: SectionFooter()) {
                     DatePicker("", selection: $viewModel.reservationDate, in: Date.tomorrow...)
@@ -25,7 +28,7 @@ struct ReceivingReservationForm: View {
                     HStack(spacing: 5) {
                         Image(systemName: "info.circle")
                         
-                        Text("선택한 시간에 아래 방문지를 통해 입고 물품을 수령할 예정이에요.")
+                        Text(calendarCaption)
                         
                         Spacer()
                     }
@@ -34,8 +37,8 @@ struct ReceivingReservationForm: View {
                     .foregroundStyle(.gray)
                 }
                 
-                Section(header: SectionHeader(title: "방문지 선택")) {
-                    SelectedAddressDetail(showTag: true)
+                Section(header: SectionHeader(title: addressHeader)) {
+                    SelectedAddressDetail<T>(showTag: true)
                         .environmentObject(viewModel)
                         .padding([.leading, .trailing, .bottom])
                     
@@ -48,23 +51,27 @@ struct ReceivingReservationForm: View {
                 }
                 
                 Color.clear
-                    .frame(height: UIScreen.main.bounds.width * 0.3)
+                    .frame(height: UIScreen.main.bounds.width * 0.1)
             }
             
-            Button(action: {
-                isShowingPaymentView.toggle()
-            }, label: {
-                Text("다음")
-                    .bold()
-                    .frame(maxWidth: .infinity)
-                    .padding(8)
-            })
-            .buttonBorderShape(.roundedRectangle)
-            .cornerRadius(10)
-            .buttonStyle(.borderedProminent)
-            .padding([.leading, .trailing, .bottom])
+            VStack(spacing: 0) {
+                Divider()
+                    .foregroundStyle(.red)
+                
+                NavigationLink {
+                    nextView
+                } label: {
+                    Text("다음")
+                        .bold()
+                        .foregroundStyle(.white)
+                        .frame(maxWidth: .infinity)
+                        .padding(15)
+                        .background(.accent)
+                }
+                .cornerRadius(10)
+                .padding()
+            }
             .background(.white)
-            .frame(maxHeight: .infinity, alignment: .bottom)
         }
         .navigationTitle("입고 예약")
         .navigationBarTitleDisplayMode(.inline)
@@ -74,18 +81,14 @@ struct ReceivingReservationForm: View {
             viewModel.fetchDefaultAddress()    //기본 주소 요청
         }
         .sheet(isPresented: $isShowingAddressList) {
-            AddressList(isShowingAddressList: $isShowingAddressList)
+            AddressList<T>(isShowingAddressList: $isShowingAddressList)
                 .environmentObject(viewModel)
                 .presentationDragIndicator(.visible)
-        }
-        .navigationDestination(isPresented: $isShowingPaymentView) {
-            ReceivingPaymentView(isShowingReceivingForm: $isShowingReceivingForm)
-                .environmentObject(viewModel)
         }
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
                 Button {
-                    isShowingReceivingForm.toggle()
+                    isShowingFullScreenCover.toggle()
                 } label: {
                     Image(systemName: "xmark")
                         .foregroundStyle(.black)
@@ -97,7 +100,12 @@ struct ReceivingReservationForm: View {
 
 #Preview {
     NavigationStack {
-        ReceivingReservationForm(isShowingReceivingForm: .constant(true))
-            .environmentObject(AppDI.shared.receivingViewModel)
+        ReservationForm<ReceivingViewModel, _>(
+            isShowingFullScreenCover: .constant(true),
+            nextView: EmptyView(),
+            calendarCaption: "선택한 시간에 아래 방문지를 통해 입고 물품을 수령할 예정이에요.", 
+            addressHeader: "방문지 선택"
+        )
+        .environmentObject(AppDI.shared.receivingViewModel)
     }
 }

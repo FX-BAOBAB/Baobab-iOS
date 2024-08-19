@@ -10,9 +10,9 @@ import SwiftUI
 struct ShippingFormListRow: View {
     @State private var isShowingDetailedView: Bool = false
     
-    private let form: ShippingForm?
+    private let form: ShippingFormData?
     
-    init(form: ShippingForm?) {
+    init(form: ShippingFormData?) {
         self.form = form
     }
     
@@ -66,6 +66,6 @@ struct ShippingFormListRow: View {
 
 #Preview {
     NavigationStack {
-        ShippingFormListRow(form: ShippingForm.sampleData[0])
+        ShippingFormListRow(form: ShippingFormData.sampleData[0])
     }
 }

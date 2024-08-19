@@ -1,15 +1,13 @@
 //
-//  ReceivingViewModel+Address.swift
+//  ShippingApplicationViewModel+Address.swift
 //  Baobab
 //
-//  Created by 이정훈 on 5/30/24.
+//  Created by 이정훈 on 8/18/24.
 //
 
 import Combine
-import Foundation
 
-extension ReceivingViewModel {
-    //MARK: - 등록된 기본 주소를 요청하는 함수
+extension ShippingApplicationViewModel {
     func fetchDefaultAddress() {
         /*
              아래 함수에서는 입고 예약 화면에서 표시되는 단일 기본 주소 업데이트
@@ -21,7 +19,7 @@ extension ReceivingViewModel {
                 case .finished:
                     print("The fetching of the default addresses has been completed")
                 case .failure(let error):
-                    print("ReceivingViewModel.fetchDefaultAddress() - ", error)
+                    print("ShippingApplicationViewModel.fetchDefaultAddress() - ", error)
                 }
             }, receiveValue: { [weak self] defaultAddress in
                 self?.selectedAddress = defaultAddress
@@ -37,7 +35,7 @@ extension ReceivingViewModel {
                 case .finished:
                     print("The fetching of the addresses has been completed")
                 case .failure(let error):
-                    print("ReceivingViewModel.fetchAddresses() error : ", error)
+                    print("ShippingApplicationViewModel.fetchAddresses() error : ", error)
                 }
             }, receiveValue: { [weak self] addresses in
                 addresses.forEach { address in

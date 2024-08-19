@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct SelectedAddressDetail: View {
-    @EnvironmentObject private var viewModel: ReceivingViewModel
+struct SelectedAddressDetail<T: PostSearchable>: View where T: Reservable {
+    @EnvironmentObject private var viewModel: T
     
     let showTag: Bool
     
@@ -53,6 +53,6 @@ struct SelectedAddressDetail: View {
 }
 
 #Preview {
-    SelectedAddressDetail(showTag: true)
+    SelectedAddressDetail<ReceivingViewModel>(showTag: true)
         .environmentObject(AppDI.shared.receivingViewModel)
 }

@@ -10,7 +10,7 @@ import Combine
 protocol FetchFormUseCase {
     func executeForReceiving() -> AnyPublisher<[ReceivingForm], any Error>
     func executeForReturn() -> AnyPublisher<[ReturnForm], any Error>
-    func executeForShipping() -> AnyPublisher<[ShippingForm], any Error>
+    func executeForShipping() -> AnyPublisher<[ShippingFormData], any Error>
 }
 
 final class FetchFormUseCaseImpl: FetchFormUseCase {
@@ -50,9 +50,9 @@ final class FetchFormUseCaseImpl: FetchFormUseCase {
             .eraseToAnyPublisher()
     }
     
-    func executeForShipping() -> AnyPublisher<[ShippingForm], any Error> {
+    func executeForShipping() -> AnyPublisher<[ShippingFormData], any Error> {
         return repository.fetchShippingForms()
-            .flatMap { [weak self] forms -> AnyPublisher<[ShippingForm], any Error> in
+            .flatMap { [weak self] forms -> AnyPublisher<[ShippingFormData], any Error> in
                 guard let self else {
                     return Just(forms)
                         .setFailureType(to: Error.self)

@@ -14,10 +14,17 @@ struct SearchedAddressView: View {
     var body: some View {
         VStack {
             HStack {
-                TextField("", text: $viewModel.selectedAddress.post)
-                    .foregroundColor(.gray)
-                    .textFieldStyle(.roundedBorder)
-                    .disabled(true)
+                TextField("", text: Binding(
+                    get: {
+                        viewModel.selectedAddress?.post ?? ""
+                    },
+                    set: {
+                        viewModel.selectedAddress?.post = $0
+                    })
+                )
+                .foregroundColor(.gray)
+                .textFieldStyle(.roundedBorder)
+                .disabled(true)
                 
                 Button(action: {
                     isShowingPostCodeSearchForm.toggle()
@@ -28,12 +35,26 @@ struct SearchedAddressView: View {
                 .buttonStyle(.bordered)
             }
             
-            TextField("", text: $viewModel.selectedAddress.address)
-                .foregroundColor(.gray)
-                .textFieldStyle(.roundedBorder)
-                .disabled(true)
+            TextField("", text: Binding(
+                get: {
+                    viewModel.selectedAddress?.address ?? ""
+                },
+                set: {
+                    viewModel.selectedAddress?.address = $0
+                }
+            ))
+            .foregroundColor(.gray)
+            .textFieldStyle(.roundedBorder)
+            .disabled(true)
             
-            TextField("", text: $viewModel.selectedAddress.detailAddress)
+            TextField("", text: Binding(
+                get: {
+                    viewModel.selectedAddress?.detailAddress ?? ""
+                },
+                set: {
+                    viewModel.selectedAddress?.detailAddress = $0
+                }
+            ))
                 .foregroundColor(.gray)
                 .textFieldStyle(.roundedBorder)
                 .disabled(true)
