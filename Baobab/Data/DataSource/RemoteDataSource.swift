@@ -45,9 +45,8 @@ extension RemoteDataSource {
 final class RemoteDataSourceImpl: RemoteDataSource, RequestInterceptor {
     private let session: Session
     private var cancellables = Set<AnyCancellable>()
-    static let shared: RemoteDataSourceImpl = RemoteDataSourceImpl()
     
-    private init(session: Session = Session.default) {
+    init(session: Session = Session.default) {
         self.session = session
     }
     
@@ -238,6 +237,8 @@ final class RemoteDataSourceImpl: RemoteDataSource, RequestInterceptor {
     //MARK: - Refresh Token 만료시 NotificationCenter를 통해 알림
     private func notifyTokenExpiration() {
         print("토큰 만료 알림 전송")
-        NotificationCenter.default.post(name: .refreshTokenExpiration, object: nil, userInfo: ["isTokenExpired": true])
+        DispatchQueue.main.async {
+            NotificationCenter.default.post(name: .refreshTokenExpiration, object: nil, userInfo: ["isTokenExpired": true])
+        }
     }
 }

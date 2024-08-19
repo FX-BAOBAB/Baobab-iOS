@@ -9,11 +9,11 @@ import SwiftUI
 
 struct ShippingApplicationForm: View {
     @ObservedObject private var viewModel: ShippingApplicationViewModel
-    @Binding var isShowingShippingForm: Bool
+    @Binding var isShowingFullScreenCover: Bool
     
     init(viewModel: ShippingApplicationViewModel, isShowingShippingForm: Binding<Bool>) {
-        self.viewModel = viewModel
-        _isShowingShippingForm = isShowingShippingForm
+        _viewModel = ObservedObject(wrappedValue: viewModel)
+        _isShowingFullScreenCover = isShowingShippingForm
     }
     
     var body: some View {
@@ -46,8 +46,8 @@ struct ShippingApplicationForm: View {
                     
                     NavigationLink {
                         ReservationForm<ShippingApplicationViewModel, _>(
-                            isShowingFullScreenCover: $isShowingShippingForm,
-                            nextView: EmptyView(),
+                            isShowingFullScreenCover: $isShowingFullScreenCover,
+                            nextView: ShippingApplicationCompletionView(isShowingFullScreenCover: $isShowingFullScreenCover).environmentObject(viewModel),
                             calendarCaption: "선택한 날짜에 맞춰 물품이 배송될 예정이에요.", 
                             addressHeader: "배송지 선택"
                         )
@@ -72,19 +72,22 @@ struct ShippingApplicationForm: View {
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
                 Button {
-                    isShowingShippingForm.toggle()
+                    isShowingFullScreenCover.toggle()
                 } label: {
                     Image(systemName: "xmark")
                         .foregroundStyle(.black)
                 }
             }
         }
+        .alert(isPresented: $viewModel.isShowingInvalidInputAlert) {
+            Alert(title: Text("알림"), message: Text("정확한 날짜와 주소를 입력해 주세요."))
+        }
     }
 }
 
 #Preview {
     NavigationStack {
-        ShippingApplicationForm(viewModel: AppDI.shared.shippingFormViewModel,
+        ShippingApplicationForm(viewModel: AppDI.shared.shippingApplicationViewModel,
                      isShowingShippingForm: .constant(true))
     }
 }

@@ -236,6 +236,10 @@
 		8ED894702C2E9894005E826F /* SignUpPostCodeSearchForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED8946F2C2E9894005E826F /* SignUpPostCodeSearchForm.swift */; };
 		8EE66DE62C400C8A0087AD19 /* SignUpViewModel+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE66DE52C400C8A0087AD19 /* SignUpViewModel+Alert.swift */; };
 		8EE66DEA2C400D920087AD19 /* CustomProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE66DE92C400D920087AD19 /* CustomProgressView.swift */; };
+		8EF66E782C72D08B00E6CEA2 /* ShippingApplicationResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF66E772C72D08B00E6CEA2 /* ShippingApplicationResponseDTO.swift */; };
+		8EF66E7A2C72D14900E6CEA2 /* ShippingApplicationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF66E792C72D14900E6CEA2 /* ShippingApplicationRepository.swift */; };
+		8EF66E7C2C72D25300E6CEA2 /* ShippingApplicationRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF66E7B2C72D25300E6CEA2 /* ShippingApplicationRepositoryImpl.swift */; };
+		8EF66E7E2C72E10600E6CEA2 /* ShippingApplicationCompletionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF66E7D2C72E10600E6CEA2 /* ShippingApplicationCompletionView.swift */; };
 		8EF9FA762C71E7F30005840E /* ShippingApplicationViewModel+Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF9FA752C71E7F30005840E /* ShippingApplicationViewModel+Address.swift */; };
 		8EF9FA782C71E82A0005840E /* ShippingApplicationViewModel+Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF9FA772C71E82A0005840E /* ShippingApplicationViewModel+Region.swift */; };
 		8EF9FA7A2C71E9380005840E /* ShippingApplicationViewModel+Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF9FA792C71E9380005840E /* ShippingApplicationViewModel+Items.swift */; };
@@ -493,6 +497,10 @@
 		8ED8946F2C2E9894005E826F /* SignUpPostCodeSearchForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPostCodeSearchForm.swift; sourceTree = "<group>"; };
 		8EE66DE52C400C8A0087AD19 /* SignUpViewModel+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SignUpViewModel+Alert.swift"; sourceTree = "<group>"; };
 		8EE66DE92C400D920087AD19 /* CustomProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProgressView.swift; sourceTree = "<group>"; };
+		8EF66E772C72D08B00E6CEA2 /* ShippingApplicationResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingApplicationResponseDTO.swift; sourceTree = "<group>"; };
+		8EF66E792C72D14900E6CEA2 /* ShippingApplicationRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingApplicationRepository.swift; sourceTree = "<group>"; };
+		8EF66E7B2C72D25300E6CEA2 /* ShippingApplicationRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingApplicationRepositoryImpl.swift; sourceTree = "<group>"; };
+		8EF66E7D2C72E10600E6CEA2 /* ShippingApplicationCompletionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingApplicationCompletionView.swift; sourceTree = "<group>"; };
 		8EF9FA752C71E7F30005840E /* ShippingApplicationViewModel+Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ShippingApplicationViewModel+Address.swift"; sourceTree = "<group>"; };
 		8EF9FA772C71E82A0005840E /* ShippingApplicationViewModel+Region.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ShippingApplicationViewModel+Region.swift"; sourceTree = "<group>"; };
 		8EF9FA792C71E9380005840E /* ShippingApplicationViewModel+Items.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ShippingApplicationViewModel+Items.swift"; sourceTree = "<group>"; };
@@ -701,6 +709,7 @@
 				8E37D4662C570D8200F8048A /* FormRepository.swift */,
 				8E60A8302C5A166E007814E7 /* ProcessStatusRepository.swift */,
 				8EA152862C69E86B0011FDB3 /* RemoteTokenRepository.swift */,
+				8EF66E792C72D14900E6CEA2 /* ShippingApplicationRepository.swift */,
 			);
 			path = "Repository Interfaces";
 			sourceTree = "<group>";
@@ -734,6 +743,7 @@
 				8E7A9F1C2C5B40E400969F1A /* ShippingFormsResponseDTO.swift */,
 				8E60A82E2C5A1548007814E7 /* ProcessStatusResponseDTO.swift */,
 				8ECF1AE02C5B5B1C004DD9C1 /* ReturnFormsResponseDTO.swift */,
+				8EF66E772C72D08B00E6CEA2 /* ShippingApplicationResponseDTO.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -752,6 +762,7 @@
 				8E37D4682C570EFB00F8048A /* FormRepositoryImpl.swift */,
 				8E60A8322C5A16BE007814E7 /* ProcessStatusRepositoryImpl.swift */,
 				8EA152842C69E8470011FDB3 /* RemoteTokenRepositoryImpl.swift */,
+				8EF66E7B2C72D25300E6CEA2 /* ShippingApplicationRepositoryImpl.swift */,
 			);
 			path = "Repository Implementation";
 			sourceTree = "<group>";
@@ -927,6 +938,7 @@
 		8E604DB22C6DD70600D45CB1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8EF66E7D2C72E10600E6CEA2 /* ShippingApplicationCompletionView.swift */,
 				8E604DB62C6DD7A500D45CB1 /* ShippingApplicationForm.swift */,
 				8E604DBA2C6DF07B00D45CB1 /* SelectableItemInfoRow.swift */,
 				8E604DBC2C6DF1D300D45CB1 /* CheckButtonIcon.swift */,
@@ -1570,6 +1582,7 @@
 				8E8D13452C4E3CC10032FC96 /* MainTabView.swift in Sources */,
 				5C426BFD2BEDBDE900869F6D /* ReceivingViewModel.swift in Sources */,
 				8E7900BB2C6ADEA000BD4BBB /* LaunchScreenView.swift in Sources */,
+				8EF66E7E2C72E10600E6CEA2 /* ShippingApplicationCompletionView.swift in Sources */,
 				5C735F4C2BF1BAB200A36EC8 /* EstimatedPrice.swift in Sources */,
 				8E7BC8D62C3E6EEB00CB708F /* FetchTokenUseCase.swift in Sources */,
 				8EB0C2642C32457200FEE8D0 /* LoginViewModel.swift in Sources */,
@@ -1620,6 +1633,7 @@
 				8E7900BD2C6B206100BD4BBB /* Notification+Name.swift in Sources */,
 				8EAB81682C40BB770052AD48 /* FetchAddressUseCase.swift in Sources */,
 				5C4ACAC02BEE1FDB00195895 /* MinusButtonImage.swift in Sources */,
+				8EF66E7A2C72D14900E6CEA2 /* ShippingApplicationRepository.swift in Sources */,
 				8E97720B2C3CBFC40082DCAF /* Bundle+Properties.swift in Sources */,
 				8E7B6C362C51EECD00222721 /* ReceivingItemsViewModel.swift in Sources */,
 				8E74FF3A2C585E97005ED275 /* ReceivingDetailedForm.swift in Sources */,
@@ -1651,6 +1665,7 @@
 				8EA438142C60B74000DFD934 /* ReceivingIntroView.swift in Sources */,
 				8E8AF2DF2C424F6A00A1F0ED /* AddressListResponseDTO.swift in Sources */,
 				5C4F18132C05568A0030A096 /* EmptyCircle.swift in Sources */,
+				8EF66E7C2C72D25300E6CEA2 /* ShippingApplicationRepositoryImpl.swift in Sources */,
 				8EA437FC2C60474400DFD934 /* ReturnDetailedForm.swift in Sources */,
 				8EAA87F82C44A743000386AD /* ReceivingRepository.swift in Sources */,
 				5CA04A352BFB01AC00A28FCA /* Date+Tomorrow.swift in Sources */,
@@ -1692,6 +1707,7 @@
 				8E7B6C4A2C5231A500222721 /* UsedItemsViewModel.swift in Sources */,
 				5C9679C02BFEC666007C8D5A /* SelectedAddressDetail.swift in Sources */,
 				5CADA5DB2C0093D300FFCC64 /* AddressList.swift in Sources */,
+				8EF66E782C72D08B00E6CEA2 /* ShippingApplicationResponseDTO.swift in Sources */,
 				8E7A9F1D2C5B40E400969F1A /* ShippingFormsResponseDTO.swift in Sources */,
 				5C9679C22BFF25E7007C8D5A /* SectionFooter.swift in Sources */,
 				8EB0C2682C324DA300FEE8D0 /* AutoLogInButton.swift in Sources */,

@@ -11,7 +11,7 @@ struct AppDI {
     static var shared: AppDI = AppDI()
     
     //MARK: - Data Layer
-    let dataSource = RemoteDataSourceImpl.shared
+    let dataSource = RemoteDataSourceImpl()
     
     private lazy var userRepository = {
         return UserRepositoryImpl(dataSource: dataSource)
@@ -163,11 +163,15 @@ struct AppDI {
         return MainViewModel(usecase: fetchTokenUseCase)
     }()
     
-    lazy var shippingFormViewModel: ShippingApplicationViewModel = {
+    lazy var shippingApplicationViewModel: ShippingApplicationViewModel = {
+        //Data Layer
+        let repository = ShippingApplicationRepositoryImpl(dataSource: dataSource)
+        
         //Domain Layer
         let usecase = ShippingUseCaseImpl(fetchItemUseCase: fetchItemUseCase,
                                           fetchAddressUseCase: fetchAddressUseCase,
-                                          fetchGeoCodeUseCase: fetchGeoCodeUseCase)
+                                          fetchGeoCodeUseCase: fetchGeoCodeUseCase, 
+                                          repository: repository)
         
         //Presentation Layer
         let viewModel = ShippingApplicationViewModel(usecase: usecase)
