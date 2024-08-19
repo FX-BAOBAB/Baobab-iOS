@@ -32,11 +32,11 @@ struct ShippingApplicationForm: View {
                     .listStyle(.plain)
                 } else if viewModel.storedItems == nil {
                     ProgressView()
-                        .onAppear {
-                            if viewModel.storedItems == nil {
-                                viewModel.fetchShippableItems()
-                            }
-                        }
+//                        .onAppear {
+//                            if viewModel.storedItems == nil {
+//                                viewModel.fetchShippableItems()
+//                            }
+//                        }
                 }
             }
             
@@ -66,6 +66,15 @@ struct ShippingApplicationForm: View {
                 }
                 .frame(maxHeight: .infinity, alignment: .bottom)
             }
+        }
+        .onAppear {
+            if viewModel.storedItems == nil {
+                viewModel.fetchShippableItems()
+            }
+        }
+        .onDisappear {
+            viewModel.storedItems = nil
+            viewModel.selectedItems = []
         }
         .navigationTitle("출고하기")
         .navigationBarTitleDisplayMode(.inline)

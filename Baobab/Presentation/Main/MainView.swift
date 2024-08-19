@@ -41,7 +41,7 @@ struct MainView: View {
                 ReceivingIntroView(isShowingReceivingForm: $isShowingReceivingForm)
             }
         }
-        .sheet(isPresented: $isShowingShippingForm) {
+        .fullScreenCover(isPresented: $isShowingShippingForm) {
             NavigationStack {
                 ShippingApplicationForm(viewModel: AppDI.shared.shippingApplicationViewModel,
                                         isShowingShippingForm: $isShowingShippingForm)
