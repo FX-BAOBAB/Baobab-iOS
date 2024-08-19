@@ -98,8 +98,13 @@ struct ImageRegistrationForm: View {
             Text("사진을 가져올 위치를 선택해 주세요")
         })
         .navigationDestination(isPresented: $isShowingReservationForm) {
-            ReceivingReservationForm(isShowingReceivingForm: $isShowingReceivingForm)
-                .environmentObject(viewModel)
+            ReservationForm<ReceivingViewModel, _>(
+                isShowingFullScreenCover: $isShowingReceivingForm,
+                nextView: ReceivingPaymentView(isShowingReceivingForm: $isShowingReceivingForm).environmentObject(viewModel),
+                calendarCaption: "선택한 시간에 아래 방문지를 통해 입고 물품을 수령할 예정이에요.", 
+                addressHeader: "방문지 선택"
+            )
+            .environmentObject(viewModel)
         }
         .navigationDestination(isPresented: $isShowingItemInformationForm) {
             ItemInformationForm(isShowingReceivingForm: $isShowingReceivingForm)

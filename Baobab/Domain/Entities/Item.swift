@@ -14,6 +14,16 @@ struct Item: Identifiable {
     let basicImages, defectImages: [ImageData]
 }
 
+extension Item: Equatable {
+    static func ==(lhs: Item, rhs: Item) -> Bool {
+        if lhs.id == rhs.id {
+            return true
+        }
+        
+        return false
+    }
+}
+
 #if DEBUG
 extension Item {
     static var sampleData: [Item] {

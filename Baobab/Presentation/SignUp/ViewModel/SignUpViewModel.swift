@@ -18,7 +18,7 @@ final class SignUpViewModel: PostSearchable {
     @Published var passwordState: PasswordState = .none
     @Published var passwordConfirmState: PasswordConfirmState = .none
     @Published var nickNameState: NickNameState = .none
-    @Published var selectedAddress: Address = Address(id: UUID().hashValue, address: "", detailAddress: "", post: "", isBasicAddress: false)
+    @Published var selectedAddress: Address?
     @Published var searchedAddress: String = ""
     @Published var searchedAddressRegion: MKCoordinateRegion?
     @Published var searchedPostCode: String = ""
@@ -59,9 +59,9 @@ final class SignUpViewModel: PostSearchable {
                 "email": email,
                 "password": password,
                 "name": nickName,
-                "address": selectedAddress.address,
-                "detailAddress": selectedAddress.detailAddress,
-                "basicAddress": selectedAddress.isBasicAddress,
+                "address": selectedAddress?.address ?? "",
+                "detailAddress": selectedAddress?.detailAddress ?? "",
+                "basicAddress": selectedAddress?.isBasicAddress ?? "",
                 "post": postCode
             ]
         ] as [String: Any]

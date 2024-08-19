@@ -55,7 +55,7 @@ extension ReceivingForm {
 #endif
 
 
-struct ShippingForm: FormData {
+struct ShippingFormData: FormData {
     let id: Int
     let deliveryDate, deliveryAddress, status, statusDescription: String
     let deliveryManID: Int?
@@ -64,10 +64,10 @@ struct ShippingForm: FormData {
 }
 
 #if DEBUG
-extension ShippingForm {
-    static var sampleData: [ShippingForm] {
+extension ShippingFormData {
+    static var sampleData: [ShippingFormData] {
         return [
-            ShippingForm(id: 0,
+            ShippingFormData(id: 0,
                          deliveryDate: "2024-07-26T04:20:53.643Z",
                          deliveryAddress: "테스트",
                          status: "출고 대기 중",

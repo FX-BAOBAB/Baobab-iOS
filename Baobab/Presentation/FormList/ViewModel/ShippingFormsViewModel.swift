@@ -8,7 +8,7 @@
 import Combine
 
 final class ShippingFormsViewModel: FormsViewModel {
-    @Published var forms: [ShippingForm]?
+    @Published var forms: [ShippingFormData]?
     @Published var isLoading: Bool = false
     
     private let usecase: FetchFormUseCase

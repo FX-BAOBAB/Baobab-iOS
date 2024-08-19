@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct PostCodeSearch: View {
-    @EnvironmentObject private var viewModel: ReceivingViewModel
+struct PostCodeSearchView<T: PostSearchable>: View {
+    @EnvironmentObject private var viewModel: T
     @State private var isProgrss: Bool = true
     @State private var isShowingDetailAddressForm: Bool = false
     @Binding var isShowingPostCodeSearch: Bool
@@ -17,7 +17,7 @@ struct PostCodeSearch: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                PostSearchWebView<ReceivingViewModel>(isShowingDetailAddressForm: $isShowingDetailAddressForm,
+                PostSearchWebView<T>(isShowingDetailAddressForm: $isShowingDetailAddressForm,
                                   isProgress: $isProgrss)
                 .environmentObject(viewModel)
                 .toolbar {
@@ -36,7 +36,7 @@ struct PostCodeSearch: View {
                 }
             }
             .navigationDestination(isPresented: $isShowingDetailAddressForm) {
-                DetailAddressMap<ReceivingViewModel>(isShowingAddressList: $isShowingAddressList,
+                DetailAddressMap<T>(isShowingAddressList: $isShowingAddressList,
                                  isShowingPostSearchForm: $isShowingPostCodeSearch)
                     .environmentObject(viewModel)
             }
@@ -45,7 +45,7 @@ struct PostCodeSearch: View {
 }
 
 #Preview {
-    PostCodeSearch(isShowingPostCodeSearch: .constant(false), 
+    PostCodeSearchView<ReceivingViewModel>(isShowingPostCodeSearch: .constant(false), 
                    isShowingAddressList: .constant(false))
         .environmentObject(AppDI.shared.receivingViewModel)
 }

@@ -8,7 +8,7 @@
 import MapKit
 import Combine
 
-final class ReceivingViewModel: PostSearchable {
+final class ReceivingViewModel: PostSearchable, Reservable {
     @Published var items: [StoreItem] = [StoreItem(), StoreItem()]
     @Published var reservationDate: Date = Date.tomorrow
     @Published var selectedAddress: Address?

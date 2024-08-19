@@ -8,7 +8,13 @@
 import SwiftUI
 
 struct ReceivingIntroView: View {
+    @StateObject private var viewModel: ReceivingViewModel
     @Binding var isShowingReceivingForm: Bool
+    
+    init(viewModel: ReceivingViewModel, isShowingReceivingForm: Binding<Bool>) {
+        _viewModel = StateObject(wrappedValue: viewModel)
+        _isShowingReceivingForm = isShowingReceivingForm
+    }
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -69,7 +75,7 @@ struct ReceivingIntroView: View {
             
             NavigationLink {
                 ItemInformationForm(isShowingReceivingForm: $isShowingReceivingForm)
-                    .environmentObject(AppDI.shared.receivingViewModel)
+                    .environmentObject(viewModel)
             } label: {
                 ZStack {
                     RoundedRectangle(cornerRadius: 20)
@@ -112,6 +118,6 @@ struct ReceivingIntroView: View {
 
 #Preview {
     NavigationStack {
-        ReceivingIntroView(isShowingReceivingForm: .constant(true))
+        ReceivingIntroView(viewModel: AppDI.shared.receivingViewModel, isShowingReceivingForm: .constant(true))
     }
 }
