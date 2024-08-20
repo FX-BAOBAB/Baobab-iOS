@@ -73,8 +73,10 @@ struct ShippingDetailedForm: View {
     }
 }
 
+#if DEBUG
 #Preview {
     NavigationStack {
         ShippingDetailedForm(form: ShippingFormData.sampleData[0])
     }
 }
+#endif

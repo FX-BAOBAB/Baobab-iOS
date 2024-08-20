@@ -66,8 +66,10 @@ struct ShippingFormListRow: View {
     }
 }
 
+#if DEBUG
 #Preview {
     NavigationStack {
         ShippingFormListRow(form: ShippingFormData.sampleData[0])
     }
 }
+#endif

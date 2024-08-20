@@ -73,8 +73,10 @@ struct ReceivingDetailedForm: View {
     }
 }
 
+#if DEBUG
 #Preview {
     NavigationStack {
         ReceivingDetailedForm(form: ReceivingForm.sampleData[0])
     }
 }
+#endif

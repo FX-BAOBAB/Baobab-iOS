@@ -66,8 +66,10 @@ struct ReceivingFormListRow: View {
     }
 }
 
+#if DEBUG
 #Preview {
     NavigationStack {
         ReceivingFormListRow(form: ReceivingForm.sampleData[0])
     }
 }
+#endif

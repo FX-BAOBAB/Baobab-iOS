@@ -64,8 +64,10 @@ struct ReturnFormListRow: View {
     }
 }
 
+#if DEBUG
 #Preview {
     NavigationStack {
         ReturnFormListRow(form: ReturnForm.sampleData[0])
     }
 }
+#endif

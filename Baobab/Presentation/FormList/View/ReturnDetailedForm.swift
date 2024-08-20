@@ -38,19 +38,6 @@ struct ReturnDetailedForm: View {
             }
             .listRowSeparator(.hidden)
             
-//            Section(footer: SectionFooter()) {
-//                VStack(alignment: .leading) {
-//                    Text("배송지 정보")
-//                        .font(.headline)
-//                        .padding(.bottom)
-//                    
-//                    Text(form.deliveryAddress)
-//                        .font(.subheadline)
-//                        .foregroundStyle(.gray)
-//                }
-//            }
-//            .listRowSeparator(.hidden)
-            
             Section {
                 ForEach(form.items) { item in
                     NavigationLink(destination: {
@@ -73,8 +60,10 @@ struct ReturnDetailedForm: View {
     }
 }
 
+#if DEBUG
 #Preview {
     NavigationStack {
         ReturnDetailedForm(form: ReturnForm.sampleData[0])
     }
 }
+#endif

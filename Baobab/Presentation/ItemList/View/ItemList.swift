@@ -50,6 +50,8 @@ struct ItemList<T: ItemsViewModel>: View {
     }
 }
 
+#if DEBUG
 #Preview {
     ItemList(viewModel: AppDI.shared.makeReceivingItemsViewModel(), status: .receiving)
 }
+#endif

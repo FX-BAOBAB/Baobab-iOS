@@ -43,6 +43,7 @@ struct ItemInfoRow: View {
     }
 }
 
+#if DEBUG
 #Preview {
     ItemInfoRow(item: Item(id: 0,
                            name: "부끄부끄 마끄부끄",
@@ -51,3 +52,4 @@ struct ItemInfoRow: View {
                            basicImages: [ImageData(imageURL: "string", caption: "")],
                            defectImages: [ImageData(imageURL: "string", caption: "")]))
 }
+#endif
