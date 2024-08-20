@@ -12,7 +12,7 @@ final class LoginViewModel: ObservableObject {
     @Published var email: String = ""
     @Published var password: String = ""
     @Published var isKeepLoggedIn: Bool = false
-    @Published var isAsyncTaskProgress: Bool = false
+    @Published var isProgress: Bool = false
     @Published var isLoginSuccess: Bool = false
     @Published var isShowingLoginAlert: Bool = false
     @Published var isShowingLaunchScreen: Bool = true
@@ -44,7 +44,7 @@ final class LoginViewModel: ObservableObject {
             ]
         ] as [String: Any]
         
-        isAsyncTaskProgress.toggle()
+        isProgress.toggle()
         usecase.execute(params: data)
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { completion in
@@ -55,7 +55,7 @@ final class LoginViewModel: ObservableObject {
                     print("LoginViewModel.login() error : ", error)
                 }
             }, receiveValue: { [weak self] loginResult in
-                self?.isAsyncTaskProgress.toggle()
+                self?.isProgress.toggle()
                 
                 if loginResult {
                     self?.isLoginSuccess.toggle()
@@ -67,35 +67,14 @@ final class LoginViewModel: ObservableObject {
             .store(in: &cancellables)
     }
     
-    func updateRefreshToken() {
-        isAsyncTaskProgress = true
-        
-        usecase.updateRefreshToken()
-            .receive(on: DispatchQueue.main)
-            .sink(receiveCompletion: { completion in
-                switch completion {
-                case .finished:
-                    print("Refresh Token update completed")
-                case .failure(let error):
-                    print("LoginViewModel.updateAccessToken() error : ", error)
-                }
-            }, receiveValue: { [weak self] result in
-                if result {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                        self?.isLoginSuccess = true
-                    }
-                }
-                
-                //자동 로그인 완료
-                self?.isAsyncTaskProgress = false
-                //토큰 갱신 여부와 상관 없이 launch screen을 빠져 나옴
-                self?.isShowingLaunchScreen = false
-            })
-            .store(in: &cancellables)
+    func navigateToMain() {
+        //자동 로그인 성공
+        self.isLoginSuccess = true
+        self.isShowingLaunchScreen = false
     }
     
     func deleteToken() {
-        isAsyncTaskProgress.toggle()
+        isProgress.toggle()
         
         usecase.deleteToken()
             .receive(on: DispatchQueue.main)
@@ -107,7 +86,7 @@ final class LoginViewModel: ObservableObject {
                     print("LoginViewModel.deleteToken() error : ", error)
                 }
             }, receiveValue: { [weak self] _ in
-                self?.isAsyncTaskProgress.toggle()
+                self?.isProgress.toggle()
                 self?.isShowingLaunchScreen = false    //삭제 성공 여부에 성관 없이 Launch Screen을 빠져 나감
             })
             .store(in: &cancellables)
