@@ -122,6 +122,6 @@ struct DefectRegistrationList: View {
 #Preview {
     NavigationStack {
         DefectRegistrationList(isShowingReceivingForm: .constant(true))
-            .environmentObject(AppDI.shared.receivingViewModel)
+            .environmentObject(AppDI.shared.makeReceivingViewModel())
     }
 }

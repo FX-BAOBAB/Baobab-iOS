@@ -96,6 +96,6 @@ struct AddressRegistrationForm: View {
     NavigationStack {
         AddressRegistrationForm(isShowingSignUpForm: .constant(true),
                                 isShowingAddressRegistrationForm: .constant(true))
-            .environmentObject(AppDI.shared.signUpViewModel)
+            .environmentObject(AppDI.shared.makeSignUpViewModel())
     }
 }

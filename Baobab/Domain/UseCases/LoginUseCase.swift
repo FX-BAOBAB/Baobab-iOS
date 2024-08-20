@@ -10,7 +10,6 @@ import Foundation
 
 protocol LoginUseCase {
     func execute(params: [String: Any]) -> AnyPublisher<Bool, any Error>
-    func updateRefreshToken() -> AnyPublisher<Bool, any Error>
     func deleteToken() -> AnyPublisher<Bool, any Error>
 }
 
@@ -51,12 +50,6 @@ final class LoginUseCaseImpl: LoginUseCase {
                     }
                     .eraseToAnyPublisher()
             }
-            .eraseToAnyPublisher()
-    }
-    
-    func updateRefreshToken() -> AnyPublisher<Bool, any Error> {
-        return Just(true)
-            .setFailureType(to: Error.self)
             .eraseToAnyPublisher()
     }
     

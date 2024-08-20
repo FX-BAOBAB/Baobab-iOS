@@ -118,6 +118,6 @@ struct ReceivingIntroView: View {
 
 #Preview {
     NavigationStack {
-        ReceivingIntroView(viewModel: AppDI.shared.receivingViewModel, isShowingReceivingForm: .constant(true))
+        ReceivingIntroView(viewModel: AppDI.shared.makeReceivingViewModel(), isShowingReceivingForm: .constant(true))
     }
 }

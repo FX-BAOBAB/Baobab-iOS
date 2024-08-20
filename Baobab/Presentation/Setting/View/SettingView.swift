@@ -48,7 +48,7 @@ struct SettingView: View {
 
 #Preview {
     NavigationStack {
-        SettingView(viewModel: AppDI.shared.settingViewModel, 
+        SettingView(viewModel: AppDI.shared.makeSettingViewModel(), 
                     isLoggedIn: .constant(true))
     }
 }

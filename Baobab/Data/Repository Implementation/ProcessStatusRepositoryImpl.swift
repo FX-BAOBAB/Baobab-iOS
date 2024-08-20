@@ -24,7 +24,7 @@ final class ProcessStatusRepositoryImpl: RemoteRepository, ProcessStatusReposito
     func fetchShippingStatus(for id: Int) -> AnyPublisher<ProcessStatus, any Error> {
         let apiEndPoint = Bundle.main.requestURL + "/shipping/process/\(id)"
         
-        return dataSource.sendGetRequest(to: apiEndPoint, resultType: ProcessStatusResponseDTO.self)
+        return dataSource.sendGetRequest(to: apiEndPoint, resultType: ShippingProcessStatusResponseDTO.self)
             .map {
                 ProcessStatus(total: $0.body.total,
                               status: $0.body.status,

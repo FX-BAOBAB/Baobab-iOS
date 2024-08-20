@@ -55,6 +55,6 @@ struct CategoryPicker: View {
 #Preview {
     NavigationStack {
         CategoryPicker()
-            .environmentObject(AppDI.shared.receivingViewModel)
+            .environmentObject(AppDI.shared.makeReceivingViewModel())
     }
 }

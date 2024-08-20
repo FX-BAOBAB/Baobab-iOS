@@ -10,7 +10,7 @@ import Foundation
 
 @main
 struct BaobabApp: App {
-    @ObservedObject private var viewModel: LoginViewModel = AppDI.shared.loginViewModel
+    @ObservedObject private var viewModel: LoginViewModel = AppDI.shared.makeLoginViewModel()
     
     var body: some Scene {
         WindowGroup {
@@ -19,11 +19,10 @@ struct BaobabApp: App {
                     LaunchScreenView()
                         .ignoresSafeArea()
                         .onAppear {
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                                 if UserDefaults.standard.bool(forKey: "isAutoLogin") && UserDefaults.standard.bool(forKey: "hasToken") {
-                                    //자동 로그인이 활성화 되어 있으면
-                                    //기존의 refreshToken을 활용하여 accessToken 업데이트
-                                    viewModel.updateRefreshToken()
+                                    //자동 로그인이 활성화 되어 있으면 MainView로 이동
+                                    viewModel.navigateToMain()
                                 } else {
                                     //자동 로그인이 활성화 되어 있지 않으면
                                     //삭제 되지 않은 토큰 제거 후 로그인 화면으로 이동
@@ -32,7 +31,7 @@ struct BaobabApp: App {
                             }
                         }
                     
-                    if viewModel.isAsyncTaskProgress {
+                    if viewModel.isProgress {
                         ProgressView()
                             .tint(.white)
                     }

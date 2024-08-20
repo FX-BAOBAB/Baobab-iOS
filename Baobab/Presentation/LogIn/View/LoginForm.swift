@@ -73,12 +73,12 @@ struct LoginForm: View {
             .padding()
             .navigationDestination(isPresented: $isShowingSignUpForm) {
                 LazyView {
-                    SignUpForm(viewModel: AppDI.shared.signUpViewModel,
+                    SignUpForm(viewModel: AppDI.shared.makeSignUpViewModel(),
                                isShowingSignUpForm: $isShowingSignUpForm)
                 }
             }
             .navigationDestination(isPresented: $viewModel.isLoginSuccess) {
-                MainTabView(viewModel: AppDI.shared.mainViewModel,
+                MainTabView(viewModel: AppDI.shared.makeMainViewModel(),
                             isLoggedIn: $viewModel.isLoginSuccess)
             }
             .alert(isPresented: $viewModel.isShowingLoginAlert) {
@@ -97,5 +97,5 @@ struct LoginForm: View {
 
 #Preview {
     LoginForm()
-        .environmentObject(AppDI.shared.loginViewModel)
+        .environmentObject(AppDI.shared.makeLoginViewModel())
 }

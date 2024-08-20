@@ -84,5 +84,5 @@ struct ImageRegistrationCompleteSheet: View {
                                    isShowingNewItemAdditionSheet: .constant(false),
                                    isShowingDefectRegistrationList: .constant(false),
                                    isShowingImageRegistrationCompleteSheet: .constant(false))
-    .environmentObject(AppDI.shared.receivingViewModel)
+    .environmentObject(AppDI.shared.makeReceivingViewModel())
 }

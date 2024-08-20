@@ -28,5 +28,5 @@ struct NickNameInputBox: View {
 
 #Preview {
     NickNameInputBox()
-        .environmentObject(AppDI.shared.signUpViewModel)
+        .environmentObject(AppDI.shared.makeSignUpViewModel())
 }

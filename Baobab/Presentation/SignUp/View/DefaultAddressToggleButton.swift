@@ -35,5 +35,5 @@ struct DefaultAddressToggleButton: View {
 
 #Preview {
     DefaultAddressToggleButton()
-        .environmentObject(AppDI.shared.signUpViewModel)
+        .environmentObject(AppDI.shared.makeSignUpViewModel())
 }

@@ -31,5 +31,5 @@ struct EmailInputBox: View {
 
 #Preview {
     EmailInputBox()
-        .environmentObject(AppDI.shared.signUpViewModel)
+        .environmentObject(AppDI.shared.makeSignUpViewModel())
 }

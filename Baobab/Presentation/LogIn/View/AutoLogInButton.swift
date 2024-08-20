@@ -39,5 +39,5 @@ struct AutoLogInButton: View {
 
 #Preview {
     AutoLogInButton()
-        .environmentObject(AppDI.shared.loginViewModel)
+        .environmentObject(AppDI.shared.makeLoginViewModel())
 }

@@ -75,5 +75,5 @@ struct ShippingApplicationCompletionView: View {
 
 #Preview {
     ShippingApplicationCompletionView(isShowingFullScreenCover: .constant(true))
-        .environmentObject(AppDI.shared.shippingApplicationViewModel)
+        .environmentObject(AppDI.shared.makeShippingApplicationViewModel())
 }

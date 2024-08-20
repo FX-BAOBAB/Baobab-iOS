@@ -64,5 +64,5 @@ struct SearchedAddressView: View {
 
 #Preview {
     SearchedAddressView(isShowingPostCodeSearchForm: .constant(false))
-        .environmentObject(AppDI.shared.signUpViewModel)
+        .environmentObject(AppDI.shared.makeSignUpViewModel())
 }

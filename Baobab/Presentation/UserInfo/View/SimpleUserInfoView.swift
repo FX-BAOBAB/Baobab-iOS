@@ -50,5 +50,5 @@ struct SimpleUserInfoView: View {
 
 #Preview {
     SimpleUserInfoView()
-        .environmentObject(AppDI.shared.userInfoViewModel)
+        .environmentObject(AppDI.shared.makeUserInfoViewModel())
 }

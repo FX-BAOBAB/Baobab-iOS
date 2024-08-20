@@ -47,5 +47,5 @@ struct PostCodeSearchView<T: PostSearchable>: View {
 #Preview {
     PostCodeSearchView<ReceivingViewModel>(isShowingPostCodeSearch: .constant(false), 
                    isShowingAddressList: .constant(false))
-        .environmentObject(AppDI.shared.receivingViewModel)
+        .environmentObject(AppDI.shared.makeReceivingViewModel())
 }

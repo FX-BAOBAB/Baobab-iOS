@@ -31,5 +31,5 @@ struct PasswordConfirmInputBox: View {
 
 #Preview {
     PasswordConfirmInputBox()
-        .environmentObject(AppDI.shared.signUpViewModel)
+        .environmentObject(AppDI.shared.makeSignUpViewModel())
 }

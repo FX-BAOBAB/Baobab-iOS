@@ -156,6 +156,6 @@ struct ImageRegistrationForm: View {
 #Preview {
     NavigationStack {
         ImageRegistrationForm(isShowingReceivingForm: .constant(true))
-            .environmentObject(AppDI.shared.receivingViewModel)
+            .environmentObject(AppDI.shared.makeReceivingViewModel())
     }
 }

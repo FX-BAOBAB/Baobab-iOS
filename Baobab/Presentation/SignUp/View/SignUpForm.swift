@@ -77,7 +77,7 @@ struct SignUpForm: View {
 
 #Preview {
     NavigationStack {
-        SignUpForm(viewModel: AppDI.shared.signUpViewModel, 
+        SignUpForm(viewModel: AppDI.shared.makeSignUpViewModel(), 
                    isShowingSignUpForm: .constant(true))
     }
 }

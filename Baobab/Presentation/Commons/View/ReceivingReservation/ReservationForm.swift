@@ -106,6 +106,6 @@ struct ReservationForm<T: PostSearchable, V: View>: View where T: Reservable {
             calendarCaption: "선택한 시간에 아래 방문지를 통해 입고 물품을 수령할 예정이에요.", 
             addressHeader: "방문지 선택"
         )
-        .environmentObject(AppDI.shared.receivingViewModel)
+        .environmentObject(AppDI.shared.makeReceivingViewModel())
     }
 }

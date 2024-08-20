@@ -49,5 +49,5 @@ struct PaymentDetail: View {
 
 #Preview {
     PaymentDetail()
-        .environmentObject(AppDI.shared.receivingViewModel)
+        .environmentObject(AppDI.shared.makeReceivingViewModel())
 }

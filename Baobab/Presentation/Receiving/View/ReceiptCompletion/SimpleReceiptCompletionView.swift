@@ -46,5 +46,5 @@ struct SimpleReceiptCompletionView: View {
 
 #Preview {
     SimpleReceiptCompletionView(isShowingReceivingForm: .constant(true))
-        .environmentObject(AppDI.shared.receivingViewModel)
+        .environmentObject(AppDI.shared.makeReceivingViewModel())
 }

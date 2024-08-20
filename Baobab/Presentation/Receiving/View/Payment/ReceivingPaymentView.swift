@@ -106,6 +106,6 @@ struct ReceivingPaymentView: View {
 #Preview {
     NavigationStack {
         ReceivingPaymentView(isShowingReceivingForm: .constant(true))
-            .environmentObject(AppDI.shared.receivingViewModel)
+            .environmentObject(AppDI.shared.makeReceivingViewModel())
     }
 }

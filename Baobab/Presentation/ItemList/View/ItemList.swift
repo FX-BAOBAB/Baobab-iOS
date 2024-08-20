@@ -51,5 +51,5 @@ struct ItemList<T: ItemsViewModel>: View {
 }
 
 #Preview {
-    ItemList(viewModel: AppDI.shared.receivingItemsViewModel, status: .receiving)
+    ItemList(viewModel: AppDI.shared.makeReceivingItemsViewModel(), status: .receiving)
 }
