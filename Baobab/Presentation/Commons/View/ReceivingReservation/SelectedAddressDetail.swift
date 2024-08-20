@@ -54,5 +54,5 @@ struct SelectedAddressDetail<T: PostSearchable>: View where T: Reservable {
 
 #Preview {
     SelectedAddressDetail<ReceivingViewModel>(showTag: true)
-        .environmentObject(AppDI.shared.receivingViewModel)
+        .environmentObject(AppDI.shared.makeReceivingViewModel())
 }

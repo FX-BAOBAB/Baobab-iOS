@@ -44,6 +44,6 @@ struct SignUpPostCodeSearchForm: View {
 #Preview {
     NavigationStack {
         SignUpPostCodeSearchForm(isShowingPostCodeSearchForm: .constant(true))
-            .environmentObject(AppDI.shared.signUpViewModel)
+            .environmentObject(AppDI.shared.makeSignUpViewModel())
     }
 }

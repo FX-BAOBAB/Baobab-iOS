@@ -39,7 +39,7 @@ struct MainTabView: View {
                     .toolbar(.hidden, for: .tabBar)
                     .tag(Tab.notificationList)
                 
-                UserInfoList(viewModel: AppDI.shared.userInfoViewModel)
+                UserInfoList(viewModel: AppDI.shared.makeUserInfoViewModel())
                     .toolbar(.hidden, for: .tabBar)
                     .tag(Tab.userInfoList)
             }
@@ -74,7 +74,7 @@ struct MainTabView: View {
                     
                     ToolbarItem(placement: .topBarTrailing) {
                         NavigationLink(destination: {
-                            SettingView(viewModel: AppDI.shared.settingViewModel,
+                            SettingView(viewModel: AppDI.shared.makeSettingViewModel(),
                                         isLoggedIn: $isLoggedIn)
                         }) {
                             Image(systemName: "gearshape.fill")
@@ -111,6 +111,6 @@ struct MainTabView: View {
 
 #Preview {
     NavigationStack {
-        MainTabView(viewModel: AppDI.shared.mainViewModel, isLoggedIn: .constant(true))
+        MainTabView(viewModel: AppDI.shared.makeMainViewModel(), isLoggedIn: .constant(true))
     }
 }

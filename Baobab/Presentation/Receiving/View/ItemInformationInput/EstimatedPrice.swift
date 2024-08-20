@@ -30,5 +30,5 @@ struct EstimatedPrice: View {
 
 #Preview {
     EstimatedPrice()
-        .environmentObject(AppDI.shared.receivingViewModel)
+        .environmentObject(AppDI.shared.makeReceivingViewModel())
 }

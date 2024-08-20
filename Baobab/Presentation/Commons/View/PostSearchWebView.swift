@@ -72,5 +72,5 @@ extension PostSearchWebView {
 #Preview {
     PostSearchWebView<ReceivingViewModel>(isShowingDetailAddressForm: .constant(false),
                       isProgress: .constant(false))
-    .environmentObject(AppDI.shared.receivingViewModel)
+    .environmentObject(AppDI.shared.makeReceivingViewModel())
 }

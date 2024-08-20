@@ -34,5 +34,5 @@ struct CategoryListRow: View {
 
 #Preview {
     CategoryListRow(category: "전자기기", isSelected: true)
-        .environmentObject(AppDI.shared.receivingViewModel)
+        .environmentObject(AppDI.shared.makeReceivingViewModel())
 }

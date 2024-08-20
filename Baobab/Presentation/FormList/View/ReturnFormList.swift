@@ -46,5 +46,5 @@ struct ReturnFormList: View {
 }
 
 #Preview {
-    ReturnFormList(viewModel: AppDI.shared.returnFormsViewModel)
+    ReturnFormList(viewModel: AppDI.shared.makeReturnFormsViewModel())
 }

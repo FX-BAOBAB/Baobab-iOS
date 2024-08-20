@@ -38,6 +38,7 @@ final class ReceivingViewModel: PostSearchable, Reservable {
     init(itemIdx: Int, usecase: ReceivingUseCase) {
         self.itemIdx = itemIdx
         self.usecase = usecase
+        
         calculateMapCoordinates()
     }
 }

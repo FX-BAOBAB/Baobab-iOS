@@ -87,5 +87,5 @@ struct AddressList<T: PostSearchable>: View {
 
 #Preview {
     AddressList<ReceivingViewModel>(isShowingAddressList: .constant(true))
-        .environmentObject(AppDI.shared.receivingViewModel)
+        .environmentObject(AppDI.shared.makeReceivingViewModel())
 }

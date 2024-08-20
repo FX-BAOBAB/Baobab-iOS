@@ -48,5 +48,5 @@ struct ShippingFormList: View {
 }
 
 #Preview {
-    ShippingFormList(viewModel: AppDI.shared.shippingFormsViewModel)
+    ShippingFormList(viewModel: AppDI.shared.makeShippingFormsViewModel())
 }

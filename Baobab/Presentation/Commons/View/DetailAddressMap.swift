@@ -51,6 +51,6 @@ struct DetailAddressMap<T: PostSearchable>: View {
     NavigationStack {
         DetailAddressMap<ReceivingViewModel>(isShowingAddressList: .constant(false),
                          isShowingPostSearchForm: .constant(false))
-        .environmentObject(AppDI.shared.receivingViewModel)
+        .environmentObject(AppDI.shared.makeReceivingViewModel())
     }
 }

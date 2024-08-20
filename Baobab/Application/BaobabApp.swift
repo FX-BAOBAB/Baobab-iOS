@@ -10,7 +10,7 @@ import Foundation
 
 @main
 struct BaobabApp: App {
-    @ObservedObject private var viewModel: LoginViewModel = AppDI.shared.loginViewModel
+    @ObservedObject private var viewModel: LoginViewModel = AppDI.shared.makeLoginViewModel()
     
     var body: some Scene {
         WindowGroup {

@@ -49,6 +49,6 @@ struct ReceivingFormList: View {
 
 #Preview {
     NavigationStack {
-        ReceivingFormList(viewModel: AppDI.shared.receivingFormsViewModel)
+        ReceivingFormList(viewModel: AppDI.shared.makeReceivingFormsViewModel())
     }
 }

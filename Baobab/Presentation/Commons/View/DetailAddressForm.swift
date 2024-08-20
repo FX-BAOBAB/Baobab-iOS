@@ -78,5 +78,5 @@ struct DetailAddressForm<T: PostSearchable>: View {
 #Preview {
     DetailAddressForm<ReceivingViewModel>(isShowingPostSearchForm: .constant(false),
                       isShowingAddressList: .constant(false))
-    .environmentObject(AppDI.shared.receivingViewModel)
+    .environmentObject(AppDI.shared.makeReceivingViewModel())
 }

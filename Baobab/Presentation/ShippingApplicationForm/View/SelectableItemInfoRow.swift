@@ -68,5 +68,5 @@ struct SelectableItemInfoRow: View {
                                      quantity: 1,
                                      basicImages: [ImageData(imageURL: "string", caption: "")],
                                      defectImages: [ImageData(imageURL: "string", caption: "")]))
-    .environmentObject(AppDI.shared.shippingApplicationViewModel)
+    .environmentObject(AppDI.shared.makeShippingApplicationViewModel())
 }

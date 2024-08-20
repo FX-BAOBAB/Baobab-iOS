@@ -69,5 +69,5 @@ struct AddressListRow<T: PostSearchable>: View {
 
 #Preview {
     AddressListRow<ReceivingViewModel>(address: Address.sampleAddressList.first!)
-        .environmentObject(AppDI.shared.receivingViewModel)
+        .environmentObject(AppDI.shared.makeReceivingViewModel())
 }

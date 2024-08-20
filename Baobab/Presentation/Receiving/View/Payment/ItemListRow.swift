@@ -47,5 +47,5 @@ struct ItemListRow: View {
 
 #Preview {
     ItemListRow(idx: 0)
-        .environmentObject(AppDI.shared.receivingViewModel)
+        .environmentObject(AppDI.shared.makeReceivingViewModel())
 }

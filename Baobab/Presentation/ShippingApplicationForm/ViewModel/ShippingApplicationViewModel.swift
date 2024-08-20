@@ -33,7 +33,6 @@ final class ShippingApplicationViewModel: PostSearchable, Reservable {
     var cancellables = Set<AnyCancellable>()
     
     init(usecase: ShippingUseCase) {
-        print("ShippingApplicationViewModel init")
         self.usecase = usecase
         
         calculateMapCoordinates()

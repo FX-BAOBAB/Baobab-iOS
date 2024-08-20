@@ -81,6 +81,6 @@ struct ItemInformationForm: View {
 #Preview {
     NavigationStack {
         ItemInformationForm(isShowingReceivingForm: .constant(true))
-            .environmentObject(AppDI.shared.receivingViewModel)
+            .environmentObject(AppDI.shared.makeReceivingViewModel())
     }
 }

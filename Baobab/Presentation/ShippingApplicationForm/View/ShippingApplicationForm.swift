@@ -91,7 +91,7 @@ struct ShippingApplicationForm: View {
 
 #Preview {
     NavigationStack {
-        ShippingApplicationForm(viewModel: AppDI.shared.shippingApplicationViewModel,
+        ShippingApplicationForm(viewModel: AppDI.shared.makeShippingApplicationViewModel(),
                      isShowingShippingForm: .constant(true))
     }
 }
