@@ -40,13 +40,7 @@ final class SignUpViewModel: PostSearchable {
     }
     
     //MARK: - 회원가입 요청
-    func signUp() {
-        guard let postCode = Int(searchedPostCode) else {
-            isShowingAlert.toggle()
-            responseMessage = "우편번호가 정확하지 않아요."
-            return
-        }
-        
+    func signUp() {        
         isProgress.toggle()    //회원가입 요청 시작
         
         let params = [
@@ -62,7 +56,7 @@ final class SignUpViewModel: PostSearchable {
                 "address": selectedAddress?.address ?? "",
                 "detailAddress": selectedAddress?.detailAddress ?? "",
                 "basicAddress": selectedAddress?.isBasicAddress ?? "",
-                "post": postCode
+                "post": selectedAddress?.post ?? ""
             ]
         ] as [String: Any]
         
