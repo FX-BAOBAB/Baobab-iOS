@@ -503,6 +503,7 @@
 		8EF66E7B2C72D25300E6CEA2 /* ShippingApplicationRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingApplicationRepositoryImpl.swift; sourceTree = "<group>"; };
 		8EF66E7D2C72E10600E6CEA2 /* ShippingApplicationCompletionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingApplicationCompletionView.swift; sourceTree = "<group>"; };
 		8EF709062C7464730002E99B /* ShippingProcessStatusResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingProcessStatusResponseDTO.swift; sourceTree = "<group>"; };
+		8EF709092C7472840002E99B /* ci_post_clone.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = ci_post_clone.sh; sourceTree = "<group>"; };
 		8EF9FA752C71E7F30005840E /* ShippingApplicationViewModel+Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ShippingApplicationViewModel+Address.swift"; sourceTree = "<group>"; };
 		8EF9FA772C71E82A0005840E /* ShippingApplicationViewModel+Region.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ShippingApplicationViewModel+Region.swift"; sourceTree = "<group>"; };
 		8EF9FA792C71E9380005840E /* ShippingApplicationViewModel+Items.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ShippingApplicationViewModel+Items.swift"; sourceTree = "<group>"; };
@@ -549,6 +550,7 @@
 		5C426BDB2BEDA8F300869F6D = {
 			isa = PBXGroup;
 			children = (
+				8EF709082C7472660002E99B /* ci_scripts */,
 				5C426BE62BEDA8F300869F6D /* Baobab */,
 				8E9772172C3CEF530082DCAF /* BaobabUnitTest */,
 				8E0ED8022C3FA56300AB0EC8 /* BaobabUITests */,
@@ -1315,6 +1317,14 @@
 				8E8CD9F32C6F1CF60077D024 /* Reservable.swift */,
 			);
 			path = Interface;
+			sourceTree = "<group>";
+		};
+		8EF709082C7472660002E99B /* ci_scripts */ = {
+			isa = PBXGroup;
+			children = (
+				8EF709092C7472840002E99B /* ci_post_clone.sh */,
+			);
+			path = ci_scripts;
 			sourceTree = "<group>";
 		};
 		A79B888828ABA888471C141F /* Frameworks */ = {
