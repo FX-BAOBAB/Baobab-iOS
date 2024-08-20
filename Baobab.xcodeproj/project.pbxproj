@@ -240,6 +240,7 @@
 		8EF66E7A2C72D14900E6CEA2 /* ShippingApplicationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF66E792C72D14900E6CEA2 /* ShippingApplicationRepository.swift */; };
 		8EF66E7C2C72D25300E6CEA2 /* ShippingApplicationRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF66E7B2C72D25300E6CEA2 /* ShippingApplicationRepositoryImpl.swift */; };
 		8EF66E7E2C72E10600E6CEA2 /* ShippingApplicationCompletionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF66E7D2C72E10600E6CEA2 /* ShippingApplicationCompletionView.swift */; };
+		8EF709072C7464730002E99B /* ShippingProcessStatusResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF709062C7464730002E99B /* ShippingProcessStatusResponseDTO.swift */; };
 		8EF9FA762C71E7F30005840E /* ShippingApplicationViewModel+Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF9FA752C71E7F30005840E /* ShippingApplicationViewModel+Address.swift */; };
 		8EF9FA782C71E82A0005840E /* ShippingApplicationViewModel+Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF9FA772C71E82A0005840E /* ShippingApplicationViewModel+Region.swift */; };
 		8EF9FA7A2C71E9380005840E /* ShippingApplicationViewModel+Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF9FA792C71E9380005840E /* ShippingApplicationViewModel+Items.swift */; };
@@ -501,6 +502,7 @@
 		8EF66E792C72D14900E6CEA2 /* ShippingApplicationRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingApplicationRepository.swift; sourceTree = "<group>"; };
 		8EF66E7B2C72D25300E6CEA2 /* ShippingApplicationRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingApplicationRepositoryImpl.swift; sourceTree = "<group>"; };
 		8EF66E7D2C72E10600E6CEA2 /* ShippingApplicationCompletionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingApplicationCompletionView.swift; sourceTree = "<group>"; };
+		8EF709062C7464730002E99B /* ShippingProcessStatusResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingProcessStatusResponseDTO.swift; sourceTree = "<group>"; };
 		8EF9FA752C71E7F30005840E /* ShippingApplicationViewModel+Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ShippingApplicationViewModel+Address.swift"; sourceTree = "<group>"; };
 		8EF9FA772C71E82A0005840E /* ShippingApplicationViewModel+Region.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ShippingApplicationViewModel+Region.swift"; sourceTree = "<group>"; };
 		8EF9FA792C71E9380005840E /* ShippingApplicationViewModel+Items.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ShippingApplicationViewModel+Items.swift"; sourceTree = "<group>"; };
@@ -742,6 +744,7 @@
 				8EBFCE562C539BC900A2AB4F /* ReceivingFormsResponseDTO.swift */,
 				8E7A9F1C2C5B40E400969F1A /* ShippingFormsResponseDTO.swift */,
 				8E60A82E2C5A1548007814E7 /* ProcessStatusResponseDTO.swift */,
+				8EF709062C7464730002E99B /* ShippingProcessStatusResponseDTO.swift */,
 				8ECF1AE02C5B5B1C004DD9C1 /* ReturnFormsResponseDTO.swift */,
 				8EF66E772C72D08B00E6CEA2 /* ShippingApplicationResponseDTO.swift */,
 			);
@@ -1632,6 +1635,7 @@
 				8EBFCE552C539A4E00A2AB4F /* FormsViewModel.swift in Sources */,
 				8E7900BD2C6B206100BD4BBB /* Notification+Name.swift in Sources */,
 				8EAB81682C40BB770052AD48 /* FetchAddressUseCase.swift in Sources */,
+				8EF709072C7464730002E99B /* ShippingProcessStatusResponseDTO.swift in Sources */,
 				5C4ACAC02BEE1FDB00195895 /* MinusButtonImage.swift in Sources */,
 				8EF66E7A2C72D14900E6CEA2 /* ShippingApplicationRepository.swift in Sources */,
 				8E97720B2C3CBFC40082DCAF /* Bundle+Properties.swift in Sources */,

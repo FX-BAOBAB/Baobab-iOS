@@ -40,7 +40,7 @@ struct ShippingFormList: View {
                     }
             }
         }
-        .navigationTitle("입고 요청서")
+        .navigationTitle("출고 요청서")
         .navigationBarTitleDisplayMode(.inline)
         .toolbarBackground(.visible, for: .navigationBar)
         .toolbarBackground(.white, for: .navigationBar)
