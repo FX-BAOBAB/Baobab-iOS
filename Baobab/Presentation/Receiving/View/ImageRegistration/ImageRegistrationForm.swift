@@ -15,9 +15,7 @@ struct ImageRegistrationForm: View {
     @State private var isShowingLibrary: Bool = false
     @State private var isShowingReservationForm: Bool = false
     @State private var isShowingItemInformationForm: Bool = false
-    @State private var isShowingNewItemAdditionSheet: Bool = false
     @State private var isShowingDefectRegistrationList: Bool = false
-    @State private var isShowingImageRegistrationCompleteSheet: Bool = false
     @Binding var isShowingReceivingForm: Bool
     
     var body: some View {
@@ -70,7 +68,7 @@ struct ImageRegistrationForm: View {
                 Spacer()
                 
                 Button(action: {
-                    isShowingImageRegistrationCompleteSheet.toggle()
+                    isShowingDefectRegistrationList.toggle()
                 }, label: {
                     Text("다음")
                         .bold()
@@ -123,22 +121,6 @@ struct ImageRegistrationForm: View {
             if let selectedIndex {
                 ImagePicker(for: .camera, selectedIndex: selectedIndex)
             }
-        }
-        .sheet(isPresented: $isShowingImageRegistrationCompleteSheet) {
-            ImageRegistrationCompleteSheet(isShowingReservationForm: $isShowingReservationForm,
-                                           isShowingNewItemAdditionSheet: $isShowingNewItemAdditionSheet,
-                                           isShowingDefectRegistrationList: $isShowingDefectRegistrationList,
-                                           isShowingImageRegistrationCompleteSheet: $isShowingImageRegistrationCompleteSheet)
-            .environmentObject(viewModel)
-            .presentationDetents([.height(UIScreen.main.bounds.width * 0.6)])
-            .presentationDragIndicator(.visible)
-        }
-        .sheet(isPresented: $isShowingNewItemAdditionSheet) {
-            NewItemAdditionSheet(isShowingReservationForm: $isShowingReservationForm,
-                                 isShowingItemInformationForm: $isShowingItemInformationForm,
-                                 isShowingNewItemAdditionSheet: $isShowingNewItemAdditionSheet)
-                .presentationDetents([.height(UIScreen.main.bounds.width * 0.6)])
-                .presentationDragIndicator(.visible)
         }
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
