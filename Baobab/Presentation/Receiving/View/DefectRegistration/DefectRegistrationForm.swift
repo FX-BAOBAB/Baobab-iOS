@@ -37,19 +37,9 @@ struct DefectRegistrationForm: View {
                 }
                 .padding(.bottom, 10)
                 
-                VStack(alignment: .leading) {
-                    Text("상세설명")
-                        .font(.subheadline)
-                        .bold()
-                        .foregroundStyle(.gray)
-                    
-                    TextField("물품 외관의 흠집이나 상태와 관련된 메모를 남겨주세요.", text: $viewModel.defectDescription, axis: .vertical)
-                        .lineLimit(Int(UIScreen.main.bounds.height * 0.02), reservesSpace: true)
-                        .padding()
-                        .font(.subheadline)
-                        .background(Color(red: 248 / 255, green: 249 / 255, blue: 250 / 255))
-                        .cornerRadius(10)
-                }
+                BorderedDescriptionBox(inputValue: $viewModel.defectDescription,
+                                       title: "상세설명",
+                                       placeholder: "물품 외관의 흠집이나 상태와 관련된 메모를 남겨주세요.")
             }
             .padding()
         }

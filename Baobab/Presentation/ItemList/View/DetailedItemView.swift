@@ -8,11 +8,13 @@
 import SwiftUI
 
 struct DetailedItemView: View {
+    @State private var isShowingFullScreenCover: Bool = false
+    
     let item: Item
     let status: ItemStatus
     
     var body: some View {
-        ZStack {
+        VStack(spacing: 0) {
             VStack(spacing: 0) {
                 ScrollView {
                     TabView {
@@ -66,33 +68,38 @@ struct DetailedItemView: View {
                         }
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    
-                    Color.clear
-                        .frame(height: UIScreen.main.bounds.width * 0.25)
-                        .listRowSeparator(.hidden)
+                    .padding(.bottom)
                 }
             }
             .navigationTitle("상세보기")
             .navigationBarTitleDisplayMode(.inline)
             
-            VStack(spacing: 0) {
-                Divider()
-                
-                Button {
+            if status == .stored {
+                VStack(spacing: 0) {
+                    Divider()
                     
-                } label: {
-                    Text("중고전환 신청")
-                        .bold()
-                        .foregroundStyle(.white)
-                        .frame(maxWidth: .infinity)
-                        .padding(15)
-                        .background(.accent)
+                    Button {
+                        isShowingFullScreenCover.toggle()
+                    } label: {
+                        Text("중고전환 신청")
+                            .bold()
+                            .foregroundStyle(.white)
+                            .frame(maxWidth: .infinity)
+                            .padding(15)
+                            .background(.accent)
+                    }
+                    .cornerRadius(10)
+                    .padding()
                 }
-                .cornerRadius(10)
-                .padding()
+                .background(.white)
             }
-            .background(.white)
-            .frame(maxHeight: .infinity, alignment: .bottom)
+        }
+        .fullScreenCover(isPresented: $isShowingFullScreenCover) {
+            NavigationStack {
+                UsedConversionForm(viewModel: AppDI.shared.makeUsedConversionViewModel(),
+                                   isShowingFullScreenCover: $isShowingFullScreenCover,
+                                   item: item)
+            }
         }
     }
 }

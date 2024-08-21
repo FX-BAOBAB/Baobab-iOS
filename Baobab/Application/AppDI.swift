@@ -268,4 +268,11 @@ struct AppDI {
         
         return viewModel
     }
+    
+    func makeUsedConversionViewModel() -> UsedConversionViewModel {
+        //Presentation Layer
+        let viewModel = UsedConversionViewModel()
+        
+        return viewModel
+    }
 }
