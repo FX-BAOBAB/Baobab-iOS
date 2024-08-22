@@ -76,7 +76,7 @@ struct UserInfoList: View {
                     LazyView {
                         TopTabView(firstTitle: "출고 중",
                                    secondTitle: "출고 완료",
-                                   firstView: ItemList(viewModel: AppDI.shared.makeShippedItemsViewModel(), status: .shipping),
+                                   firstView: ItemList(viewModel: AppDI.shared.makeShippingItemsViewModel(), status: .shipping),
                                    secondView: ItemList(viewModel: AppDI.shared.makeShippedItemsViewModel(), status: .shipped),
                                    title: "출고 물품")
                     }
