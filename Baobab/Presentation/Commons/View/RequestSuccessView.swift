@@ -30,6 +30,10 @@ struct RequestSuccessView: View {
             Spacer()
             
             Button {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    NotificationCenter.default.post(name: .usedItemRegistrationComplete, object: nil, userInfo: ["registrationResult": true])
+                }
+                
                 isShowingFullScreenCover.toggle()
             } label: {
                 Text("확인")

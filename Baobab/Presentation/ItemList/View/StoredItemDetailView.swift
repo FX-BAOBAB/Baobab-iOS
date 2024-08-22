@@ -1,14 +1,16 @@
 //
-//  DetailedItemView.swift
+//  StoredItemDetailView.swift
 //  Baobab
 //
-//  Created by 이정훈 on 7/26/24.
+//  Created by 이정훈 on 8/22/24.
 //
 
 import SwiftUI
 
-struct DetailedItemView: View {
+struct StoredItemDetailView: View {
+    @EnvironmentObject private var viewModel: StoredItemsViewModel
     @State private var isShowingFullScreenCover: Bool = false
+    @Environment(\.dismiss) private var dismiss
     
     let item: Item
     let status: ItemStatus
@@ -101,19 +103,28 @@ struct DetailedItemView: View {
                                    item: item)
             }
         }
+        .onReceive(NotificationCenter.default.publisher(for: .usedItemRegistrationComplete)) {
+            if let result = $0.userInfo?["registrationResult"] as? Bool, result {
+                //중고전환 완료 후 물품 리스트 갱신
+                //화면 뒤로가기
+                viewModel.fetchItems()
+                dismiss()
+            }
+        }
     }
 }
 
 #Preview {
     NavigationStack {
-        DetailedItemView(item: Item(id: 0,
-                                    name: "부끄부끄 마끄부끄",
-                                    category: "SMALL_APPLIANCES",
-                                    quantity: 1,
-                                    basicImages: [ImageData(imageURL: "string", caption: ""),
-                                                  ImageData(imageURL: "string", caption: "")],
-                                    defectImages: [ImageData(imageURL: "", caption: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."),
-                                                   ImageData(imageURL: "string", caption: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")]),
-                         status: .receiving)
+        StoredItemDetailView(item: Item(id: 0,
+                                        name: "부끄부끄 마끄부끄",
+                                        category: "SMALL_APPLIANCES",
+                                        quantity: 1,
+                                        basicImages: [ImageData(imageURL: "string", caption: ""),
+                                                      ImageData(imageURL: "string", caption: "")],
+                                        defectImages: [ImageData(imageURL: "", caption: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."),
+                                                       ImageData(imageURL: "string", caption: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")]),
+                             status: .stored)
+        .environmentObject(AppDI.shared.makeStoredItemsViewModel())
     }
 }
