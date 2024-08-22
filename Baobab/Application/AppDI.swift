@@ -269,9 +269,15 @@ struct AppDI {
         return viewModel
     }
     
-    func makeUsedConversionViewModel() -> UsedConversionViewModel {
+    func makeUsedConversionViewModel() -> UsedItemRegistrationViewModel {
+        //Data Layer
+        let repository = UsedItemRegistrationRepositoryImpl(dataSource: dataSource)
+        
+        //Domain Layer
+        let usecase = RegisterAsUsedItemUseCaseImpl(repository: repository)
+        
         //Presentation Layer
-        let viewModel = UsedConversionViewModel()
+        let viewModel = UsedItemRegistrationViewModel(usecase: usecase)
         
         return viewModel
     }

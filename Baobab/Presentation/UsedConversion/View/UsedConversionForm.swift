@@ -8,98 +8,115 @@
 import SwiftUI
 
 struct UsedConversionForm: View {
-    @StateObject private var viewModel: UsedConversionViewModel
+    @StateObject private var viewModel: UsedItemRegistrationViewModel
     @Binding var isShowingFullScreenCover: Bool
     
     let item: Item
     
-    init(viewModel: UsedConversionViewModel, isShowingFullScreenCover: Binding<Bool>, item: Item) {
+    init(viewModel: UsedItemRegistrationViewModel, isShowingFullScreenCover: Binding<Bool>, item: Item) {
         _viewModel = StateObject(wrappedValue: viewModel)
         _isShowingFullScreenCover = isShowingFullScreenCover
         self.item = item
     }
     
     var body: some View {
-        VStack(spacing: 0) {
+        ZStack {
             VStack(spacing: 0) {
-                HStack(alignment: .top) {
-                    AsyncImage(url: URL(string: item.basicImages[0].imageURL)) { image in
-                        image
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: UIScreen.main.bounds.width * 0.15)
-                            .cornerRadius(10)
-                    } placeholder: {
-                        Rectangle()
-                            .skeleton(with: true,
-                                      size: CGSize(width: UIScreen.main.bounds.width * 0.15,
-                                                   height: UIScreen.main.bounds.width * 0.15),
-                                      shape: .rounded(.radius(10, style: .circular))
-                            )
-                    }
-                    
-                    VStack(alignment: .leading) {
-                        Text(item.name)
+                VStack(spacing: 0) {
+                    HStack(alignment: .top) {
+                        AsyncImage(url: URL(string: item.basicImages[0].imageURL)) { image in
+                            image
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: UIScreen.main.bounds.width * 0.15)
+                                .cornerRadius(10)
+                        } placeholder: {
+                            Rectangle()
+                                .skeleton(with: true,
+                                          size: CGSize(width: UIScreen.main.bounds.width * 0.15,
+                                                       height: UIScreen.main.bounds.width * 0.15),
+                                          shape: .rounded(.radius(10, style: .circular))
+                                )
+                        }
                         
-                        Text(item.category.toKorCategory())
+                        VStack(alignment: .leading) {
+                            Text(item.name)
+                            
+                            Text(item.category.toKorCategory())
+                            
+                            Text("\(item.quantity)개")
+                        }
+                        .font(.caption)
                         
-                        Text("\(item.quantity)개")
+                        Spacer()
                     }
-                    .font(.caption)
+                    .padding()
                     
-                    Spacer()
+                    Divider()
                 }
-                .padding()
                 
-                Divider()
+                ScrollView {
+                    BorderedInputBox(inputValue: $viewModel.title,
+                                     title: "제목",
+                                     placeholder: "제목을 입력해 주세요.",
+                                     type: .normal)
+                    .padding()
+                    
+                    BorderedPriceBox(inputValue: $viewModel.price,
+                                     title: "가격", placeholder: "")
+                    .padding()
+                    
+                    BorderedDescriptionBox(inputValue: $viewModel.description,
+                                           title: "상세설명",
+                                           placeholder: "물품의 특징을 자세하게 기술해 주세요.")
+                    .padding()
+                }
+                
+                VStack(spacing: 0) {
+                    Divider()
+                    
+                    Button {
+                        viewModel.register(itemId: item.id)
+                    } label: {
+                        Text("등록하기")
+                            .bold()
+                            .foregroundStyle(.white)
+                            .frame(maxWidth: .infinity)
+                            .padding(15)
+                            .background(.accent)
+                    }
+                    .cornerRadius(10)
+                    .padding()
+                }
+                .background(.white)
+            }
+            .navigationTitle("중고 판매 등록")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
+                        isShowingFullScreenCover.toggle()
+                    } label: {
+                        Image(systemName: "xmark")
+                            .foregroundStyle(.black)
+                    }
+                }
             }
             
-            ScrollView {
-                BorderedInputBox(inputValue: $viewModel.title,
-                                 title: "제목",
-                                 placeholder: "제목을 입력해 주세요.",
-                                 type: .normal)
-                .padding()
-                
-                BorderedPriceBox(inputValue: $viewModel.price,
-                                 title: "가격", placeholder: "")
-                .padding()
-                
-                BorderedDescriptionBox(inputValue: $viewModel.description,
-                                       title: "상세설명",
-                                       placeholder: "물품의 특징을 자세하게 기술해 주세요.")
-                .padding()
+            if viewModel.isProgress {
+                CustomProgressView()
             }
-            
-            VStack(spacing: 0) {
-                Divider()
-                
-                Button {
-                    
-                } label: {
-                    Text("등록하기")
-                        .bold()
-                        .foregroundStyle(.white)
-                        .frame(maxWidth: .infinity)
-                        .padding(15)
-                        .background(.accent)
-                }
-                .cornerRadius(10)
-                .padding()
-            }
-            .background(.white)
         }
-        .navigationTitle("중고 판매 등록")
-        .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            ToolbarItem(placement: .topBarTrailing) {
-                Button {
-                    isShowingFullScreenCover.toggle()
-                } label: {
-                    Image(systemName: "xmark")
-                        .foregroundStyle(.black)
-                }
-            }
+        .navigationDestination(isPresented: $viewModel.isShowingSuccessView) {
+            RequestSuccessView(isShowingFullScreenCover: $isShowingFullScreenCover,
+                               title: "중고 판매로 등록 되었어요!",
+                               navigationTitle: "중고 판매 등록")
+        }
+        .navigationDestination(isPresented: $viewModel.isShowingFailureView) {
+            RequestFailureView(isShowingFullScreenCover: $isShowingFullScreenCover,
+                               title: "중고 판매 등록에 실패했어요.",
+                               subTitle: "고객센터로 문의 바랍니다.",
+                               navigationTitle: "중고 판매 등록")
         }
     }
 }
