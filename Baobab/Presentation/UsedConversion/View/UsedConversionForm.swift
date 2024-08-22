@@ -118,6 +118,9 @@ struct UsedConversionForm: View {
                                subTitle: "고객센터로 문의 바랍니다.",
                                navigationTitle: "중고 판매 등록")
         }
+        .alert(isPresented: $viewModel.isShowingAlert) {
+            Alert(title: Text("알림"), message: Text("모든 값을 정확하게 입력해 주세요."))
+        }
     }
 }
 

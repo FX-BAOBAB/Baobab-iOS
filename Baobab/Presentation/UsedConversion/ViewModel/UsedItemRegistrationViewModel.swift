@@ -14,6 +14,7 @@ final class UsedItemRegistrationViewModel: ObservableObject {
     @Published var isProgress: Bool = false
     @Published var isShowingSuccessView: Bool = false
     @Published var isShowingFailureView: Bool = false
+    @Published var isShowingAlert: Bool = false
     
     private let usecase: RegisterAsUsedItemUseCase
     private var cancellables = Set<AnyCancellable>()
@@ -25,8 +26,9 @@ final class UsedItemRegistrationViewModel: ObservableObject {
     func register(itemId: Int) {
         isProgress.toggle()
         
-        guard let price = Int(price) else {
+        guard let price = Int(price), checkInputAccuracy() else {
             isProgress.toggle()
+            isShowingAlert.toggle()
             return
         }
         
@@ -63,5 +65,21 @@ final class UsedItemRegistrationViewModel: ObservableObject {
                 
             })
             .store(in: &cancellables)
+    }
+    
+    private func checkInputAccuracy() -> Bool {
+        if title.isEmpty {
+            return false
+        }
+        
+        if price.isEmpty {
+            return false
+        }
+        
+        if description.isEmpty {
+            return false
+        }
+        
+        return true
     }
 }
