@@ -13,7 +13,6 @@ struct ImageRegistrationForm: View {
     @State private var isShowingDialog: Bool = false
     @State private var isShowingCamera: Bool = false
     @State private var isShowingLibrary: Bool = false
-    @State private var isShowingReservationForm: Bool = false
     @State private var isShowingItemInformationForm: Bool = false
     @State private var isShowingDefectRegistrationList: Bool = false
     @Binding var isShowingReceivingForm: Bool
@@ -95,15 +94,6 @@ struct ImageRegistrationForm: View {
         }, message: {
             Text("사진을 가져올 위치를 선택해 주세요")
         })
-        .navigationDestination(isPresented: $isShowingReservationForm) {
-            ReservationForm<ReceivingViewModel, _>(
-                isShowingFullScreenCover: $isShowingReceivingForm,
-                nextView: ReceivingPaymentView(isShowingReceivingForm: $isShowingReceivingForm).environmentObject(viewModel),
-                calendarCaption: "선택한 시간에 아래 방문지를 통해 입고 물품을 수령할 예정이에요.", 
-                addressHeader: "방문지 선택"
-            )
-            .environmentObject(viewModel)
-        }
         .navigationDestination(isPresented: $isShowingItemInformationForm) {
             ItemInformationForm(isShowingReceivingForm: $isShowingReceivingForm)
                 .environmentObject(viewModel)

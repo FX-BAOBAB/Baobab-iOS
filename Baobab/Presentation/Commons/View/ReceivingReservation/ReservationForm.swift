@@ -16,6 +16,7 @@ struct ReservationForm<T: PostSearchable, V: View>: View where T: Reservable {
     let nextView: V
     let calendarCaption: String
     let addressHeader: String
+    let navigationHeader: String
     
     var body: some View {
         VStack(spacing: 0) {
@@ -73,7 +74,7 @@ struct ReservationForm<T: PostSearchable, V: View>: View where T: Reservable {
             }
             .background(.white)
         }
-        .navigationTitle("입고 예약")
+        .navigationTitle(navigationHeader)
         .navigationBarTitleDisplayMode(.inline)
         .onAppear {
             UIDatePicker.appearance().minuteInterval = 10    //선택 가능한 시간을 10분 단위로 설정
@@ -104,7 +105,8 @@ struct ReservationForm<T: PostSearchable, V: View>: View where T: Reservable {
             isShowingFullScreenCover: .constant(true),
             nextView: EmptyView(),
             calendarCaption: "선택한 시간에 아래 방문지를 통해 입고 물품을 수령할 예정이에요.", 
-            addressHeader: "방문지 선택"
+            addressHeader: "방문지 선택",
+            navigationHeader: "입고예약"
         )
         .environmentObject(AppDI.shared.makeReceivingViewModel())
     }

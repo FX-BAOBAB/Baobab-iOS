@@ -44,7 +44,8 @@ struct ShippingApplicationForm: View {
                             isShowingFullScreenCover: $isShowingFullScreenCover,
                             nextView: ShippingApplicationCompletionView(isShowingFullScreenCover: $isShowingFullScreenCover).environmentObject(viewModel),
                             calendarCaption: "선택한 날짜에 맞춰 물품이 배송될 예정이에요.", 
-                            addressHeader: "배송지 선택"
+                            addressHeader: "배송지 선택",
+                            navigationHeader: "출고 예약"
                         )
                         .environmentObject(viewModel)
                     } label: {
