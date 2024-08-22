@@ -15,7 +15,7 @@ struct ShippingApplicationCompletionView: View {
     var body: some View {
         VStack {
             if viewModel.isProgress {
-                ProgressView()
+                CustomProgressView()
             } else {
                 VStack {
                     Spacer()
@@ -70,6 +70,7 @@ struct ShippingApplicationCompletionView: View {
             }
         }
         .padding()
+        .navigationBarBackButtonHidden()
     }
 }
 

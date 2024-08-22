@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct ItemList<T: ItemsViewModel>: View {
-    @ObservedObject private var viewModel: T
+    @StateObject private var viewModel: T
     
     private let status: ItemStatus
     
     init(viewModel: T, status: ItemStatus) {
-        _viewModel = ObservedObject(wrappedValue: viewModel)
+        _viewModel = StateObject(wrappedValue: viewModel)
         self.status = status
     }
     
@@ -24,7 +24,12 @@ struct ItemList<T: ItemsViewModel>: View {
             List {
                 ForEach(items) { item in
                     NavigationLink {
-                        DetailedItemView(item: item, status: status)
+                        if status == .stored {
+                            StoredItemDetailView(item: item, status: status)
+                                .environmentObject(viewModel)
+                        } else {
+                            ItemDetailView(item: item, status: status)
+                        }
                     } label: {
                         ItemInfoRow(item: item)
                             .padding([.top, .bottom])

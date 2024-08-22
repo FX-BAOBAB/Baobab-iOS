@@ -77,7 +77,8 @@ struct DefectRegistrationList: View {
                 isShowingFullScreenCover: $isShowingReceivingForm,
                 nextView: ReceivingPaymentView(isShowingReceivingForm: $isShowingReceivingForm).environmentObject(viewModel),
                 calendarCaption: "선택한 시간에 아래 방문지를 통해 입고 물품을 수령할 예정이에요.", 
-                addressHeader: "방문지 선택"
+                addressHeader: "방문지 선택", 
+                navigationHeader: "입고 예약"
             )
             .environmentObject(viewModel)
         }

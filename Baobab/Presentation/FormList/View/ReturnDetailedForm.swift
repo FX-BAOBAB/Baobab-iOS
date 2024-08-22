@@ -41,7 +41,7 @@ struct ReturnDetailedForm: View {
             Section {
                 ForEach(form.items) { item in
                     NavigationLink(destination: {
-                        DetailedItemView(item: item, status: .receiving)
+                        ItemDetailView(item: item, status: .receiving)
                     }) {
                         ItemInfoRow(item: item)
                     }

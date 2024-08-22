@@ -12,6 +12,7 @@ extension SignUpViewModel {
     //MARK: - TextField 입력감지
     func bind() {
         $email
+            .dropFirst()
             .debounce(for: 2, scheduler: DispatchQueue.main)    //마지막 입력으로 입력이 2초 동안 없는 경우 값을 방출
             .sink { [weak self] email in
                 if email.isEmpty {
@@ -26,6 +27,7 @@ extension SignUpViewModel {
             .store(in: &cancellables)
         
         $password
+            .dropFirst()
             .debounce(for: 2, scheduler: DispatchQueue.main)
             .sink { [weak self] pw in
                 if pw.isEmpty {
@@ -36,10 +38,13 @@ extension SignUpViewModel {
                     //유효한 password 형식이 아닌경우
                     self?.passwordState = .isInvalid
                 }
+                
+                self?.confirmAllInputs()
             }
             .store(in: &cancellables)
         
         $passwordConfirm
+            .dropFirst()
             .debounce(for: 2, scheduler: DispatchQueue.main)
             .sink { [weak self] _ in
                 if self?.confirmPassword() == true {
@@ -48,10 +53,13 @@ extension SignUpViewModel {
                     //비밀번호가 일치하지 않는 경우
                     self?.passwordConfirmState = .isInvalid
                 }
+                
+                self?.confirmAllInputs()
             }
             .store(in: &cancellables)
         
         $nickName
+            .dropFirst()
             .debounce(for: 2, scheduler: DispatchQueue.main)
             .sink { [weak self] nickName in
                 if nickName.isEmpty {
@@ -77,6 +85,7 @@ extension SignUpViewModel {
             ]
         ] as [String: Any]
         
+        isProceccingEmailValidation.toggle()
         usecase.checkEmailDuplication(params: params)
             .sink(receiveCompletion: { completion in
                 switch completion {
@@ -91,6 +100,9 @@ extension SignUpViewModel {
                 } else {
                     self?.emailState = .isValid    //사용 가능한 email인 경우
                 }
+                
+                self?.isProceccingEmailValidation.toggle()
+                self?.confirmAllInputs()
             })
             .store(in: &cancellables)
     }
@@ -107,6 +119,7 @@ extension SignUpViewModel {
             ]
         ] as [String: Any]
         
+        isProcessingNickNameValidation.toggle()
         usecase.checkNickNameDuplication(params: params)
             .sink(receiveCompletion: { completion in
                 switch completion {
@@ -121,6 +134,9 @@ extension SignUpViewModel {
                 } else {
                     self?.nickNameState = .isValid    //사용 가능한 닉네임인 경우
                 }
+                
+                self?.isProcessingNickNameValidation.toggle()
+                self?.confirmAllInputs()
             })
             .store(in: &cancellables)
     }

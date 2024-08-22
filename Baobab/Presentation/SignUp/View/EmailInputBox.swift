@@ -11,19 +11,26 @@ struct EmailInputBox: View {
     @EnvironmentObject private var viewModel: SignUpViewModel
     
     var body: some View {
-        VStack {
+        VStack(spacing: 0) {
             BorderedInputBox(inputValue: $viewModel.email,
                              title: "이메일",
                              placeholder: "ex) baobab123@baobab.com", 
                              type: .normal)
             
-            if viewModel.emailState == .none {
-                Spacer()
-                    .frame(height: 17.5)
-            } else {
-                SignUpCaption(caption: viewModel.emailState.rawValue, 
-                              color: viewModel.emailState == .isValid ? .green : .red)
+            Group {
+                if viewModel.isProceccingEmailValidation {
+                    ProgressView()
+                        .controlSize(.mini)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.leading)
+                } else if viewModel.emailState == .none {
+                    Color.clear
+                } else {
+                    SignUpCaption(caption: viewModel.emailState.rawValue,
+                                  color: viewModel.emailState == .isValid ? .green : .red)
+                }
             }
+            .frame(height: 20)
         }
         .animation(.bouncy(duration: 0.5), value: viewModel.emailState)
     }
