@@ -68,10 +68,6 @@ struct ShippingApplicationForm: View {
                 viewModel.fetchShippableItems()
             }
         }
-        .onDisappear {
-            viewModel.storedItems = nil
-            viewModel.selectedItems = []
-        }
         .navigationTitle("출고하기")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
