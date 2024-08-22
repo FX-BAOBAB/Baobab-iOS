@@ -17,10 +17,18 @@ struct NickNameInputBox: View {
                              placeholder: "닉네임은 최대 50자, 한글만 입력",
                              type: .normal)
             
-            if viewModel.nickNameState != .none {
-                SignUpCaption(caption: viewModel.nickNameState.rawValue, 
-                              color: viewModel.nickNameState == .isValid ? .green : .red)
+            Group {
+                if viewModel.isProcessingNickNameValidation {
+                    ProgressView()
+                        .controlSize(.mini)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.leading)
+                } else if viewModel.nickNameState != .none {
+                    SignUpCaption(caption: viewModel.nickNameState.rawValue,
+                                  color: viewModel.nickNameState == .isValid ? .green : .red)
+                }
             }
+            .frame(height: 20)
         }
         .animation(.bouncy(duration: 0.5), value: viewModel.nickNameState)
     }

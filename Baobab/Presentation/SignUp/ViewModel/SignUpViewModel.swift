@@ -25,6 +25,9 @@ final class SignUpViewModel: PostSearchable {
     @Published var detailedAddressInput: String = ""
     @Published var isProgress: Bool = false
     @Published var isShowingAlert: Bool = false
+    @Published var isProceccingEmailValidation: Bool = false
+    @Published var isProcessingNickNameValidation: Bool = false
+    @Published var isAllValid: Bool = false
     
     var cancellables = Set<AnyCancellable>()
     var responseMessage: String = ""
@@ -84,23 +87,17 @@ final class SignUpViewModel: PostSearchable {
     }
     
     //MARK: - 모든 입력 값 유효성 검사
-    func confirmAllInputs() -> Bool {
+    func confirmAllInputs() {
         if emailState != .isValid {
-            return false
+            isAllValid = false
+        } else if passwordState != .isValid {
+            isAllValid = false
+        } else if passwordConfirmState != .isValid {
+            isAllValid = false
+        } else if nickNameState != .isValid {
+            isAllValid = false
+        } else {
+            isAllValid = true
         }
-        
-        if passwordState != .isValid {
-            return false
-        }
-        
-        if passwordConfirmState != .isValid {
-            return false
-        }
-        
-        if nickNameState != .isValid {
-            return false
-        }
-        
-        return true
     }
 }
