@@ -80,6 +80,11 @@
 		8E449F0D2C4BAB3700291277 /* DuplicationCheckDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E449F0C2C4BAB3700291277 /* DuplicationCheckDTO.swift */; };
 		8E449F0F2C4BEEC700291277 /* CheckNickNameDuplicationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E449F0E2C4BEEC700291277 /* CheckNickNameDuplicationUseCase.swift */; };
 		8E449F112C4BFDE800291277 /* SignUpViewModel+Bind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E449F102C4BFDE800291277 /* SignUpViewModel+Bind.swift */; };
+		8E49F7222C784126006EC259 /* ItemStatusConversionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E49F7212C784126006EC259 /* ItemStatusConversionViewModel.swift */; };
+		8E49F7242C7841E5006EC259 /* ItemStatusConversionResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E49F7232C7841E5006EC259 /* ItemStatusConversionResponseDTO.swift */; };
+		8E49F7262C784233006EC259 /* ItemStatusRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E49F7252C784233006EC259 /* ItemStatusRepository.swift */; };
+		8E49F7282C78425B006EC259 /* ItemStatusRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E49F7272C78425B006EC259 /* ItemStatusRepositoryImpl.swift */; };
+		8E49F72A2C78438B006EC259 /* ConvertItemStatusUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E49F7292C78438B006EC259 /* ConvertItemStatusUseCase.swift */; };
 		8E4BC0252C5C624800CCFF78 /* LoginTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4BC0242C5C624800CCFF78 /* LoginTest.swift */; };
 		8E4BC0272C5C700C00CCFF78 /* FetchFormsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4BC0262C5C700C00CCFF78 /* FetchFormsTest.swift */; };
 		8E4BC02B2C5CBE8100CCFF78 /* ShippingDetailedForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4BC02A2C5CBE8100CCFF78 /* ShippingDetailedForm.swift */; };
@@ -357,6 +362,11 @@
 		8E449F0C2C4BAB3700291277 /* DuplicationCheckDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuplicationCheckDTO.swift; sourceTree = "<group>"; };
 		8E449F0E2C4BEEC700291277 /* CheckNickNameDuplicationUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckNickNameDuplicationUseCase.swift; sourceTree = "<group>"; };
 		8E449F102C4BFDE800291277 /* SignUpViewModel+Bind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SignUpViewModel+Bind.swift"; sourceTree = "<group>"; };
+		8E49F7212C784126006EC259 /* ItemStatusConversionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemStatusConversionViewModel.swift; sourceTree = "<group>"; };
+		8E49F7232C7841E5006EC259 /* ItemStatusConversionResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemStatusConversionResponseDTO.swift; sourceTree = "<group>"; };
+		8E49F7252C784233006EC259 /* ItemStatusRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemStatusRepository.swift; sourceTree = "<group>"; };
+		8E49F7272C78425B006EC259 /* ItemStatusRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemStatusRepositoryImpl.swift; sourceTree = "<group>"; };
+		8E49F7292C78438B006EC259 /* ConvertItemStatusUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertItemStatusUseCase.swift; sourceTree = "<group>"; };
 		8E4BC0242C5C624800CCFF78 /* LoginTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTest.swift; sourceTree = "<group>"; };
 		8E4BC0262C5C700C00CCFF78 /* FetchFormsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchFormsTest.swift; sourceTree = "<group>"; };
 		8E4BC02A2C5CBE8100CCFF78 /* ShippingDetailedForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingDetailedForm.swift; sourceTree = "<group>"; };
@@ -724,6 +734,7 @@
 				8EA152882C69F4420011FDB3 /* UpdateTokenUseCase.swift */,
 				8E604DB82C6DEC2400D45CB1 /* ShippingUseCase.swift */,
 				8E83F7662C762F6700AD5F01 /* RegisterAsUsedItemUseCase.swift */,
+				8E49F7292C78438B006EC259 /* ConvertItemStatusUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -743,6 +754,7 @@
 				8EA152862C69E86B0011FDB3 /* RemoteTokenRepository.swift */,
 				8EF66E792C72D14900E6CEA2 /* ShippingApplicationRepository.swift */,
 				8E83F7622C762E7E00AD5F01 /* UsedItemRegistrationRepository.swift */,
+				8E49F7252C784233006EC259 /* ItemStatusRepository.swift */,
 			);
 			path = "Repository Interfaces";
 			sourceTree = "<group>";
@@ -779,6 +791,7 @@
 				8ECF1AE02C5B5B1C004DD9C1 /* ReturnFormsResponseDTO.swift */,
 				8EF66E772C72D08B00E6CEA2 /* ShippingApplicationResponseDTO.swift */,
 				8E83F7602C762DA000AD5F01 /* UsedItemRegistrationReponseDTO.swift */,
+				8E49F7232C7841E5006EC259 /* ItemStatusConversionResponseDTO.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -799,6 +812,7 @@
 				8EA152842C69E8470011FDB3 /* RemoteTokenRepositoryImpl.swift */,
 				8EF66E7B2C72D25300E6CEA2 /* ShippingApplicationRepositoryImpl.swift */,
 				8E83F7642C762EB500AD5F01 /* UsedItemRegistrationRepositoryImpl.swift */,
+				8E49F7272C78425B006EC259 /* ItemStatusRepositoryImpl.swift */,
 			);
 			path = "Repository Implementation";
 			sourceTree = "<group>";
@@ -1046,6 +1060,7 @@
 				8E7B6C452C522EB300222721 /* ReturningItemsViewModel.swift */,
 				8E7B6C472C522F6400222721 /* ReturnedItemsViewModel.swift */,
 				8E7B6C492C5231A500222721 /* UsedItemsViewModel.swift */,
+				8E49F7212C784126006EC259 /* ItemStatusConversionViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1627,6 +1642,7 @@
 				8E97720F2C3CCB820082DCAF /* SignUpResponse.swift in Sources */,
 				8E8D13502C4E443A0032FC96 /* UserInfo.swift in Sources */,
 				5C1B84CE2BF20DDB00A99192 /* CheckMark.swift in Sources */,
+				8E49F7262C784233006EC259 /* ItemStatusRepository.swift in Sources */,
 				8E60A8372C5A1F4B007814E7 /* FormType.swift in Sources */,
 				8E7A9F1B2C5B400700969F1A /* FormData.swift in Sources */,
 				8E4BC02B2C5CBE8100CCFF78 /* ShippingDetailedForm.swift in Sources */,
@@ -1646,6 +1662,7 @@
 				5C90636F2C04B34F004A0EC5 /* AddressListRow.swift in Sources */,
 				8EAA87FC2C44A815000386AD /* ReceivingResponseDTO.swift in Sources */,
 				8EAB81732C4108380052AD48 /* AccessTokenRefreshData.swift in Sources */,
+				8E49F7222C784126006EC259 /* ItemStatusConversionViewModel.swift in Sources */,
 				5CD8A2072C0341B900EE5C09 /* StoreItem.swift in Sources */,
 				8ECCBB112C2E4D5700DD0A1B /* SignUpViewModel+InputState.swift in Sources */,
 				5C994A522BF58A880013672B /* DefectRegistrationForm.swift in Sources */,
@@ -1716,6 +1733,7 @@
 				8EF66E7A2C72D14900E6CEA2 /* ShippingApplicationRepository.swift in Sources */,
 				8E97720B2C3CBFC40082DCAF /* Bundle+Properties.swift in Sources */,
 				8E7B6C362C51EECD00222721 /* ReceivingItemsViewModel.swift in Sources */,
+				8E49F72A2C78438B006EC259 /* ConvertItemStatusUseCase.swift in Sources */,
 				8E83F7632C762E7E00AD5F01 /* UsedItemRegistrationRepository.swift in Sources */,
 				8E74FF3A2C585E97005ED275 /* ReceivingDetailedForm.swift in Sources */,
 				8E7A9F152C5B187D00969F1A /* ProcessStatusBar.swift in Sources */,
@@ -1827,8 +1845,10 @@
 				8E7B6C442C52227300222721 /* ShippedItemsViewModel.swift in Sources */,
 				5C80F0F82C06DD0F00A94C22 /* DefaultAddressResponseDTO.swift in Sources */,
 				8E7BC8D42C3E6ACE00CB708F /* TokenRepositroy.swift in Sources */,
+				8E49F7282C78425B006EC259 /* ItemStatusRepositoryImpl.swift in Sources */,
 				5C735F462BF1A4B400A36EC8 /* CategoryListRow.swift in Sources */,
 				5C994A582BF5F8D00013672B /* Defect.swift in Sources */,
+				8E49F7242C7841E5006EC259 /* ItemStatusConversionResponseDTO.swift in Sources */,
 				8E7BC8CE2C3E44C500CB708F /* LoginResponse.swift in Sources */,
 				8E449F112C4BFDE800291277 /* SignUpViewModel+Bind.swift in Sources */,
 				8E7B6C462C522EB300222721 /* ReturningItemsViewModel.swift in Sources */,

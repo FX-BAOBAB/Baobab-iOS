@@ -14,6 +14,8 @@ cat <<EOF > "/Volumes/workspace/repository/Baobab/Application/ServiceInfo.plist"
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+    <key>Test_URL</key>
+    <string>${Test_URL}</string>
     <key>User_Open_URL</key>
     <string>${User_Open_URL}</string>
     <key>User_URL</key>
