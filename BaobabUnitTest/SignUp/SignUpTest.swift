@@ -34,7 +34,7 @@ final class SignUpTest: XCTestCase {
         
         let session = Session(configuration: configuration)
         dataSource = RemoteDataSourceImpl(session: session)
-        let apiEndPoint = Bundle.main.openURL + "/users"
+        let apiEndPoint = Bundle.main.userOpenURL + "/users"
         let params: [String: Any] = [String: Any]()
         let expectation = XCTestExpectation(description: "Performs a request")
         
@@ -69,7 +69,7 @@ final class SignUpTest: XCTestCase {
         let session = Session(configuration: configuration)
         dataSource = RemoteDataSourceImpl(session: session)
         
-        let apiEndPoint = Bundle.main.openURL + "/users"
+        let apiEndPoint = Bundle.main.userOpenURL + "/users"
         let params: [String: Any] = [String: Any]()
         let expectation = XCTestExpectation(description: "Performs a request")
         
@@ -100,7 +100,7 @@ final class SignUpTest: XCTestCase {
         //Given
         dataSource = RemoteDataSourceImpl()
         
-        let apiEndPoint = Bundle.main.openURL + "/users"
+        let apiEndPoint = Bundle.main.userOpenURL + "/users"
         let params: [String: Any] = [
             "result": [
                 "resultCode": 0,
@@ -156,7 +156,7 @@ final class SignUpTest: XCTestCase {
                 "email": "obab2@baobab.com"
             ]
         ]
-        let apiEndPoint = Bundle.main.openURL + "/users/duplication/email"
+        let apiEndPoint = Bundle.main.userOpenURL + "/users/duplication/email"
         let expectation = XCTestExpectation(description: "Performs a request")
         
         //When
@@ -191,7 +191,7 @@ final class SignUpTest: XCTestCase {
                 "name": "오밥이"
             ]
         ]
-        let apiEndPoint = Bundle.main.openURL + "/users/duplication/name"
+        let apiEndPoint = Bundle.main.userOpenURL + "/users/duplication/name"
         let expectation = XCTestExpectation(description: "Performs a request")
         
         //When

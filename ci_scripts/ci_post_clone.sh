@@ -14,10 +14,12 @@ cat <<EOF > "/Volumes/workspace/repository/Baobab/Application/ServiceInfo.plist"
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-    <key>Open_URL</key>
-    <string>${Open_URL}</string>
-    <key>Request_URL</key>
-    <string>${Request_URL}</string>
+    <key>User_Open_URL</key>
+    <string>${User_Open_URL}</string>
+    <key>User_URL</key>
+    <string>${User_URL}</string>
+    <key>Warehouse_URL</key>
+    <string>${Warehouse_URL}</string>
 </dict>
 </plist>
 EOF

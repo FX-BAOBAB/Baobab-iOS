@@ -10,7 +10,7 @@ import Foundation
 
 final class ReceivingRepositoryImpl: RemoteRepository, ReceivingRepository {
     func requestReceiving(params: [String : Any]) -> AnyPublisher<Bool, any Error> {
-        let apiEndPoint = Bundle.main.requestURL + "/receiving"
+        let apiEndPoint = Bundle.main.warehouseURL + "/receiving"
         
         return dataSource.sendPostRequest(to: apiEndPoint, with: params, resultType: ReceivingResponseDTO.self)
             .map {

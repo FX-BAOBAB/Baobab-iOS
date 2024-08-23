@@ -10,7 +10,7 @@ import Foundation
 
 final class UserRepositoryImpl: RemoteRepository, UserRepository {
     func fetchUserInfo() -> AnyPublisher<UserInfo, any Error> {
-        let apiEndPoint = Bundle.main.requestURL + "/users"
+        let apiEndPoint = Bundle.main.userURL + "/users"
         
         return dataSource.sendGetRequest(to: apiEndPoint, resultType: UserInfoResponseDTO.self)
             .map {
@@ -23,7 +23,7 @@ final class UserRepositoryImpl: RemoteRepository, UserRepository {
     }
     
     func fetchAddresses() -> AnyPublisher<[Address], any Error> {
-        let apiEndPoint = Bundle.main.requestURL + "/address"
+        let apiEndPoint = Bundle.main.userURL + "/address"
         
         return dataSource.sendGetRequest(to: apiEndPoint, resultType: AddressListResponseDTO.self)
             .map { dto in
@@ -39,7 +39,7 @@ final class UserRepositoryImpl: RemoteRepository, UserRepository {
     }
     
     func fetchDefaultAddress() -> AnyPublisher<Address, any Error> {
-        let apiEndPoint = Bundle.main.requestURL + "/address/basic"
+        let apiEndPoint = Bundle.main.userURL + "/address/basic"
 
         return dataSource.sendGetRequest(to: apiEndPoint, resultType: DefaultAddressResponseDTO.self)
             .map {

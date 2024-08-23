@@ -11,7 +11,7 @@ import Foundation
 final class ImageRepositoryImpl: RemoteRepository, ImageRepository {
     ///다중 이미지 업로드 메서드
     func upload(params: [String : Any]) -> AnyPublisher<[ImageUploadResponse], any Error> {
-        let apiEndPoint = Bundle.main.requestURL + "/image/list"
+        let apiEndPoint = Bundle.main.warehouseURL + "/image/list"
         
         return dataSource.sendUploadRequest(to: apiEndPoint, with: params, resultType: MultipleImageUploadResponseDTO.self)
             .map { dto in
@@ -30,7 +30,7 @@ final class ImageRepositoryImpl: RemoteRepository, ImageRepository {
     
     ///단일 이미지 업로드 메서드
     func upload(params: [String: Any]) -> AnyPublisher<ImageUploadResponse, any Error> {
-        let apiEndPoint = Bundle.main.requestURL + "/image"
+        let apiEndPoint = Bundle.main.warehouseURL + "/image"
         
         return dataSource.sendPostRequest(to: apiEndPoint, with: params, resultType: SingleImageUploadResponseDTO.self)
             .map {

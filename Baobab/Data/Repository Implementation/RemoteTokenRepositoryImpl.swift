@@ -10,7 +10,7 @@ import Foundation
 
 final class RemoteTokenRepositoryImpl: RemoteRepository, RemoteTokenRepository {
     func fetchNewAccessToken(refreshToken: String) -> AnyPublisher<String, any Error> {
-        let apiEndPoint = Bundle.main.openURL + "/token/reissue"
+        let apiEndPoint = Bundle.main.userOpenURL + "/token/reissue"
         
         //타입 캐스팅을 하지 않으면 protocol extension에 기본 정의된 함수가 호출됨
         guard let dataSource = dataSource as? RemoteDataSourceImpl else {

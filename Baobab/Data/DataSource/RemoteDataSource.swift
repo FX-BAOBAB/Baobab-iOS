@@ -214,7 +214,7 @@ final class RemoteDataSourceImpl: RemoteDataSource, RequestInterceptor {
                     return
                 }
                 
-                let apiEndPoint = Bundle.main.openURL + "/token/reissue"
+                let apiEndPoint = Bundle.main.userOpenURL + "/token/reissue"
                 self.sendPostRequest(to: apiEndPoint, token: refreshToken, resultType: AccessTokenRefreshResponseDTO.self)
                     .sink(receiveCompletion: { completion in
                         switch completion {

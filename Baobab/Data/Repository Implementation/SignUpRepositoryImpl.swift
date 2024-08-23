@@ -10,7 +10,7 @@ import Foundation
 
 final class SignUpRepositoryImpl: RemoteRepository, SignUpRepository {
     func requestNickNameDuplicationCheck(params: [String : Any]) -> AnyPublisher<Bool, any Error> {
-        let apiEndPoint = Bundle.main.openURL + "/users/duplication/name"
+        let apiEndPoint = Bundle.main.userOpenURL + "/users/duplication/name"
         
         return dataSource.sendOpenPostRequest(to: apiEndPoint, with: params, resultType: DuplicationCheckDTO.self)
             .map {
@@ -20,7 +20,7 @@ final class SignUpRepositoryImpl: RemoteRepository, SignUpRepository {
     }
     
     func requestEmailDuplicationCheck(params: [String : Any]) -> AnyPublisher<Bool, any Error> {
-        let apiEndPoint = Bundle.main.openURL + "/users/duplication/email"
+        let apiEndPoint = Bundle.main.userOpenURL + "/users/duplication/email"
         
         return dataSource.sendOpenPostRequest(to: apiEndPoint, with: params, resultType: DuplicationCheckDTO.self)
             .map {
@@ -30,7 +30,7 @@ final class SignUpRepositoryImpl: RemoteRepository, SignUpRepository {
     }
     
     func requestSignUp(params: [String: Any]) -> AnyPublisher<SignUpResponse, any Error> {
-        let apiEndPoint = Bundle.main.openURL + "/users"
+        let apiEndPoint = Bundle.main.userOpenURL + "/users"
         
         return dataSource.sendOpenPostRequest(to: apiEndPoint, with: params, resultType: SignUpResponseDTO.self)
             .map {

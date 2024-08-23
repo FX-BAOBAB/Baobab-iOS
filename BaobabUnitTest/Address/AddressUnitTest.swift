@@ -43,7 +43,7 @@ final class AddressUnitTest: XCTestCase {
 
     func test_fetchDefaultAddress() {
         //Given
-        let apiEndPoint = Bundle.main.requestURL + "/address/basic"
+        let apiEndPoint = Bundle.main.warehouseURL + "/address/basic"
         let expectation = XCTestExpectation(description: "Performs a request")
         
         //When
@@ -68,7 +68,7 @@ final class AddressUnitTest: XCTestCase {
     
     func test_fetchAdrresses() {
         //Given
-        let apiEndPoint = Bundle.main.requestURL + "/address"
+        let apiEndPoint = Bundle.main.warehouseURL + "/address"
         let expectation = XCTestExpectation(description: "Performs a request")
         
         //when

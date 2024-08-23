@@ -10,7 +10,7 @@ import Foundation
 
 final class LoginRepositoryImpl: RemoteRepository, LoginRepository {
     func login(params: [String: Any]) -> AnyPublisher<LoginResponse, any Error> {
-        let apiEndPoint = Bundle.main.openURL + "/users/login"
+        let apiEndPoint = Bundle.main.userOpenURL + "/users/login"
         
         return dataSource.sendOpenPostRequest(to: apiEndPoint, with: params, resultType: LoginResponseDTO.self)
             .map {

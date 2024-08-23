@@ -10,7 +10,7 @@ import Foundation
 
 final class UsedItemRegistrationRepositoryImpl: RemoteRepository, UsedItemRegistrationRepository {
     func register(params: [String : Any]) -> AnyPublisher<Bool, any Error> {
-        let apiEndPoint = Bundle.main.requestURL + "/usedgoods"
+        let apiEndPoint = Bundle.main.warehouseURL + "/usedgoods"
         
         return dataSource.sendPostRequest(to: apiEndPoint, with: params, resultType: UsedItemRegistrationReponseDTO.self)
             .map {

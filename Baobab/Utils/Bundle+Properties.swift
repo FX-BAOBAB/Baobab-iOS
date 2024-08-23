@@ -8,20 +8,30 @@
 import Foundation
 
 extension Bundle {
-    var requestURL: String {
+    var warehouseURL: String {
         guard let file = self.path(forResource: "ServiceInfo", ofType: "plist"),
               let resource = NSDictionary(contentsOfFile: file),
-              let url = resource["Request_URL"] as? String else {
+              let url = resource["Warehouse_URL"] as? String else {
             return ""
         }
         
         return url
     }
     
-    var openURL: String {
+    var userOpenURL: String {
         guard let file = self.path(forResource: "ServiceInfo", ofType: "plist"),
               let resource = NSDictionary(contentsOfFile: file),
-              let url = resource["Open_URL"] as? String else {
+              let url = resource["User_Open_URL"] as? String else {
+            return ""
+        }
+        
+        return url
+    }
+    
+    var userURL: String {
+        guard let file = self.path(forResource: "ServiceInfo", ofType: "plist"),
+              let resource = NSDictionary(contentsOfFile: file),
+              let url = resource["User_URL"] as? String else {
             return ""
         }
         

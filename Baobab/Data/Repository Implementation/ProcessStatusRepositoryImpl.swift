@@ -10,7 +10,7 @@ import Foundation
 
 final class ProcessStatusRepositoryImpl: RemoteRepository, ProcessStatusRepository {
     func fetchReceivingStatus(for id: Int) -> AnyPublisher<ProcessStatus, any Error> {
-        let apiEndPoint = Bundle.main.requestURL + "/receiving/\(id)"
+        let apiEndPoint = Bundle.main.warehouseURL + "/receiving/\(id)"
         
         return dataSource.sendGetRequest(to: apiEndPoint, resultType: ProcessStatusResponseDTO.self)
             .map {
@@ -22,7 +22,7 @@ final class ProcessStatusRepositoryImpl: RemoteRepository, ProcessStatusReposito
     }
     
     func fetchShippingStatus(for id: Int) -> AnyPublisher<ProcessStatus, any Error> {
-        let apiEndPoint = Bundle.main.requestURL + "/shipping/process/\(id)"
+        let apiEndPoint = Bundle.main.warehouseURL + "/shipping/process/\(id)"
         
         return dataSource.sendGetRequest(to: apiEndPoint, resultType: ShippingProcessStatusResponseDTO.self)
             .map {
@@ -34,7 +34,7 @@ final class ProcessStatusRepositoryImpl: RemoteRepository, ProcessStatusReposito
     }
     
     func fetchReturnStatus(for id: Int) -> AnyPublisher<ProcessStatus, any Error> {
-        let apiEndPoint = Bundle.main.requestURL + "/takeback/process/\(id)"
+        let apiEndPoint = Bundle.main.warehouseURL + "/takeback/process/\(id)"
         
         return dataSource.sendGetRequest(to: apiEndPoint, resultType: ProcessStatusResponseDTO.self)
             .map {

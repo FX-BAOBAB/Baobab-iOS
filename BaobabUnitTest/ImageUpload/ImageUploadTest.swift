@@ -29,7 +29,7 @@ final class ImageUploadTest: XCTestCase {
 
     func testSingleImageUpload() {
         //Given
-        let apiEndPoint = Bundle.main.requestURL + "/image"
+        let apiEndPoint = Bundle.main.warehouseURL + "/image"
         let expectation = XCTestExpectation(description: "Performs a request")
         
         UIImage(named: "SampleImage")?
@@ -63,7 +63,7 @@ final class ImageUploadTest: XCTestCase {
     
     func testMultipleImageUpload() {
         //Given
-        let apiEndPoint = Bundle.main.requestURL + "/image/list"
+        let apiEndPoint = Bundle.main.warehouseURL + "/image/list"
         let expectation = XCTestExpectation(description: "Performs a request")
         
         UIImage(named: "SampleImage")?

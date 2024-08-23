@@ -10,7 +10,7 @@ import Foundation
 
 final class ShippingApplicationRepositoryImpl: RemoteRepository, ShippingApplicationRepository {
     func requestShipping(params: [String: Any]) -> AnyPublisher<Bool, any Error> {
-        let apiEndPoint = Bundle.main.requestURL + "/shipping"
+        let apiEndPoint = Bundle.main.warehouseURL + "/shipping"
         
         return dataSource.sendPostRequest(to: apiEndPoint, with: params, resultType: ShippingApplicationResponseDTO.self)
             .map { dto in

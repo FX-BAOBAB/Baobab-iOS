@@ -10,7 +10,7 @@ import Foundation
 
 final class FormRepositoryImpl: RemoteRepository, FormRepository {
     func fetchReceivingForms() -> AnyPublisher<[ReceivingForm], any Error> {
-        let apiEndPoint = Bundle.main.requestURL + "/receiving"
+        let apiEndPoint = Bundle.main.warehouseURL + "/receiving"
         
         return dataSource.sendGetRequest(to: apiEndPoint, resultType: ReceivingFormsResponseDTO.self)
             .map { dto in
@@ -22,7 +22,7 @@ final class FormRepositoryImpl: RemoteRepository, FormRepository {
     }
     
     func fetchReturnForms() -> AnyPublisher<[ReturnForm], any Error> {
-        let apiEndPoint = Bundle.main.requestURL + "/takeback"
+        let apiEndPoint = Bundle.main.warehouseURL + "/takeback"
         
         return dataSource.sendGetRequest(to: apiEndPoint, resultType: ReturnFormsResponseDTO.self)
             .map { dto in
@@ -34,7 +34,7 @@ final class FormRepositoryImpl: RemoteRepository, FormRepository {
     }
     
     func fetchShippingForms() -> AnyPublisher<[ShippingFormData], any Error> {
-        let apiEndPoint = Bundle.main.requestURL + "/shipping"
+        let apiEndPoint = Bundle.main.warehouseURL + "/shipping"
         
         return dataSource.sendGetRequest(to: apiEndPoint, resultType: ShippingFormsResponseDTO.self)
             .map { dto in

@@ -30,7 +30,7 @@ final class FetchFormsTest: XCTestCase {
     //MARK: - Receiving Forms Test
     func test_fetchReceivingForms() {
         //Given
-        let apiEndPoint = Bundle.main.requestURL + "/receiving"
+        let apiEndPoint = Bundle.main.warehouseURL + "/receiving"
         let expectation = XCTestExpectation(description: "Performs a request")
         
         //When
@@ -55,7 +55,7 @@ final class FetchFormsTest: XCTestCase {
     //MARK: - Shipping Forms Test
     func test_fetchShippingForms() {
         //Given
-        let apiEndPoint = Bundle.main.requestURL + "/shipping"
+        let apiEndPoint = Bundle.main.warehouseURL + "/shipping"
         let expectation = XCTestExpectation(description: "Performs a request")
         
         //When
@@ -80,7 +80,7 @@ final class FetchFormsTest: XCTestCase {
     //MARK: - Return Forms Test
     func test_fetchReturnForms() {
         //Given
-        let apiEndPoint = Bundle.main.requestURL + "/takeback"
+        let apiEndPoint = Bundle.main.warehouseURL + "/takeback"
         let expectation = XCTestExpectation(description: "Performs a request")
         
         //when
