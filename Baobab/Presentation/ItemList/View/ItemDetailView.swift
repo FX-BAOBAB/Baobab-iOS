@@ -7,12 +7,16 @@
 
 import SwiftUI
 
-struct ItemDetailView: View {    
+struct ItemDetailView: View {
+    @StateObject var viewModel: ItemStatusConversionViewModel
+    @State private var isShowingConfirmationDialog: Bool = false
+    @Environment(\.dismiss) private var dismiss
+    
     let item: Item
     let status: ItemStatus
     
     var body: some View {
-        VStack(spacing: 0) {
+        ZStack {
             VStack(spacing: 0) {
                 ScrollView {
                     TabView {
@@ -71,13 +75,51 @@ struct ItemDetailView: View {
             }
             .navigationTitle("상세보기")
             .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
+                        isShowingConfirmationDialog.toggle()
+                    } label: {
+                        Text("전환")
+                    }
+                }
+            }
+            .confirmationDialog("", isPresented: $isShowingConfirmationDialog) {
+                Button {
+                    viewModel.convertStatus(id: item.id)
+                } label: {
+                    Text("입고상태 전환하기")
+                }
+            } message: {
+                Text("입고 상태를 입고 중에서 입고 완료 상태로 전환합니다.")
+            }
+            .alert(isPresented: $viewModel.isShowingAlert) {
+                switch viewModel.alertType {
+                case .failure:
+                    Alert(title: Text("알림"), message: Text("물품 상태 전환 실패"))
+                case .success:
+                    Alert(title: Text("알림"), 
+                          message: Text("물품 상태 전환 완료"),
+                          dismissButton: .default(Text("확인")) {
+                        DispatchQueue.main.async {
+                            NotificationCenter.default.post(name: .itemstatusConversionComplete, object: nil, userInfo: ["isCompleted": true])
+                        }
+                        dismiss()
+                    })
+                }
+            }
+            
+            if viewModel.isProccess {
+                CustomProgressView()
+            }
         }
     }
 }
 
 #Preview {
     NavigationStack {
-        ItemDetailView(item: Item(id: 0,
+        ItemDetailView(viewModel: AppDI.shared.makeItemStatusConversionViewModel(),
+                       item: Item(id: 0,
                                     name: "부끄부끄 마끄부끄",
                                     category: "SMALL_APPLIANCES",
                                     quantity: 1,

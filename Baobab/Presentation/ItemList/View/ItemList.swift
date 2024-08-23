@@ -28,7 +28,9 @@ struct ItemList<T: ItemsViewModel>: View {
                             StoredItemDetailView(item: item, status: status)
                                 .environmentObject(viewModel)
                         } else {
-                            ItemDetailView(item: item, status: status)
+                            ItemDetailView(viewModel: AppDI.shared.makeItemStatusConversionViewModel(),
+                                           item: item,
+                                           status: status)
                         }
                     } label: {
                         ItemInfoRow(item: item)
@@ -40,6 +42,11 @@ struct ItemList<T: ItemsViewModel>: View {
             .listStyle(.plain)
             .background(.listFooterGray)
             .scrollContentBackground(.hidden)
+            .onReceive(NotificationCenter.default.publisher(for: .itemstatusConversionComplete)) {
+                if let result = $0.userInfo?["isCompleted"] as? Bool, result {
+                    viewModel.fetchItems()
+                }
+            }
         } else if viewModel.items == nil {
             VStack {
                 Spacer()

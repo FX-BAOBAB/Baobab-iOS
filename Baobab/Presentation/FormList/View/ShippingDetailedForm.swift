@@ -54,7 +54,9 @@ struct ShippingDetailedForm: View {
             Section {
                 ForEach(form.items) { item in
                     NavigationLink(destination: {
-                        ItemDetailView(item: item, status: .receiving)
+                        ItemDetailView(viewModel: AppDI.shared.makeItemStatusConversionViewModel(),
+                                       item: item,
+                                       status: .receiving)
                     }) {
                         ItemInfoRow(item: item)
                     }

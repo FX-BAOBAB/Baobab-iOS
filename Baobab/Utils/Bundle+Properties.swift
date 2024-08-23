@@ -8,6 +8,16 @@
 import Foundation
 
 extension Bundle {
+    var testURL: String {
+        guard let file = self.path(forResource: "ServiceInfo", ofType: "plist"),
+              let resource = NSDictionary(contentsOfFile: file),
+              let url = resource["Test_URL"] as? String else {
+            return ""
+        }
+        
+        return url
+    }
+    
     var warehouseURL: String {
         guard let file = self.path(forResource: "ServiceInfo", ofType: "plist"),
               let resource = NSDictionary(contentsOfFile: file),

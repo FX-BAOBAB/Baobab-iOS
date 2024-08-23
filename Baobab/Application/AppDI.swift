@@ -281,4 +281,17 @@ struct AppDI {
         
         return viewModel
     }
+    
+    func makeItemStatusConversionViewModel() -> ItemStatusConversionViewModel {
+        //Data Layer
+        let repository = ItemStatusRepositoryImpl(dataSource: dataSource)
+        
+        //Domain Layer
+        let usecase = ConvertItemStatusUseCaseImpl(repository: repository)
+        
+        //Presentation Layer
+        let viewModel = ItemStatusConversionViewModel(usecase: usecase)
+        
+        return viewModel
+    }
 }
