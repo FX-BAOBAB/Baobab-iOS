@@ -25,73 +25,59 @@ struct MainTabView: View {
     }
     
     var body: some View {
-        ZStack {
-            TabView(selection: $selectedTab) {
+        VStack(spacing: 0) {
+            switch selectedTab {
+            case .home:
                 MainView(selectedTab: $selectedTab)
-                    .toolbar(.hidden, for: .tabBar)
-                    .tag(Tab.home)
-                
+            case .usedItemTransaction:
                 UsedItemList()
-                    .toolbar(.hidden, for: .tabBar)
-                    .tag(Tab.usedItemTransaction)
-                
+            case .notificationList:
                 NotificatioonList()
-                    .toolbar(.hidden, for: .tabBar)
-                    .tag(Tab.notificationList)
-                
+            case .userInfoList:
                 UserInfoList(viewModel: AppDI.shared.makeUserInfoViewModel())
-                    .toolbar(.hidden, for: .tabBar)
-                    .tag(Tab.userInfoList)
             }
-            .toolbarBackground(.white, for: .navigationBar)
-            .toolbarBackground(.visible, for: .navigationBar)
-            .toolbar {
-                switch selectedTab {
-                case .home:
-                    ToolbarItem(placement: .topBarLeading) {
-                        Text("Baobab")
-                            .bold()
-                            .font(.title3)
-                    }
-                case .usedItemTransaction:
-                    ToolbarItem(placement: .topBarLeading) {
-                        Text("중고장터")
-                            .bold()
-                            .font(.title3)
-                    }
-                case .notificationList:
-                    ToolbarItem(placement: .topBarLeading) {
-                        Text("알림")
-                            .bold()
-                            .font(.title3)
-                    }
-                case .userInfoList:
-                    ToolbarItem(placement: .topBarLeading) {
-                        Text("내 정보")
-                            .bold()
-                            .font(.title3)
-                    }
-                    
-                    ToolbarItem(placement: .topBarTrailing) {
-                        NavigationLink(destination: {
-                            SettingView(viewModel: AppDI.shared.makeSettingViewModel(),
-                                        isLoggedIn: $isLoggedIn)
-                        }) {
-                            Image(systemName: "gearshape.fill")
-                                .foregroundStyle(.gray)
-                        }
+            
+            CustomTabbar(selectedTab: $selectedTab)
+        }
+        .toolbarBackground(.white, for: .navigationBar)
+        .toolbarBackground(.visible, for: .navigationBar)
+        .toolbar {
+            switch selectedTab {
+            case .home:
+                ToolbarItem(placement: .topBarLeading) {
+                    Text("Baobab")
+                        .bold()
+                        .font(.title3)
+                }
+            case .usedItemTransaction:
+                ToolbarItem(placement: .topBarLeading) {
+                    Text("중고장터")
+                        .bold()
+                        .font(.title3)
+                }
+            case .notificationList:
+                ToolbarItem(placement: .topBarLeading) {
+                    Text("알림")
+                        .bold()
+                        .font(.title3)
+                }
+            case .userInfoList:
+                ToolbarItem(placement: .topBarLeading) {
+                    Text("내 정보")
+                        .bold()
+                        .font(.title3)
+                }
+                
+                ToolbarItem(placement: .topBarTrailing) {
+                    NavigationLink(destination: {
+                        SettingView(viewModel: AppDI.shared.makeSettingViewModel(),
+                                    isLoggedIn: $isLoggedIn)
+                    }) {
+                        Image(systemName: "gearshape.fill")
+                            .foregroundStyle(.gray)
                     }
                 }
             }
-            
-            Rectangle()
-                .fill(.white)
-                .frame(height: UIScreen.main.bounds.width * 0.15)
-                .frame(maxHeight: .infinity, alignment: .bottom)
-                .edgesIgnoringSafeArea(.bottom)
-            
-            CustomTabbar(selectedTab: $selectedTab)
-                .frame(maxHeight: .infinity, alignment: .bottom)
         }
         .navigationBarBackButtonHidden()
         .onReceive(NotificationCenter.default.publisher(for: .refreshTokenExpiration)) {
