@@ -60,7 +60,6 @@
 		5CD8A2072C0341B900EE5C09 /* StoreItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD8A2062C0341B900EE5C09 /* StoreItem.swift */; };
 		5CD8A2092C036A8B00EE5C09 /* ImageRegistrationCompleteSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD8A2082C036A8B00EE5C09 /* ImageRegistrationCompleteSheet.swift */; };
 		8E0ED80D2C3FA5C600AB0EC8 /* LoginUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0ED80C2C3FA5C600AB0EC8 /* LoginUITest.swift */; };
-		8E1B67D42C79F0F20079EBBC /* FormDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1B67D32C79F0F10079EBBC /* FormDetailViewModel.swift */; };
 		8E227BE82C43755200E007D0 /* MultipleImageUploadResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E227BE72C43755200E007D0 /* MultipleImageUploadResponseDTO.swift */; };
 		8E227BEA2C43B8C000E007D0 /* TaskResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E227BE92C43B8C000E007D0 /* TaskResult.swift */; };
 		8E37D4632C570C7300F8048A /* ReceivingFormsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E37D4622C570C7300F8048A /* ReceivingFormsViewModel.swift */; };
@@ -220,7 +219,6 @@
 		8EBED9992C76C50C00ADB5BB /* StoredItemDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EBED9982C76C50C00ADB5BB /* StoredItemDetailView.swift */; };
 		8EBF632C2C79D6AB003D36D7 /* UpdateResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EBF632B2C79D6AB003D36D7 /* UpdateResponseDTO.swift */; };
 		8EBF632E2C79DC7C003D36D7 /* AbandonOwnershipUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EBF632D2C79DC7C003D36D7 /* AbandonOwnershipUseCase.swift */; };
-		8EBF63302C79E3F8003D36D7 /* OwnershipAbandonmentModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EBF632F2C79E3F8003D36D7 /* OwnershipAbandonmentModal.swift */; };
 		8EBF63322C79E9EE003D36D7 /* CancelButtonLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EBF63312C79E9EE003D36D7 /* CancelButtonLabel.swift */; };
 		8EBF63342C79EA24003D36D7 /* ConfirmationButtonLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EBF63332C79EA24003D36D7 /* ConfirmationButtonLabel.swift */; };
 		8EBFCE442C532C9A00A2AB4F /* ItemDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EBFCE432C532C9A00A2AB4F /* ItemDetailView.swift */; };
@@ -345,7 +343,6 @@
 		63D7A00E0CC7E3DA257FF09A /* Pods-BaobabUnitTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaobabUnitTest.debug.xcconfig"; path = "Target Support Files/Pods-BaobabUnitTest/Pods-BaobabUnitTest.debug.xcconfig"; sourceTree = "<group>"; };
 		8E0ED8012C3FA56300AB0EC8 /* BaobabUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BaobabUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E0ED80C2C3FA5C600AB0EC8 /* LoginUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUITest.swift; sourceTree = "<group>"; };
-		8E1B67D32C79F0F10079EBBC /* FormDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormDetailViewModel.swift; sourceTree = "<group>"; };
 		8E227BE72C43755200E007D0 /* MultipleImageUploadResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleImageUploadResponseDTO.swift; sourceTree = "<group>"; };
 		8E227BE92C43B8C000E007D0 /* TaskResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskResult.swift; sourceTree = "<group>"; };
 		8E37D4622C570C7300F8048A /* ReceivingFormsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceivingFormsViewModel.swift; sourceTree = "<group>"; };
@@ -503,7 +500,6 @@
 		8EBED9982C76C50C00ADB5BB /* StoredItemDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoredItemDetailView.swift; sourceTree = "<group>"; };
 		8EBF632B2C79D6AB003D36D7 /* UpdateResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateResponseDTO.swift; sourceTree = "<group>"; };
 		8EBF632D2C79DC7C003D36D7 /* AbandonOwnershipUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbandonOwnershipUseCase.swift; sourceTree = "<group>"; };
-		8EBF632F2C79E3F8003D36D7 /* OwnershipAbandonmentModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnershipAbandonmentModal.swift; sourceTree = "<group>"; };
 		8EBF63312C79E9EE003D36D7 /* CancelButtonLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelButtonLabel.swift; sourceTree = "<group>"; };
 		8EBF63332C79EA24003D36D7 /* ConfirmationButtonLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationButtonLabel.swift; sourceTree = "<group>"; };
 		8EBFCE432C532C9A00A2AB4F /* ItemDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailView.swift; sourceTree = "<group>"; };
@@ -652,7 +648,6 @@
 				8E7900B72C6ADC7900BD4BBB /* LaunchScreen */,
 				8EA438012C60510600DFD934 /* UsedTrade */,
 				8EA437FD2C604F6200DFD934 /* Notification */,
-				8EBF63352C79ECA9003D36D7 /* FormDetail */,
 				8EBFCE4D2C53998100A2AB4F /* FormList */,
 				8EC7EFD32C50A32200801A6D /* ItemList */,
 				8ECB039F2C4FDF340051935C /* Setting */,
@@ -1228,34 +1223,6 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		8EBF63352C79ECA9003D36D7 /* FormDetail */ = {
-			isa = PBXGroup;
-			children = (
-				8EBF63372C79ECC3003D36D7 /* View */,
-				8EBF63362C79ECBE003D36D7 /* ViewModel */,
-			);
-			path = FormDetail;
-			sourceTree = "<group>";
-		};
-		8EBF63362C79ECBE003D36D7 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				8E1B67D32C79F0F10079EBBC /* FormDetailViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		8EBF63372C79ECC3003D36D7 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				8EA437FB2C60474400DFD934 /* ReturnFormDetail.swift */,
-				8E4BC02A2C5CBE8100CCFF78 /* ShippingFormDetail.swift */,
-				8E74FF392C585E97005ED275 /* ReceivingFormDetail.swift */,
-				8EBF632F2C79E3F8003D36D7 /* OwnershipAbandonmentModal.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		8EBFCE4D2C53998100A2AB4F /* FormList */ = {
 			isa = PBXGroup;
 			children = (
@@ -1270,9 +1237,12 @@
 			children = (
 				8E6F6F7E2C6B9C10008703C7 /* ReceivingFormList.swift */,
 				8EBFCE522C539A1000A2AB4F /* ReceivingFormListRow.swift */,
+				8E74FF392C585E97005ED275 /* ReceivingFormDetail.swift */,
 				8E8CCC4D2C6C3AF900D2DF72 /* ShippingFormList.swift */,
 				8E7A9F1E2C5B4E8B00969F1A /* ShippingFormListRow.swift */,
+				8E4BC02A2C5CBE8100CCFF78 /* ShippingFormDetail.swift */,
 				8E8CCC4F2C6C3BB700D2DF72 /* ReturnFormList.swift */,
+				8EA437FB2C60474400DFD934 /* ReturnFormDetail.swift */,
 				8ECF1AE62C5B713E004DD9C1 /* ReturnFormListRow.swift */,
 				8E7A9F142C5B187D00969F1A /* ProcessStatusBar.swift */,
 				8E6F6F802C6B9D8F008703C7 /* NoFormDataView.swift */,
@@ -1709,7 +1679,6 @@
 				8E8D13452C4E3CC10032FC96 /* MainTabView.swift in Sources */,
 				5C426BFD2BEDBDE900869F6D /* ReceivingViewModel.swift in Sources */,
 				8E7900BB2C6ADEA000BD4BBB /* LaunchScreenView.swift in Sources */,
-				8E1B67D42C79F0F20079EBBC /* FormDetailViewModel.swift in Sources */,
 				8EF66E7E2C72E10600E6CEA2 /* ShippingApplicationCompletionView.swift in Sources */,
 				8E569F502C75C782005B9BCB /* UsedItemRegistrationViewModel.swift in Sources */,
 				5C735F4C2BF1BAB200A36EC8 /* EstimatedPrice.swift in Sources */,
@@ -1753,7 +1722,6 @@
 				8E7A9F172C5B27DB00969F1A /* ShippingFormsViewModel.swift in Sources */,
 				5C426BFF2BEDBE7E00869F6D /* BorderedInputBox.swift in Sources */,
 				8E8AF2E52C42633B00A1F0ED /* SingleImageUploadResponseDTO.swift in Sources */,
-				8EBF63302C79E3F8003D36D7 /* OwnershipAbandonmentModal.swift in Sources */,
 				8E569F4E2C75B3F9005B9BCB /* UsedConversionForm.swift in Sources */,
 				8E8D134E2C4E440D0032FC96 /* UserInfoViewModel.swift in Sources */,
 				8E6F6F7F2C6B9C11008703C7 /* ReceivingFormList.swift in Sources */,

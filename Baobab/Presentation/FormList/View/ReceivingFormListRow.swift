@@ -58,7 +58,7 @@ struct ReceivingFormListRow: View {
             .padding([.leading, .trailing])
             .padding([.top, .bottom], 25)
             .navigationDestination(isPresented: $isShowingDetailedView) {
-                ReceivingFormDetail(viewModel: AppDI.shared.makeFormDetailViewModel(), form: form)
+                ReceivingFormDetail(form: form)
             }
         } else {
             Text("Hello World!")
