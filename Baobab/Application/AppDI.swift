@@ -294,4 +294,17 @@ struct AppDI {
         
         return viewModel
     }
+    
+    func makeFormDetailViewModel() -> FormDetailViewModel {
+        //Data Layer
+        let repository = ReceivingRepositoryImpl(dataSource: dataSource)
+        
+        //Domain Layer
+        let usecase = AbandonOwnershipUseCaseImpl(repository: repository)
+        
+        //Presentation Layer
+        let viewModel = FormDetailViewModel(usecase: usecase)
+        
+        return viewModel
+    }
 }

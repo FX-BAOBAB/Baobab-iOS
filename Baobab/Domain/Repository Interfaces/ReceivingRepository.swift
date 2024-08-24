@@ -9,4 +9,5 @@ import Combine
 
 protocol ReceivingRepository {
     func requestReceiving(params: [String: Any]) -> AnyPublisher<Bool, any Error>
+    func abandonOwnership(of id: Int) -> AnyPublisher<Bool, any Error>
 }

@@ -56,7 +56,7 @@ struct ReturnFormListRow: View {
                 }
             }
             .navigationDestination(isPresented: $isShowingDetailedView) {
-                ReturnDetailedForm(form: form)
+                ReturnFormDetail(form: form)
             }
         } else {
             Text("Hello World!")

@@ -1,14 +1,14 @@
 //
-//  ShippingDetailedForm.swift
+//  ReturnFormDetail.swift
 //  Baobab
 //
-//  Created by 이정훈 on 8/2/24.
+//  Created by 이정훈 on 8/5/24.
 //
 
 import SwiftUI
 
-struct ShippingDetailedForm: View {
-    let form: ShippingFormData
+struct ReturnFormDetail: View {
+    let form: ReturnForm
     
     var body: some View {
         List {
@@ -19,7 +19,7 @@ struct ShippingDetailedForm: View {
                         .padding(.top)
                         .padding(.bottom, 40)
                     
-                    ProcessStatusBar(percentile: form.statusPercentile ?? 0, 
+                    ProcessStatusBar(percentile: form.statusPercentile ?? 0,
                                      type: .shippingForm)
                     
                     Text(form.statusDescription)
@@ -31,22 +31,9 @@ struct ShippingDetailedForm: View {
                         .foregroundStyle(.gray)
                         .font(.subheadline)
                     
-                    Text("배송 예정일 : \(Date.toSimpleFormat(from: form.deliveryDate, format: .withoutTime))")
+                    Text("반품 신청일 : \(Date.toSimpleFormat(from: form.takeBackRequestAt, format: .withoutTime))")
                         .foregroundStyle(.gray)
                         .font(.subheadline)
-                }
-            }
-            .listRowSeparator(.hidden)
-            
-            Section(footer: SectionFooter()) {
-                VStack(alignment: .leading) {
-                    Text("배송지 정보")
-                        .font(.headline)
-                        .padding(.bottom)
-                    
-                    Text(form.deliveryAddress)
-                        .font(.subheadline)
-                        .foregroundStyle(.gray)
                 }
             }
             .listRowSeparator(.hidden)
@@ -77,7 +64,7 @@ struct ShippingDetailedForm: View {
 #if DEBUG
 #Preview {
     NavigationStack {
-        ShippingDetailedForm(form: ShippingFormData.sampleData[0])
+        ReturnFormDetail(form: ReturnForm.sampleData[0])
     }
 }
 #endif

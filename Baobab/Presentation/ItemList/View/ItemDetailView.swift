@@ -113,7 +113,7 @@ struct ItemDetailView: View {
                 }
             }
             
-            if viewModel.isProccess {
+            if viewModel.isProcess {
                 CustomProgressView()
             }
         }

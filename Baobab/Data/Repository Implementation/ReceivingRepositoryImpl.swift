@@ -22,4 +22,18 @@ final class ReceivingRepositoryImpl: RemoteRepository, ReceivingRepository {
             }
             .eraseToAnyPublisher()
     }
+    
+    func abandonOwnership(of formId: Int) -> AnyPublisher<Bool, any Error> {
+        let apiEndPoint = Bundle.main.warehouseURL + "/receiving/abandonment/\(formId)"
+        
+        return dataSource.sendPostRequest(to: apiEndPoint, with: nil, resultType: UpdateResponseDTO.self)
+            .map {
+                if $0.result.resultCode == 200 {
+                    return true
+                }
+                
+                return false
+            }
+            .eraseToAnyPublisher()
+    }
 }

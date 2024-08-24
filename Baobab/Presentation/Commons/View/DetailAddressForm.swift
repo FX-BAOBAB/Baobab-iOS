@@ -33,41 +33,16 @@ struct DetailAddressForm<T: PostSearchable>: View {
                     isShowingPostSearchForm.toggle()
                     isShowingAddressList.toggle()
                 } label: {
-                    HStack(spacing: 5) {
-                        Image(systemName: "xmark")
-                        
-                        Text("취소")
-                    }
-                    .bold()
-                    .frame(maxWidth: .infinity)
-                    .foregroundStyle(.white)
-                    .padding()
-                    .background(Color(red: 52 / 255, green: 58 / 255, blue: 64 / 255))
+                    CancelButtonLabel(title: "취소")
                 }
-                .buttonBorderShape(.roundedRectangle)
-                .cornerRadius(10)
                 
                 Button {
                     viewModel.registerAsSelectedAddress()
                     isShowingPostSearchForm.toggle()
                     isShowingAddressList.toggle()
                 } label: {
-                    HStack(spacing: 8) {
-                        Image("CheckCircle")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 20)
-                        
-                        Text("확인")
-                    }
-                    .bold()
-                    .frame(maxWidth: .infinity)
-                    .foregroundStyle(.white)
-                    .padding()
-                    .background(.accent)
+                    ConfirmationButtonLabel(title: "확인")
                 }
-                .buttonBorderShape(.roundedRectangle)
-                .cornerRadius(10)
             }
         }
         .padding()

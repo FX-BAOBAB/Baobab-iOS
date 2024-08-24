@@ -12,7 +12,7 @@ final class UsedItemRegistrationRepositoryImpl: RemoteRepository, UsedItemRegist
     func register(params: [String : Any]) -> AnyPublisher<Bool, any Error> {
         let apiEndPoint = Bundle.main.warehouseURL + "/usedgoods"
         
-        return dataSource.sendPostRequest(to: apiEndPoint, with: params, resultType: UsedItemRegistrationReponseDTO.self)
+        return dataSource.sendPostRequest(to: apiEndPoint, with: params, resultType: UpdateResponseDTO.self)
             .map {
                 if $0.result.resultCode == 200 {
                     return true

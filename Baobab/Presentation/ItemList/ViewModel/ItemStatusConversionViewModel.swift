@@ -13,7 +13,7 @@ final class ItemStatusConversionViewModel: ObservableObject {
         case failure
     }
     
-    @Published var isProccess: Bool = false
+    @Published var isProcess: Bool = false
     @Published var isShowingAlert: Bool = false
     
     var alertType: AlertType = .success
@@ -25,7 +25,7 @@ final class ItemStatusConversionViewModel: ObservableObject {
     }
     
     func convertStatus(id: Int) {
-        isProccess.toggle()
+        isProcess.toggle()
         
         usecase.execute(for: id)
             .sink(receiveCompletion: { [weak self] completion in
@@ -37,7 +37,7 @@ final class ItemStatusConversionViewModel: ObservableObject {
                 }
                 
                 self?.alertType = .success
-                self?.isProccess.toggle()
+                self?.isProcess.toggle()
                 self?.isShowingAlert.toggle()
                 
             }, receiveValue: { _ in })

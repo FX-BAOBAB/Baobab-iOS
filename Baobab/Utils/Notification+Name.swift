@@ -11,4 +11,5 @@ extension Notification.Name {
     static let refreshTokenExpiration = Notification.Name("RefreshTokenExpiration")
     static let usedItemRegistrationComplete = Notification.Name("UsedItemRegistrationComplete")
     static let itemstatusConversionComplete = Notification.Name("ItemStatusConversionComplete")
+    static let itemOwnershipAbandonmentComplete = Notification.Name("ItemOwnershipAbandonmentComplete")
 }

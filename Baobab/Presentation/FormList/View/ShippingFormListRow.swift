@@ -58,7 +58,7 @@ struct ShippingFormListRow: View {
             .padding([.leading, .trailing])
             .padding([.top, .bottom], 25)
             .navigationDestination(isPresented: $isShowingDetailedView) {
-                ShippingDetailedForm(form: form)
+                ShippingFormDetail(form: form)
             }
         } else {
             Text("Hello World!")

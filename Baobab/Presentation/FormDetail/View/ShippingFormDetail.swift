@@ -1,14 +1,14 @@
 //
-//  DetailedForm.swift
+//  ShippingFormDetail.swift
 //  Baobab
 //
-//  Created by 이정훈 on 7/30/24.
+//  Created by 이정훈 on 8/2/24.
 //
 
 import SwiftUI
 
-struct ReceivingDetailedForm: View {
-    let form: ReceivingForm
+struct ShippingFormDetail: View {
+    let form: ShippingFormData
     
     var body: some View {
         List {
@@ -20,7 +20,7 @@ struct ReceivingDetailedForm: View {
                         .padding(.bottom, 40)
                     
                     ProcessStatusBar(percentile: form.statusPercentile ?? 0, 
-                                     type: .receivingForm)
+                                     type: .shippingForm)
                     
                     Text(form.statusDescription)
                         .foregroundStyle(.gray)
@@ -31,7 +31,7 @@ struct ReceivingDetailedForm: View {
                         .foregroundStyle(.gray)
                         .font(.subheadline)
                     
-                    Text("픽업 예정일 : \(Date.toSimpleFormat(from: form.visitDate, format: .full))")
+                    Text("배송 예정일 : \(Date.toSimpleFormat(from: form.deliveryDate, format: .withoutTime))")
                         .foregroundStyle(.gray)
                         .font(.subheadline)
                 }
@@ -40,11 +40,11 @@ struct ReceivingDetailedForm: View {
             
             Section(footer: SectionFooter()) {
                 VStack(alignment: .leading) {
-                    Text("방문지 정보")
+                    Text("배송지 정보")
                         .font(.headline)
                         .padding(.bottom)
                     
-                    Text(form.visitAddress)
+                    Text(form.deliveryAddress)
                         .font(.subheadline)
                         .foregroundStyle(.gray)
                 }
@@ -77,7 +77,7 @@ struct ReceivingDetailedForm: View {
 #if DEBUG
 #Preview {
     NavigationStack {
-        ReceivingDetailedForm(form: ReceivingForm.sampleData[0])
+        ShippingFormDetail(form: ShippingFormData.sampleData[0])
     }
 }
 #endif

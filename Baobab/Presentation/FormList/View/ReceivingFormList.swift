@@ -44,6 +44,11 @@ struct ReceivingFormList: View {
         .navigationBarTitleDisplayMode(.inline)
         .toolbarBackground(.visible, for: .navigationBar)
         .toolbarBackground(.white, for: .navigationBar)
+        .onReceive(NotificationCenter.default.publisher(for: .itemOwnershipAbandonmentComplete)) {
+            if let result = $0.userInfo?["isCompleted"] as? Bool, result {
+                viewModel.fetchForms()
+            }
+        }
     }
 }
 
