@@ -13,7 +13,7 @@ struct ItemDetailView: View {
     @Environment(\.dismiss) private var dismiss
     
     let item: Item
-    let status: ItemStatus
+//    let status: ItemStatus
     
     var body: some View {
         ZStack {
@@ -41,7 +41,9 @@ struct ItemDetailView: View {
                             .font(.title3)
                             .bold()
                         
-                        StatusLabel(status: status)
+                        if let status = item.status {
+                            StatusLabel(status: status)
+                        }
                     }
                     .padding()
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -76,11 +78,13 @@ struct ItemDetailView: View {
             .navigationTitle("상세보기")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                ToolbarItem(placement: .topBarTrailing) {
-                    Button {
-                        isShowingConfirmationDialog.toggle()
-                    } label: {
-                        Text("전환")
+                if item.status == .receiving {
+                    ToolbarItem(placement: .topBarTrailing) {
+                        Button {
+                            isShowingConfirmationDialog.toggle()
+                        } label: {
+                            Text("전환")
+                        }
                     }
                 }
             }
@@ -120,13 +124,13 @@ struct ItemDetailView: View {
     NavigationStack {
         ItemDetailView(viewModel: AppDI.shared.makeItemStatusConversionViewModel(),
                        item: Item(id: 0,
-                                    name: "부끄부끄 마끄부끄",
-                                    category: "SMALL_APPLIANCES",
-                                    quantity: 1,
-                                    basicImages: [ImageData(imageURL: "string", caption: ""),
-                                                  ImageData(imageURL: "string", caption: "")],
-                                    defectImages: [ImageData(imageURL: "", caption: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."),
-                                                   ImageData(imageURL: "string", caption: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")]),
-                         status: .receiving)
+                                  name: "부끄부끄 마끄부끄",
+                                  category: "SMALL_APPLIANCES",
+                                  status: .receiving,
+                                  quantity: 1,
+                                  basicImages: [ImageData(imageURL: "string", caption: ""),
+                                                ImageData(imageURL: "string", caption: "")],
+                                  defectImages: [ImageData(imageURL: "", caption: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."),
+                                                 ImageData(imageURL: "string", caption: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")]))
     }
 }

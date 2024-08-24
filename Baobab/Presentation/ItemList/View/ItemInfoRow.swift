@@ -47,7 +47,8 @@ struct ItemInfoRow: View {
 #Preview {
     ItemInfoRow(item: Item(id: 0,
                            name: "부끄부끄 마끄부끄",
-                           category: "SMALL_APPLIANCES",
+                           category: "SMALL_APPLIANCES", 
+                           status: .receiving,
                            quantity: 1,
                            basicImages: [ImageData(imageURL: "string", caption: "")],
                            defectImages: [ImageData(imageURL: "string", caption: "")]))

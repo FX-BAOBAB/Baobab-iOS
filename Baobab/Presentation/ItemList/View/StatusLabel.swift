@@ -22,7 +22,7 @@ struct StatusLabel: View {
                 Text("입고 됨")
                     .padding(5)
                     .foregroundStyle(.white)
-                    .background(.orange)
+                    .background(.green)
             case .returned:
                 Text("반품 됨")
                     .padding(5)
@@ -47,7 +47,7 @@ struct StatusLabel: View {
                 Text("중고 전환 됨")
                     .padding(5)
                     .foregroundStyle(.white)
-                    .background(.orange)
+                    .background(.green)
             }
         }
         .bold()

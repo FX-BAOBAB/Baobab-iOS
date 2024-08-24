@@ -53,6 +53,7 @@ final class FormRepositoryImpl: RemoteRepository, FormRepository {
         return Item(id: goods.id,
                     name: goods.name,
                     category: goods.category,
+                    status: ItemStatus(rawValue: goods.status),
                     quantity: goods.quantity,
                     basicImages: goods.basicImages.map { metaData in self.getImageData(metaData) },
                     defectImages: goods.faultImages.map { metaData in self.getImageData(metaData) })

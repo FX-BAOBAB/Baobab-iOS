@@ -24,7 +24,7 @@ struct ReceivingResponseBody: Decodable {
 // MARK: - Goods
 struct Goods: Decodable {
     let id: Int
-    let name, category: String
+    let name, category, status: String
     let quantity: Int
     let basicImages, faultImages: [ImageMetaData]
 }

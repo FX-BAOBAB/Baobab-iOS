@@ -17,7 +17,8 @@ final class ItemRepositoryImpl: RemoteRepository, ItemRepository {
                 dto.body?.map {
                     Item(id: $0.id,
                          name: $0.name,
-                         category: $0.category,
+                         category: $0.category, 
+                         status: ItemStatus(rawValue: $0.status),
                          quantity: $0.quantity,
                          basicImages: self.toImageData($0.basicImages),
                          defectImages: self.toImageData($0.faultImages))

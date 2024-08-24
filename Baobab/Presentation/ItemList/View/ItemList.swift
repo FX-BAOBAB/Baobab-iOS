@@ -25,12 +25,11 @@ struct ItemList<T: ItemsViewModel>: View {
                 ForEach(items) { item in
                     NavigationLink {
                         if status == .stored {
-                            StoredItemDetailView(item: item, status: status)
+                            StoredItemDetailView(item: item)
                                 .environmentObject(viewModel)
                         } else {
                             ItemDetailView(viewModel: AppDI.shared.makeItemStatusConversionViewModel(),
-                                           item: item,
-                                           status: status)
+                                           item: item)
                         }
                     } label: {
                         ItemInfoRow(item: item)
