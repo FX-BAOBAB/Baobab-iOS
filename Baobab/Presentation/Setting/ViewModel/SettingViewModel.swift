@@ -10,6 +10,7 @@ import Foundation
 
 final class SettingViewModel: ObservableObject {
     @Published var isLogout: Bool = false
+    @Published var appVersion: String = ""
     
     private let usecase: FetchTokenUseCase
     private var cancellables = Set<AnyCancellable>()
@@ -37,5 +38,11 @@ final class SettingViewModel: ObservableObject {
                 }
             })
             .store(in: &cancellables)
+    }
+    
+    func getAppVersion() {
+        if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
+            appVersion = version
+        }
     }
 }
