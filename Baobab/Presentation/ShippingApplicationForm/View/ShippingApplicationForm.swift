@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ShippingApplicationForm: View {
     @StateObject private var viewModel: ShippingApplicationViewModel
+    @State private var isShowingReservationForm: Bool = false
     @Binding var isShowingFullScreenCover: Bool
     
     init(viewModel: ShippingApplicationViewModel, isShowingShippingForm: Binding<Bool>) {
@@ -17,11 +18,11 @@ struct ShippingApplicationForm: View {
     }
     
     var body: some View {
-        ZStack {
-            Group {
-                if viewModel.storedItems?.isEmpty == true {
-                    EmptyItemView()
-                } else if let storedItems = viewModel.storedItems {
+        Group {
+            if viewModel.storedItems?.isEmpty == true {
+                EmptyItemView()
+            } else if let storedItems = viewModel.storedItems {
+                VStack(spacing: 0) {
                     List {
                         ForEach(storedItems) { item in
                             SelectableItemInfoRow(item: item)
@@ -30,37 +31,30 @@ struct ShippingApplicationForm: View {
                         }
                     }
                     .listStyle(.plain)
-                } else if viewModel.storedItems == nil {
-                    ProgressView()
-                }
-            }
-            
-            if viewModel.storedItems?.isEmpty == false {
-                VStack(spacing: 0) {
-                    Divider()
                     
-                    NavigationLink {
-                        ReservationForm<ShippingApplicationViewModel, _>(
-                            isShowingFullScreenCover: $isShowingFullScreenCover,
-                            nextView: ShippingApplicationCompletionView(isShowingFullScreenCover: $isShowingFullScreenCover).environmentObject(viewModel),
-                            calendarCaption: "선택한 날짜에 맞춰 물품이 배송될 예정이에요.", 
-                            addressHeader: "배송지 선택",
-                            navigationHeader: "출고 예약"
-                        )
-                        .environmentObject(viewModel)
-                    } label: {
-                        Text("다음")
-                            .bold()
-                            .foregroundStyle(.white)
-                            .frame(maxWidth: .infinity)
-                            .padding(15)
-                            .background(.accent)
+                    if viewModel.storedItems?.isEmpty == false {
+                        VStack(spacing: 0) {
+                            Divider()
+                            
+                            Button {
+                                isShowingReservationForm.toggle()
+                            } label: {
+                                Text("다음")
+                                    .bold()
+                                    .foregroundStyle(.white)
+                                    .frame(maxWidth: .infinity)
+                                    .padding(15)
+                                    .background(.accent)
+                            }
+                            .cornerRadius(10)
+                            .padding()
+                            .disabled(viewModel.selectedItems.isEmpty)
+                        }
+                        .frame(maxHeight: .infinity, alignment: .bottom)
                     }
-                    .cornerRadius(10)
-                    .padding()
-                    .disabled(viewModel.selectedItems.isEmpty)
                 }
-                .frame(maxHeight: .infinity, alignment: .bottom)
+            } else if viewModel.storedItems == nil {
+                ProgressView()
             }
         }
         .onAppear {
@@ -82,6 +76,16 @@ struct ShippingApplicationForm: View {
         }
         .alert(isPresented: $viewModel.isShowingInvalidInputAlert) {
             Alert(title: Text("알림"), message: Text("정확한 날짜와 주소를 입력해 주세요."))
+        }
+        .navigationDestination(isPresented: $isShowingReservationForm) {
+            ReservationForm<ShippingApplicationViewModel, _>(
+                isShowingFullScreenCover: $isShowingFullScreenCover,
+                nextView: ShippingApplicationCompletionView(isShowingFullScreenCover: $isShowingFullScreenCover).environmentObject(viewModel),
+                calendarCaption: "선택한 날짜에 맞춰 물품이 배송될 예정이에요.",
+                addressHeader: "배송지 선택",
+                navigationHeader: "출고 예약"
+            )
+            .environmentObject(viewModel)
         }
     }
 }
