@@ -9,6 +9,7 @@ import SwiftUI
 
 struct DefectRegistrationList: View {
     @EnvironmentObject private var viewModel: ReceivingViewModel
+    @Environment(\.dismiss) private var dismiss
     @State private var isShowingSheet: Bool = false
     @State private var isShowingImageCountAlert: Bool = false
     @State private var isShowingReservationForm: Bool = false
@@ -94,6 +95,7 @@ struct DefectRegistrationList: View {
             .presentationDragIndicator(.visible)
             .environmentObject(viewModel)
         }
+        .navigationBarBackButtonHidden()
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
                 Button {
@@ -114,6 +116,14 @@ struct DefectRegistrationList: View {
                 } label: {
                     Image(systemName: "xmark")
                         .foregroundStyle(.black)
+                }
+            }
+            
+            ToolbarItem(placement: .topBarLeading) {
+                Button {
+                    dismiss()
+                } label: {
+                    Image(systemName: "chevron.backward")
                 }
             }
         }

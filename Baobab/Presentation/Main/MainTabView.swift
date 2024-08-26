@@ -39,8 +39,6 @@ struct MainTabView: View {
             
             CustomTabbar(selectedTab: $selectedTab)
         }
-        .toolbarBackground(.white, for: .navigationBar)
-        .toolbarBackground(.visible, for: .navigationBar)
         .navigationBarBackButtonHidden()
         .onReceive(NotificationCenter.default.publisher(for: .refreshTokenExpiration)) {
             if let isTokenExpired = $0.userInfo?["isTokenExpired"] as? Bool,

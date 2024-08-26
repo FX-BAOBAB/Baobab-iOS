@@ -41,6 +41,7 @@ struct SimpleReceiptCompletionView: View {
             .padding([.leading, .trailing, .bottom])
             .background(.white)
         }
+        .navigationBarBackButtonHidden()
     }
 }
 

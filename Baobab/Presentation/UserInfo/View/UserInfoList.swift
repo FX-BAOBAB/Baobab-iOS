@@ -65,8 +65,8 @@ struct UserInfoList: View {
                     LazyView {
                         TopTabView(firstTitle: "입고 중",
                                    secondTitle: "입고 완료",
-                                   firstView: ItemList(viewModel: AppDI.shared.makeReceivingItemsViewModel(), status: .receiving),
-                                   secondView: ItemList(viewModel: AppDI.shared.makeStoredItemsViewModel(), status: .stored),
+                                   firstView: LazyItemList(viewModel: AppDI.shared.makeReceivingItemsViewModel(), status: .receiving),
+                                   secondView: LazyItemList(viewModel: AppDI.shared.makeStoredItemsViewModel(), status: .stored),
                                    title: "입고 물품")
                     }
                 }) {
@@ -78,8 +78,8 @@ struct UserInfoList: View {
                     LazyView {
                         TopTabView(firstTitle: "출고 중",
                                    secondTitle: "출고 완료",
-                                   firstView: ItemList(viewModel: AppDI.shared.makeShippingItemsViewModel(), status: .shipping),
-                                   secondView: ItemList(viewModel: AppDI.shared.makeShippedItemsViewModel(), status: .shipped),
+                                   firstView: LazyItemList(viewModel: AppDI.shared.makeShippingItemsViewModel(), status: .shipping),
+                                   secondView: LazyItemList(viewModel: AppDI.shared.makeShippedItemsViewModel(), status: .shipped),
                                    title: "출고 물품")
                     }
                 }) {
@@ -91,8 +91,8 @@ struct UserInfoList: View {
                     LazyView {
                         TopTabView(firstTitle: "반품 중",
                                    secondTitle: "반품 완료",
-                                   firstView: ItemList(viewModel: AppDI.shared.makeReturnningItemsViewModel(), status: .receiving),
-                                   secondView: ItemList(viewModel: AppDI.shared.makeReturnedItemsViewModel(), status: .returned),
+                                   firstView: LazyItemList(viewModel: AppDI.shared.makeReturnningItemsViewModel(), status: .receiving),
+                                   secondView: LazyItemList(viewModel: AppDI.shared.makeReturnedItemsViewModel(), status: .returned),
                                    title: "반품 물품")
                     }
                 }) {
@@ -102,7 +102,7 @@ struct UserInfoList: View {
                 
                 NavigationLink(destination: {
                     LazyView {
-                        ItemList(viewModel: AppDI.shared.makeUsedItemsViewModel(), status: .used)
+                        LazyItemList(viewModel: AppDI.shared.makeUsedItemsViewModel(), status: .used)
                             .navigationTitle("중고 물품")
                             .navigationBarTitleDisplayMode(.inline)
                     }

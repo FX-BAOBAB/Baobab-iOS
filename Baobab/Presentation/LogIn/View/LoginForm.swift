@@ -77,10 +77,6 @@ struct LoginForm: View {
                                isShowingSignUpForm: $isShowingSignUpForm)
                 }
             }
-            .navigationDestination(isPresented: $viewModel.isLoginSuccess) {
-                MainTabView(viewModel: AppDI.shared.makeMainViewModel(),
-                            isLoggedIn: $viewModel.isLoginSuccess)
-            }
             .alert(isPresented: $viewModel.isShowingLoginAlert) {
                 switch viewModel.alertType {
                 case .blank:

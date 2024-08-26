@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ItemInformationForm: View {
     @EnvironmentObject private var viewModel: ReceivingViewModel
+    @Environment(\.dismiss) private var dismiss
     @State private var isShowingImageRegistrationForm: Bool = false
     @Binding var isShowingReceivingForm: Bool
     
@@ -65,6 +66,7 @@ struct ItemInformationForm: View {
             .frame(maxHeight: .infinity, alignment: .bottom)
             .ignoresSafeArea(.keyboard)
         }
+        .navigationBarBackButtonHidden()
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
                 Button(action: {
@@ -72,6 +74,14 @@ struct ItemInformationForm: View {
                 }) {
                     Image(systemName: "xmark")
                         .foregroundColor(.black)
+                }
+            }
+            
+            ToolbarItem(placement: .topBarLeading) {
+                Button {
+                    dismiss()
+                } label: {
+                    Image(systemName: "chevron.backward")
                 }
             }
         }

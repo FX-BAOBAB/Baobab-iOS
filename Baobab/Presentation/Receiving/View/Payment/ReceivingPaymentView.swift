@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ReceivingPaymentView: View {
     @EnvironmentObject private var viewModel: ReceivingViewModel
+    @Environment(\.dismiss) private var dismiss
     @State private var isShowingCompletionView: Bool = false
     @Binding var isShowingReceivingForm: Bool
     
@@ -90,6 +91,7 @@ struct ReceivingPaymentView: View {
                 Alert(title: Text(""))
             }
         }
+        .navigationBarBackButtonHidden()
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
                 Button {
@@ -97,6 +99,14 @@ struct ReceivingPaymentView: View {
                 } label: {
                     Image(systemName: "xmark")
                         .foregroundStyle(.black)
+                }
+            }
+            
+            ToolbarItem(placement: .topBarLeading) {
+                Button {
+                    dismiss()
+                } label: {
+                    Image(systemName: "chevron.backward")
                 }
             }
         }

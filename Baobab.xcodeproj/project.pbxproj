@@ -113,6 +113,8 @@
 		8E7731DA2C4A94DC00B42F7A /* UserRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7731D92C4A94DC00B42F7A /* UserRepositoryImpl.swift */; };
 		8E7731DC2C4A955600B42F7A /* ReceivingRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7731DB2C4A955600B42F7A /* ReceivingRepositoryImpl.swift */; };
 		8E78D2F62C7C1B0F0092680C /* UserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E78D2F52C7C1B0F0092680C /* UserInfoView.swift */; };
+		8E78D2F82C7C342E0092680C /* UIViewController+UIGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E78D2F72C7C342E0092680C /* UIViewController+UIGestureRecognizer.swift */; };
+		8E78D2FC2C7C4B340092680C /* LazyItemList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E78D2FB2C7C4B340092680C /* LazyItemList.swift */; };
 		8E7900B92C6ADC8800BD4BBB /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E7900B82C6ADC8800BD4BBB /* Launch Screen.storyboard */; };
 		8E7900BB2C6ADEA000BD4BBB /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7900BA2C6ADEA000BD4BBB /* LaunchScreenView.swift */; };
 		8E7900BD2C6B206100BD4BBB /* Notification+Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7900BC2C6B206100BD4BBB /* Notification+Name.swift */; };
@@ -397,6 +399,8 @@
 		8E7731D92C4A94DC00B42F7A /* UserRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoryImpl.swift; sourceTree = "<group>"; };
 		8E7731DB2C4A955600B42F7A /* ReceivingRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceivingRepositoryImpl.swift; sourceTree = "<group>"; };
 		8E78D2F52C7C1B0F0092680C /* UserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoView.swift; sourceTree = "<group>"; };
+		8E78D2F72C7C342E0092680C /* UIViewController+UIGestureRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+UIGestureRecognizer.swift"; sourceTree = "<group>"; };
+		8E78D2FB2C7C4B340092680C /* LazyItemList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyItemList.swift; sourceTree = "<group>"; };
 		8E7900B82C6ADC8800BD4BBB /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		8E7900BA2C6ADEA000BD4BBB /* LaunchScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenView.swift; sourceTree = "<group>"; };
 		8E7900BC2C6B206100BD4BBB /* Notification+Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Name.swift"; sourceTree = "<group>"; };
@@ -1281,6 +1285,7 @@
 				8EC7EFD52C50A33A00801A6D /* TopTabView.swift */,
 				8E7B6C372C5205CB00222721 /* ItemInfoRow.swift */,
 				8E7B6C412C521FB800222721 /* ItemList.swift */,
+				8E78D2FB2C7C4B340092680C /* LazyItemList.swift */,
 				8EBFCE432C532C9A00A2AB4F /* ItemDetailView.swift */,
 				8EBFCE472C5366A000A2AB4F /* StatusLabel.swift */,
 				8EBFCE492C537F5300A2AB4F /* DefectRow.swift */,
@@ -1384,6 +1389,7 @@
 				8EBF63312C79E9EE003D36D7 /* CancelButtonLabel.swift */,
 				8EBF63332C79EA24003D36D7 /* ConfirmationButtonLabel.swift */,
 				5C89233C2BFAC7EA00AE9049 /* ReceivingReservation */,
+				8E78D2F72C7C342E0092680C /* UIViewController+UIGestureRecognizer.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1727,6 +1733,7 @@
 				8E8AF2E32C425DD100A1F0ED /* UploadImageUseCase.swift in Sources */,
 				8E569F542C75CD35005B9BCB /* BorderedDiscriptionBox.swift in Sources */,
 				8E7A9F172C5B27DB00969F1A /* ShippingFormsViewModel.swift in Sources */,
+				8E78D2F82C7C342E0092680C /* UIViewController+UIGestureRecognizer.swift in Sources */,
 				5C426BFF2BEDBE7E00869F6D /* BorderedInputBox.swift in Sources */,
 				8E8AF2E52C42633B00A1F0ED /* SingleImageUploadResponseDTO.swift in Sources */,
 				8E569F4E2C75B3F9005B9BCB /* UsedConversionForm.swift in Sources */,
@@ -1782,6 +1789,7 @@
 				8EA437FC2C60474400DFD934 /* ReturnFormDetail.swift in Sources */,
 				8EAA87F82C44A743000386AD /* ReceivingRepository.swift in Sources */,
 				5CA04A352BFB01AC00A28FCA /* Date+Tomorrow.swift in Sources */,
+				8E78D2FC2C7C4B340092680C /* LazyItemList.swift in Sources */,
 				5C8923442BFADF0900AE9049 /* Date+String.swift in Sources */,
 				8E7BC8F22C3EC78600CB708F /* LoginUseCase.swift in Sources */,
 				8EBFCE4A2C537F5300A2AB4F /* DefectRow.swift in Sources */,

@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct ShippingFormList: View {
-    @ObservedObject private var viewModel: ShippingFormsViewModel
+    @StateObject private var viewModel: ShippingFormsViewModel
+    @Environment(\.dismiss) private var dismiss
     
     init(viewModel: ShippingFormsViewModel) {
-        _viewModel = ObservedObject(wrappedValue: viewModel)
+        _viewModel = StateObject(wrappedValue: viewModel)
     }
     
     var body: some View {
@@ -44,6 +45,16 @@ struct ShippingFormList: View {
         .navigationBarTitleDisplayMode(.inline)
         .toolbarBackground(.visible, for: .navigationBar)
         .toolbarBackground(.white, for: .navigationBar)
+        .navigationBarBackButtonHidden()
+        .toolbar {
+            ToolbarItem(placement: .topBarLeading) {
+                Button {
+                    dismiss()
+                } label: {
+                    Image(systemName: "chevron.backward")
+                }
+            }
+        }
     }
 }
 

@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct ReturnFormList: View {
-    @ObservedObject private var viewModel: ReturnFormsViewModel
+    @StateObject private var viewModel: ReturnFormsViewModel
+    @Environment(\.dismiss) private var dismiss
     
     init(viewModel: ReturnFormsViewModel) {
-        _viewModel = ObservedObject(wrappedValue: viewModel)
+        _viewModel = StateObject(wrappedValue: viewModel)
     }
     
     var body: some View {

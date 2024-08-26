@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ReceivingFormList: View {
     @ObservedObject private var viewModel: ReceivingFormsViewModel
+    @Environment(\.dismiss) private var dismiss
     
     init(viewModel: ReceivingFormsViewModel) {
         _viewModel = ObservedObject(wrappedValue: viewModel)
@@ -44,6 +45,16 @@ struct ReceivingFormList: View {
         .navigationBarTitleDisplayMode(.inline)
         .toolbarBackground(.visible, for: .navigationBar)
         .toolbarBackground(.white, for: .navigationBar)
+        .navigationBarBackButtonHidden()
+        .toolbar {
+            ToolbarItem(placement: .topBarLeading) {
+                Button {
+                    dismiss()
+                } label: {
+                    Image(systemName: "chevron.backward")
+                }
+            }
+        }
     }
 }
 

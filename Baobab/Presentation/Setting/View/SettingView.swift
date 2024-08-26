@@ -11,6 +11,7 @@ struct SettingView: View {
     @StateObject private var viewModel: SettingViewModel
     @State private var isShowingLogoutAlert: Bool = false
     @Binding private var isLoggedIn: Bool
+    @Environment(\.dismiss) private var dismiss
     
     init(viewModel: SettingViewModel, isLoggedIn: Binding<Bool>) {
         _viewModel = StateObject(wrappedValue: viewModel)
@@ -50,6 +51,16 @@ struct SettingView: View {
         .onReceive(viewModel.$isLogout) {
             if $0 {
                 isLoggedIn.toggle()
+            }
+        }
+        .navigationBarBackButtonHidden()
+        .toolbar {
+            ToolbarItem(placement: .topBarLeading) {
+                Button {
+                    dismiss()
+                } label: {
+                    Image(systemName: "chevron.backward")
+                }
             }
         }
     }

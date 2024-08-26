@@ -8,14 +8,9 @@
 import SwiftUI
 
 struct ItemList<T: ItemsViewModel>: View {
-    @StateObject private var viewModel: T
+    @EnvironmentObject private var viewModel: T
     
-    private let status: ItemStatus
-    
-    init(viewModel: T, status: ItemStatus) {
-        _viewModel = StateObject(wrappedValue: viewModel)
-        self.status = status
-    }
+    let status: ItemStatus
     
     var body: some View {
         if viewModel.items?.isEmpty == true {
@@ -63,6 +58,6 @@ struct ItemList<T: ItemsViewModel>: View {
 
 #if DEBUG
 #Preview {
-    ItemList(viewModel: AppDI.shared.makeReceivingItemsViewModel(), status: .receiving)
+    ItemList<ReceivingItemsViewModel>(status: .receiving)
 }
 #endif

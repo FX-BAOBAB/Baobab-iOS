@@ -14,6 +14,7 @@ struct TopTabView<A: View, B: View>: View {
     }
     
     @State private var selectedTab: SelectedTab = .first
+    @Environment(\.dismiss) private var dismiss
     @Namespace private var animation
     
     let firstTitle: String
@@ -72,6 +73,16 @@ struct TopTabView<A: View, B: View>: View {
         }
         .navigationTitle(title)
         .navigationBarTitleDisplayMode(.inline)
+        .navigationBarBackButtonHidden()
+        .toolbar {
+            ToolbarItem(placement: .topBarLeading) {
+                Button {
+                    dismiss()
+                } label: {
+                    Image(systemName: "chevron.backward")
+                }
+            }
+        }
     }
 }
 

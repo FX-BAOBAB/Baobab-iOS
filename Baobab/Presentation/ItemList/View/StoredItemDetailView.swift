@@ -13,7 +13,6 @@ struct StoredItemDetailView: View {
     @Environment(\.dismiss) private var dismiss
     
     let item: Item
-//    let status: ItemStatus
     
     var body: some View {
         VStack(spacing: 0) {
@@ -111,6 +110,16 @@ struct StoredItemDetailView: View {
                 //화면 뒤로가기
                 viewModel.fetchItems()
                 dismiss()
+            }
+        }
+        .navigationBarBackButtonHidden()
+        .toolbar {
+            ToolbarItem(placement: .topBarLeading) {
+                Button {
+                    dismiss()
+                } label: {
+                    Image(systemName: "chevron.backward")
+                }
             }
         }
     }

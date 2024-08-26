@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ReservationForm<T: PostSearchable, V: View>: View where T: Reservable {
     @EnvironmentObject private var viewModel: T
+    @Environment(\.dismiss) private var dismiss
     @State private var isShowingPostSearch: Bool = false
     @State private var isShowingAddressList: Bool = false
     @Binding var isShowingFullScreenCover: Bool
@@ -86,6 +87,7 @@ struct ReservationForm<T: PostSearchable, V: View>: View where T: Reservable {
                 .environmentObject(viewModel)
                 .presentationDragIndicator(.visible)
         }
+        .navigationBarBackButtonHidden()
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
                 Button {
@@ -93,6 +95,14 @@ struct ReservationForm<T: PostSearchable, V: View>: View where T: Reservable {
                 } label: {
                     Image(systemName: "xmark")
                         .foregroundStyle(.black)
+                }
+            }
+            
+            ToolbarItem(placement: .topBarLeading) {
+                Button {
+                    dismiss()
+                } label: {
+                    Image(systemName: "chevron.backward")
                 }
             }
         }

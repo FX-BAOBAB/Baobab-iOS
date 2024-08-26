@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ImageRegistrationForm: View {
     @EnvironmentObject private var viewModel: ReceivingViewModel
+    @Environment(\.dismiss) private var dismiss
     @State private var selectedIndex: Int?
     @State private var isShowingDialog: Bool = false
     @State private var isShowingCamera: Bool = false
@@ -112,6 +113,7 @@ struct ImageRegistrationForm: View {
                 ImagePicker(for: .camera, selectedIndex: selectedIndex)
             }
         }
+        .navigationBarBackButtonHidden()
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
                 Button(action: {
@@ -119,6 +121,14 @@ struct ImageRegistrationForm: View {
                 }) {
                     Image(systemName: "xmark")
                         .foregroundColor(.black)
+                }
+            }
+            
+            ToolbarItem(placement: .topBarLeading) {
+                Button {
+                    dismiss()
+                } label: {
+                    Image(systemName: "chevron.backward")
                 }
             }
         }

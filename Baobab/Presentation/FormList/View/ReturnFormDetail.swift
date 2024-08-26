@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ReturnFormDetail: View {
+    @Environment(\.dismiss) private var dismiss
+    
     let form: ReturnForm
     
     var body: some View {
@@ -58,6 +60,16 @@ struct ReturnFormDetail: View {
         .toolbarBackground(.visible, for: .navigationBar)
         .navigationTitle("상세보기")
         .navigationBarTitleDisplayMode(.inline)
+        .navigationBarBackButtonHidden()
+        .toolbar {
+            ToolbarItem(placement: .topBarLeading) {
+                Button {
+                    dismiss()
+                } label: {
+                    Image(systemName: "chevron.backward")
+                }
+            }
+        }
     }
 }
 

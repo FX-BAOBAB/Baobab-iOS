@@ -13,7 +13,6 @@ struct ItemDetailView: View {
     @Environment(\.dismiss) private var dismiss
     
     let item: Item
-//    let status: ItemStatus
     
     var body: some View {
         ZStack {
@@ -115,6 +114,16 @@ struct ItemDetailView: View {
             
             if viewModel.isProcess {
                 CustomProgressView()
+            }
+        }
+        .navigationBarBackButtonHidden()
+        .toolbar {
+            ToolbarItem(placement: .topBarLeading) {
+                Button {
+                    dismiss()
+                } label: {
+                    Image(systemName: "chevron.backward")
+                }
             }
         }
     }

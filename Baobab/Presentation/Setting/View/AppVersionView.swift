@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AppVersionView: View {
     @EnvironmentObject private var viewModel: SettingViewModel
+    @Environment(\.dismiss) private var dismiss
     
     var body: some View {
         VStack(spacing: 20) {
@@ -23,6 +24,16 @@ struct AppVersionView: View {
         .navigationBarTitleDisplayMode(.inline)
         .onAppear {
             viewModel.getAppVersion()
+        }
+        .navigationBarBackButtonHidden()
+        .toolbar {
+            ToolbarItem(placement: .topBarLeading) {
+                Button {
+                    dismiss()
+                } label: {
+                    Image(systemName: "chevron.backward")
+                }
+            }
         }
     }
 }

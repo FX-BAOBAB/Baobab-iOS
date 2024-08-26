@@ -36,9 +36,13 @@ struct BaobabApp: App {
                             .tint(.white)
                     }
                 }
-            } else {
+            } else if !(viewModel.isLoginSuccess) {
                 LoginForm()
                     .environmentObject(viewModel)
+            } else {
+                NavigationStack {
+                    MainTabView(viewModel: AppDI.shared.makeMainViewModel(), isLoggedIn: $viewModel.isLoginSuccess)
+                }
             }
         }
     }
