@@ -112,6 +112,7 @@
 		8E7731D82C4A94A400B42F7A /* SignUpRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7731D72C4A94A400B42F7A /* SignUpRepositoryImpl.swift */; };
 		8E7731DA2C4A94DC00B42F7A /* UserRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7731D92C4A94DC00B42F7A /* UserRepositoryImpl.swift */; };
 		8E7731DC2C4A955600B42F7A /* ReceivingRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7731DB2C4A955600B42F7A /* ReceivingRepositoryImpl.swift */; };
+		8E78D2F62C7C1B0F0092680C /* UserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E78D2F52C7C1B0F0092680C /* UserInfoView.swift */; };
 		8E7900B92C6ADC8800BD4BBB /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E7900B82C6ADC8800BD4BBB /* Launch Screen.storyboard */; };
 		8E7900BB2C6ADEA000BD4BBB /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7900BA2C6ADEA000BD4BBB /* LaunchScreenView.swift */; };
 		8E7900BD2C6B206100BD4BBB /* Notification+Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7900BC2C6B206100BD4BBB /* Notification+Name.swift */; };
@@ -395,6 +396,7 @@
 		8E7731D72C4A94A400B42F7A /* SignUpRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRepositoryImpl.swift; sourceTree = "<group>"; };
 		8E7731D92C4A94DC00B42F7A /* UserRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoryImpl.swift; sourceTree = "<group>"; };
 		8E7731DB2C4A955600B42F7A /* ReceivingRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceivingRepositoryImpl.swift; sourceTree = "<group>"; };
+		8E78D2F52C7C1B0F0092680C /* UserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoView.swift; sourceTree = "<group>"; };
 		8E7900B82C6ADC8800BD4BBB /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		8E7900BA2C6ADEA000BD4BBB /* LaunchScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenView.swift; sourceTree = "<group>"; };
 		8E7900BC2C6B206100BD4BBB /* Notification+Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Name.swift"; sourceTree = "<group>"; };
@@ -1110,6 +1112,7 @@
 				8E8D13492C4E40CD0032FC96 /* UserInfoList.swift */,
 				8E8D134B2C4E439B0032FC96 /* SimpleUserInfoView.swift */,
 				8EBDF5842C4F3DD700927AC5 /* UserInfoListRow.swift */,
+				8E78D2F52C7C1B0F0092680C /* UserInfoView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1783,6 +1786,7 @@
 				8E7BC8F22C3EC78600CB708F /* LoginUseCase.swift in Sources */,
 				8EBFCE4A2C537F5300A2AB4F /* DefectRow.swift in Sources */,
 				8E604DB52C6DD72100D45CB1 /* ShippingApplicationViewModel.swift in Sources */,
+				8E78D2F62C7C1B0F0092680C /* UserInfoView.swift in Sources */,
 				8E7BC8CC2C3E433600CB708F /* LoginResponseDTO.swift in Sources */,
 				8EA152832C6997F80011FDB3 /* EmptyItemView.swift in Sources */,
 				8E7B6C3E2C521DA000222721 /* ShippingItemsViewModel.swift in Sources */,

@@ -36,6 +36,13 @@ struct MainView: View {
             .padding(.top)
         }
         .padding([.leading, .trailing])
+        .toolbar {
+            ToolbarItem(placement: .topBarLeading) {
+                Text("Baobab")
+                    .bold()
+                    .font(.title3)
+            }
+        }
         .fullScreenCover(isPresented: $isShowingReceivingForm) {
             NavigationStack {
                 ReceivingIntroView(viewModel: AppDI.shared.makeReceivingViewModel(), 

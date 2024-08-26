@@ -34,51 +34,13 @@ struct MainTabView: View {
             case .notificationList:
                 NotificatioonList()
             case .userInfoList:
-                UserInfoList(viewModel: AppDI.shared.makeUserInfoViewModel())
+                UserInfoList(viewModel: AppDI.shared.makeUserInfoViewModel(), isLoggedIn: $isLoggedIn)
             }
             
             CustomTabbar(selectedTab: $selectedTab)
         }
         .toolbarBackground(.white, for: .navigationBar)
         .toolbarBackground(.visible, for: .navigationBar)
-        .toolbar {
-            switch selectedTab {
-            case .home:
-                ToolbarItem(placement: .topBarLeading) {
-                    Text("Baobab")
-                        .bold()
-                        .font(.title3)
-                }
-            case .usedItemTransaction:
-                ToolbarItem(placement: .topBarLeading) {
-                    Text("중고장터")
-                        .bold()
-                        .font(.title3)
-                }
-            case .notificationList:
-                ToolbarItem(placement: .topBarLeading) {
-                    Text("알림")
-                        .bold()
-                        .font(.title3)
-                }
-            case .userInfoList:
-                ToolbarItem(placement: .topBarLeading) {
-                    Text("내 정보")
-                        .bold()
-                        .font(.title3)
-                }
-                
-                ToolbarItem(placement: .topBarTrailing) {
-                    NavigationLink(destination: {
-                        SettingView(viewModel: AppDI.shared.makeSettingViewModel(),
-                                    isLoggedIn: $isLoggedIn)
-                    }) {
-                        Image(systemName: "gearshape.fill")
-                            .foregroundStyle(.gray)
-                    }
-                }
-            }
-        }
         .navigationBarBackButtonHidden()
         .onReceive(NotificationCenter.default.publisher(for: .refreshTokenExpiration)) {
             if let isTokenExpired = $0.userInfo?["isTokenExpired"] as? Bool,

@@ -9,24 +9,22 @@ import SwiftUI
 
 struct UserInfoList: View {
     @StateObject private var viewModel: UserInfoViewModel
+    @State private var isShowingUserInfoView: Bool = false
+    @Binding var isLoggedIn: Bool
     
-    init(viewModel: UserInfoViewModel) {
+    init(viewModel: UserInfoViewModel, isLoggedIn: Binding<Bool>) {
         _viewModel = StateObject(wrappedValue: viewModel)
+        _isLoggedIn = isLoggedIn
     }
     
     var body: some View {
-        List {            
-            NavigationLink(destination: {
+        List {
+            Section {
+                Text("요청서")
+                    .bold()
+                    .foregroundStyle(.gray)
+                    .padding(.top)
                 
-            }) {
-                SimpleUserInfoView()
-                    .environmentObject(viewModel)
-                    .alignmentGuide(.listRowSeparatorLeading) { _ in
-                        return 0
-                    }
-            }
-            
-            Section(header: Text("요청서")) {
                 NavigationLink(destination: {
                     LazyView {
                         ReceivingFormList(viewModel: AppDI.shared.makeReceivingFormsViewModel())
@@ -53,12 +51,16 @@ struct UserInfoList: View {
                     UserInfoListRow(image: "TakeBack", title: "반품 요청서")
                 }
             }
-            .listSectionSeparator(.hidden, edges: .top)
-            .alignmentGuide(.listRowSeparatorLeading) { _ in
-                return 0
-            }
+            .listRowSeparator(.hidden)
             
-            Section(header: Text("내 물품")) {
+            Divider()
+                .listRowSeparator(.hidden)
+            
+            Section {
+                Text("내 물품")
+                    .bold()
+                    .foregroundStyle(.gray)
+                
                 NavigationLink(destination: {
                     LazyView {
                         TopTabView(firstTitle: "입고 중",
@@ -108,17 +110,39 @@ struct UserInfoList: View {
                     UserInfoListRow(image: "usedItem", title: "중고 물품")
                 }
             }
-            .listSectionSeparator(.hidden, edges: .top)
-            .alignmentGuide(.listRowSeparatorLeading) { _ in
-                return 0
-            }
+            .listSectionSeparator(.hidden)
         }
         .listStyle(.plain)
+        .toolbar {
+            ToolbarItem(placement: .topBarLeading) {
+                Button {
+                    isShowingUserInfoView.toggle()
+                } label: {
+                    SimpleUserInfoView()
+                        .environmentObject(viewModel)
+                }
+            }
+            
+            ToolbarItem(placement: .topBarTrailing) {
+                NavigationLink(destination: {
+                    SettingView(viewModel: AppDI.shared.makeSettingViewModel(),
+                                isLoggedIn: $isLoggedIn)
+                }) {
+                    Image(systemName: "gearshape.fill")
+                        .foregroundStyle(.gray)
+                }
+            }
+        }
+        .fullScreenCover(isPresented: $isShowingUserInfoView) {
+            NavigationStack {
+                UserInfoView(isShowingUserInfoView: $isShowingUserInfoView)
+            }
+        }
     }
 }
 
 #Preview {
     NavigationStack {
-        UserInfoList(viewModel: AppDI.shared.makeUserInfoViewModel())
+        UserInfoList(viewModel: AppDI.shared.makeUserInfoViewModel(), isLoggedIn: .constant(true))
     }
 }
