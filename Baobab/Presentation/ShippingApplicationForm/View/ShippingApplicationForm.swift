@@ -32,25 +32,22 @@ struct ShippingApplicationForm: View {
                     }
                     .listStyle(.plain)
                     
-                    if viewModel.storedItems?.isEmpty == false {
-                        VStack(spacing: 0) {
-                            Divider()
-                            
-                            Button {
-                                isShowingReservationForm.toggle()
-                            } label: {
-                                Text("다음")
-                                    .bold()
-                                    .foregroundStyle(.white)
-                                    .frame(maxWidth: .infinity)
-                                    .padding(15)
-                                    .background(.accent)
-                            }
-                            .cornerRadius(10)
-                            .padding()
-                            .disabled(viewModel.selectedItems.isEmpty)
+                    VStack(spacing: 0) {
+                        Divider()
+                        
+                        Button {
+                            isShowingReservationForm.toggle()
+                        } label: {
+                            Text("다음")
+                                .bold()
+                                .foregroundStyle(.white)
+                                .frame(maxWidth: .infinity)
+                                .padding(15)
+                                .background(.accent)
                         }
-                        .frame(maxHeight: .infinity, alignment: .bottom)
+                        .cornerRadius(10)
+                        .padding()
+                        .disabled(viewModel.selectedItems.isEmpty)
                     }
                 }
             } else if viewModel.storedItems == nil {
