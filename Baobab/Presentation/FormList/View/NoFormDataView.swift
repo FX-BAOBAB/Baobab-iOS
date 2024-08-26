@@ -13,8 +13,16 @@ struct NoFormDataView: View {
             Color.listFooterGray
                 .ignoresSafeArea()
             
-            Text("요청서 정보가 없어요 :(")
-                .foregroundStyle(.gray)
+            VStack(spacing: 30) {
+                Image(systemName: "doc.fill")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: UIScreen.main.bounds.width * 0.25)
+                    .foregroundStyle(.gray)
+                
+                Text("요청서 정보가 없어요 :(")
+                    .foregroundStyle(.gray)
+            }
         }
     }
 }

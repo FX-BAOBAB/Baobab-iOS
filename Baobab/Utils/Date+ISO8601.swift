@@ -24,12 +24,11 @@ extension Date {
         let isoFormatter = ISO8601DateFormatter()
         isoFormatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
         
-        guard let date = isoFormatter.date(from: isoString) else {
+        guard let date = isoFormatter.date(from: isoString + ".000+09:00") else {
             return ""
         }
         
         let dateFormatter = DateFormatter()
-        dateFormatter.timeZone = TimeZone(identifier: "Asia/Seoul")
         dateFormatter.dateFormat = format.rawValue
         
         return String(dateFormatter.string(from: date))
