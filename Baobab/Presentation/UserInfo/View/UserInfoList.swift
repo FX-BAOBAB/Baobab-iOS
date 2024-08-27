@@ -8,14 +8,9 @@
 import SwiftUI
 
 struct UserInfoList: View {
-    @StateObject private var viewModel: UserInfoViewModel
     @State private var isShowingUserInfoView: Bool = false
+    @Binding var userInfo: UserInfo?
     @Binding var isLoggedIn: Bool
-    
-    init(viewModel: UserInfoViewModel, isLoggedIn: Binding<Bool>) {
-        _viewModel = StateObject(wrappedValue: viewModel)
-        _isLoggedIn = isLoggedIn
-    }
     
     var body: some View {
         List {
@@ -118,8 +113,7 @@ struct UserInfoList: View {
                 Button {
                     isShowingUserInfoView.toggle()
                 } label: {
-                    SimpleUserInfoView()
-                        .environmentObject(viewModel)
+                    SimpleUserInfoView(userInfo: $userInfo)
                 }
             }
             
@@ -143,6 +137,6 @@ struct UserInfoList: View {
 
 #Preview {
     NavigationStack {
-        UserInfoList(viewModel: AppDI.shared.makeUserInfoViewModel(), isLoggedIn: .constant(true))
+        UserInfoList(userInfo: .constant(UserInfo(id: 0, name: "홍길동", email: "gildong@baobab.com", role: "unkown")), isLoggedIn: .constant(true))
     }
 }

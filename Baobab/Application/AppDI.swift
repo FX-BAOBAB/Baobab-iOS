@@ -94,15 +94,19 @@ struct AppDI {
         return viewModel
     }
     
+    @MainActor 
     func makeMainViewModel() -> MainViewModel {
         //Data Layer
         let localTokenRepository = TokenRepositoryImpl()
+        let userRepository = UserRepositoryImpl(dataSource: dataSource)
         
         //Domain Layer
         let fetchTokenUseCase = FetchTokenUseCaseImpl(repository: localTokenRepository)
+        let fetchUserInfoUseCase = FetchuserInfoUserCaseImpl(repository: userRepository)
+        let usecase = SetupInitialViewUseCaseImpl(fetchTokenUseCase: fetchTokenUseCase, fetchUserInfoUseCase: fetchUserInfoUseCase)
         
         //Presentation Layer
-        let viewModel = MainViewModel(usecase: fetchTokenUseCase)
+        let viewModel = MainViewModel(usecase: usecase)
         
         return viewModel
     }
