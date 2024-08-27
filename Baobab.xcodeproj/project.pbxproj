@@ -63,6 +63,7 @@
 		8E1B67D62C7A0ED00079EBBC /* AppVersionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1B67D52C7A0ED00079EBBC /* AppVersionView.swift */; };
 		8E227BE82C43755200E007D0 /* MultipleImageUploadResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E227BE72C43755200E007D0 /* MultipleImageUploadResponseDTO.swift */; };
 		8E227BEA2C43B8C000E007D0 /* TaskResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E227BE92C43B8C000E007D0 /* TaskResult.swift */; };
+		8E26A4F12C7DA4B000A122A0 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E26A4F02C7DA4B000A122A0 /* ProfileView.swift */; };
 		8E37D4632C570C7300F8048A /* ReceivingFormsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E37D4622C570C7300F8048A /* ReceivingFormsViewModel.swift */; };
 		8E37D4652C570D6300F8048A /* FetchFormUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E37D4642C570D6300F8048A /* FetchFormUseCase.swift */; };
 		8E37D4672C570D8200F8048A /* FormRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E37D4662C570D8200F8048A /* FormRepository.swift */; };
@@ -351,6 +352,7 @@
 		8E1B67D52C7A0ED00079EBBC /* AppVersionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppVersionView.swift; sourceTree = "<group>"; };
 		8E227BE72C43755200E007D0 /* MultipleImageUploadResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleImageUploadResponseDTO.swift; sourceTree = "<group>"; };
 		8E227BE92C43B8C000E007D0 /* TaskResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskResult.swift; sourceTree = "<group>"; };
+		8E26A4F02C7DA4B000A122A0 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		8E37D4622C570C7300F8048A /* ReceivingFormsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceivingFormsViewModel.swift; sourceTree = "<group>"; };
 		8E37D4642C570D6300F8048A /* FetchFormUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchFormUseCase.swift; sourceTree = "<group>"; };
 		8E37D4662C570D8200F8048A /* FormRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormRepository.swift; sourceTree = "<group>"; };
@@ -1117,6 +1119,7 @@
 				8E8D134B2C4E439B0032FC96 /* SimpleUserInfoView.swift */,
 				8EBDF5842C4F3DD700927AC5 /* UserInfoListRow.swift */,
 				8E78D2F52C7C1B0F0092680C /* UserInfoView.swift */,
+				8E26A4F02C7DA4B000A122A0 /* ProfileView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1688,6 +1691,7 @@
 				8E90635E2C293775008B5C52 /* CameraLabel.swift in Sources */,
 				8EBDF5852C4F3DD700927AC5 /* UserInfoListRow.swift in Sources */,
 				5C41ED912C07FD29001416D9 /* RemoteRepository.swift in Sources */,
+				8E26A4F12C7DA4B000A122A0 /* ProfileView.swift in Sources */,
 				8E8AF2E72C4267E800A1F0ED /* ImageRepository.swift in Sources */,
 				8ECB03A32C4FDF520051935C /* SettingView.swift in Sources */,
 				8E8CCC4E2C6C3AF900D2DF72 /* ShippingFormList.swift in Sources */,
@@ -2098,7 +2102,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.3.1;
+				MARKETING_VERSION = 0.4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.myCompany.Baobab;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -2138,7 +2142,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.3.1;
+				MARKETING_VERSION = 0.4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.myCompany.Baobab;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

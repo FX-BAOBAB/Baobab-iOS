@@ -9,6 +9,8 @@ import Combine
 import Foundation
 
 final class UserRepositoryImpl: RemoteRepository, UserRepository {
+    private let roleDic: [String: String] = ["USER": "사용자", "deliveryman": "배송기사", "manager": "매니저", "master": "마스터"]
+    
     func fetchUserInfo() -> AnyPublisher<UserInfo, any Error> {
         let apiEndPoint = Bundle.main.userURL + "/users"
         
@@ -17,7 +19,7 @@ final class UserRepositoryImpl: RemoteRepository, UserRepository {
                 UserInfo(id: $0.body.id,
                          name: $0.body.name,
                          email: $0.body.email,
-                         role: $0.body.role)
+                         role: self.roleDic[$0.body.role] ?? "")
             }
             .eraseToAnyPublisher()
     }
@@ -40,7 +42,7 @@ final class UserRepositoryImpl: RemoteRepository, UserRepository {
     
     func fetchDefaultAddress() -> AnyPublisher<Address, any Error> {
         let apiEndPoint = Bundle.main.userURL + "/address/basic"
-
+        
         return dataSource.sendGetRequest(to: apiEndPoint, resultType: DefaultAddressResponseDTO.self)
             .map {
                 return Address(id: $0.body.id,

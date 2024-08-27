@@ -129,7 +129,9 @@ struct UserInfoList: View {
         }
         .fullScreenCover(isPresented: $isShowingUserInfoView) {
             NavigationStack {
-                UserInfoView(isShowingUserInfoView: $isShowingUserInfoView)
+                UserInfoView(viewModel: AppDI.shared.makeUserInfoViewModel(), 
+                             userInfo: $userInfo,
+                             isShowingUserInfoView: $isShowingUserInfoView)
             }
         }
     }

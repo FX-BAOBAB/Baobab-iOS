@@ -94,7 +94,7 @@ struct AppDI {
         return viewModel
     }
     
-    @MainActor 
+    @MainActor
     func makeMainViewModel() -> MainViewModel {
         //Data Layer
         let localTokenRepository = TokenRepositoryImpl()
@@ -126,11 +126,11 @@ struct AppDI {
     
     func makeUserInfoViewModel() -> UserInfoViewModel {
         //Data Layer
-        let userRepository = UserRepositoryImpl(dataSource: dataSource)
-        
+        let repository = UserRepositoryImpl(dataSource: dataSource)
+//
         //Domain Layer
-        let usecase = FetchuserInfoUserCaseImpl(repository: userRepository)
-        
+        let usecase = FetchAddressUseCaseImpl(repository: repository)
+//
         //Presentation Layer
         let viewModel = UserInfoViewModel(usecase: usecase)
         

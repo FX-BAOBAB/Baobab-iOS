@@ -8,26 +8,51 @@
 import Combine
 
 final class UserInfoViewModel: ObservableObject {
-    @Published var userInfo: UserInfo?
+    @Published var defaultAddress: Address?
+    @Published var addresses: [Address]?
+    @Published var isProgress: Bool = false
     
-    private let usecase: FetchUserInfoUseCase
+    private let usecase: FetchAddressUseCase
     private var cancellables = Set<AnyCancellable>()
     
-    init(usecase: FetchUserInfoUseCase) {
+    init(usecase: FetchAddressUseCase) {
         self.usecase = usecase
     }
     
-    func fetchUserInfo() {
-        usecase.execute()
-            .sink(receiveCompletion: { completion in
+    func fetchDefaultAddress() {
+        isProgress.toggle()
+        
+        usecase.executeForDefaultAddress()
+            .sink(receiveCompletion: { [weak self] completion in
+                self?.isProgress.toggle()
+                
                 switch completion {
                 case .finished:
-                    print("Fetching user information has been completed")
+                    print("The request to fetch the default address has been completed")
                 case .failure(let error):
-                    print("UserInfoViewModel.fetchUserInfo() error : " , error)
+                    print("UserInfoViewModel.fetchDefaultAddress() error :", error)
                 }
             }, receiveValue: { [weak self] in
-                self?.userInfo = $0
+                self?.defaultAddress = $0
+            })
+            .store(in: &cancellables)
+    }
+    
+    func fetchAddresses() {
+        isProgress.toggle()
+        
+        usecase.executeForAddresses()
+            .sink(receiveCompletion: { [weak self] completion in
+                self?.isProgress.toggle()
+                
+                switch completion {
+                case .finished:
+                    print("The request to fetch addresses has been completed")
+                case .failure(let error):
+                    print("UserInfoViewModel.fetchAddresses() error :", error)
+                }
+            }, receiveValue: { [weak self] in
+                self?.addresses = $0
             })
             .store(in: &cancellables)
     }
