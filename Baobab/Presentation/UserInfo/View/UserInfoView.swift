@@ -9,6 +9,7 @@ import SwiftUI
 
 struct UserInfoView: View {
     @StateObject private var viewModel: UserInfoViewModel
+    @State private var isShowingAddressList: Bool = false
     @Binding var userInfo: UserInfo?
     @Binding var isShowingUserInfoView: Bool
     
@@ -21,6 +22,18 @@ struct UserInfoView: View {
     var body: some View {
         if viewModel.isProgress {
             ProgressView()
+                .navigationTitle("내 정보")
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    ToolbarItem(placement: .topBarTrailing) {
+                        Button {
+                            isShowingUserInfoView.toggle()
+                        } label: {
+                            Image(systemName: "xmark")
+                                .foregroundStyle(.black)
+                        }
+                    }
+                }
         } else {
             ScrollView {
                 VStack(alignment: .leading, spacing: 30) {
@@ -40,7 +53,7 @@ struct UserInfoView: View {
                                 
                                 Text("이메일")
                                 
-                                Text("직책")
+                                Text("구분")
                             }
                             .font(.subheadline)
                             .foregroundStyle(.gray)
@@ -69,7 +82,7 @@ struct UserInfoView: View {
                             Spacer()
                             
                             Button {
-                                
+                                isShowingAddressList.toggle()
                             } label: {
                                 Text("전체보기")
                                     .font(.subheadline)
@@ -77,11 +90,11 @@ struct UserInfoView: View {
                         }
                         
                         VStack(alignment: .leading) {
-                            Text(viewModel.defaultAddress?.post ?? "")
+                            Text(viewModel.selectedAddress?.post ?? "")
                             
-                            Text(viewModel.defaultAddress?.address ?? "")
+                            Text(viewModel.selectedAddress?.address ?? "")
                             
-                            Text(viewModel.defaultAddress?.detailAddress ?? "")
+                            Text(viewModel.selectedAddress?.detailAddress ?? "")
                         }
                         .font(.subheadline)
                     }
@@ -94,7 +107,7 @@ struct UserInfoView: View {
             .navigationTitle("내 정보")
             .navigationBarTitleDisplayMode(.inline)
             .onAppear {
-                if viewModel.defaultAddress == nil {
+                if viewModel.selectedAddress == nil {
                     viewModel.fetchDefaultAddress()
                 }
             }
@@ -107,6 +120,14 @@ struct UserInfoView: View {
                             .foregroundStyle(.black)
                     }
                 }
+            }
+            .sheet(isPresented: $isShowingAddressList) {
+                AddressList<UserInfoViewModel>(isShowingAddressList: $isShowingAddressList, toggleVisible: false) {
+                    //TODO: 새로운 방문지로 등록
+                    viewModel.addNewAddress()
+                }
+                .environmentObject(viewModel)
+                .presentationDragIndicator(.visible)
             }
         }
     }

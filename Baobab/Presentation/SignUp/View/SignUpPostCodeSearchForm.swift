@@ -34,9 +34,10 @@ struct SignUpPostCodeSearchForm: View {
             }
         }
         .navigationDestination(isPresented: $isShowingDetailAddressForm) {
-            DetailAddressMap<SignUpViewModel>(isShowingAddressList: .constant(true),
-                                              isShowingPostSearchForm: $isShowingPostCodeSearchForm)
-                .environmentObject(viewModel)
+            DetailAddressMap<SignUpViewModel>(isShowingAddressList: .constant(true), isShowingPostSearchForm: $isShowingPostCodeSearchForm) {
+                viewModel.registerAsSelectedAddress()
+            }
+            .environmentObject(viewModel)
         }
     }
 }

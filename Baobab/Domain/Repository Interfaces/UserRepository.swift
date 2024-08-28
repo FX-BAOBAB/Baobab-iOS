@@ -11,4 +11,5 @@ protocol UserRepository {
     func fetchDefaultAddress() -> AnyPublisher<Address, any Error>
     func fetchAddresses() -> AnyPublisher<[Address], any Error>
     func fetchUserInfo() -> AnyPublisher<UserInfo, any Error>
+    func addNewAddress(params: [String: Any]) -> AnyPublisher<Bool, any Error>
 }

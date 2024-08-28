@@ -8,7 +8,6 @@
 import Combine
 import Foundation
 
-@MainActor
 final class MainViewModel: ObservableObject {
     @Published var userInfo: UserInfo?
     @Published var isTokenDeleted: Bool = false
@@ -22,6 +21,7 @@ final class MainViewModel: ObservableObject {
     
     func deleteToken() {
         usecase.executeTokenDeletion()
+            .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { completion in
                 switch completion {
                 case .finished:

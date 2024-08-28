@@ -83,9 +83,12 @@ struct ReservationForm<T: PostSearchable, V: View>: View where T: Reservable {
             viewModel.fetchDefaultAddress()    //기본 주소 요청
         }
         .sheet(isPresented: $isShowingAddressList) {
-            AddressList<T>(isShowingAddressList: $isShowingAddressList)
-                .environmentObject(viewModel)
-                .presentationDragIndicator(.visible)
+            AddressList<T>(isShowingAddressList: $isShowingAddressList, toggleVisible: true) {
+                viewModel.registerAsSelectedAddress()
+                isShowingAddressList.toggle()
+            }
+            .environmentObject(viewModel)
+            .presentationDragIndicator(.visible)
         }
         .navigationBarBackButtonHidden()
         .toolbar {

@@ -11,6 +11,7 @@ struct AddressListRow<T: PostSearchable>: View {
     @EnvironmentObject private var viewModel: T
     
     let address: Address?
+    let toggleVisible: Bool
     
     var body: some View {
         HStack(spacing: 20) {
@@ -45,17 +46,19 @@ struct AddressListRow<T: PostSearchable>: View {
             
             Spacer()
             
-            if viewModel.selectedAddress?.id == address?.id {
-                CheckMark()
-                    .skeleton(with: address == nil,
-                              size: CGSize(width: 20, height: 20),
-                              shape: .circle)
-            } else {
-                Button(action: {
-                    viewModel.selectedAddress = address
-                }, label: {
-                    EmptyCircle()
-                })
+            if toggleVisible {
+                if viewModel.selectedAddress?.id == address?.id {
+                    CheckMark()
+                        .skeleton(with: address == nil,
+                                  size: CGSize(width: 20, height: 20),
+                                  shape: .circle)
+                } else {
+                    Button(action: {
+                        viewModel.selectedAddress = address
+                    }, label: {
+                        EmptyCircle()
+                    })
+                }
             }
         }
         .padding()
@@ -69,7 +72,8 @@ struct AddressListRow<T: PostSearchable>: View {
 
 #if DEBUG
 #Preview {
-    AddressListRow<ReceivingViewModel>(address: Address.sampleAddressList.first!)
+    AddressListRow<ReceivingViewModel>(address: Address.sampleAddressList.first!, 
+                                       toggleVisible: true)
         .environmentObject(AppDI.shared.makeReceivingViewModel())
 }
 #endif

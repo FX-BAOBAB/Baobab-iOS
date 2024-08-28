@@ -12,6 +12,8 @@ struct DetailAddressForm<T: PostSearchable>: View {
     @Binding var isShowingPostSearchForm: Bool
     @Binding var isShowingAddressList: Bool
     
+    let completionHandler: () -> ()
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
             Text("상세주소 입력")
@@ -37,9 +39,11 @@ struct DetailAddressForm<T: PostSearchable>: View {
                 }
                 
                 Button {
-                    viewModel.registerAsSelectedAddress()
+//                    viewModel.registerAsSelectedAddress()
+//                    isShowingPostSearchForm.toggle()
+//                    isShowingAddressList.toggle()
+                    completionHandler()
                     isShowingPostSearchForm.toggle()
-                    isShowingAddressList.toggle()
                 } label: {
                     ConfirmationButtonLabel(title: "확인")
                 }
@@ -51,7 +55,8 @@ struct DetailAddressForm<T: PostSearchable>: View {
 }
 
 #Preview {
-    DetailAddressForm<ReceivingViewModel>(isShowingPostSearchForm: .constant(false),
-                      isShowingAddressList: .constant(false))
+    DetailAddressForm<ReceivingViewModel>(isShowingPostSearchForm: .constant(false), isShowingAddressList: .constant(false)) {
+        //Something Todo
+    }
     .environmentObject(AppDI.shared.makeReceivingViewModel())
 }

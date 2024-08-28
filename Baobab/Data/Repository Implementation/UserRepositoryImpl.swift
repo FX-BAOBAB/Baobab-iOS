@@ -53,4 +53,18 @@ final class UserRepositoryImpl: RemoteRepository, UserRepository {
             }
             .eraseToAnyPublisher()
     }
+    
+    func addNewAddress(params: [String: Any]) -> AnyPublisher<Bool, any Error> {
+        let apiEndPoint = Bundle.main.userURL + "/address"
+        
+        return dataSource.sendPostRequest(to: apiEndPoint, with: params, resultType: AddressAdditionResponseDTO.self)
+            .map {
+                if $0.result.resultCode == 200 {
+                    return true
+                }
+                
+                return false
+            }
+            .eraseToAnyPublisher()
+    }
 }

@@ -129,10 +129,14 @@ struct AppDI {
         let repository = UserRepositoryImpl(dataSource: dataSource)
 //
         //Domain Layer
-        let usecase = FetchAddressUseCaseImpl(repository: repository)
+        let fetchAddressUseCase = FetchAddressUseCaseImpl(repository: repository)
+        let fetchGeoCodeUseCase = FetchGeoCodeUseCaseImpl()
+        let addAddressUseCase = AddAddressUseCaseImpl(fetchAddressUseCase: fetchAddressUseCase, 
+                                                      fetchGeoCodeUseCase: fetchGeoCodeUseCase,
+                                                      repository: repository)
 //
         //Presentation Layer
-        let viewModel = UserInfoViewModel(usecase: usecase)
+        let viewModel = UserInfoViewModel(usecase: addAddressUseCase)
         
         return viewModel
     }
