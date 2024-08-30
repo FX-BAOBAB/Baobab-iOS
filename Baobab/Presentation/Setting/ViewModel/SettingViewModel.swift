@@ -11,6 +11,7 @@ import Foundation
 final class SettingViewModel: ObservableObject {
     @Published var isLogout: Bool = false
     @Published var appVersion: String = ""
+    @Published var isShowingAlert: Bool = false
     
     private let usecase: FetchTokenUseCase
     private var cancellables = Set<AnyCancellable>()
@@ -44,5 +45,20 @@ final class SettingViewModel: ObservableObject {
         if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
             appVersion = version
         }
+    }
+    
+    func deleteDocumentFile() {
+        //Object Cature를 진행하면서 발생하는 임시 파일 경로
+        let snapshotPath = getDocumentsDir().appendingPathComponent("Snapshots/")
+        let imagePath = getDocumentsDir().appendingPathComponent("Images/")
+        
+        do {
+            try FileManager.default.removeItem(at: snapshotPath)
+            try FileManager.default.removeItem(at: imagePath)
+        } catch let e {
+            print(e.localizedDescription)
+        }
+        
+        isShowingAlert.toggle()
     }
 }
