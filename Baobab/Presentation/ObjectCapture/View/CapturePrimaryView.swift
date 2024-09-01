@@ -69,12 +69,7 @@ struct CapturePrimaryView: View {
             }
         }
         .onAppear {
-            var configuration = ObjectCaptureSession.Configuration()
-            configuration.checkpointDirectory = getDocumentsDir().appendingPathComponent("Snapshots/")
-            
-            viewModel.session = ObjectCaptureSession()
-            viewModel.session?.start(imagesDirectory: getDocumentsDir().appendingPathComponent("Images/"),
-                          configuration: configuration)
+            viewModel.setup()
         }
         .navigationDestination(isPresented: $isShowingReconstructionView) {
             LazyView {

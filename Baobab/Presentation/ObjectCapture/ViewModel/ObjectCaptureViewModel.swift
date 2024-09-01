@@ -33,6 +33,16 @@ final class ObjectCaptureViewModel: ObservableObject {
         requestProcessPercentage = fractionComplete
     }
     
+    ///ObjectCaptureSession 초기화
+    func setup() {
+        var configuration = ObjectCaptureSession.Configuration()
+        configuration.checkpointDirectory = getDocumentsDir().appendingPathComponent("Snapshots/")
+        
+        session = ObjectCaptureSession()
+        session?.start(imagesDirectory: getDocumentsDir().appendingPathComponent("Images/"),
+                      configuration: configuration)
+    }
+    
     ///Object Capture 중 촬영한 사진들을 삭제하는 메서드
     func deleteTempFiles() {
         DispatchQueue.global(qos: .background).async {
