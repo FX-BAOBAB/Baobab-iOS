@@ -48,7 +48,8 @@ struct LaboratoryList: View {
                 NoAvailableView(isShowingFullScreenCover: $isShowingObjectCaptureView)
                 #else
                 if #available(iOS 17, *), ObjectCaptureSession.isSupported {
-                    CapturePrimaryView(isShowingObjectCaptureView: $isShowingObjectCaptureView)
+                    CapturePrimaryView(viewModel: AppDI.shared.makeObjectCaptureViewModel(),
+                                       isShowingObjectCaptureView: $isShowingObjectCaptureView)
                 } else {
                     NoAvailableView(isShowingFullScreenCover: $isShowingObjectCaptureView)
                 }

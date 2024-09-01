@@ -5,32 +5,24 @@
 //  Created by 이정훈 on 8/30/24.
 //
 
-import RealityKit
 import SwiftUI
 import QuickLook
+import RealityKit
 
 #if !targetEnvironment(simulator)
 @available(iOS 17, *)
 struct ReconstructionProgressView: View {
-    @StateObject private var viewModel: ObjectCaptureViewModel
-    @Binding var session: ObjectCaptureSession
+    @EnvironmentObject private var viewModel: ObjectCaptureViewModel
     @Binding var isShowingObjectCaptureView: Bool
-    
-    init(viewModel: ObjectCaptureViewModel, 
-         session: Binding<ObjectCaptureSession>,
-         isShowingObjectCaptureView: Binding<Bool>
-    ) {
-        _viewModel = StateObject(wrappedValue: viewModel)
-        _session = session
-        _isShowingObjectCaptureView = isShowingObjectCaptureView
-    }
     
     var body: some View {
         VStack {
-            ObjectCapturePointCloudView(session: session)
+            if let session = viewModel.session {
+                ObjectCapturePointCloudView(session: session)
+            }
             
             ProgressView(value: viewModel.requestProcessPercentage) {
-                Text("\(viewModel.requestProcessPercentage * 100)% progress")
+                Text("\(Int(viewModel.requestProcessPercentage * 100))% progress")
             }
             .progressViewStyle(.linear)
         }
@@ -39,6 +31,7 @@ struct ReconstructionProgressView: View {
         .toolbar {
             ToolbarItem(placement: .topBarLeading) {
                 Button {
+                    viewModel.cleanup()
                     isShowingObjectCaptureView.toggle()
                 } label: {
                     Text("Cancel")
@@ -54,6 +47,7 @@ struct ReconstructionProgressView: View {
                     input: getDocumentsDir().appendingPathComponent("Images/"),
                     configuration: configuration
                 )
+                
                 try session.process(requests: [
                     .modelFile(url: getDocumentsDir().appendingPathComponent("model.usdz"))
                 ])
@@ -97,9 +91,8 @@ struct ReconstructionProgressView: View {
 
 #Preview {
     if #available(iOS 17.0, *) {
-        ReconstructionProgressView(viewModel: AppDI.shared.makeObjectCaptureViewModel(),
-                                   session: .constant(ObjectCaptureSession()), 
-                                   isShowingObjectCaptureView: .constant(true))
+        ReconstructionProgressView(isShowingObjectCaptureView: .constant(true))
+            .environmentObject(AppDI.shared.makeObjectCaptureViewModel())
     } else {
         EmptyView()
     }

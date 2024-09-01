@@ -12,47 +12,55 @@ import SwiftUI
 @MainActor
 @available(iOS 17, *)
 struct CapturePrimaryView: View {
-    @State private var session = ObjectCaptureSession()
+    @StateObject private var viewModel: ObjectCaptureViewModel
     @State private var isShowingReconstructionView: Bool = false
     @Binding var isShowingObjectCaptureView: Bool
     
+    init(viewModel: ObjectCaptureViewModel,
+         isShowingObjectCaptureView: Binding<Bool>) {
+        _viewModel = StateObject(wrappedValue: viewModel)
+        _isShowingObjectCaptureView = isShowingObjectCaptureView
+    }
+    
     var body: some View {
-        Group {
-            if session.userCompletedScanPass {
-                ZStack {
-                    VStack {
-                        Image("verify")
-                        
-                        Text("Finish Captures.")
+        ZStack {
+            if let session = viewModel.session {
+                ObjectCaptureView(session: session)
+                
+                if case .ready = session.state {
+                    CreateButton(label: "Continue") {
+                        let _ = session.startDetecting()
                     }
-                    
-                    CreateButton(label: "Next") {
-                        session.finish()
+                } else if case .detecting = session.state {
+                    CreateButton(label: "Start Capture") {
+                        session.startCapturing()
+                    }
+                } else if case .capturing = session.state {
+                    if session.userCompletedScanPass {
+                        HStack {
+                            CreateButton(label: "Continue") {
+                                session.beginNewScanPass()    //capturing 상태가 아닐때 호출시 에러
+                            }
+                            
+                            CreateButton(label: "Finish") {
+                                session.finish()
+                                isShowingReconstructionView.toggle()
+                            }
+                        }
+                    }
+                } else if case .failed(_) = session.state {
+                    //Bottom View for failing
+                    CreateButton(label: "Done") {
+                        session.cancel()
                         isShowingReconstructionView.toggle()
                     }
                 }
-            } else {
-                ZStack {
-                    ObjectCaptureView(session: session)
-                    
-                    if case .ready = session.state {
-                        CreateButton(label: "Continue") {
-                            let _ = session.startDetecting()
-                        }
-                    } else if case .detecting = session.state {
-                        CreateButton(label: "Start Capture") {
-                            session.startCapturing()
-                        }
-                    } else if case .failed(_) = session.state {
-                        //Bottom View for failing
-                    }
-                }
             }
-            
         }
         .toolbar {
             ToolbarItem(placement: .topBarLeading) {
                 Button {
+                    viewModel.cleanup()
                     isShowingObjectCaptureView.toggle()
                 } label: {
                     Text("Cancel")
@@ -64,20 +72,23 @@ struct CapturePrimaryView: View {
             var configuration = ObjectCaptureSession.Configuration()
             configuration.checkpointDirectory = getDocumentsDir().appendingPathComponent("Snapshots/")
             
-            session.start(imagesDirectory: getDocumentsDir().appendingPathComponent("Images/"),
+            viewModel.session = ObjectCaptureSession()
+            viewModel.session?.start(imagesDirectory: getDocumentsDir().appendingPathComponent("Images/"),
                           configuration: configuration)
         }
         .navigationDestination(isPresented: $isShowingReconstructionView) {
-            ReconstructionProgressView(viewModel: AppDI.shared.makeObjectCaptureViewModel(),
-                                       session: $session, 
-                                       isShowingObjectCaptureView: $isShowingObjectCaptureView)
+            LazyView {
+                ReconstructionProgressView(isShowingObjectCaptureView: $isShowingObjectCaptureView)
+                    .environmentObject(viewModel)
+            }
         }
     }
 }
 
 #Preview {
     if #available(iOS 17, *) {
-        CapturePrimaryView(isShowingObjectCaptureView: .constant(true))
+        CapturePrimaryView(viewModel: AppDI.shared.makeObjectCaptureViewModel(),
+                           isShowingObjectCaptureView: .constant(true))
     } else {
         EmptyView()
     }
