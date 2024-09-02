@@ -10,11 +10,13 @@ import SwiftUI
 
 struct LaboratoryList: View {
     @State private var isShowingObjectCaptureView: Bool = false
+    @State private var buttonDisable: Bool = false
     @Environment(\.dismiss) private var dismiss
     
     var body: some View {
         List {
             Button {
+                buttonDisable.toggle()
                 isShowingObjectCaptureView.toggle()
             } label: {
                 HStack {
@@ -27,6 +29,7 @@ struct LaboratoryList: View {
                         .bold()
                 }
                 .padding([.top, .bottom])
+                .disabled(buttonDisable)
             }
         }
         .listStyle(.plain)
@@ -43,6 +46,8 @@ struct LaboratoryList: View {
             }
         }
         .fullScreenCover(isPresented: $isShowingObjectCaptureView) {
+            buttonDisable.toggle()
+        } content: {
             NavigationStack {
                 #if targetEnvironment(simulator)
                 NoAvailableView(isShowingFullScreenCover: $isShowingObjectCaptureView)

@@ -17,9 +17,10 @@ struct ReconstructionProgressView: View {
     
     var body: some View {
         VStack {
-            if let session = viewModel.session {
-                ObjectCapturePointCloudView(session: session)
-            }
+            Text("Processing...")
+                .bold()
+                .font(.title)
+                .padding()
             
             ProgressView(value: viewModel.requestProcessPercentage) {
                 Text("\(Int(viewModel.requestProcessPercentage * 100))% progress")
@@ -32,6 +33,7 @@ struct ReconstructionProgressView: View {
             ToolbarItem(placement: .topBarLeading) {
                 Button {
                     viewModel.cleanup()
+                    viewModel.deleteModelFile()
                     isShowingObjectCaptureView.toggle()
                 } label: {
                     Text("Cancel")
@@ -83,9 +85,9 @@ struct ReconstructionProgressView: View {
             }
         }
         .quickLookPreview($viewModel.output)
-        .onDisappear {
-            viewModel.deleteModelFile()
-        }
+//        .onDisappear {
+//            viewModel.deleteModelFile()
+//        }
     }
 }
 

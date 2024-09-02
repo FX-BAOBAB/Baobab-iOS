@@ -14,6 +14,7 @@ import SwiftUI
 struct CapturePrimaryView: View {
     @StateObject private var viewModel: ObjectCaptureViewModel
     @State private var isShowingReconstructionView: Bool = false
+    @State private var isShowingSheet: Bool = false
     @Binding var isShowingObjectCaptureView: Bool
     
     init(viewModel: ObjectCaptureViewModel,
@@ -27,55 +28,64 @@ struct CapturePrimaryView: View {
             if let session = viewModel.session {
                 ObjectCaptureView(session: session)
                 
-                if case .ready = session.state {
-                    CreateButton(label: "Continue") {
-                        let _ = session.startDetecting()
-                    }
-                } else if case .detecting = session.state {
-                    CreateButton(label: "Start Capture") {
-                        session.startCapturing()
-                    }
-                } else if case .capturing = session.state {
-                    if session.userCompletedScanPass {
-                        HStack {
-                            CreateButton(label: "Continue") {
-                                session.beginNewScanPass()    //capturing 상태가 아닐때 호출시 에러
-                            }
-                            
-                            CreateButton(label: "Finish") {
-                                session.finish()
-                                isShowingReconstructionView.toggle()
-                            }
+                if case .normal = viewModel.session?.cameraTracking {
+                    if case .ready = session.state {
+                        CreateButton(label: "Continue") {
+                            let _ = session.startDetecting()
+                        }
+                    } else if case .detecting = session.state {
+                        CreateButton(label: "Start Capture") {
+                            session.startCapturing()
                         }
                     }
-                } else if case .failed(_) = session.state {
+                }
+                
+                if case .failed(_) = session.state {
                     //Bottom View for failing
                     CreateButton(label: "Done") {
                         session.cancel()
-                        isShowingReconstructionView.toggle()
+                        isShowingObjectCaptureView.toggle()
                     }
                 }
             }
         }
         .toolbar {
-            ToolbarItem(placement: .topBarLeading) {
-                Button {
-                    viewModel.cleanup()
-                    isShowingObjectCaptureView.toggle()
-                } label: {
-                    Text("Cancel")
+            if case .normal = viewModel.session?.cameraTracking {
+                ToolbarItem(placement: .topBarLeading) {
+                    Button {
+                        viewModel.cleanup()
+                        isShowingObjectCaptureView.toggle()
+                    } label: {
+                        Text("Cancel")
+                    }
+                    .buttonStyle(.bordered)
                 }
-                .buttonStyle(.bordered)
             }
         }
-        .onAppear {
-            viewModel.setup()
+        .task {
+            //ObjectCaptureSession 초기화
+            var configuration = ObjectCaptureSession.Configuration()
+            configuration.checkpointDirectory = getDocumentsDir().appendingPathComponent("Snapshots/")
+            
+            viewModel.session = ObjectCaptureSession()
+            viewModel.session?.start(imagesDirectory: getDocumentsDir().appendingPathComponent("Images/"),
+                           configuration: configuration)
         }
         .navigationDestination(isPresented: $isShowingReconstructionView) {
             LazyView {
                 ReconstructionProgressView(isShowingObjectCaptureView: $isShowingObjectCaptureView)
                     .environmentObject(viewModel)
             }
+        }
+        .onChange(of: viewModel.session?.userCompletedScanPass) {
+            if viewModel.session?.userCompletedScanPass == true {
+                isShowingSheet.toggle()
+            }
+        }
+        .sheet(isPresented: $isShowingSheet) {
+            IntermediateScanView(isShowingSheet: $isShowingSheet, 
+                                 isShowingReconstructionView: $isShowingReconstructionView)
+            .environmentObject(viewModel)
         }
     }
 }
