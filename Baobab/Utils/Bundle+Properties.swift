@@ -48,6 +48,16 @@ extension Bundle {
         return url
     }
     
+    var imageURL: String {
+        guard let file = self.path(forResource: "ServiceInfo", ofType: "plist"),
+              let resource = NSDictionary(contentsOfFile: file),
+              let url = resource["Image_URL"] as? String else {
+            return ""
+        }
+        
+        return url
+    }
+    
     var email: String {
         guard let file = self.path(forResource: "ServiceInfo", ofType: "plist"),
               let resource = NSDictionary(contentsOfFile: file),
