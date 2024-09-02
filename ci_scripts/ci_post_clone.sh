@@ -22,6 +22,8 @@ cat <<EOF > "/Volumes/workspace/repository/Baobab/Application/ServiceInfo.plist"
     <string>${User_URL}</string>
     <key>Warehouse_URL</key>
     <string>${Warehouse_URL}</string>
+    <key>Image_URL</key>
+    <string>${Image_URL}</string>
 </dict>
 </plist>
 EOF

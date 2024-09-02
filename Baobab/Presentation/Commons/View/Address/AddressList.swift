@@ -13,6 +13,9 @@ struct AddressList<T: PostSearchable>: View {
     @State private var isShowingPostCodeSearch: Bool = false
     @Binding var isShowingAddressList: Bool
     
+    let toggleVisible: Bool
+    let completionHandler: () -> ()
+    
     var body: some View {
         NavigationStack {
             List {
@@ -20,7 +23,8 @@ struct AddressList<T: PostSearchable>: View {
                     header: Text("기본 방문지")
                         .padding(.bottom)
                 ) {
-                    AddressListRow<T>(address: viewModel.defaultAddress)
+                    AddressListRow<T>(address: viewModel.defaultAddress, 
+                                      toggleVisible: toggleVisible)
                         .listRowSeparator(.hidden)
                 }
                 
@@ -48,8 +52,8 @@ struct AddressList<T: PostSearchable>: View {
                         .listRowSeparator(.hidden)
                     } else {
                         ForEach(viewModel.registeredAddresses) { address in
-                            AddressListRow<T>(address: address)
-                                .padding(10)
+                            AddressListRow<T>(address: address, 
+                                              toggleVisible: toggleVisible)
                                 .listRowSeparator(.hidden)
                         }
                     }
@@ -78,7 +82,7 @@ struct AddressList<T: PostSearchable>: View {
             }
             .fullScreenCover(isPresented: $isShowingPostCodeSearch) {
                 PostCodeSearchView<T>(isShowingPostCodeSearch: $isShowingPostCodeSearch, 
-                               isShowingAddressList: $isShowingAddressList)
+                               isShowingAddressList: $isShowingAddressList, completionHandler: completionHandler)
                     .environmentObject(viewModel)
             }
         }
@@ -86,6 +90,8 @@ struct AddressList<T: PostSearchable>: View {
 }
 
 #Preview {
-    AddressList<ReceivingViewModel>(isShowingAddressList: .constant(true))
-        .environmentObject(AppDI.shared.makeReceivingViewModel())
+    AddressList<ReceivingViewModel>(isShowingAddressList: .constant(true), toggleVisible: true) {
+        //Something Todo
+    }
+    .environmentObject(AppDI.shared.makeReceivingViewModel())
 }

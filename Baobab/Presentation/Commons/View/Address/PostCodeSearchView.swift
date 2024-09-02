@@ -14,6 +14,8 @@ struct PostCodeSearchView<T: PostSearchable>: View {
     @Binding var isShowingPostCodeSearch: Bool
     @Binding var isShowingAddressList: Bool
     
+    let completionHandler: () -> ()
+    
     var body: some View {
         NavigationStack {
             ZStack {
@@ -37,7 +39,8 @@ struct PostCodeSearchView<T: PostSearchable>: View {
             }
             .navigationDestination(isPresented: $isShowingDetailAddressForm) {
                 DetailAddressMap<T>(isShowingAddressList: $isShowingAddressList,
-                                 isShowingPostSearchForm: $isShowingPostCodeSearch)
+                                    isShowingPostSearchForm: $isShowingPostCodeSearch,
+                                    completionHandler: completionHandler)
                     .environmentObject(viewModel)
             }
         }
@@ -45,7 +48,8 @@ struct PostCodeSearchView<T: PostSearchable>: View {
 }
 
 #Preview {
-    PostCodeSearchView<ReceivingViewModel>(isShowingPostCodeSearch: .constant(false), 
-                   isShowingAddressList: .constant(false))
-        .environmentObject(AppDI.shared.makeReceivingViewModel())
+    PostCodeSearchView<ReceivingViewModel>(isShowingPostCodeSearch: .constant(false),  isShowingAddressList: .constant(false)) {
+        //Something Todo
+    }
+    .environmentObject(AppDI.shared.makeReceivingViewModel())
 }

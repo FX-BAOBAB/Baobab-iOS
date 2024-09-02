@@ -34,12 +34,17 @@ struct MainTabView: View {
             case .notificationList:
                 NotificatioonList()
             case .userInfoList:
-                UserInfoList(viewModel: AppDI.shared.makeUserInfoViewModel(), isLoggedIn: $isLoggedIn)
+                UserInfoList(userInfo: $viewModel.userInfo, isLoggedIn: $isLoggedIn)
             }
             
             CustomTabbar(selectedTab: $selectedTab)
         }
         .navigationBarBackButtonHidden()
+        .onAppear {
+            if viewModel.userInfo == nil {
+                viewModel.fetchUserInfo()
+            }
+        }
         .onReceive(NotificationCenter.default.publisher(for: .refreshTokenExpiration)) {
             if let isTokenExpired = $0.userInfo?["isTokenExpired"] as? Bool,
                isTokenExpired == true {

@@ -9,15 +9,15 @@ import SwiftUI
 import SkeletonUI
 
 struct SimpleUserInfoView: View {
-    @EnvironmentObject private var viewModel: UserInfoViewModel
+    @Binding var userInfo: UserInfo?
     
     var body: some View {
         HStack(spacing: 5) {
-            Text(viewModel.userInfo?.name ?? "홍길동")
+            Text(userInfo?.name ?? "홍길동")
                 .font(.title3)
                 .bold()
                 .foregroundStyle(.black)
-                .skeleton(with: viewModel.userInfo == nil,
+                .skeleton(with: userInfo == nil,
                           size: CGSize(width: 50, height: 30),
                           shape: .rounded(.radius(5, style: .circular)))
             
@@ -28,15 +28,9 @@ struct SimpleUserInfoView: View {
                 .bold()
                 .foregroundStyle(.gray)
         }
-        .onAppear {
-            if viewModel.userInfo == nil {
-                viewModel.fetchUserInfo()
-            }
-        }
     }
 }
 
 #Preview {
-    SimpleUserInfoView()
-        .environmentObject(AppDI.shared.makeUserInfoViewModel())
+    SimpleUserInfoView(userInfo: .constant(UserInfo(id: 0, name: "홍길동", email: "gildong@baobab.com", role: "unkown")))
 }

@@ -12,6 +12,8 @@ struct DetailAddressMap<T: PostSearchable>: View {
     @EnvironmentObject private var viewModel: T
     @Binding var isShowingAddressList: Bool
     @Binding var isShowingPostSearchForm: Bool
+    
+    let completionHandler: () -> ()
 
     var body: some View {
         if let region = viewModel.searchedAddressRegion {
@@ -34,7 +36,8 @@ struct DetailAddressMap<T: PostSearchable>: View {
                     Spacer()
                     
                     DetailAddressForm<T>(isShowingPostSearchForm: $isShowingPostSearchForm,
-                                      isShowingAddressList: $isShowingAddressList)
+                                         isShowingAddressList: $isShowingAddressList,
+                                         completionHandler: completionHandler)
                     .environmentObject(viewModel)
                     .background(.white)
                     .frame(height: UIScreen.main.bounds.width * 0.7)
@@ -49,8 +52,9 @@ struct DetailAddressMap<T: PostSearchable>: View {
 
 #Preview {
     NavigationStack {
-        DetailAddressMap<ReceivingViewModel>(isShowingAddressList: .constant(false),
-                         isShowingPostSearchForm: .constant(false))
+        DetailAddressMap<ReceivingViewModel>(isShowingAddressList: .constant(false), isShowingPostSearchForm: .constant(false)) {
+            //Something Todo
+        }
         .environmentObject(AppDI.shared.makeReceivingViewModel())
     }
 }

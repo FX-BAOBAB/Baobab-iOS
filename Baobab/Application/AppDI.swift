@@ -94,15 +94,19 @@ struct AppDI {
         return viewModel
     }
     
+    @MainActor
     func makeMainViewModel() -> MainViewModel {
         //Data Layer
         let localTokenRepository = TokenRepositoryImpl()
+        let userRepository = UserRepositoryImpl(dataSource: dataSource)
         
         //Domain Layer
         let fetchTokenUseCase = FetchTokenUseCaseImpl(repository: localTokenRepository)
+        let fetchUserInfoUseCase = FetchuserInfoUserCaseImpl(repository: userRepository)
+        let usecase = SetupInitialViewUseCaseImpl(fetchTokenUseCase: fetchTokenUseCase, fetchUserInfoUseCase: fetchUserInfoUseCase)
         
         //Presentation Layer
-        let viewModel = MainViewModel(usecase: fetchTokenUseCase)
+        let viewModel = MainViewModel(usecase: usecase)
         
         return viewModel
     }
@@ -122,13 +126,17 @@ struct AppDI {
     
     func makeUserInfoViewModel() -> UserInfoViewModel {
         //Data Layer
-        let userRepository = UserRepositoryImpl(dataSource: dataSource)
-        
+        let repository = UserRepositoryImpl(dataSource: dataSource)
+//
         //Domain Layer
-        let usecase = FetchuserInfoUserCaseImpl(repository: userRepository)
-        
+        let fetchAddressUseCase = FetchAddressUseCaseImpl(repository: repository)
+        let fetchGeoCodeUseCase = FetchGeoCodeUseCaseImpl()
+        let addAddressUseCase = AddAddressUseCaseImpl(fetchAddressUseCase: fetchAddressUseCase, 
+                                                      fetchGeoCodeUseCase: fetchGeoCodeUseCase,
+                                                      repository: repository)
+//
         //Presentation Layer
-        let viewModel = UserInfoViewModel(usecase: usecase)
+        let viewModel = UserInfoViewModel(usecase: addAddressUseCase)
         
         return viewModel
     }
@@ -291,6 +299,15 @@ struct AppDI {
         
         //Presentation Layer
         let viewModel = ItemStatusConversionViewModel(usecase: usecase)
+        
+        return viewModel
+    }
+    
+    @MainActor
+    @available(iOS 17, *)
+    func makeObjectCaptureViewModel() -> ObjectCaptureViewModel {
+        //Presentation Layer
+        let viewModel = ObjectCaptureViewModel()
         
         return viewModel
     }

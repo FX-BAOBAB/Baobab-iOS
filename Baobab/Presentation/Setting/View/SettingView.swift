@@ -20,12 +20,28 @@ struct SettingView: View {
     
     var body: some View {
         List {
+            Section(header: Text("편리한 기능")) {
+                NavigationLink {
+                    LaboratoryList()
+                } label: {
+                    HStack {
+                        Image(systemName: "flask")
+                        
+                        Text("실험실")
+                    }
+                }
+            }
+            
             Section(header: Text("앱 정보")) {
                 NavigationLink {
-                    AppVersionView()
+                    AppInfoView()
                         .environmentObject(viewModel)
                 } label: {
-                    Text("앱 정보")
+                    HStack {
+                        Image(systemName: "info.circle")
+                        
+                        Text("앱 정보")
+                    }
                 }
             }
             
