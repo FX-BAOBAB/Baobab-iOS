@@ -190,6 +190,7 @@
 		8E8D13542C4E45270032FC96 /* UserInfoResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8D13532C4E45270032FC96 /* UserInfoResponseDTO.swift */; };
 		8E8E16722C88141400921B96 /* UsedItemDetailResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8E16712C88141400921B96 /* UsedItemDetailResponseDTO.swift */; };
 		8E8E16742C88146000921B96 /* UsedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8E16732C88146000921B96 /* UsedItem.swift */; };
+		8E8E16762C8830E700921B96 /* UsedTradeDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8E16752C8830E700921B96 /* UsedTradeDetail.swift */; };
 		8E8FEF852C6340A90024F65F /* SimpleReceiptCompletionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8FEF842C6340A90024F65F /* SimpleReceiptCompletionView.swift */; };
 		8E90635E2C293775008B5C52 /* CameraLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E90635D2C293775008B5C52 /* CameraLabel.swift */; };
 		8E9063612C29464A008B5C52 /* UIImage+Downscale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9063602C29464A008B5C52 /* UIImage+Downscale.swift */; };
@@ -492,6 +493,7 @@
 		8E8D13532C4E45270032FC96 /* UserInfoResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoResponseDTO.swift; sourceTree = "<group>"; };
 		8E8E16712C88141400921B96 /* UsedItemDetailResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsedItemDetailResponseDTO.swift; sourceTree = "<group>"; };
 		8E8E16732C88146000921B96 /* UsedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsedItem.swift; sourceTree = "<group>"; };
+		8E8E16752C8830E700921B96 /* UsedTradeDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsedTradeDetail.swift; sourceTree = "<group>"; };
 		8E8FEF842C6340A90024F65F /* SimpleReceiptCompletionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleReceiptCompletionView.swift; sourceTree = "<group>"; };
 		8E90635D2C293775008B5C52 /* CameraLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraLabel.swift; sourceTree = "<group>"; };
 		8E9063602C29464A008B5C52 /* UIImage+Downscale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Downscale.swift"; sourceTree = "<group>"; };
@@ -1257,6 +1259,7 @@
 			isa = PBXGroup;
 			children = (
 				8EA438032C60517800DFD934 /* UsedTradeList.swift */,
+				8E8E16752C8830E700921B96 /* UsedTradeDetail.swift */,
 				8E1B28D22C880E4A002923E3 /* UsedTradeListRow.swift */,
 			);
 			path = View;
@@ -1948,6 +1951,7 @@
 				8E8D13522C4E44700032FC96 /* FetchUserInfoUseCase.swift in Sources */,
 				8E604DBD2C6DF1D300D45CB1 /* CheckButtonIcon.swift in Sources */,
 				8E7900BF2C6B610A00BD4BBB /* MainViewModel.swift in Sources */,
+				8E8E16762C8830E700921B96 /* UsedTradeDetail.swift in Sources */,
 				5C735F4A2BF1B44500A36EC8 /* ItemInformationForm.swift in Sources */,
 				8EAB81752C4120F70052AD48 /* RequestError.swift in Sources */,
 				5C41ED932C080877001416D9 /* ReceivingViewModel+Address.swift in Sources */,
@@ -2210,7 +2214,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.4.1;
+				MARKETING_VERSION = 0.5.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.myCompany.Baobab;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -2250,7 +2254,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.4.1;
+				MARKETING_VERSION = 0.5.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.myCompany.Baobab;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

@@ -35,9 +35,14 @@ extension Item {
                  status: .receiving,
                  quantity: 1,
                  basicImages: [
-                    ImageData(imageURL: "https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/refurb-ipad-wifi-gold-2020?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=1626464533000",
+                    ImageData(imageURL: "https://cdn.pixabay.com/photo/2022/08/07/20/28/night-7371349_1280.jpg",
                               caption: "")
-                 ], defectImages: []),
+                 ], defectImages: [
+                    ImageData(imageURL: "https://cdn.pixabay.com/photo/2022/08/07/20/28/night-7371349_1280.jpg",
+                              caption: "테스트"),
+                    ImageData(imageURL: "https://cdn.pixabay.com/photo/2022/08/07/20/28/night-7371349_1280.jpg",
+                              caption: "테스트")
+                 ]),
             
             Item(id: 1,
                  name: "iPad",

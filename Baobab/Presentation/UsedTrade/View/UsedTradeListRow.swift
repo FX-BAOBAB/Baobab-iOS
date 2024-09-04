@@ -11,11 +11,10 @@ struct UsedTradeListRow: View {
     let usedItem: UsedItem
     
     var body: some View {
-        HStack(alignment: .top) {
+        HStack(alignment: .top, spacing: 10) {
             AsyncImage(url: URL(string: usedItem.item.basicImages[0].imageURL)) { image in
                 image
                     .resizable()
-                    .aspectRatio(contentMode: .fill)
                     .cornerRadius(10)
             } placeholder: {
                 Color.clear
@@ -28,7 +27,7 @@ struct UsedTradeListRow: View {
                 Text(usedItem.title)
                     .bold()
                 
-                Text(Date.toSimpleFormat(from: usedItem.postedAt, format: .full))
+                Text(Date.toSimpleFormat(from: usedItem.postedAt, format: .withoutTime))
                     .font(.subheadline)
                     .foregroundStyle(.gray)
                 

@@ -19,10 +19,10 @@ struct UsedTradeList: View {
             if let items = viewModel.items {
                 ForEach(items) { item in
                     NavigationLink {
-                        
+                        UsedTradeDetail(usedItem: item)
                     } label: {
                         UsedTradeListRow(usedItem: item)
-                            .padding([.top, .bottom])
+                            .padding([.top, .bottom], 10)
                     }
                     .listRowSeparator(.hidden)
                 }
