@@ -12,7 +12,7 @@ final class ItemRepositoryImpl: RemoteRepository, ItemRepository {
     func fetchItemList(for status: ItemStatus) -> AnyPublisher<[Item]?, any Error> {
         let apiEndPoint = Bundle.main.warehouseURL + "/goods?status=" + status.rawValue
         
-        return dataSource.sendGetRequest(to: apiEndPoint, resultType: ItemStatusResponseDTO.self)
+        return dataSource.sendGetRequest(to: apiEndPoint, resultType: ItemResponseDTO.self)
             .map { dto in
                 dto.body?.map {
                     Item(id: $0.id,

@@ -279,7 +279,7 @@ struct AppDI {
     
     func makeUsedConversionViewModel() -> UsedItemRegistrationViewModel {
         //Data Layer
-        let repository = UsedItemRegistrationRepositoryImpl(dataSource: dataSource)
+        let repository = UsedItemRepositoryImpl(dataSource: dataSource)
         
         //Domain Layer
         let usecase = RegisterAsUsedItemUseCaseImpl(repository: repository)
@@ -308,6 +308,19 @@ struct AppDI {
     func makeObjectCaptureViewModel() -> ObjectCaptureViewModel {
         //Presentation Layer
         let viewModel = ObjectCaptureViewModel()
+        
+        return viewModel
+    }
+    
+    func makeUsedTradeViewModel() -> UsedTradeViewModel {
+        //Data Layer
+        let repository = UsedItemRepositoryImpl(dataSource: dataSource)
+        
+        //Domain Layer
+        let usecase = FetchUsedItemUseCaseImpl(repository: repository)
+        
+        //Presentation Layer
+        let viewModel = UsedTradeViewModel(usecase: usecase)
         
         return viewModel
     }

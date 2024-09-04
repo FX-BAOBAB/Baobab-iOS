@@ -30,7 +30,7 @@ struct MainTabView: View {
             case .home:
                 MainView(selectedTab: $selectedTab)
             case .usedItemTransaction:
-                UsedItemList()
+                UsedTradeList(viewModel: AppDI.shared.makeUsedTradeViewModel())
             case .notificationList:
                 NotificatioonList()
             case .userInfoList:

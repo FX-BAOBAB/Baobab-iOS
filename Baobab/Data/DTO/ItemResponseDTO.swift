@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - ItemStatusResponseDTO
-struct ItemStatusResponseDTO: Decodable {
+struct ItemResponseDTO: Decodable {
     let result: TaskResult
     let body: [Goods]?
 }

@@ -12,9 +12,9 @@ protocol RegisterAsUsedItemUseCase {
 }
 
 final class RegisterAsUsedItemUseCaseImpl: RegisterAsUsedItemUseCase {
-    private let repository: UsedItemRegistrationRepository
+    private let repository: UsedItemRepository
     
-    init(repository: UsedItemRegistrationRepository) {
+    init(repository: UsedItemRepository) {
         self.repository = repository
     }
     
