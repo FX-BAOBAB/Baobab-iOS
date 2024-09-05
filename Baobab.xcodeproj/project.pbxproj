@@ -286,6 +286,7 @@
 		8EF9FA762C71E7F30005840E /* ShippingApplicationViewModel+Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF9FA752C71E7F30005840E /* ShippingApplicationViewModel+Address.swift */; };
 		8EF9FA782C71E82A0005840E /* ShippingApplicationViewModel+Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF9FA772C71E82A0005840E /* ShippingApplicationViewModel+Region.swift */; };
 		8EF9FA7A2C71E9380005840E /* ShippingApplicationViewModel+Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF9FA792C71E9380005840E /* ShippingApplicationViewModel+Items.swift */; };
+		8EFC59112C892E8F00BE0561 /* DefectFullScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFC59102C892E8F00BE0561 /* DefectFullScreenView.swift */; };
 		97ECF5E28D0092D2A4C29B18 /* Pods_BaobabUnitTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35283E8736D3F639C640D3BA /* Pods_BaobabUnitTest.framework */; };
 /* End PBXBuildFile section */
 
@@ -592,6 +593,7 @@
 		8EF9FA752C71E7F30005840E /* ShippingApplicationViewModel+Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ShippingApplicationViewModel+Address.swift"; sourceTree = "<group>"; };
 		8EF9FA772C71E82A0005840E /* ShippingApplicationViewModel+Region.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ShippingApplicationViewModel+Region.swift"; sourceTree = "<group>"; };
 		8EF9FA792C71E9380005840E /* ShippingApplicationViewModel+Items.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ShippingApplicationViewModel+Items.swift"; sourceTree = "<group>"; };
+		8EFC59102C892E8F00BE0561 /* DefectFullScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefectFullScreenView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1357,6 +1359,7 @@
 				8EBFCE432C532C9A00A2AB4F /* ItemDetailView.swift */,
 				8EBFCE472C5366A000A2AB4F /* StatusLabel.swift */,
 				8EBFCE492C537F5300A2AB4F /* DefectRow.swift */,
+				8EFC59102C892E8F00BE0561 /* DefectFullScreenView.swift */,
 				8EA152822C6997F80011FDB3 /* EmptyItemView.swift */,
 				8EBED9982C76C50C00ADB5BB /* StoredItemDetailView.swift */,
 			);
@@ -1981,6 +1984,7 @@
 				8EBFCE482C5366A000A2AB4F /* StatusLabel.swift in Sources */,
 				5CCFBF6A2BF2E18200322D0D /* ImageRegistrationForm.swift in Sources */,
 				8EA152852C69E8470011FDB3 /* RemoteTokenRepositoryImpl.swift in Sources */,
+				8EFC59112C892E8F00BE0561 /* DefectFullScreenView.swift in Sources */,
 				8EB0C2622C32456500FEE8D0 /* LoginForm.swift in Sources */,
 				8E9063632C2950EF008B5C52 /* UIImage+Crop.swift in Sources */,
 				8E8D134A2C4E40CD0032FC96 /* UserInfoList.swift in Sources */,

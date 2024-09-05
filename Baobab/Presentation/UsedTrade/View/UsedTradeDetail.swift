@@ -35,6 +35,9 @@ struct UsedTradeDetail: View {
                            height: UIScreen.main.bounds.width)
                     
                     MainText(usedItem: usedItem)
+                    
+                    Color.clear
+                        .frame(height: 80)
                 }
                 
                 HStack {
