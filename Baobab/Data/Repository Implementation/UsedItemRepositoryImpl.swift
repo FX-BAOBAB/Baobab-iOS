@@ -26,10 +26,10 @@ final class UsedItemRepositoryImpl: RemoteRepository, UsedItemRepository {
     func fetchAllUsedItems() -> AnyPublisher<[Int]?, any Error> {
         let apiEndPoint = Bundle.main.warehouseOpenURL + "/usedgoods"
         
-        return dataSource.sendGetRequest(to: apiEndPoint, resultType: ItemResponseDTO.self)
+        return dataSource.sendGetRequest(to: apiEndPoint, resultType: UsedItemsResponseDTO.self)
             .map { dto in
                 dto.body?.map {
-                    return $0.id
+                    return $0.usedGoodsID
                 }
             }
             .eraseToAnyPublisher()

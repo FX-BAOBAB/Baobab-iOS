@@ -15,25 +15,33 @@ struct UsedTradeList: View {
     }
     
     var body: some View {
-        List {
-            if let items = viewModel.items {
-                ForEach(items) { item in
-                    NavigationLink {
-                        UsedTradeDetail(usedItem: item)
-                    } label: {
-                        UsedTradeListRow(usedItem: item)
-                            .padding([.top, .bottom], 10)
+        Group {
+            if viewModel.items?.isEmpty == true {
+                EmptyItemView()
+            } else if let items = viewModel.items {
+                List {
+                    ForEach(items) { item in
+                        NavigationLink {
+                            UsedTradeDetail(usedItem: item)
+                        } label: {
+                            UsedTradeListRow(usedItem: item)
+                                .padding([.top, .bottom], 10)
+                        }
+                        .listRowSeparator(.hidden)
                     }
-                    .listRowSeparator(.hidden)
                 }
+                .listStyle(.plain)
+                .refreshable {
+                    
+                }
+            } else {
+                UsedTradeSkeletonList()
+                    .onAppear {
+                        if viewModel.items == nil {
+                            viewModel.fetchUsedItems()
+                        }
+                    }
             }
-        }
-        .listStyle(.plain)
-        .refreshable {
-            
-        }
-        .onAppear {
-            viewModel.items = UsedItem.sampleData
         }
         .toolbar {
             ToolbarItem(placement: .topBarLeading) {
