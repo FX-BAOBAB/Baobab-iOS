@@ -129,6 +129,14 @@ struct MainText: View {
             Divider()
                 .padding([.leading, .trailing])
             
+            Section(header: Text("물품 정보").bold().padding([.leading, .top])) {
+                ItemInfoView(item: usedItem.item)
+                    .padding()
+            }
+            
+            Divider()
+                .padding([.leading, .trailing])
+            
             Section(header: Text("물품 결함").bold().padding([.leading, .top])) {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
@@ -140,6 +148,33 @@ struct MainText: View {
                 }
             }
             .frame(maxWidth: .infinity, alignment: .leading)
+        }
+    }
+}
+
+struct ItemInfoView: View {
+    let item: Item
+    
+    var body: some View {
+        HStack(alignment: .top, spacing: 30) {
+            VStack(alignment: .leading, spacing: 10) {
+                Text("물품 이름")
+                
+                Text("카테고리")
+                
+                Text("수량")
+            }
+            .font(.subheadline)
+            .foregroundStyle(.gray)
+            
+            VStack(alignment: .leading, spacing: 10) {
+                Text(item.name)
+                
+                Text(item.category.toKorCategory())
+                
+                Text("\(item.quantity)개")
+            }
+            .font(.subheadline)
         }
     }
 }

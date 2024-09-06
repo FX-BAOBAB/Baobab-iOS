@@ -38,6 +38,7 @@ struct DefectFullScreenView: View {
                     .padding()
             }
         }
+        .toolbarBackground(.hidden, for: .navigationBar)
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
                 Button {
