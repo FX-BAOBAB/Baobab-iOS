@@ -30,7 +30,7 @@ struct UsedTradeList: View {
                     .onAppear {
                         if case .some(let value) = viewModel.items?.count,
                            value > 9 && item.id == viewModel.items?.last?.id,
-                           !viewModel.isShowingIndicator {
+                           !viewModel.isLoading {
                             Task {
                                 await viewModel.fetchNextUsedItems()
                             }
@@ -41,7 +41,7 @@ struct UsedTradeList: View {
                 HStack {
                     Spacer()
                     
-                    if viewModel.isShowingIndicator {
+                    if viewModel.isLoading {
                         ProgressView()
                     }
                     

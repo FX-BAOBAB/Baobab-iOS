@@ -10,7 +10,7 @@ import Foundation
 
 final class UsedTradeViewModel: ObservableObject {
     @Published var items: [UsedItem]?
-    @Published var isShowingIndicator: Bool = false
+    @Published var isLoading: Bool = false
     
     private let usecase: FetchUsedItemUseCase
     
@@ -37,13 +37,17 @@ final class UsedTradeViewModel: ObservableObject {
         }
         
         do {
+            isLoading.toggle()
+            
             for try await items in usecase.execute(after: lastItem.id).values {
                 DispatchQueue.main.async {
                     print("The request to fetch the used item has been completed")
+                    self.isLoading.toggle()
                     self.items?.append(contentsOf: items)
                 }
             }
         } catch {
+            self.isLoading.toggle()
             print("UsedTradeViewModel.fetchNextUsedItem() error :", error)
         }
     }
