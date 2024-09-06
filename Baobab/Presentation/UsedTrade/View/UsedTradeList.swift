@@ -31,13 +31,13 @@ struct UsedTradeList: View {
             }
             .listStyle(.plain)
             .refreshable {
-                
+                await viewModel.fetchUsedItems()
             }
         } else {
             UsedTradeSkeletonList()
-                .onAppear {
+                .task {
                     if viewModel.items == nil {
-                        viewModel.fetchUsedItems()
+                        await viewModel.fetchUsedItems()
                     }
                 }
         }

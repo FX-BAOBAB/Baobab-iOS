@@ -6,6 +6,7 @@
 //
 
 import Combine
+import Foundation
 
 final class UsedTradeViewModel: ObservableObject {
     @Published var items: [UsedItem]?
@@ -17,18 +18,16 @@ final class UsedTradeViewModel: ObservableObject {
         self.usecase = usecase
     }
     
-    func fetchUsedItems() {
-        usecase.execute()
-            .sink(receiveCompletion: { completion in
-                switch completion {
-                case .finished:
+    func fetchUsedItems() async {
+        do {
+            for try await items in usecase.execute().values {
+                DispatchQueue.main.async {
                     print("The request to fetch the used item has been completed")
-                case .failure(let error):
-                    print("UsedTradeViewModel.fetchUsedItem() error :", error)
+                    self.items = items
                 }
-            }, receiveValue: { [weak self] in
-                self?.items = $0    // 값이 nil이면 DB에 등록된 중고 물품이 없음
-            })
-            .store(in: &cancellables)
+            }
+        } catch {
+            print("UsedTradeViewModel.fetchUsedItem() error :", error)
+        }
     }
 }
