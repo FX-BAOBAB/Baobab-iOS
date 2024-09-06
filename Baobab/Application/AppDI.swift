@@ -324,4 +324,17 @@ struct AppDI {
         
         return viewModel
     }
+    
+    func makeUsedTradeSearchViewModel() -> UsedTradeSearchViewModel {
+        //Data Layer
+        let repository = UsedItemRepositoryImpl(dataSource: dataSource)
+        
+        //Domain Layer
+        let usecase = FetchUsedItemUseCaseImpl(repository: repository)
+        
+        //Presentation Layer
+        let viewModel = UsedTradeSearchViewModel(usecase: usecase)
+        
+        return viewModel
+    }
 }

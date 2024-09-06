@@ -18,6 +18,7 @@ struct MainTabView: View {
     @ObservedObject private var viewModel: MainViewModel
     @State private var selectedTab: Tab = .home
     @State private var isShowingUserInfoView: Bool = false
+    @State private var isShowingUsedItemSearch: Bool = false
     @Binding var isLoggedIn: Bool
     
     init(viewModel: MainViewModel, isLoggedIn: Binding<Bool>) {
@@ -103,6 +104,12 @@ struct MainTabView: View {
                              isShowingUserInfoView: $isShowingUserInfoView)
             }
         }
+        .fullScreenCover(isPresented: $isShowingUsedItemSearch) {
+            NavigationStack {
+                UsedTradeSearchView(viewModel: AppDI.shared.makeUsedTradeSearchViewModel(),
+                                    isShowingUsedItemSearch: $isShowingUsedItemSearch)
+            }
+        }
         .toolbar {
             switch selectedTab {
             case .home:
@@ -129,7 +136,7 @@ struct MainTabView: View {
                 
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
-                        
+                        isShowingUsedItemSearch.toggle()
                     } label: {
                         Image(systemName: "magnifyingglass")
                             .foregroundStyle(.black)

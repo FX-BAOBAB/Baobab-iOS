@@ -228,6 +228,9 @@
 		8EB0C2642C32457200FEE8D0 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB0C2632C32457200FEE8D0 /* LoginViewModel.swift */; };
 		8EB0C2662C3248E300FEE8D0 /* LoginInputBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB0C2652C3248E300FEE8D0 /* LoginInputBox.swift */; };
 		8EB0C2682C324DA300FEE8D0 /* AutoLogInButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB0C2672C324DA300FEE8D0 /* AutoLogInButton.swift */; };
+		8EB878EA2C8AE49B00C9A334 /* UsedTradeSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB878E92C8AE49B00C9A334 /* UsedTradeSearchView.swift */; };
+		8EB878EC2C8AE4F100C9A334 /* SearchField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB878EB2C8AE4F100C9A334 /* SearchField.swift */; };
+		8EB878EE2C8AE52B00C9A334 /* UsedTradeSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB878ED2C8AE52B00C9A334 /* UsedTradeSearchViewModel.swift */; };
 		8EBDF5852C4F3DD700927AC5 /* UserInfoListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EBDF5842C4F3DD700927AC5 /* UserInfoListRow.swift */; };
 		8EBED9952C76B4BE00ADB5BB /* RequestSuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EBED9942C76B4BE00ADB5BB /* RequestSuccessView.swift */; };
 		8EBED9972C76B4CB00ADB5BB /* RequestFailureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EBED9962C76B4CB00ADB5BB /* RequestFailureView.swift */; };
@@ -536,6 +539,9 @@
 		8EB0C2632C32457200FEE8D0 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		8EB0C2652C3248E300FEE8D0 /* LoginInputBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInputBox.swift; sourceTree = "<group>"; };
 		8EB0C2672C324DA300FEE8D0 /* AutoLogInButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLogInButton.swift; sourceTree = "<group>"; };
+		8EB878E92C8AE49B00C9A334 /* UsedTradeSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsedTradeSearchView.swift; sourceTree = "<group>"; };
+		8EB878EB2C8AE4F100C9A334 /* SearchField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchField.swift; sourceTree = "<group>"; };
+		8EB878ED2C8AE52B00C9A334 /* UsedTradeSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsedTradeSearchViewModel.swift; sourceTree = "<group>"; };
 		8EBDF5842C4F3DD700927AC5 /* UserInfoListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoListRow.swift; sourceTree = "<group>"; };
 		8EBED9942C76B4BE00ADB5BB /* RequestSuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestSuccessView.swift; sourceTree = "<group>"; };
 		8EBED9962C76B4CB00ADB5BB /* RequestFailureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestFailureView.swift; sourceTree = "<group>"; };
@@ -1009,6 +1015,7 @@
 			isa = PBXGroup;
 			children = (
 				8E1B28D02C87EB2D002923E3 /* UsedTradeViewModel.swift */,
+				8EB878ED2C8AE52B00C9A334 /* UsedTradeSearchViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1270,6 +1277,8 @@
 				8EFC59162C8966CB00BE0561 /* UsedTradeSkeletonListRow.swift */,
 				8E8E16752C8830E700921B96 /* UsedTradeDetail.swift */,
 				8E1B28D22C880E4A002923E3 /* UsedTradeListRow.swift */,
+				8EB878E92C8AE49B00C9A334 /* UsedTradeSearchView.swift */,
+				8EB878EB2C8AE4F100C9A334 /* SearchField.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1810,6 +1819,7 @@
 				8EAB81732C4108380052AD48 /* AccessTokenRefreshData.swift in Sources */,
 				8E49F7222C784126006EC259 /* ItemStatusConversionViewModel.swift in Sources */,
 				8EBF63342C79EA24003D36D7 /* ConfirmationButtonLabel.swift in Sources */,
+				8EB878EC2C8AE4F100C9A334 /* SearchField.swift in Sources */,
 				5CD8A2072C0341B900EE5C09 /* StoreItem.swift in Sources */,
 				8ECCBB112C2E4D5700DD0A1B /* SignUpViewModel+InputState.swift in Sources */,
 				5C994A522BF58A880013672B /* DefectRegistrationForm.swift in Sources */,
@@ -1824,6 +1834,8 @@
 				8EE198A82C7F45400000954C /* NoAvailableView.swift in Sources */,
 				8E7900BB2C6ADEA000BD4BBB /* LaunchScreenView.swift in Sources */,
 				8EF66E7E2C72E10600E6CEA2 /* ShippingApplicationCompletionView.swift in Sources */,
+				8EB878EA2C8AE49B00C9A334 /* UsedTradeSearchView.swift in Sources */,
+				8EB878EE2C8AE52B00C9A334 /* UsedTradeSearchViewModel.swift in Sources */,
 				8E569F502C75C782005B9BCB /* UsedItemRegistrationViewModel.swift in Sources */,
 				5C735F4C2BF1BAB200A36EC8 /* EstimatedPrice.swift in Sources */,
 				8E7BC8D62C3E6EEB00CB708F /* FetchTokenUseCase.swift in Sources */,

@@ -21,6 +21,12 @@ protocol UsedItemRepository {
     func fetchAllUsedItems() -> AnyPublisher<[Int]?, any Error>
     
     /**
+     중고 물품 검색 함수
+     > 키워드를 통해 중고 물품 리스트를 가져오는 함수
+     */
+    func fetchSearchedUsedItems(keyword: String) -> AnyPublisher<[Int]?, any Error>
+    
+    /**
      중고 물품 아이디로 상세 조회 함수
      >  중고 물품 아이디로 물품 정보 상세 조회하는 함수
      */
