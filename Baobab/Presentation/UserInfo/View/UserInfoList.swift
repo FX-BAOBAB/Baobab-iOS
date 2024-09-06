@@ -9,7 +9,6 @@ import SwiftUI
 
 struct UserInfoList: View {
     @State private var isShowingUserInfoView: Bool = false
-    @Binding var userInfo: UserInfo?
     @Binding var isLoggedIn: Bool
     
     var body: some View {
@@ -108,37 +107,11 @@ struct UserInfoList: View {
             .listSectionSeparator(.hidden)
         }
         .listStyle(.plain)
-        .toolbar {
-            ToolbarItem(placement: .topBarLeading) {
-                Button {
-                    isShowingUserInfoView.toggle()
-                } label: {
-                    SimpleUserInfoView(userInfo: $userInfo)
-                }
-            }
-            
-            ToolbarItem(placement: .topBarTrailing) {
-                NavigationLink(destination: {
-                    SettingView(viewModel: AppDI.shared.makeSettingViewModel(),
-                                isLoggedIn: $isLoggedIn)
-                }) {
-                    Image(systemName: "gearshape.fill")
-                        .foregroundStyle(.gray)
-                }
-            }
-        }
-        .fullScreenCover(isPresented: $isShowingUserInfoView) {
-            NavigationStack {
-                UserInfoView(viewModel: AppDI.shared.makeUserInfoViewModel(), 
-                             userInfo: $userInfo,
-                             isShowingUserInfoView: $isShowingUserInfoView)
-            }
-        }
     }
 }
 
 #Preview {
     NavigationStack {
-        UserInfoList(userInfo: .constant(UserInfo(id: 0, name: "홍길동", email: "gildong@baobab.com", role: "unkown")), isLoggedIn: .constant(true))
+        UserInfoList(isLoggedIn: .constant(true))
     }
 }

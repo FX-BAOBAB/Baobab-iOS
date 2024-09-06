@@ -103,6 +103,7 @@ struct ReceivingIntroView: View {
         }
         .padding()
         .background(Color(red: 241 / 255, green: 243 / 255, blue: 245 / 255))
+        .toolbarBackground(.hidden, for: .navigationBar)
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
                 Button(action: {

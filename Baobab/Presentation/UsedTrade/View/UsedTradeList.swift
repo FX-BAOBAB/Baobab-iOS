@@ -15,40 +15,31 @@ struct UsedTradeList: View {
     }
     
     var body: some View {
-        Group {
-            if viewModel.items?.isEmpty == true {
-                EmptyItemView()
-            } else if let items = viewModel.items {
-                List {
-                    ForEach(items) { item in
-                        NavigationLink {
-                            UsedTradeDetail(usedItem: item)
-                        } label: {
-                            UsedTradeListRow(usedItem: item)
-                                .padding([.top, .bottom], 10)
-                        }
-                        .listRowSeparator(.hidden)
+        if viewModel.items?.isEmpty == true {
+            EmptyItemView()
+        } else if let items = viewModel.items {
+            List {
+                ForEach(items) { item in
+                    NavigationLink {
+                        UsedTradeDetail(usedItem: item)
+                    } label: {
+                        UsedTradeListRow(usedItem: item)
+                            .padding([.top, .bottom], 10)
+                    }
+                    .listRowSeparator(.hidden)
+                }
+            }
+            .listStyle(.plain)
+            .refreshable {
+                
+            }
+        } else {
+            UsedTradeSkeletonList()
+                .onAppear {
+                    if viewModel.items == nil {
+                        viewModel.fetchUsedItems()
                     }
                 }
-                .listStyle(.plain)
-                .refreshable {
-                    
-                }
-            } else {
-                UsedTradeSkeletonList()
-                    .onAppear {
-                        if viewModel.items == nil {
-                            viewModel.fetchUsedItems()
-                        }
-                    }
-            }
-        }
-        .toolbar {
-            ToolbarItem(placement: .topBarLeading) {
-                Text("중고장터")
-                    .bold()
-                    .font(.title3)
-            }
         }
     }
 }

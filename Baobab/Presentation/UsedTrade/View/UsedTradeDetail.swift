@@ -90,6 +90,7 @@ struct UsedTradeDetail: View {
         }
         .edgesIgnoringSafeArea(.top)
         .navigationBarBackButtonHidden()
+        .toolbarBackground(.hidden, for: .navigationBar)
         .toolbar {
             ToolbarItem(placement: .topBarLeading) {
                 Button {

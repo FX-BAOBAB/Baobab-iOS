@@ -211,7 +211,6 @@
 		8EA438002C604F7700DFD934 /* NotificatioonList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA437FF2C604F7700DFD934 /* NotificatioonList.swift */; };
 		8EA438042C60517800DFD934 /* UsedTradeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA438032C60517800DFD934 /* UsedTradeList.swift */; };
 		8EA4380C2C605DAE00DFD934 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA4380B2C605DAE00DFD934 /* MainView.swift */; };
-		8EA4380E2C6061F000DFD934 /* CustomTabbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA4380D2C6061F000DFD934 /* CustomTabbar.swift */; };
 		8EA438122C60903B00DFD934 /* MainNavigationBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA438112C60903B00DFD934 /* MainNavigationBlock.swift */; };
 		8EA438142C60B74000DFD934 /* ReceivingIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA438132C60B74000DFD934 /* ReceivingIntroView.swift */; };
 		8EAA87F82C44A743000386AD /* ReceivingRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAA87F72C44A743000386AD /* ReceivingRepository.swift */; };
@@ -520,7 +519,6 @@
 		8EA437FF2C604F7700DFD934 /* NotificatioonList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificatioonList.swift; sourceTree = "<group>"; };
 		8EA438032C60517800DFD934 /* UsedTradeList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsedTradeList.swift; sourceTree = "<group>"; };
 		8EA4380B2C605DAE00DFD934 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		8EA4380D2C6061F000DFD934 /* CustomTabbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabbar.swift; sourceTree = "<group>"; };
 		8EA438112C60903B00DFD934 /* MainNavigationBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationBlock.swift; sourceTree = "<group>"; };
 		8EA438132C60B74000DFD934 /* ReceivingIntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceivingIntroView.swift; sourceTree = "<group>"; };
 		8EAA87F72C44A743000386AD /* ReceivingRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceivingRepository.swift; sourceTree = "<group>"; };
@@ -1533,7 +1531,6 @@
 			children = (
 				8E8D13442C4E3CC10032FC96 /* MainTabView.swift */,
 				8EA4380B2C605DAE00DFD934 /* MainView.swift */,
-				8EA4380D2C6061F000DFD934 /* CustomTabbar.swift */,
 				8EA438112C60903B00DFD934 /* MainNavigationBlock.swift */,
 			);
 			path = View;
@@ -1899,7 +1896,6 @@
 				8E74FF3A2C585E97005ED275 /* ReceivingFormDetail.swift in Sources */,
 				8E7A9F152C5B187D00969F1A /* ProcessStatusBar.swift in Sources */,
 				8E7B6C2B2C51CC1500222721 /* ItemResponseDTO.swift in Sources */,
-				8EA4380E2C6061F000DFD934 /* CustomTabbar.swift in Sources */,
 				5C405EEC2BF72ADB006EE6F1 /* ReceivingViewModel+Defect.swift in Sources */,
 				8ECCBB152C2E846D00DD0A1B /* AddressRegistrationForm.swift in Sources */,
 				8E83F7672C762F6700AD5F01 /* RegisterAsUsedItemUseCase.swift in Sources */,

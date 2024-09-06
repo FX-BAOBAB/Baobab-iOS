@@ -10,7 +10,6 @@ import SwiftUI
 struct MainView: View {
     @State private var isShowingReceivingForm: Bool = false
     @State private var isShowingShippingForm: Bool = false
-    @Binding var selectedTab: Tab
     
     var body: some View {
         ScrollView {
@@ -33,15 +32,7 @@ struct MainView: View {
                                         tintColor: Color(red: 255 / 255, green: 244 / 255, blue: 230 / 255))
                 }
             }
-            .padding(.top)
-        }
-        .padding([.leading, .trailing])
-        .toolbar {
-            ToolbarItem(placement: .topBarLeading) {
-                Text("Baobab")
-                    .bold()
-                    .font(.title3)
-            }
+            .padding()
         }
         .fullScreenCover(isPresented: $isShowingReceivingForm) {
             NavigationStack {
@@ -59,5 +50,5 @@ struct MainView: View {
 }
 
 #Preview {
-    MainView(selectedTab: .constant(.home))
+    MainView()
 }
