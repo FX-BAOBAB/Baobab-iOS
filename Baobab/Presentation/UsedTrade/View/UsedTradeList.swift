@@ -27,7 +27,30 @@ struct UsedTradeList: View {
                             .padding([.top, .bottom], 10)
                     }
                     .listRowSeparator(.hidden)
+                    .onAppear {
+                        if case .some(let value) = viewModel.items?.count,
+                           value > 9 && item.id == viewModel.items?.last?.id,
+                           !viewModel.isShowingIndicator {
+                            Task {
+                                await viewModel.fetchNextUsedItems()
+                            }
+                        }
+                    }
                 }
+                
+                HStack {
+                    Spacer()
+                    
+                    if viewModel.isShowingIndicator {
+                        ProgressView()
+                    }
+                    
+                    Text(" ")
+                    
+                    Spacer()
+                }
+                .listRowSeparator(.hidden)
+                .padding()
             }
             .listStyle(.plain)
             .refreshable {
