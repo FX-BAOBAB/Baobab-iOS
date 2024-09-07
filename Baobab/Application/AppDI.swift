@@ -330,7 +330,7 @@ struct AppDI {
         let repository = UsedItemRepositoryImpl(dataSource: dataSource)
         
         //Domain Layer
-        let usecase = FetchUsedItemUseCaseImpl(repository: repository)
+        let usecase = FetchSearchedUsedItemsUseCaseImpl(repository: repository)
         
         //Presentation Layer
         let viewModel = UsedItemSearchViewModel(usecase: usecase)

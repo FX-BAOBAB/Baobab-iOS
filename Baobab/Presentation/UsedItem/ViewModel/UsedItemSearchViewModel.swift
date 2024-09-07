@@ -12,10 +12,10 @@ final class UsedItemSearchViewModel: ObservableObject {
     @Published var keyword: String = ""
     @Published var searchResult: [UsedItem]?
     
-    private let usecase: FetchUsedItemUseCase
+    private let usecase: FetchSearchedUsedItemsUseCase
     private var cancellables = Set<AnyCancellable>()
     
-    init(usecase: FetchUsedItemUseCase) {
+    init(usecase: FetchSearchedUsedItemsUseCase) {
         self.usecase = usecase
     }
     
@@ -32,7 +32,7 @@ final class UsedItemSearchViewModel: ObservableObject {
     }
     
     func search(_ keyword: String) {
-        usecase.executeForSearch(keyword: keyword)
+        usecase.execute(keyword: keyword)
             .sink(receiveCompletion: { completion in
                 switch completion {
                 case .finished:
