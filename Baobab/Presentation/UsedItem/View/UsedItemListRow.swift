@@ -1,5 +1,5 @@
 //
-//  UsedTradeListRow.swift
+//  UsedItemListRow.swift
 //  Baobab
 //
 //  Created by 이정훈 on 9/4/24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct UsedTradeListRow: View {
+struct UsedItemListRow: View {
     let usedItem: UsedItem
     
     var body: some View {
@@ -48,6 +48,6 @@ struct UsedTradeListRow: View {
 
 #if DEBUG
 #Preview {
-    UsedTradeListRow(usedItem: UsedItem.sampleData[0])
+    UsedItemListRow(usedItem: UsedItem.sampleData[0])
 }
 #endif

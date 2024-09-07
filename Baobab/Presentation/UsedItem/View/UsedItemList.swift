@@ -1,5 +1,5 @@
 //
-//  UsedTradeList.swift
+//  UsedItemList.swift
 //  Baobab
 //
 //  Created by 이정훈 on 8/5/24.
@@ -7,10 +7,10 @@
 
 import SwiftUI
 
-struct UsedTradeList: View {
-    @StateObject private var viewModel: UsedTradeViewModel
+struct UsedItemList: View {
+    @StateObject private var viewModel: UsedItemListViewModel
     
-    init(viewModel: UsedTradeViewModel) {
+    init(viewModel: UsedItemListViewModel) {
         _viewModel = StateObject(wrappedValue: viewModel)
     }
     
@@ -21,9 +21,10 @@ struct UsedTradeList: View {
             List {
                 ForEach(items) { item in
                     NavigationLink {
-                        UsedTradeDetail(usedItem: item)
+                        UsedItemDetail(viewModel: AppDI.shared.makeUsedItemViewModel(),
+                                        usedItem: item)
                     } label: {
-                        UsedTradeListRow(usedItem: item)
+                        UsedItemListRow(usedItem: item)
                             .padding([.top, .bottom], 10)
                     }
                     .listRowSeparator(.hidden)
@@ -57,7 +58,7 @@ struct UsedTradeList: View {
                 await viewModel.fetchUsedItems()
             }
         } else {
-            UsedTradeSkeletonList()
+            UsedItemSkeletonList()
                 .task {
                     if viewModel.items == nil {
                         await viewModel.fetchUsedItems()
@@ -69,6 +70,6 @@ struct UsedTradeList: View {
 
 #Preview {
     NavigationStack {
-        UsedTradeList(viewModel: AppDI.shared.makeUsedTradeViewModel())
+        UsedItemList(viewModel: AppDI.shared.makeUsedTradeViewModel())
     }
 }

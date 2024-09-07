@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SearchField: View {
-    @EnvironmentObject private var viewModel: UsedTradeSearchViewModel
+    @EnvironmentObject private var viewModel: UsedItemSearchViewModel
     
     var body: some View {
         RoundedRectangle(cornerRadius: 10)

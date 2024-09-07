@@ -1,5 +1,5 @@
 //
-//  UsedTradeSkeletonList.swift
+//  UsedItemSkeletonList.swift
 //  Baobab
 //
 //  Created by 이정훈 on 9/5/24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct UsedTradeSkeletonList: View {
+struct UsedItemSkeletonList: View {
     var body: some View {
         List {
             ForEach(0..<10, id: \.self) { _ in
@@ -44,5 +44,5 @@ struct UsedTradeSkeletonList: View {
 }
 
 #Preview {
-    UsedTradeSkeletonList()
+    UsedItemSkeletonList()
 }

@@ -74,6 +74,27 @@ final class UsedItemRepositoryImpl: RemoteRepository, UsedItemRepository {
             .eraseToAnyPublisher()
     }
     
+    func buyUsedItem(id: Int) -> AnyPublisher<Bool, any Error> {
+        //타입 캐스팅을 하지 않으면 protocol extension에 기본 정의된 함수가 호출됨
+        guard let dataSource = dataSource as? RemoteDataSourceImpl else {
+            return Just(false)
+                .setFailureType(to: Error.self)
+                .eraseToAnyPublisher()
+        }
+        
+        let apiEndPoint = Bundle.main.warehouseURL + "/order/\(id)"
+        
+        return dataSource.sendPostRequest(to: apiEndPoint, resultType: PurchaseUsedItemsResponseDTO.self)
+            .map {
+                if $0.result.resultCode == 200 {
+                    return true
+                }
+                
+                return false
+            }
+            .eraseToAnyPublisher()
+    }
+    
     private func toImageData(_ image: [ImageMetaData]) -> [ImageData] {
         return image.map {
             ImageData(imageURL: $0.imageURL, caption: $0.caption)

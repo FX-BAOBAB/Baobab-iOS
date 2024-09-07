@@ -1,5 +1,5 @@
 //
-//  UsedTradeSearchView.swift
+//  UsedItemSearchView.swift
 //  Baobab
 //
 //  Created by 이정훈 on 9/6/24.
@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-struct UsedTradeSearchView: View {
-    @StateObject private var viewModel: UsedTradeSearchViewModel
+struct UsedItemSearchView: View {
+    @StateObject private var viewModel: UsedItemSearchViewModel
     @Binding var isShowingUsedItemSearch: Bool
     
-    init(viewModel: UsedTradeSearchViewModel, isShowingUsedItemSearch: Binding<Bool>) {
+    init(viewModel: UsedItemSearchViewModel, isShowingUsedItemSearch: Binding<Bool>) {
         _viewModel = StateObject(wrappedValue: viewModel)
         _isShowingUsedItemSearch = isShowingUsedItemSearch
     }
@@ -45,9 +45,10 @@ struct UsedTradeSearchView: View {
                 List {
                     ForEach(results) { result in
                         NavigationLink {
-                            UsedTradeDetail(usedItem: result)
+                            UsedItemDetail(viewModel: AppDI.shared.makeUsedItemViewModel(),
+                                            usedItem: result)
                         } label: {
-                            UsedTradeListRow(usedItem: result)
+                            UsedItemListRow(usedItem: result)
                         }
                         .listRowSeparator(.hidden)
                     }
@@ -67,6 +68,6 @@ struct UsedTradeSearchView: View {
 
 #Preview {
     NavigationStack {
-        UsedTradeSearchView(viewModel: AppDI.shared.makeUsedTradeSearchViewModel(), isShowingUsedItemSearch: .constant(true))
+        UsedItemSearchView(viewModel: AppDI.shared.makeUsedTradeSearchViewModel(), isShowingUsedItemSearch: .constant(true))
     }
 }

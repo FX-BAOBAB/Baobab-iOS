@@ -1,5 +1,5 @@
 //
-//  UsedTradeViewModel.swift
+//  UsedItemListViewModel.swift
 //  Baobab
 //
 //  Created by 이정훈 on 9/4/24.
@@ -8,7 +8,7 @@
 import Combine
 import Foundation
 
-final class UsedTradeViewModel: ObservableObject {
+final class UsedItemListViewModel: ObservableObject {
     @Published var items: [UsedItem]?
     @Published var isLoading: Bool = false
     

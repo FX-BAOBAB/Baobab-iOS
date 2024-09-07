@@ -46,7 +46,7 @@ struct MainTabView: View {
                 .toolbarBackground(.visible, for: .tabBar)
                 .toolbarBackground(.white, for: .tabBar)
             
-            UsedTradeList(viewModel: AppDI.shared.makeUsedTradeViewModel())
+            UsedItemList(viewModel: AppDI.shared.makeUsedTradeViewModel())
                 .tabItem {
                     Image(systemName: "bag")
                         .environment(\.symbolVariants, selectedTab == .usedItemTrade ? .fill : .none)
@@ -106,7 +106,7 @@ struct MainTabView: View {
         }
         .fullScreenCover(isPresented: $isShowingUsedItemSearch) {
             NavigationStack {
-                UsedTradeSearchView(viewModel: AppDI.shared.makeUsedTradeSearchViewModel(),
+                UsedItemSearchView(viewModel: AppDI.shared.makeUsedTradeSearchViewModel(),
                                     isShowingUsedItemSearch: $isShowingUsedItemSearch)
             }
         }

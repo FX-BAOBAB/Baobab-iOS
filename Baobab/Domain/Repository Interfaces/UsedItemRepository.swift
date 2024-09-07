@@ -37,4 +37,9 @@ protocol UsedItemRepository {
      >  중고 물품 아이디로 물품 정보 상세 조회하는 함수
      */
     func fetchUsedItemDetail(itemId: Int) -> AnyPublisher<UsedItem, any Error>
+    
+    /**
+     중고 물품 구매 함수
+     */
+    func buyUsedItem(id: Int) -> AnyPublisher<Bool, any Error>
 }

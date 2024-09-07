@@ -8,7 +8,7 @@
 import Combine
 import Foundation
 
-final class UsedTradeSearchViewModel: ObservableObject {
+final class UsedItemSearchViewModel: ObservableObject {
     @Published var keyword: String = ""
     @Published var searchResult: [UsedItem]?
     

@@ -312,7 +312,7 @@ struct AppDI {
         return viewModel
     }
     
-    func makeUsedTradeViewModel() -> UsedTradeViewModel {
+    func makeUsedTradeViewModel() -> UsedItemListViewModel {
         //Data Layer
         let repository = UsedItemRepositoryImpl(dataSource: dataSource)
         
@@ -320,12 +320,12 @@ struct AppDI {
         let usecase = FetchUsedItemUseCaseImpl(repository: repository)
         
         //Presentation Layer
-        let viewModel = UsedTradeViewModel(usecase: usecase)
+        let viewModel = UsedItemListViewModel(usecase: usecase)
         
         return viewModel
     }
     
-    func makeUsedTradeSearchViewModel() -> UsedTradeSearchViewModel {
+    func makeUsedTradeSearchViewModel() -> UsedItemSearchViewModel {
         //Data Layer
         let repository = UsedItemRepositoryImpl(dataSource: dataSource)
         
@@ -333,7 +333,20 @@ struct AppDI {
         let usecase = FetchUsedItemUseCaseImpl(repository: repository)
         
         //Presentation Layer
-        let viewModel = UsedTradeSearchViewModel(usecase: usecase)
+        let viewModel = UsedItemSearchViewModel(usecase: usecase)
+        
+        return viewModel
+    }
+    
+    func makeUsedItemViewModel() -> UsedItemViewModel {
+        //Data Layer
+        let repository = UsedItemRepositoryImpl(dataSource: dataSource)
+        
+        //Domain Layer
+        let usecase = BuyUsedItemUseCaseImpl(repository: repository)
+        
+        //Presentation Layer
+        let viewModel = UsedItemViewModel(usecase: usecase)
         
         return viewModel
     }
