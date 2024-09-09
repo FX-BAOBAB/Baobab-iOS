@@ -59,5 +59,6 @@ struct ItemList<T: ItemsViewModel>: View {
 #if DEBUG
 #Preview {
     ItemList<ReceivingItemsViewModel>(status: .receiving)
+        .environmentObject(AppDI.shared.makeReceivingItemsViewModel())
 }
 #endif

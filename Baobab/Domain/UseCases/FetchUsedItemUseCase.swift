@@ -21,45 +21,19 @@ protocol FetchUsedItemUseCase {
     func execute(after id: Int) -> AnyPublisher<[UsedItem], any Error>
 }
 
-final class FetchUsedItemUseCaseImpl: FetchUsedItemUseCase {
-    let repository: UsedItemRepository
-    
-    init(repository: UsedItemRepository) {
-        self.repository = repository
-    }
-    
+final class FetchUsedItemUseCaseImpl: FetchUsedItemDetailUseCase, FetchUsedItemUseCase {    
     func execute() -> AnyPublisher<[UsedItem], any Error> {
-        return repository.fetchAllUsedItems()
+        return usedItemRepository.fetchAllUsedItems()
             .flatMap { itemIds -> AnyPublisher<[UsedItem], any Error> in
-                // 중고 물품 조회를 통해 중고 물품 아이디를 가져옴
-                // 가져온 중고 물품 아이디를 통해 중고 물품 상세 정보(title, price, description 등)을 가져옴
-                var publishers = [AnyPublisher<UsedItem, any Error>]()
-                
-                itemIds?.forEach { itemId in
-                    publishers.append(self.repository.fetchUsedItemDetail(itemId: itemId))
-                }
-                
-                return Publishers.MergeMany(publishers)
-                    .collect()
-                    .eraseToAnyPublisher()
+                self.fetchItemDetail(itemIds: itemIds)
             }
             .eraseToAnyPublisher()
     }
     
     func execute(after id: Int) -> AnyPublisher<[UsedItem], any Error> {
-        return repository.fetchNextUsedItems(after: id)
+        return usedItemRepository.fetchNextUsedItems(after: id)
             .flatMap { itemIds -> AnyPublisher<[UsedItem], any Error> in
-                // 중고 물품 조회를 통해 중고 물품 아이디를 가져옴
-                // 가져온 중고 물품 아이디를 통해 중고 물품 상세 정보(title, price, description 등)을 가져옴
-                var publishers = [AnyPublisher<UsedItem, any Error>]()
-                
-                itemIds?.forEach { itemId in
-                    publishers.append(self.repository.fetchUsedItemDetail(itemId: itemId))
-                }
-                
-                return Publishers.MergeMany(publishers)
-                    .collect()
-                    .eraseToAnyPublisher()
+                self.fetchItemDetail(itemIds: itemIds)
             }
             .eraseToAnyPublisher()
     }

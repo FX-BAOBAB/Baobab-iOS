@@ -317,7 +317,7 @@ struct AppDI {
         let repository = UsedItemRepositoryImpl(dataSource: dataSource)
         
         //Domain Layer
-        let usecase = FetchUsedItemUseCaseImpl(repository: repository)
+        let usecase = FetchUsedItemUseCaseImpl(usedItemRepository: repository)
         
         //Presentation Layer
         let viewModel = UsedItemListViewModel(usecase: usecase)
@@ -330,7 +330,7 @@ struct AppDI {
         let repository = UsedItemRepositoryImpl(dataSource: dataSource)
         
         //Domain Layer
-        let usecase = FetchSearchedUsedItemsUseCaseImpl(repository: repository)
+        let usecase = FetchSearchedUsedItemsUseCaseImpl(usedItemRepository: repository)
         
         //Presentation Layer
         let viewModel = UsedItemSearchViewModel(usecase: usecase)
@@ -347,6 +347,37 @@ struct AppDI {
         
         //Presentation Layer
         let viewModel = UsedItemViewModel(usecase: usecase)
+        
+        return viewModel
+    }
+    
+    func makeUserSoldItemsViewModel() -> UserSoldItemsViewModel {
+        //Data Layer
+        let usedItemRepository = UsedItemRepositoryImpl(dataSource: dataSource)
+        let transactionHistoryRepository = TransactionHistoryRepositoryImpl(dataSource: dataSource)
+        
+        //Domain Layer
+        let usecase = FetchSoldItemsUsedCaseImpl(usedItemRepository: usedItemRepository,
+                                                 historyRepository: transactionHistoryRepository)
+        
+        //Presentation Layer
+        let viewModel = UserSoldItemsViewModel(usecase: usecase)
+        
+        return viewModel
+    }
+    
+    func makeUserPurchasedItemsViewModel() -> UserPurchasedItemsViewModel {
+        //Data Layer
+        let usedItemRepository = UsedItemRepositoryImpl(dataSource: dataSource)
+        let transactionHistoryRepository = TransactionHistoryRepositoryImpl(dataSource: dataSource)
+        
+        
+        //Domain Layer
+        let usecase = FetchPurchasedItemsUseCaseImpl(usedItemRepository: usedItemRepository,
+                                                     historyRepository: transactionHistoryRepository)
+        
+        //Presentation Layer
+        let viewModel = UserPurchasedItemsViewModel(usecase: usecase)
         
         return viewModel
     }

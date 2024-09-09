@@ -14,48 +14,11 @@ struct UserInfoList: View {
     var body: some View {
         List {
             Section {
-                Text("요청서")
-                    .bold()
-                    .foregroundStyle(.gray)
-                    .padding(.top)
-                
-                NavigationLink(destination: {
-                    LazyView {
-                        ReceivingFormList(viewModel: AppDI.shared.makeReceivingFormsViewModel())
-                    }
-                }) {
-                    UserInfoListRow(image: "receiving", title: "입고 요청서")
-                }
-                .listRowSeparator(.hidden)
-                
-                NavigationLink(destination: {
-                    LazyView {
-                        ShippingFormList(viewModel: AppDI.shared.makeShippingFormsViewModel())
-                    }
-                }) {
-                    UserInfoListRow(image: "shipping", title: "출고 요청서")
-                }
-                .listRowSeparator(.hidden)
-                
-                NavigationLink(destination: {
-                    LazyView {
-                        ReturnFormList(viewModel: AppDI.shared.makeReturnFormsViewModel())
-                    }
-                }) {
-                    UserInfoListRow(image: "TakeBack", title: "반품 요청서")
-                }
-            }
-            .listRowSeparator(.hidden)
-            
-            Divider()
-                .listRowSeparator(.hidden)
-            
-            Section {
-                Text("내 물품")
+                Text("나의 물품")
                     .bold()
                     .foregroundStyle(.gray)
                 
-                NavigationLink(destination: {
+                NavigationLink {
                     LazyView {
                         TopTabView(firstTitle: "입고 중",
                                    secondTitle: "입고 완료",
@@ -63,12 +26,12 @@ struct UserInfoList: View {
                                    secondView: LazyItemList(viewModel: AppDI.shared.makeStoredItemsViewModel(), status: .stored),
                                    title: "입고 물품")
                     }
-                }) {
-                    UserInfoListRow(image: "receivingItem", title: "입고 물품")
+                } label: {
+                    UserInfoListRow(image: "receiving", title: "입고 물품")
                 }
                 .listRowSeparator(.hidden)
                 
-                NavigationLink(destination: {
+                NavigationLink {
                     LazyView {
                         TopTabView(firstTitle: "출고 중",
                                    secondTitle: "출고 완료",
@@ -76,12 +39,12 @@ struct UserInfoList: View {
                                    secondView: LazyItemList(viewModel: AppDI.shared.makeShippedItemsViewModel(), status: .shipped),
                                    title: "출고 물품")
                     }
-                }) {
-                    UserInfoListRow(image: "shippingItem", title: "출고 물품")
+                } label: {
+                    UserInfoListRow(image: "shipping", title: "출고 물품")
                 }
                 .listRowSeparator(.hidden)
                 
-                NavigationLink(destination: {
+                NavigationLink {
                     LazyView {
                         TopTabView(firstTitle: "반품 중",
                                    secondTitle: "반품 완료",
@@ -89,20 +52,84 @@ struct UserInfoList: View {
                                    secondView: LazyItemList(viewModel: AppDI.shared.makeReturnedItemsViewModel(), status: .returned),
                                    title: "반품 물품")
                     }
-                }) {
-                    UserInfoListRow(image: "takeBackItem", title: "반품 물품")
+                } label: {
+                    UserInfoListRow(image: "takeBack", title: "반품 물품")
+                }
+                .listRowSeparator(.hidden)
+            }
+            .listSectionSeparator(.hidden)
+            
+            Divider()
+                .listRowSeparator(.hidden)
+            
+            Section {
+                Text("나의 거래")
+                    .bold()
+                    .foregroundStyle(.gray)
+                
+                NavigationLink {
+                    LazyView {
+                        TopTabView(firstTitle: "나의 구매 물품",
+                                   secondTitle: "나의 판매 물품",
+                                   firstView: TransactionList(viewModel: AppDI.shared.makeUserPurchasedItemsViewModel()),
+                                   secondView: TransactionList(viewModel: AppDI.shared.makeUserSoldItemsViewModel()),
+                                   title: "거래내역")
+                    }
+                } label: {
+                    UserInfoListRow(image: "transactionHistory", title: "거래내역")
+                }
+                .listRowSeparator(.hidden)
+            }
+            .listSectionSeparator(.hidden)
+            
+            Divider()
+                .listRowSeparator(.hidden)
+            
+            Section {
+                Text("요청서")
+                    .bold()
+                    .foregroundStyle(.gray)
+                    .padding(.top)
+                
+                NavigationLink {
+                    LazyView {
+                        ReceivingFormList(viewModel: AppDI.shared.makeReceivingFormsViewModel())
+                    }
+                } label: {
+                    UserInfoListRow(image: "receiving", title: "입고 요청서")
                 }
                 .listRowSeparator(.hidden)
                 
-                NavigationLink(destination: {
+                NavigationLink {
                     LazyView {
-                        LazyItemList(viewModel: AppDI.shared.makeUsedItemsViewModel(), status: .used)
-                            .navigationTitle("중고 물품")
-                            .navigationBarTitleDisplayMode(.inline)
+                        ShippingFormList(viewModel: AppDI.shared.makeShippingFormsViewModel())
                     }
-                }) {
-                    UserInfoListRow(image: "usedItem", title: "중고 물품")
+                } label: {
+                    UserInfoListRow(image: "shipping", title: "출고 요청서")
                 }
+                .listRowSeparator(.hidden)
+                
+                NavigationLink {
+                    LazyView {
+                        ReturnFormList(viewModel: AppDI.shared.makeReturnFormsViewModel())
+                    }
+                } label: {
+                    UserInfoListRow(image: "takeBack", title: "반품 요청서")
+                }
+                
+                NavigationLink {
+                    LazyView {
+                        EmptyView()
+                    }
+                } label: {
+                    UserInfoListRow(image: "transaction", title: "거래 요청서")
+                }
+            }
+            .listRowSeparator(.hidden)
+            
+            Section {
+                Color.clear
+                    .frame(height: 10)
             }
             .listSectionSeparator(.hidden)
         }
