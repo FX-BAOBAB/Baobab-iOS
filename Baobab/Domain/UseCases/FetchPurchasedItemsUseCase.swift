@@ -12,10 +12,10 @@ protocol FetchPurchasedItemsUseCase {
 }
 
 final class FetchPurchasedItemsUseCaseImpl: FetchUsedItemDetailUseCase, FetchPurchasedItemsUseCase {
-    private let historyRepository: TransactionHistoryRepository
+    private let historyRepository: TransactionItemHistoryRepository
     
     init(usedItemRepository: UsedItemRepository,
-        historyRepository: TransactionHistoryRepository) {
+        historyRepository: TransactionItemHistoryRepository) {
         self.historyRepository = historyRepository
         super.init(usedItemRepository: usedItemRepository)
     }

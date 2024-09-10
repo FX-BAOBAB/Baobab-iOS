@@ -76,7 +76,7 @@ struct UserInfoList: View {
                                    title: "거래내역")
                     }
                 } label: {
-                    UserInfoListRow(image: "transactionHistory", title: "거래내역")
+                    UserInfoListRow(image: "transactionHistory", title: "거래 내역")
                 }
                 .listRowSeparator(.hidden)
             }
@@ -115,14 +115,6 @@ struct UserInfoList: View {
                     }
                 } label: {
                     UserInfoListRow(image: "takeBack", title: "반품 요청서")
-                }
-                
-                NavigationLink {
-                    LazyView {
-                        EmptyView()
-                    }
-                } label: {
-                    UserInfoListRow(image: "transaction", title: "거래 요청서")
                 }
             }
             .listRowSeparator(.hidden)

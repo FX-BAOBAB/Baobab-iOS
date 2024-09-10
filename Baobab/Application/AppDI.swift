@@ -354,7 +354,7 @@ struct AppDI {
     func makeUserSoldItemsViewModel() -> UserSoldItemsViewModel {
         //Data Layer
         let usedItemRepository = UsedItemRepositoryImpl(dataSource: dataSource)
-        let transactionHistoryRepository = TransactionHistoryRepositoryImpl(dataSource: dataSource)
+        let transactionHistoryRepository = TransactionItemHistoryRepositoryImpl(dataSource: dataSource)
         
         //Domain Layer
         let usecase = FetchSoldItemsUsedCaseImpl(usedItemRepository: usedItemRepository,
@@ -369,7 +369,7 @@ struct AppDI {
     func makeUserPurchasedItemsViewModel() -> UserPurchasedItemsViewModel {
         //Data Layer
         let usedItemRepository = UsedItemRepositoryImpl(dataSource: dataSource)
-        let transactionHistoryRepository = TransactionHistoryRepositoryImpl(dataSource: dataSource)
+        let transactionHistoryRepository = TransactionItemHistoryRepositoryImpl(dataSource: dataSource)
         
         
         //Domain Layer

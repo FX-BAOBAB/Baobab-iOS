@@ -257,8 +257,8 @@
 		8EC135D62C8E83A200F9DD3F /* UserPurchasedItemsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC135D52C8E83A200F9DD3F /* UserPurchasedItemsViewModel.swift */; };
 		8EC135D82C8E886500F9DD3F /* FetchPurchasedItemsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC135D72C8E886500F9DD3F /* FetchPurchasedItemsUseCase.swift */; };
 		8EC135DA2C8E888200F9DD3F /* FetchSoldItemsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC135D92C8E888200F9DD3F /* FetchSoldItemsUseCase.swift */; };
-		8EC135DC2C8E88DA00F9DD3F /* TransactionHistoryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC135DB2C8E88DA00F9DD3F /* TransactionHistoryRepository.swift */; };
-		8EC135DE2C8E893900F9DD3F /* TransactionHistoryRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC135DD2C8E893900F9DD3F /* TransactionHistoryRepositoryImpl.swift */; };
+		8EC135DC2C8E88DA00F9DD3F /* TransactionItemHistoryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC135DB2C8E88DA00F9DD3F /* TransactionItemHistoryRepository.swift */; };
+		8EC135DE2C8E893900F9DD3F /* TransactionItemHistoryRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC135DD2C8E893900F9DD3F /* TransactionItemHistoryRepositoryImpl.swift */; };
 		8EC135E02C8E8CF200F9DD3F /* FetchUsedItemDetailUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC135DF2C8E8CF200F9DD3F /* FetchUsedItemDetailUseCase.swift */; };
 		8EC135E42C8EB73600F9DD3F /* TransactionItemDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC135E32C8EB73600F9DD3F /* TransactionItemDetail.swift */; };
 		8EC135E62C8EC44100F9DD3F /* TransactionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC135E52C8EC44100F9DD3F /* TransactionViewModel.swift */; };
@@ -284,6 +284,7 @@
 		8ECF1AE12C5B5B1C004DD9C1 /* ReturnFormsResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECF1AE02C5B5B1C004DD9C1 /* ReturnFormsResponseDTO.swift */; };
 		8ECF1AE72C5B713E004DD9C1 /* ReturnFormListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECF1AE62C5B713E004DD9C1 /* ReturnFormListRow.swift */; };
 		8ECF1AE92C5B727D004DD9C1 /* ReturnFormsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECF1AE82C5B727D004DD9C1 /* ReturnFormsViewModel.swift */; };
+		8ED4F4E72C8FE109002D3358 /* TransactionListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED4F4E62C8FE109002D3358 /* TransactionListRow.swift */; };
 		8ED894702C2E9894005E826F /* SignUpPostCodeSearchForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED8946F2C2E9894005E826F /* SignUpPostCodeSearchForm.swift */; };
 		8EE1989C2C7EFAC50000954C /* AddressAdditionResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE1989B2C7EFAC50000954C /* AddressAdditionResponseDTO.swift */; };
 		8EE198A02C7F0F1F0000954C /* LaboratoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE1989F2C7F0F1F0000954C /* LaboratoryList.swift */; };
@@ -582,8 +583,8 @@
 		8EC135D52C8E83A200F9DD3F /* UserPurchasedItemsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPurchasedItemsViewModel.swift; sourceTree = "<group>"; };
 		8EC135D72C8E886500F9DD3F /* FetchPurchasedItemsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchPurchasedItemsUseCase.swift; sourceTree = "<group>"; };
 		8EC135D92C8E888200F9DD3F /* FetchSoldItemsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchSoldItemsUseCase.swift; sourceTree = "<group>"; };
-		8EC135DB2C8E88DA00F9DD3F /* TransactionHistoryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionHistoryRepository.swift; sourceTree = "<group>"; };
-		8EC135DD2C8E893900F9DD3F /* TransactionHistoryRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionHistoryRepositoryImpl.swift; sourceTree = "<group>"; };
+		8EC135DB2C8E88DA00F9DD3F /* TransactionItemHistoryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionItemHistoryRepository.swift; sourceTree = "<group>"; };
+		8EC135DD2C8E893900F9DD3F /* TransactionItemHistoryRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionItemHistoryRepositoryImpl.swift; sourceTree = "<group>"; };
 		8EC135DF2C8E8CF200F9DD3F /* FetchUsedItemDetailUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchUsedItemDetailUseCase.swift; sourceTree = "<group>"; };
 		8EC135E32C8EB73600F9DD3F /* TransactionItemDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionItemDetail.swift; sourceTree = "<group>"; };
 		8EC135E52C8EC44100F9DD3F /* TransactionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionViewModel.swift; sourceTree = "<group>"; };
@@ -609,6 +610,7 @@
 		8ECF1AE02C5B5B1C004DD9C1 /* ReturnFormsResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnFormsResponseDTO.swift; sourceTree = "<group>"; };
 		8ECF1AE62C5B713E004DD9C1 /* ReturnFormListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnFormListRow.swift; sourceTree = "<group>"; };
 		8ECF1AE82C5B727D004DD9C1 /* ReturnFormsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnFormsViewModel.swift; sourceTree = "<group>"; };
+		8ED4F4E62C8FE109002D3358 /* TransactionListRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionListRow.swift; sourceTree = "<group>"; };
 		8ED8946F2C2E9894005E826F /* SignUpPostCodeSearchForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPostCodeSearchForm.swift; sourceTree = "<group>"; };
 		8EE1989B2C7EFAC50000954C /* AddressAdditionResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressAdditionResponseDTO.swift; sourceTree = "<group>"; };
 		8EE1989F2C7F0F1F0000954C /* LaboratoryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaboratoryList.swift; sourceTree = "<group>"; };
@@ -858,7 +860,7 @@
 				8EF66E792C72D14900E6CEA2 /* ShippingApplicationRepository.swift */,
 				8E83F7622C762E7E00AD5F01 /* UsedItemRepository.swift */,
 				8E49F7252C784233006EC259 /* ItemStatusRepository.swift */,
-				8EC135DB2C8E88DA00F9DD3F /* TransactionHistoryRepository.swift */,
+				8EC135DB2C8E88DA00F9DD3F /* TransactionItemHistoryRepository.swift */,
 			);
 			path = "Repository Interfaces";
 			sourceTree = "<group>";
@@ -920,7 +922,7 @@
 				8EF66E7B2C72D25300E6CEA2 /* ShippingApplicationRepositoryImpl.swift */,
 				8E83F7642C762EB500AD5F01 /* UsedItemRepositoryImpl.swift */,
 				8E49F7272C78425B006EC259 /* ItemStatusRepositoryImpl.swift */,
-				8EC135DD2C8E893900F9DD3F /* TransactionHistoryRepositoryImpl.swift */,
+				8EC135DD2C8E893900F9DD3F /* TransactionItemHistoryRepositoryImpl.swift */,
 			);
 			path = "Repository Implementation";
 			sourceTree = "<group>";
@@ -1408,6 +1410,7 @@
 			children = (
 				8EC135D32C8E839400F9DD3F /* TransactionList.swift */,
 				8EC135E32C8EB73600F9DD3F /* TransactionItemDetail.swift */,
+				8ED4F4E62C8FE109002D3358 /* TransactionListRow.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1962,7 +1965,7 @@
 				8E60A82F2C5A1548007814E7 /* ProcessStatusResponseDTO.swift in Sources */,
 				8ECCBAF72C2CEFAA00DD0A1B /* SignUpForm.swift in Sources */,
 				8ECCBB0D2C2E48A800DD0A1B /* NickNameInputBox.swift in Sources */,
-				8EC135DE2C8E893900F9DD3F /* TransactionHistoryRepositoryImpl.swift in Sources */,
+				8EC135DE2C8E893900F9DD3F /* TransactionItemHistoryRepositoryImpl.swift in Sources */,
 				8E3F7C572C2A7D330087EB2A /* DefaultItemImage.swift in Sources */,
 				8EBFCE552C539A4E00A2AB4F /* FormsViewModel.swift in Sources */,
 				8EE1989C2C7EFAC50000954C /* AddressAdditionResponseDTO.swift in Sources */,
@@ -1991,6 +1994,7 @@
 				8ECCBAFC2C2CF01200DD0A1B /* SignUpViewModel.swift in Sources */,
 				8EF9FA7A2C71E9380005840E /* ShippingApplicationViewModel+Items.swift in Sources */,
 				5CCFBF682BF2E05F00322D0D /* SelectedImage.swift in Sources */,
+				8ED4F4E72C8FE109002D3358 /* TransactionListRow.swift in Sources */,
 				8E3F7C602C2A9ABD0087EB2A /* StatusPoint.swift in Sources */,
 				8E7B6C2F2C51D5A100222721 /* Item.swift in Sources */,
 				8E1B28D12C87EB2D002923E3 /* UsedItemListViewModel.swift in Sources */,
@@ -2027,7 +2031,7 @@
 				8EBED9972C76B4CB00ADB5BB /* RequestFailureView.swift in Sources */,
 				8E9772072C3CBCD00082DCAF /* SignUpResponseDTO.swift in Sources */,
 				5C4F18172C0574CF0030A096 /* ReceivingViewModel+Region.swift in Sources */,
-				8EC135DC2C8E88DA00F9DD3F /* TransactionHistoryRepository.swift in Sources */,
+				8EC135DC2C8E88DA00F9DD3F /* TransactionItemHistoryRepository.swift in Sources */,
 				8E82ACC22C81433000AFBDAA /* ObjectCaptureViewModel.swift in Sources */,
 				8ED894702C2E9894005E826F /* SignUpPostCodeSearchForm.swift in Sources */,
 				8E37D4652C570D6300F8048A /* FetchFormUseCase.swift in Sources */,

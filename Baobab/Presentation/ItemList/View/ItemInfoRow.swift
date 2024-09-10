@@ -16,7 +16,7 @@ struct ItemInfoRow: View {
             AsyncImage(url: URL(string: item.basicImages[0].imageURL)) { image in
                 image
                     .resizable()
-                    .aspectRatio(contentMode: .fill)
+                    .aspectRatio(contentMode: .fit)
                     .cornerRadius(10)
             } placeholder: {
                 Color.clear
