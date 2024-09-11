@@ -10,6 +10,7 @@ import Foundation
 
 final class MainViewModel: ObservableObject {
     @Published var userInfo: UserInfo?
+    @Published var usedItems: [UsedItem]?
     @Published var isTokenDeleted: Bool = false
     
     private let usecase: SetupInitialViewUseCase
@@ -49,6 +50,21 @@ final class MainViewModel: ObservableObject {
                 }
             }, receiveValue: { [weak self] in
                 self?.userInfo = $0
+            })
+            .store(in: &cancellables)
+    }
+    
+    func fetchUsedItems() {
+        usecase.fetchUsedItems()
+            .sink(receiveCompletion: { completion in
+                switch completion {
+                case .finished:
+                    print("The reques to fetch used items has been completed")
+                case .failure(let error):
+                    print("MainViewModel.fetchUsedItems() error :", error)
+                }
+            }, receiveValue: { [weak self] in
+                self?.usedItems = $0
             })
             .store(in: &cancellables)
     }

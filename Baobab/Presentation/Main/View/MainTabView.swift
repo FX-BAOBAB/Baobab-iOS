@@ -35,7 +35,8 @@ struct MainTabView: View {
     
     var body: some View {
         TabView(selection: $selectedTab) {
-            MainView()
+            MainView(selectedTab: $selectedTab)
+                .environmentObject(viewModel)
                 .tabItem {
                     Image(systemName: "house")
                         .environment(\.symbolVariants, selectedTab == .home ? .fill : .none)

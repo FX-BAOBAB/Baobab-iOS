@@ -8,31 +8,36 @@
 import SwiftUI
 
 struct MainView: View {
+    @EnvironmentObject private var viewModel: MainViewModel
     @State private var isShowingReceivingForm: Bool = false
     @State private var isShowingShippingForm: Bool = false
+    @Binding var selectedTab: Tab
     
     var body: some View {
         ScrollView {
             HStack(spacing: 15) {
-                Button(action: {
+                Button {
                     isShowingReceivingForm.toggle()
-                }) {
+                } label: {
                     MainNavigationBlock(title: "입고",
                                         image: "truck.box.fill",
                                         background: Color(red: 76 / 255, green: 110 / 255, blue: 245 / 255),
                                         tintColor: Color(red: 237 / 255, green: 242 / 255, blue: 255 / 255))
                 }
                 
-                Button(action: {
+                Button {
                     isShowingShippingForm.toggle()
-                }) {
+                } label: {
                     MainNavigationBlock(title: "출고",
-                                        image: "bag.fill",
+                                        image: "shippingbox.fill",
                                         background: Color(red: 253 / 255, green: 126 / 255, blue: 20 / 255),
                                         tintColor: Color(red: 255 / 255, green: 244 / 255, blue: 230 / 255))
                 }
             }
             .padding()
+            
+            UsedItemTop10(selectedTab: $selectedTab)
+                .padding(.top)
         }
         .fullScreenCover(isPresented: $isShowingReceivingForm) {
             NavigationStack {
@@ -46,9 +51,15 @@ struct MainView: View {
                                         isShowingShippingForm: $isShowingShippingForm)
             }
         }
+        .onAppear {
+            if viewModel.usedItems == nil {
+                viewModel.fetchUsedItems()
+            }
+        }
     }
 }
 
 #Preview {
-    MainView()
+    MainView(selectedTab: .constant(.home))
+        .environmentObject(AppDI.shared.makeMainViewModel())
 }

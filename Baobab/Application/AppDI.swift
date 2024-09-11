@@ -99,11 +99,15 @@ struct AppDI {
         //Data Layer
         let localTokenRepository = TokenRepositoryImpl()
         let userRepository = UserRepositoryImpl(dataSource: dataSource)
+        let usedItemRepository = UsedItemRepositoryImpl(dataSource: dataSource)
         
         //Domain Layer
         let fetchTokenUseCase = FetchTokenUseCaseImpl(repository: localTokenRepository)
         let fetchUserInfoUseCase = FetchuserInfoUserCaseImpl(repository: userRepository)
-        let usecase = SetupInitialViewUseCaseImpl(fetchTokenUseCase: fetchTokenUseCase, fetchUserInfoUseCase: fetchUserInfoUseCase)
+        let fetchUsedItemUseCase = FetchUsedItemUseCaseImpl(usedItemRepository: usedItemRepository)
+        let usecase = SetupInitialViewUseCaseImpl(fetchTokenUseCase: fetchTokenUseCase,
+                                                  fetchUserInfoUseCase: fetchUserInfoUseCase,
+                                                  fetchUsedItemUseCase: fetchUsedItemUseCase)
         
         //Presentation Layer
         let viewModel = MainViewModel(usecase: usecase)
