@@ -59,7 +59,7 @@ final class MainViewModel: ObservableObject {
             .sink(receiveCompletion: { completion in
                 switch completion {
                 case .finished:
-                    print("The reques to fetch used items has been completed")
+                    print("The request to fetch used items has been completed")
                 case .failure(let error):
                     print("MainViewModel.fetchUsedItems() error :", error)
                 }

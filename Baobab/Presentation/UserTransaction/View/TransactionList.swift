@@ -8,12 +8,20 @@
 import SwiftUI
 
 struct TransactionList<T: TransactionViewModel>: View {
+    enum RowType {
+        case transactionHistory
+        case itemDetailOnly
+    }
+    
     @StateObject private var viewModel: T
     @State private var isShowingItemDetail: Bool = false
     @State private var selectedItem: UsedItem?
     
-    init(viewModel: T) {
+    let rowType: RowType
+    
+    init(viewModel: T, rowType: RowType = .itemDetailOnly) {
         _viewModel = StateObject(wrappedValue: viewModel)
+        self.rowType = rowType
     }
     
     var body: some View {
@@ -22,12 +30,20 @@ struct TransactionList<T: TransactionViewModel>: View {
         } else if let usedItems = viewModel.usedItems {
             List {
                 ForEach(usedItems) { usedItem in
-                    TransactionListRow(selectedItem: $selectedItem,
-                                       isShowingItemDetail: $isShowingItemDetail,
-                                       usedItem: usedItem)
-//                        .padding([.top, .bottom])
-                        .listRowSeparator(.hidden)
-                        .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
+                    Group {
+                        switch rowType {
+                        case .transactionHistory:
+                            SoldItemListRow(selectedItem: $selectedItem,
+                                            isShowingItemDetail: $isShowingItemDetail,
+                                            usedItem: usedItem)
+                        case .itemDetailOnly:
+                            SaleItemListRow(selectedItem: $selectedItem,
+                                            isShowingItemDetail: $isShowingItemDetail,
+                                            usedItem: usedItem)
+                        }
+                    }
+                    .listRowSeparator(.hidden)
+                    .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
                 }
             }
             .listStyle(.plain)

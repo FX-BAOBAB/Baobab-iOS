@@ -21,6 +21,18 @@ final class TransactionItemHistoryRepositoryImpl: RemoteRepository, TransactionI
             .eraseToAnyPublisher()
     }
     
+    func fetchSaleItems() -> AnyPublisher<[Int]?, any Error> {
+        let apiEndPoint = Bundle.main.warehouseURL + "/usedgoods?status=REGISTERED"
+        
+        return dataSource.sendGetRequest(to: apiEndPoint, resultType: UsedItemsResponseDTO.self)
+            .map { dto in
+                dto.body?.map {
+                    $0.usedGoodsID
+                }
+            }
+            .eraseToAnyPublisher()
+    }
+    
     func fetchPurchasedItems() -> AnyPublisher<[Int]?, any Error> {
         let apiEndPoint = Bundle.main.warehouseURL + "/order"
         

@@ -69,11 +69,14 @@ struct UserInfoList: View {
                 
                 NavigationLink {
                     LazyView {
-                        TopTabView(firstTitle: "나의 구매 물품",
-                                   secondTitle: "나의 판매 물품",
-                                   firstView: TransactionList(viewModel: AppDI.shared.makeUserPurchasedItemsViewModel()),
-                                   secondView: TransactionList(viewModel: AppDI.shared.makeUserSoldItemsViewModel()),
-                                   title: "거래내역")
+                        TransactionTabView(
+                            firstTitle: "구매완료",
+                            secondTitle: "판매 중",
+                            thirdTitle: "판매 완료",
+                            firstView: TransactionList(viewModel: AppDI.shared.makeUserPurchasedItemsViewModel(), rowType: .transactionHistory),
+                            secondView: TransactionList(viewModel: AppDI.shared.makeUserSaleItemsViewModel()),
+                            thirdView: TransactionList(viewModel: AppDI.shared.makeUserSoldItemsViewModel(), rowType: .itemDetailOnly),
+                            title: "거래내역")
                     }
                 } label: {
                     UserInfoListRow(image: "transactionHistory", title: "거래 내역")

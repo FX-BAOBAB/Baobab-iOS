@@ -1,13 +1,13 @@
 //
-//  TransactionListRow.swift
+//  SaleItemListRow.swift
 //  Baobab
 //
-//  Created by 이정훈 on 9/10/24.
+//  Created by 이정훈 on 9/12/24.
 //
 
 import SwiftUI
 
-struct TransactionListRow: View {
+struct SaleItemListRow: View {
     @Binding var selectedItem: UsedItem?
     @Binding var isShowingItemDetail: Bool
     
@@ -27,8 +27,7 @@ struct TransactionListRow: View {
                     isShowingItemDetail.toggle()
                 } label: {
                     Text("물품 상세")
-                        .bold()
-                        .font(.subheadline)
+                        .font(.footnote)
                         .foregroundStyle(.black)
                         .frame(maxWidth: .infinity)
                 }
@@ -36,17 +35,6 @@ struct TransactionListRow: View {
                 
                 Divider()
                     .frame(height: 20)
-                
-                Button {
-                    
-                } label: {
-                    Text("거래 상세")
-                        .bold()
-                        .font(.subheadline)
-                        .foregroundStyle(.black)
-                        .frame(maxWidth: .infinity)
-                }
-                .buttonStyle(.borderless)
             }
             .padding(.bottom)
             
@@ -55,10 +43,8 @@ struct TransactionListRow: View {
     }
 }
 
-#if DEBUG
 #Preview {
-    TransactionListRow(selectedItem: .constant(nil),
-                       isShowingItemDetail: .constant(false),
-                       usedItem: UsedItem.sampleData.first!)
+    SaleItemListRow(selectedItem: .constant(nil),
+                    isShowingItemDetail: .constant(false),
+                    usedItem: UsedItem.sampleData.first!)
 }
-#endif

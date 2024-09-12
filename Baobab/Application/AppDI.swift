@@ -370,6 +370,21 @@ struct AppDI {
         return viewModel
     }
     
+    func makeUserSaleItemsViewModel() -> UserSaleItemsViewModel {
+        //Data Layer
+        let usedItemRepository = UsedItemRepositoryImpl(dataSource: dataSource)
+        let transactionHistoryRepository = TransactionItemHistoryRepositoryImpl(dataSource: dataSource)
+        
+        //Domain Layer
+        let usecase = FetchSaleItemsUseCaseImpl(usedItemRepository: usedItemRepository,
+                                                 historyRepository: transactionHistoryRepository)
+        
+        //Presentation Layer
+        let viewModel = UserSaleItemsViewModel(usecase: usecase)
+        
+        return viewModel
+    }
+    
     func makeUserPurchasedItemsViewModel() -> UserPurchasedItemsViewModel {
         //Data Layer
         let usedItemRepository = UsedItemRepositoryImpl(dataSource: dataSource)

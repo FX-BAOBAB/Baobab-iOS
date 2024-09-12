@@ -24,6 +24,19 @@ final class UserRepositoryImpl: RemoteRepository, UserRepository {
             .eraseToAnyPublisher()
     }
     
+    func fetchUserInfo(userId: Int) -> AnyPublisher<UserInfo, any Error> {
+        let apiEndPoint = Bundle.main.userURL + "/users/\(userId)"
+        
+        return dataSource.sendGetRequest(to: apiEndPoint, resultType: UserInfoResponseDTO.self)
+            .map {
+                UserInfo(id: $0.body.id,
+                         name: $0.body.name,
+                         email: $0.body.email,
+                         role: self.roleDic[$0.body.role] ?? "")
+            }
+            .eraseToAnyPublisher()
+    }
+    
     func fetchAddresses() -> AnyPublisher<[Address], any Error> {
         let apiEndPoint = Bundle.main.userURL + "/address"
         

@@ -60,7 +60,7 @@ final class UsedItemRepositoryImpl: RemoteRepository, UsedItemRepository {
     }
     
     func fetchUsedItemDetail(itemId: Int) -> AnyPublisher<UsedItem, any Error> {
-        let apiEndPoint = Bundle.main.warehouseURL + "/usedgoods/\(itemId)"
+        let apiEndPoint = Bundle.main.warehouseOpenURL + "/usedgoods/\(itemId)"
         
         return dataSource.sendGetRequest(to: apiEndPoint, resultType: UsedItemDetailResponseDTO.self)
             .map {
