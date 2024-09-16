@@ -243,6 +243,7 @@
 		8EB0C2642C32457200FEE8D0 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB0C2632C32457200FEE8D0 /* LoginViewModel.swift */; };
 		8EB0C2662C3248E300FEE8D0 /* LoginInputBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB0C2652C3248E300FEE8D0 /* LoginInputBox.swift */; };
 		8EB0C2682C324DA300FEE8D0 /* AutoLogInButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB0C2672C324DA300FEE8D0 /* AutoLogInButton.swift */; };
+		8EB5E57B2C97B23D0037FF95 /* TradeInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB5E57A2C97B23D0037FF95 /* TradeInfoView.swift */; };
 		8EB878EA2C8AE49B00C9A334 /* UsedItemSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB878E92C8AE49B00C9A334 /* UsedItemSearchView.swift */; };
 		8EB878EC2C8AE4F100C9A334 /* SearchField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB878EB2C8AE4F100C9A334 /* SearchField.swift */; };
 		8EB878EE2C8AE52B00C9A334 /* UsedItemSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB878ED2C8AE52B00C9A334 /* UsedItemSearchViewModel.swift */; };
@@ -584,6 +585,7 @@
 		8EB0C2632C32457200FEE8D0 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		8EB0C2652C3248E300FEE8D0 /* LoginInputBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInputBox.swift; sourceTree = "<group>"; };
 		8EB0C2672C324DA300FEE8D0 /* AutoLogInButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLogInButton.swift; sourceTree = "<group>"; };
+		8EB5E57A2C97B23D0037FF95 /* TradeInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradeInfoView.swift; sourceTree = "<group>"; };
 		8EB878E92C8AE49B00C9A334 /* UsedItemSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsedItemSearchView.swift; sourceTree = "<group>"; };
 		8EB878EB2C8AE4F100C9A334 /* SearchField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchField.swift; sourceTree = "<group>"; };
 		8EB878ED2C8AE52B00C9A334 /* UsedItemSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsedItemSearchViewModel.swift; sourceTree = "<group>"; };
@@ -1447,6 +1449,7 @@
 				8EC135D32C8E839400F9DD3F /* TransactionList.swift */,
 				8EC135E32C8EB73600F9DD3F /* TransactionItemDetail.swift */,
 				8E1685CC2C916AEE00284650 /* TransactionHistoryDetail.swift */,
+				8EB5E57A2C97B23D0037FF95 /* TradeInfoView.swift */,
 				8ED4F4E62C8FE109002D3358 /* SoldItemListRow.swift */,
 				8EBE5DE12C930137008EF291 /* SaleItemListRow.swift */,
 				8EBE5DE32C930419008EF291 /* TransactionTabView.swift */,
@@ -2107,6 +2110,7 @@
 				8E8B61CA2C8BE4810024B61C /* BuyUsedItemUseCase.swift in Sources */,
 				8E7BC8C82C3E42CC00CB708F /* LoginRepository.swift in Sources */,
 				8E449F072C4BA24000291277 /* RemoteDataSource.swift in Sources */,
+				8EB5E57B2C97B23D0037FF95 /* TradeInfoView.swift in Sources */,
 				8E8D13522C4E44700032FC96 /* FetchUserInfoUseCase.swift in Sources */,
 				8E604DBD2C6DF1D300D45CB1 /* CheckButtonIcon.swift in Sources */,
 				8E7900BF2C6B610A00BD4BBB /* MainViewModel.swift in Sources */,

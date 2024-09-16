@@ -22,7 +22,7 @@ final class UserPurchasedItemsViewModel: TransactionViewModel {
             .sink(receiveCompletion: { completion in
                 switch completion {
                 case .finished:
-                    print("The request to fetch user's purchased items has been completed")
+                    print("The request to fetch the user's purchased items has been completed")
                 case .failure(let error):
                     print("UserPurchasedItemsViewModel.fetchHistory() error", error)
                 }

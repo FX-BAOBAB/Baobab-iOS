@@ -10,6 +10,7 @@ import SwiftUI
 struct SoldItemListRow: View {
     @Binding var selectedItem: UsedItem?
     @Binding var isShowingItemDetail: Bool
+    @Binding var isShowingTransactionDetail: Bool
     
     let usedItem: UsedItem
     
@@ -37,7 +38,8 @@ struct SoldItemListRow: View {
                     .frame(height: 20)
                 
                 Button {
-                    
+                    selectedItem = usedItem
+                    isShowingTransactionDetail.toggle()
                 } label: {
                     Text("거래 상세")
                         .font(.subheadline)
@@ -55,8 +57,9 @@ struct SoldItemListRow: View {
 
 #if DEBUG
 #Preview {
-    SoldItemListRow(selectedItem: .constant(nil),
+    SoldItemListRow(selectedItem: .constant(nil), 
                     isShowingItemDetail: .constant(false),
+                    isShowingTransactionDetail: .constant(false),
                     usedItem: UsedItem.sampleData.first!)
 }
 #endif

@@ -400,4 +400,19 @@ struct AppDI {
         
         return viewModel
     }
+    
+    func makeTransactionHistoryViewModel() -> TransactionHistoryViewModel {
+        //Data Layer
+        let transactionHistoryRepository = TransactionHistoryRepositoryImpl(dataSource: dataSource)
+        let userRepository = UserRepositoryImpl(dataSource: dataSource)
+        
+        //Domain Layer
+        let usecase = FetchTransactionHistoryUseCaseImpl(transactionHistoryRepository: transactionHistoryRepository,
+                                                         userRepository: userRepository)
+        
+        //Presentation Layer
+        let viewModel = TransactionHistoryViewModel(usecase: usecase)
+        
+        return viewModel
+    }
 }

@@ -15,6 +15,7 @@ struct TransactionList<T: TransactionViewModel>: View {
     
     @StateObject private var viewModel: T
     @State private var isShowingItemDetail: Bool = false
+    @State private var isShowingTransactionDetail: Bool = false
     @State private var selectedItem: UsedItem?
     
     let rowType: RowType
@@ -33,8 +34,9 @@ struct TransactionList<T: TransactionViewModel>: View {
                     Group {
                         switch rowType {
                         case .transactionHistory:
-                            SoldItemListRow(selectedItem: $selectedItem,
+                            SoldItemListRow(selectedItem: $selectedItem, 
                                             isShowingItemDetail: $isShowingItemDetail,
+                                            isShowingTransactionDetail: $isShowingTransactionDetail,
                                             usedItem: usedItem)
                         case .itemDetailOnly:
                             SaleItemListRow(selectedItem: $selectedItem,
@@ -52,6 +54,12 @@ struct TransactionList<T: TransactionViewModel>: View {
             .navigationDestination(isPresented: $isShowingItemDetail) {
                 if let usedItem = selectedItem {
                     TransactionItemDetail(usedItem: usedItem)
+                }
+            }
+            .navigationDestination(isPresented: $isShowingTransactionDetail) {
+                if let usedItem = selectedItem {
+                    TransactionHistoryDetail(viewModel: AppDI.shared.makeTransactionHistoryViewModel(),
+                                             usedItem: usedItem)
                 }
             }
         } else {

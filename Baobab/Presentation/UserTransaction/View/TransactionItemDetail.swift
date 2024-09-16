@@ -9,7 +9,6 @@ import SwiftUI
 
 struct TransactionItemDetail: View {
     @Environment(\.dismiss) private var dismiss
-    @State private var isShowingActionSheet: Bool = false
     
     let usedItem: UsedItem
     
@@ -81,24 +80,7 @@ struct TransactionItemDetail: View {
                     Image(systemName: "chevron.backward")
                 }
             }
-            
-//            ToolbarItem(placement: .topBarTrailing) {
-//                Button {
-//                    isShowingActionSheet.toggle()
-//                } label: {
-//                    Image(systemName: "ellipsis")
-//                        .rotationEffect(.degrees(-90))
-//                }
-//            }
         }
-//        .actionSheet(isPresented: $isShowingActionSheet) {
-//            ActionSheet(title: Text("더보기"), buttons: [
-//                .default(Text("전문보기"), action: {
-//                    // 전문으로 이동
-//                }),
-//                .cancel()
-//            ])
-//        }
     }
 }
 

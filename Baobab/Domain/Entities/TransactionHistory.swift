@@ -14,3 +14,15 @@ struct TransactionHistory {
     let createdAt: String
     let usedGoodsID: Int
 }
+
+#if DEBUG
+extension TransactionHistory {
+    static var sampleData: Self {
+        TransactionHistory(usedGoodsOrderID: 0,
+                           buyer: UserInfo.sampleData,
+                           seller: UserInfo.sampleData,
+                           createdAt: "2024-09-06T19:33:40",
+                           usedGoodsID: 0)
+    }
+}
+#endif

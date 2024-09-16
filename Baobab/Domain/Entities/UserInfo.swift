@@ -13,3 +13,14 @@ struct UserInfo: Identifiable {
     let email: String
     let role: String
 }
+
+#if DEBUG
+extension UserInfo {
+    static var sampleData: Self {
+        UserInfo(id: 0,
+                 name: "홍길동",
+                 email: "baobab@baobab.com",
+                 role: "role")
+    }
+}
+#endif

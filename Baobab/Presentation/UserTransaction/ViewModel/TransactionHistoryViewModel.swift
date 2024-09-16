@@ -9,6 +9,7 @@ import Combine
 
 final class TransactionHistoryViewModel: ObservableObject {
     @Published var history: TransactionHistory?
+    @Published var isProgress: Bool = false
     
     private let usecase: FetchTransactionHistoryUseCase
     private var cancellable = Set<AnyCancellable>()
@@ -18,8 +19,12 @@ final class TransactionHistoryViewModel: ObservableObject {
     }
     
     func fetchHistroy(usedItemId: Int) {
+        isProgress.toggle()
+        
         usecase.execute(usedItemId: usedItemId)
-            .sink(receiveCompletion: { completion in
+            .sink(receiveCompletion: { [weak self] completion in
+                self?.isProgress.toggle()
+                
                 switch completion {
                 case .finished:
                     print("The request to fetch the transaction history has been completed")
