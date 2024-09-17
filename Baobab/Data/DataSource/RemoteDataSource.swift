@@ -6,7 +6,7 @@
 //
 
 import Combine
-import Alamofire
+@preconcurrency import Alamofire
 import Foundation
 
 protocol RemoteDataSource {
@@ -42,9 +42,8 @@ extension RemoteDataSource {
     }
 }
 
-final class RemoteDataSourceImpl: RemoteDataSource, RequestInterceptor {
+final class RemoteDataSourceImpl: Sendable, RemoteDataSource, RequestInterceptor {
     private let session: Session
-    private var cancellables = Set<AnyCancellable>()
     
     init(session: Session = Session.default) {
         self.session = session
@@ -152,7 +151,7 @@ final class RemoteDataSourceImpl: RemoteDataSource, RequestInterceptor {
     }
     
     //MARK: - 네트워크 요청 전 token 관련 header 전처리
-    func adapt(_ urlRequest: URLRequest, for session: Session, completion: @escaping (Result<URLRequest, any Error>) -> Void) {
+    func adapt(_ urlRequest: URLRequest, for session: Session, completion: @escaping @Sendable (Result<URLRequest, any Error>) -> Void) {
         Task {
             var urlRequest = urlRequest
             
@@ -167,78 +166,47 @@ final class RemoteDataSourceImpl: RemoteDataSource, RequestInterceptor {
     }
     
     //MARK: - access token 만료일 경우, 수행할 작업
-    func retry(_ request: Request, for session: Session, dueTo error: any Error, completion: @escaping (RetryResult) -> Void) {
-        guard let response = request.task?.response as? HTTPURLResponse,
-              response.statusCode == 401 else {
+    func retry(_ request: Request, for session: Session, dueTo error: any Error, completion: @escaping @Sendable (RetryResult) -> Void) {
+        guard let response = request.task?.response as? HTTPURLResponse, response.statusCode == 401 else {
             //타입 캐스팅 실패, 401 에러가 아닌 경우
             //에러와 함께 재시도 없이 리턴
             completion(.doNotRetryWithError(error))
             return
         }
         
-        //Access token 재발급 후 재요청
-        refreshAccessToken()
-            .sink(receiveCompletion: { [weak self] accessTokencompletion in
-                switch accessTokencompletion {
-                case .finished:
-                    print("Updating the access token has been completed")
-                case .failure(let error):
-                    //Access Token 재발급 중 Error 발생하면 로그인 페이지로 돌아감
-                    self?.notifyTokenExpiration()
-                    completion(.doNotRetryWithError(error))
-                }
-            }, receiveValue: { [weak self] in
-                if $0 {
+        Task { @MainActor in
+            //Refresh 토큰 가져옴
+            guard let refreshToken = await TokenKeyChain.read(for: "refreshToken") else {
+                completion(.doNotRetryWithError(RequestError.noTokenValue))
+                return
+            }
+            
+            let apiEndPoint = Bundle.main.userOpenURL + "/token/reissue"
+            
+            do {
+                //Access Token 재발급
+                for try await newAccessToken in self.sendPostRequest(to: apiEndPoint, token: refreshToken, resultType: AccessTokenRefreshResponseDTO.self).values {
+                    await TokenKeyChain.update(token: newAccessToken.body.token, for: "accessToken")
+                    
                     if request.retryCount < 1 {
+                        //요청 재시도
                         completion(.retry)
                     } else {
                         //재시도 횟수를 초과하면 로그인 페이지로 돌아감
-                        self?.notifyTokenExpiration()
                         completion(.doNotRetry)
+                        self.notifyTokenExpiration()
                     }
-                } else {
-                    //Access Token 재발급 실패하면 로그인 페이지로 돌아감
-                    self?.notifyTokenExpiration()
-                    completion(.doNotRetry)
                 }
-            })
-            .store(in: &cancellables)
-    }
-    
-    //MARK: - Access toekn 재발급
-    private func refreshAccessToken() -> AnyPublisher<Bool, Error> {
-        return Future { promise in
-            Task {
-                guard let refreshToken = await TokenKeyChain.read(for: "refreshToken") else {
-                    promise(.failure(RequestError.noTokenValue))
-                    return
-                }
-                
-                let apiEndPoint = Bundle.main.userOpenURL + "/token/reissue"
-                self.sendPostRequest(to: apiEndPoint, token: refreshToken, resultType: AccessTokenRefreshResponseDTO.self)
-                    .sink(receiveCompletion: { completion in
-                        switch completion {
-                        case .finished:
-                            print("Requesting new access token has been completed")
-                        case .failure(let error):
-                            promise(.failure(error))    //리프레시 토큰 만료로 body가 null인 경우 decoding error 전달
-                        }
-                    }, receiveValue: { newAccessToken in
-                        Task {
-                            promise(.success(await TokenKeyChain.update(token: newAccessToken.body.token, for: "accessToken")))
-                        }
-                    })
-                    .store(in: &self.cancellables)
+            } catch {
+                completion(.doNotRetryWithError(error))
+                self.notifyTokenExpiration()
             }
         }
-        .eraseToAnyPublisher()
     }
     
     //MARK: - Refresh Token 만료시 NotificationCenter를 통해 알림
     private func notifyTokenExpiration() {
         print("토큰 만료 알림 전송")
-        DispatchQueue.main.async {
-            NotificationCenter.default.post(name: .refreshTokenExpiration, object: nil, userInfo: ["isTokenExpired": true])
-        }
+        NotificationCenter.default.post(name: .refreshTokenExpiration, object: nil, userInfo: ["isTokenExpired": true])
     }
 }

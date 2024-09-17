@@ -18,6 +18,7 @@ final class UsedItemListViewModel: ObservableObject {
         self.usecase = usecase
     }
     
+    @MainActor
     func fetchUsedItems() async {
         do {
             for try await items in usecase.execute().values {
@@ -31,6 +32,7 @@ final class UsedItemListViewModel: ObservableObject {
         }
     }
     
+    @MainActor
     func fetchNextUsedItems() async {
         guard let lastItem = items?.last else {
             return

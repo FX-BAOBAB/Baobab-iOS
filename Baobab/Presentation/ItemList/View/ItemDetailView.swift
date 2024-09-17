@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct ItemDetailView: View {
     @StateObject var viewModel: ItemStatusConversionViewModel
@@ -20,16 +21,18 @@ struct ItemDetailView: View {
                 ScrollView {
                     TabView {
                         ForEach(item.basicImages, id: \.self) { basicImage in
-                            AsyncImage(url: URL(string: basicImage.imageURL)) { image in
-                                image
-                                    .resizable()
-                            } placeholder: {
-                                Rectangle()
-                                    .fill(.gray)
-                                    .overlay {
-                                        ProgressView()
-                                    }
-                            }
+                            KFImage(URL(string: basicImage.imageURL))
+                                .placeholder {
+                                    Rectangle()
+                                        .fill(.gray)
+                                        .overlay {
+                                            ProgressView()
+                                        }
+                                }
+                                .cacheMemoryOnly()
+                                .cancelOnDisappear(true)
+                                .resizable()
+                                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width)
                         }
                     }
                     .tabViewStyle(.page)

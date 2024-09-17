@@ -217,6 +217,8 @@
 		8E97720F2C3CCB820082DCAF /* SignUpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E97720E2C3CCB820082DCAF /* SignUpResponse.swift */; };
 		8E9772192C3CEF530082DCAF /* SignUpTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9772182C3CEF530082DCAF /* SignUpTest.swift */; };
 		8E9772252C3CFCA30082DCAF /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9772242C3CFCA30082DCAF /* MockURLProtocol.swift */; };
+		8E9DFFB52C9824BD00743275 /* ImageDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9DFFB42C9824BD00743275 /* ImageDataSource.swift */; };
+		8E9DFFB72C98275C00743275 /* DownloadImageUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9DFFB62C98275C00743275 /* DownloadImageUseCase.swift */; };
 		8EA152832C6997F80011FDB3 /* EmptyItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA152822C6997F80011FDB3 /* EmptyItemView.swift */; };
 		8EA152852C69E8470011FDB3 /* RemoteTokenRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA152842C69E8470011FDB3 /* RemoteTokenRepositoryImpl.swift */; };
 		8EA152872C69E86B0011FDB3 /* RemoteTokenRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA152862C69E86B0011FDB3 /* RemoteTokenRepository.swift */; };
@@ -558,6 +560,8 @@
 		8E9772162C3CEF530082DCAF /* BaobabUnitTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BaobabUnitTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E9772182C3CEF530082DCAF /* SignUpTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpTest.swift; sourceTree = "<group>"; };
 		8E9772242C3CFCA30082DCAF /* MockURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLProtocol.swift; sourceTree = "<group>"; };
+		8E9DFFB42C9824BD00743275 /* ImageDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDataSource.swift; sourceTree = "<group>"; };
+		8E9DFFB62C98275C00743275 /* DownloadImageUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadImageUseCase.swift; sourceTree = "<group>"; };
 		8E9FFD632C74D91C008C2029 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8EA152822C6997F80011FDB3 /* EmptyItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyItemView.swift; sourceTree = "<group>"; };
 		8EA152842C69E8470011FDB3 /* RemoteTokenRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteTokenRepositoryImpl.swift; sourceTree = "<group>"; };
@@ -854,6 +858,7 @@
 				8E7BC8F12C3EC78600CB708F /* LoginUseCase.swift */,
 				8EAB81672C40BB770052AD48 /* FetchAddressUseCase.swift */,
 				8E8AF2E22C425DD100A1F0ED /* UploadImageUseCase.swift */,
+				8E9DFFB62C98275C00743275 /* DownloadImageUseCase.swift */,
 				8E449F082C4BA87A00291277 /* CheckEmailDuplicationUseCase.swift */,
 				8E449F0E2C4BEEC700291277 /* CheckNickNameDuplicationUseCase.swift */,
 				8E8D13512C4E44700032FC96 /* FetchUserInfoUseCase.swift */,
@@ -968,6 +973,7 @@
 			children = (
 				8E7BC8CF2C3E52BF00CB708F /* TokenKeyChain.swift */,
 				8E449F062C4BA24000291277 /* RemoteDataSource.swift */,
+				8E9DFFB42C9824BD00743275 /* ImageDataSource.swift */,
 			);
 			path = DataSource;
 			sourceTree = "<group>";
@@ -1918,6 +1924,7 @@
 				5CD8A2092C036A8B00EE5C09 /* ImageRegistrationCompleteSheet.swift in Sources */,
 				5C735F412BF1A10200A36EC8 /* CategoryList.swift in Sources */,
 				8E97720D2C3CCA040082DCAF /* SignUpRepository.swift in Sources */,
+				8E9DFFB52C9824BD00743275 /* ImageDataSource.swift in Sources */,
 				8E8E16742C88146000921B96 /* UsedItem.swift in Sources */,
 				8E7B6C312C51E61F00222721 /* ItemRepositoryImpl.swift in Sources */,
 				8EC135D82C8E886500F9DD3F /* FetchPurchasedItemsUseCase.swift in Sources */,
@@ -1930,6 +1937,7 @@
 				8ECB03A32C4FDF520051935C /* SettingView.swift in Sources */,
 				8EC135E02C8E8CF200F9DD3F /* FetchUsedItemDetailUseCase.swift in Sources */,
 				8E8CCC4E2C6C3AF900D2DF72 /* ShippingFormList.swift in Sources */,
+				8E9DFFB72C98275C00743275 /* DownloadImageUseCase.swift in Sources */,
 				5C735F442BF1A35B00A36EC8 /* CategoryData.swift in Sources */,
 				8EE198AE2C7FEB2B0000954C /* FileManager+Directory.swift in Sources */,
 				8E1685CF2C916B0F00284650 /* TransactionHistoryViewModel.swift in Sources */,
@@ -2394,7 +2402,7 @@
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -2434,7 +2442,7 @@
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

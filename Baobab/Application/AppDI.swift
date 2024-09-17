@@ -7,15 +7,17 @@
 
 import Foundation
 
+@MainActor
 struct AppDI {
     static let shared: AppDI = AppDI()
     let dataSource = RemoteDataSourceImpl()
+    let imageDataSource = ImageDataSourceImpl()
     
     private init() {}
     
     func makeReceivingViewModel() -> ReceivingViewModel {
         //Data Layer
-        let imageRepository = ImageRepositoryImpl(dataSource: dataSource)
+        let imageRepository = ImageRepositoryImpl(remoteDataSource: dataSource, imageDataSource: imageDataSource)
         let receivingRepository = ReceivingRepositoryImpl(dataSource: dataSource)
         let userRepository = UserRepositoryImpl(dataSource: dataSource)
         
@@ -131,14 +133,14 @@ struct AppDI {
     func makeUserInfoViewModel() -> UserInfoViewModel {
         //Data Layer
         let repository = UserRepositoryImpl(dataSource: dataSource)
-//
+
         //Domain Layer
         let fetchAddressUseCase = FetchAddressUseCaseImpl(repository: repository)
         let fetchGeoCodeUseCase = FetchGeoCodeUseCaseImpl()
         let addAddressUseCase = AddAddressUseCaseImpl(fetchAddressUseCase: fetchAddressUseCase, 
                                                       fetchGeoCodeUseCase: fetchGeoCodeUseCase,
                                                       repository: repository)
-//
+
         //Presentation Layer
         let viewModel = UserInfoViewModel(usecase: addAddressUseCase)
         

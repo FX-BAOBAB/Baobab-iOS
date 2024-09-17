@@ -54,6 +54,7 @@ final class MainViewModel: ObservableObject {
             .store(in: &cancellables)
     }
     
+    @MainActor
     func fetchUsedItems() {
         usecase.fetchUsedItems()
             .sink(receiveCompletion: { completion in
@@ -63,8 +64,10 @@ final class MainViewModel: ObservableObject {
                 case .failure(let error):
                     print("MainViewModel.fetchUsedItems() error :", error)
                 }
-            }, receiveValue: { [weak self] in
-                self?.usedItems = $0
+            }, receiveValue: { [weak self] usedItems in
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    self?.usedItems = usedItems
+                }
             })
             .store(in: &cancellables)
     }
