@@ -417,4 +417,17 @@ struct AppDI {
         
         return viewModel
     }
+    
+    func makeItemViewModel() -> ItemViewModel {
+        //Data Layer
+        let imageRepository = ImageRepositoryImpl(remoteDataSource: dataSource, imageDataSource: imageDataSource)
+        
+        //Domain Layer
+        let usecase = DownloadImageUseCaseImpl(repository: imageRepository)
+        
+        //Presentation Layer
+        let viewModel = ItemViewModel(usecase: usecase)
+        
+        return viewModel
+    }
 }

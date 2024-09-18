@@ -6,33 +6,42 @@
 //
 
 import SwiftUI
-import Kingfisher
 
 struct ItemDetailView: View {
-    @StateObject var viewModel: ItemStatusConversionViewModel
+    @StateObject private var viewModel: ItemStatusConversionViewModel
+    @StateObject private var itemViewModel: ItemViewModel
     @State private var isShowingConfirmationDialog: Bool = false
     @Environment(\.dismiss) private var dismiss
     
     let item: Item
+    
+    init(viewModel: ItemStatusConversionViewModel,
+         itemViewModel: ItemViewModel,
+         item: Item) {
+        _viewModel = StateObject(wrappedValue: viewModel)
+        _itemViewModel = StateObject(wrappedValue: itemViewModel)
+        self.item = item
+    }
     
     var body: some View {
         ZStack {
             VStack(spacing: 0) {
                 ScrollView {
                     TabView {
-                        ForEach(item.basicImages, id: \.self) { basicImage in
-                            KFImage(URL(string: basicImage.imageURL))
-                                .placeholder {
-                                    Rectangle()
-                                        .fill(.gray)
-                                        .overlay {
-                                            ProgressView()
-                                        }
-                                }
-                                .cacheMemoryOnly()
-                                .cancelOnDisappear(true)
-                                .resizable()
-                                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width)
+                        if let basicImage = itemViewModel.basicImageData {
+                            ForEach(basicImage, id: \.self) { basicImage in
+                                Image(uiImage: UIImage(data: basicImage))
+                                    .resizable()
+                                    .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width)
+                            }
+                        } else {
+                            ForEach(0..<6, id: \.self) { _ in
+                                Color.clear
+                                    .skeleton(with: true,
+                                              size: CGSize(width: UIScreen.main.bounds.width,
+                                                           height: UIScreen.main.bounds.width),
+                                              shape: .rectangle)
+                            }
                         }
                     }
                     .tabViewStyle(.page)
@@ -64,14 +73,7 @@ struct ItemDetailView: View {
                         .padding([.leading, .trailing])
                     
                     Section(header: Text("물품 결함").bold().padding([.leading, .top])) {
-                        ScrollView(.horizontal, showsIndicators: false) {
-                            HStack {
-                                ForEach(item.defectImages, id: \.self) { image in
-                                    DefectRow(imageData: image)
-                                }
-                            }
-                            .padding(.leading)
-                        }
+                        DefectScrollView(defectData: $itemViewModel.defectData, defectCount: item.defectImages.count)
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.bottom)
@@ -79,6 +81,12 @@ struct ItemDetailView: View {
             }
             .navigationTitle("상세보기")
             .navigationBarTitleDisplayMode(.inline)
+            .onAppear {
+                if itemViewModel.basicImageData == nil && itemViewModel.defectData == nil {
+                    itemViewModel.fetchBasicImages(basicIamges: item.basicImages.map { $0.imageURL })
+                    itemViewModel.fetchDefectImages(defects: item.defectImages)
+                }
+            }
             .toolbar {
                 if item.status == .receiving {
                     ToolbarItem(placement: .topBarTrailing) {
@@ -104,7 +112,7 @@ struct ItemDetailView: View {
                 case .failure:
                     Alert(title: Text("알림"), message: Text("물품 상태 전환 실패"))
                 case .success:
-                    Alert(title: Text("알림"), 
+                    Alert(title: Text("알림"),
                           message: Text("물품 상태 전환 완료"),
                           dismissButton: .default(Text("확인")) {
                         DispatchQueue.main.async {
@@ -135,6 +143,7 @@ struct ItemDetailView: View {
 #Preview {
     NavigationStack {
         ItemDetailView(viewModel: AppDI.shared.makeItemStatusConversionViewModel(),
+                       itemViewModel: AppDI.shared.makeItemViewModel(),
                        item: Item(id: 0,
                                   name: "부끄부끄 마끄부끄",
                                   category: "SMALL_APPLIANCES",

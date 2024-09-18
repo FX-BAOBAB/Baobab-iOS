@@ -64,7 +64,7 @@ struct StoredItemDetailView: View {
                         ScrollView(.horizontal, showsIndicators: false) {
                             HStack {
                                 ForEach(item.defectImages, id: \.self) { image in
-                                    DefectRow(imageData: image)
+                                    DefectRow(imageData: Data(), caption: "")
                                 }
                             }
                             .padding(.leading)
