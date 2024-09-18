@@ -24,7 +24,7 @@ struct ItemList<T: ItemsViewModel>: View {
                                 .environmentObject(viewModel)
                         } else {
                             ItemDetailView(viewModel: AppDI.shared.makeItemStatusConversionViewModel(),
-                                           itemViewModel: AppDI.shared.makeItemViewModel(),
+                                           itemImageViewModel: AppDI.shared.makeItemViewModel(),
                                            item: item)
                         }
                     } label: {

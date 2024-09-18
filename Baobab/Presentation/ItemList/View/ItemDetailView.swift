@@ -9,17 +9,17 @@ import SwiftUI
 
 struct ItemDetailView: View {
     @StateObject private var viewModel: ItemStatusConversionViewModel
-    @StateObject private var itemViewModel: ItemViewModel
+    @StateObject private var itemImageViewModel: ItemImageViewModel
     @State private var isShowingConfirmationDialog: Bool = false
     @Environment(\.dismiss) private var dismiss
     
     let item: Item
     
     init(viewModel: ItemStatusConversionViewModel,
-         itemViewModel: ItemViewModel,
+         itemImageViewModel: ItemImageViewModel,
          item: Item) {
         _viewModel = StateObject(wrappedValue: viewModel)
-        _itemViewModel = StateObject(wrappedValue: itemViewModel)
+        _itemImageViewModel = StateObject(wrappedValue: itemImageViewModel)
         self.item = item
     }
     
@@ -28,7 +28,7 @@ struct ItemDetailView: View {
             VStack(spacing: 0) {
                 ScrollView {
                     TabView {
-                        if let basicImage = itemViewModel.basicImageData {
+                        if let basicImage = itemImageViewModel.basicImageData {
                             ForEach(basicImage, id: \.self) { basicImage in
                                 Image(uiImage: UIImage(data: basicImage))
                                     .resizable()
@@ -73,7 +73,7 @@ struct ItemDetailView: View {
                         .padding([.leading, .trailing])
                     
                     Section(header: Text("물품 결함").bold().padding([.leading, .top])) {
-                        DefectScrollView(defectData: $itemViewModel.defectData, defectCount: item.defectImages.count)
+                        DefectScrollView(defectData: $itemImageViewModel.defectData, defectCount: item.defectImages.count)
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.bottom)
@@ -82,9 +82,9 @@ struct ItemDetailView: View {
             .navigationTitle("상세보기")
             .navigationBarTitleDisplayMode(.inline)
             .onAppear {
-                if itemViewModel.basicImageData == nil && itemViewModel.defectData == nil {
-                    itemViewModel.fetchBasicImages(basicIamges: item.basicImages.map { $0.imageURL })
-                    itemViewModel.fetchDefectImages(defects: item.defectImages)
+                if itemImageViewModel.basicImageData == nil && itemImageViewModel.defectData == nil {
+                    itemImageViewModel.fetchBasicImages(basicIamges: item.basicImages.map { $0.imageURL })
+                    itemImageViewModel.fetchDefectImages(defects: item.defectImages)
                 }
             }
             .toolbar {
@@ -143,7 +143,7 @@ struct ItemDetailView: View {
 #Preview {
     NavigationStack {
         ItemDetailView(viewModel: AppDI.shared.makeItemStatusConversionViewModel(),
-                       itemViewModel: AppDI.shared.makeItemViewModel(),
+                       itemImageViewModel: AppDI.shared.makeItemViewModel(),
                        item: Item(id: 0,
                                   name: "부끄부끄 마끄부끄",
                                   category: "SMALL_APPLIANCES",

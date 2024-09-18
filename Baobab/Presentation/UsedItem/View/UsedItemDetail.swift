@@ -24,16 +24,19 @@ struct UsedItemDetail: View {
                 ZStack {
                     ScrollView {
                         TabView {
-                            ForEach(usedItem.item.basicImages, id: \.self) { image in
-                                AsyncImage(url: URL(string: image.imageURL)) { image in
-                                    image
+                            if let datas = viewModel.basicImageData {
+                                ForEach(datas, id: \.self) { data in
+                                    Image(uiImage: UIImage(data: data))
                                         .resizable()
-                                } placeholder: {
-                                    Rectangle()
-                                        .fill(.gray)
-                                        .overlay {
-                                            ProgressView()
-                                        }
+                                        .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width)
+                                }
+                            } else {
+                                ForEach(0..<6, id: \.self) { _ in
+                                    Color.clear
+                                        .skeleton(with: true,
+                                                  size: CGSize(width: UIScreen.main.bounds.width,
+                                                               height: UIScreen.main.bounds.width),
+                                                  shape: .rectangle)
                                 }
                             }
                         }
@@ -42,6 +45,7 @@ struct UsedItemDetail: View {
                                height: UIScreen.main.bounds.width)
                         
                         MainText(usedItem: usedItem)
+                            .environmentObject(viewModel)
                         
                         Color.clear
                             .frame(height: 80)
@@ -112,6 +116,12 @@ struct UsedItemDetail: View {
                 CustomProgressView()
             }
         }
+        .onAppear {
+            if viewModel.basicImageData == nil && viewModel.defectData == nil {
+                viewModel.fetchBasicImages(basicIamges: usedItem.item.basicImages.map { $0.imageURL })
+                viewModel.fetchDefectImages(defects: usedItem.item.defectImages)
+            }
+        }
         .alert(isPresented: $viewModel.isShowingAlert) {
             switch viewModel.alertType {
             case .success:
@@ -126,6 +136,7 @@ struct UsedItemDetail: View {
 }
 
 struct MainText: View {
+    @EnvironmentObject private var viewModel: UsedItemViewModel
     let usedItem: UsedItem
     
     var body: some View {
@@ -161,12 +172,7 @@ struct MainText: View {
             
             Section(header: Text("물품 결함").bold().padding([.leading, .top])) {
                 ScrollView(.horizontal, showsIndicators: false) {
-                    HStack {
-                        ForEach(usedItem.item.defectImages, id: \.self) { image in
-                            DefectRow(imageData: Data(), caption: "")
-                        }
-                    }
-                    .padding(.leading)
+                    DefectScrollView(defectData: $viewModel.defectData, defectCount: usedItem.item.defectImages.count)
                 }
             }
             .frame(maxWidth: .infinity, alignment: .leading)

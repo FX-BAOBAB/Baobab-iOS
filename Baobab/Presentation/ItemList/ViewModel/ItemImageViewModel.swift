@@ -8,7 +8,7 @@
 import Combine
 import Foundation
 
-final class ItemViewModel: ObservableObject {
+final class ItemImageViewModel: ObservableObject {
     @Published var basicImageData: [Data]?
     @Published var defectData: [(image: Data, caption: String)]?
     

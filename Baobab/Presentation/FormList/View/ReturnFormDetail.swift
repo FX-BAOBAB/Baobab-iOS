@@ -44,7 +44,7 @@ struct ReturnFormDetail: View {
                 ForEach(form.items) { item in
                     NavigationLink(destination: {
                         ItemDetailView(viewModel: AppDI.shared.makeItemStatusConversionViewModel(),
-                                       itemViewModel: AppDI.shared.makeItemViewModel(),
+                                       itemImageViewModel: AppDI.shared.makeItemViewModel(),
                                        item: item)
                     }) {
                         ItemInfoRow(item: item)

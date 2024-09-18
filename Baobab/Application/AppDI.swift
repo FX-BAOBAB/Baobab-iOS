@@ -346,10 +346,12 @@ struct AppDI {
     
     func makeUsedItemViewModel() -> UsedItemViewModel {
         //Data Layer
+        let imageRepository = ImageRepositoryImpl(remoteDataSource: dataSource, imageDataSource: imageDataSource)
         let repository = UsedItemRepositoryImpl(dataSource: dataSource)
         
         //Domain Layer
-        let usecase = BuyUsedItemUseCaseImpl(repository: repository)
+        let downloadImageUseCase = DownloadImageUseCaseImpl(repository: imageRepository)
+        let usecase = BuyUsedItemUseCaseImpl(downloadImageUseCase: downloadImageUseCase, repository: repository)
         
         //Presentation Layer
         let viewModel = UsedItemViewModel(usecase: usecase)
@@ -418,7 +420,7 @@ struct AppDI {
         return viewModel
     }
     
-    func makeItemViewModel() -> ItemViewModel {
+    func makeItemViewModel() -> ItemImageViewModel {
         //Data Layer
         let imageRepository = ImageRepositoryImpl(remoteDataSource: dataSource, imageDataSource: imageDataSource)
         
@@ -426,7 +428,7 @@ struct AppDI {
         let usecase = DownloadImageUseCaseImpl(repository: imageRepository)
         
         //Presentation Layer
-        let viewModel = ItemViewModel(usecase: usecase)
+        let viewModel = ItemImageViewModel(usecase: usecase)
         
         return viewModel
     }

@@ -16,6 +16,7 @@ struct DefectRow: View {
     var body: some View {
         VStack(spacing: 0) {            
             Image(uiImage: UIImage(data: imageData))
+                .resizable()
                 .frame(width: UIScreen.main.bounds.width * 0.5,
                        height: UIScreen.main.bounds.width * 0.5)
             
