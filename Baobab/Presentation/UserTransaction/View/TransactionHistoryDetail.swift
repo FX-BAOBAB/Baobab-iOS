@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct TransactionHistoryDetail: View {
     @StateObject private var viewModel: TransactionHistoryViewModel
@@ -31,18 +32,18 @@ struct TransactionHistoryDetail: View {
                         
                         //물품 정보
                         HStack {
-                            AsyncImage(url: URL(string: usedItem.item.basicImages[0].imageURL)) { image in
-                                image
-                                    .resizable()
-                            } placeholder: {
-                                Rectangle()
-                                    .fill(.gray)
-                                    .overlay {
-                                        ProgressView()
-                                    }
-                            }
-                            .frame(width: 60, height: 60)
-                            .cornerRadius(10)
+                            KFImage(URL(string: usedItem.item.basicImages[0].imageURL))
+                                .placeholder {
+                                    Rectangle()
+                                        .fill(.gray)
+                                        .overlay {
+                                            ProgressView()
+                                        }
+                                }
+                                .cacheMemoryOnly()
+                                .resizable()
+                                .frame(width: 60, height: 60)
+                                .cornerRadius(10)
                             
                             VStack(alignment: .leading) {
                                 Text(usedItem.item.name)

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct SelectableItemInfoRow: View {
     @EnvironmentObject private var viewModel: ShippingApplicationViewModel
@@ -15,17 +16,16 @@ struct SelectableItemInfoRow: View {
     var body: some View {
         HStack(alignment: .center, spacing: 10) {
             HStack(alignment: .top) {
-                AsyncImage(url: URL(string: item.basicImages[0].imageURL)) { image in
-                    image
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .cornerRadius(10)
-                } placeholder: {
-                    Color.clear
-                        .skeleton(with: true,
-                                  shape: .rounded(.radius(10, style: .circular)))
-                }
-                .frame(width: UIScreen.main.bounds.width * 0.25, height: UIScreen.main.bounds.width * 0.25)
+                KFImage(URL(string: item.basicImages[0].imageURL))
+                    .placeholder {
+                        Color.clear
+                            .skeleton(with: true,
+                                      shape: .rectangle)
+                    }
+                    .cacheMemoryOnly()
+                    .resizable()
+                    .frame(width: UIScreen.main.bounds.width * 0.25, height: UIScreen.main.bounds.width * 0.25)
+                    .cornerRadius(10)
                 
                 VStack(alignment: .leading) {
                     Text(item.name)

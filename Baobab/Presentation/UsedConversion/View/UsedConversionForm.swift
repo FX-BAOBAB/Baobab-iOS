@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct UsedConversionForm: View {
     @StateObject private var viewModel: UsedItemRegistrationViewModel
@@ -24,20 +25,19 @@ struct UsedConversionForm: View {
             VStack(spacing: 0) {
                 VStack(spacing: 0) {
                     HStack(alignment: .top) {
-                        AsyncImage(url: URL(string: item.basicImages[0].imageURL)) { image in
-                            image
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(width: UIScreen.main.bounds.width * 0.15)
-                                .cornerRadius(10)
-                        } placeholder: {
-                            Rectangle()
-                                .skeleton(with: true,
-                                          size: CGSize(width: UIScreen.main.bounds.width * 0.15,
-                                                       height: UIScreen.main.bounds.width * 0.15),
-                                          shape: .rounded(.radius(10, style: .circular))
-                                )
-                        }
+                        KFImage(URL(string: item.basicImages[0].imageURL))
+                            .placeholder {
+                                Rectangle()
+                                    .skeleton(with: true,
+                                              size: CGSize(width: UIScreen.main.bounds.width * 0.15,
+                                                           height: UIScreen.main.bounds.width * 0.15),
+                                              shape: .rounded(.radius(10, style: .circular))
+                                    )
+                            }
+                            .cacheMemoryOnly()
+                            .resizable()
+                            .frame(width: UIScreen.main.bounds.width * 0.15, height: UIScreen.main.bounds.width * 0.15)
+                            .cornerRadius(10)
                         
                         VStack(alignment: .leading) {
                             Text(item.name)

@@ -6,33 +6,28 @@
 //
 
 import SwiftUI
-import SkeletonUI
+import Kingfisher
 
 struct UsedItemTop10Row: View {
     let usedItem: UsedItem
     
     var body: some View {
-        ZStack {
-            AsyncImage(url: URL(string: usedItem.item.basicImages[0].imageURL)) { image in
-                ZStack {
-                    image
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .overlay {
-                            TitleOverlay(title: usedItem.title)
-                                .frame(maxHeight: .infinity, alignment: .bottom)
-                        }
-                        .cornerRadius(10)
-                }
-            } placeholder: {
+        KFImage(URL(string: usedItem.item.basicImages[0].imageURL))
+            .placeholder {
                 Color.clear
                     .skeleton(with: true,
-                              shape: .rounded(.radius(10, style: .circular)))
+                              shape: .rectangle)
+            }
+            .cacheMemoryOnly()
+            .resizable()
+            .overlay {
+                TitleOverlay(title: usedItem.title)
+                    .frame(maxHeight: .infinity, alignment: .bottom)
             }
             .frame(width: UIScreen.main.bounds.width * 0.35, height: UIScreen.main.bounds.width * 0.35)
+            .cornerRadius(10)
             .shadow(radius: 5)
             .padding(.leading)
-        }
     }
 }
 

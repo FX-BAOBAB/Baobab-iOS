@@ -6,22 +6,22 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct UsedItemListRow: View {
     let usedItem: UsedItem
     
     var body: some View {
         HStack(alignment: .top, spacing: 10) {
-            AsyncImage(url: URL(string: usedItem.item.basicImages[0].imageURL)) { image in
-                image
-                    .resizable()
-                    .cornerRadius(10)
-            } placeholder: {
-                Color.clear
-                    .skeleton(with: true,
-                              shape: .rounded(.radius(10, style: .circular)))
-            }
-            .frame(width: UIScreen.main.bounds.width * 0.25, height: UIScreen.main.bounds.width * 0.25)
+            KFImage(URL(string: usedItem.item.basicImages[0].imageURL))
+                .placeholder {
+                    Color.clear
+                        .skeleton(with: true, shape: .rectangle)
+                }
+                .cacheMemoryOnly()
+                .resizable()
+                .frame(width: UIScreen.main.bounds.width * 0.25, height: UIScreen.main.bounds.width * 0.25)
+                .cornerRadius(10)
             
             VStack(alignment: .leading) {
                 Text(usedItem.title)
