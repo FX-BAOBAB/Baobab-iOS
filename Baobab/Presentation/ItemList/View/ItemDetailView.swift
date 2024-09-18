@@ -28,9 +28,9 @@ struct ItemDetailView: View {
             VStack(spacing: 0) {
                 ScrollView {
                     TabView {
-                        if let basicImage = itemImageViewModel.basicImageData {
-                            ForEach(basicImage, id: \.self) { basicImage in
-                                Image(uiImage: UIImage(data: basicImage))
+                        if let data = itemImageViewModel.basicImageData {
+                            ForEach(0..<6, id: \.self) { i in
+                                Image(uiImage: UIImage(data: data[i]))
                                     .resizable()
                                     .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width)
                             }

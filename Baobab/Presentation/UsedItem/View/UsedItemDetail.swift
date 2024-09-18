@@ -24,9 +24,9 @@ struct UsedItemDetail: View {
                 ZStack {
                     ScrollView {
                         TabView {
-                            if let datas = viewModel.basicImageData {
-                                ForEach(datas, id: \.self) { data in
-                                    Image(uiImage: UIImage(data: data))
+                            if let data = viewModel.basicImageData {
+                                ForEach(0..<6, id: \.self) { i in
+                                    Image(uiImage: UIImage(data: data[i]))
                                         .resizable()
                                         .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width)
                                 }
