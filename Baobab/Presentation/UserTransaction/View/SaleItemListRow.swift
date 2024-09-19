@@ -43,8 +43,10 @@ struct SaleItemListRow: View {
     }
 }
 
+#if DEBUG
 #Preview {
     SaleItemListRow(selectedItem: .constant(nil),
                     isShowingItemDetail: .constant(false),
                     usedItem: UsedItem.sampleData.first!)
 }
+#endif

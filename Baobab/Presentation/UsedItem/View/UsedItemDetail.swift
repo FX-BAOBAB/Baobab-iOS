@@ -207,9 +207,11 @@ struct ItemInfoView: View {
     }
 }
 
+#if DEBUG
 #Preview {
     NavigationStack {
         UsedItemDetail(viewModel: AppDI.shared.makeUsedItemViewModel(),
                         usedItem: UsedItem.sampleData[0])
     }
 }
+#endif
