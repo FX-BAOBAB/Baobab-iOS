@@ -6,24 +6,22 @@
 //
 
 import SwiftUI
-import SkeletonUI
+import Kingfisher
 
 struct ItemInfoRow: View {
     let item: Item
     
     var body: some View {
         HStack(alignment: .top, spacing: 10) {
-            AsyncImage(url: URL(string: item.basicImages[0].imageURL)) { image in
-                image
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .cornerRadius(10)
-            } placeholder: {
-                Color.clear
-                    .skeleton(with: true,
-                              shape: .rounded(.radius(10, style: .circular)))
-            }
-            .frame(width: UIScreen.main.bounds.width * 0.25, height: UIScreen.main.bounds.width * 0.25)
+            KFImage(URL(string: item.basicImages[0].imageURL))
+                .placeholder {
+                    Color.clear
+                        .skeleton(with: true, shape: .rounded(.radius(10, style: .circular)))
+                }
+                .cacheMemoryOnly()
+                .resizable()
+                .cornerRadius(10)
+                .frame(width: UIScreen.main.bounds.width * 0.25, height: UIScreen.main.bounds.width * 0.25)
             
             VStack(alignment: .leading) {
                 Text(item.name)

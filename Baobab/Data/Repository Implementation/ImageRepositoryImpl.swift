@@ -9,6 +9,13 @@ import Combine
 import Foundation
 
 final class ImageRepositoryImpl: RemoteRepository, ImageRepository {
+    private let imageDataSource: ImageDataSource
+    
+    init(remoteDataSource: RemoteDataSource, imageDataSource: ImageDataSource) {
+        self.imageDataSource = imageDataSource
+        super.init(dataSource: remoteDataSource)
+    }
+    
     ///다중 이미지 업로드 메서드
     func upload(params: [String : Any]) -> AnyPublisher<[ImageUploadResponse], any Error> {
         let apiEndPoint = Bundle.main.imageURL + "/image/list"
@@ -43,5 +50,10 @@ final class ImageRepositoryImpl: RemoteRepository, ImageRepository {
                                     itemId: $0.body.goodsID)
             }
             .eraseToAnyPublisher()
+    }
+    
+    ///이미지 URL을 통해 이미지 파일 다운로드
+    func download(for url: URL) -> AnyPublisher<Data, any Error> {
+        return imageDataSource.loadImageData(url)
     }
 }

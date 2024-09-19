@@ -7,7 +7,7 @@
 
 import SwiftUI
 import QuickLook
-import RealityKit
+@preconcurrency import RealityKit
 
 #if !targetEnvironment(simulator)
 @available(iOS 17, *)

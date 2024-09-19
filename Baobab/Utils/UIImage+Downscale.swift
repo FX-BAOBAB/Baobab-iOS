@@ -9,10 +9,10 @@ import UIKit
 import Foundation
 
 extension UIImage {
-    func downscaleToJpegData(maxBytes: UInt, completion: @escaping (Data?) -> Void) {
-        var quality: Double = 1.0
-        
+    func downscaleToJpegData(maxBytes: UInt, completion: @escaping @Sendable (Data?) -> Void) {
         DispatchQueue.global(qos: .userInitiated).async {
+            var quality: Double = 1.0
+            
             while quality > 0 {
                 guard let jpegData = self.jpegData(compressionQuality: quality) else {
                     completion(nil)

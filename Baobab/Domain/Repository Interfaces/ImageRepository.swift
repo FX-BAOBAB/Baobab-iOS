@@ -6,8 +6,10 @@
 //
 
 import Combine
+import Foundation
 
 protocol ImageRepository {
     func upload(params: [String: Any]) -> AnyPublisher<ImageUploadResponse, any Error>
     func upload(params: [String: Any]) -> AnyPublisher<[ImageUploadResponse], any Error>
+    func download(for url: URL) -> AnyPublisher<Data, any Error>
 }

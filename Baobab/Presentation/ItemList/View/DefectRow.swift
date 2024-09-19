@@ -8,41 +8,46 @@
 import SwiftUI
 
 struct DefectRow: View {
-    let imageData: ImageData
+    @State private var isShowingFullScreen: Bool = false
+    
+    let imageData: Data
+    let caption: String
     
     var body: some View {
-        VStack(spacing: 0) {
-            AsyncImage(url: URL(string: imageData.imageURL)) { image in
-                image
-                    .resizable()
-            } placeholder: {
-                Rectangle()
-                    .fill(.gray)
-                    .overlay {
-                        ProgressView()
-                    }
-            }
-            .frame(width: UIScreen.main.bounds.width * 0.5,
-                   height: UIScreen.main.bounds.width * 0.5)
+        VStack(spacing: 0) {            
+            Image(uiImage: UIImage(data: imageData))
+                .resizable()
+                .frame(width: UIScreen.main.bounds.width * 0.5,
+                       height: UIScreen.main.bounds.width * 0.5)
             
             Rectangle()
                 .fill(.white)
-                .frame(width: UIScreen.main.bounds.width * 0.5,
-                       height: 60)
+                .frame(width: UIScreen.main.bounds.width * 0.5, height: 60)
                 .overlay {
-                    Text(imageData.caption)
+                    Text(caption)
                         .lineLimit(2)
                         .font(.caption2)
                         .padding()
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .frame(maxHeight: .infinity, alignment: .top)
                 }
         }
         .cornerRadius(10)
         .shadow(radius: 6)
         .padding()
+        .onTapGesture {
+            isShowingFullScreen.toggle()
+        }
+        .fullScreenCover(isPresented: $isShowingFullScreen) {
+            NavigationStack {
+                DefectFullScreenView(isShowingFullScreen: $isShowingFullScreen,
+                                     imageData: imageData,
+                                     caption: caption)
+            }
+        }
     }
 }
 
 #Preview {
-    DefectRow(imageData: ImageData(imageURL: "string",
-                                   caption: "test"))
+    DefectRow(imageData: Data(), caption: "테스트")
 }

@@ -7,15 +7,17 @@
 
 import Foundation
 
+@MainActor
 struct AppDI {
     static let shared: AppDI = AppDI()
     let dataSource = RemoteDataSourceImpl()
+    let imageDataSource = ImageDataSourceImpl()
     
     private init() {}
     
     func makeReceivingViewModel() -> ReceivingViewModel {
         //Data Layer
-        let imageRepository = ImageRepositoryImpl(dataSource: dataSource)
+        let imageRepository = ImageRepositoryImpl(remoteDataSource: dataSource, imageDataSource: imageDataSource)
         let receivingRepository = ReceivingRepositoryImpl(dataSource: dataSource)
         let userRepository = UserRepositoryImpl(dataSource: dataSource)
         
@@ -99,11 +101,15 @@ struct AppDI {
         //Data Layer
         let localTokenRepository = TokenRepositoryImpl()
         let userRepository = UserRepositoryImpl(dataSource: dataSource)
+        let usedItemRepository = UsedItemRepositoryImpl(dataSource: dataSource)
         
         //Domain Layer
         let fetchTokenUseCase = FetchTokenUseCaseImpl(repository: localTokenRepository)
         let fetchUserInfoUseCase = FetchuserInfoUserCaseImpl(repository: userRepository)
-        let usecase = SetupInitialViewUseCaseImpl(fetchTokenUseCase: fetchTokenUseCase, fetchUserInfoUseCase: fetchUserInfoUseCase)
+        let fetchUsedItemUseCase = FetchUsedItemUseCaseImpl(usedItemRepository: usedItemRepository)
+        let usecase = SetupInitialViewUseCaseImpl(fetchTokenUseCase: fetchTokenUseCase,
+                                                  fetchUserInfoUseCase: fetchUserInfoUseCase,
+                                                  fetchUsedItemUseCase: fetchUsedItemUseCase)
         
         //Presentation Layer
         let viewModel = MainViewModel(usecase: usecase)
@@ -127,14 +133,14 @@ struct AppDI {
     func makeUserInfoViewModel() -> UserInfoViewModel {
         //Data Layer
         let repository = UserRepositoryImpl(dataSource: dataSource)
-//
+
         //Domain Layer
         let fetchAddressUseCase = FetchAddressUseCaseImpl(repository: repository)
         let fetchGeoCodeUseCase = FetchGeoCodeUseCaseImpl()
         let addAddressUseCase = AddAddressUseCaseImpl(fetchAddressUseCase: fetchAddressUseCase, 
                                                       fetchGeoCodeUseCase: fetchGeoCodeUseCase,
                                                       repository: repository)
-//
+
         //Presentation Layer
         let viewModel = UserInfoViewModel(usecase: addAddressUseCase)
         
@@ -279,7 +285,7 @@ struct AppDI {
     
     func makeUsedConversionViewModel() -> UsedItemRegistrationViewModel {
         //Data Layer
-        let repository = UsedItemRegistrationRepositoryImpl(dataSource: dataSource)
+        let repository = UsedItemRepositoryImpl(dataSource: dataSource)
         
         //Domain Layer
         let usecase = RegisterAsUsedItemUseCaseImpl(repository: repository)
@@ -308,6 +314,121 @@ struct AppDI {
     func makeObjectCaptureViewModel() -> ObjectCaptureViewModel {
         //Presentation Layer
         let viewModel = ObjectCaptureViewModel()
+        
+        return viewModel
+    }
+    
+    func makeUsedTradeViewModel() -> UsedItemListViewModel {
+        //Data Layer
+        let repository = UsedItemRepositoryImpl(dataSource: dataSource)
+        
+        //Domain Layer
+        let usecase = FetchUsedItemUseCaseImpl(usedItemRepository: repository)
+        
+        //Presentation Layer
+        let viewModel = UsedItemListViewModel(usecase: usecase)
+        
+        return viewModel
+    }
+    
+    func makeUsedTradeSearchViewModel() -> UsedItemSearchViewModel {
+        //Data Layer
+        let repository = UsedItemRepositoryImpl(dataSource: dataSource)
+        
+        //Domain Layer
+        let usecase = FetchSearchedUsedItemsUseCaseImpl(usedItemRepository: repository)
+        
+        //Presentation Layer
+        let viewModel = UsedItemSearchViewModel(usecase: usecase)
+        
+        return viewModel
+    }
+    
+    func makeUsedItemViewModel() -> UsedItemViewModel {
+        //Data Layer
+        let imageRepository = ImageRepositoryImpl(remoteDataSource: dataSource, imageDataSource: imageDataSource)
+        let repository = UsedItemRepositoryImpl(dataSource: dataSource)
+        
+        //Domain Layer
+        let downloadImageUseCase = DownloadImageUseCaseImpl(repository: imageRepository)
+        let usecase = BuyUsedItemUseCaseImpl(downloadImageUseCase: downloadImageUseCase, repository: repository)
+        
+        //Presentation Layer
+        let viewModel = UsedItemViewModel(usecase: usecase)
+        
+        return viewModel
+    }
+    
+    func makeUserSoldItemsViewModel() -> UserSoldItemsViewModel {
+        //Data Layer
+        let usedItemRepository = UsedItemRepositoryImpl(dataSource: dataSource)
+        let transactionHistoryRepository = TransactionItemHistoryRepositoryImpl(dataSource: dataSource)
+        
+        //Domain Layer
+        let usecase = FetchSoldItemsUsedCaseImpl(usedItemRepository: usedItemRepository,
+                                                 historyRepository: transactionHistoryRepository)
+        
+        //Presentation Layer
+        let viewModel = UserSoldItemsViewModel(usecase: usecase)
+        
+        return viewModel
+    }
+    
+    func makeUserSaleItemsViewModel() -> UserSaleItemsViewModel {
+        //Data Layer
+        let usedItemRepository = UsedItemRepositoryImpl(dataSource: dataSource)
+        let transactionHistoryRepository = TransactionItemHistoryRepositoryImpl(dataSource: dataSource)
+        
+        //Domain Layer
+        let usecase = FetchSaleItemsUseCaseImpl(usedItemRepository: usedItemRepository,
+                                                 historyRepository: transactionHistoryRepository)
+        
+        //Presentation Layer
+        let viewModel = UserSaleItemsViewModel(usecase: usecase)
+        
+        return viewModel
+    }
+    
+    func makeUserPurchasedItemsViewModel() -> UserPurchasedItemsViewModel {
+        //Data Layer
+        let usedItemRepository = UsedItemRepositoryImpl(dataSource: dataSource)
+        let transactionHistoryRepository = TransactionItemHistoryRepositoryImpl(dataSource: dataSource)
+        
+        
+        //Domain Layer
+        let usecase = FetchPurchasedItemsUseCaseImpl(usedItemRepository: usedItemRepository,
+                                                     historyRepository: transactionHistoryRepository)
+        
+        //Presentation Layer
+        let viewModel = UserPurchasedItemsViewModel(usecase: usecase)
+        
+        return viewModel
+    }
+    
+    func makeTransactionHistoryViewModel() -> TransactionHistoryViewModel {
+        //Data Layer
+        let transactionHistoryRepository = TransactionHistoryRepositoryImpl(dataSource: dataSource)
+        let userRepository = UserRepositoryImpl(dataSource: dataSource)
+        
+        //Domain Layer
+        let usecase = FetchTransactionHistoryUseCaseImpl(transactionHistoryRepository: transactionHistoryRepository,
+                                                         userRepository: userRepository)
+        
+        //Presentation Layer
+        let viewModel = TransactionHistoryViewModel(usecase: usecase)
+        
+        return viewModel
+    }
+    
+    func makeItemImageViewModel() -> ItemImageViewModel {
+        //Data Layer
+        let imageRepository = ImageRepositoryImpl(remoteDataSource: dataSource, imageDataSource: imageDataSource)
+        
+        //Domain Layer
+        let usecase = DownloadImageUseCaseImpl(repository: imageRepository)
+        
+        //Presentation Layer
+        let viewModel = ItemImageViewModel(usecase: usecase)
         
         return viewModel
     }

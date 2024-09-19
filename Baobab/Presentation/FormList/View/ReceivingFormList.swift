@@ -22,13 +22,9 @@ struct ReceivingFormList: View {
             } else if let forms = viewModel.forms {
                 List {
                     ForEach(forms) { form in
-                        VStack(spacing: 0) {
-                            ReceivingFormListRow(form: form)
-                            
-                            SectionFooter()
-                        }
-                        .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
-                        .listRowSeparator(.hidden)
+                        ReceivingFormListRow(form: form)
+                            .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
+                            .listRowSeparator(.hidden)
                     }
                 }
                 .listStyle(.plain)

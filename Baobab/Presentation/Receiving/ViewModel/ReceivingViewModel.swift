@@ -73,6 +73,7 @@ extension ReceivingViewModel {
         }
     }
     
+    @MainActor
     func applyReceiving() {
         isShowingAlert = false
         isProgress = true
@@ -82,6 +83,7 @@ extension ReceivingViewModel {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
                 self.isShowingAlert = true
             }
+            
             return
         }
         

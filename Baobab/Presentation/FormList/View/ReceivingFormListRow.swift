@@ -31,37 +31,29 @@ struct ReceivingFormListRow: View {
                     ForEach(form.items) { item in
                         ItemInfoRow(item: item)
                     }
-                    .padding(.bottom)
-                    
-                    Button(action: {
-                        isShowingDetailedView.toggle()
-                    }, label: {
-                        Text("상세보기")
-                            .font(.caption)
-                            .frame(maxWidth: .infinity)
-                            .padding(10)
-                            .overlay {
-                                RoundedRectangle(cornerRadius: 5)
-                                    .stroke()
-                            }
-                    })
-                    .foregroundStyle(.gray)
-                    .buttonStyle(.borderless)
                 }
                 .padding()
-                .overlay {
-                    RoundedRectangle(cornerRadius: 10)
-                        .stroke()
-                        .fill(Color(red: 222 / 255, green: 226 / 255, blue: 230 / 255))
+                
+                Divider()
+                
+                Button {
+                    isShowingDetailedView.toggle()
+                } label: {
+                    Text("상세보기")
+                        .font(.footnote)
+                        .foregroundStyle(.black)
+                        .frame(maxWidth: .infinity)
                 }
+                .buttonStyle(.borderless)
+                .padding()
+                
+                SectionFooter()
             }
-            .padding([.leading, .trailing])
-            .padding([.top, .bottom], 25)
             .navigationDestination(isPresented: $isShowingDetailedView) {
                 ReceivingFormDetail(form: form)
             }
         } else {
-            Text("Hello World!")
+            EmptyView()
         }
     }
 }

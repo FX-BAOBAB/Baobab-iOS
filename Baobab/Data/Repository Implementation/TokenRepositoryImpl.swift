@@ -7,7 +7,8 @@
 
 import Combine
 
-final class TokenRepositoryImpl: TokenRepositroy {
+final class TokenRepositoryImpl: @preconcurrency TokenRepositroy {
+    @MainActor
     func create(token: String, for account: String) -> AnyPublisher<Bool, Never> {
         return Future { promise in
             Task(priority: .background) {
@@ -17,6 +18,7 @@ final class TokenRepositoryImpl: TokenRepositroy {
         .eraseToAnyPublisher()
     }
     
+    @MainActor
     func read(for account: String) -> AnyPublisher<String?, Never> {
         return Future { promise in
             Task(priority: .background) {
@@ -26,6 +28,7 @@ final class TokenRepositoryImpl: TokenRepositroy {
         .eraseToAnyPublisher()
     }
     
+    @MainActor
     func update(token: String, for account: String) -> AnyPublisher<Bool, Never> {
         return Future { promise in
             Task(priority: .background) {
@@ -35,6 +38,7 @@ final class TokenRepositoryImpl: TokenRepositroy {
         .eraseToAnyPublisher()
     }
     
+    @MainActor
     func delete(for account: String) -> AnyPublisher<Bool, Never> {
         return Future { promise in
             Task(priority: .background) {

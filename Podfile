@@ -7,6 +7,7 @@ def pods
   pod 'Alamofire'
   pod 'SkeletonUI'
   pod 'SnapKit'
+  pod 'Kingfisher', '~> 7.0'
 end
 
 target 'Baobab' do

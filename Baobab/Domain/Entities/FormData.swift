@@ -90,7 +90,7 @@ struct ReturnForm: FormData {
 
 #if DEBUG
 extension ReturnForm {
-    static var sampleData: [Self] = [
+    static let sampleData: [Self] = [
         ReturnForm(id: 0,
                    status: "접수 중",
                    statusDescription: "반품 접수가 완료되었습니다.",
