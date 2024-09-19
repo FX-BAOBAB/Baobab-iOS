@@ -51,11 +51,6 @@ struct MainView: View {
                                         isShowingShippingForm: $isShowingShippingForm)
             }
         }
-        .onAppear {
-            if viewModel.usedItems == nil {
-                viewModel.fetchUsedItems()
-            }
-        }
     }
 }
 

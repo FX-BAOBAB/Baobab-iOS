@@ -15,14 +15,14 @@ enum Tab {
 }
 
 struct MainTabView: View {
-    @ObservedObject private var viewModel: MainViewModel
+    @StateObject private var viewModel: MainViewModel
     @State private var selectedTab: Tab = .home
     @State private var isShowingUserInfoView: Bool = false
     @State private var isShowingUsedItemSearch: Bool = false
     @Binding var isLoggedIn: Bool
     
     init(viewModel: MainViewModel, isLoggedIn: Binding<Bool>) {
-        _viewModel = ObservedObject(wrappedValue: viewModel)
+        _viewModel = StateObject(wrappedValue: viewModel)
         _isLoggedIn = isLoggedIn
         
         let appearance = UINavigationBarAppearance()
@@ -84,6 +84,10 @@ struct MainTabView: View {
         .onAppear {
             if viewModel.userInfo == nil {
                 viewModel.fetchUserInfo()
+            }
+            
+            if viewModel.usedItems == nil {
+                viewModel.fetchUsedItems()
             }
         }
         .onReceive(NotificationCenter.default.publisher(for: .refreshTokenExpiration)) {
