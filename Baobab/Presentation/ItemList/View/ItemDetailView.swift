@@ -143,7 +143,7 @@ struct ItemDetailView: View {
 #Preview {
     NavigationStack {
         ItemDetailView(viewModel: AppDI.shared.makeItemStatusConversionViewModel(),
-                       itemImageViewModel: AppDI.shared.makeItemViewModel(),
+                       itemImageViewModel: AppDI.shared.makeItemImageViewModel(),
                        item: Item(id: 0,
                                   name: "부끄부끄 마끄부끄",
                                   category: "SMALL_APPLIANCES",

@@ -20,11 +20,11 @@ struct ItemList<T: ItemsViewModel>: View {
                 ForEach(items) { item in
                     NavigationLink {
                         if status == .stored {
-                            StoredItemDetailView(item: item)
+                            StoredItemDetailView(itemImageViewModel: AppDI.shared.makeItemImageViewModel(), item: item)
                                 .environmentObject(viewModel)
                         } else {
                             ItemDetailView(viewModel: AppDI.shared.makeItemStatusConversionViewModel(),
-                                           itemImageViewModel: AppDI.shared.makeItemViewModel(),
+                                           itemImageViewModel: AppDI.shared.makeItemImageViewModel(),
                                            item: item)
                         }
                     } label: {

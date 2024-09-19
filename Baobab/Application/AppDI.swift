@@ -420,7 +420,7 @@ struct AppDI {
         return viewModel
     }
     
-    func makeItemViewModel() -> ItemImageViewModel {
+    func makeItemImageViewModel() -> ItemImageViewModel {
         //Data Layer
         let imageRepository = ImageRepositoryImpl(remoteDataSource: dataSource, imageDataSource: imageDataSource)
         

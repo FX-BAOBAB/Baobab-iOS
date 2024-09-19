@@ -9,26 +9,35 @@ import SwiftUI
 
 struct StoredItemDetailView: View {
     @EnvironmentObject private var viewModel: StoredItemsViewModel
+    @StateObject private var itemImageViewModel: ItemImageViewModel
     @State private var isShowingFullScreenCover: Bool = false
     @Environment(\.dismiss) private var dismiss
     
     let item: Item
+    
+    init(itemImageViewModel: ItemImageViewModel, item: Item) {
+        _itemImageViewModel = StateObject(wrappedValue: itemImageViewModel)
+        self.item = item
+    }
     
     var body: some View {
         VStack(spacing: 0) {
             VStack(spacing: 0) {
                 ScrollView {
                     TabView {
-                        ForEach(item.basicImages, id: \.self) { basicImage in
-                            AsyncImage(url: URL(string: basicImage.imageURL)) { image in
-                                image
+                        if let data = itemImageViewModel.basicImageData {
+                            ForEach(0..<6, id: \.self) { i in
+                                Image(uiImage: UIImage(data: data[i]))
                                     .resizable()
-                            } placeholder: {
-                                Rectangle()
-                                    .fill(.gray)
-                                    .overlay {
-                                        ProgressView()
-                                    }
+                                    .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width)
+                            }
+                        } else {
+                            ForEach(0..<6, id: \.self) { _ in
+                                Color.clear
+                                    .skeleton(with: true,
+                                              size: CGSize(width: UIScreen.main.bounds.width,
+                                                           height: UIScreen.main.bounds.width),
+                                              shape: .rectangle)
                             }
                         }
                     }
@@ -62,12 +71,7 @@ struct StoredItemDetailView: View {
                     
                     Section(header: Text("물품 결함").bold().padding([.leading, .top])) {
                         ScrollView(.horizontal, showsIndicators: false) {
-                            HStack {
-                                ForEach(item.defectImages, id: \.self) { image in
-                                    DefectRow(imageData: Data(), caption: "")
-                                }
-                            }
-                            .padding(.leading)
+                            DefectScrollView(defectData: $itemImageViewModel.defectData, defectCount: item.defectImages.count)
                         }
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -95,6 +99,12 @@ struct StoredItemDetailView: View {
                     .padding()
                 }
                 .background(.white)
+            }
+        }
+        .onAppear {
+            if itemImageViewModel.basicImageData == nil && itemImageViewModel.defectData == nil {
+                itemImageViewModel.fetchBasicImages(basicIamges: item.basicImages.map { $0.imageURL })
+                itemImageViewModel.fetchDefectImages(defects: item.defectImages)
             }
         }
         .fullScreenCover(isPresented: $isShowingFullScreenCover) {
@@ -127,7 +137,8 @@ struct StoredItemDetailView: View {
 
 #Preview {
     NavigationStack {
-        StoredItemDetailView(item: Item(id: 0,
+        StoredItemDetailView(itemImageViewModel: AppDI.shared.makeItemImageViewModel(),
+                             item: Item(id: 0,
                                         name: "부끄부끄 마끄부끄",
                                         category: "SMALL_APPLIANCES", 
                                         status: .stored,
