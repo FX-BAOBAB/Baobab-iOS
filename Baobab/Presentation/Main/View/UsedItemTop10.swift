@@ -34,7 +34,12 @@ struct UsedItemTop10: View {
                 HStack {
                     if let usedItems = viewModel.usedItems {
                         ForEach(usedItems) { usedItem in
-                            UsedItemTop10Row(usedItem: usedItem)
+                            NavigationLink {
+                                UsedItemDetail(viewModel: AppDI.shared.makeUsedItemViewModel(), usedItem: usedItem)
+                            } label: {
+                                UsedItemTop10Row(usedItem: usedItem)
+                            }
+                                
                         }
                     } else {
                         ForEach(0..<10, id: \.self) { _ in
