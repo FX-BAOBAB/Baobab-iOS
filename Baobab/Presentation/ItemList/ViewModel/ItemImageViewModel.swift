@@ -19,6 +19,7 @@ final class ItemImageViewModel: ObservableObject {
         self.usecase = usecase
     }
     
+    @MainActor
     func fetchBasicImages(basicIamges: [String]) {
         usecase.fetchBasicImageData(for: basicIamges)
             .sink(receiveCompletion: { completion in
@@ -29,11 +30,14 @@ final class ItemImageViewModel: ObservableObject {
                     print("ItemViewModel.fetchImages: \(error)")
                 }
             }, receiveValue: { [weak self] basicImageData in
-                self?.basicImageData = basicImageData
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    self?.basicImageData = basicImageData
+                }
             })
             .store(in: &cancellables)
     }
     
+    @MainActor
     func fetchDefectImages(defects: [ImageData]) {
         usecase.fetchDefectImageData(for: defects)
             .sink(receiveCompletion: { completion in
@@ -43,8 +47,10 @@ final class ItemImageViewModel: ObservableObject {
                 case .failure(let error):
                     print("ItemViewModel.fetchDefectImages: \(error)")
                 }
-            }, receiveValue: { [weak self] in
-                self?.defectData = $0
+            }, receiveValue: { [weak self] defectData in
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    self?.defectData = defectData
+                }
             })
             .store(in: &cancellables)
     }

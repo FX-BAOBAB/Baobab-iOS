@@ -24,7 +24,7 @@ final class UsedItemRepositoryImpl: RemoteRepository, UsedItemRepository {
     }
     
     func fetchAllUsedItems() -> AnyPublisher<[Int]?, any Error> {
-        let apiEndPoint = Bundle.main.warehouseOpenURL + "/usedgoods"
+        let apiEndPoint = Bundle.main.warehouseOpenURL + "/usedgoods?status=REGISTERED"
         
         return dataSource.sendGetRequest(to: apiEndPoint, resultType: UsedItemsResponseDTO.self)
             .map { dto in
@@ -36,7 +36,7 @@ final class UsedItemRepositoryImpl: RemoteRepository, UsedItemRepository {
     }
     
     func fetchNextUsedItems(after id: Int) -> AnyPublisher<[Int]?, any Error> {
-        let apiEndPoint = Bundle.main.warehouseOpenURL + "/usedgoods?usedGoodsId=\(id)"
+        let apiEndPoint = Bundle.main.warehouseOpenURL + "/usedgoods?usedGoodsId=\(id)&status=REGISTERED"
         
         return dataSource.sendGetRequest(to: apiEndPoint, resultType: UsedItemsResponseDTO.self)
             .map { dto in
@@ -48,7 +48,7 @@ final class UsedItemRepositoryImpl: RemoteRepository, UsedItemRepository {
     }
     
     func fetchSearchedUsedItems(keyword: String) -> AnyPublisher<[Int]?, any Error> {
-        let apiEndPoint = Bundle.main.warehouseOpenURL + "/usedgoods?keyword=\(keyword)"
+        let apiEndPoint = Bundle.main.warehouseOpenURL + "/usedgoods?keyword=\(keyword)&status=REGISTERED"
         
         return dataSource.sendGetRequest(to: apiEndPoint, resultType: UsedItemsResponseDTO.self)
             .map { dto in
@@ -64,7 +64,7 @@ final class UsedItemRepositoryImpl: RemoteRepository, UsedItemRepository {
         
         return dataSource.sendGetRequest(to: apiEndPoint, resultType: UsedItemDetailResponseDTO.self)
             .map {
-                UsedItem(id: $0.body.goods.id,
+                UsedItem(id: itemId,
                          title: $0.body.title,
                          price: $0.body.price,
                          description: $0.body.description,
