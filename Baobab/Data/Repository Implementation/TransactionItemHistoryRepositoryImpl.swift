@@ -9,39 +9,72 @@ import Combine
 import Foundation
 
 final class TransactionItemHistoryRepositoryImpl: RemoteRepository, TransactionItemHistoryRepository {
-    func fetchSoldItems() -> AnyPublisher<[Int]?, any Error> {
+    func fetchSoldItems() -> AnyPublisher<[SimpleUsedItem]?, any Error> {
         let apiEndPoint = Bundle.main.warehouseURL + "/usedgoods?status=SOLD"
         
         return dataSource.sendGetRequest(to: apiEndPoint, resultType: UsedItemsResponseDTO.self)
             .map { dto in
                 dto.body?.map {
-                    $0.usedGoodsID
+//                    $0.usedGoodsID
+                    SimpleUsedItem(id: $0.usedGoodsID,
+                                   title: $0.title,
+                                   price: $0.price,
+                                   postedAt: $0.postedAt,
+                                   item: self.toImage(goods: $0.goods))
                 }
             }
             .eraseToAnyPublisher()
     }
     
-    func fetchSaleItems() -> AnyPublisher<[Int]?, any Error> {
+    func fetchSaleItems() -> AnyPublisher<[SimpleUsedItem]?, any Error> {
         let apiEndPoint = Bundle.main.warehouseURL + "/usedgoods?status=REGISTERED"
         
         return dataSource.sendGetRequest(to: apiEndPoint, resultType: UsedItemsResponseDTO.self)
             .map { dto in
                 dto.body?.map {
-                    $0.usedGoodsID
+//                    $0.usedGoodsID
+                    SimpleUsedItem(id: $0.usedGoodsID,
+                                   title: $0.title,
+                                   price: $0.price,
+                                   postedAt: $0.postedAt,
+                                   item: self.toImage(goods: $0.goods))
                 }
             }
             .eraseToAnyPublisher()
     }
     
-    func fetchPurchasedItems() -> AnyPublisher<[Int]?, any Error> {
+    func fetchPurchasedItems() -> AnyPublisher<[SimpleUsedItem]?, any Error> {
         let apiEndPoint = Bundle.main.warehouseURL + "/order"
         
         return dataSource.sendGetRequest(to: apiEndPoint, resultType: UsedItemsResponseDTO.self)
             .map { dto in
+//                dto.body?.map {
+//                    $0.usedGoodsID
+//                }
                 dto.body?.map {
-                    $0.usedGoodsID
+                    SimpleUsedItem(id: $0.usedGoodsID,
+                                   title: $0.title,
+                                   price: $0.price,
+                                   postedAt: $0.postedAt,
+                                   item: self.toImage(goods: $0.goods))
                 }
             }
             .eraseToAnyPublisher()
+    }
+    
+    private func toImage(goods: Goods) -> Item {
+        Item(id: goods.id,
+             name: goods.name,
+             category: goods.category,
+             status: ItemStatus(rawValue: goods.status),
+             quantity: goods.quantity,
+             basicImages: toImageData(goods.basicImages),
+             defectImages: toImageData(goods.faultImages))
+    }
+    
+    private func toImageData(_ image: [ImageMetaData]) -> [ImageData] {
+        return image.map {
+            ImageData(imageURL: $0.imageURL, caption: $0.caption)
+        }
     }
 }

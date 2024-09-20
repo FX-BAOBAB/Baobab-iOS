@@ -8,7 +8,7 @@
 import Combine
 
 final class UserPurchasedItemsViewModel: TransactionViewModel {
-    @Published var usedItems: [UsedItem]?
+    @Published var usedItems: [SimpleUsedItem]?
     
     private let usecase: FetchPurchasedItemsUseCase
     private var cancellables = Set<AnyCancellable>()

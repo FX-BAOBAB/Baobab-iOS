@@ -12,9 +12,9 @@ struct TransactionHistoryDetail: View {
     @StateObject private var viewModel: TransactionHistoryViewModel
     @Environment(\.dismiss) private var dismiss
     
-    private let usedItem: UsedItem
+    private let usedItem: SimpleUsedItem
     
-    init(viewModel: TransactionHistoryViewModel, usedItem: UsedItem) {
+    init(viewModel: TransactionHistoryViewModel, usedItem: SimpleUsedItem) {
         _viewModel = StateObject(wrappedValue: viewModel)
         self.usedItem = usedItem
     }
@@ -101,7 +101,7 @@ struct TransactionHistoryDetail: View {
 #Preview {
     NavigationStack {
         TransactionHistoryDetail(viewModel: AppDI.shared.makeTransactionHistoryViewModel(),
-                                 usedItem: UsedItem.sampleData[0])
+                                 usedItem: SimpleUsedItem.sampleData)
     }
 }
 #endif

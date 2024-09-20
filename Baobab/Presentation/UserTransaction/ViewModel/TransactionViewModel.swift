@@ -8,7 +8,7 @@
 import Foundation
 
 protocol TransactionViewModel: ObservableObject {
-    var usedItems: [UsedItem]? { get set }
+    var usedItems: [SimpleUsedItem]? { get set }
     
     func fetchHistory()
 }
