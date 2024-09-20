@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SoldItemListRow: View {
+    @State private var isShowingAlert: Bool = false
     @Binding var selectedItem: SimpleUsedItem?
     @Binding var isShowingItemDetail: Bool
     @Binding var isShowingTransactionDetail: Bool
@@ -38,8 +39,9 @@ struct SoldItemListRow: View {
                     .frame(height: 20)
                 
                 Button {
-                    selectedItem = usedItem
-                    isShowingTransactionDetail.toggle()
+//                    selectedItem = usedItem
+//                    isShowingTransactionDetail.toggle()
+                    isShowingAlert.toggle()
                 } label: {
                     Text("거래 상세")
                         .font(.subheadline)
@@ -51,6 +53,9 @@ struct SoldItemListRow: View {
             .padding(.bottom)
             
             SectionFooter()
+        }
+        .alert(isPresented: $isShowingAlert) {
+            Alert(title: Text("알림"), message: Text("준비중"))
         }
     }
 }
