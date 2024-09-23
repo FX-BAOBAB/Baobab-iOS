@@ -11,15 +11,15 @@ protocol TransactionItemHistoryRepository {
     /**
      사용자가 판매한 물품 정보를 가져오는 함수
      */
-    func fetchSoldItems() -> AnyPublisher<[Int]?, any Error>
+    func fetchSoldItems() -> AnyPublisher<[SimpleUsedItem]?, any Error>
     
     /**
      사용자가 판매 중인 물품 정보를 가져오는 함수
      */
-    func fetchSaleItems() -> AnyPublisher<[Int]?, any Error>
+    func fetchSaleItems() -> AnyPublisher<[SimpleUsedItem]?, any Error>
     
     /**
      사용자가 구매한 물품 정보를 가져오는 함수
      */
-    func fetchPurchasedItems() -> AnyPublisher<[Int]?, any Error>
+    func fetchPurchasedItems() -> AnyPublisher<[SimpleUsedItem]?, any Error>
 }

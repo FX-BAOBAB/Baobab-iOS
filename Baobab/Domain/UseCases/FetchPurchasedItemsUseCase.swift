@@ -8,7 +8,7 @@
 import Combine
 
 protocol FetchPurchasedItemsUseCase {
-    func execute() -> AnyPublisher<[UsedItem], any Error>
+    func execute() -> AnyPublisher<[SimpleUsedItem], any Error>
 }
 
 final class FetchPurchasedItemsUseCaseImpl: FetchUsedItemDetailUseCase, FetchPurchasedItemsUseCase {
@@ -20,10 +20,14 @@ final class FetchPurchasedItemsUseCaseImpl: FetchUsedItemDetailUseCase, FetchPur
         super.init(usedItemRepository: usedItemRepository)
     }
     
-    func execute() -> AnyPublisher<[UsedItem], any Error> {
+    func execute() -> AnyPublisher<[SimpleUsedItem], any Error> {
         return historyRepository.fetchPurchasedItems()
-            .flatMap { itemIds -> AnyPublisher<[UsedItem], any Error> in
-                self.fetchItemDetail(itemIds: itemIds)
+            .map {
+                guard let usedItem = $0 else {
+                    return []
+                }
+                
+                return usedItem
             }
             .eraseToAnyPublisher()
     }

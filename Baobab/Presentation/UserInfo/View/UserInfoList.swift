@@ -75,7 +75,7 @@ struct UserInfoList: View {
                             thirdTitle: "판매 완료",
                             firstView: TransactionList(viewModel: AppDI.shared.makeUserPurchasedItemsViewModel(), rowType: .transactionHistory),
                             secondView: TransactionList(viewModel: AppDI.shared.makeUserSaleItemsViewModel()),
-                            thirdView: TransactionList(viewModel: AppDI.shared.makeUserSoldItemsViewModel(), rowType: .itemDetailOnly),
+                            thirdView: TransactionList(viewModel: AppDI.shared.makeUserSoldItemsViewModel(), rowType: .transactionHistory),
                             title: "거래내역")
                     }
                 } label: {

@@ -16,7 +16,7 @@ struct TransactionList<T: TransactionViewModel>: View {
     @StateObject private var viewModel: T
     @State private var isShowingItemDetail: Bool = false
     @State private var isShowingTransactionDetail: Bool = false
-    @State private var selectedItem: UsedItem?
+    @State private var selectedItem: SimpleUsedItem?
     
     let rowType: RowType
     
@@ -30,7 +30,7 @@ struct TransactionList<T: TransactionViewModel>: View {
             EmptyItemView()
         } else if let usedItems = viewModel.usedItems {
             List {
-                ForEach(usedItems) { usedItem in
+                ForEach(usedItems, id: \.id) { usedItem in
                     Group {
                         switch rowType {
                         case .transactionHistory:

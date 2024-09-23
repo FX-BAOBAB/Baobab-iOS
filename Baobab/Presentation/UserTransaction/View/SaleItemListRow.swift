@@ -8,15 +8,15 @@
 import SwiftUI
 
 struct SaleItemListRow: View {
-    @Binding var selectedItem: UsedItem?
+    @Binding var selectedItem: SimpleUsedItem?
     @Binding var isShowingItemDetail: Bool
     
-    let usedItem: UsedItem
+    let usedItem: SimpleUsedItem
     
     var body: some View {
         VStack(spacing: 0) {
             ItemInfoRow(item: usedItem.item)
-                .padding()
+                .padding(20)
             
             Divider()
                 .padding(.bottom)
@@ -47,6 +47,6 @@ struct SaleItemListRow: View {
 #Preview {
     SaleItemListRow(selectedItem: .constant(nil),
                     isShowingItemDetail: .constant(false),
-                    usedItem: UsedItem.sampleData.first!)
+                    usedItem: SimpleUsedItem.sampleData)
 }
 #endif
