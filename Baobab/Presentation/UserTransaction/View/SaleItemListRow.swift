@@ -16,7 +16,7 @@ struct SaleItemListRow: View {
     var body: some View {
         VStack(spacing: 0) {
             ItemInfoRow(item: usedItem.item)
-                .padding()
+                .padding(20)
             
             Divider()
                 .padding(.bottom)
