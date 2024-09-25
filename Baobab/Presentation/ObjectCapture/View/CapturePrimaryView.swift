@@ -5,11 +5,10 @@
 //  Created by 이정훈 on 8/28/24.
 //
 
-import RealityKit
 import SwiftUI
+import RealityKit
 
 #if !targetEnvironment(simulator)
-@MainActor
 @available(iOS 17, *)
 struct CapturePrimaryView: View {
     @StateObject private var viewModel: ObjectCaptureViewModel
@@ -49,6 +48,7 @@ struct CapturePrimaryView: View {
                 }
             }
         }
+        .toolbarBackground(.hidden, for: .navigationBar)
         .toolbar {
             if case .normal = viewModel.session?.cameraTracking {
                 ToolbarItem(placement: .topBarLeading) {

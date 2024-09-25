@@ -87,8 +87,7 @@ extension ReceivingViewModel {
             return
         }
         
-        let params = 
-        [
+        let params =  [
             "result": [
                 "resultCode": 0,
                 "resultMessage": "string",

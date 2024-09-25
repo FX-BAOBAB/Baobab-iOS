@@ -5,12 +5,11 @@
 //  Created by 이정훈 on 8/30/24.
 //
 
-import RealityKit
-import SwiftUI
 import os
+import SwiftUI
+import RealityKit
 
 #if !targetEnvironment(simulator)
-@MainActor
 @available(iOS 17, *)
 final class ObjectCaptureViewModel: ObservableObject {
     typealias Stage = PhotogrammetrySession.Output.ProcessingStage
@@ -64,6 +63,7 @@ final class ObjectCaptureViewModel: ObservableObject {
     }
     
     ///클래스가 메모리에서 해제될 때 수행할 메서드
+    @MainActor
     func cleanup() {
         deleteTempFiles()
         session?.cancel()
@@ -72,7 +72,7 @@ final class ObjectCaptureViewModel: ObservableObject {
     }
 }
 #else
-final class ObjectCaptureViewModel: ObservableObject {
+class ObjectCaptureViewModel: ObservableObject {
     
 }
 #endif

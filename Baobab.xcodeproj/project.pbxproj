@@ -69,6 +69,8 @@
 		8E227BE82C43755200E007D0 /* MultipleImageUploadResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E227BE72C43755200E007D0 /* MultipleImageUploadResponseDTO.swift */; };
 		8E227BEA2C43B8C000E007D0 /* TaskResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E227BE92C43B8C000E007D0 /* TaskResult.swift */; };
 		8E26A4F12C7DA4B000A122A0 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E26A4F02C7DA4B000A122A0 /* ProfileView.swift */; };
+		8E28027B2CA3A9A900DB8A94 /* ARPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E28027A2CA3A9A900DB8A94 /* ARPreview.swift */; };
+		8E28027D2CA3D06D00DB8A94 /* ImageRegistrationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E28027C2CA3D06D00DB8A94 /* ImageRegistrationButton.swift */; };
 		8E37D4632C570C7300F8048A /* ReceivingFormsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E37D4622C570C7300F8048A /* ReceivingFormsViewModel.swift */; };
 		8E37D4652C570D6300F8048A /* FetchFormUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E37D4642C570D6300F8048A /* FetchFormUseCase.swift */; };
 		8E37D4672C570D8200F8048A /* FormRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E37D4662C570D8200F8048A /* FormRepository.swift */; };
@@ -417,6 +419,8 @@
 		8E227BE72C43755200E007D0 /* MultipleImageUploadResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleImageUploadResponseDTO.swift; sourceTree = "<group>"; };
 		8E227BE92C43B8C000E007D0 /* TaskResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskResult.swift; sourceTree = "<group>"; };
 		8E26A4F02C7DA4B000A122A0 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		8E28027A2CA3A9A900DB8A94 /* ARPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARPreview.swift; sourceTree = "<group>"; };
+		8E28027C2CA3D06D00DB8A94 /* ImageRegistrationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRegistrationButton.swift; sourceTree = "<group>"; };
 		8E37D4622C570C7300F8048A /* ReceivingFormsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceivingFormsViewModel.swift; sourceTree = "<group>"; };
 		8E37D4642C570D6300F8048A /* FetchFormUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchFormUseCase.swift; sourceTree = "<group>"; };
 		8E37D4662C570D8200F8048A /* FormRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormRepository.swift; sourceTree = "<group>"; };
@@ -1031,8 +1035,10 @@
 			isa = PBXGroup;
 			children = (
 				5CCFBF692BF2E18200322D0D /* ImageRegistrationForm.swift */,
+				8E28027C2CA3D06D00DB8A94 /* ImageRegistrationButton.swift */,
 				5CCFBF672BF2E05F00322D0D /* SelectedImage.swift */,
 				5C13D5AA2BF3082600CA0792 /* ImagePicker.swift */,
+				8E28027A2CA3A9A900DB8A94 /* ARPreview.swift */,
 			);
 			path = ImageRegistration;
 			sourceTree = "<group>";
@@ -2057,6 +2063,7 @@
 				8E83F7672C762F6700AD5F01 /* RegisterAsUsedItemUseCase.swift in Sources */,
 				8E604DBB2C6DF07B00D45CB1 /* SelectableItemInfoRow.swift in Sources */,
 				8EA1528B2C69F6F10011FDB3 /* FetchError.swift in Sources */,
+				8E28027B2CA3A9A900DB8A94 /* ARPreview.swift in Sources */,
 				8E7731DC2C4A955600B42F7A /* ReceivingRepositoryImpl.swift in Sources */,
 				8E8446AF2C99C2F600B09F85 /* ItemImageViewModel.swift in Sources */,
 				8E7B6C3C2C5219CC00222721 /* StoredItemsViewModel.swift in Sources */,
@@ -2162,6 +2169,7 @@
 				8EBFCE482C5366A000A2AB4F /* StatusLabel.swift in Sources */,
 				5CCFBF6A2BF2E18200322D0D /* ImageRegistrationForm.swift in Sources */,
 				8EA152852C69E8470011FDB3 /* RemoteTokenRepositoryImpl.swift in Sources */,
+				8E28027D2CA3D06D00DB8A94 /* ImageRegistrationButton.swift in Sources */,
 				8EFC59112C892E8F00BE0561 /* DefectFullScreenView.swift in Sources */,
 				8EB0C2622C32456500FEE8D0 /* LoginForm.swift in Sources */,
 				8E9063632C2950EF008B5C52 /* UIImage+Crop.swift in Sources */,
@@ -2402,7 +2410,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.5.2;
+				MARKETING_VERSION = 0.6.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.myCompany.Baobab;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -2442,7 +2450,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.5.2;
+				MARKETING_VERSION = 0.6.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.myCompany.Baobab;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
