@@ -11,13 +11,19 @@ import RealityKit
 
 #if !targetEnvironment(simulator)
 @available(iOS 17, *)
+@MainActor
 final class ObjectCaptureViewModel: ObservableObject {
     typealias Stage = PhotogrammetrySession.Output.ProcessingStage
     
-    @Published var session: ObjectCaptureSession?
+    @Published var objectCaptureSession: ObjectCaptureSession?
+    @Published var photogrammetrySession: PhotogrammetrySession?
     @Published var requestProcessingStage: Stage?
     @Published var requestProcessPercentage: Double = 0.0
     @Published var output: URL?
+    
+    static let instance: ObjectCaptureViewModel = .init()
+    
+    private init() {}
     
     func handleProcessingComplete() {        
         output = getDocumentsDir().appendingPathComponent("model.usdz")
@@ -62,12 +68,37 @@ final class ObjectCaptureViewModel: ObservableObject {
         }
     }
     
+    @MainActor
+    func startNewCapture() {
+        var configuration = ObjectCaptureSession.Configuration()
+        configuration.checkpointDirectory = getDocumentsDir().appendingPathComponent("Snapshots/")
+        
+        objectCaptureSession = ObjectCaptureSession()
+        objectCaptureSession?.start(imagesDirectory: getDocumentsDir().appendingPathComponent("Images/"),
+                                    configuration: configuration)
+    }
+    
+    @MainActor
+    func startReconstruction() throws {
+        var configuration = PhotogrammetrySession.Configuration()
+        configuration.checkpointDirectory = getDocumentsDir().appendingPathComponent("Snapshots/")
+        
+        photogrammetrySession = try PhotogrammetrySession(
+            input: getDocumentsDir().appendingPathComponent("Images/"),
+            configuration: configuration
+        )
+        
+        try photogrammetrySession?.process(requests: [
+            .modelFile(url: getDocumentsDir().appendingPathComponent("model.usdz"))
+        ])
+    }
+    
     ///클래스가 메모리에서 해제될 때 수행할 메서드
     @MainActor
     func cleanup() {
         deleteTempFiles()
-        session?.cancel()
-        session = nil
+        objectCaptureSession = nil
+        photogrammetrySession = nil
         requestProcessingStage = nil
     }
 }

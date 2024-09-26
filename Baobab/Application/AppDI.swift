@@ -313,7 +313,7 @@ struct AppDI {
     @available(iOS 17, *)
     func makeObjectCaptureViewModel() -> ObjectCaptureViewModel {
         //Presentation Layer
-        let viewModel = ObjectCaptureViewModel()
+        let viewModel = ObjectCaptureViewModel.instance
         
         return viewModel
     }

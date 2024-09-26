@@ -24,10 +24,13 @@ struct CapturePrimaryView: View {
     
     var body: some View {
         ZStack {
-            if let session = viewModel.session {
+            if let session = viewModel.objectCaptureSession {
                 ObjectCaptureView(session: session)
+                    .onAppear {
+                        print(session.state)
+                    }
                 
-                if case .normal = viewModel.session?.cameraTracking {
+                if case .normal = viewModel.objectCaptureSession?.cameraTracking {
                     if case .ready = session.state {
                         CreateButton(label: "Continue") {
                             let _ = session.startDetecting()
@@ -39,18 +42,18 @@ struct CapturePrimaryView: View {
                     }
                 }
                 
-                if case .failed(_) = session.state {
-                    //Bottom View for failing
-                    CreateButton(label: "Done") {
-                        session.cancel()
-                        isShowingObjectCaptureView.toggle()
-                    }
-                }
+//                if case .failed(_) = session.state {
+//                    //Bottom View for failing
+//                    CreateButton(label: "Done") {
+//                        session.cancel()
+//                        isShowingObjectCaptureView.toggle()
+//                    }
+//                }
             }
         }
         .toolbarBackground(.hidden, for: .navigationBar)
         .toolbar {
-            if case .normal = viewModel.session?.cameraTracking {
+            if case .normal = viewModel.objectCaptureSession?.cameraTracking {
                 ToolbarItem(placement: .topBarLeading) {
                     Button {
                         viewModel.cleanup()
@@ -64,12 +67,7 @@ struct CapturePrimaryView: View {
         }
         .task {
             //ObjectCaptureSession 초기화
-            var configuration = ObjectCaptureSession.Configuration()
-            configuration.checkpointDirectory = getDocumentsDir().appendingPathComponent("Snapshots/")
-            
-            viewModel.session = ObjectCaptureSession()
-            viewModel.session?.start(imagesDirectory: getDocumentsDir().appendingPathComponent("Images/"),
-                           configuration: configuration)
+            viewModel.startNewCapture()
         }
         .navigationDestination(isPresented: $isShowingReconstructionView) {
             LazyView {
@@ -77,9 +75,15 @@ struct CapturePrimaryView: View {
                     .environmentObject(viewModel)
             }
         }
-        .onChange(of: viewModel.session?.userCompletedScanPass) {
-            if viewModel.session?.userCompletedScanPass == true {
+        .onChange(of: viewModel.objectCaptureSession?.userCompletedScanPass) {
+            if viewModel.objectCaptureSession?.userCompletedScanPass == true {
                 isShowingSheet.toggle()
+            }
+        }
+        .onChange(of: viewModel.objectCaptureSession?.state) {
+            if case .failed(let error) = viewModel.objectCaptureSession?.state {
+                print(error)
+                viewModel.startNewCapture()
             }
         }
         .sheet(isPresented: $isShowingSheet) {

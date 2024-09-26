@@ -17,7 +17,7 @@ struct IntermediateScanView: View {
     
     var body: some View {
         VStack {
-            if let session = viewModel.session {
+            if let session = viewModel.objectCaptureSession {
                 ObjectCapturePointCloudView(session: session)
             }
             
@@ -28,7 +28,7 @@ struct IntermediateScanView: View {
             
             Button {
                 isShowingSheet.toggle()
-                viewModel.session?.beginNewScanPass()
+                viewModel.objectCaptureSession?.beginNewScanPass()
             } label: {
                 Text("Continue")
                     .bold()
@@ -38,7 +38,7 @@ struct IntermediateScanView: View {
             .padding()
             
             Button {
-                viewModel.session?.finish()
+                viewModel.objectCaptureSession?.finish()
                 isShowingSheet.toggle()
                 isShowingReconstructionView.toggle()
             } label: {

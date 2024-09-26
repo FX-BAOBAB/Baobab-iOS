@@ -43,16 +43,9 @@ struct ReconstructionProgressView: View {
         }
         .task {
             do {
-                var configuration = PhotogrammetrySession.Configuration()
-                configuration.checkpointDirectory = getDocumentsDir().appendingPathComponent("Snapshots/")
-                let session = try PhotogrammetrySession(
-                    input: getDocumentsDir().appendingPathComponent("Images/"),
-                    configuration: configuration
-                )
+                try viewModel.startReconstruction()
                 
-                try session.process(requests: [
-                    .modelFile(url: getDocumentsDir().appendingPathComponent("model.usdz"))
-                ])
+                guard let session = viewModel.photogrammetrySession else { return }
                 
                 for try await output in session.outputs {
                     switch output {
@@ -85,9 +78,6 @@ struct ReconstructionProgressView: View {
             }
         }
         .quickLookPreview($viewModel.output)
-//        .onDisappear {
-//            viewModel.deleteModelFile()
-//        }
     }
 }
 
