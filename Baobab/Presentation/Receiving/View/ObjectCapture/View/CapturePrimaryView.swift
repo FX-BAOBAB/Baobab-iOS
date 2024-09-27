@@ -39,6 +39,9 @@ struct CapturePrimaryView: View {
                         
                         ResetButton(session: session)
                     }
+                    
+                    FeedbackOverlayView()
+                        .environmentObject(viewModel)
                 }
             }
         }
@@ -52,8 +55,15 @@ struct CapturePrimaryView: View {
                         isShowingObjectCaptureView.toggle()
                     } label: {
                         Text("Cancel")
+                            .padding(16.0)
+                            .font(.subheadline)
+                            .bold()
+                            .foregroundColor(.white)
+                            .background(.ultraThinMaterial)
+                            .environment(\.colorScheme, .dark)
+                            .cornerRadius(15)
+                            .multilineTextAlignment(.center)
                     }
-                    .buttonStyle(.bordered)
                 }
             }
         }
