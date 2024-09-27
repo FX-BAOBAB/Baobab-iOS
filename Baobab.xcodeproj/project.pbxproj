@@ -69,7 +69,7 @@
 		8E227BE82C43755200E007D0 /* MultipleImageUploadResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E227BE72C43755200E007D0 /* MultipleImageUploadResponseDTO.swift */; };
 		8E227BEA2C43B8C000E007D0 /* TaskResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E227BE92C43B8C000E007D0 /* TaskResult.swift */; };
 		8E26A4F12C7DA4B000A122A0 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E26A4F02C7DA4B000A122A0 /* ProfileView.swift */; };
-		8E28027B2CA3A9A900DB8A94 /* ARPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E28027A2CA3A9A900DB8A94 /* ARPreview.swift */; };
+		8E28027B2CA3A9A900DB8A94 /* BaobabARPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E28027A2CA3A9A900DB8A94 /* BaobabARPreview.swift */; };
 		8E28027D2CA3D06D00DB8A94 /* ImageRegistrationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E28027C2CA3D06D00DB8A94 /* ImageRegistrationButton.swift */; };
 		8E37D4632C570C7300F8048A /* ReceivingFormsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E37D4622C570C7300F8048A /* ReceivingFormsViewModel.swift */; };
 		8E37D4652C570D6300F8048A /* FetchFormUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E37D4642C570D6300F8048A /* FetchFormUseCase.swift */; };
@@ -419,7 +419,7 @@
 		8E227BE72C43755200E007D0 /* MultipleImageUploadResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleImageUploadResponseDTO.swift; sourceTree = "<group>"; };
 		8E227BE92C43B8C000E007D0 /* TaskResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskResult.swift; sourceTree = "<group>"; };
 		8E26A4F02C7DA4B000A122A0 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
-		8E28027A2CA3A9A900DB8A94 /* ARPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARPreview.swift; sourceTree = "<group>"; };
+		8E28027A2CA3A9A900DB8A94 /* BaobabARPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaobabARPreview.swift; sourceTree = "<group>"; };
 		8E28027C2CA3D06D00DB8A94 /* ImageRegistrationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRegistrationButton.swift; sourceTree = "<group>"; };
 		8E37D4622C570C7300F8048A /* ReceivingFormsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceivingFormsViewModel.swift; sourceTree = "<group>"; };
 		8E37D4642C570D6300F8048A /* FetchFormUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchFormUseCase.swift; sourceTree = "<group>"; };
@@ -814,6 +814,7 @@
 				8E3F7C5A2C2A98980087EB2A /* ReceiptCompletion */,
 				8E3F7C512C2A5E7D0087EB2A /* Payment */,
 				5C9B81022BF44A800038EB27 /* DefectRegistration */,
+				8E2407582CA680FC0074A2E5 /* ObjectCapture */,
 				5CCFBF662BF2E00800322D0D /* ImageRegistration */,
 				5C8C40092BF195FA007A7532 /* ItemInformationInput */,
 			);
@@ -1038,7 +1039,6 @@
 				8E28027C2CA3D06D00DB8A94 /* ImageRegistrationButton.swift */,
 				5CCFBF672BF2E05F00322D0D /* SelectedImage.swift */,
 				5C13D5AA2BF3082600CA0792 /* ImagePicker.swift */,
-				8E28027A2CA3A9A900DB8A94 /* ARPreview.swift */,
 			);
 			path = ImageRegistration;
 			sourceTree = "<group>";
@@ -1114,6 +1114,14 @@
 				8E8B61CD2C8BF35B0024B61C /* UsedItemViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		8E2407582CA680FC0074A2E5 /* ObjectCapture */ = {
+			isa = PBXGroup;
+			children = (
+				8E28027A2CA3A9A900DB8A94 /* BaobabARPreview.swift */,
+			);
+			path = ObjectCapture;
 			sourceTree = "<group>";
 		};
 		8E26A4F32C7DB7E400A122A0 /* Address */ = {
@@ -2063,7 +2071,7 @@
 				8E83F7672C762F6700AD5F01 /* RegisterAsUsedItemUseCase.swift in Sources */,
 				8E604DBB2C6DF07B00D45CB1 /* SelectableItemInfoRow.swift in Sources */,
 				8EA1528B2C69F6F10011FDB3 /* FetchError.swift in Sources */,
-				8E28027B2CA3A9A900DB8A94 /* ARPreview.swift in Sources */,
+				8E28027B2CA3A9A900DB8A94 /* BaobabARPreview.swift in Sources */,
 				8E7731DC2C4A955600B42F7A /* ReceivingRepositoryImpl.swift in Sources */,
 				8E8446AF2C99C2F600B09F85 /* ItemImageViewModel.swift in Sources */,
 				8E7B6C3C2C5219CC00222721 /* StoredItemsViewModel.swift in Sources */,

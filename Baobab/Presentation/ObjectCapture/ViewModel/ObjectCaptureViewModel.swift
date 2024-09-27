@@ -68,7 +68,6 @@ final class ObjectCaptureViewModel: ObservableObject {
         }
     }
     
-    @MainActor
     func startNewCapture() {
         var configuration = ObjectCaptureSession.Configuration()
         configuration.checkpointDirectory = getDocumentsDir().appendingPathComponent("Snapshots/")
@@ -78,7 +77,6 @@ final class ObjectCaptureViewModel: ObservableObject {
                                     configuration: configuration)
     }
     
-    @MainActor
     func startReconstruction() throws {
         var configuration = PhotogrammetrySession.Configuration()
         configuration.checkpointDirectory = getDocumentsDir().appendingPathComponent("Snapshots/")
@@ -95,15 +93,18 @@ final class ObjectCaptureViewModel: ObservableObject {
     
     ///클래스가 메모리에서 해제될 때 수행할 메서드
     @MainActor
-    func cleanup() {
+    func reset() {
         deleteTempFiles()
         objectCaptureSession = nil
         photogrammetrySession = nil
         requestProcessingStage = nil
+        output = nil
+        requestProcessPercentage = 0.0
     }
 }
 #else
+@MainActor
 class ObjectCaptureViewModel: ObservableObject {
-    
+    static let instance: ObjectCaptureViewModel = .init()
 }
 #endif

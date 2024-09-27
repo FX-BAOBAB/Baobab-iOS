@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ARPreview: View {
+struct BaobabARPreview: View {
     @Binding var isShowingARPreview: Bool
     @Binding var isShowingDefectRegistration: Bool
     @Binding var isShowingCaptureView: Bool
@@ -83,7 +83,7 @@ struct ARPreview: View {
 }
 
 #Preview {
-    ARPreview(isShowingARPreview: .constant(true),
+    BaobabARPreview(isShowingARPreview: .constant(true),
               isShowingDefectRegistration: .constant(false),
               isShowingCaptureView: .constant(false))
 }

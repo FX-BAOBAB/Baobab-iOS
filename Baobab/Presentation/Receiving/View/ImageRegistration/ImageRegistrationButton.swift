@@ -38,7 +38,7 @@ struct ImageRegistrationButton: View {
         .buttonStyle(.borderedProminent)
         .fullScreenCover(isPresented: $isShowingARPreview) {
             NavigationStack {
-                ARPreview(isShowingARPreview: $isShowingARPreview,
+                BaobabARPreview(isShowingARPreview: $isShowingARPreview,
                           isShowingDefectRegistration: $isShowingDefectRegistration,
                           isShowingCaptureView: $isShowingObjectCaptureView)
             }

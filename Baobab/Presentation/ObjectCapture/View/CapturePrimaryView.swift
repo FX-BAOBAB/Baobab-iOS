@@ -26,9 +26,6 @@ struct CapturePrimaryView: View {
         ZStack {
             if let session = viewModel.objectCaptureSession {
                 ObjectCaptureView(session: session)
-                    .onAppear {
-                        print(session.state)
-                    }
                 
                 if case .normal = viewModel.objectCaptureSession?.cameraTracking {
                     if case .ready = session.state {
@@ -41,14 +38,6 @@ struct CapturePrimaryView: View {
                         }
                     }
                 }
-                
-//                if case .failed(_) = session.state {
-//                    //Bottom View for failing
-//                    CreateButton(label: "Done") {
-//                        session.cancel()
-//                        isShowingObjectCaptureView.toggle()
-//                    }
-//                }
             }
         }
         .toolbarBackground(.hidden, for: .navigationBar)
@@ -56,7 +45,8 @@ struct CapturePrimaryView: View {
             if case .normal = viewModel.objectCaptureSession?.cameraTracking {
                 ToolbarItem(placement: .topBarLeading) {
                     Button {
-                        viewModel.cleanup()
+                        viewModel.objectCaptureSession?.cancel()
+                        viewModel.reset()
                         isShowingObjectCaptureView.toggle()
                     } label: {
                         Text("Cancel")

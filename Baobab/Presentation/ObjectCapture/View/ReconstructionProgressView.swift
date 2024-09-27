@@ -32,7 +32,7 @@ struct ReconstructionProgressView: View {
         .toolbar {
             ToolbarItem(placement: .topBarLeading) {
                 Button {
-                    viewModel.cleanup()
+                    viewModel.reset()
                     viewModel.deleteModelFile()
                     isShowingObjectCaptureView.toggle()
                 } label: {
