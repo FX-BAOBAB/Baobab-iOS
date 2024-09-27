@@ -36,6 +36,8 @@ struct CapturePrimaryView: View {
                         CreateButton(label: "Start Capture") {
                             session.startCapturing()
                         }
+                        
+                        ResetButton(session: session)
                     }
                 }
             }
@@ -93,3 +95,23 @@ struct CapturePrimaryView: View {
     }
 }
 #endif
+
+@available(iOS 17, *)
+struct ResetButton: View {
+    let session: ObjectCaptureSession
+    
+    var body: some View {
+        Button {
+            session.resetDetection()
+        } label: {
+            Image("ResetBbox")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 50)
+                .foregroundStyle(.white)
+        }
+        .frame(maxHeight: .infinity, alignment: .bottom)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding()
+    }
+}

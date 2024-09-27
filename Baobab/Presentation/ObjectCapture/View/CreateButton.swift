@@ -21,6 +21,7 @@ struct CreateButton: View {
         }
         .buttonStyle(.borderedProminent)
         .frame(maxHeight: .infinity, alignment: .bottom)
+        .padding()
     }
 }
 
