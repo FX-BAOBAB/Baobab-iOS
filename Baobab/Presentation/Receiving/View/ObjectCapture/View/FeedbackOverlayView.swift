@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+#if !targetEnvironment(simulator)
 @available(iOS 17, *)
 struct FeedbackOverlayView: View {
     @EnvironmentObject private var viewModel: ObjectCaptureViewModel
@@ -31,3 +32,4 @@ struct FeedbackOverlayView: View {
         EmptyView()
     }
 }
+#endif
