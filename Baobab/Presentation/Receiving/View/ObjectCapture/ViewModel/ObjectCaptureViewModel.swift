@@ -14,6 +14,7 @@ import RealityKit
 @MainActor final class ObjectCaptureViewModel: ObservableObject {
     typealias Stage = PhotogrammetrySession.Output.ProcessingStage
     typealias Feedback = ObjectCaptureSession.Feedback
+    typealias ProgressInfo = PhotogrammetrySession.Output.ProgressInfo
     
     @Published var objectCaptureSession: ObjectCaptureSession? {
         willSet {
@@ -29,10 +30,11 @@ import RealityKit
     @Published var photogrammetrySession: PhotogrammetrySession?
     @Published var requestProcessingStage: Stage?
     @Published var requestProcessPercentage: Double = 0.0
+    @Published var estimatedRemainingTime: TimeInterval?
     @Published var output: URL?
     @Published var feedbackMessage: String?
     
-    static let instance: ObjectCaptureViewModel = .init()
+    static let instance: ObjectCaptureViewModel = .init()    //Singleton Instance
     private var tasks: [Task<Void, Never>] = []
     private var currentFeedback: Set<Feedback> = []
     
@@ -109,8 +111,9 @@ extension ObjectCaptureViewModel {
         deleteTempFiles()
     }
     
-    func handleRequestProgressInfo(_ processingStage: Stage?) {
-        requestProcessingStage = processingStage
+    func handleRequestProgressInfo(_ progressInfo: ProgressInfo) {
+        requestProcessingStage = progressInfo.processingStage
+        estimatedRemainingTime = progressInfo.estimatedRemainingTime
     }
     
     func handleRequestProcess(_ fractionComplete: Double) {

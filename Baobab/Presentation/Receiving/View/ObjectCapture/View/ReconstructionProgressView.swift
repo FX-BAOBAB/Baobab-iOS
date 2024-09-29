@@ -22,10 +22,8 @@ struct ReconstructionProgressView: View {
                 .font(.title)
                 .padding()
             
-            ProgressView(value: viewModel.requestProcessPercentage) {
-                Text("\(Int(viewModel.requestProcessPercentage * 100))% progress")
-            }
-            .progressViewStyle(.linear)
+            ProgressBarView(estimatedRemainingTime: $viewModel.estimatedRemainingTime,
+                            requestProcessPercentage: $viewModel.requestProcessPercentage)
         }
         .navigationBarBackButtonHidden()
         .padding()
@@ -67,8 +65,10 @@ struct ReconstructionProgressView: View {
                         print("Skipped Sample: \(id)")
                     case .automaticDownsampling:
                         print("AutomaticDownsampling")
-                    case .requestProgressInfo( _, let progressInfo):
-                        self.viewModel.handleRequestProgressInfo(progressInfo.processingStage)
+                    case .requestProgressInfo(let request, let progressInfo):
+                        if case .modelFile = request {
+                            viewModel.handleRequestProgressInfo(progressInfo)
+                        }
                     default:
                         print("Unkown Error")
                     }
