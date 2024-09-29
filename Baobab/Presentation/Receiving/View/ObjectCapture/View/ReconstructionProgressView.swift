@@ -17,7 +17,7 @@ struct ReconstructionProgressView: View {
     
     var body: some View {
         VStack {
-            Text("Processing...")
+            Text("3D 모델을 생성하는 중입니다...")
                 .bold()
                 .font(.title)
                 .padding()
@@ -34,7 +34,7 @@ struct ReconstructionProgressView: View {
                     viewModel.deleteModelFile()
                     isShowingObjectCaptureView.toggle()
                 } label: {
-                    Text("Cancel")
+                    Text("취소")
                 }
                 .buttonStyle(.bordered)
             }

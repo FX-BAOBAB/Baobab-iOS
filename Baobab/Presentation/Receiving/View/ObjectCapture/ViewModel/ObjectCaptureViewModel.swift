@@ -107,7 +107,7 @@ import RealityKit
 @available(iOS 17, *)
 extension ObjectCaptureViewModel {
     func handleProcessingComplete() {
-        output = getDocumentsDir().appendingPathComponent("model.usdz")
+        output = getDocumentsDir().appendingPathComponent("model.usdz")    //TODO: 입고 물품이 2개인 경우 파일명이 중복될 수 있음
         deleteTempFiles()
     }
     

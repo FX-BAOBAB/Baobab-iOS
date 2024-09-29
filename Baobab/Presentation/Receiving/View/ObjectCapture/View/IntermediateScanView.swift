@@ -23,14 +23,14 @@ struct IntermediateScanView: View {
             
             Spacer()
             
-            Text("You can achieve better results by scanning multiple times.")
+            Text("여러 번 촬영하면 더 나은 결과를 얻을 수 있습니다.")
                 .font(.subheadline)
             
             Button {
                 isShowingSheet.toggle()
                 viewModel.objectCaptureSession?.beginNewScanPass()
             } label: {
-                Text("Continue")
+                Text("추가 촬영 진행하기")
                     .bold()
                     .padding(10)
             }
@@ -42,7 +42,7 @@ struct IntermediateScanView: View {
                 isShowingSheet.toggle()
                 isShowingReconstructionView.toggle()
             } label: {
-                Text("Finish")
+                Text("완료하기")
                     .underline()
             }
         }

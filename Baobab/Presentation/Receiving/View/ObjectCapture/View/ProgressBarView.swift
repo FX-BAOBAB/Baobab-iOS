@@ -24,12 +24,12 @@ struct ProgressBarView: View {
     var body: some View {
         ProgressView(value: requestProcessPercentage) {
             HStack {
-                Text("\(Int(requestProcessPercentage * 100))% progress")
+                Text("\(Int(requestProcessPercentage * 100))% 완료")
                 
                 Spacer()
                 
                 if let formattedRemainingTime {
-                    Text("Remaining time: \(formattedRemainingTime)")
+                    Text("남은시간: \(formattedRemainingTime)")
                 }
             }
             .font(.footnote)

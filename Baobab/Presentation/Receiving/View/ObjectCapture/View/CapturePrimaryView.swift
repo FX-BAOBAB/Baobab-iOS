@@ -29,11 +29,11 @@ struct CapturePrimaryView: View {
                 
                 if case .normal = viewModel.objectCaptureSession?.cameraTracking {
                     if case .ready = session.state {
-                        CreateButton(label: "Continue") {
+                        CreateButton(label: "선택하기") {
                             let _ = session.startDetecting()
                         }
                     } else if case .detecting = session.state {
-                        CreateButton(label: "Start Capture") {
+                        CreateButton(label: "시작하기") {
                             session.startCapturing()
                         }
                         
@@ -54,7 +54,7 @@ struct CapturePrimaryView: View {
                         viewModel.reset()
                         isShowingObjectCaptureView.toggle()
                     } label: {
-                        Text("Cancel")
+                        Text("취소")
                             .padding(16.0)
                             .font(.subheadline)
                             .bold()
