@@ -11,14 +11,22 @@ import SwiftUI
 @available(iOS 17, *)
 struct FeedbackOverlayView: View {
     @EnvironmentObject private var viewModel: ObjectCaptureViewModel
+    @State private var feedback: String?
     
     var body: some View {
-        if let feedback = viewModel.feedbackMessage {
-            Text(feedback)
-                .font(.headline)
-                .fontWeight(.bold)
-                .foregroundColor(.white)
-                .transition(.opacity)
+        Group {
+            if let feedback {
+                Text(feedback)
+                    .font(.headline)
+                    .fontWeight(.bold)
+                    .foregroundColor(.white)
+                    .transition(.opacity)
+            }
+        }
+        .onChange(of: viewModel.feedbackMessage) {
+            withAnimation {
+                feedback = viewModel.feedbackMessage
+            }
         }
     }
 }

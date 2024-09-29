@@ -36,6 +36,7 @@ import RealityKit
     
     private var tasks: [Task<Void, Never>] = []
     private var currentFeedback: Set<Feedback> = []
+    private var messageList: [String] = []
     private let fileName: String
     
     init(fileName: String) {
@@ -100,9 +101,6 @@ import RealityKit
         deleteTempFiles()
         objectCaptureSession = nil
         photogrammetrySession = nil
-        requestProcessingStage = nil
-        output = nil
-        requestProcessPercentage = 0.0
     }
 }
 
@@ -133,18 +131,33 @@ extension ObjectCaptureViewModel {
         tasks.append(
             Task<Void, Never> { [weak self] in
                 for await newFeedback in session.feedbackUpdates {
+                    print("Task got async feedback change to: \(String(describing: newFeedback))")
                     self?.updateFeedback(newFeedback)
                 }
             })
     }
     
-    private func updateFeedback(_ feedback: Set<Feedback>) {
-        let intersection = currentFeedback.intersection(feedback)    //기존 피드백과 교집합
-        let removedFeeadback = currentFeedback.subtracting(intersection)    //차 집합으로 새로운 피드백만 필터링
+    private func updateFeedback(_ feedbacks: Set<Feedback>) {
+        //기존 피드백과 교집합
+        let intersection = currentFeedback.intersection(feedbacks)
         
-        for feedback in removedFeeadback {
-            self.feedbackMessage = FeedbackMessages.getFeedbackString(for: feedback)
+        //차 집합으로 사용하지 않는 피드백 제거
+        let unnecessaryFeedback = currentFeedback.subtracting(intersection)
+        for feedback in unnecessaryFeedback {
+            if let idx = messageList.firstIndex(of: FeedbackMessages.getFeedbackString(for: feedback)) {
+                messageList.remove(at: idx)
+            }
         }
+        
+        //새로운 피드백 추가
+        let existingFeedback = feedbacks.intersection(currentFeedback)
+        let newFeedback = feedbacks.subtracting(existingFeedback)
+        for feedback in newFeedback {
+            messageList.append(FeedbackMessages.getFeedbackString(for: feedback))
+        }
+        
+        currentFeedback = feedbacks
+        feedbackMessage = messageList.first
     }
     
     private func detachListener() {
@@ -161,3 +174,31 @@ class ObjectCaptureViewModel: ObservableObject {
     static let instance: ObjectCaptureViewModel = .init()
 }
 #endif
+
+struct FeedbackMessages {
+    @available(iOS 17, *)
+    static func getFeedbackString(for feedback: ObjectCaptureSession.Feedback) -> String {
+        switch feedback {
+        case .environmentLowLight:
+            return "좀 더 밝은 곳으로 이동하세요"
+        case .environmentTooDark:
+            return "주변이 너무 어두워요"
+        case .movingTooFast:
+            return "너무 빨리 움직이고 있어요"
+        case .objectTooClose:
+            return "너무 가까이 있어요"
+        case .objectTooFar:
+            return "너무 멀어요"
+        case .outOfFieldOfView:
+            return "필드 밖으로 나갔어요"
+        case .overCapturing:
+            return "너무 많이 캡쳐하고 있어요"
+        case .objectNotDetected:
+            return "물체를 인식하지 못했어요"
+        case .objectNotFlippable:
+            return "물체를 뒤집을 수 없어요"
+        @unknown default:
+            return ""
+        }
+    }
+}
