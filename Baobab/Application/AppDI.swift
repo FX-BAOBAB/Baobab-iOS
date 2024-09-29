@@ -313,7 +313,7 @@ struct AppDI {
     @available(iOS 17, *)
     func makeObjectCaptureViewModel() -> ObjectCaptureViewModel {
         //Presentation Layer
-        let viewModel = ObjectCaptureViewModel.instance
+        let viewModel = ObjectCaptureViewModel(fileName: "\(Date().timeIntervalSince1970).usdz")
         
         return viewModel
     }

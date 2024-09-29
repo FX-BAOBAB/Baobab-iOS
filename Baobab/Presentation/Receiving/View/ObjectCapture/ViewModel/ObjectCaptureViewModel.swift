@@ -34,11 +34,13 @@ import RealityKit
     @Published var output: URL?
     @Published var feedbackMessage: String?
     
-    static let instance: ObjectCaptureViewModel = .init()    //Singleton Instance
     private var tasks: [Task<Void, Never>] = []
     private var currentFeedback: Set<Feedback> = []
+    private let fileName: String
     
-    private init() {}
+    init(fileName: String) {
+        self.fileName = fileName
+    }
     
     ///Object Capture 중 촬영한 사진들을 삭제하는 메서드
     func deleteTempFiles() {
@@ -60,7 +62,7 @@ import RealityKit
     func deleteModelFile() {
         DispatchQueue.global(qos: .background).async {
             //AR Model이 저장되는 경로
-            let path = getDocumentsDir().appendingPathComponent("model.usdz")
+            let path = getDocumentsDir().appendingPathComponent(self.fileName)
             
             do {
                 try FileManager.default.removeItem(at: path)
@@ -89,7 +91,7 @@ import RealityKit
         )
         
         try photogrammetrySession?.process(requests: [
-            .modelFile(url: getDocumentsDir().appendingPathComponent("model.usdz"))
+            .modelFile(url: getDocumentsDir().appendingPathComponent(fileName))
         ])
     }
     
@@ -107,7 +109,7 @@ import RealityKit
 @available(iOS 17, *)
 extension ObjectCaptureViewModel {
     func handleProcessingComplete() {
-        output = getDocumentsDir().appendingPathComponent("model.usdz")    //TODO: 입고 물품이 2개인 경우 파일명이 중복될 수 있음
+        output = getDocumentsDir().appendingPathComponent(fileName)
         deleteTempFiles()
     }
     
