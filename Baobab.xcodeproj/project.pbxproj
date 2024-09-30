@@ -1635,14 +1635,6 @@
 		8EE198A12C7F1A0F0000954C /* ObjectCapture */ = {
 			isa = PBXGroup;
 			children = (
-				8EE198A22C7F1CDE0000954C /* View */,
-			);
-			path = ObjectCapture;
-			sourceTree = "<group>";
-		};
-		8EE198A22C7F1CDE0000954C /* View */ = {
-			isa = PBXGroup;
-			children = (
 				8E28027A2CA3A9A900DB8A94 /* BaobabARPreview.swift */,
 				8EE198A32C7F1CF50000954C /* CapturePrimaryView.swift */,
 				8E82ACBF2C81408900AFBDAA /* ReconstructionProgressView.swift */,
@@ -1653,7 +1645,7 @@
 				8EEF5EA72C85D4E2004E374F /* IntermediateScanView.swift */,
 				8E24075D2CA6E31F0074A2E5 /* FeedbackOverlayView.swift */,
 			);
-			path = View;
+			path = ObjectCapture;
 			sourceTree = "<group>";
 		};
 		8EE91FF32C7D63170012D020 /* ViewModel */ = {
