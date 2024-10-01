@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct StoreItem {
+struct ItemInput {
     var itemName: String = ""
     var modelName: String = ""
     var itemQuantity: Int = 1
