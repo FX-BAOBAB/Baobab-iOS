@@ -89,9 +89,10 @@ struct ImageRegistrationForm: View {
         .navigationBarBackButtonHidden()
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
-                Button(action: {
+                Button {
+                    viewModel.deleteModelFile()
                     isShowingReceivingForm.toggle()
-                }) {
+                } label: {
                     Image(systemName: "xmark")
                         .foregroundColor(.black)
                 }

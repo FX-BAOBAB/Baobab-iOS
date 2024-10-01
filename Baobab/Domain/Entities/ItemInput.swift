@@ -17,4 +17,5 @@ struct ItemInput {
     var itemPrice: Int?
     var itemImages: [Data?] = [nil, nil, nil, nil, nil, nil]
     var defects: [Defect] = []
+    var modelFile: URL?
 }

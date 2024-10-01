@@ -22,7 +22,7 @@ protocol ReceivingUseCase {
     
     /// - Parameter params: 방문 신청 날짜, 방문지 주소, 결함 인정 시간에 대한 딕셔너리
     /// - Parameter items: 입고 물품 객체 배열
-    func execute(params: [String: Any], items: [StoreItem]) -> AnyPublisher<Bool, any Error>
+    func execute(params: [String: Any], items: [ItemInput]) -> AnyPublisher<Bool, any Error>
 }
 
 //MARK: - ReceivingUseCaseImpl
@@ -63,7 +63,7 @@ extension ReceivingUseCaseImpl{
         let response: [ImageUploadResponse]
     }
     
-    func execute(params: [String : Any], items: [StoreItem]) -> AnyPublisher<Bool, any Error> {
+    func execute(params: [String : Any], items: [ItemInput]) -> AnyPublisher<Bool, any Error> {
         var publishers = [AnyPublisher<IdentifiedReponse, any Error>]()
         var params = params
         let itemRequests = items.map { item in

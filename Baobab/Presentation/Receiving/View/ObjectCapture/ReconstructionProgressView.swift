@@ -13,32 +13,49 @@ import QuickLook
 @available(iOS 17, *)
 struct ReconstructionProgressView: View {
     @EnvironmentObject private var viewModel: ObjectCaptureViewModel
+    @State private var previewURL: URL?
     @Binding var isShowingObjectCaptureView: Bool
+    @Binding var isShowingDefectRegistration: Bool
+    @Binding var itemInput: ItemInput
     
     var body: some View {
         VStack {
             Text("3D 모델을 생성하는 중입니다...")
                 .bold()
-                .font(.title)
+                .font(.title3)
                 .padding()
             
             ProgressBarView(estimatedRemainingTime: $viewModel.estimatedRemainingTime,
                             requestProcessPercentage: $viewModel.requestProcessPercentage)
+            
+            Button {
+                viewModel.photogrammetrySession?.cancel()
+                viewModel.reset()
+                isShowingObjectCaptureView.toggle()
+                isShowingDefectRegistration.toggle()
+            } label: {
+                Text("완료")
+                    .bold()
+                    .frame(maxWidth: .infinity)
+                    .padding(10)
+            }
+            .disabled(viewModel.output == nil)
+            .buttonBorderShape(.roundedRectangle)
+            .cornerRadius(10)
+            .buttonStyle(.borderedProminent)
+            .padding([.top, .bottom])
+            
+            Button {
+                previewURL = viewModel.output
+            } label: {
+                Text("미리보기")
+                    .underline()
+            }
+            .disabled(viewModel.output == nil)
+            .padding(.top)
         }
         .navigationBarBackButtonHidden()
         .padding()
-        .toolbar {
-            ToolbarItem(placement: .topBarLeading) {
-                Button {
-                    viewModel.reset()
-                    viewModel.deleteModelFile()
-                    isShowingObjectCaptureView.toggle()
-                } label: {
-                    Text("취소")
-                }
-                .buttonStyle(.bordered)
-            }
-        }
         .task {
             do {
                 try viewModel.startReconstruction()
@@ -77,13 +94,18 @@ struct ReconstructionProgressView: View {
                 print("\(error)")
             }
         }
-        .quickLookPreview($viewModel.output)
+        .onChange(of: viewModel.output) {
+            itemInput.modelFile = viewModel.output
+        }
+        .quickLookPreview($previewURL)
     }
 }
 
 #Preview {
     if #available(iOS 17.0, *) {
-        ReconstructionProgressView(isShowingObjectCaptureView: .constant(true))
+        ReconstructionProgressView(isShowingObjectCaptureView: .constant(true),
+                                   isShowingDefectRegistration: .constant(false),
+                                   itemInput: .constant(ItemInput()))
             .environmentObject(AppDI.shared.makeObjectCaptureViewModel())
     } else {
         EmptyView()

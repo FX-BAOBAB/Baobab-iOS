@@ -95,6 +95,7 @@ struct ReceivingPaymentView: View {
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
                 Button {
+                    viewModel.deleteModelFile()
                     isShowingReceivingForm.toggle()
                 } label: {
                     Image(systemName: "xmark")

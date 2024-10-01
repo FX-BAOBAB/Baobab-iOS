@@ -85,5 +85,5 @@ struct BaobabARPreview: View {
 #Preview {
     BaobabARPreview(isShowingARPreview: .constant(true),
               isShowingDefectRegistration: .constant(false),
-              isShowingCaptureView: .constant(false))
+                    isShowingCaptureView: .constant(false))
 }

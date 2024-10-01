@@ -39,12 +39,12 @@ import RealityKit
     private var messageList: [String] = []
     private let fileName: String
     
-    init(fileName: String) {
+    init(fileName: String = "\(Date().timeIntervalSince1970).usdz") {
         self.fileName = fileName
     }
     
     ///Object Capture 중 촬영한 사진들을 삭제하는 메서드
-    func deleteTempFiles() {
+    func removeCheckpointFolder() {
         DispatchQueue.global(qos: .background).async {
             //Object Cature를 진행하면서 발생하는 임시 파일 경로
             let snapshotPath = getDocumentsDir().appendingPathComponent("Snapshots/")
@@ -55,20 +55,6 @@ import RealityKit
                 try FileManager.default.removeItem(at: imagePath)
             } catch {
                 print(error.localizedDescription)
-            }
-        }
-    }
-    
-    ///AR 모델 파일을 삭제하는 메서드
-    func deleteModelFile() {
-        DispatchQueue.global(qos: .background).async {
-            //AR Model이 저장되는 경로
-            let path = getDocumentsDir().appendingPathComponent(self.fileName)
-            
-            do {
-                try FileManager.default.removeItem(at: path)
-            } catch {
-                print(error)
             }
         }
     }
@@ -98,7 +84,7 @@ import RealityKit
     
     ///클래스가 메모리에서 해제될 때 수행할 메서드
     func reset() {
-        deleteTempFiles()
+        removeCheckpointFolder()
         objectCaptureSession = nil
         photogrammetrySession = nil
     }
@@ -108,7 +94,7 @@ import RealityKit
 extension ObjectCaptureViewModel {
     func handleProcessingComplete() {
         output = getDocumentsDir().appendingPathComponent(fileName)
-        deleteTempFiles()
+        removeCheckpointFolder()
     }
     
     func handleRequestProgressInfo(_ progressInfo: ProgressInfo) {

@@ -39,6 +39,7 @@ struct IntermediateScanView: View {
             
             Button {
                 viewModel.objectCaptureSession?.finish()
+                viewModel.objectCaptureSession = nil
                 isShowingSheet.toggle()
                 isShowingReconstructionView.toggle()
             } label: {

@@ -112,6 +112,7 @@ struct DefectRegistrationList: View {
             
             ToolbarItem(placement: .topBarTrailing) {
                 Button {
+                    viewModel.deleteModelFile()
                     isShowingReceivingForm.toggle()
                 } label: {
                     Image(systemName: "xmark")

@@ -39,8 +39,8 @@ struct ImageRegistrationButton: View {
         .fullScreenCover(isPresented: $isShowingARPreview) {
             NavigationStack {
                 BaobabARPreview(isShowingARPreview: $isShowingARPreview,
-                          isShowingDefectRegistration: $isShowingDefectRegistration,
-                          isShowingCaptureView: $isShowingObjectCaptureView)
+                                isShowingDefectRegistration: $isShowingDefectRegistration,
+                                isShowingCaptureView: $isShowingObjectCaptureView)
             }
         }
         .fullScreenCover(isPresented: $isShowingObjectCaptureView) {
@@ -48,7 +48,9 @@ struct ImageRegistrationButton: View {
                 NavigationStack {
                     #if !targetEnvironment(simulator)
                     CapturePrimaryView(viewModel: AppDI.shared.makeObjectCaptureViewModel(),
-                                       isShowingObjectCaptureView: $isShowingObjectCaptureView)
+                                       isShowingObjectCaptureView: $isShowingObjectCaptureView,
+                                       isShowingDefectRegistration: $isShowingDefectRegistration,
+                                       itemInput: $viewModel.items[viewModel.itemIdx])
                     #else
                     EmptyView()
                     #endif

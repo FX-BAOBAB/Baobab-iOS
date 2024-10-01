@@ -31,7 +31,7 @@ struct AppDI {
                                                     repository: receivingRepository)
         
         //Presentation Layer
-        let viewModel = ReceivingViewModel(itemIdx: 0, usecase: receivingUseCase)
+        let viewModel = ReceivingViewModel(usecase: receivingUseCase)
         
         return viewModel
     }
@@ -309,11 +309,10 @@ struct AppDI {
         return viewModel
     }
     
-    @MainActor
     @available(iOS 17, *)
     func makeObjectCaptureViewModel() -> ObjectCaptureViewModel {
         //Presentation Layer
-        let viewModel = ObjectCaptureViewModel(fileName: "\(Date().timeIntervalSince1970).usdz")
+        let viewModel = ObjectCaptureViewModel()
         
         return viewModel
     }

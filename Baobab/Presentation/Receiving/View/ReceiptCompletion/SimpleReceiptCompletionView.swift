@@ -28,6 +28,7 @@ struct SimpleReceiptCompletionView: View {
             Spacer()
             
             Button {
+                viewModel.deleteModelFile()
                 isShowingReceivingForm.toggle()
             } label: {
                 Text("완료")

@@ -15,11 +15,17 @@ struct CapturePrimaryView: View {
     @State private var isShowingReconstructionView: Bool = false
     @State private var isShowingSheet: Bool = false
     @Binding var isShowingObjectCaptureView: Bool
+    @Binding var isShowingDefectRegistration: Bool
+    @Binding var itemInput: ItemInput
     
     init(viewModel: ObjectCaptureViewModel,
-         isShowingObjectCaptureView: Binding<Bool>) {
+         isShowingObjectCaptureView: Binding<Bool>,
+         isShowingDefectRegistration: Binding<Bool>,
+         itemInput: Binding<ItemInput>) {
         _viewModel = StateObject(wrappedValue: viewModel)
         _isShowingObjectCaptureView = isShowingObjectCaptureView
+        _itemInput = itemInput
+        _isShowingDefectRegistration = isShowingDefectRegistration
     }
     
     var body: some View {
@@ -73,7 +79,9 @@ struct CapturePrimaryView: View {
         }
         .navigationDestination(isPresented: $isShowingReconstructionView) {
             LazyView {
-                ReconstructionProgressView(isShowingObjectCaptureView: $isShowingObjectCaptureView)
+                ReconstructionProgressView(isShowingObjectCaptureView: $isShowingObjectCaptureView,
+                                           isShowingDefectRegistration: $isShowingDefectRegistration,
+                                           itemInput: $itemInput)
                     .environmentObject(viewModel)
             }
         }
@@ -99,7 +107,9 @@ struct CapturePrimaryView: View {
 #Preview {
     if #available(iOS 17, *) {
         CapturePrimaryView(viewModel: AppDI.shared.makeObjectCaptureViewModel(),
-                           isShowingObjectCaptureView: .constant(true))
+                           isShowingObjectCaptureView: .constant(true),
+                           isShowingDefectRegistration: .constant(false),
+                           itemInput: .constant(ItemInput()))
     } else {
         EmptyView()
     }

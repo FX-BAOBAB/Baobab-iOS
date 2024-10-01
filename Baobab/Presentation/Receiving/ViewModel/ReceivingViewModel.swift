@@ -9,7 +9,7 @@ import MapKit
 import Combine
 
 final class ReceivingViewModel: PostSearchable, Reservable {
-    @Published var items: [StoreItem] = [StoreItem(), StoreItem()]
+    @Published var items: [ItemInput] = [ItemInput(), ItemInput()]
     @Published var reservationDate: Date = Date.tomorrow
     @Published var selectedAddress: Address?
     @Published var defaultAddress: Address?
@@ -35,7 +35,7 @@ final class ReceivingViewModel: PostSearchable, Reservable {
         })
     }
     
-    init(itemIdx: Int, usecase: ReceivingUseCase) {
+    init(itemIdx: Int = 0, usecase: ReceivingUseCase) {
         self.itemIdx = itemIdx
         self.usecase = usecase
         

@@ -45,22 +45,6 @@ struct LaboratoryList: View {
                 }
             }
         }
-        .fullScreenCover(isPresented: $isShowingObjectCaptureView) {
-            buttonDisable.toggle()
-        } content: {
-            NavigationStack {
-                #if targetEnvironment(simulator)
-                NoAvailableView(isShowingFullScreenCover: $isShowingObjectCaptureView)
-                #else
-                if #available(iOS 17, *), ObjectCaptureSession.isSupported {
-                    CapturePrimaryView(viewModel: AppDI.shared.makeObjectCaptureViewModel(),
-                                       isShowingObjectCaptureView: $isShowingObjectCaptureView)
-                } else {
-                    NoAvailableView(isShowingFullScreenCover: $isShowingObjectCaptureView)
-                }
-                #endif
-            }
-        }
     }
 }
 
