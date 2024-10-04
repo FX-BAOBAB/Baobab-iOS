@@ -15,6 +15,16 @@ struct MainView: View {
     
     var body: some View {
         ScrollView {
+            TabView {
+                ForEach(["ad1", "ad2", "ad3"], id: \.self) { image in
+                    Image(image)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                }
+            }
+            .tabViewStyle(.page)
+            .frame(width: UIScreen.main.bounds.width, height: 230)
+            
             HStack(spacing: 15) {
                 Button {
                     isShowingReceivingForm.toggle()
