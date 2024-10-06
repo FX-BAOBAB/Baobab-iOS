@@ -23,26 +23,40 @@ struct UsedItemDetail: View {
             VStack(spacing: 0) {
                 ZStack {
                     ScrollView {
-                        TabView {
-                            if let data = viewModel.basicImageData {
-                                ForEach(0..<6, id: \.self) { i in
-                                    Image(uiImage: UIImage(data: data[i]))
-                                        .resizable()
-                                        .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width)
+                        VStack(spacing: 0) {
+                            TabView {
+                                if let data = viewModel.basicImageData {
+                                    ForEach(0..<data.count, id: \.self) { i in
+                                        Image(uiImage: UIImage(data: data[i]))
+                                            .resizable()
+                                            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width)
+                                    }
+                                } else {
+                                    ForEach(0..<6, id: \.self) { _ in
+                                        Color.clear
+                                            .skeleton(with: true,
+                                                      size: CGSize(width: UIScreen.main.bounds.width,
+                                                                   height: UIScreen.main.bounds.width),
+                                                      shape: .rectangle)
+                                    }
                                 }
-                            } else {
-                                ForEach(0..<6, id: \.self) { _ in
-                                    Color.clear
-                                        .skeleton(with: true,
-                                                  size: CGSize(width: UIScreen.main.bounds.width,
-                                                               height: UIScreen.main.bounds.width),
-                                                  shape: .rectangle)
+                            }
+                            .tabViewStyle(.page)
+                            .frame(width: UIScreen.main.bounds.width,
+                                   height: UIScreen.main.bounds.width)
+                            
+                            if !usedItem.item.arImages.isEmpty {
+                                Button {
+                                    //TODO: AR 모델 프리뷰
+                                } label: {
+                                    Color(red: 245 / 255, green: 245 / 255, blue: 245 / 255)
+                                        .frame(height: 50)
+                                        .overlay {
+                                            Text("AR 보기")
+                                        }
                                 }
                             }
                         }
-                        .tabViewStyle(.page)
-                        .frame(width: UIScreen.main.bounds.width,
-                               height: UIScreen.main.bounds.width)
                         
                         MainText(usedItem: usedItem)
                             .environmentObject(viewModel)
@@ -59,7 +73,7 @@ struct UsedItemDetail: View {
                         } label: {
                             Circle()
                                 .frame(width: 60)
-                                .foregroundColor(Color(red: 242 / 255, green: 244 / 255, blue: 245 / 255))
+                                .foregroundColor(Color(.baobabGray))
                                 .overlay {
                                     Image(systemName: "message.fill")
                                         .resizable()
@@ -107,7 +121,12 @@ struct UsedItemDetail: View {
                     Button {
                         dismiss()
                     } label: {
-                        Image(systemName: "chevron.backward")
+                        Circle()
+                            .frame(width: 35, height: 35)
+                            .foregroundStyle(.listFooterGray)
+                            .overlay {
+                                Image(systemName: "chevron.backward")
+                            }
                     }
                 }
             }
@@ -211,7 +230,7 @@ struct ItemInfoView: View {
 #Preview {
     NavigationStack {
         UsedItemDetail(viewModel: AppDI.shared.makeUsedItemViewModel(),
-                        usedItem: UsedItem.sampleData[0])
+                       usedItem: UsedItem.sampleData[0])
     }
 }
 #endif
