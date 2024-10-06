@@ -14,9 +14,9 @@ protocol UploadFileUseCase {
 }
 
 final class UploadFileUseCaseImpl: UploadFileUseCase {
-    private let repository: FileRepository
+    private let repository: FileUploadRepository
     
-    init(repository: FileRepository) {
+    init(repository: FileUploadRepository) {
         self.repository = repository
     }
     

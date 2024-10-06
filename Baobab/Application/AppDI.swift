@@ -11,13 +11,13 @@ import Foundation
 struct AppDI {
     static let shared: AppDI = AppDI()
     let dataSource = RemoteDataSourceImpl()
-    let imageDataSource = ImageDataSourceImpl()
+    let fileDataSource = FileDataSourceImpl()
     
     private init() {}
     
     func makeReceivingViewModel() -> ReceivingViewModel {
         //Data Layer
-        let imageRepository = FileRepositoryImpl(remoteDataSource: dataSource, imageDataSource: imageDataSource)
+        let imageRepository = FileUploadRepositoryImpl(dataSource: dataSource)
         let receivingRepository = ReceivingRepositoryImpl(dataSource: dataSource)
         let userRepository = UserRepositoryImpl(dataSource: dataSource)
         
@@ -345,11 +345,12 @@ struct AppDI {
     
     func makeUsedItemViewModel() -> UsedItemViewModel {
         //Data Layer
-        let imageRepository = FileRepositoryImpl(remoteDataSource: dataSource, imageDataSource: imageDataSource)
+        let uploadRepository = FileUploadRepositoryImpl(dataSource: dataSource)
+        let downloadRepository = FileDownloadRepositoryImpl(fileDataSource: fileDataSource)
         let repository = UsedItemRepositoryImpl(dataSource: dataSource)
         
         //Domain Layer
-        let downloadImageUseCase = DownloadImageUseCaseImpl(repository: imageRepository)
+        let downloadImageUseCase = DownloadImageUseCaseImpl(uploadRepository: uploadRepository, downloadRepository: downloadRepository)
         let usecase = BuyUsedItemUseCaseImpl(downloadImageUseCase: downloadImageUseCase, repository: repository)
         
         //Presentation Layer
@@ -421,10 +422,11 @@ struct AppDI {
     
     func makeItemImageViewModel() -> ItemImageViewModel {
         //Data Layer
-        let imageRepository = FileRepositoryImpl(remoteDataSource: dataSource, imageDataSource: imageDataSource)
+        let uploadRepository = FileUploadRepositoryImpl(dataSource: dataSource)
+        let downloadRepository = FileDownloadRepositoryImpl(fileDataSource: fileDataSource)
         
         //Domain Layer
-        let usecase = DownloadImageUseCaseImpl(repository: imageRepository)
+        let usecase = DownloadImageUseCaseImpl(uploadRepository: uploadRepository, downloadRepository: downloadRepository)
         
         //Presentation Layer
         let viewModel = ItemImageViewModel(usecase: usecase)

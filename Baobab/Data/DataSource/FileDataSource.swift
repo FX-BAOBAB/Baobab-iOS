@@ -1,5 +1,5 @@
 //
-//  ImageDataSource.swift
+//  FileDataSource.swift
 //  Baobab
 //
 //  Created by 이정훈 on 9/16/24.
@@ -9,12 +9,12 @@ import Combine
 import Alamofire
 import Foundation
 
-protocol ImageDataSource {
-    func loadImageData(_ url: URL) -> AnyPublisher<Data, any Error>
+protocol FileDataSource {
+    func downloadFile(_ url: URL) -> AnyPublisher<Data, any Error>
 }
 
-final class ImageDataSourceImpl: ImageDataSource {
-    func loadImageData(_ url: URL) -> AnyPublisher<Data, any Error> {
+final class FileDataSourceImpl: FileDataSource {
+    func downloadFile(_ url: URL) -> AnyPublisher<Data, any Error> {
         return Future { promise in
             AF.request(url, method: .get)
                 .responseData { response in

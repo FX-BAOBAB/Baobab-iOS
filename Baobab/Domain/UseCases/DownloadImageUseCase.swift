@@ -15,14 +15,16 @@ protocol DownloadImageUseCase {
 }
 
 class DownloadImageUseCaseImpl: DownloadImageUseCase {
-    let repository: FileRepository
+    private let uploadRepository: FileUploadRepository
+    private let downloadRepository: FileDownloadRepository
     
-    init(repository: FileRepository) {
-        self.repository = repository
+    init(uploadRepository: FileUploadRepository, downloadRepository: FileDownloadRepository) {
+        self.uploadRepository = uploadRepository
+        self.downloadRepository = downloadRepository
     }
     
     func fetchImageData(for url: URL) -> AnyPublisher<Data, any Error> {
-        return repository.download(for: url)
+        return downloadRepository.download(for: url)
     }
     
     func fetchBasicImageData(for urls: [String]) -> AnyPublisher<[Data], any Error> {

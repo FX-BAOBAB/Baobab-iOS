@@ -8,14 +8,7 @@
 import Combine
 import Foundation
 
-final class FileRepositoryImpl: RemoteRepository, FileRepository {
-    private let imageDataSource: ImageDataSource
-    
-    init(remoteDataSource: RemoteDataSource, imageDataSource: ImageDataSource) {
-        self.imageDataSource = imageDataSource
-        super.init(dataSource: remoteDataSource)
-    }
-    
+final class FileUploadRepositoryImpl: RemoteRepository, FileUploadRepository {    
     ///다중 이미지 업로드 메서드
     func upload(params: [String : Any], fileExtension: String, mimeType: String) -> AnyPublisher<[FileUploadResponse], any Error> {
         let apiEndPoint = Bundle.main.imageURL + "/image/list"
@@ -58,10 +51,5 @@ final class FileRepositoryImpl: RemoteRepository, FileRepository {
                                    itemId: $0.body.goodsID)
             }
             .eraseToAnyPublisher()
-    }
-    
-    ///이미지 URL을 통해 이미지 파일 다운로드
-    func download(for url: URL) -> AnyPublisher<Data, any Error> {
-        return imageDataSource.loadImageData(url)
     }
 }
