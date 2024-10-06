@@ -38,7 +38,7 @@ final class ItemImageViewModel: ObservableObject {
     }
     
     @MainActor
-    func fetchDefectImages(defects: [ImageData]) {
+    func fetchDefectImages(defects: [FileData]) {
         usecase.fetchDefectImageData(for: defects)
             .sink(receiveCompletion: { completion in
                 switch completion {

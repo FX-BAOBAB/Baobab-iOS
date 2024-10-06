@@ -48,9 +48,6 @@ final class TransactionItemHistoryRepositoryImpl: RemoteRepository, TransactionI
         
         return dataSource.sendGetRequest(to: apiEndPoint, resultType: UsedItemsResponseDTO.self)
             .map { dto in
-//                dto.body?.map {
-//                    $0.usedGoodsID
-//                }
                 dto.body?.map {
                     SimpleUsedItem(id: $0.usedGoodsID,
                                    title: $0.title,
@@ -68,13 +65,14 @@ final class TransactionItemHistoryRepositoryImpl: RemoteRepository, TransactionI
              category: goods.category,
              status: ItemStatus(rawValue: goods.status),
              quantity: goods.quantity,
-             basicImages: toImageData(goods.basicImages),
-             defectImages: toImageData(goods.faultImages))
+             basicImages: toFileData(goods.basicImages),
+             defectImages: toFileData(goods.faultImages),
+             arImages: toFileData(goods.arImages))
     }
     
-    private func toImageData(_ image: [ImageMetaData]) -> [ImageData] {
-        return image.map {
-            ImageData(imageURL: $0.imageURL, caption: $0.caption)
+    private func toFileData(_ files: [FileMetaData]) -> [FileData] {
+        return files.map {
+            FileData(imageURL: $0.imageURL, caption: $0.caption)
         }
     }
 }

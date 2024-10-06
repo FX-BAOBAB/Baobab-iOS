@@ -45,8 +45,8 @@ final class FormRepositoryImpl: RemoteRepository, FormRepository {
             .eraseToAnyPublisher()
     }
     
-    private func getImageData(_ metaData: ImageMetaData) -> ImageData {
-        return ImageData(imageURL: metaData.imageURL, caption: metaData.caption)
+    private func getFileData(_ metaData: FileMetaData) -> FileData {
+        return FileData(imageURL: metaData.imageURL, caption: metaData.caption)
     }
     
     private func getItem(from goods: Goods) -> Item {
@@ -55,8 +55,9 @@ final class FormRepositoryImpl: RemoteRepository, FormRepository {
                     category: goods.category,
                     status: ItemStatus(rawValue: goods.status),
                     quantity: goods.quantity,
-                    basicImages: goods.basicImages.map { metaData in self.getImageData(metaData) },
-                    defectImages: goods.faultImages.map { metaData in self.getImageData(metaData) })
+                    basicImages: goods.basicImages.map { metaData in self.getFileData(metaData) },
+                    defectImages: goods.faultImages.map { metaData in self.getFileData(metaData) },
+                    arImages: goods.arImages.map { metaData in self.getFileData(metaData)})
     }
     
     private func getReceivingFormData(from response: ReceivingResponseBody) -> ReceivingForm {

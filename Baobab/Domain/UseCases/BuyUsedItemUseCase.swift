@@ -11,7 +11,7 @@ import Foundation
 protocol BuyUsedItemUseCase {
     func execute(for id: Int) -> AnyPublisher<Bool, any Error>
     func fetchBasicImageData(for urls: [String]) -> AnyPublisher<[Data], any Error>
-    func fetchDefectImageData(for imageData: [ImageData]) -> AnyPublisher<[(Data, String)], any Error>
+    func fetchDefectImageData(for imageData: [FileData]) -> AnyPublisher<[(Data, String)], any Error>
 }
 
 final class BuyUsedItemUseCaseImpl: BuyUsedItemUseCase {
@@ -31,7 +31,7 @@ final class BuyUsedItemUseCaseImpl: BuyUsedItemUseCase {
         return downloadImageUseCase.fetchBasicImageData(for: urls)
     }
     
-    func fetchDefectImageData(for imageData: [ImageData]) -> AnyPublisher<[(Data, String)], any Error> {
+    func fetchDefectImageData(for imageData: [FileData]) -> AnyPublisher<[(Data, String)], any Error> {
         return downloadImageUseCase.fetchDefectImageData(for: imageData)
     }
 }

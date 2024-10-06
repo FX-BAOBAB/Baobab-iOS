@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ItemInput {
+struct ItemInput: Sendable {
     var itemName: String = ""
     var modelName: String = ""
     var itemQuantity: Int = 1

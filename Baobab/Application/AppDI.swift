@@ -17,17 +17,17 @@ struct AppDI {
     
     func makeReceivingViewModel() -> ReceivingViewModel {
         //Data Layer
-        let imageRepository = ImageRepositoryImpl(remoteDataSource: dataSource, imageDataSource: imageDataSource)
+        let imageRepository = FileRepositoryImpl(remoteDataSource: dataSource, imageDataSource: imageDataSource)
         let receivingRepository = ReceivingRepositoryImpl(dataSource: dataSource)
         let userRepository = UserRepositoryImpl(dataSource: dataSource)
         
         //Domain Layer
-        let uploadImageUseCase = UploadImageUseCaseImpl(repository: imageRepository)
+        let uploadImageUseCase = UploadFileUseCaseImpl(repository: imageRepository)
         let fetchGeoCodeUseCase = FetchGeoCodeUseCaseImpl()
         let fetchAddressUseCase = FetchAddressUseCaseImpl(repository: userRepository)
         let receivingUseCase = ReceivingUseCaseImpl(fetchGeoCodeUseCase: fetchGeoCodeUseCase,
                                                     fetchDefaultAddressUseCase: fetchAddressUseCase,
-                                                    uploadImageUseCase: uploadImageUseCase,
+                                                    uploadFileUseCase: uploadImageUseCase,
                                                     repository: receivingRepository)
         
         //Presentation Layer
@@ -345,7 +345,7 @@ struct AppDI {
     
     func makeUsedItemViewModel() -> UsedItemViewModel {
         //Data Layer
-        let imageRepository = ImageRepositoryImpl(remoteDataSource: dataSource, imageDataSource: imageDataSource)
+        let imageRepository = FileRepositoryImpl(remoteDataSource: dataSource, imageDataSource: imageDataSource)
         let repository = UsedItemRepositoryImpl(dataSource: dataSource)
         
         //Domain Layer
@@ -421,7 +421,7 @@ struct AppDI {
     
     func makeItemImageViewModel() -> ItemImageViewModel {
         //Data Layer
-        let imageRepository = ImageRepositoryImpl(remoteDataSource: dataSource, imageDataSource: imageDataSource)
+        let imageRepository = FileRepositoryImpl(remoteDataSource: dataSource, imageDataSource: imageDataSource)
         
         //Domain Layer
         let usecase = DownloadImageUseCaseImpl(repository: imageRepository)

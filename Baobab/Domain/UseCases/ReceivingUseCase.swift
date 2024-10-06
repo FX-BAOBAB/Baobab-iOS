@@ -29,16 +29,16 @@ protocol ReceivingUseCase {
 final class ReceivingUseCaseImpl {
     private let fetchGeoCodeUseCase: FetchGeoCodeUseCase
     private let fetchAddressUseCase: FetchAddressUseCase
-    private let uploadImageUseCase: UploadImageUseCase
+    private let uploadFileUseCase: UploadFileUseCase
     private let repository: ReceivingRepository
     
     init(fetchGeoCodeUseCase: FetchGeoCodeUseCase, 
          fetchDefaultAddressUseCase: FetchAddressUseCase,
-         uploadImageUseCase: UploadImageUseCase,
+         uploadFileUseCase: UploadFileUseCase,
          repository: ReceivingRepository) {
         self.fetchGeoCodeUseCase = fetchGeoCodeUseCase
         self.fetchAddressUseCase = fetchDefaultAddressUseCase
-        self.uploadImageUseCase = uploadImageUseCase
+        self.uploadFileUseCase = uploadFileUseCase
         self.repository = repository
     }
 }
@@ -58,56 +58,44 @@ extension ReceivingUseCaseImpl: ReceivingUseCase {
 }
 
 extension ReceivingUseCaseImpl{
-    private struct IdentifiedReponse {
+    private protocol IdentifiableResponse {
+        var index: Int { get }
+        var response: [FileUploadResponse] { get }
+    }
+    
+    private struct ImageResponse: IdentifiableResponse {
         let index: Int
-        let response: [ImageUploadResponse]
+        let response: [FileUploadResponse]
+    }
+    
+    private struct ModelResponse: IdentifiableResponse {
+        let index: Int
+        let response: [FileUploadResponse]
     }
     
     func execute(params: [String : Any], items: [ItemInput]) -> AnyPublisher<Bool, any Error> {
-        var publishers = [AnyPublisher<IdentifiedReponse, any Error>]()
+        var publishers = [AnyPublisher<IdentifiableResponse, any Error>]()
         var params = params
-        let itemRequests = items.map { item in
+        var itemRequests = items.map { item in
             [
                 "name": item.itemName,
                 "modelName": item.modelName,
                 "category": item.engCategory ?? "",
                 "quantity": item.itemQuantity,
-                "imageIdList": [Int]()
-            ] as [String: Any]
-        }
-
-        if var body = params["body"] as? [String: Any] {
-            body["goodsRequests"] = itemRequests
-            
-            params["body"] = body
+                "imageIdList": [Int](),
+                "arImageId": nil
+            ] as [String: Any?]
         }
         
         for (i, item) in items.enumerated() {
             //물품 이미지 업로드
             //어차피 itemImages는 모두 값이 존재해야하기 때문에 dataSource의 [Data]로 타입 캐스팅 가능함.
-            let itemImagePublisher = uploadImageUseCase.execute(params: [
-                    "files": item.itemImages,
-                    "kind": "BASIC",
-                    "captions": Array(repeating: "캡션", count: item.itemImages.count)
-                ])
-                .map {
-                    IdentifiedReponse(index: i, response: $0)
-                }
-                .eraseToAnyPublisher()
+            publishers.append(uploadImage(index: i, item: item))
+            publishers.append(uploadDefectImage(index: i, item: item))
             
-            //결함 이미지 업로드
-            let defectImagePublisher = uploadImageUseCase.execute(params: [
-                    "files": item.defects.map { $0.image },
-                    "kind": "FAULT",
-                    "captions": item.defects.map { $0.description }
-                ])
-                .map {
-                    IdentifiedReponse(index: i, response: $0)
-                }
-                .eraseToAnyPublisher()
-            
-            publishers.append(itemImagePublisher)
-            publishers.append(defectImagePublisher)
+            if let fileURL = item.modelFile, let fileData = convertFileToData(fileURL) {
+                publishers.append(uploadModelFile(index: i, modelData: fileData))
+            }
         }
         
         //여러개의 Publisher 결합
@@ -115,27 +103,71 @@ extension ReceivingUseCaseImpl{
         //각 Publisher의 결과 값을 하나의 배열에 담아서 방출
         return Publishers.MergeMany(publishers)
             .collect()    //publisher들이 방출하는 값을 배열에 모아서 한번에 처리
-            .flatMap { identifiedResponse -> AnyPublisher<Bool, any Error> in
-                identifiedResponse.forEach {
-                    if var body = params["body"] as? [String: Any] {
-                        if var goodsRequests = body["goodsRequests"] as? [[String: Any]] {
-                            if var imageIdList = goodsRequests[$0.index]["imageIdList"] as? [Int] {
-                                imageIdList.append(contentsOf: $0.response.map { response in
-                                    return response.id
-                                })
-                                
-                                goodsRequests[$0.index]["imageIdList"] = imageIdList
-                            }
-                            
-                            body["goodsRequests"] = goodsRequests
+            .flatMap { identifiableResponses -> AnyPublisher<Bool, any Error> in
+                identifiableResponses.forEach {
+                    if let identifiableResponse = $0 as? ImageResponse {
+                        if var itemList = itemRequests[$0.index]["imageIdList", default: []] as? [Int] {
+                            itemList.append(contentsOf: $0.response.map { response in return response.id })
+                            itemRequests[$0.index]["imageIdList"] = itemList
                         }
-                        
-                        params["body"] = body
+                    } else if let identifiableResponse = $0 as? ModelResponse {                        
+                        itemRequests[$0.index]["arImageId", default: 0] = $0.response[0].id
                     }
+                }
+                
+                if var body = params["body"] as? [String: Any] {
+                    body["goodsRequests"] = itemRequests
+                    params["body"] = body
                 }
                 
                 return self.repository.requestReceiving(params: params)
             }
             .eraseToAnyPublisher()
+    }
+    
+    private func uploadImage(index: Int, item: ItemInput) -> AnyPublisher<IdentifiableResponse, any Error> {
+        let params = [
+            "files": item.itemImages,
+            "kind": "BASIC",
+            "captions": Array(repeating: "caption", count: item.itemImages.count)
+        ] as [String: Any]
+        
+        return uploadFileUseCase.execute(params: params, fileExtension: "jpeg", mimeType: "image/jpeg")
+            .map {
+                ImageResponse(index: index, response: $0)
+            }
+            .eraseToAnyPublisher()
+    }
+    
+    private func uploadDefectImage(index: Int, item: ItemInput) -> AnyPublisher<IdentifiableResponse, any Error> {
+        let params = [
+            "files": item.defects.map { $0.image },
+            "kind": "FAULT",
+            "captions": item.defects.map { $0.description }
+        ] as [String: Any]
+        
+        return uploadFileUseCase.execute(params: params, fileExtension: "jpeg", mimeType: "image/jpeg")
+            .map {
+                ImageResponse(index: index, response: $0)
+            }
+            .eraseToAnyPublisher()
+    }
+    
+    private func uploadModelFile(index: Int, modelData: Data) -> AnyPublisher<IdentifiableResponse, any Error> {
+        let params = [
+            "file": modelData,
+            "kind": "AR",
+            "captions": "string"
+        ] as [String: Any]
+        
+        return uploadFileUseCase.execute(params: params, fileExtension: "usdz", mimeType: "model/usdz+zip")
+            .map {
+                ModelResponse(index: index, response: [$0])
+            }
+            .eraseToAnyPublisher()
+    }
+    
+    private func convertFileToData(_ fileURL: URL) -> Data? {
+        return try? Data(contentsOf: fileURL)
     }
 }

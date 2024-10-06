@@ -11,13 +11,13 @@ import Foundation
 protocol DownloadImageUseCase {
     func fetchImageData(for url: URL) -> AnyPublisher<Data, any Error>
     func fetchBasicImageData(for urls: [String]) -> AnyPublisher<[Data], any Error>
-    func fetchDefectImageData(for imageData: [ImageData]) -> AnyPublisher<[(Data, String)], any Error>
+    func fetchDefectImageData(for imageData: [FileData]) -> AnyPublisher<[(Data, String)], any Error>
 }
 
 class DownloadImageUseCaseImpl: DownloadImageUseCase {
-    let repository: ImageRepository
+    let repository: FileRepository
     
-    init(repository: ImageRepository) {
+    init(repository: FileRepository) {
         self.repository = repository
     }
     
@@ -41,7 +41,7 @@ class DownloadImageUseCaseImpl: DownloadImageUseCase {
             .eraseToAnyPublisher()
     }
     
-    func fetchDefectImageData(for imageData: [ImageData]) -> AnyPublisher<[(Data, String)], any Error> {
+    func fetchDefectImageData(for imageData: [FileData]) -> AnyPublisher<[(Data, String)], any Error> {
         var publishers = [AnyPublisher<(Data, String), any Error>]()
         
         for i in imageData.indices {

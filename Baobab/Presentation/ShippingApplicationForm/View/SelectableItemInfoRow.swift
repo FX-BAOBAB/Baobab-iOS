@@ -67,7 +67,8 @@ struct SelectableItemInfoRow: View {
                                      category: "SMALL_APPLIANCES", 
                                      status: .receiving,
                                      quantity: 1,
-                                     basicImages: [ImageData(imageURL: "string", caption: "")],
-                                     defectImages: [ImageData(imageURL: "string", caption: "")]))
+                                     basicImages: [FileData(imageURL: "string", caption: "")],
+                                     defectImages: [FileData(imageURL: "string", caption: "")],
+                                     arImages: []))
     .environmentObject(AppDI.shared.makeShippingApplicationViewModel())
 }
