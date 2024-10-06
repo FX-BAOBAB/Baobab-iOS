@@ -41,7 +41,11 @@ final class ImageUploadTest: XCTestCase {
                     "caption": "string"
                 ] as [String: Any]
                 
-                self.dataSource.sendUploadRequest(to: apiEndPoint, with: params, resultType: SingleImageUploadResponseDTO.self)
+                self.dataSource.sendUploadRequest(to: apiEndPoint,
+                                                  with: params,
+                                                  resultType: SingleFileUploadResponseDTO.self,
+                                                  fileExtension: "jpeg",
+                                                  mimeType: "image/jpeg")
                     .sink(receiveCompletion: { completion in
                         switch completion {
                         case .finished:
@@ -76,7 +80,11 @@ final class ImageUploadTest: XCTestCase {
                 ] as [String: Any]
                 
                 //When
-                self.dataSource.sendUploadRequest(to: apiEndPoint, with: params, resultType: MultipleImageUploadResponseDTO.self)
+                self.dataSource.sendUploadRequest(to: apiEndPoint,
+                                                  with: params,
+                                                  resultType: MultipleFileUploadResponseDTO.self,
+                                                  fileExtension: "jpeg",
+                                                  mimeType: "image/jpeg")
                     .sink(receiveCompletion: { completion in
                         switch completion {
                         case .finished:
