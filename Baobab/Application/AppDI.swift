@@ -351,7 +351,10 @@ struct AppDI {
         
         //Domain Layer
         let downloadImageUseCase = DownloadImageUseCaseImpl(uploadRepository: uploadRepository, downloadRepository: downloadRepository)
-        let usecase = BuyUsedItemUseCaseImpl(downloadImageUseCase: downloadImageUseCase, repository: repository)
+        let downloadFileUseCase = DownloadFileUseCaseImpl(repository: downloadRepository)
+        let usecase = BuyUsedItemUseCaseImpl(downloadImageUseCase: downloadImageUseCase,
+                                             downloadFileUseCase: downloadFileUseCase,
+                                             repository: repository)
         
         //Presentation Layer
         let viewModel = UsedItemViewModel(usecase: usecase)

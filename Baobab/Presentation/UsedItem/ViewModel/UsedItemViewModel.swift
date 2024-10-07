@@ -13,6 +13,7 @@ final class UsedItemViewModel: ObservableObject {
     @Published var isLoading: Bool = false
     @Published var basicImageData: [Data]?
     @Published var defectData: [(image: Data, caption: String)]?
+    @Published var modelFileURL: URL?
     
     var alertType: AlertType = .none
     private let usecase: BuyUsedItemUseCase
@@ -55,7 +56,7 @@ extension UsedItemViewModel {
                 case .finished:
                     print("The request to download the image data has been completed")
                 case .failure(let error):
-                    print("ItemViewModel.fetchImages: \(error)")
+                    print("UsedItemViewModel.fetchImages: \(error)")
                 }
             }, receiveValue: { [weak self] basicImageData in
                 self?.basicImageData = basicImageData
@@ -70,10 +71,31 @@ extension UsedItemViewModel {
                 case .finished:
                     print("The request to download the defect image data has been completed")
                 case .failure(let error):
-                    print("ItemViewModel.fetchDefectImages: \(error)")
+                    print("UsedItemViewModel.fetchDefectImages: \(error)")
                 }
             }, receiveValue: { [weak self] in
                 self?.defectData = $0
+            })
+            .store(in: &cancellables)
+    }
+}
+
+extension UsedItemViewModel {
+    func fetchModelFile(url: String) {
+        isLoading.toggle()
+        
+        usecase.fetchModelFile(url: url)
+            .sink(receiveCompletion: { [weak self] completion in
+                self?.isLoading.toggle()
+                
+                switch completion {
+                case .finished:
+                    print("The download of the model file has finished")
+                case .failure(let error):
+                    print("UsedItemViewModel.fetchModelFile() failed with error: \(error.localizedDescription)")
+                }
+            }, receiveValue: { [weak self] in
+                self?.modelFileURL = $0
             })
             .store(in: &cancellables)
     }

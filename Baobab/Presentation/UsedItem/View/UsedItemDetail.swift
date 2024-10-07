@@ -23,40 +23,8 @@ struct UsedItemDetail: View {
             VStack(spacing: 0) {
                 ZStack {
                     ScrollView {
-                        VStack(spacing: 0) {
-                            TabView {
-                                if let data = viewModel.basicImageData {
-                                    ForEach(0..<data.count, id: \.self) { i in
-                                        Image(uiImage: UIImage(data: data[i]))
-                                            .resizable()
-                                            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width)
-                                    }
-                                } else {
-                                    ForEach(0..<6, id: \.self) { _ in
-                                        Color.clear
-                                            .skeleton(with: true,
-                                                      size: CGSize(width: UIScreen.main.bounds.width,
-                                                                   height: UIScreen.main.bounds.width),
-                                                      shape: .rectangle)
-                                    }
-                                }
-                            }
-                            .tabViewStyle(.page)
-                            .frame(width: UIScreen.main.bounds.width,
-                                   height: UIScreen.main.bounds.width)
-                            
-                            if !usedItem.item.arImages.isEmpty {
-                                Button {
-                                    //TODO: AR 모델 프리뷰
-                                } label: {
-                                    Color(red: 245 / 255, green: 245 / 255, blue: 245 / 255)
-                                        .frame(height: 50)
-                                        .overlay {
-                                            Text("AR 보기")
-                                        }
-                                }
-                            }
-                        }
+                        PageTabView(usedItem: usedItem)
+                            .environmentObject(viewModel)
                         
                         MainText(usedItem: usedItem)
                             .environmentObject(viewModel)
@@ -65,24 +33,21 @@ struct UsedItemDetail: View {
                             .frame(height: 80)
                     }
                     
-                    HStack {
-                        Spacer()
+                    Button {
                         
-                        Button {
-                            
-                        } label: {
-                            Circle()
-                                .frame(width: 60)
-                                .foregroundColor(Color(.baobabGray))
-                                .overlay {
-                                    Image(systemName: "message.fill")
-                                        .resizable()
-                                        .aspectRatio(contentMode: .fit)
-                                        .frame(width: 30)
-                                }
-                        }
+                    } label: {
+                        Circle()
+                            .frame(width: 60)
+                            .foregroundColor(Color(.baobabGray))
+                            .overlay {
+                                Image(systemName: "message.fill")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 30)
+                            }
                     }
                     .frame(maxHeight: .infinity, alignment: .bottom)
+                    .frame(maxWidth: .infinity, alignment: .trailing)
                     .padding()
                 }
                 
@@ -151,10 +116,55 @@ struct UsedItemDetail: View {
                 Alert(title: Text(""), message: Text(""))
             }
         }
+        .quickLookPreview($viewModel.modelFileURL)
     }
 }
 
-struct MainText: View {
+fileprivate struct PageTabView: View {
+    @EnvironmentObject private var viewModel: UsedItemViewModel
+    let usedItem: UsedItem
+    
+    var body: some View {
+        VStack(spacing: 0) {
+            TabView {
+                if let data = viewModel.basicImageData {
+                    ForEach(0..<data.count, id: \.self) { i in
+                        Image(uiImage: UIImage(data: data[i]))
+                            .resizable()
+                            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width)
+                    }
+                } else {
+                    ForEach(0..<6, id: \.self) { _ in
+                        Color.clear
+                            .skeleton(with: true,
+                                      size: CGSize(width: UIScreen.main.bounds.width,
+                                                   height: UIScreen.main.bounds.width),
+                                      shape: .rectangle)
+                    }
+                }
+            }
+            .tabViewStyle(.page)
+            .frame(width: UIScreen.main.bounds.width,
+                   height: UIScreen.main.bounds.width)
+            
+            if !usedItem.item.arImages.isEmpty {
+                Button {
+                    if let arImage = usedItem.item.arImages.first {
+                        viewModel.fetchModelFile(url: arImage.imageURL)
+                    }
+                } label: {
+                    Color(red: 245 / 255, green: 245 / 255, blue: 245 / 255)
+                        .frame(height: 50)
+                        .overlay {
+                            Text("AR 보기")
+                        }
+                }
+            }
+        }
+    }
+}
+
+fileprivate struct MainText: View {
     @EnvironmentObject private var viewModel: UsedItemViewModel
     let usedItem: UsedItem
     
@@ -199,7 +209,7 @@ struct MainText: View {
     }
 }
 
-struct ItemInfoView: View {
+fileprivate struct ItemInfoView: View {
     let item: Item
     
     var body: some View {

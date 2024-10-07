@@ -12,14 +12,17 @@ protocol BuyUsedItemUseCase {
     func execute(for id: Int) -> AnyPublisher<Bool, any Error>
     func fetchBasicImageData(for urls: [String]) -> AnyPublisher<[Data], any Error>
     func fetchDefectImageData(for imageData: [FileData]) -> AnyPublisher<[(Data, String)], any Error>
+    func fetchModelFile(url: String) -> AnyPublisher<URL, any Error>
 }
 
 final class BuyUsedItemUseCaseImpl: BuyUsedItemUseCase {
     private let downloadImageUseCase: DownloadImageUseCase
+    private let downloadFileUseCase: DownloadFileUseCase
     private let repository: UsedItemRepository
     
-    init(downloadImageUseCase: DownloadImageUseCase, repository: UsedItemRepository) {
+    init(downloadImageUseCase: DownloadImageUseCase, downloadFileUseCase: DownloadFileUseCase, repository: UsedItemRepository) {
         self.downloadImageUseCase = downloadImageUseCase
+        self.downloadFileUseCase = downloadFileUseCase
         self.repository = repository
     }
     
@@ -33,5 +36,9 @@ final class BuyUsedItemUseCaseImpl: BuyUsedItemUseCase {
     
     func fetchDefectImageData(for imageData: [FileData]) -> AnyPublisher<[(Data, String)], any Error> {
         return downloadImageUseCase.fetchDefectImageData(for: imageData)
+    }
+    
+    func fetchModelFile(url: String) -> AnyPublisher<URL, any Error> {
+        return downloadFileUseCase.downloadFile(url: url)
     }
 }
