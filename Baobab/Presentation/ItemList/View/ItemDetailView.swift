@@ -27,50 +27,10 @@ struct ItemDetailView: View {
         ZStack {
             VStack(spacing: 0) {
                 ScrollView {
-                    TabView {
-                        if let data = itemImageViewModel.basicImageData {
-                            ForEach(0..<6, id: \.self) { i in
-                                Image(uiImage: UIImage(data: data[i]))
-                                    .resizable()
-                                    .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width)
-                            }
-                        } else {
-                            ForEach(0..<6, id: \.self) { _ in
-                                Color.clear
-                                    .skeleton(with: true,
-                                              size: CGSize(width: UIScreen.main.bounds.width,
-                                                           height: UIScreen.main.bounds.width),
-                                              shape: .rectangle)
-                            }
-                        }
-                    }
-                    .tabViewStyle(.page)
-                    .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width)
+                    PageTabView(item: item)
+                        .environmentObject(itemImageViewModel)
                     
-                    HStack {
-                        Text(item.name)
-                            .font(.title3)
-                            .bold()
-                        
-                        if let status = item.status {
-                            StatusLabel(status: status)
-                        }
-                    }
-                    .padding()
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    
-                    HStack {
-                        Text(item.category.toKorCategory() + ",")
-                        
-                        Text("\(item.quantity)개")
-                    }
-                    .font(.subheadline)
-                    .foregroundStyle(.gray)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding([.leading, .trailing, .bottom])
-                    
-                    Divider()
-                        .padding([.leading, .trailing])
+                    TitleView(item: item)
                     
                     Section(header: Text("물품 결함").bold().padding([.leading, .top])) {
                         DefectScrollView(defectData: $itemImageViewModel.defectData, defectCount: item.defectImages.count)
@@ -137,6 +97,81 @@ struct ItemDetailView: View {
                 }
             }
         }
+    }
+}
+
+fileprivate struct PageTabView: View {
+    @EnvironmentObject private var viewModel: ItemImageViewModel
+    
+    let item: Item
+    
+    var body: some View {
+        VStack(spacing: 0) {
+            TabView {
+                if let data = viewModel.basicImageData {
+                    ForEach(0..<data.count, id: \.self) { i in
+                        Image(uiImage: UIImage(data: data[i]))
+                            .resizable()
+                            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width)
+                    }
+                } else {
+                    ForEach(0..<6, id: \.self) { _ in
+                        Color.clear
+                            .skeleton(with: true,
+                                      size: CGSize(width: UIScreen.main.bounds.width,
+                                                   height: UIScreen.main.bounds.width),
+                                      shape: .rectangle)
+                    }
+                }
+            }
+            .tabViewStyle(.page)
+            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width)
+            
+            if !item.arImages.isEmpty {
+                Button {
+                    if let arImage = item.arImages.first {
+                        //TODO: AR 모델 파일 다운로드
+                    }
+                } label: {
+                    Color(red: 245 / 255, green: 245 / 255, blue: 245 / 255)
+                        .frame(height: 50)
+                        .overlay {
+                            Text("AR 보기")
+                        }
+                }
+            }
+        }
+    }
+}
+
+fileprivate struct TitleView: View {
+    let item: Item
+    
+    var body: some View {
+        HStack {
+            Text(item.name)
+                .font(.title3)
+                .bold()
+            
+            if let status = item.status {
+                StatusLabel(status: status)
+            }
+        }
+        .padding()
+        .frame(maxWidth: .infinity, alignment: .leading)
+        
+        HStack {
+            Text(item.category.toKorCategory() + ",")
+            
+            Text("\(item.quantity)개")
+        }
+        .font(.subheadline)
+        .foregroundStyle(.gray)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding([.leading, .trailing, .bottom])
+        
+        Divider()
+            .padding([.leading, .trailing])
     }
 }
 
