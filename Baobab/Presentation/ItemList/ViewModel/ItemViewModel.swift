@@ -8,14 +8,16 @@
 import Combine
 import Foundation
 
-final class ItemImageViewModel: ObservableObject {
+final class ItemViewModel: ObservableObject {
     @Published var basicImageData: [Data]?
     @Published var defectData: [(image: Data, caption: String)]?
+    @Published var modelFileURL: URL?
+    @Published var isLoading: Bool = false
     
-    private let usecase: DownloadImageUseCase
+    private let usecase: FetchItemFilesUseCase
     private var cancellables = Set<AnyCancellable>()
     
-    init(usecase: DownloadImageUseCase) {
+    init(usecase: FetchItemFilesUseCase) {
         self.usecase = usecase
     }
     
@@ -51,6 +53,27 @@ final class ItemImageViewModel: ObservableObject {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                     self?.defectData = defectData
                 }
+            })
+            .store(in: &cancellables)
+    }
+}
+
+extension ItemViewModel {
+    func fetchModelFile(_ url: String) {
+        isLoading.toggle()
+        
+        usecase.fetchModelFile(url: url)
+            .sink(receiveCompletion: { [weak self] completion in
+                self?.isLoading.toggle()
+                
+                switch completion {
+                case .finished:
+                    print("The request to download the model file data has been finished")
+                case .failure(let error):
+                    print("ItemViewModel.fetchModelFile() failed with error: \(error)")
+                }
+            }, receiveValue: { [weak self] in
+                self?.modelFileURL = $0
             })
             .store(in: &cancellables)
     }

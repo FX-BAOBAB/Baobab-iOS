@@ -9,17 +9,17 @@ import SwiftUI
 
 struct ItemDetailView: View {
     @StateObject private var viewModel: ItemStatusConversionViewModel
-    @StateObject private var itemImageViewModel: ItemImageViewModel
+    @StateObject private var itemViewModel: ItemViewModel
     @State private var isShowingConfirmationDialog: Bool = false
     @Environment(\.dismiss) private var dismiss
     
     let item: Item
     
     init(viewModel: ItemStatusConversionViewModel,
-         itemImageViewModel: ItemImageViewModel,
+         itemViewModel: ItemViewModel,
          item: Item) {
         _viewModel = StateObject(wrappedValue: viewModel)
-        _itemImageViewModel = StateObject(wrappedValue: itemImageViewModel)
+        _itemViewModel = StateObject(wrappedValue: itemViewModel)
         self.item = item
     }
     
@@ -28,12 +28,12 @@ struct ItemDetailView: View {
             VStack(spacing: 0) {
                 ScrollView {
                     PageTabView(item: item)
-                        .environmentObject(itemImageViewModel)
+                        .environmentObject(itemViewModel)
                     
                     TitleView(item: item)
                     
                     Section(header: Text("물품 결함").bold().padding([.leading, .top])) {
-                        DefectScrollView(defectData: $itemImageViewModel.defectData, defectCount: item.defectImages.count)
+                        DefectScrollView(defectData: $itemViewModel.defectData, defectCount: item.defectImages.count)
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.bottom)
@@ -42,9 +42,9 @@ struct ItemDetailView: View {
             .navigationTitle("상세보기")
             .navigationBarTitleDisplayMode(.inline)
             .onAppear {
-                if itemImageViewModel.basicImageData == nil && itemImageViewModel.defectData == nil {
-                    itemImageViewModel.fetchBasicImages(basicIamges: item.basicImages.map { $0.imageURL })
-                    itemImageViewModel.fetchDefectImages(defects: item.defectImages)
+                if itemViewModel.basicImageData == nil && itemViewModel.defectData == nil {
+                    itemViewModel.fetchBasicImages(basicIamges: item.basicImages.map { $0.imageURL })
+                    itemViewModel.fetchDefectImages(defects: item.defectImages)
                 }
             }
             .toolbar {
@@ -82,8 +82,9 @@ struct ItemDetailView: View {
                     })
                 }
             }
+            .quickLookPreview($itemViewModel.modelFileURL)
             
-            if viewModel.isProcess {
+            if viewModel.isProcess || itemViewModel.isLoading {
                 CustomProgressView()
             }
         }
@@ -101,7 +102,7 @@ struct ItemDetailView: View {
 }
 
 fileprivate struct PageTabView: View {
-    @EnvironmentObject private var viewModel: ItemImageViewModel
+    @EnvironmentObject private var viewModel: ItemViewModel
     
     let item: Item
     
@@ -130,7 +131,7 @@ fileprivate struct PageTabView: View {
             if !item.arImages.isEmpty {
                 Button {
                     if let arImage = item.arImages.first {
-                        //TODO: AR 모델 파일 다운로드
+                        viewModel.fetchModelFile(arImage.imageURL)
                     }
                 } label: {
                     Color(red: 245 / 255, green: 245 / 255, blue: 245 / 255)
@@ -178,7 +179,7 @@ fileprivate struct TitleView: View {
 #Preview {
     NavigationStack {
         ItemDetailView(viewModel: AppDI.shared.makeItemStatusConversionViewModel(),
-                       itemImageViewModel: AppDI.shared.makeItemImageViewModel(),
+                       itemViewModel: AppDI.shared.makeItemImageViewModel(),
                        item: Item(id: 0,
                                   name: "부끄부끄 마끄부끄",
                                   category: "SMALL_APPLIANCES",

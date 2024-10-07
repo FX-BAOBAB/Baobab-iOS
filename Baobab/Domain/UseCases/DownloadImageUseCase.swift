@@ -15,11 +15,9 @@ protocol DownloadImageUseCase {
 }
 
 class DownloadImageUseCaseImpl: DownloadImageUseCase {
-    private let uploadRepository: FileUploadRepository
     private let downloadRepository: FileDownloadRepository
     
-    init(uploadRepository: FileUploadRepository, downloadRepository: FileDownloadRepository) {
-        self.uploadRepository = uploadRepository
+    init(downloadRepository: FileDownloadRepository) {
         self.downloadRepository = downloadRepository
     }
     

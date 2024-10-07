@@ -345,12 +345,11 @@ struct AppDI {
     
     func makeUsedItemViewModel() -> UsedItemViewModel {
         //Data Layer
-        let uploadRepository = FileUploadRepositoryImpl(dataSource: dataSource)
         let downloadRepository = FileDownloadRepositoryImpl(fileDataSource: fileDataSource)
         let repository = UsedItemRepositoryImpl(dataSource: dataSource)
         
         //Domain Layer
-        let downloadImageUseCase = DownloadImageUseCaseImpl(uploadRepository: uploadRepository, downloadRepository: downloadRepository)
+        let downloadImageUseCase = DownloadImageUseCaseImpl(downloadRepository: downloadRepository)
         let downloadFileUseCase = DownloadFileUseCaseImpl(repository: downloadRepository)
         let usecase = BuyUsedItemUseCaseImpl(downloadImageUseCase: downloadImageUseCase,
                                              downloadFileUseCase: downloadFileUseCase,
@@ -423,16 +422,17 @@ struct AppDI {
         return viewModel
     }
     
-    func makeItemImageViewModel() -> ItemImageViewModel {
+    func makeItemImageViewModel() -> ItemViewModel {
         //Data Layer
-        let uploadRepository = FileUploadRepositoryImpl(dataSource: dataSource)
         let downloadRepository = FileDownloadRepositoryImpl(fileDataSource: fileDataSource)
         
         //Domain Layer
-        let usecase = DownloadImageUseCaseImpl(uploadRepository: uploadRepository, downloadRepository: downloadRepository)
+        let downloadImageUseCase = DownloadImageUseCaseImpl(downloadRepository: downloadRepository)
+        let downloadFileUseCase = DownloadFileUseCaseImpl(repository: downloadRepository)
+        let usecase = FetchItemFilesUseCaseImpl(downloadImageUsecase: downloadImageUseCase, downloadFileUsecase: downloadFileUseCase)
         
         //Presentation Layer
-        let viewModel = ItemImageViewModel(usecase: usecase)
+        let viewModel = ItemViewModel(usecase: usecase)
         
         return viewModel
     }

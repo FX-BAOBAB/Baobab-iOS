@@ -9,13 +9,13 @@ import SwiftUI
 
 struct StoredItemDetailView: View {
     @EnvironmentObject private var viewModel: StoredItemsViewModel
-    @StateObject private var itemImageViewModel: ItemImageViewModel
+    @StateObject private var itemImageViewModel: ItemViewModel
     @State private var isShowingFullScreenCover: Bool = false
     @Environment(\.dismiss) private var dismiss
     
     let item: Item
     
-    init(itemImageViewModel: ItemImageViewModel, item: Item) {
+    init(itemImageViewModel: ItemViewModel, item: Item) {
         _itemImageViewModel = StateObject(wrappedValue: itemImageViewModel)
         self.item = item
     }
