@@ -37,7 +37,7 @@ final class FileUploadTest: XCTestCase {
                 let params = [
                     "file": modelData,
                     "kind": "AR",
-                    "captions": "string"
+                    "caption": "string"
                 ] as [String: Any]
                 
                 dataSource.sendUploadRequest(to: apiEndPoint,
