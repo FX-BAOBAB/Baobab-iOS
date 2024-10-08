@@ -8,20 +8,20 @@
 import Combine
 import Foundation
 
+@MainActor
 final class ItemViewModel: ObservableObject {
     @Published var basicImageData: [Data]?
     @Published var defectData: [(image: Data, caption: String)]?
     @Published var modelFileURL: URL?
     @Published var isLoading: Bool = false
     
-    private let usecase: FetchItemFilesUseCase
+    nonisolated(unsafe) private let usecase: FetchItemFilesUseCase
     private var cancellables = Set<AnyCancellable>()
     
     init(usecase: FetchItemFilesUseCase) {
         self.usecase = usecase
     }
     
-    @MainActor
     func fetchBasicImages(basicIamges: [String]) {
         usecase.fetchBasicImageData(for: basicIamges)
             .sink(receiveCompletion: { completion in
@@ -39,7 +39,6 @@ final class ItemViewModel: ObservableObject {
             .store(in: &cancellables)
     }
     
-    @MainActor
     func fetchDefectImages(defects: [FileData]) {
         usecase.fetchDefectImageData(for: defects)
             .sink(receiveCompletion: { completion in
@@ -62,19 +61,14 @@ extension ItemViewModel {
     func fetchModelFile(_ url: String) {
         isLoading.toggle()
         
-        usecase.fetchModelFile(url: url)
-            .sink(receiveCompletion: { [weak self] completion in
-                self?.isLoading.toggle()
-                
-                switch completion {
-                case .finished:
-                    print("The request to download the model file data has been finished")
-                case .failure(let error):
-                    print("ItemViewModel.fetchModelFile() failed with error: \(error)")
-                }
-            }, receiveValue: { [weak self] in
-                self?.modelFileURL = $0
-            })
-            .store(in: &cancellables)
+        Task {
+            do {
+                modelFileURL = try await usecase.fetchModelFile(urlString: url)
+            } catch {
+                print("ItemViewModel.fetchModelFile() failed with error: \(error.localizedDescription)")
+            }
+            
+            isLoading.toggle()
+        }
     }
 }

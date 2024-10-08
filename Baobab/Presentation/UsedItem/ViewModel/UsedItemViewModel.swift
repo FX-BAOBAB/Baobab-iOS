@@ -8,6 +8,7 @@
 import Combine
 import Foundation
 
+@MainActor
 final class UsedItemViewModel: ObservableObject {
     @Published var isShowingAlert: Bool = false
     @Published var isLoading: Bool = false
@@ -16,7 +17,7 @@ final class UsedItemViewModel: ObservableObject {
     @Published var modelFileURL: URL?
     
     var alertType: AlertType = .none
-    private let usecase: BuyUsedItemUseCase
+    nonisolated(unsafe) private let usecase: BuyUsedItemUseCase
     private var cancellables = Set<AnyCancellable>()
     
     init(usecase: BuyUsedItemUseCase) {
@@ -81,22 +82,17 @@ extension UsedItemViewModel {
 }
 
 extension UsedItemViewModel {
-    func fetchModelFile(url: String) {
+    func fetchModelFile(urlString: String) {
         isLoading.toggle()
-        
-        usecase.fetchModelFile(url: url)
-            .sink(receiveCompletion: { [weak self] completion in
-                self?.isLoading.toggle()
-                
-                switch completion {
-                case .finished:
-                    print("The download of the model file has finished")
-                case .failure(let error):
-                    print("UsedItemViewModel.fetchModelFile() failed with error: \(error.localizedDescription)")
-                }
-            }, receiveValue: { [weak self] in
-                self?.modelFileURL = $0
-            })
-            .store(in: &cancellables)
+
+        Task {
+            do {
+                modelFileURL = try await usecase.fetchModelFile(urlString: urlString)
+            } catch {
+                print("UsedItemViewModel.fetchModelFile() failed with error: \(error.localizedDescription)")
+            }
+            
+            isLoading.toggle()
+        }
     }
 }

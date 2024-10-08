@@ -105,12 +105,12 @@ extension ReceivingUseCaseImpl{
             .collect()    //publisher들이 방출하는 값을 배열에 모아서 한번에 처리
             .flatMap { identifiableResponses -> AnyPublisher<Bool, any Error> in
                 identifiableResponses.forEach {
-                    if let identifiableResponse = $0 as? ImageResponse {
+                    if let _ = $0 as? ImageResponse {
                         if var itemList = itemRequests[$0.index]["imageIdList", default: []] as? [Int] {
                             itemList.append(contentsOf: $0.response.map { response in return response.id })
                             itemRequests[$0.index]["imageIdList"] = itemList
                         }
-                    } else if let identifiableResponse = $0 as? ModelResponse {                        
+                    } else if let _ = $0 as? ModelResponse {                        
                         itemRequests[$0.index]["arImageId", default: 0] = $0.response[0].id
                     }
                 }

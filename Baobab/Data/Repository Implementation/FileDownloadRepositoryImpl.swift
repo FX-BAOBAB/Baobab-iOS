@@ -16,6 +16,10 @@ final class FileDownloadRepositoryImpl: FileDownloadRepository {
     }
     
     ///이미지 URL을 통해 이미지 파일 다운로드
+    func download(for url: URL) async throws -> Data {
+        return try await fileDataSource.downloadFile(url)
+    }
+    
     func download(for url: URL) -> AnyPublisher<Data, any Error> {
         return fileDataSource.downloadFile(url)
     }

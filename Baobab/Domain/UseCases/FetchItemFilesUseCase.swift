@@ -11,7 +11,7 @@ import Foundation
 protocol FetchItemFilesUseCase {
     func fetchBasicImageData(for basicIamges: [String]) -> AnyPublisher<[Data], any Error>
     func fetchDefectImageData(for defects: [FileData]) -> AnyPublisher<[(Data, String)], any Error>
-    func fetchModelFile(url: String) -> AnyPublisher<URL, any Error>
+    func fetchModelFile(urlString: String) async throws -> URL
 }
 
 final class FetchItemFilesUseCaseImpl: FetchItemFilesUseCase {
@@ -31,7 +31,7 @@ final class FetchItemFilesUseCaseImpl: FetchItemFilesUseCase {
         return downloadImageUseCase.fetchDefectImageData(for: defects)
     }
     
-    func fetchModelFile(url: String) -> AnyPublisher<URL, any Error> {
-        return downloadFileUseCase.downloadFile(url: url)
+    func fetchModelFile(urlString: String) async throws -> URL {
+        return try await downloadFileUseCase.downloadFile(urlString: urlString)
     }
 }

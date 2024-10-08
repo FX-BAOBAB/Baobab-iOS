@@ -9,5 +9,6 @@ import Combine
 import Foundation
 
 protocol FileDownloadRepository {
+    func download(for url: URL) async throws -> Data
     func download(for url: URL) -> AnyPublisher<Data, any Error>
 }

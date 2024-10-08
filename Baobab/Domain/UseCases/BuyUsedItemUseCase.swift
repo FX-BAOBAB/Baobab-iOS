@@ -12,7 +12,7 @@ protocol BuyUsedItemUseCase {
     func execute(for id: Int) -> AnyPublisher<Bool, any Error>
     func fetchBasicImageData(for urls: [String]) -> AnyPublisher<[Data], any Error>
     func fetchDefectImageData(for imageData: [FileData]) -> AnyPublisher<[(Data, String)], any Error>
-    func fetchModelFile(url: String) -> AnyPublisher<URL, any Error>
+    func fetchModelFile(urlString: String) async throws -> URL
 }
 
 final class BuyUsedItemUseCaseImpl: BuyUsedItemUseCase {
@@ -38,7 +38,7 @@ final class BuyUsedItemUseCaseImpl: BuyUsedItemUseCase {
         return downloadImageUseCase.fetchDefectImageData(for: imageData)
     }
     
-    func fetchModelFile(url: String) -> AnyPublisher<URL, any Error> {
-        return downloadFileUseCase.downloadFile(url: url)
+    func fetchModelFile(urlString: String) async throws -> URL {
+        return try await downloadFileUseCase.downloadFile(urlString: urlString)
     }
 }

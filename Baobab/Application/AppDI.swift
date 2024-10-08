@@ -12,6 +12,7 @@ struct AppDI {
     static let shared: AppDI = AppDI()
     let dataSource = RemoteDataSourceImpl()
     let fileDataSource = FileDataSourceImpl()
+    let localDataSource = LocalDataSourceImpl()
     
     private init() {}
     
@@ -347,10 +348,12 @@ struct AppDI {
         //Data Layer
         let downloadRepository = FileDownloadRepositoryImpl(fileDataSource: fileDataSource)
         let repository = UsedItemRepositoryImpl(dataSource: dataSource)
+        let arModelRepository = ARModelRepositoryImpl(localDataSource: localDataSource)
         
         //Domain Layer
         let downloadImageUseCase = DownloadImageUseCaseImpl(downloadRepository: downloadRepository)
-        let downloadFileUseCase = DownloadFileUseCaseImpl(repository: downloadRepository)
+        let downloadFileUseCase = DownloadFileUseCaseImpl(fileDownloadRepository: downloadRepository,
+                                                          arModelRepository: arModelRepository)
         let usecase = BuyUsedItemUseCaseImpl(downloadImageUseCase: downloadImageUseCase,
                                              downloadFileUseCase: downloadFileUseCase,
                                              repository: repository)
@@ -425,10 +428,12 @@ struct AppDI {
     func makeItemImageViewModel() -> ItemViewModel {
         //Data Layer
         let downloadRepository = FileDownloadRepositoryImpl(fileDataSource: fileDataSource)
+        let arModelRepository = ARModelRepositoryImpl(localDataSource: localDataSource)
         
         //Domain Layer
         let downloadImageUseCase = DownloadImageUseCaseImpl(downloadRepository: downloadRepository)
-        let downloadFileUseCase = DownloadFileUseCaseImpl(repository: downloadRepository)
+        let downloadFileUseCase = DownloadFileUseCaseImpl(fileDownloadRepository: downloadRepository,
+                                                          arModelRepository: arModelRepository)
         let usecase = FetchItemFilesUseCaseImpl(downloadImageUsecase: downloadImageUseCase, downloadFileUsecase: downloadFileUseCase)
         
         //Presentation Layer

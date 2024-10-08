@@ -9,7 +9,7 @@ import Combine
 import Foundation
 
 protocol DownloadFileUseCase {
-    func downloadFile(url: String) -> AnyPublisher<URL, any Error>
+    func downloadFile(urlString: String) async throws -> URL
 }
 
 final class DownloadFileUseCaseImpl: DownloadFileUseCase {
@@ -17,40 +17,24 @@ final class DownloadFileUseCaseImpl: DownloadFileUseCase {
         case invalidURL
     }
     
-    private let repository: FileDownloadRepository
+    private let fileDownloadRepository: FileDownloadRepository
+    private let arModelRepository: ARModelRepository
     
-    init(repository: FileDownloadRepository) {
-        self.repository = repository
+    init(fileDownloadRepository: FileDownloadRepository, arModelRepository: ARModelRepository) {
+        self.fileDownloadRepository = fileDownloadRepository
+        self.arModelRepository = arModelRepository
     }
     
-    func downloadFile(url: String) -> AnyPublisher<URL, any Error> {
-        guard let url = URL(string: url) else {
+    func downloadFile(urlString: String) async throws -> URL {
+        guard let url = URL(string: urlString) else {
             //유효하지 않은 url은 Fail 전달
-            return Fail(error: FileDownloadError.invalidURL)
-                .eraseToAnyPublisher()
+            throw FileDownloadError.invalidURL
         }
         
-        return repository.download(for: url)
-            .flatMap { data -> AnyPublisher<URL, any Error> in
-                return self.saveFile(data)
-            }
-            .eraseToAnyPublisher()
-    }
-    
-    private func saveFile(_ data: Data) -> AnyPublisher<URL, any Error> {
-        let directory = getDocumentsDir().appendingPathExtension("model.usdz")
+        //서버에서 가져온 Modle File
+        let data = try await fileDownloadRepository.download(for: url)
         
-        do {
-            try data.write(to: directory)
-            
-            return Just(directory)
-                .setFailureType(to: Error.self)
-                .eraseToAnyPublisher()
-        } catch {
-            print(error)
-            
-            return Fail(error: error)
-                .eraseToAnyPublisher()
-        }
+        //저장 후 URL 반환
+        return try await arModelRepository.save(data: data)
     }
 }

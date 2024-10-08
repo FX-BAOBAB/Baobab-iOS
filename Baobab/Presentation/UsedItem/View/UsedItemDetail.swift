@@ -150,7 +150,7 @@ fileprivate struct PageTabView: View {
             if !usedItem.item.arImages.isEmpty {
                 Button {
                     if let arImage = usedItem.item.arImages.first {
-                        viewModel.fetchModelFile(url: arImage.imageURL)
+                        viewModel.fetchModelFile(urlString: arImage.imageURL)
                     }
                 } label: {
                     Color(red: 245 / 255, green: 245 / 255, blue: 245 / 255)
