@@ -6,8 +6,8 @@
 //
 
 import Combine
-import MapKit
 import Foundation
+import MapKit
 
 final class SignUpViewModel: PostSearchable {
     @Published var email: String = ""
@@ -59,7 +59,8 @@ final class SignUpViewModel: PostSearchable {
                 "address": selectedAddress?.address ?? "",
                 "detailAddress": selectedAddress?.detailAddress ?? "",
                 "basicAddress": selectedAddress?.isBasicAddress ?? "",
-                "post": selectedAddress?.post ?? ""
+                "post": selectedAddress?.post ?? "",
+                "role": "BASIC_USER"
             ]
         ] as [String: Any]
         
