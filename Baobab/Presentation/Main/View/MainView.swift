@@ -20,10 +20,12 @@ struct MainView: View {
                     Image(image)
                         .resizable()
                         .aspectRatio(contentMode: .fit)
+                        .cornerRadius(10)
                 }
             }
             .tabViewStyle(.page)
-            .frame(width: UIScreen.main.bounds.width, height: 230)
+            .frame(height: 210)
+            .padding([.leading, .trailing])
             
             HStack(spacing: 15) {
                 Button {
