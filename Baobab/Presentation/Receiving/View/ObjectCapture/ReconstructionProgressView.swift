@@ -20,6 +20,8 @@ struct ReconstructionProgressView: View {
     
     var body: some View {
         VStack {
+            Spacer()
+            
             Text("3D 모델을 생성하는 중입니다...")
                 .bold()
                 .font(.title3)
@@ -27,6 +29,8 @@ struct ReconstructionProgressView: View {
             
             ProgressBarView(estimatedRemainingTime: $viewModel.estimatedRemainingTime,
                             requestProcessPercentage: $viewModel.requestProcessPercentage)
+            
+            Spacer()
             
             Button {
                 viewModel.photogrammetrySession?.cancel()
