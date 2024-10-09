@@ -59,7 +59,6 @@
 		5CCFBF6A2BF2E18200322D0D /* ImageRegistrationForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCFBF692BF2E18200322D0D /* ImageRegistrationForm.swift */; };
 		5CD8A2072C0341B900EE5C09 /* ItemInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD8A2062C0341B900EE5C09 /* ItemInput.swift */; };
 		5CD8A2092C036A8B00EE5C09 /* ImageRegistrationCompleteSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD8A2082C036A8B00EE5C09 /* ImageRegistrationCompleteSheet.swift */; };
-		8E0CC8AE2CB2590D000BA79A /* mac-studio.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 8E0CC8AD2CB2590D000BA79A /* mac-studio.usdz */; };
 		8E0CC8B12CB25970000BA79A /* FileUploadTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0CC8B02CB25970000BA79A /* FileUploadTest.swift */; };
 		8E0ED80D2C3FA5C600AB0EC8 /* LoginUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0ED80C2C3FA5C600AB0EC8 /* LoginUITest.swift */; };
 		8E1685CD2C916AEE00284650 /* TransactionHistoryDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1685CC2C916AEE00284650 /* TransactionHistoryDetail.swift */; };
@@ -420,7 +419,6 @@
 		5CD8A2062C0341B900EE5C09 /* ItemInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemInput.swift; sourceTree = "<group>"; };
 		5CD8A2082C036A8B00EE5C09 /* ImageRegistrationCompleteSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRegistrationCompleteSheet.swift; sourceTree = "<group>"; };
 		63D7A00E0CC7E3DA257FF09A /* Pods-BaobabUnitTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaobabUnitTest.debug.xcconfig"; path = "Target Support Files/Pods-BaobabUnitTest/Pods-BaobabUnitTest.debug.xcconfig"; sourceTree = "<group>"; };
-		8E0CC8AD2CB2590D000BA79A /* mac-studio.usdz */ = {isa = PBXFileReference; lastKnownFileType = file; path = "mac-studio.usdz"; sourceTree = "<group>"; };
 		8E0CC8B02CB25970000BA79A /* FileUploadTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileUploadTest.swift; sourceTree = "<group>"; };
 		8E0ED8012C3FA56300AB0EC8 /* BaobabUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BaobabUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E0ED80C2C3FA5C600AB0EC8 /* LoginUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUITest.swift; sourceTree = "<group>"; };
@@ -1049,7 +1047,6 @@
 			isa = PBXGroup;
 			children = (
 				5C426BEB2BEDA8F400869F6D /* Assets.xcassets */,
-				8E0CC8AD2CB2590D000BA79A /* mac-studio.usdz */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -1836,7 +1833,6 @@
 				8E7BC8DF2C3EB71000CB708F /* Login_Success_Response.json in Resources */,
 				8E9772092C3CBEFF0082DCAF /* ServiceInfo.plist in Resources */,
 				8E7900B92C6ADC8800BD4BBB /* Launch Screen.storyboard in Resources */,
-				8E0CC8AE2CB2590D000BA79A /* mac-studio.usdz in Resources */,
 				5C426BEF2BEDA8F400869F6D /* Preview Assets.xcassets in Resources */,
 				8E7BC8ED2C3EC22500CB708F /* Login_Fail_Response.json in Resources */,
 				8E765F692C3D5BCD008A11E6 /* SignUp_Success_Response.json in Resources */,
