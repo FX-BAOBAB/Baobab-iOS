@@ -89,10 +89,11 @@ extension ReceivingUseCaseImpl{
         
         for (i, item) in items.enumerated() {
             //물품 이미지 업로드
-            //어차피 itemImages는 모두 값이 존재해야하기 때문에 dataSource의 [Data]로 타입 캐스팅 가능함.
+            //itemImages는 모두 값이 존재해야하기 때문에 dataSource의 [Data]로 타입 캐스팅 가능함.
             publishers.append(uploadImage(index: i, item: item))
             publishers.append(uploadDefectImage(index: i, item: item))
             
+            //AR 모델 파일 업로드
             if let fileURL = item.modelFile, let fileData = convertFileToData(fileURL) {
                 publishers.append(uploadModelFile(index: i, modelData: fileData))
             }
@@ -157,7 +158,7 @@ extension ReceivingUseCaseImpl{
         let params = [
             "file": modelData,
             "kind": "AR",
-            "captions": "string"
+            "caption": "string"
         ] as [String: Any]
         
         return uploadFileUseCase.execute(params: params, fileExtension: "usdz", mimeType: "model/usdz+zip")
