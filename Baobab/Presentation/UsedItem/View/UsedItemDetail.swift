@@ -33,22 +33,24 @@ struct UsedItemDetail: View {
                             .frame(height: 80)
                     }
                     
-                    Button {
-                        
-                    } label: {
-                        Circle()
-                            .frame(width: 60)
-                            .foregroundColor(Color(.baobabGray))
-                            .overlay {
-                                Image(systemName: "message.fill")
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .frame(width: 30)
-                            }
+                    if UserDefaults.standard.bool(forKey: "chat") {
+                        Button {
+                            
+                        } label: {
+                            Circle()
+                                .frame(width: 60)
+                                .foregroundColor(Color(.baobabGray))
+                                .overlay {
+                                    Image(systemName: "message.fill")
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .frame(width: 30)
+                                }
+                        }
+                        .frame(maxHeight: .infinity, alignment: .bottom)
+                        .frame(maxWidth: .infinity, alignment: .trailing)
+                        .padding()
                     }
-                    .frame(maxHeight: .infinity, alignment: .bottom)
-                    .frame(maxWidth: .infinity, alignment: .trailing)
-                    .padding()
                 }
                 
                 VStack {

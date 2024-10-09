@@ -124,12 +124,14 @@ struct MainTabView: View {
                         .font(.title3)
                 }
                 
-                ToolbarItem(placement: .topBarTrailing) {
-                    NavigationLink {
-                        
-                    } label: {
-                        Image(systemName: "paperplane")
-                            .foregroundStyle(.black)
+                if UserDefaults.standard.bool(forKey: "chat") {
+                    ToolbarItem(placement: .topBarTrailing) {
+                        NavigationLink {
+                            
+                        } label: {
+                            Image(systemName: "paperplane")
+                                .foregroundStyle(.black)
+                        }
                     }
                 }
             case .usedItemTrade:
@@ -148,12 +150,14 @@ struct MainTabView: View {
                     }
                 }
                 
-                ToolbarItem(placement: .topBarTrailing) {
-                    Button {
-                        
-                    } label: {
-                        Image(systemName: "paperplane")
-                            .foregroundStyle(.black)
+                if UserDefaults.standard.bool(forKey: "chat") {
+                    ToolbarItem(placement: .topBarTrailing) {
+                        Button {
+                            
+                        } label: {
+                            Image(systemName: "paperplane")
+                                .foregroundStyle(.black)
+                        }
                     }
                 }
             case .notification:
