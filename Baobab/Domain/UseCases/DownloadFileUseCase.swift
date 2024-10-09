@@ -18,11 +18,11 @@ final class DownloadFileUseCaseImpl: DownloadFileUseCase {
     }
     
     private let fileDownloadRepository: FileDownloadRepository
-    private let arModelRepository: ARModelRepository
+    private let localFileRepository: LocalFileRepository
     
-    init(fileDownloadRepository: FileDownloadRepository, arModelRepository: ARModelRepository) {
+    init(fileDownloadRepository: FileDownloadRepository, localFileRepository: LocalFileRepository) {
         self.fileDownloadRepository = fileDownloadRepository
-        self.arModelRepository = arModelRepository
+        self.localFileRepository = localFileRepository
     }
     
     func downloadFile(urlString: String) async throws -> URL {
@@ -35,6 +35,6 @@ final class DownloadFileUseCaseImpl: DownloadFileUseCase {
         let data = try await fileDownloadRepository.download(for: url)
         
         //저장 후 URL 반환
-        return try await arModelRepository.save(data: data)
+        return try await localFileRepository.save(data: data)
     }
 }

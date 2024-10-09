@@ -188,6 +188,7 @@
 		8E83F7672C762F6700AD5F01 /* RegisterAsUsedItemUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E83F7662C762F6700AD5F01 /* RegisterAsUsedItemUseCase.swift */; };
 		8E8446AF2C99C2F600B09F85 /* ItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8446AE2C99C2F600B09F85 /* ItemViewModel.swift */; };
 		8E85D1C82C464D1300020F4F /* Date+ISO8601.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E85D1C72C464D1300020F4F /* Date+ISO8601.swift */; };
+		8E87A0172CB6139E001F35F3 /* DeleteFileUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E87A0162CB6139E001F35F3 /* DeleteFileUseCase.swift */; };
 		8E8AF2DF2C424F6A00A1F0ED /* AddressListResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8AF2DE2C424F6A00A1F0ED /* AddressListResponseDTO.swift */; };
 		8E8AF2E32C425DD100A1F0ED /* UploadFileUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8AF2E22C425DD100A1F0ED /* UploadFileUseCase.swift */; };
 		8E8AF2E52C42633B00A1F0ED /* SingleFileUploadResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8AF2E42C42633B00A1F0ED /* SingleFileUploadResponseDTO.swift */; };
@@ -223,8 +224,8 @@
 		8E95B7672CB3588D00A5A729 /* FileDownloadRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E95B7662CB3588D00A5A729 /* FileDownloadRepositoryImpl.swift */; };
 		8E95B7692CB3743100A5A729 /* FetchItemFilesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E95B7682CB3743100A5A729 /* FetchItemFilesUseCase.swift */; };
 		8E95B76B2CB3A9AE00A5A729 /* LocalDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E95B76A2CB3A9AE00A5A729 /* LocalDataSource.swift */; };
-		8E95B76D2CB3ADBB00A5A729 /* ARModelRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E95B76C2CB3ADBB00A5A729 /* ARModelRepository.swift */; };
-		8E95B76F2CB3AF1000A5A729 /* ARModelRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E95B76E2CB3AF0A00A5A729 /* ARModelRepositoryImpl.swift */; };
+		8E95B76D2CB3ADBB00A5A729 /* LocalFileRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E95B76C2CB3ADBB00A5A729 /* LocalFileRepository.swift */; };
+		8E95B76F2CB3AF1000A5A729 /* LocalFileRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E95B76E2CB3AF0A00A5A729 /* LocalFileRepositoryImpl.swift */; };
 		8E9772072C3CBCD00082DCAF /* SignUpResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9772062C3CBCD00082DCAF /* SignUpResponseDTO.swift */; };
 		8E9772092C3CBEFF0082DCAF /* ServiceInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8E9772082C3CBEFF0082DCAF /* ServiceInfo.plist */; };
 		8E97720B2C3CBFC40082DCAF /* Bundle+Properties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E97720A2C3CBFC40082DCAF /* Bundle+Properties.swift */; };
@@ -545,6 +546,7 @@
 		8E83F7662C762F6700AD5F01 /* RegisterAsUsedItemUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterAsUsedItemUseCase.swift; sourceTree = "<group>"; };
 		8E8446AE2C99C2F600B09F85 /* ItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewModel.swift; sourceTree = "<group>"; };
 		8E85D1C72C464D1300020F4F /* Date+ISO8601.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+ISO8601.swift"; sourceTree = "<group>"; };
+		8E87A0162CB6139E001F35F3 /* DeleteFileUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteFileUseCase.swift; sourceTree = "<group>"; };
 		8E8AF2DE2C424F6A00A1F0ED /* AddressListResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressListResponseDTO.swift; sourceTree = "<group>"; };
 		8E8AF2E22C425DD100A1F0ED /* UploadFileUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadFileUseCase.swift; sourceTree = "<group>"; };
 		8E8AF2E42C42633B00A1F0ED /* SingleFileUploadResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleFileUploadResponseDTO.swift; sourceTree = "<group>"; };
@@ -580,8 +582,8 @@
 		8E95B7662CB3588D00A5A729 /* FileDownloadRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileDownloadRepositoryImpl.swift; sourceTree = "<group>"; };
 		8E95B7682CB3743100A5A729 /* FetchItemFilesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchItemFilesUseCase.swift; sourceTree = "<group>"; };
 		8E95B76A2CB3A9AE00A5A729 /* LocalDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDataSource.swift; sourceTree = "<group>"; };
-		8E95B76C2CB3ADBB00A5A729 /* ARModelRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARModelRepository.swift; sourceTree = "<group>"; };
-		8E95B76E2CB3AF0A00A5A729 /* ARModelRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARModelRepositoryImpl.swift; sourceTree = "<group>"; };
+		8E95B76C2CB3ADBB00A5A729 /* LocalFileRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFileRepository.swift; sourceTree = "<group>"; };
+		8E95B76E2CB3AF0A00A5A729 /* LocalFileRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFileRepositoryImpl.swift; sourceTree = "<group>"; };
 		8E9772062C3CBCD00082DCAF /* SignUpResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpResponseDTO.swift; sourceTree = "<group>"; };
 		8E9772082C3CBEFF0082DCAF /* ServiceInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ServiceInfo.plist; sourceTree = "<group>"; };
 		8E97720A2C3CBFC40082DCAF /* Bundle+Properties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Properties.swift"; sourceTree = "<group>"; };
@@ -892,6 +894,7 @@
 				8E8AF2E22C425DD100A1F0ED /* UploadFileUseCase.swift */,
 				8E9DFFB62C98275C00743275 /* DownloadImageUseCase.swift */,
 				8E95B7622CB354D400A5A729 /* DownloadFileUseCase.swift */,
+				8E87A0162CB6139E001F35F3 /* DeleteFileUseCase.swift */,
 				8E449F082C4BA87A00291277 /* CheckEmailDuplicationUseCase.swift */,
 				8E449F0E2C4BEEC700291277 /* CheckNickNameDuplicationUseCase.swift */,
 				8E8D13512C4E44700032FC96 /* FetchUserInfoUseCase.swift */,
@@ -936,7 +939,7 @@
 				8E49F7252C784233006EC259 /* ItemStatusRepository.swift */,
 				8EC135DB2C8E88DA00F9DD3F /* TransactionItemHistoryRepository.swift */,
 				8E64D84E2C912C4D0043F3C6 /* TransactionHistoryRepository.swift */,
-				8E95B76C2CB3ADBB00A5A729 /* ARModelRepository.swift */,
+				8E95B76C2CB3ADBB00A5A729 /* LocalFileRepository.swift */,
 			);
 			path = "Repository Interfaces";
 			sourceTree = "<group>";
@@ -984,7 +987,7 @@
 		5C80F0FB2C06DE2D00A94C22 /* Repository Implementation */ = {
 			isa = PBXGroup;
 			children = (
-				8E95B76E2CB3AF0A00A5A729 /* ARModelRepositoryImpl.swift */,
+				8E95B76E2CB3AF0A00A5A729 /* LocalFileRepositoryImpl.swift */,
 				5C41ED902C07FD29001416D9 /* RemoteRepository.swift */,
 				8E7BC8D12C3E6AB500CB708F /* TokenRepositoryImpl.swift */,
 				8E8AF2EA2C42689D00A1F0ED /* FileUploadRepositoryImpl.swift */,
@@ -2084,6 +2087,7 @@
 				8EBE5DE82C930D1B008EF291 /* UserSaleItemsViewModel.swift in Sources */,
 				8E74FF3A2C585E97005ED275 /* ReceivingFormDetail.swift in Sources */,
 				8E7A9F152C5B187D00969F1A /* ProcessStatusBar.swift in Sources */,
+				8E87A0172CB6139E001F35F3 /* DeleteFileUseCase.swift in Sources */,
 				8E7B6C2B2C51CC1500222721 /* ItemResponseDTO.swift in Sources */,
 				5C405EEC2BF72ADB006EE6F1 /* ReceivingViewModel+Defect.swift in Sources */,
 				8ECCBB152C2E846D00DD0A1B /* AddressRegistrationForm.swift in Sources */,
@@ -2226,11 +2230,11 @@
 				8EE198AC2C7F5DDB0000954C /* CreateButton.swift in Sources */,
 				8E7BC8D42C3E6ACE00CB708F /* TokenRepositroy.swift in Sources */,
 				8E49F7282C78425B006EC259 /* ItemStatusRepositoryImpl.swift in Sources */,
-				8E95B76D2CB3ADBB00A5A729 /* ARModelRepository.swift in Sources */,
+				8E95B76D2CB3ADBB00A5A729 /* LocalFileRepository.swift in Sources */,
 				5C735F462BF1A4B400A36EC8 /* CategoryListRow.swift in Sources */,
 				5C994A582BF5F8D00013672B /* Defect.swift in Sources */,
 				8E7BC8CE2C3E44C500CB708F /* LoginResponse.swift in Sources */,
-				8E95B76F2CB3AF1000A5A729 /* ARModelRepositoryImpl.swift in Sources */,
+				8E95B76F2CB3AF1000A5A729 /* LocalFileRepositoryImpl.swift in Sources */,
 				8E449F112C4BFDE800291277 /* SignUpViewModel+Bind.swift in Sources */,
 				8E7B6C462C522EB300222721 /* ReturningItemsViewModel.swift in Sources */,
 				8E8B61D02C8BF7090024B61C /* AlertType.swift in Sources */,
@@ -2433,6 +2437,7 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Baobab/Application/Info.plist;
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -2473,6 +2478,7 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Baobab/Application/Info.plist;
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

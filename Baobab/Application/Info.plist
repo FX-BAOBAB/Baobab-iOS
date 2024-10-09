@@ -6,5 +6,7 @@
 	<false/>
 	<key>Privacy – Photo Library Usage Description</key>
 	<string></string>
+	<key>UIFileSharingEnabled</key>
+	<true/>
 </dict>
 </plist>

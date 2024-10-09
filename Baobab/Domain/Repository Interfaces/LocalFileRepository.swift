@@ -8,7 +8,7 @@
 import Combine
 import Foundation
 
-protocol ARModelRepository {
+protocol LocalFileRepository {
     func save(data: Data) async throws -> URL
     func delete(at url: URL) async throws
 }

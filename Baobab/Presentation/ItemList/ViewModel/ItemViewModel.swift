@@ -7,16 +7,22 @@
 
 import Combine
 import Foundation
+import os
 
 @MainActor
 final class ItemViewModel: ObservableObject {
     @Published var basicImageData: [Data]?
     @Published var defectData: [(image: Data, caption: String)]?
-    @Published var modelFileURL: URL?
+    @Published var previewModelFile: URL?
     @Published var isLoading: Bool = false
     
     nonisolated(unsafe) private let usecase: FetchItemFilesUseCase
     private var cancellables = Set<AnyCancellable>()
+    private let logger = Logger(subsystem: "Baobab", category: "ItemViewModel")
+    
+    //.quickLookPreview(_:)는 dismiss 되면서 nil을 할당
+    //Model 파일을 삭제하기 위해 추가 경로 변수 선언
+    private var modelFilePath: URL?
     
     init(usecase: FetchItemFilesUseCase) {
         self.usecase = usecase
@@ -63,12 +69,33 @@ extension ItemViewModel {
         
         Task {
             do {
-                modelFileURL = try await usecase.fetchModelFile(urlString: url)
+                let path = try await usecase.fetchModelFile(urlString: url)
+                
+                previewModelFile = path
+                modelFilePath = path
             } catch {
                 print("ItemViewModel.fetchModelFile() failed with error: \(error.localizedDescription)")
             }
             
             isLoading.toggle()
+        }
+    }
+}
+
+extension ItemViewModel {
+    func deleteModelFile() {
+        guard let modelFilePath else {
+            logger.info("no model file url")
+            return
+        }
+        
+        Task {
+            do {
+                try await usecase.delete(at: modelFilePath)
+                logger.info("ItemViewModel.delete() successful")
+            } catch {
+                logger.info("ItemViewModel.delete() failed with error: \(error.localizedDescription)")
+            }
         }
     }
 }

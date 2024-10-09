@@ -13,16 +13,22 @@ protocol BuyUsedItemUseCase {
     func fetchBasicImageData(for urls: [String]) -> AnyPublisher<[Data], any Error>
     func fetchDefectImageData(for imageData: [FileData]) -> AnyPublisher<[(Data, String)], any Error>
     func fetchModelFile(urlString: String) async throws -> URL
+    func deleteFile(url: URL) async throws
 }
 
 final class BuyUsedItemUseCaseImpl: BuyUsedItemUseCase {
     private let downloadImageUseCase: DownloadImageUseCase
     private let downloadFileUseCase: DownloadFileUseCase
+    private let deleteFileUseCase: DeleteFileUseCase
     private let repository: UsedItemRepository
     
-    init(downloadImageUseCase: DownloadImageUseCase, downloadFileUseCase: DownloadFileUseCase, repository: UsedItemRepository) {
+    init(downloadImageUseCase: DownloadImageUseCase,
+         downloadFileUseCase: DownloadFileUseCase,
+         deleteFileUseCase: DeleteFileUseCase,
+         repository: UsedItemRepository) {
         self.downloadImageUseCase = downloadImageUseCase
         self.downloadFileUseCase = downloadFileUseCase
+        self.deleteFileUseCase = deleteFileUseCase
         self.repository = repository
     }
     
@@ -40,5 +46,9 @@ final class BuyUsedItemUseCaseImpl: BuyUsedItemUseCase {
     
     func fetchModelFile(urlString: String) async throws -> URL {
         return try await downloadFileUseCase.downloadFile(urlString: urlString)
+    }
+    
+    func deleteFile(url: URL) async throws {
+        try await deleteFileUseCase.delete(at: url)
     }
 }

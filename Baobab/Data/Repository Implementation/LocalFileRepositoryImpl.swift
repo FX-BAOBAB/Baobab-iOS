@@ -8,7 +8,7 @@
 import Combine
 import Foundation
 
-final class ARModelRepositoryImpl: ARModelRepository {
+final class LocalFileRepositoryImpl: LocalFileRepository {
     private let localDataSource: LocalDataSource
     
     init(localDataSource: LocalDataSource) {
@@ -16,10 +16,10 @@ final class ARModelRepositoryImpl: ARModelRepository {
     }
     
     func save(data: Data) async throws -> URL {
-        let directoryPath = getDocumentsDir().appendingPathExtension("model.usdz")
-        try await localDataSource.save(data: data, to: directoryPath)
+        let filePath = getDocumentsDir().appendingPathComponent("\(Date().timeIntervalSince1970).usdz")
+        try await localDataSource.save(data: data, to: filePath)
         
-        return directoryPath
+        return filePath
     }
     
     func delete(at url: URL) async throws {

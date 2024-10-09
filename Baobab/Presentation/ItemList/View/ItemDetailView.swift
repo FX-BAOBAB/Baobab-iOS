@@ -82,7 +82,10 @@ struct ItemDetailView: View {
                     })
                 }
             }
-            .quickLookPreview($itemViewModel.modelFileURL)
+            .onDisappear {
+                itemViewModel.deleteModelFile()
+            }
+            .quickLookPreview($itemViewModel.previewModelFile)
             
             if viewModel.isProcess || itemViewModel.isLoading {
                 CustomProgressView()
@@ -176,19 +179,12 @@ fileprivate struct TitleView: View {
     }
 }
 
+#if DEBUG
 #Preview {
     NavigationStack {
         ItemDetailView(viewModel: AppDI.shared.makeItemStatusConversionViewModel(),
                        itemViewModel: AppDI.shared.makeItemImageViewModel(),
-                       item: Item(id: 0,
-                                  name: "부끄부끄 마끄부끄",
-                                  category: "SMALL_APPLIANCES",
-                                  status: .receiving,
-                                  quantity: 1,
-                                  basicImages: [FileData(imageURL: "string", caption: ""),
-                                                FileData(imageURL: "string", caption: "")],
-                                  defectImages: [FileData(imageURL: "", caption: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."),
-                                                 FileData(imageURL: "string", caption: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")],
-                                  arImages: []))
+                       item: Item.sampleData.first!)
     }
 }
+#endif

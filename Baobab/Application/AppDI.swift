@@ -348,14 +348,16 @@ struct AppDI {
         //Data Layer
         let downloadRepository = FileDownloadRepositoryImpl(fileDataSource: fileDataSource)
         let repository = UsedItemRepositoryImpl(dataSource: dataSource)
-        let arModelRepository = ARModelRepositoryImpl(localDataSource: localDataSource)
+        let localFileRepository = LocalFileRepositoryImpl(localDataSource: localDataSource)
         
         //Domain Layer
         let downloadImageUseCase = DownloadImageUseCaseImpl(downloadRepository: downloadRepository)
         let downloadFileUseCase = DownloadFileUseCaseImpl(fileDownloadRepository: downloadRepository,
-                                                          arModelRepository: arModelRepository)
+                                                          localFileRepository: localFileRepository)
+        let deleteFileUseCase = DeleteFileUseCaseImpl(localFileRepository: localFileRepository)
         let usecase = BuyUsedItemUseCaseImpl(downloadImageUseCase: downloadImageUseCase,
                                              downloadFileUseCase: downloadFileUseCase,
+                                             deleteFileUseCase: deleteFileUseCase,
                                              repository: repository)
         
         //Presentation Layer
@@ -428,13 +430,16 @@ struct AppDI {
     func makeItemImageViewModel() -> ItemViewModel {
         //Data Layer
         let downloadRepository = FileDownloadRepositoryImpl(fileDataSource: fileDataSource)
-        let arModelRepository = ARModelRepositoryImpl(localDataSource: localDataSource)
+        let localFileRepository = LocalFileRepositoryImpl(localDataSource: localDataSource)
         
         //Domain Layer
         let downloadImageUseCase = DownloadImageUseCaseImpl(downloadRepository: downloadRepository)
         let downloadFileUseCase = DownloadFileUseCaseImpl(fileDownloadRepository: downloadRepository,
-                                                          arModelRepository: arModelRepository)
-        let usecase = FetchItemFilesUseCaseImpl(downloadImageUsecase: downloadImageUseCase, downloadFileUsecase: downloadFileUseCase)
+                                                          localFileRepository: localFileRepository)
+        let deleteFileUseCase = DeleteFileUseCaseImpl(localFileRepository: localFileRepository)
+        let usecase = FetchItemFilesUseCaseImpl(downloadImageUsecase: downloadImageUseCase,
+                                                downloadFileUsecase: downloadFileUseCase,
+                                                deleteFileUseCase: deleteFileUseCase)
         
         //Presentation Layer
         let viewModel = ItemViewModel(usecase: usecase)

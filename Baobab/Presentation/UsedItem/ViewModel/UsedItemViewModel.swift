@@ -7,6 +7,7 @@
 
 import Combine
 import Foundation
+import os
 
 @MainActor
 final class UsedItemViewModel: ObservableObject {
@@ -14,11 +15,16 @@ final class UsedItemViewModel: ObservableObject {
     @Published var isLoading: Bool = false
     @Published var basicImageData: [Data]?
     @Published var defectData: [(image: Data, caption: String)]?
-    @Published var modelFileURL: URL?
+    @Published var previewModelFile: URL?
     
     var alertType: AlertType = .none
     nonisolated(unsafe) private let usecase: BuyUsedItemUseCase
     private var cancellables = Set<AnyCancellable>()
+    private let logger = Logger(subsystem: "Baobab", category: "UsedItemViewModel")
+    
+    //.quickLookPreview(_:)는 dismiss 되면서 nil을 할당
+    //Model 파일을 삭제하기 위해 추가 경로 변수 선언
+    private var modelFilePath: URL?
     
     init(usecase: BuyUsedItemUseCase) {
         self.usecase = usecase
@@ -87,12 +93,31 @@ extension UsedItemViewModel {
 
         Task {
             do {
-                modelFileURL = try await usecase.fetchModelFile(urlString: urlString)
+                let path = try await usecase.fetchModelFile(urlString: urlString)
+                previewModelFile = path
+                modelFilePath = path
             } catch {
                 print("UsedItemViewModel.fetchModelFile() failed with error: \(error.localizedDescription)")
             }
             
             isLoading.toggle()
+        }
+    }
+}
+
+extension UsedItemViewModel {
+    func deleteModelFile() {
+        guard let modelFilePath else {
+            logger.info("No model file to delete")
+            return
+        }
+        
+        Task {
+            do {
+                try await usecase.deleteFile(url: modelFilePath)
+            } catch {
+                print("UsedItemViewModel.deleteModelFile() failed with error: \(error.localizedDescription)")
+            }
         }
     }
 }

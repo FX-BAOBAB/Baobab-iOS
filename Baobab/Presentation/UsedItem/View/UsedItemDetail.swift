@@ -100,11 +100,15 @@ struct UsedItemDetail: View {
                 CustomProgressView()
             }
         }
+        .quickLookPreview($viewModel.previewModelFile)
         .onAppear {
             if viewModel.basicImageData == nil && viewModel.defectData == nil {
                 viewModel.fetchBasicImages(basicIamges: usedItem.item.basicImages.map { $0.imageURL })
                 viewModel.fetchDefectImages(defects: usedItem.item.defectImages)
             }
+        }
+        .onDisappear {
+            viewModel.deleteModelFile()
         }
         .alert(isPresented: $viewModel.isShowingAlert) {
             switch viewModel.alertType {
@@ -116,7 +120,6 @@ struct UsedItemDetail: View {
                 Alert(title: Text(""), message: Text(""))
             }
         }
-        .quickLookPreview($viewModel.modelFileURL)
     }
 }
 
