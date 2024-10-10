@@ -135,7 +135,7 @@ struct MainTabView: View {
                 if UserDefaults.standard.bool(forKey: "chat") {
                     ToolbarItem(placement: .topBarTrailing) {
                         NavigationLink {
-                            
+                            ChatRoomList(viewModel: AppDI.shared.makeChatRoomListViewModel())
                         } label: {
                             Image(systemName: "paperplane")
                                 .foregroundStyle(.black)
@@ -160,8 +160,8 @@ struct MainTabView: View {
                 
                 if UserDefaults.standard.bool(forKey: "chat") {
                     ToolbarItem(placement: .topBarTrailing) {
-                        Button {
-                            
+                        NavigationLink {
+                            ChatRoomList(viewModel: AppDI.shared.makeChatRoomListViewModel())
                         } label: {
                             Image(systemName: "paperplane")
                                 .foregroundStyle(.black)

@@ -103,6 +103,12 @@
 		8E569F502C75C782005B9BCB /* UsedItemRegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E569F4F2C75C782005B9BCB /* UsedItemRegistrationViewModel.swift */; };
 		8E569F522C75C99C005B9BCB /* BorderedPriceBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E569F512C75C99C005B9BCB /* BorderedPriceBox.swift */; };
 		8E569F542C75CD35005B9BCB /* BorderedDiscriptionBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E569F532C75CD35005B9BCB /* BorderedDiscriptionBox.swift */; };
+		8E57B8632CB758F600385A3E /* WebSocketDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E57B8622CB758F600385A3E /* WebSocketDataSource.swift */; };
+		8E57B8652CB760E500385A3E /* ChatRoomRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E57B8642CB760E500385A3E /* ChatRoomRepository.swift */; };
+		8E57B8672CB7611300385A3E /* ChatRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E57B8662CB7611300385A3E /* ChatRoom.swift */; };
+		8E57B8692CB7617E00385A3E /* ChatRoomRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E57B8682CB7617E00385A3E /* ChatRoomRepositoryImpl.swift */; };
+		8E57B86B2CB7622E00385A3E /* ChatRoomResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E57B86A2CB7622E00385A3E /* ChatRoomResponseDTO.swift */; };
+		8E57B86D2CB762C800385A3E /* FetchChatRoomListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E57B86C2CB762C800385A3E /* FetchChatRoomListUseCase.swift */; };
 		8E604DB52C6DD72100D45CB1 /* ShippingApplicationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E604DB42C6DD72100D45CB1 /* ShippingApplicationViewModel.swift */; };
 		8E604DB72C6DD7A500D45CB1 /* ShippingApplicationForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E604DB62C6DD7A500D45CB1 /* ShippingApplicationForm.swift */; };
 		8E604DB92C6DEC2400D45CB1 /* ShippingUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E604DB82C6DEC2400D45CB1 /* ShippingUseCase.swift */; };
@@ -328,6 +334,9 @@
 		8EE66DEA2C400D920087AD19 /* CustomProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE66DE92C400D920087AD19 /* CustomProgressView.swift */; };
 		8EE91FF62C7D651F0012D020 /* SetupInitialViewUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE91FF52C7D651F0012D020 /* SetupInitialViewUseCase.swift */; };
 		8EEF5EA82C85D4E2004E374F /* IntermediateScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEF5EA72C85D4E2004E374F /* IntermediateScanView.swift */; };
+		8EF49E812CB766B500414428 /* ChatRoomListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF49E802CB766B500414428 /* ChatRoomListViewModel.swift */; };
+		8EF49E832CB7690C00414428 /* ChatRoomList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF49E822CB7690C00414428 /* ChatRoomList.swift */; };
+		8EF49E852CB76F8200414428 /* ChatRoomListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF49E842CB76F8200414428 /* ChatRoomListRow.swift */; };
 		8EF66E782C72D08B00E6CEA2 /* ShippingApplicationResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF66E772C72D08B00E6CEA2 /* ShippingApplicationResponseDTO.swift */; };
 		8EF66E7A2C72D14900E6CEA2 /* ShippingApplicationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF66E792C72D14900E6CEA2 /* ShippingApplicationRepository.swift */; };
 		8EF66E7C2C72D25300E6CEA2 /* ShippingApplicationRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF66E7B2C72D25300E6CEA2 /* ShippingApplicationRepositoryImpl.swift */; };
@@ -464,6 +473,12 @@
 		8E569F4F2C75C782005B9BCB /* UsedItemRegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsedItemRegistrationViewModel.swift; sourceTree = "<group>"; };
 		8E569F512C75C99C005B9BCB /* BorderedPriceBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderedPriceBox.swift; sourceTree = "<group>"; };
 		8E569F532C75CD35005B9BCB /* BorderedDiscriptionBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderedDiscriptionBox.swift; sourceTree = "<group>"; };
+		8E57B8622CB758F600385A3E /* WebSocketDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketDataSource.swift; sourceTree = "<group>"; };
+		8E57B8642CB760E500385A3E /* ChatRoomRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomRepository.swift; sourceTree = "<group>"; };
+		8E57B8662CB7611300385A3E /* ChatRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoom.swift; sourceTree = "<group>"; };
+		8E57B8682CB7617E00385A3E /* ChatRoomRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomRepositoryImpl.swift; sourceTree = "<group>"; };
+		8E57B86A2CB7622E00385A3E /* ChatRoomResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomResponseDTO.swift; sourceTree = "<group>"; };
+		8E57B86C2CB762C800385A3E /* FetchChatRoomListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchChatRoomListUseCase.swift; sourceTree = "<group>"; };
 		8E604DB42C6DD72100D45CB1 /* ShippingApplicationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingApplicationViewModel.swift; sourceTree = "<group>"; };
 		8E604DB62C6DD7A500D45CB1 /* ShippingApplicationForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingApplicationForm.swift; sourceTree = "<group>"; };
 		8E604DB82C6DEC2400D45CB1 /* ShippingUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingUseCase.swift; sourceTree = "<group>"; };
@@ -687,6 +702,9 @@
 		8EE66DE92C400D920087AD19 /* CustomProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProgressView.swift; sourceTree = "<group>"; };
 		8EE91FF52C7D651F0012D020 /* SetupInitialViewUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupInitialViewUseCase.swift; sourceTree = "<group>"; };
 		8EEF5EA72C85D4E2004E374F /* IntermediateScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntermediateScanView.swift; sourceTree = "<group>"; };
+		8EF49E802CB766B500414428 /* ChatRoomListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomListViewModel.swift; sourceTree = "<group>"; };
+		8EF49E822CB7690C00414428 /* ChatRoomList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomList.swift; sourceTree = "<group>"; };
+		8EF49E842CB76F8200414428 /* ChatRoomListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomListRow.swift; sourceTree = "<group>"; };
 		8EF66E772C72D08B00E6CEA2 /* ShippingApplicationResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingApplicationResponseDTO.swift; sourceTree = "<group>"; };
 		8EF66E792C72D14900E6CEA2 /* ShippingApplicationRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingApplicationRepository.swift; sourceTree = "<group>"; };
 		8EF66E7B2C72D25300E6CEA2 /* ShippingApplicationRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingApplicationRepositoryImpl.swift; sourceTree = "<group>"; };
@@ -799,6 +817,7 @@
 		5C426BF62BEDBD1B00869F6D /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				8EF49E7D2CB7669900414428 /* Chat */,
 				8EC135CC2C8E831000F9DD3F /* UserTransaction */,
 				8E569F4A2C75B343005B9BCB /* UsedConversion */,
 				8E604DB12C6DD6D100D45CB1 /* ShippingApplicationForm */,
@@ -914,6 +933,7 @@
 				8EC135DF2C8E8CF200F9DD3F /* FetchUsedItemDetailUseCase.swift */,
 				8E64D8522C914ED70043F3C6 /* FetchTransactionHistoryUseCase.swift */,
 				8E95B7682CB3743100A5A729 /* FetchItemFilesUseCase.swift */,
+				8E57B86C2CB762C800385A3E /* FetchChatRoomListUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -938,6 +958,7 @@
 				8EC135DB2C8E88DA00F9DD3F /* TransactionItemHistoryRepository.swift */,
 				8E64D84E2C912C4D0043F3C6 /* TransactionHistoryRepository.swift */,
 				8E95B76C2CB3ADBB00A5A729 /* LocalFileRepository.swift */,
+				8E57B8642CB760E500385A3E /* ChatRoomRepository.swift */,
 			);
 			path = "Repository Interfaces";
 			sourceTree = "<group>";
@@ -978,6 +999,7 @@
 				8EFC59122C894EF400BE0561 /* UsedItemsResponseDTO.swift */,
 				8E8E16712C88141400921B96 /* UsedItemDetailResponseDTO.swift */,
 				8E8B61CB2C8BE7110024B61C /* PurchaseUsedItemResponseDTO.swift */,
+				8E57B86A2CB7622E00385A3E /* ChatRoomResponseDTO.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -1003,6 +1025,7 @@
 				8EC135DD2C8E893900F9DD3F /* TransactionItemHistoryRepositoryImpl.swift */,
 				8E64D84C2C912C370043F3C6 /* TransactionHistoryRepositoryImpl.swift */,
 				8E95B7662CB3588D00A5A729 /* FileDownloadRepositoryImpl.swift */,
+				8E57B8682CB7617E00385A3E /* ChatRoomRepositoryImpl.swift */,
 			);
 			path = "Repository Implementation";
 			sourceTree = "<group>";
@@ -1014,6 +1037,7 @@
 				8E449F062C4BA24000291277 /* RemoteDataSource.swift */,
 				8E9DFFB42C9824BD00743275 /* FileDataSource.swift */,
 				8E95B76A2CB3A9AE00A5A729 /* LocalDataSource.swift */,
+				8E57B8622CB758F600385A3E /* WebSocketDataSource.swift */,
 			);
 			path = DataSource;
 			sourceTree = "<group>";
@@ -1103,6 +1127,7 @@
 				8E8BED212C9D0ADE00407F07 /* SimpleUsedItem.swift */,
 				8E64D8502C912DE70043F3C6 /* SimpleTransactionHistory.swift */,
 				8E64D8542C914FB70043F3C6 /* TransactionHistory.swift */,
+				8E57B8662CB7611300385A3E /* ChatRoom.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -1705,6 +1730,32 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		8EF49E7D2CB7669900414428 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				8EF49E7F2CB766A100414428 /* ViewModel */,
+				8EF49E7E2CB7669D00414428 /* View */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		8EF49E7E2CB7669D00414428 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8EF49E822CB7690C00414428 /* ChatRoomList.swift */,
+				8EF49E842CB76F8200414428 /* ChatRoomListRow.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8EF49E7F2CB766A100414428 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				8EF49E802CB766B500414428 /* ChatRoomListViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		8EF709082C7472660002E99B /* ci_scripts */ = {
 			isa = PBXGroup;
 			children = (
@@ -1979,12 +2030,15 @@
 				8EE198AE2C7FEB2B0000954C /* FileManager+Directory.swift in Sources */,
 				8E1685CF2C916B0F00284650 /* TransactionHistoryViewModel.swift in Sources */,
 				8EC7EFD22C50858400801A6D /* View+Fork.swift in Sources */,
+				8E57B8652CB760E500385A3E /* ChatRoomRepository.swift in Sources */,
 				8EBFCE572C539BC900A2AB4F /* ReceivingFormsResponseDTO.swift in Sources */,
 				5C90636F2C04B34F004A0EC5 /* AddressListRow.swift in Sources */,
 				8EAA87FC2C44A815000386AD /* ReceivingResponseDTO.swift in Sources */,
 				8EAB81732C4108380052AD48 /* AccessTokenRefreshData.swift in Sources */,
 				8E49F7222C784126006EC259 /* ItemStatusConversionViewModel.swift in Sources */,
 				8EBF63342C79EA24003D36D7 /* ConfirmationButtonLabel.swift in Sources */,
+				8EF49E812CB766B500414428 /* ChatRoomListViewModel.swift in Sources */,
+				8E57B8632CB758F600385A3E /* WebSocketDataSource.swift in Sources */,
 				8EB878EC2C8AE4F100C9A334 /* SearchField.swift in Sources */,
 				5CD8A2072C0341B900EE5C09 /* ItemInput.swift in Sources */,
 				8ECCBB112C2E4D5700DD0A1B /* SignUpViewModel+InputState.swift in Sources */,
@@ -2003,6 +2057,7 @@
 				8EB878EA2C8AE49B00C9A334 /* UsedItemSearchView.swift in Sources */,
 				8EB878EE2C8AE52B00C9A334 /* UsedItemSearchViewModel.swift in Sources */,
 				8E569F502C75C782005B9BCB /* UsedItemRegistrationViewModel.swift in Sources */,
+				8E57B8672CB7611300385A3E /* ChatRoom.swift in Sources */,
 				5C735F4C2BF1BAB200A36EC8 /* EstimatedPrice.swift in Sources */,
 				8E7BC8D62C3E6EEB00CB708F /* FetchTokenUseCase.swift in Sources */,
 				8EB0C2642C32457200FEE8D0 /* LoginViewModel.swift in Sources */,
@@ -2077,6 +2132,7 @@
 				8EF66E7A2C72D14900E6CEA2 /* ShippingApplicationRepository.swift in Sources */,
 				8E97720B2C3CBFC40082DCAF /* Bundle+Properties.swift in Sources */,
 				8E7B6C362C51EECD00222721 /* ReceivingItemsViewModel.swift in Sources */,
+				8E57B86D2CB762C800385A3E /* FetchChatRoomListUseCase.swift in Sources */,
 				8E49F72A2C78438B006EC259 /* ConvertItemStatusUseCase.swift in Sources */,
 				8E8B61CE2C8BF35B0024B61C /* UsedItemViewModel.swift in Sources */,
 				8E83F7632C762E7E00AD5F01 /* UsedItemRepository.swift in Sources */,
@@ -2107,6 +2163,7 @@
 				8E1B28D12C87EB2D002923E3 /* UsedItemListViewModel.swift in Sources */,
 				8E449F092C4BA87A00291277 /* CheckEmailDuplicationUseCase.swift in Sources */,
 				8EC7EFD62C50A33A00801A6D /* TopTabView.swift in Sources */,
+				8EF49E852CB76F8200414428 /* ChatRoomListRow.swift in Sources */,
 				8EA438122C60903B00DFD934 /* MainNavigationBlock.swift in Sources */,
 				8E8B61D22C8C1D900024B61C /* FetchSearchedUsedItemsUseCase.swift in Sources */,
 				5CADA5D92C004E8000FFCC64 /* PostSearchWebView.swift in Sources */,
@@ -2126,7 +2183,9 @@
 				5CA04A352BFB01AC00A28FCA /* Date+Tomorrow.swift in Sources */,
 				8E78D2FC2C7C4B340092680C /* LazyItemList.swift in Sources */,
 				5C8923442BFADF0900AE9049 /* Date+String.swift in Sources */,
+				8EF49E832CB7690C00414428 /* ChatRoomList.swift in Sources */,
 				8E7BC8F22C3EC78600CB708F /* LoginUseCase.swift in Sources */,
+				8E57B86B2CB7622E00385A3E /* ChatRoomResponseDTO.swift in Sources */,
 				8EBFCE4A2C537F5300A2AB4F /* DefectRow.swift in Sources */,
 				8E604DB52C6DD72100D45CB1 /* ShippingApplicationViewModel.swift in Sources */,
 				8E78D2F62C7C1B0F0092680C /* UserInfoView.swift in Sources */,
@@ -2249,6 +2308,7 @@
 				8EBE5DE62C930C7A008EF291 /* FetchSaleItemsUseCase.swift in Sources */,
 				5C9679BE2BFEC59F007C8D5A /* PostCodeSearchView.swift in Sources */,
 				8E95B7692CB3743100A5A729 /* FetchItemFilesUseCase.swift in Sources */,
+				8E57B8692CB7617E00385A3E /* ChatRoomRepositoryImpl.swift in Sources */,
 				8EB0C2662C3248E300FEE8D0 /* LoginInputBox.swift in Sources */,
 				8E7B6C422C521FB800222721 /* ItemList.swift in Sources */,
 				8E8D134C2C4E439B0032FC96 /* SimpleUserInfoView.swift in Sources */,
