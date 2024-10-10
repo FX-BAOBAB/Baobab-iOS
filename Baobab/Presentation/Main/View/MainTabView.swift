@@ -19,6 +19,7 @@ struct MainTabView: View {
     @State private var selectedTab: Tab = .home
     @State private var isShowingUserInfoView: Bool = false
     @State private var isShowingUsedItemSearch: Bool = false
+    @State private var isShowingTokenExpiredAlert: Bool = false
     @Binding var isLoggedIn: Bool
     
     init(viewModel: MainViewModel, isLoggedIn: Binding<Bool>) {
@@ -99,8 +100,15 @@ struct MainTabView: View {
         }
         .onReceive(viewModel.$isTokenDeleted) {
             if $0 {
+                self.isShowingTokenExpiredAlert.toggle()
+            }
+        }
+        .alert("알림", isPresented: $isShowingTokenExpiredAlert) {
+            Button("확인") {
                 self.isLoggedIn = false
             }
+        } message: {
+            Text("리프레시 토큰이 만료되어 로그인 화면으로 이동합니다.")
         }
         .fullScreenCover(isPresented: $isShowingUserInfoView) {
             NavigationStack {
