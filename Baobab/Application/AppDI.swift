@@ -459,4 +459,11 @@ struct AppDI {
         
         return viewModel
     }
+    
+    func makeChatRoomViewModel() -> ChatRoomViewModel {
+        //Presentation Layer
+        let viewModel = ChatRoomViewModel()
+        
+        return viewModel
+    }
 }

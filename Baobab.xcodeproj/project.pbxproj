@@ -337,6 +337,8 @@
 		8EF49E812CB766B500414428 /* ChatRoomListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF49E802CB766B500414428 /* ChatRoomListViewModel.swift */; };
 		8EF49E832CB7690C00414428 /* ChatRoomList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF49E822CB7690C00414428 /* ChatRoomList.swift */; };
 		8EF49E852CB76F8200414428 /* ChatRoomListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF49E842CB76F8200414428 /* ChatRoomListRow.swift */; };
+		8EF49E892CB7C91000414428 /* ChatRoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF49E882CB7C91000414428 /* ChatRoomView.swift */; };
+		8EF49E8B2CB7C9BB00414428 /* ChatRoomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF49E8A2CB7C9BB00414428 /* ChatRoomViewModel.swift */; };
 		8EF66E782C72D08B00E6CEA2 /* ShippingApplicationResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF66E772C72D08B00E6CEA2 /* ShippingApplicationResponseDTO.swift */; };
 		8EF66E7A2C72D14900E6CEA2 /* ShippingApplicationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF66E792C72D14900E6CEA2 /* ShippingApplicationRepository.swift */; };
 		8EF66E7C2C72D25300E6CEA2 /* ShippingApplicationRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF66E7B2C72D25300E6CEA2 /* ShippingApplicationRepositoryImpl.swift */; };
@@ -705,6 +707,8 @@
 		8EF49E802CB766B500414428 /* ChatRoomListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomListViewModel.swift; sourceTree = "<group>"; };
 		8EF49E822CB7690C00414428 /* ChatRoomList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomList.swift; sourceTree = "<group>"; };
 		8EF49E842CB76F8200414428 /* ChatRoomListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomListRow.swift; sourceTree = "<group>"; };
+		8EF49E882CB7C91000414428 /* ChatRoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomView.swift; sourceTree = "<group>"; };
+		8EF49E8A2CB7C9BB00414428 /* ChatRoomViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomViewModel.swift; sourceTree = "<group>"; };
 		8EF66E772C72D08B00E6CEA2 /* ShippingApplicationResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingApplicationResponseDTO.swift; sourceTree = "<group>"; };
 		8EF66E792C72D14900E6CEA2 /* ShippingApplicationRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingApplicationRepository.swift; sourceTree = "<group>"; };
 		8EF66E7B2C72D25300E6CEA2 /* ShippingApplicationRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingApplicationRepositoryImpl.swift; sourceTree = "<group>"; };
@@ -1744,6 +1748,7 @@
 			children = (
 				8EF49E822CB7690C00414428 /* ChatRoomList.swift */,
 				8EF49E842CB76F8200414428 /* ChatRoomListRow.swift */,
+				8EF49E882CB7C91000414428 /* ChatRoomView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1752,6 +1757,7 @@
 			isa = PBXGroup;
 			children = (
 				8EF49E802CB766B500414428 /* ChatRoomListViewModel.swift */,
+				8EF49E8A2CB7C9BB00414428 /* ChatRoomViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -2246,10 +2252,12 @@
 				8EF66E782C72D08B00E6CEA2 /* ShippingApplicationResponseDTO.swift in Sources */,
 				8E1B28D32C880E4A002923E3 /* UsedItemListRow.swift in Sources */,
 				8E7A9F1D2C5B40E400969F1A /* ShippingFormsResponseDTO.swift in Sources */,
+				8EF49E892CB7C91000414428 /* ChatRoomView.swift in Sources */,
 				5C9679C22BFF25E7007C8D5A /* SectionFooter.swift in Sources */,
 				8EB0C2682C324DA300FEE8D0 /* AutoLogInButton.swift in Sources */,
 				5C80F0EE2C06BF4500A94C22 /* FetchGeoCodeUseCase.swift in Sources */,
 				8E37D4672C570D8200F8048A /* FormRepository.swift in Sources */,
+				8EF49E8B2CB7C9BB00414428 /* ChatRoomViewModel.swift in Sources */,
 				8EAB81712C4107B50052AD48 /* AccessTokenRefreshResponseDTO.swift in Sources */,
 				8E8CD9F42C6F1CF60077D024 /* Reservable.swift in Sources */,
 				8EA152872C69E86B0011FDB3 /* RemoteTokenRepository.swift in Sources */,

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct UsedItemDetail: View {
     @StateObject private var viewModel: UsedItemViewModel
+    @State private var isShowingChatRoom: Bool = false
     @Environment(\.dismiss) private var dismiss
     
     let usedItem: UsedItem
@@ -23,7 +24,7 @@ struct UsedItemDetail: View {
             VStack(spacing: 0) {
                 ZStack {
                     ScrollView {
-                        PageTabView(usedItem: usedItem)
+                        ImageTabView(usedItem: usedItem)
                             .environmentObject(viewModel)
                         
                         MainText(usedItem: usedItem)
@@ -35,7 +36,7 @@ struct UsedItemDetail: View {
                     
                     if UserDefaults.standard.bool(forKey: "chat") {
                         Button {
-                            
+                            isShowingChatRoom.toggle()
                         } label: {
                             Circle()
                                 .frame(width: 60)
@@ -53,32 +54,8 @@ struct UsedItemDetail: View {
                     }
                 }
                 
-                VStack {
-                    Divider()
-                    
-                    HStack {
-                        HStack(spacing: 0) {
-                            Text("가격: ")
-                            
-                            Text("\(usedItem.price)")
-                                .foregroundStyle(.accent)
-                            
-                            Text("원")
-                        }
-                        .bold()
-                        
-                        Spacer()
-                        
-                        Button {
-                            viewModel.buy(itemId: usedItem.id)
-                        } label: {
-                            Text("구매하기")
-                                .bold()
-                        }
-                        .buttonStyle(.borderedProminent)
-                    }
-                    .padding()
-                }
+                BottomInfoView(usedItem: usedItem)
+                    .environmentObject(viewModel)
             }
             .edgesIgnoringSafeArea(.top)
             .navigationBarBackButtonHidden()
@@ -96,6 +73,9 @@ struct UsedItemDetail: View {
                             }
                     }
                 }
+            }
+            .navigationDestination(isPresented: $isShowingChatRoom) {
+                ChatRoomView(viewModel: AppDI.shared.makeChatRoomViewModel())
             }
             
             if viewModel.isLoading {
@@ -125,7 +105,7 @@ struct UsedItemDetail: View {
     }
 }
 
-fileprivate struct PageTabView: View {
+fileprivate struct ImageTabView: View {
     @EnvironmentObject private var viewModel: UsedItemViewModel
     let usedItem: UsedItem
     
@@ -237,6 +217,41 @@ fileprivate struct ItemInfoView: View {
                 Text("\(item.quantity)개")
             }
             .font(.subheadline)
+        }
+    }
+}
+
+fileprivate struct BottomInfoView: View {
+    @EnvironmentObject var viewModel: UsedItemViewModel
+    
+    let usedItem: UsedItem
+    
+    var body: some View {
+        VStack {
+            Divider()
+            
+            HStack {
+                HStack(spacing: 0) {
+                    Text("가격: ")
+                    
+                    Text("\(usedItem.price)")
+                        .foregroundStyle(.accent)
+                    
+                    Text("원")
+                }
+                .bold()
+                
+                Spacer()
+                
+                Button {
+                    viewModel.buy(itemId: usedItem.id)
+                } label: {
+                    Text("구매하기")
+                        .bold()
+                }
+                .buttonStyle(.borderedProminent)
+            }
+            .padding()
         }
     }
 }
