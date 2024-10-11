@@ -24,7 +24,8 @@ protocol RemoteDataSource {
                               resultType: DTO.Type) -> AnyPublisher<DTO, any Error> where DTO: Decodable
     func sendUploadRequest<DTO>(to url: String,
                                 with parameters: Parameters,
-                                resultType: DTO.Type) -> AnyPublisher<DTO, any Error> where DTO: Decodable
+                                resultType: DTO.Type,
+                                fileExtension: String, mimeType: String) -> AnyPublisher<DTO, any Error> where DTO: Decodable
 }
 
 extension RemoteDataSource {
@@ -117,7 +118,8 @@ final class RemoteDataSourceImpl: Sendable, RemoteDataSource, RequestInterceptor
     //MARK: - multipart/form-data
     func sendUploadRequest<DTO>(to url: String,
                                 with parameters: Parameters,
-                                resultType: DTO.Type) -> AnyPublisher<DTO, any Error> where DTO: Decodable {
+                                resultType: DTO.Type,
+                                fileExtension: String, mimeType: String) -> AnyPublisher<DTO, any Error> where DTO: Decodable {
         let header: HTTPHeaders = [
             "Content-Type" : "multipart/form-data",
         ]
@@ -125,10 +127,10 @@ final class RemoteDataSourceImpl: Sendable, RemoteDataSource, RequestInterceptor
         return session.upload(multipartFormData: { multipartFormData in
             for (key, value) in parameters {
                 if let data = value as? Data {
-                    multipartFormData.append(data, withName: key, fileName: "\(Date().timeIntervalSince1970).jpeg", mimeType: "image/jpeg")
+                    multipartFormData.append(data, withName: key, fileName: "\(Date().timeIntervalSince1970).\(fileExtension)", mimeType: mimeType)
                 } else if let data = value as? [Data] {
                     data.forEach {
-                        multipartFormData.append($0, withName: "\(key)[]", fileName: "\(Date().timeIntervalSince1970).jpeg", mimeType: "image/jpeg")
+                        multipartFormData.append($0, withName: "\(key)[]", fileName: "\(Date().timeIntervalSince1970).\(fileExtension)", mimeType: mimeType)
                     }
                 } else if let data = value as? [String] {
                     data.forEach {
@@ -136,8 +138,7 @@ final class RemoteDataSourceImpl: Sendable, RemoteDataSource, RequestInterceptor
                             multipartFormData.append(data, withName: "\(key)[]")
                         }
                     }
-                } else if let data = value as? String,
-                          let data = "\(data)".data(using: .utf8) {
+                } else if let data = value as? String, let data = "\(data)".data(using: .utf8) {
                     multipartFormData.append(data, withName: key)
                 }
             }

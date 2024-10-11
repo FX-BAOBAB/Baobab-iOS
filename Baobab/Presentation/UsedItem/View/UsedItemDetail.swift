@@ -9,6 +9,7 @@ import SwiftUI
 
 struct UsedItemDetail: View {
     @StateObject private var viewModel: UsedItemViewModel
+    @State private var isShowingChatRoom: Bool = false
     @Environment(\.dismiss) private var dismiss
     
     let usedItem: UsedItem
@@ -23,26 +24,8 @@ struct UsedItemDetail: View {
             VStack(spacing: 0) {
                 ZStack {
                     ScrollView {
-                        TabView {
-                            if let data = viewModel.basicImageData {
-                                ForEach(0..<6, id: \.self) { i in
-                                    Image(uiImage: UIImage(data: data[i]))
-                                        .resizable()
-                                        .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width)
-                                }
-                            } else {
-                                ForEach(0..<6, id: \.self) { _ in
-                                    Color.clear
-                                        .skeleton(with: true,
-                                                  size: CGSize(width: UIScreen.main.bounds.width,
-                                                               height: UIScreen.main.bounds.width),
-                                                  shape: .rectangle)
-                                }
-                            }
-                        }
-                        .tabViewStyle(.page)
-                        .frame(width: UIScreen.main.bounds.width,
-                               height: UIScreen.main.bounds.width)
+                        ImageTabView(usedItem: usedItem)
+                            .environmentObject(viewModel)
                         
                         MainText(usedItem: usedItem)
                             .environmentObject(viewModel)
@@ -51,15 +34,13 @@ struct UsedItemDetail: View {
                             .frame(height: 80)
                     }
                     
-                    HStack {
-                        Spacer()
-                        
+                    if UserDefaults.standard.bool(forKey: "chat") {
                         Button {
-                            
+                            isShowingChatRoom.toggle()
                         } label: {
                             Circle()
                                 .frame(width: 60)
-                                .foregroundColor(Color(red: 242 / 255, green: 244 / 255, blue: 245 / 255))
+                                .foregroundColor(Color(.baobabGray))
                                 .overlay {
                                     Image(systemName: "message.fill")
                                         .resizable()
@@ -67,37 +48,14 @@ struct UsedItemDetail: View {
                                         .frame(width: 30)
                                 }
                         }
+                        .frame(maxHeight: .infinity, alignment: .bottom)
+                        .frame(maxWidth: .infinity, alignment: .trailing)
+                        .padding()
                     }
-                    .frame(maxHeight: .infinity, alignment: .bottom)
-                    .padding()
                 }
                 
-                VStack {
-                    Divider()
-                    
-                    HStack {
-                        HStack(spacing: 0) {
-                            Text("가격: ")
-                            
-                            Text("\(usedItem.price)")
-                                .foregroundStyle(.accent)
-                            
-                            Text("원")
-                        }
-                        .bold()
-                        
-                        Spacer()
-                        
-                        Button {
-                            viewModel.buy(itemId: usedItem.id)
-                        } label: {
-                            Text("구매하기")
-                                .bold()
-                        }
-                        .buttonStyle(.borderedProminent)
-                    }
-                    .padding()
-                }
+                BottomInfoView(usedItem: usedItem)
+                    .environmentObject(viewModel)
             }
             .edgesIgnoringSafeArea(.top)
             .navigationBarBackButtonHidden()
@@ -107,20 +65,32 @@ struct UsedItemDetail: View {
                     Button {
                         dismiss()
                     } label: {
-                        Image(systemName: "chevron.backward")
+                        Circle()
+                            .frame(width: 35, height: 35)
+                            .foregroundStyle(.listFooterGray)
+                            .overlay {
+                                Image(systemName: "chevron.backward")
+                            }
                     }
                 }
+            }
+            .navigationDestination(isPresented: $isShowingChatRoom) {
+                ChatRoomView(viewModel: AppDI.shared.makeChatRoomViewModel())
             }
             
             if viewModel.isLoading {
                 CustomProgressView()
             }
         }
+        .quickLookPreview($viewModel.previewModelFile)
         .onAppear {
             if viewModel.basicImageData == nil && viewModel.defectData == nil {
                 viewModel.fetchBasicImages(basicIamges: usedItem.item.basicImages.map { $0.imageURL })
                 viewModel.fetchDefectImages(defects: usedItem.item.defectImages)
             }
+        }
+        .onDisappear {
+            viewModel.deleteModelFile()
         }
         .alert(isPresented: $viewModel.isShowingAlert) {
             switch viewModel.alertType {
@@ -135,7 +105,51 @@ struct UsedItemDetail: View {
     }
 }
 
-struct MainText: View {
+fileprivate struct ImageTabView: View {
+    @EnvironmentObject private var viewModel: UsedItemViewModel
+    let usedItem: UsedItem
+    
+    var body: some View {
+        VStack(spacing: 0) {
+            TabView {
+                if let data = viewModel.basicImageData {
+                    ForEach(0..<data.count, id: \.self) { i in
+                        Image(uiImage: UIImage(data: data[i]))
+                            .resizable()
+                            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width)
+                    }
+                } else {
+                    ForEach(0..<6, id: \.self) { _ in
+                        Color.clear
+                            .skeleton(with: true,
+                                      size: CGSize(width: UIScreen.main.bounds.width,
+                                                   height: UIScreen.main.bounds.width),
+                                      shape: .rectangle)
+                    }
+                }
+            }
+            .tabViewStyle(.page)
+            .frame(width: UIScreen.main.bounds.width,
+                   height: UIScreen.main.bounds.width)
+            
+            if !usedItem.item.arImages.isEmpty {
+                Button {
+                    if let arImage = usedItem.item.arImages.first {
+                        viewModel.fetchModelFile(urlString: arImage.imageURL)
+                    }
+                } label: {
+                    Color(red: 245 / 255, green: 245 / 255, blue: 245 / 255)
+                        .frame(height: 50)
+                        .overlay {
+                            Text("AR 보기")
+                        }
+                }
+            }
+        }
+    }
+}
+
+fileprivate struct MainText: View {
     @EnvironmentObject private var viewModel: UsedItemViewModel
     let usedItem: UsedItem
     
@@ -180,7 +194,7 @@ struct MainText: View {
     }
 }
 
-struct ItemInfoView: View {
+fileprivate struct ItemInfoView: View {
     let item: Item
     
     var body: some View {
@@ -207,11 +221,46 @@ struct ItemInfoView: View {
     }
 }
 
+fileprivate struct BottomInfoView: View {
+    @EnvironmentObject var viewModel: UsedItemViewModel
+    
+    let usedItem: UsedItem
+    
+    var body: some View {
+        VStack {
+            Divider()
+            
+            HStack {
+                HStack(spacing: 0) {
+                    Text("가격: ")
+                    
+                    Text("\(usedItem.price)")
+                        .foregroundStyle(.accent)
+                    
+                    Text("원")
+                }
+                .bold()
+                
+                Spacer()
+                
+                Button {
+                    viewModel.buy(itemId: usedItem.id)
+                } label: {
+                    Text("구매하기")
+                        .bold()
+                }
+                .buttonStyle(.borderedProminent)
+            }
+            .padding()
+        }
+    }
+}
+
 #if DEBUG
 #Preview {
     NavigationStack {
         UsedItemDetail(viewModel: AppDI.shared.makeUsedItemViewModel(),
-                        usedItem: UsedItem.sampleData[0])
+                       usedItem: UsedItem.sampleData[0])
     }
 }
 #endif

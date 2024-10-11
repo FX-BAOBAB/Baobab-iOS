@@ -54,7 +54,7 @@ struct TransactionList<T: TransactionViewModel>: View {
             .navigationDestination(isPresented: $isShowingItemDetail) {
                 if let usedItem = selectedItem {
                     ItemDetailView(viewModel: AppDI.shared.makeItemStatusConversionViewModel(),
-                                   itemImageViewModel: AppDI.shared.makeItemImageViewModel(),
+                                   itemViewModel: AppDI.shared.makeItemImageViewModel(),
                                    item: usedItem.item)
                 }
             }

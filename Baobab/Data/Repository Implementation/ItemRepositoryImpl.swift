@@ -20,16 +20,17 @@ final class ItemRepositoryImpl: RemoteRepository, ItemRepository {
                          category: $0.category, 
                          status: ItemStatus(rawValue: $0.status),
                          quantity: $0.quantity,
-                         basicImages: self.toImageData($0.basicImages),
-                         defectImages: self.toImageData($0.faultImages))
+                         basicImages: self.toFileData($0.basicImages),
+                         defectImages: self.toFileData($0.faultImages),
+                         arImages: self.toFileData($0.arImages))
                 }
             }
             .eraseToAnyPublisher()
     }
     
-    private func toImageData(_ image: [ImageMetaData]) -> [ImageData] {
-        return image.map {
-            ImageData(imageURL: $0.imageURL, caption: $0.caption)
+    private func toFileData(_ files: [FileMetaData]) -> [FileData] {
+        return files.map {
+            FileData(imageURL: $0.imageURL, caption: $0.caption)
         }
     }
 }

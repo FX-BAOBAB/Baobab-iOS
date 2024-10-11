@@ -10,28 +10,29 @@ import Foundation
 @MainActor
 struct AppDI {
     static let shared: AppDI = AppDI()
-    let dataSource = RemoteDataSourceImpl()
-    let imageDataSource = ImageDataSourceImpl()
+    let remoteDataSource = RemoteDataSourceImpl()
+    let fileDataSource = FileDataSourceImpl()
+    let localDataSource = LocalDataSourceImpl()
     
     private init() {}
     
     func makeReceivingViewModel() -> ReceivingViewModel {
         //Data Layer
-        let imageRepository = ImageRepositoryImpl(remoteDataSource: dataSource, imageDataSource: imageDataSource)
-        let receivingRepository = ReceivingRepositoryImpl(dataSource: dataSource)
-        let userRepository = UserRepositoryImpl(dataSource: dataSource)
+        let imageRepository = FileUploadRepositoryImpl(dataSource: remoteDataSource)
+        let receivingRepository = ReceivingRepositoryImpl(dataSource: remoteDataSource)
+        let userRepository = UserRepositoryImpl(dataSource: remoteDataSource)
         
         //Domain Layer
-        let uploadImageUseCase = UploadImageUseCaseImpl(repository: imageRepository)
+        let uploadImageUseCase = UploadFileUseCaseImpl(repository: imageRepository)
         let fetchGeoCodeUseCase = FetchGeoCodeUseCaseImpl()
         let fetchAddressUseCase = FetchAddressUseCaseImpl(repository: userRepository)
         let receivingUseCase = ReceivingUseCaseImpl(fetchGeoCodeUseCase: fetchGeoCodeUseCase,
                                                     fetchDefaultAddressUseCase: fetchAddressUseCase,
-                                                    uploadImageUseCase: uploadImageUseCase,
+                                                    uploadFileUseCase: uploadImageUseCase,
                                                     repository: receivingRepository)
         
         //Presentation Layer
-        let viewModel = ReceivingViewModel(itemIdx: 0, usecase: receivingUseCase)
+        let viewModel = ReceivingViewModel(usecase: receivingUseCase)
         
         return viewModel
     }
@@ -60,7 +61,7 @@ struct AppDI {
     
     func makeSignUpViewModel() -> SignUpViewModel {
         //Data Layer
-        let repository = SignUpRepositoryImpl(dataSource: dataSource)
+        let repository = SignUpRepositoryImpl(dataSource: remoteDataSource)
         
         //Domain Layer
         let checkEmailDuplicationUseCase = CheckEmailDuplicationUseCaseImpl(repository: repository)
@@ -79,8 +80,8 @@ struct AppDI {
     
     func makeLoginViewModel() -> LoginViewModel {
         //Data Layer
-        let loginRepository = LoginRepositoryImpl(dataSource: dataSource)
-        let remoteTokenRepository = RemoteTokenRepositoryImpl(dataSource: dataSource)
+        let loginRepository = LoginRepositoryImpl(dataSource: remoteDataSource)
+        let remoteTokenRepository = RemoteTokenRepositoryImpl(dataSource: remoteDataSource)
         let localTokenRepository = TokenRepositoryImpl()
         
         //Domain Layer
@@ -100,8 +101,8 @@ struct AppDI {
     func makeMainViewModel() -> MainViewModel {
         //Data Layer
         let localTokenRepository = TokenRepositoryImpl()
-        let userRepository = UserRepositoryImpl(dataSource: dataSource)
-        let usedItemRepository = UsedItemRepositoryImpl(dataSource: dataSource)
+        let userRepository = UserRepositoryImpl(dataSource: remoteDataSource)
+        let usedItemRepository = UsedItemRepositoryImpl(dataSource: remoteDataSource)
         
         //Domain Layer
         let fetchTokenUseCase = FetchTokenUseCaseImpl(repository: localTokenRepository)
@@ -132,7 +133,7 @@ struct AppDI {
     
     func makeUserInfoViewModel() -> UserInfoViewModel {
         //Data Layer
-        let repository = UserRepositoryImpl(dataSource: dataSource)
+        let repository = UserRepositoryImpl(dataSource: remoteDataSource)
 
         //Domain Layer
         let fetchAddressUseCase = FetchAddressUseCaseImpl(repository: repository)
@@ -149,7 +150,7 @@ struct AppDI {
     
     func makeReceivingItemsViewModel() -> ReceivingItemsViewModel {
         //Data Layer
-        let repository = ItemRepositoryImpl(dataSource: dataSource)
+        let repository = ItemRepositoryImpl(dataSource: remoteDataSource)
         
         //Domain Layer
         let fetchItemUseCase = FetchItemUseCaseImpl(repository: repository)
@@ -162,7 +163,7 @@ struct AppDI {
     
     func makeStoredItemsViewModel() -> StoredItemsViewModel {
         //Data Layer
-        let repository = ItemRepositoryImpl(dataSource: dataSource)
+        let repository = ItemRepositoryImpl(dataSource: remoteDataSource)
         
         //Domain Layer
         let fetchItemUseCase = FetchItemUseCaseImpl(repository: repository)
@@ -175,7 +176,7 @@ struct AppDI {
     
     func makeShippingItemsViewModel() -> ShippingItemsViewModel {
         //Data Layer
-        let repository = ItemRepositoryImpl(dataSource: dataSource)
+        let repository = ItemRepositoryImpl(dataSource: remoteDataSource)
         
         //Domain Layer
         let fetchItemUseCase = FetchItemUseCaseImpl(repository: repository)
@@ -188,7 +189,7 @@ struct AppDI {
     
     func makeShippedItemsViewModel() -> ShippedItemsViewModel {
         //Data Layer
-        let repository = ItemRepositoryImpl(dataSource: dataSource)
+        let repository = ItemRepositoryImpl(dataSource: remoteDataSource)
         
         //Domain Layer
         let fetchItemUseCase = FetchItemUseCaseImpl(repository: repository)
@@ -201,7 +202,7 @@ struct AppDI {
     
     func makeReturnningItemsViewModel() -> ReturningItemsViewModel {
         //Data Layer
-        let repository = ItemRepositoryImpl(dataSource: dataSource)
+        let repository = ItemRepositoryImpl(dataSource: remoteDataSource)
         
         //Domain Layer
         let fetchItemUseCase = FetchItemUseCaseImpl(repository: repository)
@@ -214,7 +215,7 @@ struct AppDI {
     
     func makeReturnedItemsViewModel() -> ReturnedItemsViewModel {
         //Data Layer
-        let repository = ItemRepositoryImpl(dataSource: dataSource)
+        let repository = ItemRepositoryImpl(dataSource: remoteDataSource)
         
         //Domain Layer
         let fetchItemUseCase = FetchItemUseCaseImpl(repository: repository)
@@ -227,7 +228,7 @@ struct AppDI {
     
     func makeUsedItemsViewModel() -> UsedItemsViewModel {
         //Data Layer
-        let repository = ItemRepositoryImpl(dataSource: dataSource)
+        let repository = ItemRepositoryImpl(dataSource: remoteDataSource)
         
         //Domain Layer
         let fetchItemUseCase = FetchItemUseCaseImpl(repository: repository)
@@ -240,8 +241,8 @@ struct AppDI {
     
     func makeReceivingFormsViewModel() -> ReceivingFormsViewModel {
         //Data Layer
-        let formRepository = FormRepositoryImpl(dataSource: dataSource)
-        let processStatusRepository = ProcessStatusRepositoryImpl(dataSource: dataSource)
+        let formRepository = FormRepositoryImpl(dataSource: remoteDataSource)
+        let processStatusRepository = ProcessStatusRepositoryImpl(dataSource: remoteDataSource)
         
         //Domain Layer
         let fetchProcessStatusUseCase = FetchProcessStatusUseCaseImpl(repository: processStatusRepository)
@@ -255,8 +256,8 @@ struct AppDI {
     
     func makeShippingFormsViewModel() -> ShippingFormsViewModel {
         //Data Layer
-        let formRepository = FormRepositoryImpl(dataSource: dataSource)
-        let processStatusRepository = ProcessStatusRepositoryImpl(dataSource: dataSource)
+        let formRepository = FormRepositoryImpl(dataSource: remoteDataSource)
+        let processStatusRepository = ProcessStatusRepositoryImpl(dataSource: remoteDataSource)
         
         //Domain Layer
         let fetchProcessStatusUseCase = FetchProcessStatusUseCaseImpl(repository: processStatusRepository)
@@ -270,8 +271,8 @@ struct AppDI {
     
     func makeReturnFormsViewModel() -> ReturnFormsViewModel {
         //Data Layer
-        let formRepository = FormRepositoryImpl(dataSource: dataSource)
-        let processStatusRepository = ProcessStatusRepositoryImpl(dataSource: dataSource)
+        let formRepository = FormRepositoryImpl(dataSource: remoteDataSource)
+        let processStatusRepository = ProcessStatusRepositoryImpl(dataSource: remoteDataSource)
         
         //Domain Layer
         let fetchProcessStatusUseCase = FetchProcessStatusUseCaseImpl(repository: processStatusRepository)
@@ -285,7 +286,7 @@ struct AppDI {
     
     func makeUsedConversionViewModel() -> UsedItemRegistrationViewModel {
         //Data Layer
-        let repository = UsedItemRepositoryImpl(dataSource: dataSource)
+        let repository = UsedItemRepositoryImpl(dataSource: remoteDataSource)
         
         //Domain Layer
         let usecase = RegisterAsUsedItemUseCaseImpl(repository: repository)
@@ -298,7 +299,7 @@ struct AppDI {
     
     func makeItemStatusConversionViewModel() -> ItemStatusConversionViewModel {
         //Data Layer
-        let repository = ItemStatusRepositoryImpl(dataSource: dataSource)
+        let repository = ItemStatusRepositoryImpl(dataSource: remoteDataSource)
         
         //Domain Layer
         let usecase = ConvertItemStatusUseCaseImpl(repository: repository)
@@ -309,7 +310,6 @@ struct AppDI {
         return viewModel
     }
     
-    @MainActor
     @available(iOS 17, *)
     func makeObjectCaptureViewModel() -> ObjectCaptureViewModel {
         //Presentation Layer
@@ -320,7 +320,7 @@ struct AppDI {
     
     func makeUsedTradeViewModel() -> UsedItemListViewModel {
         //Data Layer
-        let repository = UsedItemRepositoryImpl(dataSource: dataSource)
+        let repository = UsedItemRepositoryImpl(dataSource: remoteDataSource)
         
         //Domain Layer
         let usecase = FetchUsedItemUseCaseImpl(usedItemRepository: repository)
@@ -333,7 +333,7 @@ struct AppDI {
     
     func makeUsedTradeSearchViewModel() -> UsedItemSearchViewModel {
         //Data Layer
-        let repository = UsedItemRepositoryImpl(dataSource: dataSource)
+        let repository = UsedItemRepositoryImpl(dataSource: remoteDataSource)
         
         //Domain Layer
         let usecase = FetchSearchedUsedItemsUseCaseImpl(usedItemRepository: repository)
@@ -346,12 +346,19 @@ struct AppDI {
     
     func makeUsedItemViewModel() -> UsedItemViewModel {
         //Data Layer
-        let imageRepository = ImageRepositoryImpl(remoteDataSource: dataSource, imageDataSource: imageDataSource)
-        let repository = UsedItemRepositoryImpl(dataSource: dataSource)
+        let downloadRepository = FileDownloadRepositoryImpl(fileDataSource: fileDataSource)
+        let repository = UsedItemRepositoryImpl(dataSource: remoteDataSource)
+        let localFileRepository = LocalFileRepositoryImpl(localDataSource: localDataSource)
         
         //Domain Layer
-        let downloadImageUseCase = DownloadImageUseCaseImpl(repository: imageRepository)
-        let usecase = BuyUsedItemUseCaseImpl(downloadImageUseCase: downloadImageUseCase, repository: repository)
+        let downloadImageUseCase = DownloadImageUseCaseImpl(downloadRepository: downloadRepository)
+        let downloadFileUseCase = DownloadFileUseCaseImpl(fileDownloadRepository: downloadRepository,
+                                                          localFileRepository: localFileRepository)
+        let deleteFileUseCase = DeleteFileUseCaseImpl(localFileRepository: localFileRepository)
+        let usecase = BuyUsedItemUseCaseImpl(downloadImageUseCase: downloadImageUseCase,
+                                             downloadFileUseCase: downloadFileUseCase,
+                                             deleteFileUseCase: deleteFileUseCase,
+                                             repository: repository)
         
         //Presentation Layer
         let viewModel = UsedItemViewModel(usecase: usecase)
@@ -361,8 +368,8 @@ struct AppDI {
     
     func makeUserSoldItemsViewModel() -> UserSoldItemsViewModel {
         //Data Layer
-        let usedItemRepository = UsedItemRepositoryImpl(dataSource: dataSource)
-        let transactionHistoryRepository = TransactionItemHistoryRepositoryImpl(dataSource: dataSource)
+        let usedItemRepository = UsedItemRepositoryImpl(dataSource: remoteDataSource)
+        let transactionHistoryRepository = TransactionItemHistoryRepositoryImpl(dataSource: remoteDataSource)
         
         //Domain Layer
         let usecase = FetchSoldItemsUsedCaseImpl(usedItemRepository: usedItemRepository,
@@ -376,8 +383,8 @@ struct AppDI {
     
     func makeUserSaleItemsViewModel() -> UserSaleItemsViewModel {
         //Data Layer
-        let usedItemRepository = UsedItemRepositoryImpl(dataSource: dataSource)
-        let transactionHistoryRepository = TransactionItemHistoryRepositoryImpl(dataSource: dataSource)
+        let usedItemRepository = UsedItemRepositoryImpl(dataSource: remoteDataSource)
+        let transactionHistoryRepository = TransactionItemHistoryRepositoryImpl(dataSource: remoteDataSource)
         
         //Domain Layer
         let usecase = FetchSaleItemsUseCaseImpl(usedItemRepository: usedItemRepository,
@@ -391,8 +398,8 @@ struct AppDI {
     
     func makeUserPurchasedItemsViewModel() -> UserPurchasedItemsViewModel {
         //Data Layer
-        let usedItemRepository = UsedItemRepositoryImpl(dataSource: dataSource)
-        let transactionHistoryRepository = TransactionItemHistoryRepositoryImpl(dataSource: dataSource)
+        let usedItemRepository = UsedItemRepositoryImpl(dataSource: remoteDataSource)
+        let transactionHistoryRepository = TransactionItemHistoryRepositoryImpl(dataSource: remoteDataSource)
         
         
         //Domain Layer
@@ -407,8 +414,8 @@ struct AppDI {
     
     func makeTransactionHistoryViewModel() -> TransactionHistoryViewModel {
         //Data Layer
-        let transactionHistoryRepository = TransactionHistoryRepositoryImpl(dataSource: dataSource)
-        let userRepository = UserRepositoryImpl(dataSource: dataSource)
+        let transactionHistoryRepository = TransactionHistoryRepositoryImpl(dataSource: remoteDataSource)
+        let userRepository = UserRepositoryImpl(dataSource: remoteDataSource)
         
         //Domain Layer
         let usecase = FetchTransactionHistoryUseCaseImpl(transactionHistoryRepository: transactionHistoryRepository,
@@ -420,15 +427,42 @@ struct AppDI {
         return viewModel
     }
     
-    func makeItemImageViewModel() -> ItemImageViewModel {
+    func makeItemImageViewModel() -> ItemViewModel {
         //Data Layer
-        let imageRepository = ImageRepositoryImpl(remoteDataSource: dataSource, imageDataSource: imageDataSource)
+        let downloadRepository = FileDownloadRepositoryImpl(fileDataSource: fileDataSource)
+        let localFileRepository = LocalFileRepositoryImpl(localDataSource: localDataSource)
         
         //Domain Layer
-        let usecase = DownloadImageUseCaseImpl(repository: imageRepository)
+        let downloadImageUseCase = DownloadImageUseCaseImpl(downloadRepository: downloadRepository)
+        let downloadFileUseCase = DownloadFileUseCaseImpl(fileDownloadRepository: downloadRepository,
+                                                          localFileRepository: localFileRepository)
+        let deleteFileUseCase = DeleteFileUseCaseImpl(localFileRepository: localFileRepository)
+        let usecase = FetchItemFilesUseCaseImpl(downloadImageUsecase: downloadImageUseCase,
+                                                downloadFileUsecase: downloadFileUseCase,
+                                                deleteFileUseCase: deleteFileUseCase)
         
         //Presentation Layer
-        let viewModel = ItemImageViewModel(usecase: usecase)
+        let viewModel = ItemViewModel(usecase: usecase)
+        
+        return viewModel
+    }
+    
+    func makeChatRoomListViewModel() -> ChatRoomListViewModel {
+        //Data Layer
+        let chatRoomRepository = ChatRoomRepositoryImpl(dataSource: remoteDataSource)
+        
+        //Domain Layer
+        let usecase = FetchChatRoomListUseCaseImpl(repository: chatRoomRepository)
+        
+        //Presentation Layer
+        let viewModel = ChatRoomListViewModel(usecase: usecase)
+        
+        return viewModel
+    }
+    
+    func makeChatRoomViewModel() -> ChatRoomViewModel {
+        //Presentation Layer
+        let viewModel = ChatRoomViewModel()
         
         return viewModel
     }

@@ -85,8 +85,8 @@ struct ReceivingPaymentView: View {
             case .paymentAlert:
                 Alert(title: Text("알림"),
                       message: Text("결제를 진행할까요?"),
-                      primaryButton: .default(Text("확인")) { viewModel.applyReceiving() },
-                      secondaryButton: .default(Text("취소")))
+                      primaryButton: .default(Text("취소")),
+                      secondaryButton: .default(Text("확인")) { viewModel.applyReceiving() })
             default:
                 Alert(title: Text(""))
             }
@@ -95,6 +95,7 @@ struct ReceivingPaymentView: View {
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
                 Button {
+                    viewModel.deleteModelFile()
                     isShowingReceivingForm.toggle()
                 } label: {
                     Image(systemName: "xmark")

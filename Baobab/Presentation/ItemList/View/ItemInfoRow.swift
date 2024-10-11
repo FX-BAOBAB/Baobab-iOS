@@ -48,7 +48,8 @@ struct ItemInfoRow: View {
                            category: "SMALL_APPLIANCES", 
                            status: .receiving,
                            quantity: 1,
-                           basicImages: [ImageData(imageURL: "string", caption: "")],
-                           defectImages: [ImageData(imageURL: "string", caption: "")]))
+                           basicImages: [FileData(imageURL: "string", caption: "")],
+                           defectImages: [FileData(imageURL: "string", caption: "")],
+                           arImages: []))
 }
 #endif

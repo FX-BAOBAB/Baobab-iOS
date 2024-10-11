@@ -14,15 +14,13 @@ struct ImageRegistrationForm: View {
     @State private var isShowingDialog: Bool = false
     @State private var isShowingCamera: Bool = false
     @State private var isShowingLibrary: Bool = false
-    @State private var isShowingItemInformationForm: Bool = false
-    @State private var isShowingDefectRegistrationList: Bool = false
     @Binding var isShowingReceivingForm: Bool
     
     var body: some View {
-        ZStack {
+        VStack(spacing: 0) {
             ScrollView(showsIndicators: false) {
-                VStack(spacing: UIScreen.main.bounds.height * 0.04) {
-                    HStack {
+                Grid(verticalSpacing: UIScreen.main.bounds.height * 0.04) {
+                    GridRow {
                         SelectedImage(isShowDialog: $isShowingDialog,
                                       selectedIndex: $selectedIndex,
                                       pos: 0, title: "정면")
@@ -34,7 +32,7 @@ struct ImageRegistrationForm: View {
                                       pos: 1, title: "후면")
                     }
                     
-                    HStack {
+                    GridRow {
                         SelectedImage(isShowDialog: $isShowingDialog,
                                       selectedIndex: $selectedIndex,
                                       pos: 2, title: "배면")
@@ -46,7 +44,7 @@ struct ImageRegistrationForm: View {
                                       pos: 3, title: "밑면")
                     }
                     
-                    HStack {
+                    GridRow {
                         SelectedImage(isShowDialog: $isShowingDialog,
                                       selectedIndex: $selectedIndex,
                                       pos: 4, title: "좌")
@@ -57,34 +55,17 @@ struct ImageRegistrationForm: View {
                                       selectedIndex: $selectedIndex,
                                       pos: 5, title: "우")
                     }
-                    
-                    Color.white
-                        .frame(height: UIScreen.main.bounds.width * 0.1)
                 }
                 .padding(25)
             }
             
-            VStack {
-                Spacer()
-                
-                Button(action: {
-                    isShowingDefectRegistrationList.toggle()
-                }, label: {
-                    Text("다음")
-                        .bold()
-                        .frame(maxWidth: .infinity)
-                        .padding(8)
-                })
-                .buttonBorderShape(.roundedRectangle)
-                .cornerRadius(10)
-                .buttonStyle(.borderedProminent)
+            ImageRegistrationButton(isShowingReceivingForm: $isShowingReceivingForm)
+                .environmentObject(viewModel)
                 .padding([.leading, .trailing, .bottom])
-                .background(.white)
-            }
         }
         .navigationTitle("사진 등록")
         .navigationBarTitleDisplayMode(.inline)
-        .confirmationDialog("", isPresented: $isShowingDialog, actions: {
+        .confirmationDialog("", isPresented: $isShowingDialog) {
             Button("카메라") {
                 isShowingCamera.toggle()
             }
@@ -92,16 +73,8 @@ struct ImageRegistrationForm: View {
             Button("라이브러리") {
                 isShowingLibrary.toggle()
             }
-        }, message: {
+        } message: {
             Text("사진을 가져올 위치를 선택해 주세요")
-        })
-        .navigationDestination(isPresented: $isShowingItemInformationForm) {
-            ItemInformationForm(isShowingReceivingForm: $isShowingReceivingForm)
-                .environmentObject(viewModel)
-        }
-        .navigationDestination(isPresented: $isShowingDefectRegistrationList) {
-            DefectRegistrationList(isShowingReceivingForm: $isShowingReceivingForm)
-                .environmentObject(viewModel)
         }
         .fullScreenCover(isPresented: $isShowingLibrary) {
             if let selectedIndex {
@@ -116,9 +89,10 @@ struct ImageRegistrationForm: View {
         .navigationBarBackButtonHidden()
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
-                Button(action: {
+                Button {
+                    viewModel.deleteModelFile()
                     isShowingReceivingForm.toggle()
-                }) {
+                } label: {
                     Image(systemName: "xmark")
                         .foregroundColor(.black)
                 }

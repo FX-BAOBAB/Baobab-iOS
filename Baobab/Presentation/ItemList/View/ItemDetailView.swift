@@ -9,17 +9,17 @@ import SwiftUI
 
 struct ItemDetailView: View {
     @StateObject private var viewModel: ItemStatusConversionViewModel
-    @StateObject private var itemImageViewModel: ItemImageViewModel
+    @StateObject private var itemViewModel: ItemViewModel
     @State private var isShowingConfirmationDialog: Bool = false
     @Environment(\.dismiss) private var dismiss
     
     let item: Item
     
     init(viewModel: ItemStatusConversionViewModel,
-         itemImageViewModel: ItemImageViewModel,
+         itemViewModel: ItemViewModel,
          item: Item) {
         _viewModel = StateObject(wrappedValue: viewModel)
-        _itemImageViewModel = StateObject(wrappedValue: itemImageViewModel)
+        _itemViewModel = StateObject(wrappedValue: itemViewModel)
         self.item = item
     }
     
@@ -27,53 +27,13 @@ struct ItemDetailView: View {
         ZStack {
             VStack(spacing: 0) {
                 ScrollView {
-                    TabView {
-                        if let data = itemImageViewModel.basicImageData {
-                            ForEach(0..<6, id: \.self) { i in
-                                Image(uiImage: UIImage(data: data[i]))
-                                    .resizable()
-                                    .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width)
-                            }
-                        } else {
-                            ForEach(0..<6, id: \.self) { _ in
-                                Color.clear
-                                    .skeleton(with: true,
-                                              size: CGSize(width: UIScreen.main.bounds.width,
-                                                           height: UIScreen.main.bounds.width),
-                                              shape: .rectangle)
-                            }
-                        }
-                    }
-                    .tabViewStyle(.page)
-                    .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width)
+                    PageTabView(item: item)
+                        .environmentObject(itemViewModel)
                     
-                    HStack {
-                        Text(item.name)
-                            .font(.title3)
-                            .bold()
-                        
-                        if let status = item.status {
-                            StatusLabel(status: status)
-                        }
-                    }
-                    .padding()
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    
-                    HStack {
-                        Text(item.category.toKorCategory() + ",")
-                        
-                        Text("\(item.quantity)개")
-                    }
-                    .font(.subheadline)
-                    .foregroundStyle(.gray)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding([.leading, .trailing, .bottom])
-                    
-                    Divider()
-                        .padding([.leading, .trailing])
+                    TitleView(item: item)
                     
                     Section(header: Text("물품 결함").bold().padding([.leading, .top])) {
-                        DefectScrollView(defectData: $itemImageViewModel.defectData, defectCount: item.defectImages.count)
+                        DefectScrollView(defectData: $itemViewModel.defectData, defectCount: item.defectImages.count)
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.bottom)
@@ -82,9 +42,9 @@ struct ItemDetailView: View {
             .navigationTitle("상세보기")
             .navigationBarTitleDisplayMode(.inline)
             .onAppear {
-                if itemImageViewModel.basicImageData == nil && itemImageViewModel.defectData == nil {
-                    itemImageViewModel.fetchBasicImages(basicIamges: item.basicImages.map { $0.imageURL })
-                    itemImageViewModel.fetchDefectImages(defects: item.defectImages)
+                if itemViewModel.basicImageData == nil && itemViewModel.defectData == nil {
+                    itemViewModel.fetchBasicImages(basicIamges: item.basicImages.map { $0.imageURL })
+                    itemViewModel.fetchDefectImages(defects: item.defectImages)
                 }
             }
             .toolbar {
@@ -122,8 +82,12 @@ struct ItemDetailView: View {
                     })
                 }
             }
+            .onDisappear {
+                itemViewModel.deleteModelFile()
+            }
+            .quickLookPreview($itemViewModel.previewModelFile)
             
-            if viewModel.isProcess {
+            if viewModel.isProcess || itemViewModel.isLoading {
                 CustomProgressView()
             }
         }
@@ -140,18 +104,87 @@ struct ItemDetailView: View {
     }
 }
 
+fileprivate struct PageTabView: View {
+    @EnvironmentObject private var viewModel: ItemViewModel
+    
+    let item: Item
+    
+    var body: some View {
+        VStack(spacing: 0) {
+            TabView {
+                if let data = viewModel.basicImageData {
+                    ForEach(0..<data.count, id: \.self) { i in
+                        Image(uiImage: UIImage(data: data[i]))
+                            .resizable()
+                            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width)
+                    }
+                } else {
+                    ForEach(0..<6, id: \.self) { _ in
+                        Color.clear
+                            .skeleton(with: true,
+                                      size: CGSize(width: UIScreen.main.bounds.width,
+                                                   height: UIScreen.main.bounds.width),
+                                      shape: .rectangle)
+                    }
+                }
+            }
+            .tabViewStyle(.page)
+            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width)
+            
+            if !item.arImages.isEmpty {
+                Button {
+                    if let arImage = item.arImages.first {
+                        viewModel.fetchModelFile(arImage.imageURL)
+                    }
+                } label: {
+                    Color(red: 245 / 255, green: 245 / 255, blue: 245 / 255)
+                        .frame(height: 50)
+                        .overlay {
+                            Text("AR 보기")
+                        }
+                }
+            }
+        }
+    }
+}
+
+fileprivate struct TitleView: View {
+    let item: Item
+    
+    var body: some View {
+        HStack {
+            Text(item.name)
+                .font(.title3)
+                .bold()
+            
+            if let status = item.status {
+                StatusLabel(status: status)
+            }
+        }
+        .padding()
+        .frame(maxWidth: .infinity, alignment: .leading)
+        
+        HStack {
+            Text(item.category.toKorCategory() + ",")
+            
+            Text("\(item.quantity)개")
+        }
+        .font(.subheadline)
+        .foregroundStyle(.gray)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding([.leading, .trailing, .bottom])
+        
+        Divider()
+            .padding([.leading, .trailing])
+    }
+}
+
+#if DEBUG
 #Preview {
     NavigationStack {
         ItemDetailView(viewModel: AppDI.shared.makeItemStatusConversionViewModel(),
-                       itemImageViewModel: AppDI.shared.makeItemImageViewModel(),
-                       item: Item(id: 0,
-                                  name: "부끄부끄 마끄부끄",
-                                  category: "SMALL_APPLIANCES",
-                                  status: .receiving,
-                                  quantity: 1,
-                                  basicImages: [ImageData(imageURL: "string", caption: ""),
-                                                ImageData(imageURL: "string", caption: "")],
-                                  defectImages: [ImageData(imageURL: "", caption: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."),
-                                                 ImageData(imageURL: "string", caption: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")]))
+                       itemViewModel: AppDI.shared.makeItemImageViewModel(),
+                       item: Item.sampleData.first!)
     }
 }
+#endif

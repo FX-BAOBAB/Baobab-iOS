@@ -8,8 +8,8 @@
 import MapKit
 import Combine
 
-final class ReceivingViewModel: PostSearchable, Reservable {
-    @Published var items: [StoreItem] = [StoreItem(), StoreItem()]
+final class ReceivingViewModel: @unchecked Sendable, PostSearchable, Reservable {
+    @Published var items: [ItemInput] = [ItemInput(), ItemInput()]
     @Published var reservationDate: Date = Date.tomorrow
     @Published var selectedAddress: Address?
     @Published var defaultAddress: Address?
@@ -35,7 +35,7 @@ final class ReceivingViewModel: PostSearchable, Reservable {
         })
     }
     
-    init(itemIdx: Int, usecase: ReceivingUseCase) {
+    init(itemIdx: Int = 0, usecase: ReceivingUseCase) {
         self.itemIdx = itemIdx
         self.usecase = usecase
         
@@ -73,7 +73,6 @@ extension ReceivingViewModel {
         }
     }
     
-    @MainActor
     func applyReceiving() {
         isShowingAlert = false
         isProgress = true
@@ -87,41 +86,42 @@ extension ReceivingViewModel {
             return
         }
         
-        let params = 
-        [
-            "result": [
-                "resultCode": 0,
-                "resultMessage": "string",
-                "resultDescription": "string"
-            ],
-            "body": [
-                "visitDate": reservationDate.toISOFormat(),
-                "visitAddress": selectedAddress.address + " " + selectedAddress.detailAddress,
-                "guaranteeAt": Date().toISOFormat(),    //결함인정 시간
-            ]
-        ] as [String: Any]
-        
-        usecase.execute(params: params, items: Array(items[0...itemIdx]))
-            .sink(receiveCompletion: { [weak self] completion in
-                switch completion {
-                case .finished:
-                    print("Receiving request has been completed")
-                case .failure(let error):
-                    print("ReceivingViewModel.applyReceiving() error : " , error)
-                    self?.isProgress = false
-                    self?.alertType = .failure
-                    self?.isShowingAlert.toggle()
-                }
-            }, receiveValue: { [weak self] in
-                if $0 {
-                    self?.isProgress = false
-                    self?.isShowingCompletionView.toggle()
-                } else {
-                    self?.isProgress = false
-                    self?.alertType = .failure
-                    self?.isShowingAlert.toggle()
-                }
-            })
-            .store(in: &cancellables)
+        DispatchQueue.global(qos: .background).async { [self] in
+            let params =  [
+                "result": [
+                    "resultCode": 0,
+                    "resultMessage": "string",
+                    "resultDescription": "string"
+                ],
+                "body": [
+                    "visitDate": self.reservationDate.toISOFormat(),
+                    "visitAddress": selectedAddress.address + " " + selectedAddress.detailAddress,
+                    "guaranteeAt": Date().toISOFormat(),    //결함인정 시간
+                ]
+            ] as [String: Any]
+            
+            usecase.execute(params: params, items: Array(items[0...itemIdx]))
+                .sink(receiveCompletion: { [weak self] completion in
+                    switch completion {
+                    case .finished:
+                        print("Receiving request has been completed")
+                    case .failure(let error):
+                        print("ReceivingViewModel.applyReceiving() error : " , error)
+                        self?.isProgress = false
+                        self?.alertType = .failure
+                        self?.isShowingAlert.toggle()
+                    }
+                }, receiveValue: { [weak self] in
+                    if $0 {
+                        self?.isProgress = false
+                        self?.isShowingCompletionView.toggle()
+                    } else {
+                        self?.isProgress = false
+                        self?.alertType = .failure
+                        self?.isShowingAlert.toggle()
+                    }
+                })
+                .store(in: &cancellables)
+        }
     }
 }

@@ -95,9 +95,9 @@ final class UsedItemRepositoryImpl: RemoteRepository, UsedItemRepository {
             .eraseToAnyPublisher()
     }
     
-    private func toImageData(_ image: [ImageMetaData]) -> [ImageData] {
-        return image.map {
-            ImageData(imageURL: $0.imageURL, caption: $0.caption)
+    private func toFileData(_ files: [FileMetaData]) -> [FileData] {
+        return files.map {
+            FileData(imageURL: $0.imageURL, caption: $0.caption)
         }
     }
     
@@ -107,7 +107,8 @@ final class UsedItemRepositoryImpl: RemoteRepository, UsedItemRepository {
                     category: goods.category,
                     status: ItemStatus(rawValue: goods.status),
                     quantity: goods.quantity,
-                    basicImages: self.toImageData(goods.basicImages),
-                    defectImages: self.toImageData(goods.faultImages))
+                    basicImages: self.toFileData(goods.basicImages),
+                    defectImages: self.toFileData(goods.faultImages),
+                    arImages: self.toFileData(goods.arImages))
     }
 }

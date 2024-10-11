@@ -57,6 +57,7 @@ struct ReceiptCompletionView: View {
             .navigationBarBackButtonHidden()
             
             Button {
+                viewModel.deleteModelFile()
                 isShowingReceivingForm.toggle()
             } label: {
                 Text("완료")

@@ -11,26 +11,23 @@ import SwiftUI
 struct LaboratoryList: View {
     @State private var isShowingObjectCaptureView: Bool = false
     @State private var buttonDisable: Bool = false
+    @State private var isChatActive: Bool = false
     @Environment(\.dismiss) private var dismiss
     
     var body: some View {
         List {
-            Button {
-                buttonDisable.toggle()
-                isShowingObjectCaptureView.toggle()
-            } label: {
-                HStack {
-                    Text("Object Capture")
-                    
-                    Spacer()
-                    
-                    Image(systemName: "chevron.right")
-                        .foregroundColor(.gray)
-                        .bold()
+            HStack {
+                Toggle(isOn: Binding(get: {
+                    isChatActive
+                }, set: {
+                    isChatActive = $0
+                    UserDefaults.standard.set($0, forKey: "chat")
+                })) {
+                    Text("채팅")
                 }
-                .padding([.top, .bottom])
-                .disabled(buttonDisable)
+                .tint(.accentColor)
             }
+            .padding([.top, .bottom])
         }
         .listStyle(.plain)
         .navigationTitle("실험실")
@@ -45,21 +42,8 @@ struct LaboratoryList: View {
                 }
             }
         }
-        .fullScreenCover(isPresented: $isShowingObjectCaptureView) {
-            buttonDisable.toggle()
-        } content: {
-            NavigationStack {
-                #if targetEnvironment(simulator)
-                NoAvailableView(isShowingFullScreenCover: $isShowingObjectCaptureView)
-                #else
-                if #available(iOS 17, *), ObjectCaptureSession.isSupported {
-                    CapturePrimaryView(viewModel: AppDI.shared.makeObjectCaptureViewModel(),
-                                       isShowingObjectCaptureView: $isShowingObjectCaptureView)
-                } else {
-                    NoAvailableView(isShowingFullScreenCover: $isShowingObjectCaptureView)
-                }
-                #endif
-            }
+        .onAppear {
+            isChatActive = UserDefaults.standard.bool(forKey: "chat")
         }
     }
 }

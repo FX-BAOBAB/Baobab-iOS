@@ -26,11 +26,11 @@ struct Goods: Decodable {
     let id: Int
     let name, category, status: String
     let quantity: Int
-    let basicImages, faultImages: [ImageMetaData]
+    let basicImages, faultImages, arImages: [FileMetaData]
 }
 
-// MARK: - GoodsImage
-struct ImageMetaData: Decodable {
+// MARK: - ImageMetaData
+struct FileMetaData: Decodable {
     let id: Int
     let serverName, originalName, imageURL, caption: String
     let kind: String
