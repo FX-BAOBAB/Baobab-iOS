@@ -907,39 +907,9 @@
 		5C80F0EC2C06BDBD00A94C22 /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
-				8EBF632D2C79DC7C003D36D7 /* AbandonOwnershipUseCase.swift */,
-				8EB0C2562C322B2E00FEE8D0 /* SignUpUseCase.swift */,
-				5C80F0EF2C06C3A000A94C22 /* ReceivingUseCase.swift */,
-				5C80F0ED2C06BF4500A94C22 /* FetchGeoCodeUseCase.swift */,
-				8E7BC8D52C3E6EEB00CB708F /* FetchTokenUseCase.swift */,
-				8E7BC8F12C3EC78600CB708F /* LoginUseCase.swift */,
-				8EAB81672C40BB770052AD48 /* FetchAddressUseCase.swift */,
-				8E8AF2E22C425DD100A1F0ED /* UploadFileUseCase.swift */,
-				8E9DFFB62C98275C00743275 /* DownloadImageUseCase.swift */,
-				8E95B7622CB354D400A5A729 /* DownloadFileUseCase.swift */,
-				8E87A0162CB6139E001F35F3 /* DeleteFileUseCase.swift */,
-				8E449F082C4BA87A00291277 /* CheckEmailDuplicationUseCase.swift */,
-				8E449F0E2C4BEEC700291277 /* CheckNickNameDuplicationUseCase.swift */,
-				8E8D13512C4E44700032FC96 /* FetchUserInfoUseCase.swift */,
-				8E7B6C322C51EAD400222721 /* FetchItemUseCase.swift */,
-				8E37D4642C570D6300F8048A /* FetchFormUseCase.swift */,
-				8E60A82A2C5A06EE007814E7 /* FetchProcessStatusUseCase.swift */,
-				8EA152882C69F4420011FDB3 /* UpdateTokenUseCase.swift */,
-				8E604DB82C6DEC2400D45CB1 /* ShippingUseCase.swift */,
-				8E83F7662C762F6700AD5F01 /* RegisterAsUsedItemUseCase.swift */,
-				8E49F7292C78438B006EC259 /* ConvertItemStatusUseCase.swift */,
-				8EE91FF52C7D651F0012D020 /* SetupInitialViewUseCase.swift */,
-				8E8371522C7E087100DC7C5A /* AddAddressUseCase.swift */,
-				8E18F62D2C86DD1000DBD9F3 /* FetchUsedItemUseCase.swift */,
-				8E8B61D12C8C1D900024B61C /* FetchSearchedUsedItemsUseCase.swift */,
-				8E8B61C92C8BE4810024B61C /* BuyUsedItemUseCase.swift */,
-				8EC135D72C8E886500F9DD3F /* FetchPurchasedItemsUseCase.swift */,
-				8EC135D92C8E888200F9DD3F /* FetchSoldItemsUseCase.swift */,
-				8EBE5DE52C930C7A008EF291 /* FetchSaleItemsUseCase.swift */,
-				8EC135DF2C8E8CF200F9DD3F /* FetchUsedItemDetailUseCase.swift */,
-				8E64D8522C914ED70043F3C6 /* FetchTransactionHistoryUseCase.swift */,
-				8E95B7682CB3743100A5A729 /* FetchItemFilesUseCase.swift */,
-				8E57B86C2CB762C800385A3E /* FetchChatRoomListUseCase.swift */,
+				8EF4458F2CB8ED2A008FC7BB /* File */,
+				8EF4458E2CB8ECFE008FC7BB /* Warehouse */,
+				8EF4458D2CB8ECD2008FC7BB /* User */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -1734,6 +1704,60 @@
 				8E64D84A2C9120720043F3C6 /* UsedItemTop10SkeletonView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		8EF4458D2CB8ECD2008FC7BB /* User */ = {
+			isa = PBXGroup;
+			children = (
+				8EE91FF52C7D651F0012D020 /* SetupInitialViewUseCase.swift */,
+				5C80F0ED2C06BF4500A94C22 /* FetchGeoCodeUseCase.swift */,
+				8E8371522C7E087100DC7C5A /* AddAddressUseCase.swift */,
+				8EA152882C69F4420011FDB3 /* UpdateTokenUseCase.swift */,
+				8E449F0E2C4BEEC700291277 /* CheckNickNameDuplicationUseCase.swift */,
+				8E449F082C4BA87A00291277 /* CheckEmailDuplicationUseCase.swift */,
+				8EAB81672C40BB770052AD48 /* FetchAddressUseCase.swift */,
+				8E7BC8D52C3E6EEB00CB708F /* FetchTokenUseCase.swift */,
+				8E7BC8F12C3EC78600CB708F /* LoginUseCase.swift */,
+				8EB0C2562C322B2E00FEE8D0 /* SignUpUseCase.swift */,
+				8E8D13512C4E44700032FC96 /* FetchUserInfoUseCase.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		8EF4458E2CB8ECFE008FC7BB /* Warehouse */ = {
+			isa = PBXGroup;
+			children = (
+				5C80F0EF2C06C3A000A94C22 /* ReceivingUseCase.swift */,
+				8E7B6C322C51EAD400222721 /* FetchItemUseCase.swift */,
+				8E37D4642C570D6300F8048A /* FetchFormUseCase.swift */,
+				8E60A82A2C5A06EE007814E7 /* FetchProcessStatusUseCase.swift */,
+				8E83F7662C762F6700AD5F01 /* RegisterAsUsedItemUseCase.swift */,
+				8E49F7292C78438B006EC259 /* ConvertItemStatusUseCase.swift */,
+				8E8B61C92C8BE4810024B61C /* BuyUsedItemUseCase.swift */,
+				8E8B61D12C8C1D900024B61C /* FetchSearchedUsedItemsUseCase.swift */,
+				8E18F62D2C86DD1000DBD9F3 /* FetchUsedItemUseCase.swift */,
+				8EC135D72C8E886500F9DD3F /* FetchPurchasedItemsUseCase.swift */,
+				8EC135D92C8E888200F9DD3F /* FetchSoldItemsUseCase.swift */,
+				8E604DB82C6DEC2400D45CB1 /* ShippingUseCase.swift */,
+				8EBE5DE52C930C7A008EF291 /* FetchSaleItemsUseCase.swift */,
+				8EC135DF2C8E8CF200F9DD3F /* FetchUsedItemDetailUseCase.swift */,
+				8E64D8522C914ED70043F3C6 /* FetchTransactionHistoryUseCase.swift */,
+				8E57B86C2CB762C800385A3E /* FetchChatRoomListUseCase.swift */,
+				8EBF632D2C79DC7C003D36D7 /* AbandonOwnershipUseCase.swift */,
+			);
+			path = Warehouse;
+			sourceTree = "<group>";
+		};
+		8EF4458F2CB8ED2A008FC7BB /* File */ = {
+			isa = PBXGroup;
+			children = (
+				8E8AF2E22C425DD100A1F0ED /* UploadFileUseCase.swift */,
+				8E9DFFB62C98275C00743275 /* DownloadImageUseCase.swift */,
+				8E95B7622CB354D400A5A729 /* DownloadFileUseCase.swift */,
+				8E87A0162CB6139E001F35F3 /* DeleteFileUseCase.swift */,
+				8E95B7682CB3743100A5A729 /* FetchItemFilesUseCase.swift */,
+			);
+			path = File;
 			sourceTree = "<group>";
 		};
 		8EF49E7D2CB7669900414428 /* Chat */ = {
