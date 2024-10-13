@@ -9,27 +9,14 @@ import MapKit
 import Combine
 
 protocol ShippingUseCase {
-    func fetchDefaultAddress() -> AnyPublisher<Address, any Error>
-    func fetchAddresses() -> AnyPublisher<[Address], any Error>
     func execute(deliveryDate: Date, deliveryAddress: String, items: [Item]) -> AnyPublisher<Bool, any Error>
 }
 
 final class ShippingUseCaseImpl: ShippingUseCase {
-    private let fetchAddressUseCase: FetchAddressUseCase
     private let repository: ShippingApplicationRepository
     
-    init(fetchAddressUseCase: FetchAddressUseCase,
-         repository: ShippingApplicationRepository) {
-        self.fetchAddressUseCase = fetchAddressUseCase
+    init(repository: ShippingApplicationRepository) {
         self.repository = repository
-    }
-    
-    func fetchDefaultAddress() -> AnyPublisher<Address, any Error> {
-        return fetchAddressUseCase.executeForDefaultAddress()
-    }
-    
-    func fetchAddresses() -> AnyPublisher<[Address], any Error> {
-        return fetchAddressUseCase.executeForAddresses()
     }
     
     func execute(deliveryDate: Date, deliveryAddress: String, items: [Item]) -> AnyPublisher<Bool, any Error> {
