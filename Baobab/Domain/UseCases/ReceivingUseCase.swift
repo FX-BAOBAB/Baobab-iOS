@@ -10,12 +10,6 @@ import Combine
 
 //MARK: - ReceivingUseCase protocol
 protocol ReceivingUseCase {
-    /// 기본주소로 등록되어 있는 주소를 요청하는 함수
-    func fetchDefaultAddress() -> AnyPublisher<Address, any Error>
-    
-    /// 등록된 모든 주소를 요청하는 함수
-    func fetchAddresses() -> AnyPublisher<[Address], any Error>
-    
     /// - Parameter params: 방문 신청 날짜, 방문지 주소, 결함 인정 시간에 대한 딕셔너리
     /// - Parameter items: 입고 물품 객체 배열
     func execute(params: [String: Any], items: [ItemInput]) -> AnyPublisher<Bool, any Error>
@@ -23,30 +17,17 @@ protocol ReceivingUseCase {
 
 //MARK: - ReceivingUseCaseImpl
 final class ReceivingUseCaseImpl {
-    private let fetchAddressUseCase: FetchAddressUseCase
     private let uploadFileUseCase: UploadFileUseCase
     private let repository: ReceivingRepository
     
-    init(fetchDefaultAddressUseCase: FetchAddressUseCase,
-         uploadFileUseCase: UploadFileUseCase,
+    init(uploadFileUseCase: UploadFileUseCase,
          repository: ReceivingRepository) {
-        self.fetchAddressUseCase = fetchDefaultAddressUseCase
         self.uploadFileUseCase = uploadFileUseCase
         self.repository = repository
     }
 }
 
 extension ReceivingUseCaseImpl: ReceivingUseCase {
-    func fetchDefaultAddress() -> AnyPublisher<Address, any Error> {
-        return fetchAddressUseCase.executeForDefaultAddress()
-    }
-    
-    func fetchAddresses() -> AnyPublisher<[Address], any Error> {
-        return fetchAddressUseCase.executeForAddresses()
-    }
-}
-
-extension ReceivingUseCaseImpl{
     private protocol IdentifiableResponse {
         var index: Int { get }
         var response: [FileUploadResponse] { get }

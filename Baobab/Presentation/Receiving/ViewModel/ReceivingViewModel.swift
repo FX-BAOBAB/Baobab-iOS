@@ -28,6 +28,7 @@ final class ReceivingViewModel: @unchecked Sendable, PostSearchable, Reservable 
     var itemIdx: Int
     let receivingusecase: ReceivingUseCase
     let fetchGeoCodeUseCase: FetchGeoCodeUseCase
+    let fetchAddressUseCase: FetchAddressUseCase
     var cancellables = Set<AnyCancellable>()
     var alertType: AlertType = .failure
     var totalPrice: Int {
@@ -38,10 +39,12 @@ final class ReceivingViewModel: @unchecked Sendable, PostSearchable, Reservable 
     
     init(itemIdx: Int = 0,
          receivingUseCase: ReceivingUseCase,
-         fetchGeoCodeUseCase: FetchGeoCodeUseCase) {
+         fetchGeoCodeUseCase: FetchGeoCodeUseCase,
+         fetchAddressUseCase: FetchAddressUseCase) {
         self.itemIdx = itemIdx
         self.receivingusecase = receivingUseCase
         self.fetchGeoCodeUseCase = fetchGeoCodeUseCase
+        self.fetchAddressUseCase = fetchAddressUseCase
         
         calculateMapCoordinates()
     }

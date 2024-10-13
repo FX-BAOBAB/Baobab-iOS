@@ -26,13 +26,13 @@ struct AppDI {
         let uploadImageUseCase = UploadFileUseCaseImpl(repository: imageRepository)
         let fetchGeoCodeUseCase = FetchGeoCodeUseCaseImpl()
         let fetchAddressUseCase = FetchAddressUseCaseImpl(repository: userRepository)
-        let receivingUseCase = ReceivingUseCaseImpl(fetchDefaultAddressUseCase: fetchAddressUseCase,
-                                                    uploadFileUseCase: uploadImageUseCase,
+        let receivingUseCase = ReceivingUseCaseImpl(uploadFileUseCase: uploadImageUseCase,
                                                     repository: receivingRepository)
         
         //Presentation Layer
         let viewModel = ReceivingViewModel(receivingUseCase: receivingUseCase,
-                                           fetchGeoCodeUseCase: fetchGeoCodeUseCase)
+                                           fetchGeoCodeUseCase: fetchGeoCodeUseCase,
+                                           fetchAddressUseCase: fetchAddressUseCase)
         
         return viewModel
     }
