@@ -16,10 +16,6 @@ protocol ReceivingUseCase {
     /// 등록된 모든 주소를 요청하는 함수
     func fetchAddresses() -> AnyPublisher<[Address], any Error>
     
-    /// 인자로 전달된 주소의 Geo Code를 요청하는 함수
-    /// - Parameter address: 주소 문자열
-    func fetchGeoCode(of address: String) -> AnyPublisher<MKCoordinateRegion, any Error>
-    
     /// - Parameter params: 방문 신청 날짜, 방문지 주소, 결함 인정 시간에 대한 딕셔너리
     /// - Parameter items: 입고 물품 객체 배열
     func execute(params: [String: Any], items: [ItemInput]) -> AnyPublisher<Bool, any Error>
@@ -27,27 +23,20 @@ protocol ReceivingUseCase {
 
 //MARK: - ReceivingUseCaseImpl
 final class ReceivingUseCaseImpl {
-    private let fetchGeoCodeUseCase: FetchGeoCodeUseCase
     private let fetchAddressUseCase: FetchAddressUseCase
     private let uploadFileUseCase: UploadFileUseCase
     private let repository: ReceivingRepository
     
-    init(fetchGeoCodeUseCase: FetchGeoCodeUseCase, 
-         fetchDefaultAddressUseCase: FetchAddressUseCase,
+    init(fetchDefaultAddressUseCase: FetchAddressUseCase,
          uploadFileUseCase: UploadFileUseCase,
          repository: ReceivingRepository) {
-        self.fetchGeoCodeUseCase = fetchGeoCodeUseCase
         self.fetchAddressUseCase = fetchDefaultAddressUseCase
         self.uploadFileUseCase = uploadFileUseCase
         self.repository = repository
     }
 }
 
-extension ReceivingUseCaseImpl: ReceivingUseCase {    
-    func fetchGeoCode(of address: String) -> AnyPublisher<MKCoordinateRegion, any Error> {
-        return fetchGeoCodeUseCase.execute(for: address)
-    }
-    
+extension ReceivingUseCaseImpl: ReceivingUseCase {
     func fetchDefaultAddress() -> AnyPublisher<Address, any Error> {
         return fetchAddressUseCase.executeForDefaultAddress()
     }

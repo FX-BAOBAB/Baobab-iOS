@@ -17,7 +17,7 @@ extension ReceivingViewModel {
                     return Empty<MKCoordinateRegion, Error>().eraseToAnyPublisher()
                 }
                 
-                return usecase.fetchGeoCode(of: address)
+                return fetchGeoCodeUseCase.execute(for: address)
             }
             .sink(receiveCompletion: { completion in
                 switch completion {
@@ -38,7 +38,7 @@ extension ReceivingViewModel {
                     return Empty<MKCoordinateRegion, Error>().eraseToAnyPublisher()
                 }
                 
-                return usecase.fetchGeoCode(of: addressDetail.address)
+                return fetchGeoCodeUseCase.execute(for: addressDetail.address)
             }
             .sink(receiveCompletion: { completion in
                 switch completion {

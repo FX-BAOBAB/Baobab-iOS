@@ -26,7 +26,8 @@ final class ReceivingViewModel: @unchecked Sendable, PostSearchable, Reservable 
     @Published var isShowingCompletionView: Bool = false
     
     var itemIdx: Int
-    let usecase: ReceivingUseCase
+    let receivingusecase: ReceivingUseCase
+    let fetchGeoCodeUseCase: FetchGeoCodeUseCase
     var cancellables = Set<AnyCancellable>()
     var alertType: AlertType = .failure
     var totalPrice: Int {
@@ -35,9 +36,12 @@ final class ReceivingViewModel: @unchecked Sendable, PostSearchable, Reservable 
         })
     }
     
-    init(itemIdx: Int = 0, usecase: ReceivingUseCase) {
+    init(itemIdx: Int = 0,
+         receivingUseCase: ReceivingUseCase,
+         fetchGeoCodeUseCase: FetchGeoCodeUseCase) {
         self.itemIdx = itemIdx
-        self.usecase = usecase
+        self.receivingusecase = receivingUseCase
+        self.fetchGeoCodeUseCase = fetchGeoCodeUseCase
         
         calculateMapCoordinates()
     }
@@ -100,7 +104,7 @@ extension ReceivingViewModel {
                 ]
             ] as [String: Any]
             
-            usecase.execute(params: params, items: Array(items[0...itemIdx]))
+            receivingusecase.execute(params: params, items: Array(items[0...itemIdx]))
                 .sink(receiveCompletion: { [weak self] completion in
                     switch completion {
                     case .finished:
