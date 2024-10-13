@@ -29,11 +29,13 @@ final class ShippingApplicationViewModel: PostSearchable, Reservable {
     @Published var isProgress: Bool = false
     @Published var result: Result?
     
-    let usecase: ShippingUseCase
+    let shippingUseCase: ShippingUseCase
+    let fetchItemUseCase: FetchItemUseCase
     var cancellables = Set<AnyCancellable>()
     
-    init(usecase: ShippingUseCase) {
-        self.usecase = usecase
+    init(shippingUseCase: ShippingUseCase, fetchItemUseCase: FetchItemUseCase) {
+        self.shippingUseCase = shippingUseCase
+        self.fetchItemUseCase = fetchItemUseCase
         
         calculateMapCoordinates()
     }
@@ -53,7 +55,7 @@ final class ShippingApplicationViewModel: PostSearchable, Reservable {
         }
         
         isProgress.toggle()
-        usecase.execute(deliveryDate: reservationDate, 
+        shippingUseCase.execute(deliveryDate: reservationDate, 
                         deliveryAddress: selectedAddress.address + " " + selectedAddress.detailAddress,
                         items: selectedItems)
             .sink(receiveCompletion: { [weak self] completion in

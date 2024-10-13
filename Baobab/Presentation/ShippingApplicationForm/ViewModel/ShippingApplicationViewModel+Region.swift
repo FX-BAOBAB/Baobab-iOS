@@ -17,7 +17,7 @@ extension ShippingApplicationViewModel {
                     return Empty<MKCoordinateRegion, any Error>().eraseToAnyPublisher()
                 }
                 
-                return usecase.fetchGeoCode(of: address)
+                return shippingUseCase.fetchGeoCode(of: address)
             }
             .sink(receiveCompletion: { completion in
                 switch completion {
@@ -38,7 +38,7 @@ extension ShippingApplicationViewModel {
                     return Empty<MKCoordinateRegion, Error>().eraseToAnyPublisher()
                 }
                 
-                return usecase.fetchGeoCode(of: addressDetail.address)
+                return shippingUseCase.fetchGeoCode(of: addressDetail.address)
             }
             .sink(receiveCompletion: { completion in
                 switch completion {

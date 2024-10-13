@@ -9,7 +9,7 @@ import Foundation
 
 extension ShippingApplicationViewModel {
     func fetchShippableItems() {
-        usecase.fetchStoredItems()
+        fetchItemUseCase.execute(for: .stored)
             .sink(receiveCompletion: { [weak self] completion in
                 switch completion {
                 case .finished:

@@ -48,13 +48,13 @@ struct AppDI {
         let fetchItemUseCase =  FetchItemUseCaseImpl(repository: itemRepository)
         let fetchAddressUseCase = FetchAddressUseCaseImpl(repository: userRepository)
         let fetchGeoCodeUseCase = FetchGeoCodeUseCaseImpl()
-        let usecase = ShippingUseCaseImpl(fetchItemUseCase: fetchItemUseCase,
-                                          fetchAddressUseCase: fetchAddressUseCase,
+        let shippingUseCase = ShippingUseCaseImpl(fetchAddressUseCase: fetchAddressUseCase,
                                           fetchGeoCodeUseCase: fetchGeoCodeUseCase,
                                           repository: shippingApplicationRepository)
         
         //Presentation Layer
-        let viewModel = ShippingApplicationViewModel(usecase: usecase)
+        let viewModel = ShippingApplicationViewModel(shippingUseCase: shippingUseCase,
+                                                     fetchItemUseCase: fetchItemUseCase)
         
         return viewModel
     }

@@ -13,7 +13,7 @@ extension ShippingApplicationViewModel {
              아래 함수에서는 입고 예약 화면에서 표시되는 단일 기본 주소 업데이트
              주소 선택 화면의 주소 정보는 주소 리스트를 호출하는 함수 참고
          */
-        usecase.fetchDefaultAddress()
+        shippingUseCase.fetchDefaultAddress()
             .sink(receiveCompletion: { completion in
                 switch completion {
                 case .finished:
@@ -29,7 +29,7 @@ extension ShippingApplicationViewModel {
     
     //MARK: - 사용자 계정에 등록된 모든 주소를 가져오는 함수
     func fetchAddresses() {
-        usecase.fetchAddresses()
+        shippingUseCase.fetchAddresses()
             .sink(receiveCompletion: { completion in
                 switch completion {
                 case .finished:
