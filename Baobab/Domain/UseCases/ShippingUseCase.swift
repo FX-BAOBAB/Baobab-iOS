@@ -11,20 +11,16 @@ import Combine
 protocol ShippingUseCase {
     func fetchDefaultAddress() -> AnyPublisher<Address, any Error>
     func fetchAddresses() -> AnyPublisher<[Address], any Error>
-    func fetchGeoCode(of address: String) -> AnyPublisher<MKCoordinateRegion, any Error>
     func execute(deliveryDate: Date, deliveryAddress: String, items: [Item]) -> AnyPublisher<Bool, any Error>
 }
 
 final class ShippingUseCaseImpl: ShippingUseCase {
     private let fetchAddressUseCase: FetchAddressUseCase
-    private let fetchGeoCodeUseCase: FetchGeoCodeUseCase
     private let repository: ShippingApplicationRepository
     
     init(fetchAddressUseCase: FetchAddressUseCase,
-         fetchGeoCodeUseCase: FetchGeoCodeUseCase,
          repository: ShippingApplicationRepository) {
         self.fetchAddressUseCase = fetchAddressUseCase
-        self.fetchGeoCodeUseCase = fetchGeoCodeUseCase
         self.repository = repository
     }
     
@@ -34,10 +30,6 @@ final class ShippingUseCaseImpl: ShippingUseCase {
     
     func fetchAddresses() -> AnyPublisher<[Address], any Error> {
         return fetchAddressUseCase.executeForAddresses()
-    }
-    
-    func fetchGeoCode(of address: String) -> AnyPublisher<MKCoordinateRegion, any Error> {
-        return fetchGeoCodeUseCase.execute(for: address)
     }
     
     func execute(deliveryDate: Date, deliveryAddress: String, items: [Item]) -> AnyPublisher<Bool, any Error> {

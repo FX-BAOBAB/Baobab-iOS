@@ -31,11 +31,15 @@ final class ShippingApplicationViewModel: PostSearchable, Reservable {
     
     let shippingUseCase: ShippingUseCase
     let fetchItemUseCase: FetchItemUseCase
+    let fetchGeoCodeUseCase: FetchGeoCodeUseCase
     var cancellables = Set<AnyCancellable>()
     
-    init(shippingUseCase: ShippingUseCase, fetchItemUseCase: FetchItemUseCase) {
+    init(shippingUseCase: ShippingUseCase,
+         fetchItemUseCase: FetchItemUseCase,
+         fetchGeoCodeUseCase: FetchGeoCodeUseCase) {
         self.shippingUseCase = shippingUseCase
         self.fetchItemUseCase = fetchItemUseCase
+        self.fetchGeoCodeUseCase = fetchGeoCodeUseCase
         
         calculateMapCoordinates()
     }
