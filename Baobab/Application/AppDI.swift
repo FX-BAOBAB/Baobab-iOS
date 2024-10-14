@@ -81,14 +81,13 @@ struct AppDI {
     func makeLoginViewModel() -> LoginViewModel {
         //Data Layer
         let loginRepository = LoginRepositoryImpl(dataSource: dataSource)
-        let remoteTokenRepository = RemoteTokenRepositoryImpl(dataSource: dataSource)
         let localTokenRepository = TokenRepositoryImpl()
         
         //Domain Layer
-        let updateTokenUseCase = UpdateAccessTokenUseCaseImpl(repository: remoteTokenRepository)
-        let fetchTokenUseCase = FetchTokenUseCaseImpl(repository: localTokenRepository)
-        let usecase = LoginUseCaseImpl(fetchTokenUseCase: fetchTokenUseCase,
-                                       updateAccessTokenUseCase: updateTokenUseCase,
+        let saveTokenUseCase = SaveTokenUseCaseImpl(repository: localTokenRepository)
+        let deleteTokenUseCase = DeleteTokenUseCaseImpl(repository: localTokenRepository)
+        let usecase = LoginUseCaseImpl(saveTokenUseCase: saveTokenUseCase,
+                                       deleteTokenUseCase: deleteTokenUseCase,
                                        repository: loginRepository)
         
         //Presentation Layer
@@ -105,15 +104,14 @@ struct AppDI {
         let usedItemRepository = UsedItemRepositoryImpl(dataSource: dataSource)
         
         //Domain Layer
-        let fetchTokenUseCase = FetchTokenUseCaseImpl(repository: localTokenRepository)
+        let deleteTokenUseCase = DeleteTokenUseCaseImpl(repository: localTokenRepository)
         let fetchUserInfoUseCase = FetchuserInfoUserCaseImpl(repository: userRepository)
         let fetchUsedItemUseCase = FetchUsedItemUseCaseImpl(usedItemRepository: usedItemRepository)
-        let usecase = SetupInitialViewUseCaseImpl(fetchTokenUseCase: fetchTokenUseCase,
-                                                  fetchUserInfoUseCase: fetchUserInfoUseCase,
-                                                  fetchUsedItemUseCase: fetchUsedItemUseCase)
         
         //Presentation Layer
-        let viewModel = MainViewModel(usecase: usecase)
+        let viewModel = MainViewModel(deleteTokenUseCase: deleteTokenUseCase,
+                                      fetchUserInfoUseCase: fetchUserInfoUseCase,
+                                      fetchUsedItemUseCase: fetchUsedItemUseCase)
         
         return viewModel
     }
@@ -123,10 +121,10 @@ struct AppDI {
         let localTokenRepository = TokenRepositoryImpl()
         
         //Domain Layer
-        let fetchTokenUseCase = FetchTokenUseCaseImpl(repository: localTokenRepository)
+        let usecase = DeleteTokenUseCaseImpl(repository: localTokenRepository)
         
         //Presentation Layer
-        let viewModel = SettingViewModel(usecase: fetchTokenUseCase)
+        let viewModel = SettingViewModel(usecase: usecase)
         
         return viewModel
     }

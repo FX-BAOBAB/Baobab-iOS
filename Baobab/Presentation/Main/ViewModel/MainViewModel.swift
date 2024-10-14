@@ -13,16 +13,21 @@ final class MainViewModel: ObservableObject {
     @Published var usedItems: [UsedItem]?
     @Published var isTokenDeleted: Bool = false
     
-    private let usecase: SetupInitialViewUseCase
+    private let deleteTokenUseCase: DeleteTokenUseCase
+    private let fetchUserInfoUseCase: FetchUserInfoUseCase
+    private let fetchUsedItemUseCase: FetchUsedItemUseCase
     private var cancellables = Set<AnyCancellable>()
     
-    init(usecase: SetupInitialViewUseCase) {
-        self.usecase = usecase
+    init(deleteTokenUseCase: DeleteTokenUseCase,
+         fetchUserInfoUseCase: FetchUserInfoUseCase,
+         fetchUsedItemUseCase: FetchUsedItemUseCase) {
+        self.deleteTokenUseCase = deleteTokenUseCase
+        self.fetchUserInfoUseCase = fetchUserInfoUseCase
+        self.fetchUsedItemUseCase = fetchUsedItemUseCase
     }
     
     func deleteToken() {
-        usecase.executeTokenDeletion()
-            .receive(on: DispatchQueue.main)
+        deleteTokenUseCase.execute()
             .sink(receiveCompletion: { completion in
                 switch completion {
                 case .finished:
@@ -31,7 +36,7 @@ final class MainViewModel: ObservableObject {
                     print("MainViewModel.deleteToken() error : " , error)
                 }
             }, receiveValue: { [weak self] result in
-                if result {
+                if result.allSatisfy({ $0 == true }) {
                     UserDefaults.standard.setValue(false, forKey: "hasToken")    //토큰 상태 업데이트
                     self?.isTokenDeleted = true
                 }
@@ -40,7 +45,7 @@ final class MainViewModel: ObservableObject {
     }
     
     func fetchUserInfo() {
-        usecase.executeFetchingUserInfo()
+        fetchUserInfoUseCase.execute()
             .sink(receiveCompletion: { completion in
                 switch completion {
                 case .finished:
@@ -56,7 +61,7 @@ final class MainViewModel: ObservableObject {
     
     @MainActor
     func fetchUsedItems() {
-        usecase.fetchUsedItems()
+        fetchUsedItemUseCase.execute()
             .sink(receiveCompletion: { completion in
                 switch completion {
                 case .finished:

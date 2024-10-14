@@ -13,17 +13,15 @@ final class SettingViewModel: ObservableObject {
     @Published var appVersion: String = ""
     @Published var isShowingAlert: Bool = false
     
-    private let usecase: FetchTokenUseCase
+    private let usecase: DeleteTokenUseCase
     private var cancellables = Set<AnyCancellable>()
     
-    init(usecase: FetchTokenUseCase) {
+    init(usecase: DeleteTokenUseCase) {
         self.usecase = usecase
     }
     
     func logout() {
-        usecase.executeTokenDelete(for: "accessToken")
-            .merge(with: usecase.executeTokenDelete(for: "refreshToken"))
-            .collect()
+        usecase.execute()
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { completion in
                 switch completion {

@@ -14,13 +14,15 @@ protocol LoginUseCase {
 }
 
 final class LoginUseCaseImpl: LoginUseCase {
-    private let fetchTokenUseCase: FetchTokenUseCase    //local Keychain에서 가져오는 인스턴스
-    private let updateTokenUseCase: UpdateTokenUseCase    //remote에서 가져오는 인스턴스
+    private let saveTokenUseCase: SaveTokenUseCase    //KeyChain에 Token 저장하는 인스턴스
+    private let deleteTokenUseCase: DeleteTokenUseCase    //Keychain에서 Token 삭제하는 인스턴스
     private let repository: LoginRepository
     
-    init(fetchTokenUseCase: FetchTokenUseCase, updateAccessTokenUseCase: UpdateTokenUseCase, repository: LoginRepository) {
-        self.fetchTokenUseCase = fetchTokenUseCase
-        self.updateTokenUseCase = updateAccessTokenUseCase
+    init(saveTokenUseCase: SaveTokenUseCase,
+         deleteTokenUseCase: DeleteTokenUseCase,
+         repository: LoginRepository) {
+        self.saveTokenUseCase = saveTokenUseCase
+        self.deleteTokenUseCase = deleteTokenUseCase
         self.repository = repository
     }
     
@@ -35,8 +37,8 @@ final class LoginUseCaseImpl: LoginUseCase {
                         .eraseToAnyPublisher()
                 }
                 
-                return fetchTokenUseCase.executeTokenSave(token: accessToken, for: "accessToken")
-                    .merge(with: fetchTokenUseCase.executeTokenSave(token: refreshToken, for: "refreshToken"))
+                return saveTokenUseCase.execute(token: accessToken, for: "accessToken")
+                    .merge(with: saveTokenUseCase.execute(token: refreshToken, for: "refreshToken"))
                     .collect()
                     .map { results in
                         //access 토큰과 refresh 토큰이 모두 정상적으로 저장된 경우 true 반환
@@ -54,9 +56,7 @@ final class LoginUseCaseImpl: LoginUseCase {
     }
     
     func deleteToken() -> AnyPublisher<Bool, any Error> {
-        return fetchTokenUseCase.executeTokenDelete(for: "accessToken")
-            .merge(with: fetchTokenUseCase.executeTokenDelete(for: "refreshToken"))
-            .collect()
+        return deleteTokenUseCase.execute()
             .flatMap { results -> AnyPublisher<Bool, any Error> in
                 if results.allSatisfy({ $0 == true }) {
                     UserDefaults.standard.set(false, forKey: "hasToken")    //토큰 저장 상태 업데이트

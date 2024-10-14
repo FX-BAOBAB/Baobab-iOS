@@ -168,7 +168,7 @@
 		8E7BC8D02C3E52BF00CB708F /* TokenKeyChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7BC8CF2C3E52BF00CB708F /* TokenKeyChain.swift */; };
 		8E7BC8D22C3E6AB500CB708F /* TokenRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7BC8D12C3E6AB500CB708F /* TokenRepositoryImpl.swift */; };
 		8E7BC8D42C3E6ACE00CB708F /* TokenRepositroy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7BC8D32C3E6ACE00CB708F /* TokenRepositroy.swift */; };
-		8E7BC8D62C3E6EEB00CB708F /* FetchTokenUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7BC8D52C3E6EEB00CB708F /* FetchTokenUseCase.swift */; };
+		8E7BC8D62C3E6EEB00CB708F /* ManageTokenUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7BC8D52C3E6EEB00CB708F /* ManageTokenUseCase.swift */; };
 		8E7BC8D92C3E730E00CB708F /* KeychainTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7BC8D82C3E730E00CB708F /* KeychainTest.swift */; };
 		8E7BC8DF2C3EB71000CB708F /* Login_Success_Response.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E7BC8DE2C3EB71000CB708F /* Login_Success_Response.json */; };
 		8E7BC8E02C3EB71000CB708F /* Login_Success_Response.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E7BC8DE2C3EB71000CB708F /* Login_Success_Response.json */; };
@@ -235,9 +235,6 @@
 		8E9DFFB52C9824BD00743275 /* FileDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9DFFB42C9824BD00743275 /* FileDataSource.swift */; };
 		8E9DFFB72C98275C00743275 /* DownloadImageUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9DFFB62C98275C00743275 /* DownloadImageUseCase.swift */; };
 		8EA152832C6997F80011FDB3 /* EmptyItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA152822C6997F80011FDB3 /* EmptyItemView.swift */; };
-		8EA152852C69E8470011FDB3 /* RemoteTokenRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA152842C69E8470011FDB3 /* RemoteTokenRepositoryImpl.swift */; };
-		8EA152872C69E86B0011FDB3 /* RemoteTokenRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA152862C69E86B0011FDB3 /* RemoteTokenRepository.swift */; };
-		8EA152892C69F4420011FDB3 /* UpdateTokenUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA152882C69F4420011FDB3 /* UpdateTokenUseCase.swift */; };
 		8EA1528B2C69F6F10011FDB3 /* FetchError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA1528A2C69F6F10011FDB3 /* FetchError.swift */; };
 		8EA437FC2C60474400DFD934 /* ReturnFormDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA437FB2C60474400DFD934 /* ReturnFormDetail.swift */; };
 		8EA438002C604F7700DFD934 /* NotificatioonList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA437FF2C604F7700DFD934 /* NotificatioonList.swift */; };
@@ -326,7 +323,6 @@
 		8EE198AE2C7FEB2B0000954C /* FileManager+Directory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE198AD2C7FEB2B0000954C /* FileManager+Directory.swift */; };
 		8EE66DE62C400C8A0087AD19 /* SignUpViewModel+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE66DE52C400C8A0087AD19 /* SignUpViewModel+Alert.swift */; };
 		8EE66DEA2C400D920087AD19 /* CustomProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE66DE92C400D920087AD19 /* CustomProgressView.swift */; };
-		8EE91FF62C7D651F0012D020 /* SetupInitialViewUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE91FF52C7D651F0012D020 /* SetupInitialViewUseCase.swift */; };
 		8EEF5EA82C85D4E2004E374F /* IntermediateScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEF5EA72C85D4E2004E374F /* IntermediateScanView.swift */; };
 		8EF66E782C72D08B00E6CEA2 /* ShippingApplicationResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF66E772C72D08B00E6CEA2 /* ShippingApplicationResponseDTO.swift */; };
 		8EF66E7A2C72D14900E6CEA2 /* ShippingApplicationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF66E792C72D14900E6CEA2 /* ShippingApplicationRepository.swift */; };
@@ -527,7 +523,7 @@
 		8E7BC8CF2C3E52BF00CB708F /* TokenKeyChain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenKeyChain.swift; sourceTree = "<group>"; };
 		8E7BC8D12C3E6AB500CB708F /* TokenRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenRepositoryImpl.swift; sourceTree = "<group>"; };
 		8E7BC8D32C3E6ACE00CB708F /* TokenRepositroy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenRepositroy.swift; sourceTree = "<group>"; };
-		8E7BC8D52C3E6EEB00CB708F /* FetchTokenUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchTokenUseCase.swift; sourceTree = "<group>"; };
+		8E7BC8D52C3E6EEB00CB708F /* ManageTokenUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageTokenUseCase.swift; sourceTree = "<group>"; };
 		8E7BC8D82C3E730E00CB708F /* KeychainTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainTest.swift; sourceTree = "<group>"; };
 		8E7BC8DE2C3EB71000CB708F /* Login_Success_Response.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Login_Success_Response.json; sourceTree = "<group>"; };
 		8E7BC8E12C3EB80200CB708F /* LoginSucessMockURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSucessMockURLProtocol.swift; sourceTree = "<group>"; };
@@ -594,9 +590,6 @@
 		8E9DFFB62C98275C00743275 /* DownloadImageUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadImageUseCase.swift; sourceTree = "<group>"; };
 		8E9FFD632C74D91C008C2029 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8EA152822C6997F80011FDB3 /* EmptyItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyItemView.swift; sourceTree = "<group>"; };
-		8EA152842C69E8470011FDB3 /* RemoteTokenRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteTokenRepositoryImpl.swift; sourceTree = "<group>"; };
-		8EA152862C69E86B0011FDB3 /* RemoteTokenRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteTokenRepository.swift; sourceTree = "<group>"; };
-		8EA152882C69F4420011FDB3 /* UpdateTokenUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateTokenUseCase.swift; sourceTree = "<group>"; };
 		8EA1528A2C69F6F10011FDB3 /* FetchError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchError.swift; sourceTree = "<group>"; };
 		8EA437FB2C60474400DFD934 /* ReturnFormDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnFormDetail.swift; sourceTree = "<group>"; };
 		8EA437FF2C604F7700DFD934 /* NotificatioonList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificatioonList.swift; sourceTree = "<group>"; };
@@ -685,7 +678,6 @@
 		8EE198AD2C7FEB2B0000954C /* FileManager+Directory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+Directory.swift"; sourceTree = "<group>"; };
 		8EE66DE52C400C8A0087AD19 /* SignUpViewModel+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SignUpViewModel+Alert.swift"; sourceTree = "<group>"; };
 		8EE66DE92C400D920087AD19 /* CustomProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProgressView.swift; sourceTree = "<group>"; };
-		8EE91FF52C7D651F0012D020 /* SetupInitialViewUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupInitialViewUseCase.swift; sourceTree = "<group>"; };
 		8EEF5EA72C85D4E2004E374F /* IntermediateScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntermediateScanView.swift; sourceTree = "<group>"; };
 		8EF66E772C72D08B00E6CEA2 /* ShippingApplicationResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingApplicationResponseDTO.swift; sourceTree = "<group>"; };
 		8EF66E792C72D14900E6CEA2 /* ShippingApplicationRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingApplicationRepository.swift; sourceTree = "<group>"; };
@@ -886,7 +878,7 @@
 				8EB0C2562C322B2E00FEE8D0 /* SignUpUseCase.swift */,
 				5C80F0EF2C06C3A000A94C22 /* ReceivingUseCase.swift */,
 				5C80F0ED2C06BF4500A94C22 /* FetchGeoCodeUseCase.swift */,
-				8E7BC8D52C3E6EEB00CB708F /* FetchTokenUseCase.swift */,
+				8E7BC8D52C3E6EEB00CB708F /* ManageTokenUseCase.swift */,
 				8E7BC8F12C3EC78600CB708F /* LoginUseCase.swift */,
 				8EAB81672C40BB770052AD48 /* FetchAddressUseCase.swift */,
 				8E8AF2E22C425DD100A1F0ED /* UploadFileUseCase.swift */,
@@ -899,11 +891,9 @@
 				8E7B6C322C51EAD400222721 /* FetchItemUseCase.swift */,
 				8E37D4642C570D6300F8048A /* FetchFormUseCase.swift */,
 				8E60A82A2C5A06EE007814E7 /* FetchProcessStatusUseCase.swift */,
-				8EA152882C69F4420011FDB3 /* UpdateTokenUseCase.swift */,
 				8E604DB82C6DEC2400D45CB1 /* ShippingUseCase.swift */,
 				8E83F7662C762F6700AD5F01 /* RegisterAsUsedItemUseCase.swift */,
 				8E49F7292C78438B006EC259 /* ConvertItemStatusUseCase.swift */,
-				8EE91FF52C7D651F0012D020 /* SetupInitialViewUseCase.swift */,
 				8E8371522C7E087100DC7C5A /* AddAddressUseCase.swift */,
 				8E18F62D2C86DD1000DBD9F3 /* FetchUsedItemUseCase.swift */,
 				8E8B61D12C8C1D900024B61C /* FetchSearchedUsedItemsUseCase.swift */,
@@ -931,7 +921,6 @@
 				8E7B6C2C2C51CF7A00222721 /* ItemRepository.swift */,
 				8E37D4662C570D8200F8048A /* FormRepository.swift */,
 				8E60A8302C5A166E007814E7 /* ProcessStatusRepository.swift */,
-				8EA152862C69E86B0011FDB3 /* RemoteTokenRepository.swift */,
 				8EF66E792C72D14900E6CEA2 /* ShippingApplicationRepository.swift */,
 				8E83F7622C762E7E00AD5F01 /* UsedItemRepository.swift */,
 				8E49F7252C784233006EC259 /* ItemStatusRepository.swift */,
@@ -996,7 +985,6 @@
 				8E7B6C302C51E61F00222721 /* ItemRepositoryImpl.swift */,
 				8E37D4682C570EFB00F8048A /* FormRepositoryImpl.swift */,
 				8E60A8322C5A16BE007814E7 /* ProcessStatusRepositoryImpl.swift */,
-				8EA152842C69E8470011FDB3 /* RemoteTokenRepositoryImpl.swift */,
 				8EF66E7B2C72D25300E6CEA2 /* ShippingApplicationRepositoryImpl.swift */,
 				8E83F7642C762EB500AD5F01 /* UsedItemRepositoryImpl.swift */,
 				8E49F7272C78425B006EC259 /* ItemStatusRepositoryImpl.swift */,
@@ -2004,7 +1992,7 @@
 				8EB878EE2C8AE52B00C9A334 /* UsedItemSearchViewModel.swift in Sources */,
 				8E569F502C75C782005B9BCB /* UsedItemRegistrationViewModel.swift in Sources */,
 				5C735F4C2BF1BAB200A36EC8 /* EstimatedPrice.swift in Sources */,
-				8E7BC8D62C3E6EEB00CB708F /* FetchTokenUseCase.swift in Sources */,
+				8E7BC8D62C3E6EEB00CB708F /* ManageTokenUseCase.swift in Sources */,
 				8EB0C2642C32457200FEE8D0 /* LoginViewModel.swift in Sources */,
 				8E7A9F1F2C5B4E8B00969F1A /* ShippingFormListRow.swift in Sources */,
 				8E60A8312C5A166E007814E7 /* ProcessStatusRepository.swift in Sources */,
@@ -2042,7 +2030,6 @@
 				5C80F0F52C06D86F00A94C22 /* UserRepository.swift in Sources */,
 				8ECCBB092C2E42C800DD0A1B /* EmailInputBox.swift in Sources */,
 				8EBF63322C79E9EE003D36D7 /* CancelButtonLabel.swift in Sources */,
-				8EA152892C69F4420011FDB3 /* UpdateTokenUseCase.swift in Sources */,
 				8E227BE82C43755200E007D0 /* MultipleFileUploadResponseDTO.swift in Sources */,
 				8E3F7C5E2C2A9A480087EB2A /* SimpleReceivingStatus.swift in Sources */,
 				8EB0C2572C322B2E00FEE8D0 /* SignUpUseCase.swift in Sources */,
@@ -2177,7 +2164,6 @@
 				8E227BEA2C43B8C000E007D0 /* TaskResult.swift in Sources */,
 				8E1685CD2C916AEE00284650 /* TransactionHistoryDetail.swift in Sources */,
 				8EF9FA762C71E7F30005840E /* ShippingApplicationViewModel+Address.swift in Sources */,
-				8EE91FF62C7D651F0012D020 /* SetupInitialViewUseCase.swift in Sources */,
 				8ECCBB032C2D2FB900DD0A1B /* KeyboardViewModel.swift in Sources */,
 				5C1B84D02BF2113200A99192 /* AppDI.swift in Sources */,
 				8E7B6C4A2C5231A500222721 /* UsedItemsViewModel.swift in Sources */,
@@ -2193,12 +2179,10 @@
 				8E37D4672C570D8200F8048A /* FormRepository.swift in Sources */,
 				8EAB81712C4107B50052AD48 /* AccessTokenRefreshResponseDTO.swift in Sources */,
 				8E8CD9F42C6F1CF60077D024 /* Reservable.swift in Sources */,
-				8EA152872C69E86B0011FDB3 /* RemoteTokenRepository.swift in Sources */,
 				8EBE5DE42C930419008EF291 /* TransactionTabView.swift in Sources */,
 				8E37D4632C570C7300F8048A /* ReceivingFormsViewModel.swift in Sources */,
 				8EBFCE482C5366A000A2AB4F /* StatusLabel.swift in Sources */,
 				5CCFBF6A2BF2E18200322D0D /* ImageRegistrationForm.swift in Sources */,
-				8EA152852C69E8470011FDB3 /* RemoteTokenRepositoryImpl.swift in Sources */,
 				8E28027D2CA3D06D00DB8A94 /* ImageRegistrationButton.swift in Sources */,
 				8EFC59112C892E8F00BE0561 /* DefectFullScreenView.swift in Sources */,
 				8EB0C2622C32456500FEE8D0 /* LoginForm.swift in Sources */,
