@@ -86,7 +86,7 @@ extension SignUpViewModel {
         ] as [String: Any]
         
         isProceccingEmailValidation.toggle()
-        usecase.checkEmailDuplication(params: params)
+        signUpUseCase.checkEmailDuplication(params: params)
             .sink(receiveCompletion: { completion in
                 switch completion {
                 case .finished:
@@ -120,7 +120,7 @@ extension SignUpViewModel {
         ] as [String: Any]
         
         isProcessingNickNameValidation.toggle()
-        usecase.checkNickNameDuplication(params: params)
+        signUpUseCase.checkNickNameDuplication(params: params)
             .sink(receiveCompletion: { completion in
                 switch completion {
                 case .finished:

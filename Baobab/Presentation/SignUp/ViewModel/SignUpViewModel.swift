@@ -33,10 +33,13 @@ final class SignUpViewModel: PostSearchable {
     var responseMessage: String = ""
     var signUpResult: Bool = false
     var alertType: AlertType?
-    let usecase: SignUpUseCase
+    let signUpUseCase: SignUpUseCase
+    let fetchGeoCodeUseCase: FetchGeoCodeUseCase
     
-    init(usecase: SignUpUseCase) {
-        self.usecase = usecase
+    init(signUpUseCase: SignUpUseCase,
+         fetchGeoCodeUseCase: FetchGeoCodeUseCase) {
+        self.signUpUseCase = signUpUseCase
+        self.fetchGeoCodeUseCase = fetchGeoCodeUseCase
         
         bind()
         calculateMapCoordinates()
@@ -64,7 +67,7 @@ final class SignUpViewModel: PostSearchable {
             ]
         ] as [String: Any]
         
-        usecase.execute(data: params)
+        signUpUseCase.execute(data: params)
             .sink(receiveCompletion: { completion in
                 switch completion {
                 case .finished:

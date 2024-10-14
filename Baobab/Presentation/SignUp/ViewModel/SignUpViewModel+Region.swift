@@ -17,7 +17,7 @@ extension SignUpViewModel {
                     return Empty<MKCoordinateRegion, Error>().eraseToAnyPublisher()
                 }
                 
-                return usecase.fetchGeoCode(of: address)
+                return fetchGeoCodeUseCase.execute(for: address)
             }
             .sink(receiveCompletion: { completion in
                 switch completion {
