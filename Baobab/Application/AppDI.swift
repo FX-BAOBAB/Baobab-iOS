@@ -68,11 +68,12 @@ struct AppDI {
         let checkNickNameDuplicationUseCase = CheckNickNameDuplicationUseCaseImpl(repository: repository)
         let fetchGeoCodeUseCase = FetchGeoCodeUseCaseImpl()
         let signUpUseCase = SignUpUseCaseImpl(repository: repository,
-                                              checkEmailDuplicationUseCase: checkEmailDuplicationUseCase,
                                               checkNickNameDuplicationUseCase: checkNickNameDuplicationUseCase)
         
         //Presentation Layer
-        let viewModel = SignUpViewModel(signUpUseCase: signUpUseCase, fetchGeoCodeUseCase: fetchGeoCodeUseCase)
+        let viewModel = SignUpViewModel(signUpUseCase: signUpUseCase,
+                                        fetchGeoCodeUseCase: fetchGeoCodeUseCase,
+                                        checkEmailDuplicationUseCase: checkEmailDuplicationUseCase)
         
         return viewModel
     }

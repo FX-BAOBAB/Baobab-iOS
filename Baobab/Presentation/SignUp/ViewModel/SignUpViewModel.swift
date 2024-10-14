@@ -35,11 +35,14 @@ final class SignUpViewModel: PostSearchable {
     var alertType: AlertType?
     let signUpUseCase: SignUpUseCase
     let fetchGeoCodeUseCase: FetchGeoCodeUseCase
+    let checkEmailDuplicationUseCase: CheckEmailDuplicationUseCase
     
     init(signUpUseCase: SignUpUseCase,
-         fetchGeoCodeUseCase: FetchGeoCodeUseCase) {
+         fetchGeoCodeUseCase: FetchGeoCodeUseCase,
+         checkEmailDuplicationUseCase: CheckEmailDuplicationUseCase) {
         self.signUpUseCase = signUpUseCase
         self.fetchGeoCodeUseCase = fetchGeoCodeUseCase
+        self.checkEmailDuplicationUseCase = checkEmailDuplicationUseCase
         
         bind()
         calculateMapCoordinates()
