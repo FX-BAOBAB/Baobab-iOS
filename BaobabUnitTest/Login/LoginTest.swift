@@ -12,26 +12,24 @@ import Foundation
 @testable import Baobab
 
 final class LoginTest: XCTestCase {
-    var dataSource: RemoteDataSource!
-    var tokenRepository: TokenRepositroy!
-    var remoteTokenRepository: RemoteTokenRepository!
-    var loginRepository: LoginRepository!
-    var fetchTokenUseCase: FetchTokenUseCase!
-    var updateAccessTokenUseCase: UpdateTokenUseCase!
-    var loginUseCase: LoginUseCase!
-    var cancellables: Set<AnyCancellable>!
+    private var dataSource: RemoteDataSource!
+    private var tokenRepository: TokenRepositroy!
+    private var loginRepository: LoginRepository!
+    private var saveTokenUseCase: SaveTokenUseCase!
+    private var deleteTokenUseCase: DeleteTokenUseCase!
+    private var loginUseCase: LoginUseCase!
+    private var cancellables: Set<AnyCancellable>!
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         
         dataSource = RemoteDataSourceImpl()
         loginRepository = LoginRepositoryImpl(dataSource: dataSource)
-        remoteTokenRepository = RemoteTokenRepositoryImpl(dataSource: dataSource)
         tokenRepository = TokenRepositoryImpl()
-        fetchTokenUseCase = FetchTokenUseCaseImpl(repository: tokenRepository)
-        updateAccessTokenUseCase = UpdateAccessTokenUseCaseImpl(repository: remoteTokenRepository)
-        loginUseCase = LoginUseCaseImpl(fetchTokenUseCase: fetchTokenUseCase,
-                                        updateAccessTokenUseCase: updateAccessTokenUseCase,
+        saveTokenUseCase = SaveTokenUseCaseImpl(repository: tokenRepository)
+        deleteTokenUseCase = DeleteTokenUseCaseImpl(repository: tokenRepository)
+        loginUseCase = LoginUseCaseImpl(saveTokenUseCase: saveTokenUseCase,
+                                        deleteTokenUseCase: deleteTokenUseCase,
                                         repository: loginRepository)
         cancellables = Set<AnyCancellable>()
     }
@@ -42,7 +40,8 @@ final class LoginTest: XCTestCase {
         dataSource = nil
         tokenRepository = nil
         loginRepository = nil
-        fetchTokenUseCase = nil
+        saveTokenUseCase = nil
+        deleteTokenUseCase = nil
         loginUseCase = nil
         cancellables = nil
     }

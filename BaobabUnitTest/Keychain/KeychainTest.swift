@@ -11,21 +11,28 @@ import Combine
 
 final class KeychainTest: XCTestCase {
     private var repository: TokenRepositroy!
-    private var usecase: FetchTokenUseCase!
+//    private var usecase: FetchTokenUseCase!
+    private var saveTokenUseCase: SaveTokenUseCase!
+    private var deleteTokenUseCase: DeleteTokenUseCase!
+    private var updateLocalTokenUseCase: UpdateLocalTokenUseCase!
+    private var fetchTokenUseCase: FetchTokenUseCase!
     private var cancellables: Set<AnyCancellable>!
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         
         repository = TokenRepositoryImpl()
-        usecase = FetchTokenUseCaseImpl(repository: repository)
+//        usecase = FetchTokenUseCaseImpl(repository: repository)
         cancellables = Set<AnyCancellable>()
     }
 
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         
-        usecase = nil
+        saveTokenUseCase = nil
+        deleteTokenUseCase = nil
+        updateLocalTokenUseCase = nil
+        fetchTokenUseCase = nil
         repository = nil
     }
     
@@ -36,7 +43,7 @@ final class KeychainTest: XCTestCase {
         let expectation = XCTestExpectation(description: "Performs a request")
         
         //When: Keychain에 암호화하여 저장
-        usecase.executeTokenSave(token: sampleAccessToken, for: account)
+        saveTokenUseCase.execute(token: sampleAccessToken, for: account)
             .sink(receiveValue: {
                 //Then: 성공 여부를 반환
                 XCTAssertTrue($0)
@@ -54,7 +61,7 @@ final class KeychainTest: XCTestCase {
         let expectation = XCTestExpectation(description: "Perfoms a request")
         
         //When: Keychain에서 토큰 값을 읽어옴
-        usecase.executeTokenRead(for: account)
+        fetchTokenUseCase.execute(for: account)
             .sink(receiveValue: {
                 //Then: 토큰 값을 반환함
                 XCTAssertEqual($0, "1234567890")
@@ -73,7 +80,7 @@ final class KeychainTest: XCTestCase {
         let expectation = XCTestExpectation(description: "Performs a request")
         
         //when: Keychain에 있는 토큰을 새로운 토큰으로 교체
-        usecase.executeTokenUpdate(token: newAccessToken, for: account)
+        updateLocalTokenUseCase.execute(token: newAccessToken, for: account)
             .sink(receiveValue: {
                 XCTAssertTrue($0)
                 
@@ -90,10 +97,10 @@ final class KeychainTest: XCTestCase {
         let expactation = XCTestExpectation(description: "Performs a request")
         
         //When: Keychain에서 토큰 값 삭제
-        usecase.executeTokenDelete(for: account)
-            .sink(receiveValue: {
+        deleteTokenUseCase.execute()
+            .sink(receiveValue: { result in
                 //Then: 성공 여부를 반환
-                XCTAssertTrue($0)
+                XCTAssertTrue(result.allSatisfy{$0 == true})
                 
                 expactation.fulfill()
             })
