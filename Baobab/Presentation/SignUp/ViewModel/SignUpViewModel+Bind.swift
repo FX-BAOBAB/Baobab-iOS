@@ -120,7 +120,7 @@ extension SignUpViewModel {
         ] as [String: Any]
         
         isProcessingNickNameValidation.toggle()
-        signUpUseCase.checkNickNameDuplication(params: params)
+        checkNickNameDuplicationUseCase.execute(params: params)
             .sink(receiveCompletion: { completion in
                 switch completion {
                 case .finished:
