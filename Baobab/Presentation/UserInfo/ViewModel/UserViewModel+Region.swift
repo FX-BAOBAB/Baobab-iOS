@@ -30,26 +30,5 @@ extension UserInfoViewModel {
                 self?.searchedAddressRegion = region
             })
             .store(in: &cancellables)
-        
-        $selectedAddress
-            .dropFirst(1)
-            .flatMap { [weak self] addressDetail -> AnyPublisher<MKCoordinateRegion, Error> in
-                guard let self, let addressDetail else {
-                    return Empty<MKCoordinateRegion, Error>().eraseToAnyPublisher()
-                }
-                
-                return fetchGeoCodeUseCase.execute(for: addressDetail.address)
-            }
-            .sink(receiveCompletion: { completion in
-                switch completion {
-                case .finished:
-                    print("The request to fetch the geocode has been completed")
-                case .failure(let error):
-                    print("ReceivingViewModel.calculateMapCoordinates() - ", error)
-                }
-            }, receiveValue: { [weak self] region in
-                self?.selectedAddressRegion = region
-            })
-            .store(in: &cancellables)
     }
 }

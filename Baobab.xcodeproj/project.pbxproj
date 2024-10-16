@@ -84,7 +84,6 @@
 		8E3F7C552C2A60880087EB2A /* ItemListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F7C542C2A60880087EB2A /* ItemListRow.swift */; };
 		8E3F7C572C2A7D330087EB2A /* DefaultItemImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F7C562C2A7D330087EB2A /* DefaultItemImage.swift */; };
 		8E3F7C592C2A81450087EB2A /* PaymentDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F7C582C2A81450087EB2A /* PaymentDetail.swift */; };
-		8E3F7C5C2C2A98F20087EB2A /* ReceiptCompletionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F7C5B2C2A98F20087EB2A /* ReceiptCompletionView.swift */; };
 		8E3F7C5E2C2A9A480087EB2A /* SimpleReceivingStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F7C5D2C2A9A480087EB2A /* SimpleReceivingStatus.swift */; };
 		8E3F7C602C2A9ABD0087EB2A /* StatusPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F7C5F2C2A9ABD0087EB2A /* StatusPoint.swift */; };
 		8E449F072C4BA24000291277 /* RemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E449F062C4BA24000291277 /* RemoteDataSource.swift */; };
@@ -456,7 +455,6 @@
 		8E3F7C542C2A60880087EB2A /* ItemListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListRow.swift; sourceTree = "<group>"; };
 		8E3F7C562C2A7D330087EB2A /* DefaultItemImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultItemImage.swift; sourceTree = "<group>"; };
 		8E3F7C582C2A81450087EB2A /* PaymentDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentDetail.swift; sourceTree = "<group>"; };
-		8E3F7C5B2C2A98F20087EB2A /* ReceiptCompletionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptCompletionView.swift; sourceTree = "<group>"; };
 		8E3F7C5D2C2A9A480087EB2A /* SimpleReceivingStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleReceivingStatus.swift; sourceTree = "<group>"; };
 		8E3F7C5F2C2A9ABD0087EB2A /* StatusPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusPoint.swift; sourceTree = "<group>"; };
 		8E449F062C4BA24000291277 /* RemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDataSource.swift; sourceTree = "<group>"; };
@@ -1180,7 +1178,6 @@
 		8E3F7C5A2C2A98980087EB2A /* ReceiptCompletion */ = {
 			isa = PBXGroup;
 			children = (
-				8E3F7C5B2C2A98F20087EB2A /* ReceiptCompletionView.swift */,
 				8E8FEF842C6340A90024F65F /* SimpleReceiptCompletionView.swift */,
 				8E3F7C5D2C2A9A480087EB2A /* SimpleReceivingStatus.swift */,
 				8E3F7C5F2C2A9ABD0087EB2A /* StatusPoint.swift */,
@@ -2269,7 +2266,6 @@
 				5C994A542BF592E60013672B /* SelectedDefectImage.swift in Sources */,
 				5C80F0F02C06C3A000A94C22 /* ReceivingUseCase.swift in Sources */,
 				8E64D8532C914ED70043F3C6 /* FetchTransactionHistoryUseCase.swift in Sources */,
-				8E3F7C5C2C2A98F20087EB2A /* ReceiptCompletionView.swift in Sources */,
 				8E6F6F812C6B9D8F008703C7 /* NoFormDataView.swift in Sources */,
 				8E449F0D2C4BAB3700291277 /* DuplicationCheckDTO.swift in Sources */,
 				8E8B61CA2C8BE4810024B61C /* BuyUsedItemUseCase.swift in Sources */,
