@@ -220,6 +220,9 @@
 		8E8E16722C88141400921B96 /* UsedItemDetailResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8E16712C88141400921B96 /* UsedItemDetailResponseDTO.swift */; };
 		8E8E16742C88146000921B96 /* UsedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8E16732C88146000921B96 /* UsedItem.swift */; };
 		8E8E16762C8830E700921B96 /* UsedItemDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8E16752C8830E700921B96 /* UsedItemDetail.swift */; };
+		8E8E64482CBF4CD20041C02D /* AddressListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8E64472CBF4CD20041C02D /* AddressListViewModel.swift */; };
+		8E8E644A2CBF4D8F0041C02D /* UnselectableAddressList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8E64492CBF4D8F0041C02D /* UnselectableAddressList.swift */; };
+		8E8E644C2CBF4E750041C02D /* UnselectableAddressListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8E644B2CBF4E750041C02D /* UnselectableAddressListRow.swift */; };
 		8E8FEF852C6340A90024F65F /* SimpleReceiptCompletionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8FEF842C6340A90024F65F /* SimpleReceiptCompletionView.swift */; };
 		8E90635E2C293775008B5C52 /* CameraLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E90635D2C293775008B5C52 /* CameraLabel.swift */; };
 		8E9063612C29464A008B5C52 /* UIImage+Downscale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9063602C29464A008B5C52 /* UIImage+Downscale.swift */; };
@@ -585,6 +588,9 @@
 		8E8E16712C88141400921B96 /* UsedItemDetailResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsedItemDetailResponseDTO.swift; sourceTree = "<group>"; };
 		8E8E16732C88146000921B96 /* UsedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsedItem.swift; sourceTree = "<group>"; };
 		8E8E16752C8830E700921B96 /* UsedItemDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsedItemDetail.swift; sourceTree = "<group>"; };
+		8E8E64472CBF4CD20041C02D /* AddressListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressListViewModel.swift; sourceTree = "<group>"; };
+		8E8E64492CBF4D8F0041C02D /* UnselectableAddressList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnselectableAddressList.swift; sourceTree = "<group>"; };
+		8E8E644B2CBF4E750041C02D /* UnselectableAddressListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnselectableAddressListRow.swift; sourceTree = "<group>"; };
 		8E8FEF842C6340A90024F65F /* SimpleReceiptCompletionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleReceiptCompletionView.swift; sourceTree = "<group>"; };
 		8E90635D2C293775008B5C52 /* CameraLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraLabel.swift; sourceTree = "<group>"; };
 		8E9063602C29464A008B5C52 /* UIImage+Downscale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Downscale.swift"; sourceTree = "<group>"; };
@@ -815,6 +821,7 @@
 		5C426BF62BEDBD1B00869F6D /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				8E8E64442CBF4CAD0041C02D /* AddressList */,
 				8EF49E7D2CB7669900414428 /* Chat */,
 				8EC135CC2C8E831000F9DD3F /* UserTransaction */,
 				8E569F4A2C75B343005B9BCB /* UsedConversion */,
@@ -1335,6 +1342,32 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		8E8E64442CBF4CAD0041C02D /* AddressList */ = {
+			isa = PBXGroup;
+			children = (
+				8E8E64462CBF4CBB0041C02D /* ViewModel */,
+				8E8E64452CBF4CB70041C02D /* View */,
+			);
+			path = AddressList;
+			sourceTree = "<group>";
+		};
+		8E8E64452CBF4CB70041C02D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8E8E64492CBF4D8F0041C02D /* UnselectableAddressList.swift */,
+				8E8E644B2CBF4E750041C02D /* UnselectableAddressListRow.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8E8E64462CBF4CBB0041C02D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				8E8E64472CBF4CD20041C02D /* AddressListViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		8E9772172C3CEF530082DCAF /* BaobabUnitTest */ = {
 			isa = PBXGroup;
 			children = (
@@ -1699,14 +1732,12 @@
 		8EF4458D2CB8ECD2008FC7BB /* User */ = {
 			isa = PBXGroup;
 			children = (
-				8EE91FF52C7D651F0012D020 /* SetupInitialViewUseCase.swift */,
 				5C80F0ED2C06BF4500A94C22 /* FetchGeoCodeUseCase.swift */,
 				8E8371522C7E087100DC7C5A /* AddAddressUseCase.swift */,
-				8EA152882C69F4420011FDB3 /* UpdateTokenUseCase.swift */,
 				8E449F0E2C4BEEC700291277 /* CheckNickNameDuplicationUseCase.swift */,
 				8E449F082C4BA87A00291277 /* CheckEmailDuplicationUseCase.swift */,
 				8EAB81672C40BB770052AD48 /* FetchAddressUseCase.swift */,
-				8E7BC8D52C3E6EEB00CB708F /* FetchTokenUseCase.swift */,
+				8E7BC8D52C3E6EEB00CB708F /* ManageTokenUseCase.swift */,
 				8E7BC8F12C3EC78600CB708F /* LoginUseCase.swift */,
 				8EB0C2562C322B2E00FEE8D0 /* SignUpUseCase.swift */,
 				8E8D13512C4E44700032FC96 /* FetchUserInfoUseCase.swift */,
@@ -2047,6 +2078,7 @@
 				8EFC59152C89580500BE0561 /* UsedItemSkeletonList.swift in Sources */,
 				8ECB03A32C4FDF520051935C /* SettingView.swift in Sources */,
 				8EC135E02C8E8CF200F9DD3F /* FetchUsedItemDetailUseCase.swift in Sources */,
+				8E8E644C2CBF4E750041C02D /* UnselectableAddressListRow.swift in Sources */,
 				8E8CCC4E2C6C3AF900D2DF72 /* ShippingFormList.swift in Sources */,
 				8E9DFFB72C98275C00743275 /* DownloadImageUseCase.swift in Sources */,
 				5C735F442BF1A35B00A36EC8 /* CategoryData.swift in Sources */,
@@ -2252,6 +2284,7 @@
 				5C735F4A2BF1B44500A36EC8 /* ItemInformationForm.swift in Sources */,
 				8EAB81752C4120F70052AD48 /* RequestError.swift in Sources */,
 				5C41ED932C080877001416D9 /* ReceivingViewModel+Address.swift in Sources */,
+				8E8E64482CBF4CD20041C02D /* AddressListViewModel.swift in Sources */,
 				5C4ACABE2BEE1F1900195895 /* PlusButtonImage.swift in Sources */,
 				8EA438042C60517800DFD934 /* UsedItemList.swift in Sources */,
 				8EBED9992C76C50C00ADB5BB /* StoredItemDetailView.swift in Sources */,
@@ -2277,9 +2310,9 @@
 				8E8CD9F42C6F1CF60077D024 /* Reservable.swift in Sources */,
 				8EBE5DE42C930419008EF291 /* TransactionTabView.swift in Sources */,
 				8E37D4632C570C7300F8048A /* ReceivingFormsViewModel.swift in Sources */,
+				8E8E644A2CBF4D8F0041C02D /* UnselectableAddressList.swift in Sources */,
 				8EBFCE482C5366A000A2AB4F /* StatusLabel.swift in Sources */,
 				5CCFBF6A2BF2E18200322D0D /* ImageRegistrationForm.swift in Sources */,
-				8EA152852C69E8470011FDB3 /* RemoteTokenRepositoryImpl.swift in Sources */,
 				8EF4458C2CB8E597008FC7BB /* MessageBubble.swift in Sources */,
 				8E28027D2CA3D06D00DB8A94 /* ImageRegistrationButton.swift in Sources */,
 				8EFC59112C892E8F00BE0561 /* DefectFullScreenView.swift in Sources */,

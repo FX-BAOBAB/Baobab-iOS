@@ -464,4 +464,17 @@ struct AppDI {
         
         return viewModel
     }
+    
+    func makeAddressListViewModel() -> AddressListViewModel {
+        //Data Layer
+        let repository = UserRepositoryImpl(dataSource: remoteDataSource)
+        
+        //Domain Layer
+        let usecase = FetchAddressUseCaseImpl(repository: repository)
+        
+        //Presentation Layer
+        let viewModel = AddressListViewModel(usecase: usecase)
+        
+        return viewModel
+    }
 }
