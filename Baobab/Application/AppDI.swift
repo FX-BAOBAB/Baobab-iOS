@@ -80,7 +80,7 @@ struct AppDI {
     
     func makeLoginViewModel() -> LoginViewModel {
         //Data Layer
-        let loginRepository = LoginRepositoryImpl(dataSource: dataSource)
+        let loginRepository = LoginRepositoryImpl(dataSource: remoteDataSource)
         let localTokenRepository = TokenRepositoryImpl()
         
         //Domain Layer
@@ -136,12 +136,12 @@ struct AppDI {
         //Domain Layer
         let fetchAddressUseCase = FetchAddressUseCaseImpl(repository: repository)
         let fetchGeoCodeUseCase = FetchGeoCodeUseCaseImpl()
-        let addAddressUseCase = AddAddressUseCaseImpl(fetchAddressUseCase: fetchAddressUseCase, 
-                                                      fetchGeoCodeUseCase: fetchGeoCodeUseCase,
-                                                      repository: repository)
+        let addAddressUseCase = AddAddressUseCaseImpl(repository: repository)
 
         //Presentation Layer
-        let viewModel = UserInfoViewModel(usecase: addAddressUseCase)
+        let viewModel = UserInfoViewModel(addAddressUseCase: addAddressUseCase,
+                                          fetchAddressUseCase: fetchAddressUseCase,
+                                          fetchGeoCodeUseCase: fetchGeoCodeUseCase)
         
         return viewModel
     }

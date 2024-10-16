@@ -18,11 +18,17 @@ final class UserInfoViewModel: PostSearchable {
     @Published var registeredAddresses: [Address] = []
     @Published var isProgress: Bool = false
     
-    let usecase: AddAddressUseCase
+    private let addAddressUseCase: AddAddressUseCase
+    private let fetchAddressUseCase: FetchAddressUseCase
+    let fetchGeoCodeUseCase: FetchGeoCodeUseCase
     var cancellables = Set<AnyCancellable>()
     
-    init(usecase: AddAddressUseCase) {
-        self.usecase = usecase
+    init(addAddressUseCase: AddAddressUseCase,
+         fetchAddressUseCase: FetchAddressUseCase,
+         fetchGeoCodeUseCase: FetchGeoCodeUseCase) {
+        self.addAddressUseCase = addAddressUseCase
+        self.fetchAddressUseCase = fetchAddressUseCase
+        self.fetchGeoCodeUseCase = fetchGeoCodeUseCase
         
         calculateMapCoordinates()
     }
@@ -30,7 +36,7 @@ final class UserInfoViewModel: PostSearchable {
     func fetchDefaultAddress() {
         isProgress.toggle()
         
-        usecase.fetchDefaultAddress()
+        fetchAddressUseCase.executeForDefaultAddress()
             .sink(receiveCompletion: { [weak self] completion in
                 self?.isProgress.toggle()
                 
@@ -47,7 +53,7 @@ final class UserInfoViewModel: PostSearchable {
     }
     
     func fetchAddresses() {
-        usecase.fetchAddresses()
+        fetchAddressUseCase.executeForAddresses()
             .sink(receiveCompletion: { completion in
                 switch completion {
                 case .finished:
@@ -84,7 +90,7 @@ final class UserInfoViewModel: PostSearchable {
             ]
         ]
         
-        usecase.execute(params: params)
+        addAddressUseCase.execute(params: params)
             .sink(receiveCompletion: { completion in
                 switch completion {
                 case .finished:

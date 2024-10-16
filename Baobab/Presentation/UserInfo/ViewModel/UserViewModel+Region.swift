@@ -17,12 +17,12 @@ extension UserInfoViewModel {
                     return Empty<MKCoordinateRegion, Error>().eraseToAnyPublisher()
                 }
                 
-                return usecase.fetchGeoCode(of: address)
+                return fetchGeoCodeUseCase.execute(for: address)
             }
             .sink(receiveCompletion: { completion in
                 switch completion {
                 case .finished:
-                    print("The request to fetch the geocode is finished")
+                    print("The request to fetch the geocode has been completed")
                 case .failure(let error):
                     print("ReceivingViewModel.calculateMapCoordinates() - ", error)
                 }
@@ -38,12 +38,12 @@ extension UserInfoViewModel {
                     return Empty<MKCoordinateRegion, Error>().eraseToAnyPublisher()
                 }
                 
-                return usecase.fetchGeoCode(of: addressDetail.address)
+                return fetchGeoCodeUseCase.execute(for: addressDetail.address)
             }
             .sink(receiveCompletion: { completion in
                 switch completion {
                 case .finished:
-                    print("The request to fetch the geocode is finished")
+                    print("The request to fetch the geocode has been completed")
                 case .failure(let error):
                     print("ReceivingViewModel.calculateMapCoordinates() - ", error)
                 }
