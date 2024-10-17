@@ -1,14 +1,27 @@
 //
-//  UserViewModel+Region.swift
+//  AddressSearchViewModel.swift
 //  Baobab
 //
-//  Created by 이정훈 on 8/27/24.
+//  Created by 이정훈 on 10/16/24.
 //
 
-import MapKit
 import Combine
+import MapKit
 
-extension UserInfoViewModel {
+final class AddressSearchViewModel: PostSearchable {
+    @Published var searchedAddress: String = ""
+    @Published var selectedAddress: Address?
+    @Published var searchedAddressRegion: MKCoordinateRegion?
+    @Published var searchedPostCode: String = ""
+    @Published var detailedAddressInput: String = ""
+    
+    private let fetchGeoCodeUseCase: FetchGeoCodeUseCase
+    private var cancellables: Set<AnyCancellable> = []
+    
+    init(fetchGeoCodeUseCase: FetchGeoCodeUseCase) {
+        self.fetchGeoCodeUseCase = fetchGeoCodeUseCase
+    }
+    
     func calculateMapCoordinates() {
         $searchedAddress
             .dropFirst(1)

@@ -34,8 +34,12 @@ struct SignUpPostCodeSearchForm: View {
             }
         }
         .navigationDestination(isPresented: $isShowingDetailAddressForm) {
-            DetailAddressMap<SignUpViewModel>(isShowingAddressList: .constant(true), isShowingPostSearchForm: $isShowingPostCodeSearchForm) {
-                viewModel.registerAsSelectedAddress()
+            DetailAddressMap<SignUpViewModel>(isShowingAddressList: .constant(true), isShowingPostSearchForm: $isShowingPostCodeSearchForm) { address in
+                guard let address else {
+                    return
+                }
+                
+                viewModel.registerAsSelectedAddress(address: address)
             }
             .environmentObject(viewModel)
         }

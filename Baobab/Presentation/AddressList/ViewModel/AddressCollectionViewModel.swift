@@ -1,5 +1,5 @@
 //
-//  AddressListViewModel.swift
+//  AddressCollectionViewModel.swift
 //  Baobab
 //
 //  Created by 이정훈 on 10/16/24.
@@ -7,7 +7,7 @@
 
 import Combine
 
-final class AddressListViewModel: ObservableObject {
+final class AddressCollectionViewModel: ObservableObject {
     @Published var defaultAddress: Address?
     @Published var registeredAddresses: [Address] = []
     

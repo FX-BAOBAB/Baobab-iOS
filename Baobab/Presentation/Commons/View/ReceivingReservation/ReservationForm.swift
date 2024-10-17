@@ -82,13 +82,19 @@ struct ReservationForm<T: PostSearchable, V: View>: View where T: Reservable {
             
             viewModel.fetchDefaultAddress()    //기본 주소 요청
         }
-        .sheet(isPresented: $isShowingAddressList) {
-            AddressList<T>(isShowingAddressList: $isShowingAddressList, toggleVisible: true) {
-                viewModel.registerAsSelectedAddress()
-                isShowingAddressList.toggle()
+        .sheet(isPresented: $isShowingAddressList) {            
+            NavigationStack {
+                AddressCollectionView(viewModel: AppDI.shared.makeAddressCollectionViewModel(), isShowingAddressList: $isShowingAddressList) { address in
+                    
+                    guard let address else {
+                        return
+                    }
+                    
+                    viewModel.registerAsSelectedAddress(address: address)
+                    isShowingAddressList.toggle()
+                }
+                .presentationDragIndicator(.visible)
             }
-            .environmentObject(viewModel)
-            .presentationDragIndicator(.visible)
         }
         .navigationBarBackButtonHidden()
         .toolbar {

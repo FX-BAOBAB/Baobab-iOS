@@ -13,7 +13,7 @@ struct DetailAddressMap<T: PostSearchable>: View {
     @Binding var isShowingAddressList: Bool
     @Binding var isShowingPostSearchForm: Bool
     
-    let completionHandler: () -> ()
+    let completionHandler: (Address?) -> ()
 
     var body: some View {
         if let region = viewModel.searchedAddressRegion {
@@ -52,7 +52,7 @@ struct DetailAddressMap<T: PostSearchable>: View {
 
 #Preview {
     NavigationStack {
-        DetailAddressMap<ReceivingViewModel>(isShowingAddressList: .constant(false), isShowingPostSearchForm: .constant(false)) {
+        DetailAddressMap<ReceivingViewModel>(isShowingAddressList: .constant(false), isShowingPostSearchForm: .constant(false)) { _ in
             //Something Todo
         }
         .environmentObject(AppDI.shared.makeReceivingViewModel())

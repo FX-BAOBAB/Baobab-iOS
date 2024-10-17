@@ -90,11 +90,11 @@ struct UserInfoView: View {
                         }
                         
                         VStack(alignment: .leading) {
-                            Text(viewModel.selectedAddress?.post ?? "")
+                            Text(viewModel.defaultAddress?.post ?? "")
                             
-                            Text(viewModel.selectedAddress?.address ?? "")
+                            Text(viewModel.defaultAddress?.address ?? "")
                             
-                            Text(viewModel.selectedAddress?.detailAddress ?? "")
+                            Text(viewModel.defaultAddress?.detailAddress ?? "")
                         }
                         .font(.subheadline)
                     }
@@ -107,7 +107,7 @@ struct UserInfoView: View {
             .navigationTitle("내 정보")
             .navigationBarTitleDisplayMode(.inline)
             .onAppear {
-                if viewModel.selectedAddress == nil {
+                if viewModel.defaultAddress == nil {
                     viewModel.fetchDefaultAddress()
                 }
             }
@@ -122,12 +122,16 @@ struct UserInfoView: View {
                 }
             }
             .sheet(isPresented: $isShowingAddressList) {
-                AddressList<UserInfoViewModel>(isShowingAddressList: $isShowingAddressList, toggleVisible: false) {
-                    //TODO: 새로운 방문지로 등록
-                    viewModel.addNewAddress()
+                NavigationStack {
+                    AddressCollectionView(viewModel: AppDI.shared.makeAddressCollectionViewModel(), isShowingAddressList: $isShowingAddressList) { address in
+                        guard let address else {
+                            return
+                        }
+                        
+                        viewModel.addNewAddress(address: address)
+                    }
+                    .presentationDragIndicator(.visible)
                 }
-                .environmentObject(viewModel)
-                .presentationDragIndicator(.visible)
             }
         }
     }

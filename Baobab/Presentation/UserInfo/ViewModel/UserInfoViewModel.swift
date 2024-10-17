@@ -8,14 +8,9 @@
 import MapKit
 import Combine
 
-final class UserInfoViewModel: PostSearchable {
+final class UserInfoViewModel: ObservableObject {
     @Published var searchedAddress: String = ""
-    @Published var selectedAddress: Address?
-    @Published var searchedAddressRegion: MKCoordinateRegion?
-    @Published var searchedPostCode: String = ""
-    @Published var detailedAddressInput: String = ""
     @Published var defaultAddress: Address?
-    @Published var registeredAddresses: [Address] = []
     @Published var isProgress: Bool = false
     
     private let addAddressUseCase: AddAddressUseCase
@@ -29,8 +24,6 @@ final class UserInfoViewModel: PostSearchable {
         self.addAddressUseCase = addAddressUseCase
         self.fetchAddressUseCase = fetchAddressUseCase
         self.fetchGeoCodeUseCase = fetchGeoCodeUseCase
-        
-        calculateMapCoordinates()
     }
     
     func fetchDefaultAddress() {
@@ -47,35 +40,12 @@ final class UserInfoViewModel: PostSearchable {
                     print("UserInfoViewModel.fetchDefaultAddress() error :", error)
                 }
             }, receiveValue: { [weak self] in
-                self?.selectedAddress = $0
+                self?.defaultAddress = $0
             })
             .store(in: &cancellables)
     }
     
-    func fetchAddresses() {
-        fetchAddressUseCase.executeForAddresses()
-            .sink(receiveCompletion: { completion in
-                switch completion {
-                case .finished:
-                    print("The request to fetch addresses has been completed")
-                case .failure(let error):
-                    print("UserInfoViewModel.fetchAddresses() error :", error)
-                }
-            }, receiveValue: { [weak self] addresses in
-                self?.registeredAddresses = []
-                
-                addresses.forEach {
-                    if $0.isBasicAddress {
-                        self?.defaultAddress = $0
-                    } else {
-                        self?.registeredAddresses.append($0)
-                    }
-                }
-            })
-            .store(in: &cancellables)
-    }
-    
-    func addNewAddress() {
+    func addNewAddress(address: Address) {
         let params = [
             "result": [
                 "resultCode": 0,
@@ -83,9 +53,9 @@ final class UserInfoViewModel: PostSearchable {
                 "resultDescription": "string"
             ],
             "body": [
-                "address": searchedAddress,
-                "detailAddress": detailedAddressInput,
-                "post": searchedPostCode,
+                "address": address.address,
+                "detailAddress": address.detailAddress,
+                "post": address.post,
                 "basicAddress": false
             ]
         ]
@@ -98,11 +68,7 @@ final class UserInfoViewModel: PostSearchable {
                 case .failure(let error):
                     print("UserInfoViewModel.addNewAddress() error :", error)
                 }
-            }, receiveValue: { [weak self] in
-                if $0 {
-                    self?.fetchAddresses()
-                }
-            })
+            }, receiveValue: { _ in })
             .store(in: &cancellables)
     }
 }

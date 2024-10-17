@@ -465,7 +465,7 @@ struct AppDI {
         return viewModel
     }
     
-    func makeAddressListViewModel() -> AddressListViewModel {
+    func makeAddressCollectionViewModel() -> AddressCollectionViewModel {
         //Data Layer
         let repository = UserRepositoryImpl(dataSource: remoteDataSource)
         
@@ -473,7 +473,20 @@ struct AppDI {
         let usecase = FetchAddressUseCaseImpl(repository: repository)
         
         //Presentation Layer
-        let viewModel = AddressListViewModel(usecase: usecase)
+        let viewModel = AddressCollectionViewModel(usecase: usecase)
+        
+        return viewModel
+    }
+    
+    func makeAddressSearchViewModel() -> AddressSearchViewModel {
+        //Data Layer
+        let repository = UserRepositoryImpl(dataSource: remoteDataSource)
+        
+        //Domain Layer
+        let fetchGeoCodeUseCase = FetchGeoCodeUseCaseImpl()
+        
+        //Presentation Layer
+        let viewModel = AddressSearchViewModel(fetchGeoCodeUseCase: fetchGeoCodeUseCase)
         
         return viewModel
     }

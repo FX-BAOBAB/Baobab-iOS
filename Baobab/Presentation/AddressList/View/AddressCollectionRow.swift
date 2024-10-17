@@ -1,17 +1,14 @@
 //
-//  AddressListRow.swift
+//  AddressCollectionRow.swift
 //  Baobab
 //
-//  Created by 이정훈 on 5/27/24.
+//  Created by 이정훈 on 10/16/24.
 //
 
 import SwiftUI
 
-struct AddressListRow<T: PostSearchable>: View {
-    @EnvironmentObject private var viewModel: T
-    
+struct AddressCollectionRow: View {
     let address: Address?
-    let toggleVisible: Bool
     
     var body: some View {
         HStack(spacing: 20) {
@@ -45,21 +42,6 @@ struct AddressListRow<T: PostSearchable>: View {
             .font(.footnote)
             
             Spacer()
-            
-            if toggleVisible {
-                if viewModel.selectedAddress?.id == address?.id {
-                    CheckMark()
-                        .skeleton(with: address == nil,
-                                  size: CGSize(width: 20, height: 20),
-                                  shape: .circle)
-                } else {
-                    Button(action: {
-                        viewModel.selectedAddress = address
-                    }, label: {
-                        EmptyCircle()
-                    })
-                }
-            }
         }
         .padding()
         .overlay {
@@ -70,10 +52,6 @@ struct AddressListRow<T: PostSearchable>: View {
     }
 }
 
-#if DEBUG
 #Preview {
-    AddressListRow<ReceivingViewModel>(address: Address.sampleAddressList.first!, 
-                                       toggleVisible: true)
-        .environmentObject(AppDI.shared.makeReceivingViewModel())
+    AddressCollectionRow(address: Address.sampleAddressList.first!)
 }
-#endif

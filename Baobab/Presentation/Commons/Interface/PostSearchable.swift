@@ -44,10 +44,14 @@ extension PostSearchable {
     
     //MARK: - 프로토콜을 준수해야하는 모든 클래스에서 구현해야 할 요구사항 구현
     func registerAsSelectedAddress() {
-        self.selectedAddress?.id = UUID().hashValue    //임시 난수
-        self.selectedAddress?.address = self.searchedAddress
-        self.selectedAddress?.detailAddress = self.detailedAddressInput
-        self.selectedAddress?.post = self.searchedPostCode
-        self.selectedAddress?.isBasicAddress = false
+        selectedAddress = Address(id: UUID().hashValue,
+                                  address: self.searchedAddress,
+                                  detailAddress: self.detailedAddressInput,
+                                  post: self.searchedPostCode,
+                                  isBasicAddress: false)
+    }
+    
+    func registerAsSelectedAddress(address: Address) {
+        selectedAddress = address
     }
 }
