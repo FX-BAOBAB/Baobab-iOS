@@ -25,7 +25,6 @@
 		5C4ACAC02BEE1FDB00195895 /* MinusButtonImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C4ACABF2BEE1FDB00195895 /* MinusButtonImage.swift */; };
 		5C4ACAC22BEE41A300195895 /* CategoryPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C4ACAC12BEE41A300195895 /* CategoryPicker.swift */; };
 		5C4F18132C05568A0030A096 /* EmptyCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C4F18122C05568A0030A096 /* EmptyCircle.swift */; };
-		5C4F18172C0574CF0030A096 /* ReceivingViewModel+Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C4F18162C0574CF0030A096 /* ReceivingViewModel+Region.swift */; };
 		5C4F18192C05B86D0030A096 /* DetailAddressForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C4F18182C05B86D0030A096 /* DetailAddressForm.swift */; };
 		5C4F181D2C05D1F10030A096 /* AnnotationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C4F181C2C05D1F10030A096 /* AnnotationItem.swift */; };
 		5C735F412BF1A10200A36EC8 /* CategoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C735F402BF1A10200A36EC8 /* CategoryList.swift */; };
@@ -342,7 +341,6 @@
 		8EF66E7E2C72E10600E6CEA2 /* ShippingApplicationCompletionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF66E7D2C72E10600E6CEA2 /* ShippingApplicationCompletionView.swift */; };
 		8EF709072C7464730002E99B /* ShippingProcessStatusResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF709062C7464730002E99B /* ShippingProcessStatusResponseDTO.swift */; };
 		8EF9FA762C71E7F30005840E /* ShippingApplicationViewModel+Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF9FA752C71E7F30005840E /* ShippingApplicationViewModel+Address.swift */; };
-		8EF9FA782C71E82A0005840E /* ShippingApplicationViewModel+Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF9FA772C71E82A0005840E /* ShippingApplicationViewModel+Region.swift */; };
 		8EF9FA7A2C71E9380005840E /* ShippingApplicationViewModel+Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF9FA792C71E9380005840E /* ShippingApplicationViewModel+Items.swift */; };
 		8EFC59112C892E8F00BE0561 /* DefectFullScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFC59102C892E8F00BE0561 /* DefectFullScreenView.swift */; };
 		8EFC59132C894EF400BE0561 /* UsedItemsResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFC59122C894EF400BE0561 /* UsedItemsResponseDTO.swift */; };
@@ -392,7 +390,6 @@
 		5C4ACABF2BEE1FDB00195895 /* MinusButtonImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinusButtonImage.swift; sourceTree = "<group>"; };
 		5C4ACAC12BEE41A300195895 /* CategoryPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryPicker.swift; sourceTree = "<group>"; };
 		5C4F18122C05568A0030A096 /* EmptyCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCircle.swift; sourceTree = "<group>"; };
-		5C4F18162C0574CF0030A096 /* ReceivingViewModel+Region.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReceivingViewModel+Region.swift"; sourceTree = "<group>"; };
 		5C4F18182C05B86D0030A096 /* DetailAddressForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailAddressForm.swift; sourceTree = "<group>"; };
 		5C4F181C2C05D1F10030A096 /* AnnotationItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationItem.swift; sourceTree = "<group>"; };
 		5C735F402BF1A10200A36EC8 /* CategoryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryList.swift; sourceTree = "<group>"; };
@@ -710,7 +707,6 @@
 		8EF709062C7464730002E99B /* ShippingProcessStatusResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingProcessStatusResponseDTO.swift; sourceTree = "<group>"; };
 		8EF709092C7472840002E99B /* ci_post_clone.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = ci_post_clone.sh; sourceTree = "<group>"; };
 		8EF9FA752C71E7F30005840E /* ShippingApplicationViewModel+Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ShippingApplicationViewModel+Address.swift"; sourceTree = "<group>"; };
-		8EF9FA772C71E82A0005840E /* ShippingApplicationViewModel+Region.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ShippingApplicationViewModel+Region.swift"; sourceTree = "<group>"; };
 		8EF9FA792C71E9380005840E /* ShippingApplicationViewModel+Items.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ShippingApplicationViewModel+Items.swift"; sourceTree = "<group>"; };
 		8EFC59102C892E8F00BE0561 /* DefectFullScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefectFullScreenView.swift; sourceTree = "<group>"; };
 		8EFC59122C894EF400BE0561 /* UsedItemsResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsedItemsResponseDTO.swift; sourceTree = "<group>"; };
@@ -866,7 +862,6 @@
 			children = (
 				5C426BFC2BEDBDE900869F6D /* ReceivingViewModel.swift */,
 				5C405EEB2BF72ADB006EE6F1 /* ReceivingViewModel+Defect.swift */,
-				5C4F18162C0574CF0030A096 /* ReceivingViewModel+Region.swift */,
 				5C41ED922C080877001416D9 /* ReceivingViewModel+Address.swift */,
 				8EAA87FD2C44F77C000386AD /* ReceivingViewModel+Alert.swift */,
 				8E2E48892CAA3E2E00B1E7EC /* ReceivingViewModel+ModelFile.swift */,
@@ -1255,7 +1250,6 @@
 			children = (
 				8E604DB42C6DD72100D45CB1 /* ShippingApplicationViewModel.swift */,
 				8EF9FA752C71E7F30005840E /* ShippingApplicationViewModel+Address.swift */,
-				8EF9FA772C71E82A0005840E /* ShippingApplicationViewModel+Region.swift */,
 				8EF9FA792C71E9380005840E /* ShippingApplicationViewModel+Items.swift */,
 			);
 			path = ViewModel;
@@ -2124,7 +2118,6 @@
 				8EB0C2642C32457200FEE8D0 /* LoginViewModel.swift in Sources */,
 				8E7A9F1F2C5B4E8B00969F1A /* ShippingFormListRow.swift in Sources */,
 				8E60A8312C5A166E007814E7 /* ProcessStatusRepository.swift in Sources */,
-				8EF9FA782C71E82A0005840E /* ShippingApplicationViewModel+Region.swift in Sources */,
 				8E7731DA2C4A94DC00B42F7A /* UserRepositoryImpl.swift in Sources */,
 				8EBFCE4C2C5390B900A2AB4F /* ItemStatus.swift in Sources */,
 				8E604DB92C6DEC2400D45CB1 /* ShippingUseCase.swift in Sources */,
@@ -2260,7 +2253,6 @@
 				8E7B6C3E2C521DA000222721 /* ShippingItemsViewModel.swift in Sources */,
 				8EBED9972C76B4CB00ADB5BB /* RequestFailureView.swift in Sources */,
 				8E9772072C3CBCD00082DCAF /* SignUpResponseDTO.swift in Sources */,
-				5C4F18172C0574CF0030A096 /* ReceivingViewModel+Region.swift in Sources */,
 				8EC135DC2C8E88DA00F9DD3F /* TransactionItemHistoryRepository.swift in Sources */,
 				8E82ACC22C81433000AFBDAA /* ObjectCaptureViewModel.swift in Sources */,
 				8ED894702C2E9894005E826F /* SignUpPostCodeSearchForm.swift in Sources */,

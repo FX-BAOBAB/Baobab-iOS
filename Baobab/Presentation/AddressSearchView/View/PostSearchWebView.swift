@@ -70,7 +70,7 @@ extension PostSearchWebView {
 }
 
 #Preview {
-    PostSearchWebView<ReceivingViewModel>(isShowingDetailAddressForm: .constant(false),
+    PostSearchWebView<AddressSearchViewModel>(isShowingDetailAddressForm: .constant(false),
                       isProgress: .constant(false))
-    .environmentObject(AppDI.shared.makeReceivingViewModel())
+    .environmentObject(AppDI.shared.makeAddressSearchViewModel())
 }

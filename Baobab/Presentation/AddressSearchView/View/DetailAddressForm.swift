@@ -53,8 +53,8 @@ struct DetailAddressForm<T: PostSearchable>: View {
 }
 
 #Preview {
-    DetailAddressForm<ReceivingViewModel>(isShowingPostSearchForm: .constant(false), isShowingAddressList: .constant(false)) { _ in 
+    DetailAddressForm<AddressSearchViewModel>(isShowingPostSearchForm: .constant(false), isShowingAddressList: .constant(false)) { _ in
         //Something Todo
     }
-    .environmentObject(AppDI.shared.makeReceivingViewModel())
+    .environmentObject(AppDI.shared.makeAddressSearchViewModel())
 }

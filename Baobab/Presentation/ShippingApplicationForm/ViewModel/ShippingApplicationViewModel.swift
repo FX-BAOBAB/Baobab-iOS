@@ -5,24 +5,18 @@
 //  Created by 이정훈 on 8/15/24.
 //
 
-import MapKit
 import Combine
+import Foundation
 
-final class ShippingApplicationViewModel: PostSearchable, Reservable {
+final class ShippingApplicationViewModel: Reservable {
     enum Result {
         case success
         case failure
     }
     
-    @Published var defaultAddress: Address?
     @Published var searchedAddress: String = ""
-    @Published var selectedAddressRegion: MKCoordinateRegion?
-    @Published var searchedAddressRegion: MKCoordinateRegion?
-    @Published var searchedPostCode: String = ""
-    @Published var detailedAddressInput: String = ""
     @Published var reservationDate: Date = Date.tomorrow
     @Published var selectedAddress: Address?
-    @Published var registeredAddresses: [Address] = []
     @Published var storedItems: [Item]?
     @Published var selectedItems: [Item] = [Item]()
     @Published var isShowingInvalidInputAlert: Bool = false
@@ -43,8 +37,6 @@ final class ShippingApplicationViewModel: PostSearchable, Reservable {
         self.fetchItemUseCase = fetchItemUseCase
         self.fetchGeoCodeUseCase = fetchGeoCodeUseCase
         self.fetchAddressUseCase = fetchAddressUseCase
-        
-        calculateMapCoordinates()
     }
     
     func appendItem(_ item: Item) {

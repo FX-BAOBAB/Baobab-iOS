@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SelectedAddressDetail<T: PostSearchable>: View where T: Reservable {
+struct SelectedAddressDetail<T: Reservable>: View {
     @EnvironmentObject private var viewModel: T
     
     let showTag: Bool

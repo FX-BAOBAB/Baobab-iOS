@@ -7,6 +7,16 @@
 
 import Foundation
 
-protocol Reservable: AnyObject {
+protocol Reservable: AnyObject, ObservableObject {
     var reservationDate: Date { get set }
+    var selectedAddress: Address? { get set }
+    
+    func fetchDefaultAddress()
+    func registerAsSelectedAddress(address: Address)
+}
+
+extension Reservable {
+    func registerAsSelectedAddress(address: Address) {
+        selectedAddress = address
+    }
 }

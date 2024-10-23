@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ReservationForm<T: PostSearchable, V: View>: View where T: Reservable {
+struct ReservationForm<T: Reservable, V: View>: View {
     @EnvironmentObject private var viewModel: T
     @Environment(\.dismiss) private var dismiss
     @State private var isShowingPostSearch: Bool = false

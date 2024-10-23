@@ -9,7 +9,6 @@ import MapKit
 import Combine
 
 final class UserInfoViewModel: ObservableObject {
-    @Published var searchedAddress: String = ""
     @Published var defaultAddress: Address?
     @Published var isProgress: Bool = false
     

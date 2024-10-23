@@ -5,22 +5,15 @@
 //  Created by 이정훈 on 5/10/24.
 //
 
-import MapKit
 import Combine
+import Foundation
 
-final class ReceivingViewModel: @unchecked Sendable, PostSearchable, Reservable {
+final class ReceivingViewModel: @unchecked Sendable, Reservable {
     @Published var items: [ItemInput] = [ItemInput(), ItemInput()]
     @Published var reservationDate: Date = Date.tomorrow
     @Published var selectedAddress: Address?
-    @Published var defaultAddress: Address?
-    @Published var registeredAddresses: [Address] = []
-    @Published var selectedAddressRegion: MKCoordinateRegion?
     @Published var selectedDefectImage: Data?
     @Published var defectDescription: String = ""
-    @Published var searchedAddress: String = ""
-    @Published var searchedAddressRegion: MKCoordinateRegion?
-    @Published var searchedPostCode: String = ""
-    @Published var detailedAddressInput: String = ""
     @Published var isShowingAlert: Bool = false
     @Published var isProgress: Bool = false
     @Published var isShowingCompletionView: Bool = false
@@ -45,8 +38,6 @@ final class ReceivingViewModel: @unchecked Sendable, PostSearchable, Reservable 
         self.receivingusecase = receivingUseCase
         self.fetchGeoCodeUseCase = fetchGeoCodeUseCase
         self.fetchAddressUseCase = fetchAddressUseCase
-        
-        calculateMapCoordinates()
     }
 }
 

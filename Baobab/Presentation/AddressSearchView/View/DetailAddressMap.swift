@@ -52,9 +52,9 @@ struct DetailAddressMap<T: PostSearchable>: View {
 
 #Preview {
     NavigationStack {
-        DetailAddressMap<ReceivingViewModel>(isShowingAddressList: .constant(false), isShowingPostSearchForm: .constant(false)) { _ in
+        DetailAddressMap<AddressSearchViewModel>(isShowingAddressList: .constant(false), isShowingPostSearchForm: .constant(false)) { _ in
             //Something Todo
         }
-        .environmentObject(AppDI.shared.makeReceivingViewModel())
+        .environmentObject(AppDI.shared.makeAddressSearchViewModel())
     }
 }

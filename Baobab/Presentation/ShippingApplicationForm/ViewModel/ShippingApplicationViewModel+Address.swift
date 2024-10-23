@@ -26,26 +26,4 @@ extension ShippingApplicationViewModel {
             })
             .store(in: &cancellables)
     }
-    
-    //MARK: - 사용자 계정에 등록된 모든 주소를 가져오는 함수
-    func fetchAddresses() {
-        fetchAddressUseCase.executeForAddresses()
-            .sink(receiveCompletion: { completion in
-                switch completion {
-                case .finished:
-                    print("The fetching of the addresses has been completed")
-                case .failure(let error):
-                    print("ShippingApplicationViewModel.fetchAddresses() error : ", error)
-                }
-            }, receiveValue: { [weak self] addresses in
-                addresses.forEach { address in
-                    if address.isBasicAddress {
-                        self?.defaultAddress = address
-                    } else {
-                        self?.registeredAddresses.append(address)
-                    }
-                }
-            })
-            .store(in: &cancellables)
-    }
 }
